@@ -1,29 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_sns/auth/login/login_page.dart';
-import 'package:music_sns/auth/login/auth_repository.dart';
+import 'package:injectable/injectable.dart';
+import 'package:music_sns/injection.dart';
+import 'package:music_sns/presentation/auth/sign_in/sign_in_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
+  configureInjection(Environment.prod);
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
-      home: RepositoryProvider(
-        create: (context) => AuthRepository(),
-        child: LoginPage(),
-      ),
+      home: SignInPage(),
     );
   }
 }
-
-
-
-
