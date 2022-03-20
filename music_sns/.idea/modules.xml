@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/music_sns.iml" filepath="$PROJECT_DIR$/.idea/music_sns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/music_sns_android.iml" filepath="$PROJECT_DIR$/android/music_sns_android.iml" />
     </modules>
   </component>
 </project>
