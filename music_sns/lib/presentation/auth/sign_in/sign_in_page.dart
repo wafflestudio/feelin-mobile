@@ -48,7 +48,7 @@ class SignInPage extends StatelessWidget {
       return TextFormField(
         decoration: const InputDecoration(
           icon: Icon(Icons.person),
-          hintText: 'id or email',
+          hintText: 'ID 또는 이메일',
         ),
         validator: (_) =>
             context.read<SignInFormBloc>().state.emailAddress.value.fold(
@@ -71,7 +71,7 @@ class SignInPage extends StatelessWidget {
       return TextFormField(
         decoration: const InputDecoration(
           icon: Icon(Icons.security),
-          hintText: 'password',
+          hintText: '비밀번호',
         ),
         validator: (_) =>
             context.read<SignInFormBloc>().state.password.value.fold(
@@ -101,7 +101,8 @@ class SignInPage extends StatelessWidget {
                       .add(const SignInFormEvent.submitted());
                 }
               },
-              child: const Text('Login'),
+              child: const Text('로그인'),
+        style: ElevatedButton.styleFrom(primary: const Color.fromARGB(1, 193, 156, 1)),
             );
     });
   }
