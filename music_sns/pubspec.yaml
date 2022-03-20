@@ -68,22 +68,36 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
 
-  # To add custom fonts to your application, add a fonts section here,
+  # To add custom font to your application, add a font section here,
   # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
+  # "family" key with the font family name, and a "font" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  # font:
   #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  #     font:
+  #       - asset: font/Schyler-Regular.ttf
+  #       - asset: font/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
+  #     font:
+  #       - asset: font/TrajanPro.ttf
+  #       - asset: font/TrajanPro_Bold.ttf
   #         weight: 700
   #
-  # For details regarding fonts from package dependencies,
+  # For details regarding font from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+fonts:
+  - family: SpoqaHanSansNeo
+    fonts:
+      - asset: assets/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Thin.otf
+        weight: 100
+      - asset: assets/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Light.otf
+        weight: 300
+      - asset: assets/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Regular.otf
+        weight: 400
+      - asset: assets/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Medium.otf
+        weight: 500
+      - asset: assets/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Bold.otf
+        weight: 700
