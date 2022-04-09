@@ -63,7 +63,7 @@
     },
     {
       "name": "build_runner",
-      "rootUri": "file:///C:/Users/rlaal/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.7",
+      "rootUri": "file:///C:/Users/rlaal/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.8",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -464,7 +464,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-03-20T10:22:27.586948Z",
+  "generated": "2022-03-22T05:15:39.433768Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }
