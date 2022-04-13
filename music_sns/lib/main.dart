@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         primaryColor: const Color.fromARGB(1, 193, 156, 1),
         fontFamily: 'SpoqaHanSansNeo',
-
       ),
       home: SignInPage(),
     );
