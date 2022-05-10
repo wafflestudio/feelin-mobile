@@ -45,6 +45,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           emit(state.copyWith(
             isSubmitting: false,
             authFailureOrSuccessOption: some(right(unit)),
+            //TODO: implement to store Jwt Token using secure storage.
           ));
         },
       );

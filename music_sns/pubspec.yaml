@@ -17,6 +17,10 @@ dependencies:
   uuid:
   get_it:
   injectable:
+  retrofit:
+  dio:
+  shared_preferences: ^2.0.13
+  flutter_secure_storage: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -25,6 +29,8 @@ dev_dependencies:
   freezed_annotation:
   injectable_generator:
   build_runner:
+  json_serializable:
+  retrofit_generator:
 
 
 flutter:
