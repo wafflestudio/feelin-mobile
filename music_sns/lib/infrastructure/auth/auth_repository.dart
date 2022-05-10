@@ -34,6 +34,7 @@ class AuthRepository implements IAuthRepository {
     throw UnimplementedError();
   }
 
+  /*
   @override
   Future<Either<AuthFailure, Token>> signInWithEmailAndPassword(
       {required EmailAddress emailAddress, required Password password}) async {
@@ -45,8 +46,14 @@ class AuthRepository implements IAuthRepository {
       }
     }
 
+      throw UnimplementedError();
+   }
 
-
+   */
+  @override
+  Future<Either<AuthFailure, Token>> signInWithEmailAndPassword({required EmailAddress emailAddress, required Password password}) {
+    // TODO: implement signInWithEmailAndPassword
     throw UnimplementedError();
+
   }
 }
