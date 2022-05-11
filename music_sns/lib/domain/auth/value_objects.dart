@@ -28,3 +28,42 @@ class Password extends ValueObject<String> {
 
   const Password._(this.value);
 }
+
+class EmailAuthCode extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory EmailAuthCode(String input) {
+    return EmailAuthCode._(
+      validateEmailAuthCode(input),
+    );
+  }
+
+  const EmailAuthCode._(this.value);
+}
+
+class PhoneNumber extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory PhoneNumber(String input) {
+    return PhoneNumber._(
+      validatePhoneNumber(input),
+    );
+  }
+
+  const PhoneNumber._(this.value);
+}
+
+class UserName extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory UserName(String input) {
+    return UserName._(
+      validateUserName(input),
+    );
+  }
+
+  const UserName._(this.value);
+}

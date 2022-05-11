@@ -9,22 +9,22 @@ import 'package:retrofit/http.dart';
 
 part 'auth_client.g.dart';
 
-@RestApi(baseUrl: "http://api-feelin.kro.kr/")
+@RestApi(baseUrl: "https://api-feelin.kro.kr/api/v1")
 abstract class AuthClient{
   factory AuthClient(Dio dio, {String baseUrl}) = _AuthClient;
 
-  @POST('/auth/user/signin/')
+  @POST('/auth/user/signin')
   Future<HttpResponse<Token>> signIn(@Body() SignInRequest signInRequest);
 
-  @POST('/auth/user/sighup/')
-  Future<HttpResponse<void>> signUp(@Body() SignUpRequest signUpRequest);
+  @POST('/auth/user/sighup')
+  Future<HttpResponse<Token>> signUp(@Body() SignUpRequest signUpRequest);
 
-  @POST('/auth/user/verify-code/')
+  @POST('/auth/user/verify-code')
   Future<HttpResponse<void>> verifyEmail(@Body() VerifyEmailRequest verifyEmailRequest);
 
-  @POST('/auth/user/verify-code/')
+  @POST('/auth/user')
   Future<HttpResponse<void>> tryEmailVerification(@Body() TryEmailVerificationRequest verifyEmailRequest);
 
-  @POST('/auth/user/sign-out/')
+  @POST('/auth/user/sign-out')
   Future<HttpResponse<void>> signOut(@Header("Authentication") String token);
 }

@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:music_sns/domain/auth/value_objects.dart';
 import 'package:music_sns/domain/core/value_failures.dart';
 
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
@@ -36,5 +37,31 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
     return right(input);
   } else {
     return left(ValueFailure.empty(failedValue: input));
+  }
+}
+
+Either<ValueFailure<String>, String> validateEmailAuthCode(String input) {
+  if (input.length == 6) {
+    return right(input);
+  } else {
+    return left(ValueFailure.shortPassword(failedValue: input));
+  }
+}
+
+Either<ValueFailure<String>, String> validatePhoneNumber(String input) {
+  const phoneNumberRegex =
+  r"/\d{2,3}-\d{3,4}-\d{4}/";
+  if (RegExp(phoneNumberRegex).hasMatch(input)) {
+    return right(input);
+  } else {
+    return left(ValueFailure.invalidPhoneNum(failedValue: input));
+  }
+}
+
+Either<ValueFailure<String>, String> validateUserName(String input) {
+  if (input.length >= 2 && input.length <= 12) {
+    return right(input);
+  } else {
+    return left(ValueFailure.invalidUserName(failedValue: input));
   }
 }
