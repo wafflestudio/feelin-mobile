@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color.fromARGB(1, 193, 156, 1),
         fontFamily: 'SpoqaHanSansNeo',
       ),
-      home: SignInPage(),
+      home: PlaylistInfoPage(),
     );
   }
 }

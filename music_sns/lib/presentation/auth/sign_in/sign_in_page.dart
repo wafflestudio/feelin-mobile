@@ -4,6 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/auth/sign_in/sign_in_form/sign_in_form_bloc.dart';
 import 'package:music_sns/domain/auth/token.dart';
 import 'package:music_sns/injection.dart';
+import 'package:music_sns/presentation/auth/sign_up/email_authentication_page.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_page.dart';
 import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
 
@@ -257,7 +258,7 @@ class _SignInPageState extends State<SignInPage> {
         child: OutlinedButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context){
-              return const SignUpPage();
+              return const EmailAuthenticationPage();
             }));
           }
           ,

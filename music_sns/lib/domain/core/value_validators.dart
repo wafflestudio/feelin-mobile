@@ -65,3 +65,11 @@ Either<ValueFailure<String>, String> validateUserName(String input) {
     return left(ValueFailure.invalidUserName(failedValue: input));
   }
 }
+
+Either<ValueFailure<String>, String> confirmPassword(String input, String input2) {
+  if (input == input2) {
+    return right(input);
+  } else {
+    return left(ValueFailure.wrongPasswordConfirm(failedValue: input));
+  }
+}

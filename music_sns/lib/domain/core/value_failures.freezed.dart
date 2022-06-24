@@ -61,6 +61,12 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+  WrongPasswordConfirm<T> wrongPasswordConfirm<T>({required T failedValue}) {
+    return WrongPasswordConfirm<T>(
+      failedValue: failedValue,
+    );
+  }
 }
 
 /// @nodoc
@@ -79,6 +85,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue) invalidEmailAuthCode,
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
+    required TResult Function(T failedValue) wrongPasswordConfirm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +97,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,6 +109,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +123,8 @@ mixin _$ValueFailure<T> {
         invalidEmailAuthCode,
     required TResult Function(InvalidPhoneNum<T> value) invalidPhoneNum,
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
+    required TResult Function(WrongPasswordConfirm<T> value)
+        wrongPasswordConfirm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -125,6 +136,7 @@ mixin _$ValueFailure<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -136,6 +148,7 @@ mixin _$ValueFailure<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -260,6 +273,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(T failedValue) invalidEmailAuthCode,
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
+    required TResult Function(T failedValue) wrongPasswordConfirm,
   }) {
     return exceedingLength(failedValue, max);
   }
@@ -274,6 +288,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
   }) {
     return exceedingLength?.call(failedValue, max);
   }
@@ -288,6 +303,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -307,6 +323,8 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
         invalidEmailAuthCode,
     required TResult Function(InvalidPhoneNum<T> value) invalidPhoneNum,
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
+    required TResult Function(WrongPasswordConfirm<T> value)
+        wrongPasswordConfirm,
   }) {
     return exceedingLength(this);
   }
@@ -321,6 +339,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
   }) {
     return exceedingLength?.call(this);
   }
@@ -335,6 +354,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -429,6 +449,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(T failedValue) invalidEmailAuthCode,
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
+    required TResult Function(T failedValue) wrongPasswordConfirm,
   }) {
     return empty(failedValue);
   }
@@ -443,6 +464,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
   }) {
     return empty?.call(failedValue);
   }
@@ -457,6 +479,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -476,6 +499,8 @@ class _$Empty<T> implements Empty<T> {
         invalidEmailAuthCode,
     required TResult Function(InvalidPhoneNum<T> value) invalidPhoneNum,
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
+    required TResult Function(WrongPasswordConfirm<T> value)
+        wrongPasswordConfirm,
   }) {
     return empty(this);
   }
@@ -490,6 +515,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
   }) {
     return empty?.call(this);
   }
@@ -504,6 +530,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -599,6 +626,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(T failedValue) invalidEmailAuthCode,
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
+    required TResult Function(T failedValue) wrongPasswordConfirm,
   }) {
     return invalidEmail(failedValue);
   }
@@ -613,6 +641,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
   }) {
     return invalidEmail?.call(failedValue);
   }
@@ -627,6 +656,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -646,6 +676,8 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
         invalidEmailAuthCode,
     required TResult Function(InvalidPhoneNum<T> value) invalidPhoneNum,
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
+    required TResult Function(WrongPasswordConfirm<T> value)
+        wrongPasswordConfirm,
   }) {
     return invalidEmail(this);
   }
@@ -660,6 +692,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
   }) {
     return invalidEmail?.call(this);
   }
@@ -674,6 +707,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -769,6 +803,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(T failedValue) invalidEmailAuthCode,
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
+    required TResult Function(T failedValue) wrongPasswordConfirm,
   }) {
     return shortPassword(failedValue);
   }
@@ -783,6 +818,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
   }) {
     return shortPassword?.call(failedValue);
   }
@@ -797,6 +833,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -816,6 +853,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
         invalidEmailAuthCode,
     required TResult Function(InvalidPhoneNum<T> value) invalidPhoneNum,
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
+    required TResult Function(WrongPasswordConfirm<T> value)
+        wrongPasswordConfirm,
   }) {
     return shortPassword(this);
   }
@@ -830,6 +869,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
   }) {
     return shortPassword?.call(this);
   }
@@ -844,6 +884,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -940,6 +981,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     required TResult Function(T failedValue) invalidEmailAuthCode,
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
+    required TResult Function(T failedValue) wrongPasswordConfirm,
   }) {
     return invalidEmailAuthCode(failedValue);
   }
@@ -954,6 +996,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
   }) {
     return invalidEmailAuthCode?.call(failedValue);
   }
@@ -968,6 +1011,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (invalidEmailAuthCode != null) {
@@ -987,6 +1031,8 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
         invalidEmailAuthCode,
     required TResult Function(InvalidPhoneNum<T> value) invalidPhoneNum,
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
+    required TResult Function(WrongPasswordConfirm<T> value)
+        wrongPasswordConfirm,
   }) {
     return invalidEmailAuthCode(this);
   }
@@ -1001,6 +1047,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
   }) {
     return invalidEmailAuthCode?.call(this);
   }
@@ -1015,6 +1062,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (invalidEmailAuthCode != null) {
@@ -1111,6 +1159,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     required TResult Function(T failedValue) invalidEmailAuthCode,
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
+    required TResult Function(T failedValue) wrongPasswordConfirm,
   }) {
     return invalidPhoneNum(failedValue);
   }
@@ -1125,6 +1174,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
   }) {
     return invalidPhoneNum?.call(failedValue);
   }
@@ -1139,6 +1189,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (invalidPhoneNum != null) {
@@ -1158,6 +1209,8 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
         invalidEmailAuthCode,
     required TResult Function(InvalidPhoneNum<T> value) invalidPhoneNum,
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
+    required TResult Function(WrongPasswordConfirm<T> value)
+        wrongPasswordConfirm,
   }) {
     return invalidPhoneNum(this);
   }
@@ -1172,6 +1225,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
   }) {
     return invalidPhoneNum?.call(this);
   }
@@ -1186,6 +1240,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (invalidPhoneNum != null) {
@@ -1283,6 +1338,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     required TResult Function(T failedValue) invalidEmailAuthCode,
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
+    required TResult Function(T failedValue) wrongPasswordConfirm,
   }) {
     return invalidUserName(failedValue);
   }
@@ -1297,6 +1353,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
   }) {
     return invalidUserName?.call(failedValue);
   }
@@ -1311,6 +1368,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     TResult Function(T failedValue)? invalidEmailAuthCode,
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (invalidUserName != null) {
@@ -1330,6 +1388,8 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
         invalidEmailAuthCode,
     required TResult Function(InvalidPhoneNum<T> value) invalidPhoneNum,
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
+    required TResult Function(WrongPasswordConfirm<T> value)
+        wrongPasswordConfirm,
   }) {
     return invalidUserName(this);
   }
@@ -1344,6 +1404,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
   }) {
     return invalidUserName?.call(this);
   }
@@ -1358,6 +1419,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
     required TResult orElse(),
   }) {
     if (invalidUserName != null) {
@@ -1376,5 +1438,184 @@ abstract class InvalidPhoneNumber<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   $InvalidPhoneNumberCopyWith<T, InvalidPhoneNumber<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $WrongPasswordConfirmCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $WrongPasswordConfirmCopyWith(WrongPasswordConfirm<T> value,
+          $Res Function(WrongPasswordConfirm<T>) then) =
+      _$WrongPasswordConfirmCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class _$WrongPasswordConfirmCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $WrongPasswordConfirmCopyWith<T, $Res> {
+  _$WrongPasswordConfirmCopyWithImpl(WrongPasswordConfirm<T> _value,
+      $Res Function(WrongPasswordConfirm<T>) _then)
+      : super(_value, (v) => _then(v as WrongPasswordConfirm<T>));
+
+  @override
+  WrongPasswordConfirm<T> get _value => super._value as WrongPasswordConfirm<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(WrongPasswordConfirm<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$WrongPasswordConfirm<T> implements WrongPasswordConfirm<T> {
+  const _$WrongPasswordConfirm({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.wrongPasswordConfirm(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WrongPasswordConfirm<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  $WrongPasswordConfirmCopyWith<T, WrongPasswordConfirm<T>> get copyWith =>
+      _$WrongPasswordConfirmCopyWithImpl<T, WrongPasswordConfirm<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidEmailAuthCode,
+    required TResult Function(T failedValue) invalidPhoneNum,
+    required TResult Function(T failedValue) invalidUserName,
+    required TResult Function(T failedValue) wrongPasswordConfirm,
+  }) {
+    return wrongPasswordConfirm(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidEmailAuthCode,
+    TResult Function(T failedValue)? invalidPhoneNum,
+    TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
+  }) {
+    return wrongPasswordConfirm?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidEmailAuthCode,
+    TResult Function(T failedValue)? invalidPhoneNum,
+    TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
+    required TResult orElse(),
+  }) {
+    if (wrongPasswordConfirm != null) {
+      return wrongPasswordConfirm(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidEmailAuthCode<T> value)
+        invalidEmailAuthCode,
+    required TResult Function(InvalidPhoneNum<T> value) invalidPhoneNum,
+    required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
+    required TResult Function(WrongPasswordConfirm<T> value)
+        wrongPasswordConfirm,
+  }) {
+    return wrongPasswordConfirm(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
+    TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
+    TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+  }) {
+    return wrongPasswordConfirm?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
+    TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
+    TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    required TResult orElse(),
+  }) {
+    if (wrongPasswordConfirm != null) {
+      return wrongPasswordConfirm(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WrongPasswordConfirm<T> implements ValueFailure<T> {
+  const factory WrongPasswordConfirm({required T failedValue}) =
+      _$WrongPasswordConfirm<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  $WrongPasswordConfirmCopyWith<T, WrongPasswordConfirm<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

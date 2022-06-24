@@ -1,11 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/auth/auth_failure.dart';
 import 'package:music_sns/domain/auth/i_auth_repository.dart';
-import 'package:music_sns/domain/auth/token.dart';
 import 'package:music_sns/domain/auth/value_objects.dart';
 
 part 'sign_in_form_event.dart';

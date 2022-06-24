@@ -10,7 +10,7 @@ part of 'auth_client.dart';
 
 class _AuthClient implements AuthClient {
   _AuthClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'http://api-feelin.kro.kr/api/v1';
+    baseUrl ??= 'https://api-feelin.kro.kr/api/v1';
   }
 
   final Dio _dio;
@@ -27,7 +27,7 @@ class _AuthClient implements AuthClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<Token>>(
             Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/auth/user/signin/',
+                .compose(_dio.options, '/auth/user/signin',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = Token.fromJson(_result.data!);
@@ -45,7 +45,7 @@ class _AuthClient implements AuthClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<Token>>(
             Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/auth/user/sighup/',
+                .compose(_dio.options, '/auth/user/sighup',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = Token.fromJson(_result.data!);
@@ -62,7 +62,7 @@ class _AuthClient implements AuthClient {
     _data.addAll(verifyEmailRequest.toJson());
     final _result = await _dio.fetch<void>(_setStreamType<HttpResponse<void>>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/auth/user/verify-code/',
+            .compose(_dio.options, '/auth/user/verify-code',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final httpResponse = HttpResponse(null, _result);
@@ -78,7 +78,7 @@ class _AuthClient implements AuthClient {
     _data.addAll(verifyEmailRequest.toJson());
     final _result = await _dio.fetch<void>(_setStreamType<HttpResponse<void>>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/auth/user/',
+            .compose(_dio.options, '/auth/user',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final httpResponse = HttpResponse(null, _result);
@@ -94,7 +94,7 @@ class _AuthClient implements AuthClient {
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<void>(_setStreamType<HttpResponse<void>>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/auth/user/sign-out/',
+            .compose(_dio.options, '/auth/user/sign-out',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final httpResponse = HttpResponse(null, _result);

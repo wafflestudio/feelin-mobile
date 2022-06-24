@@ -26,4 +26,7 @@ class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.invalidUserName({
     required T failedValue,
   }) = InvalidPhoneNumber<T>;
+  const factory ValueFailure.wrongPasswordConfirm({
+    required T failedValue,
+  }) = WrongPasswordConfirm<T>;
 }

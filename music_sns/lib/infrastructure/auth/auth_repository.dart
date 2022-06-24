@@ -60,11 +60,12 @@ class AuthRepository implements IAuthRepository {
    }
 
   @override
-  Future<Either<AuthFailure, Token>> signUpWithEmail({required EmailAddress emailAddress, required Password password, required String lastName, required String firstName, required UserName username, required PhoneNumber phoneNumber}) async{
+  Future<Either<AuthFailure, Token>> signUpWithEmail({required EmailAddress emailAddress, required Password password,
+    required NotEmptyString lastName, required NotEmptyString firstName, required UserName username, required PhoneNumber phoneNumber}) async{
     try{
       HttpResponse<Token> httpResponse = await authClient.signUp(
           SignUpRequest(email: emailAddress.getOrCrash(), password: password.getOrCrash(),
-              lastName: lastName, firstName: firstName, username: username.getOrCrash(), phoneNumber: phoneNumber.getOrCrash()));
+              lastName: lastName.getOrCrash(), firstName: firstName.getOrCrash(), username: username.getOrCrash(), phoneNumber: phoneNumber.getOrCrash()));
       if(httpResponse.response.statusCode == 200){
         return Right(httpResponse.data);
       }else{

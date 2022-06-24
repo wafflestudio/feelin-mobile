@@ -18,8 +18,8 @@ abstract class IAuthRepository {
   Future<Either<AuthFailure, Token>> signUpWithEmail({
     required EmailAddress emailAddress,
     required Password password,
-    required String lastName,
-    required String firstName,
+    required NotEmptyString lastName,
+    required NotEmptyString firstName,
     required UserName username,
     required PhoneNumber phoneNumber,
   });
