@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/auth/sign_in/sign_in_form/sign_in_form_bloc.dart';
+import 'package:music_sns/domain/auth/token.dart';
 import 'package:music_sns/injection.dart';
+import 'package:music_sns/presentation/auth/sign_up/email_authentication_page.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_page.dart';
+import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -15,6 +20,7 @@ class _SignInPageState extends State<SignInPage> {
 
   final TextEditingController _idTextController = TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
+  final storage = const FlutterSecureStorage();
 
   @override
   void dispose() {
@@ -48,6 +54,7 @@ class _SignInPageState extends State<SignInPage> {
       ),
     );
   }
+  
 
   Widget _loginForm(Size size) {
     return BlocListener<SignInFormBloc, SignInFormState>(
@@ -56,7 +63,13 @@ class _SignInPageState extends State<SignInPage> {
           () => null,
           (failureOrSuccess) => failureOrSuccess.fold(
             (f) => _showSnackBar(context, f.toString()), // 로그인 실패
-            (_) => null, // 로그인 성공
+            (_) => {
+              storage.write(key: "token", value: (_ as Token).token),
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return PlaylistInfoPage();
+              })), // 로그인 성공
+            }
+
           ),
         );
       },
@@ -197,7 +210,7 @@ class _SignInPageState extends State<SignInPage> {
             const SizedBox(height: 10.0),
             state.password.value.fold(
               (f) => f.maybeMap(
-                invalidEmail: (_) => Text(
+                invalidEmail: (_) => const Text(
                   '! 존재하지 않는 아이디입니다.',
                   style: TextStyle(
                     fontSize: 13,
@@ -205,7 +218,7 @@ class _SignInPageState extends State<SignInPage> {
                     color: Color(0xff00C19C),
                   ),
                 ),
-                shortPassword: (_) => Text(
+                shortPassword: (_) => const Text(
                   '! 비밀번호를 6자 이상 입력해 주세요.',
                   style: TextStyle(
                     fontSize: 13,
@@ -243,7 +256,11 @@ class _SignInPageState extends State<SignInPage> {
         color: Colors.transparent,
         margin: const EdgeInsets.all(2),
         child: OutlinedButton(
-          onPressed: () {} //TODO: implement to enter signup page
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return const EmailAuthenticationPage();
+            }));
+          }
           ,
           child: const Text(
             "회원가입",

@@ -9,4 +9,5 @@ abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.emailAlreadyInUse() = _EmailAlreadyInUse;
   const factory AuthFailure.invalidEmailAndPasswordCombination() =
       _InvalidEmailAndPasswordCombination;
+  const factory AuthFailure.invalidAuthCode() = _InvalidAuthCode;
 }
