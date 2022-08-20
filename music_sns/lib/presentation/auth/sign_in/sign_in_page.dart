@@ -7,6 +7,7 @@ import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/auth/sign_up/email_authentication_page.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_page.dart';
 import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
+import 'package:music_sns/presentation/main/explore/profile_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -62,12 +63,14 @@ class _SignInPageState extends State<SignInPage> {
         state.authFailureOrSuccessOption.fold(
           () => null,
           (failureOrSuccess) => failureOrSuccess.fold(
-            (f) => _showSnackBar(context, f.toString()), // 로그인 실패
-            (_) => {
-              storage.write(key: "token", value: (_ as Token).token),
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return PlaylistInfoPage();
-              })), // 로그인 성공
+            (f) => null
+              //_showSnackBar(context, f.toString())
+              , // 로그인 실패
+            (token) => {
+              storage.write(key: "token", value: token.token),
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){
+                return const ProfilePage();
+              }),(route) => false), // 로그인 성공
             }
 
           ),
@@ -117,7 +120,7 @@ class _SignInPageState extends State<SignInPage> {
       return TextFormField(
         controller: _idTextController,
         decoration: const InputDecoration(
-          hintText: 'ID 또는 이메일',
+          hintText: '아이디 또는 이메일 또는 전화번호',
           isDense: true,
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
@@ -126,7 +129,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
         validator: (_) =>
-            context.read<SignInFormBloc>().state.emailAddress.value.fold(
+            context.read<SignInFormBloc>().state.account.value.fold(
                   (f) => f.maybeMap(
                     invalidEmail: (_) => null, //'올바른 형식의 이메일을 입력해 주세요.',
                     orElse: () => null,
@@ -135,7 +138,7 @@ class _SignInPageState extends State<SignInPage> {
                 ),
         onChanged: (value) => context
             .read<SignInFormBloc>()
-            .add(SignInFormEvent.emailChanged(value)),
+            .add(SignInFormEvent.accountChanged(value)),
       );
     });
   }
@@ -208,27 +211,44 @@ class _SignInPageState extends State<SignInPage> {
               ),
             ),
             const SizedBox(height: 10.0),
-            state.password.value.fold(
-              (f) => f.maybeMap(
-                invalidEmail: (_) => const Text(
-                  '! 존재하지 않는 아이디입니다.',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xff00C19C),
-                  ),
-                ),
-                shortPassword: (_) => const Text(
-                  '! 비밀번호를 6자 이상 입력해 주세요.',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xff00C19C),
-                  ),
-                ),
-                orElse: () => const Offstage(),
-              ),
-              (_) => const Offstage(),
+            // state.password.value.fold(
+            //   (f) => f.maybeMap(
+            //     invalidEmail: (_) => const Text(
+            //       '! 존재하지 않는 아이디입니다.',
+            //       style: TextStyle(
+            //         fontSize: 13,
+            //         fontWeight: FontWeight.w700,
+            //         color: Color(0xff00C19C),
+            //       ),
+            //     ),
+            //     shortPassword: (_) => const Text(
+            //       '! 비밀번호를 6자 이상 입력해 주세요.',
+            //       style: TextStyle(
+            //         fontSize: 13,
+            //         fontWeight: FontWeight.w700,
+            //         color: Color(0xff00C19C),
+            //       ),
+            //     ),
+            //     orElse: () => const Offstage(),
+            //   ),
+            //   (_) => const Offstage(),
+            // ),
+            state.authFailureOrSuccessOption.fold(
+                    () => const Offstage(),
+                    (failureOrSuccess) => failureOrSuccess.fold(
+                            (f) => f.maybeMap(
+                              invalidEmailAndPasswordCombination: (_) =>
+                              const Text(
+                                '! 아이디 또는 비밀번호가 일치하지 않습니다.',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xff00C19C),
+                                  ),
+                                ),
+                              orElse: () => const Offstage(),),
+                            (token) => const Offstage()
+                    )
             ),
           ],
         );

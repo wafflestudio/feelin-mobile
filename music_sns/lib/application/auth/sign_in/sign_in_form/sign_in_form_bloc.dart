@@ -4,7 +4,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/auth/auth_failure.dart';
 import 'package:music_sns/domain/auth/i_auth_repository.dart';
+import 'package:music_sns/domain/auth/token.dart';
 import 'package:music_sns/domain/auth/value_objects.dart';
+import 'package:music_sns/infrastructure/auth/auth_repository.dart';
 
 part 'sign_in_form_event.dart';
 part 'sign_in_form_state.dart';
@@ -15,9 +17,9 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthRepository _authRepository;
 
   SignInFormBloc(this._authRepository) : super(SignInFormState.initial()) {
-    on<_EmailChanged>((event, emit) {
+    on<_AccountChanged>((event, emit) {
       emit(state.copyWith(
-        emailAddress: EmailAddress(event.emailAddressStr),
+        account: Account(event.accountStr),
       ));
     });
     on<_PasswordChanged>((event, emit) {
@@ -29,9 +31,9 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       emit(state.copyWith(
         isSubmitting: true,
       ));
-      if(state.emailAddress.isValid() && state.password.isValid()){
-        final failureOrSuccess = await _authRepository.signInWithEmailAndPassword(
-            emailAddress: state.emailAddress, password: state.password);
+      if(state.account.isValid() && state.password.isValid()){
+        final failureOrSuccess = await _authRepository.signIn(
+            account: state.account, password: state.password);
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
@@ -39,10 +41,10 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
               authFailureOrSuccessOption: some(left(f)),
             ));
           },
-              (_) {
+              (token) {
             emit(state.copyWith(
               isSubmitting: false,
-              authFailureOrSuccessOption: some(right(unit)),
+              authFailureOrSuccessOption: some(right(token)),
             ));
           },
         );

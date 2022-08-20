@@ -18,9 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SignInFormEventTearOff {
   const _$SignInFormEventTearOff();
 
-  _EmailChanged emailChanged(String emailAddressStr) {
-    return _EmailChanged(
-      emailAddressStr,
+  _AccountChanged accountChanged(String accountStr) {
+    return _AccountChanged(
+      accountStr,
     );
   }
 
@@ -42,21 +42,21 @@ const $SignInFormEvent = _$SignInFormEventTearOff();
 mixin _$SignInFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String emailAddressStr) emailChanged,
+    required TResult Function(String accountStr) accountChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String emailAddressStr)? emailChanged,
+    TResult Function(String accountStr)? accountChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String emailAddressStr)? emailChanged,
+    TResult Function(String accountStr)? accountChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
     required TResult orElse(),
@@ -64,21 +64,21 @@ mixin _$SignInFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_AccountChanged value) accountChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_AccountChanged value)? accountChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_AccountChanged value)? accountChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
@@ -104,32 +104,32 @@ class _$SignInFormEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$EmailChangedCopyWith<$Res> {
-  factory _$EmailChangedCopyWith(
-          _EmailChanged value, $Res Function(_EmailChanged) then) =
-      __$EmailChangedCopyWithImpl<$Res>;
-  $Res call({String emailAddressStr});
+abstract class _$AccountChangedCopyWith<$Res> {
+  factory _$AccountChangedCopyWith(
+          _AccountChanged value, $Res Function(_AccountChanged) then) =
+      __$AccountChangedCopyWithImpl<$Res>;
+  $Res call({String accountStr});
 }
 
 /// @nodoc
-class __$EmailChangedCopyWithImpl<$Res>
+class __$AccountChangedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
-    implements _$EmailChangedCopyWith<$Res> {
-  __$EmailChangedCopyWithImpl(
-      _EmailChanged _value, $Res Function(_EmailChanged) _then)
-      : super(_value, (v) => _then(v as _EmailChanged));
+    implements _$AccountChangedCopyWith<$Res> {
+  __$AccountChangedCopyWithImpl(
+      _AccountChanged _value, $Res Function(_AccountChanged) _then)
+      : super(_value, (v) => _then(v as _AccountChanged));
 
   @override
-  _EmailChanged get _value => super._value as _EmailChanged;
+  _AccountChanged get _value => super._value as _AccountChanged;
 
   @override
   $Res call({
-    Object? emailAddressStr = freezed,
+    Object? accountStr = freezed,
   }) {
-    return _then(_EmailChanged(
-      emailAddressStr == freezed
-          ? _value.emailAddressStr
-          : emailAddressStr // ignore: cast_nullable_to_non_nullable
+    return _then(_AccountChanged(
+      accountStr == freezed
+          ? _value.accountStr
+          : accountStr // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -137,65 +137,65 @@ class __$EmailChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EmailChanged implements _EmailChanged {
-  const _$_EmailChanged(this.emailAddressStr);
+class _$_AccountChanged implements _AccountChanged {
+  const _$_AccountChanged(this.accountStr);
 
   @override
-  final String emailAddressStr;
+  final String accountStr;
 
   @override
   String toString() {
-    return 'SignInFormEvent.emailChanged(emailAddressStr: $emailAddressStr)';
+    return 'SignInFormEvent.accountChanged(accountStr: $accountStr)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EmailChanged &&
+            other is _AccountChanged &&
             const DeepCollectionEquality()
-                .equals(other.emailAddressStr, emailAddressStr));
+                .equals(other.accountStr, accountStr));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(emailAddressStr));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(accountStr));
 
   @JsonKey(ignore: true)
   @override
-  _$EmailChangedCopyWith<_EmailChanged> get copyWith =>
-      __$EmailChangedCopyWithImpl<_EmailChanged>(this, _$identity);
+  _$AccountChangedCopyWith<_AccountChanged> get copyWith =>
+      __$AccountChangedCopyWithImpl<_AccountChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String emailAddressStr) emailChanged,
+    required TResult Function(String accountStr) accountChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
   }) {
-    return emailChanged(emailAddressStr);
+    return accountChanged(accountStr);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String emailAddressStr)? emailChanged,
+    TResult Function(String accountStr)? accountChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
   }) {
-    return emailChanged?.call(emailAddressStr);
+    return accountChanged?.call(accountStr);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String emailAddressStr)? emailChanged,
+    TResult Function(String accountStr)? accountChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
-    if (emailChanged != null) {
-      return emailChanged(emailAddressStr);
+    if (accountChanged != null) {
+      return accountChanged(accountStr);
     }
     return orElse();
   }
@@ -203,44 +203,44 @@ class _$_EmailChanged implements _EmailChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_AccountChanged value) accountChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
   }) {
-    return emailChanged(this);
+    return accountChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_AccountChanged value)? accountChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
   }) {
-    return emailChanged?.call(this);
+    return accountChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_AccountChanged value)? accountChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
   }) {
-    if (emailChanged != null) {
-      return emailChanged(this);
+    if (accountChanged != null) {
+      return accountChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class _EmailChanged implements SignInFormEvent {
-  const factory _EmailChanged(String emailAddressStr) = _$_EmailChanged;
+abstract class _AccountChanged implements SignInFormEvent {
+  const factory _AccountChanged(String accountStr) = _$_AccountChanged;
 
-  String get emailAddressStr;
+  String get accountStr;
   @JsonKey(ignore: true)
-  _$EmailChangedCopyWith<_EmailChanged> get copyWith =>
+  _$AccountChangedCopyWith<_AccountChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -310,7 +310,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String emailAddressStr) emailChanged,
+    required TResult Function(String accountStr) accountChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
   }) {
@@ -320,7 +320,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String emailAddressStr)? emailChanged,
+    TResult Function(String accountStr)? accountChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
   }) {
@@ -330,7 +330,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String emailAddressStr)? emailChanged,
+    TResult Function(String accountStr)? accountChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
     required TResult orElse(),
@@ -344,7 +344,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_AccountChanged value) accountChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
   }) {
@@ -354,7 +354,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_AccountChanged value)? accountChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
   }) {
@@ -364,7 +364,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_AccountChanged value)? accountChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
@@ -424,7 +424,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String emailAddressStr) emailChanged,
+    required TResult Function(String accountStr) accountChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
   }) {
@@ -434,7 +434,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String emailAddressStr)? emailChanged,
+    TResult Function(String accountStr)? accountChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
   }) {
@@ -444,7 +444,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String emailAddressStr)? emailChanged,
+    TResult Function(String accountStr)? accountChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
     required TResult orElse(),
@@ -458,7 +458,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_AccountChanged value) accountChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
   }) {
@@ -468,7 +468,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_AccountChanged value)? accountChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
   }) {
@@ -478,7 +478,7 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_AccountChanged value)? accountChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
@@ -499,12 +499,12 @@ class _$SignInFormStateTearOff {
   const _$SignInFormStateTearOff();
 
   _SignInFormState call(
-      {required EmailAddress emailAddress,
+      {required Account account,
       required Password password,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      required Option<Either<AuthFailure, Token>> authFailureOrSuccessOption,
       required bool isSubmitting}) {
     return _SignInFormState(
-      emailAddress: emailAddress,
+      account: account,
       password: password,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
       isSubmitting: isSubmitting,
@@ -517,9 +517,9 @@ const $SignInFormState = _$SignInFormStateTearOff();
 
 /// @nodoc
 mixin _$SignInFormState {
-  EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  Account get account => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
+  Option<Either<AuthFailure, Token>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
 
@@ -534,9 +534,9 @@ abstract class $SignInFormStateCopyWith<$Res> {
           SignInFormState value, $Res Function(SignInFormState) then) =
       _$SignInFormStateCopyWithImpl<$Res>;
   $Res call(
-      {EmailAddress emailAddress,
+      {Account account,
       Password password,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      Option<Either<AuthFailure, Token>> authFailureOrSuccessOption,
       bool isSubmitting});
 }
 
@@ -551,16 +551,16 @@ class _$SignInFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? emailAddress = freezed,
+    Object? account = freezed,
     Object? password = freezed,
     Object? authFailureOrSuccessOption = freezed,
     Object? isSubmitting = freezed,
   }) {
     return _then(_value.copyWith(
-      emailAddress: emailAddress == freezed
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
-              as EmailAddress,
+      account: account == freezed
+          ? _value.account
+          : account // ignore: cast_nullable_to_non_nullable
+              as Account,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -568,7 +568,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, Unit>>,
+              as Option<Either<AuthFailure, Token>>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -585,9 +585,9 @@ abstract class _$SignInFormStateCopyWith<$Res>
       __$SignInFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {EmailAddress emailAddress,
+      {Account account,
       Password password,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      Option<Either<AuthFailure, Token>> authFailureOrSuccessOption,
       bool isSubmitting});
 }
 
@@ -604,16 +604,16 @@ class __$SignInFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? emailAddress = freezed,
+    Object? account = freezed,
     Object? password = freezed,
     Object? authFailureOrSuccessOption = freezed,
     Object? isSubmitting = freezed,
   }) {
     return _then(_SignInFormState(
-      emailAddress: emailAddress == freezed
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
-              as EmailAddress,
+      account: account == freezed
+          ? _value.account
+          : account // ignore: cast_nullable_to_non_nullable
+              as Account,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -621,7 +621,7 @@ class __$SignInFormStateCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, Unit>>,
+              as Option<Either<AuthFailure, Token>>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -634,23 +634,23 @@ class __$SignInFormStateCopyWithImpl<$Res>
 
 class _$_SignInFormState implements _SignInFormState {
   const _$_SignInFormState(
-      {required this.emailAddress,
+      {required this.account,
       required this.password,
       required this.authFailureOrSuccessOption,
       required this.isSubmitting});
 
   @override
-  final EmailAddress emailAddress;
+  final Account account;
   @override
   final Password password;
   @override
-  final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
+  final Option<Either<AuthFailure, Token>> authFailureOrSuccessOption;
   @override
   final bool isSubmitting;
 
   @override
   String toString() {
-    return 'SignInFormState(emailAddress: $emailAddress, password: $password, authFailureOrSuccessOption: $authFailureOrSuccessOption, isSubmitting: $isSubmitting)';
+    return 'SignInFormState(account: $account, password: $password, authFailureOrSuccessOption: $authFailureOrSuccessOption, isSubmitting: $isSubmitting)';
   }
 
   @override
@@ -658,8 +658,7 @@ class _$_SignInFormState implements _SignInFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SignInFormState &&
-            const DeepCollectionEquality()
-                .equals(other.emailAddress, emailAddress) &&
+            const DeepCollectionEquality().equals(other.account, account) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality().equals(
                 other.authFailureOrSuccessOption, authFailureOrSuccessOption) &&
@@ -670,7 +669,7 @@ class _$_SignInFormState implements _SignInFormState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(emailAddress),
+      const DeepCollectionEquality().hash(account),
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(authFailureOrSuccessOption),
       const DeepCollectionEquality().hash(isSubmitting));
@@ -683,17 +682,17 @@ class _$_SignInFormState implements _SignInFormState {
 
 abstract class _SignInFormState implements SignInFormState {
   const factory _SignInFormState(
-      {required EmailAddress emailAddress,
+      {required Account account,
       required Password password,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      required Option<Either<AuthFailure, Token>> authFailureOrSuccessOption,
       required bool isSubmitting}) = _$_SignInFormState;
 
   @override
-  EmailAddress get emailAddress;
+  Account get account;
   @override
   Password get password;
   @override
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
+  Option<Either<AuthFailure, Token>> get authFailureOrSuccessOption;
   @override
   bool get isSubmitting;
   @override
