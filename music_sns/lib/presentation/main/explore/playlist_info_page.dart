@@ -1,9 +1,15 @@
-
 import 'package:flutter/material.dart';
+import 'package:music_sns/domain/custom/marquee.dart';
 import 'package:music_sns/domain/play/playlist.dart';
+import 'package:music_sns/domain/play/post.dart';
 import 'package:music_sns/domain/play/track.dart';
 
 class PlaylistInfoPage extends StatelessWidget {
+
+  PlaylistInfoPage({Key? key, required this.post, required this.heroNumber}) : super(key: key);
+
+  final Post post;
+  final int heroNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +20,9 @@ class PlaylistInfoPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: const Text(''),
         leading: IconButton(
-          onPressed: () {}, //TODO: implement to go back
+          onPressed: () {
+            Navigator.pop(context);
+          }, //TODO: implement to go back
           color: Colors.grey,
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
@@ -96,7 +104,7 @@ class PlaylistInfoPage extends StatelessWidget {
   ]);
 
 
-  var username = '김와플';
+  var username = 'Waffle';
   var playTime = '57';
   var coverImage = 'https://image.bugsm.co.kr/album/images/1000/200/20013.jpg';
   var profileImage = 'https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/guest/image/caTw7KNdDMeoe833RVMZ4Y11ErQ.JPG';
@@ -136,13 +144,14 @@ class PlaylistInfoPage extends StatelessWidget {
                   child: Scrollbar(
                     controller: scrollController,
                     child: ListView.builder(
+                        physics: const BouncingScrollPhysics(),
                         controller: scrollController,
-                        itemCount: playlist.tracks.length,
+                        itemCount: post.playlist.tracks.length,
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             behavior: HitTestBehavior.translucent,
                             onTap: () {
-                              showPopup(context, playlist.tracks, index);
+                              showPopup(context, post.playlist.tracks, index);
                             },
                             child: Container(
                               padding: const EdgeInsets.all(5),
@@ -150,10 +159,11 @@ class PlaylistInfoPage extends StatelessWidget {
                                 children: [
                                   Image(
                                     image: NetworkImage(
-                                        playlist.tracks[index].album),
+                                        post.playlist.tracks[index].album),
+                                    fit: BoxFit.cover,
                                     width: 45,
                                     height: 45,),
-                                  _itemText(index),
+                                  _itemText(context, index),
                                 ],
                               ),
                             ),
@@ -169,19 +179,53 @@ class PlaylistInfoPage extends StatelessWidget {
     );
   }
 
-  Widget _itemText(int index) {
+  Widget _itemText(context, int index) {
     return Container(
+      alignment: Alignment.centerLeft,
+      height: 35,
+      width: MediaQuery.of(context).size.width - 95,
       padding: const EdgeInsets.only(left: 10),
       child: Column(
+        //mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(playlist.tracks[index].title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w700,
+          Expanded(
+            child: Text(post.playlist.tracks[index].title,
+              style: const TextStyle(
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
-          Text(playlist.tracks[index].artists.first,
-            style: const TextStyle(fontSize: 12, color: Color(0xff7077D5)),),
+          Expanded(
+            child: Marquee(
+              direction: Axis.horizontal,
+              child: ListView.separated(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: post.playlist.tracks[index].artists.length,
+                itemBuilder: (context, index2){
+                  return Text(
+                    post.playlist.tracks[index].artists[index2],
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Color(0xff7077D5),
+                      fontSize: 12
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index2) => const Text(
+                  ", ",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xff7077D5),
+                    fontSize: 12
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -200,10 +244,15 @@ class PlaylistInfoPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image(
-                  image: NetworkImage(coverImage),
-                  width: 130,
-                  height: 130,),
+                Hero(
+                  tag: "playlistCover" + heroNumber.toString(),
+                  child: Image(
+                    image: NetworkImage(post.playlist.tracks[0].album),
+                    width: 130,
+                    height: 130,
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 Container(
                   margin: const EdgeInsets.only(left: 20),
                   child: Column(
@@ -216,7 +265,7 @@ class PlaylistInfoPage extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(15),
                             child: Image(
-                              image: NetworkImage(profileImage),
+                              image: NetworkImage(post.profile),
                               width: 30,
                               height: 30,
                               fit: BoxFit.cover,
@@ -225,11 +274,15 @@ class PlaylistInfoPage extends StatelessWidget {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text(username),
+                          Text(post.writer,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
                         ],
                       ),
                       Text(
-                        playlist.title,
+                        post.playlist.title,
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
@@ -239,7 +292,7 @@ class PlaylistInfoPage extends StatelessWidget {
                         children: [
                           const Icon(Icons.music_note,
                             color: Color(0xff00C19C),),
-                          Text('${playlist.tracks.length}곡',
+                          Text('${post.playlist.tracks.length}곡',
                             style: const TextStyle(
                                 color: Color(0xff00C19C),
                                 fontWeight: FontWeight.w500,
@@ -302,9 +355,10 @@ class PlaylistInfoPage extends StatelessWidget {
           ),
           Container(
               margin: const EdgeInsets.only(top: 15, bottom: 15),
-              child: Text(content,
+              child: Text(post.content,
                 style: const TextStyle(
-                    fontSize: 13
+                    fontSize: 13,
+                    height: 1.5,
                 ),)),
           _storeButton(context),
         ],
@@ -382,7 +436,9 @@ class PlaylistInfoPage extends StatelessWidget {
                   .size
                   .width * 0.7 + 50,
               child: PageView.builder(
-                controller: PageController(initialPage: index),
+                controller: PageController(initialPage: index,
+                  //viewportFraction: 0.8,
+                ),
                 itemCount: tracks.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
@@ -398,24 +454,57 @@ class PlaylistInfoPage extends StatelessWidget {
                               .of(context)
                               .size
                               .width * 0.6),
-                      Container(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(tracks[index].title,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 19,
-                                color: Color(0xff00C19C),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Marquee(
+                                direction: Axis.horizontal,
+                                child: Text(tracks[index].title,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 18,
+                                    color: Color(0xff00C19C),
+                                  ),
+                                ),
                               ),
-                            ),
-                            Text(tracks[index].artists.first,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                                  fontSize: 16,
-                                  color: Color(0xff7077D5)),),
-                          ],
+                              Expanded(
+                                child: Center(
+                                  child: Marquee(
+                                    direction: Axis.horizontal,
+                                    child: ListView.separated(
+                                      physics: const NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: tracks[index].artists.length,
+                                      itemBuilder: (context, index2){
+                                        return Text(
+                                          tracks[index].artists[index2],
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 16,
+                                            color: Color(0xff7077D5),
+                                          ),
+                                        );
+                                      },
+                                      separatorBuilder: (context, index2) => const Text(
+                                        " & ",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 16,
+                                          color: Color(0xff7077D5),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Container(
@@ -709,33 +798,6 @@ class PlaylistInfoPage extends StatelessWidget {
                 ),
               ),
             ],
-            /*
-            child: Container(
-                width: MediaQuery.of(context).size.width * 0.7,
-                height: MediaQuery.of(context).size.height * 0.7,
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: const Image(
-                            image: NetworkImage('https://play-lh.googleusercontent.com/GweSpOJ7p8RZ0lzMDr7sU0x5EtvbsAubkVjLY-chdyV6exnSUfl99Am0g8X0w_a2Qo4'),
-                            width: 30,
-                            height: 30,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const Text('Melon'),
-                      ],
-                    )
-                  ],
-                )
-            ),
-            */
           );
         }
     );
