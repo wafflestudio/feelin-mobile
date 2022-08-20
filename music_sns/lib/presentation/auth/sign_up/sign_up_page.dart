@@ -6,6 +6,7 @@ import 'package:music_sns/domain/auth/token.dart';
 import 'package:music_sns/domain/auth/value_objects.dart';
 import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
+import 'package:music_sns/presentation/main/explore/profile_page.dart';
 
 class SignUpPage extends StatefulWidget{
   final EmailAddress emailAddress;
@@ -68,7 +69,7 @@ class _SignUpPageState extends State<SignUpPage>{
                         (_) => {
                           storage.write(key: "token", value: (_ as Token).token),
                           Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return PlaylistInfoPage();
+                            return ProfilePage();
                           })),
                         }
             ),

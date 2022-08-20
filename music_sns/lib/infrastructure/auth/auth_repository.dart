@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -39,12 +41,25 @@ class AuthRepository implements IAuthRepository {
     throw UnimplementedError();
   }
 
+  Future<Either<AuthFailure, String>> test() async{
+    try{
+      HttpResponse<String> httpResponse = await AuthClient(Dio()).test();
+      if(httpResponse.response.statusCode == 200){
+        return Right(httpResponse.data);
+      }else{
+        return const Left(AuthFailure.serverError());
+      }
+    }on DioError catch(e){
+      log("message"+e.toString());
+      return const Left(AuthFailure.serverError());
+    }
+  }
 
   @override
-  Future<Either<AuthFailure, Token>> signInWithEmailAndPassword(
-      {required EmailAddress emailAddress, required Password password}) async {
+  Future<Either<AuthFailure, Token>> signIn(
+      {required Account account, required Password password}) async {
     try{
-      HttpResponse<Token> httpResponse = await AuthClient(Dio()).signIn(SignInRequest(account: emailAddress.getOrCrash(), password: password.getOrCrash()));
+      HttpResponse<Token> httpResponse = await AuthClient(Dio()).signIn(SignInRequest(account: account.getOrCrash(), password: password.getOrCrash()));
       if(httpResponse.response.statusCode == 200){
         return Right(httpResponse.data);
       }else{

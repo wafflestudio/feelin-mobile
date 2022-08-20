@@ -13,10 +13,13 @@ part 'auth_client.g.dart';
 abstract class AuthClient{
   factory AuthClient(Dio dio, {String baseUrl}) = _AuthClient;
 
+  @GET("")
+  Future<HttpResponse<String>> test();
+
   @POST('/auth/user/signin')
   Future<HttpResponse<Token>> signIn(@Body() SignInRequest signInRequest);
 
-  @POST('/auth/user/sighup')
+  @POST('/auth/user/signup')
   Future<HttpResponse<Token>> signUp(@Body() SignUpRequest signUpRequest);
 
   @POST('/auth/user/verify-code')
