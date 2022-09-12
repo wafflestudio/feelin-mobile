@@ -52,57 +52,6 @@ class PlaylistInfoPage extends StatelessWidget {
     );
   }
 
-  var playlist = Playlist(id: 1, title: "Examples", tracks: [
-    Track(id: 1,
-        title: "Never Gonna Let You Go",
-        artists: ["Black Street"],
-        album: "https://image.bugsm.co.kr/album/images/1000/80004/8000469.jpg"),
-    Track(id: 2,
-        title: "Don't Cry for Me",
-        artists: ["Silk"],
-        album: "https://image.bugsm.co.kr/album/images/1000/200/20013.jpg"),
-    Track(id: 3,
-        title: "Kick It Tonight",
-        artists: ["Profyle"],
-        album: "https://image.bugsm.co.kr/album/images/1000/150989/15098992.jpg"),
-    Track(id: 4,
-        title: "Slip Away",
-        artists: ["Ol Skool"],
-        album: "https://image.bugsm.co.kr/album/images/1000/150980/15098036.jpg"),
-    Track(id: 5,
-        title: "I've Got To Show You",
-        artists: ["Yours Truly"],
-        album: "https://i.ytimg.com/vi/JjrcQfpCU9c/sddefault.jpg"),
-    Track(id: 6,
-        title: "I Don't Wanna Let (Your Love Go)",
-        artists: ["For Lovers Only"],
-        album: "https://image.bugsm.co.kr/album/images/1000/150947/15094751.jpg"),
-    Track(id: 7,
-        title: "Do It Like That",
-        artists: ["U-Mynd"],
-        album: "https://i.scdn.co/image/ab67616d0000b273875bb658f3dbe73c23423559"),
-    Track(id: 8,
-        title: "Home Again",
-        artists: ["New Edition"],
-        album: "https://image.bugsm.co.kr/album/images/1000/201/20178.jpg"),
-    Track(id: 9,
-        title: "Why Can't We Be Lovers",
-        artists: ["Lamont Dozier Jr"],
-        album: "https://image.bugsm.co.kr/album/images/1000/155132/15513203.jpg"),
-    Track(id: 10,
-        title: "Don't Let It Be Too Late",
-        artists: ["John White"],
-        album: "https://i.scdn.co/image/ab67616d0000b27327cec286ca7210d7a133293d"),
-    Track(id: 11,
-        title: "My, My, My",
-        artists: ["Johnny Gill"],
-        album: "https://image.bugsm.co.kr/album/images/1000/131370/13137016.jpg"),
-    Track(id: 12,
-        title: "I Don't Wanna Fight",
-        artists: ["Tina Turner"],
-        album: "https://image.bugsm.co.kr/album/images/1000/10947/1094745.jpg"),
-  ]);
-
 
   var username = 'Waffle';
   var playTime = '57';
@@ -159,7 +108,7 @@ class PlaylistInfoPage extends StatelessWidget {
                                 children: [
                                   Image(
                                     image: NetworkImage(
-                                        post.playlist.tracks[index].album),
+                                        post.playlist.tracks[index].album.thumbnail),
                                     fit: BoxFit.cover,
                                     width: 45,
                                     height: 45,),
@@ -207,7 +156,7 @@ class PlaylistInfoPage extends StatelessWidget {
                 itemCount: post.playlist.tracks[index].artists.length,
                 itemBuilder: (context, index2){
                   return Text(
-                    post.playlist.tracks[index].artists[index2],
+                    post.playlist.tracks[index].artists[index2].name,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       color: Color(0xff7077D5),
@@ -247,7 +196,7 @@ class PlaylistInfoPage extends StatelessWidget {
                 Hero(
                   tag: "playlistCover" + heroNumber.toString(),
                   child: Image(
-                    image: NetworkImage(post.playlist.tracks[0].album),
+                    image: NetworkImage(post.playlist.tracks[0].album.thumbnail),
                     width: 130,
                     height: 130,
                     fit: BoxFit.cover,
@@ -421,7 +370,7 @@ class PlaylistInfoPage extends StatelessWidget {
         ));
   }
 
-  void showPopup(context, tracks, index) {
+  void showPopup(context, List<Track> tracks, index) {
     showDialog(context: context,
         builder: (context) {
           return Dialog(
@@ -444,7 +393,7 @@ class PlaylistInfoPage extends StatelessWidget {
                   return Column(
                     children: [
                       Image(
-                          image: NetworkImage(tracks[index].album),
+                          image: NetworkImage(tracks[index].album.thumbnail),
                           fit: BoxFit.cover,
                           width: MediaQuery
                               .of(context)
@@ -481,7 +430,7 @@ class PlaylistInfoPage extends StatelessWidget {
                                       itemCount: tracks[index].artists.length,
                                       itemBuilder: (context, index2){
                                         return Text(
-                                          tracks[index].artists[index2],
+                                          tracks[index].artists[index2].name,
                                           textAlign: TextAlign.center,
                                           style: const TextStyle(
                                             fontWeight: FontWeight.w700,

@@ -1,19 +1,22 @@
 import 'package:json_annotation/json_annotation.dart';
+
+import 'album.dart';
+import 'artist.dart';
 part 'track.g.dart';
 
 @JsonSerializable()
 class Track{
   @JsonKey(name: "id")
-  int id;
+  String id;
 
   @JsonKey(name: "title")
   String title;
 
   @JsonKey(name: "artists")
-  List<String> artists;
+  List<Artist> artists;
 
   @JsonKey(name: "album")
-  String album;
+  Album album;
 
   Track({
     required this.id,

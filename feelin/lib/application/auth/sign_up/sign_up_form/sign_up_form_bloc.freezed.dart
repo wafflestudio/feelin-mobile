@@ -12,61 +12,7 @@ part of 'sign_up_form_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SignUpFormEventTearOff {
-  const _$SignUpFormEventTearOff();
-
-  _EmailAddressChanged emailAddressChanged(String emailAddressStr) {
-    return _EmailAddressChanged(
-      emailAddressStr,
-    );
-  }
-
-  _PasswordConfirmChanged passwordConfirmChanged(String passwordConfirmStr) {
-    return _PasswordConfirmChanged(
-      passwordConfirmStr,
-    );
-  }
-
-  _PasswordChanged passwordChanged(String passwordStr) {
-    return _PasswordChanged(
-      passwordStr,
-    );
-  }
-
-  _Submitted submitted() {
-    return const _Submitted();
-  }
-
-  _FirstNameChanged firstNameChanged(String firstNameStr) {
-    return _FirstNameChanged(
-      firstNameStr,
-    );
-  }
-
-  _LastNameChanged lastNameChanged(String lastNameStr) {
-    return _LastNameChanged(
-      lastNameStr,
-    );
-  }
-
-  _UserNameChanged userNameChanged(String userNameStr) {
-    return _UserNameChanged(
-      userNameStr,
-    );
-  }
-
-  _PhoneNumberChanged phoneNumberChanged(String phoneNumberStr) {
-    return _PhoneNumberChanged(
-      phoneNumberStr,
-    );
-  }
-}
-
-/// @nodoc
-const $SignUpFormEvent = _$SignUpFormEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SignUpFormEvent {
@@ -165,29 +111,29 @@ class _$SignUpFormEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$EmailAddressChangedCopyWith<$Res> {
-  factory _$EmailAddressChangedCopyWith(_EmailAddressChanged value,
-          $Res Function(_EmailAddressChanged) then) =
-      __$EmailAddressChangedCopyWithImpl<$Res>;
+abstract class _$$_EmailAddressChangedCopyWith<$Res> {
+  factory _$$_EmailAddressChangedCopyWith(_$_EmailAddressChanged value,
+          $Res Function(_$_EmailAddressChanged) then) =
+      __$$_EmailAddressChangedCopyWithImpl<$Res>;
   $Res call({String emailAddressStr});
 }
 
 /// @nodoc
-class __$EmailAddressChangedCopyWithImpl<$Res>
+class __$$_EmailAddressChangedCopyWithImpl<$Res>
     extends _$SignUpFormEventCopyWithImpl<$Res>
-    implements _$EmailAddressChangedCopyWith<$Res> {
-  __$EmailAddressChangedCopyWithImpl(
-      _EmailAddressChanged _value, $Res Function(_EmailAddressChanged) _then)
-      : super(_value, (v) => _then(v as _EmailAddressChanged));
+    implements _$$_EmailAddressChangedCopyWith<$Res> {
+  __$$_EmailAddressChangedCopyWithImpl(_$_EmailAddressChanged _value,
+      $Res Function(_$_EmailAddressChanged) _then)
+      : super(_value, (v) => _then(v as _$_EmailAddressChanged));
 
   @override
-  _EmailAddressChanged get _value => super._value as _EmailAddressChanged;
+  _$_EmailAddressChanged get _value => super._value as _$_EmailAddressChanged;
 
   @override
   $Res call({
     Object? emailAddressStr = freezed,
   }) {
-    return _then(_EmailAddressChanged(
+    return _then(_$_EmailAddressChanged(
       emailAddressStr == freezed
           ? _value.emailAddressStr
           : emailAddressStr // ignore: cast_nullable_to_non_nullable
@@ -213,7 +159,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EmailAddressChanged &&
+            other is _$_EmailAddressChanged &&
             const DeepCollectionEquality()
                 .equals(other.emailAddressStr, emailAddressStr));
   }
@@ -224,8 +170,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$EmailAddressChangedCopyWith<_EmailAddressChanged> get copyWith =>
-      __$EmailAddressChangedCopyWithImpl<_EmailAddressChanged>(
+  _$$_EmailAddressChangedCopyWith<_$_EmailAddressChanged> get copyWith =>
+      __$$_EmailAddressChangedCopyWithImpl<_$_EmailAddressChanged>(
           this, _$identity);
 
   @override
@@ -329,39 +275,40 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
 }
 
 abstract class _EmailAddressChanged implements SignUpFormEvent {
-  const factory _EmailAddressChanged(String emailAddressStr) =
+  const factory _EmailAddressChanged(final String emailAddressStr) =
       _$_EmailAddressChanged;
 
   String get emailAddressStr;
   @JsonKey(ignore: true)
-  _$EmailAddressChangedCopyWith<_EmailAddressChanged> get copyWith =>
+  _$$_EmailAddressChangedCopyWith<_$_EmailAddressChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PasswordConfirmChangedCopyWith<$Res> {
-  factory _$PasswordConfirmChangedCopyWith(_PasswordConfirmChanged value,
-          $Res Function(_PasswordConfirmChanged) then) =
-      __$PasswordConfirmChangedCopyWithImpl<$Res>;
+abstract class _$$_PasswordConfirmChangedCopyWith<$Res> {
+  factory _$$_PasswordConfirmChangedCopyWith(_$_PasswordConfirmChanged value,
+          $Res Function(_$_PasswordConfirmChanged) then) =
+      __$$_PasswordConfirmChangedCopyWithImpl<$Res>;
   $Res call({String passwordConfirmStr});
 }
 
 /// @nodoc
-class __$PasswordConfirmChangedCopyWithImpl<$Res>
+class __$$_PasswordConfirmChangedCopyWithImpl<$Res>
     extends _$SignUpFormEventCopyWithImpl<$Res>
-    implements _$PasswordConfirmChangedCopyWith<$Res> {
-  __$PasswordConfirmChangedCopyWithImpl(_PasswordConfirmChanged _value,
-      $Res Function(_PasswordConfirmChanged) _then)
-      : super(_value, (v) => _then(v as _PasswordConfirmChanged));
+    implements _$$_PasswordConfirmChangedCopyWith<$Res> {
+  __$$_PasswordConfirmChangedCopyWithImpl(_$_PasswordConfirmChanged _value,
+      $Res Function(_$_PasswordConfirmChanged) _then)
+      : super(_value, (v) => _then(v as _$_PasswordConfirmChanged));
 
   @override
-  _PasswordConfirmChanged get _value => super._value as _PasswordConfirmChanged;
+  _$_PasswordConfirmChanged get _value =>
+      super._value as _$_PasswordConfirmChanged;
 
   @override
   $Res call({
     Object? passwordConfirmStr = freezed,
   }) {
-    return _then(_PasswordConfirmChanged(
+    return _then(_$_PasswordConfirmChanged(
       passwordConfirmStr == freezed
           ? _value.passwordConfirmStr
           : passwordConfirmStr // ignore: cast_nullable_to_non_nullable
@@ -387,7 +334,7 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PasswordConfirmChanged &&
+            other is _$_PasswordConfirmChanged &&
             const DeepCollectionEquality()
                 .equals(other.passwordConfirmStr, passwordConfirmStr));
   }
@@ -398,8 +345,8 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$PasswordConfirmChangedCopyWith<_PasswordConfirmChanged> get copyWith =>
-      __$PasswordConfirmChangedCopyWithImpl<_PasswordConfirmChanged>(
+  _$$_PasswordConfirmChangedCopyWith<_$_PasswordConfirmChanged> get copyWith =>
+      __$$_PasswordConfirmChangedCopyWithImpl<_$_PasswordConfirmChanged>(
           this, _$identity);
 
   @override
@@ -503,39 +450,39 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
 }
 
 abstract class _PasswordConfirmChanged implements SignUpFormEvent {
-  const factory _PasswordConfirmChanged(String passwordConfirmStr) =
+  const factory _PasswordConfirmChanged(final String passwordConfirmStr) =
       _$_PasswordConfirmChanged;
 
   String get passwordConfirmStr;
   @JsonKey(ignore: true)
-  _$PasswordConfirmChangedCopyWith<_PasswordConfirmChanged> get copyWith =>
+  _$$_PasswordConfirmChangedCopyWith<_$_PasswordConfirmChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PasswordChangedCopyWith<$Res> {
-  factory _$PasswordChangedCopyWith(
-          _PasswordChanged value, $Res Function(_PasswordChanged) then) =
-      __$PasswordChangedCopyWithImpl<$Res>;
+abstract class _$$_PasswordChangedCopyWith<$Res> {
+  factory _$$_PasswordChangedCopyWith(
+          _$_PasswordChanged value, $Res Function(_$_PasswordChanged) then) =
+      __$$_PasswordChangedCopyWithImpl<$Res>;
   $Res call({String passwordStr});
 }
 
 /// @nodoc
-class __$PasswordChangedCopyWithImpl<$Res>
+class __$$_PasswordChangedCopyWithImpl<$Res>
     extends _$SignUpFormEventCopyWithImpl<$Res>
-    implements _$PasswordChangedCopyWith<$Res> {
-  __$PasswordChangedCopyWithImpl(
-      _PasswordChanged _value, $Res Function(_PasswordChanged) _then)
-      : super(_value, (v) => _then(v as _PasswordChanged));
+    implements _$$_PasswordChangedCopyWith<$Res> {
+  __$$_PasswordChangedCopyWithImpl(
+      _$_PasswordChanged _value, $Res Function(_$_PasswordChanged) _then)
+      : super(_value, (v) => _then(v as _$_PasswordChanged));
 
   @override
-  _PasswordChanged get _value => super._value as _PasswordChanged;
+  _$_PasswordChanged get _value => super._value as _$_PasswordChanged;
 
   @override
   $Res call({
     Object? passwordStr = freezed,
   }) {
-    return _then(_PasswordChanged(
+    return _then(_$_PasswordChanged(
       passwordStr == freezed
           ? _value.passwordStr
           : passwordStr // ignore: cast_nullable_to_non_nullable
@@ -561,7 +508,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PasswordChanged &&
+            other is _$_PasswordChanged &&
             const DeepCollectionEquality()
                 .equals(other.passwordStr, passwordStr));
   }
@@ -572,8 +519,8 @@ class _$_PasswordChanged implements _PasswordChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$PasswordChangedCopyWith<_PasswordChanged> get copyWith =>
-      __$PasswordChangedCopyWithImpl<_PasswordChanged>(this, _$identity);
+  _$$_PasswordChangedCopyWith<_$_PasswordChanged> get copyWith =>
+      __$$_PasswordChangedCopyWithImpl<_$_PasswordChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -676,29 +623,31 @@ class _$_PasswordChanged implements _PasswordChanged {
 }
 
 abstract class _PasswordChanged implements SignUpFormEvent {
-  const factory _PasswordChanged(String passwordStr) = _$_PasswordChanged;
+  const factory _PasswordChanged(final String passwordStr) = _$_PasswordChanged;
 
   String get passwordStr;
   @JsonKey(ignore: true)
-  _$PasswordChangedCopyWith<_PasswordChanged> get copyWith =>
+  _$$_PasswordChangedCopyWith<_$_PasswordChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SubmittedCopyWith<$Res> {
-  factory _$SubmittedCopyWith(
-          _Submitted value, $Res Function(_Submitted) then) =
-      __$SubmittedCopyWithImpl<$Res>;
+abstract class _$$_SubmittedCopyWith<$Res> {
+  factory _$$_SubmittedCopyWith(
+          _$_Submitted value, $Res Function(_$_Submitted) then) =
+      __$$_SubmittedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SubmittedCopyWithImpl<$Res> extends _$SignUpFormEventCopyWithImpl<$Res>
-    implements _$SubmittedCopyWith<$Res> {
-  __$SubmittedCopyWithImpl(_Submitted _value, $Res Function(_Submitted) _then)
-      : super(_value, (v) => _then(v as _Submitted));
+class __$$_SubmittedCopyWithImpl<$Res>
+    extends _$SignUpFormEventCopyWithImpl<$Res>
+    implements _$$_SubmittedCopyWith<$Res> {
+  __$$_SubmittedCopyWithImpl(
+      _$_Submitted _value, $Res Function(_$_Submitted) _then)
+      : super(_value, (v) => _then(v as _$_Submitted));
 
   @override
-  _Submitted get _value => super._value as _Submitted;
+  _$_Submitted get _value => super._value as _$_Submitted;
 }
 
 /// @nodoc
@@ -714,7 +663,7 @@ class _$_Submitted implements _Submitted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Submitted);
+        (other.runtimeType == runtimeType && other is _$_Submitted);
   }
 
   @override
@@ -825,29 +774,29 @@ abstract class _Submitted implements SignUpFormEvent {
 }
 
 /// @nodoc
-abstract class _$FirstNameChangedCopyWith<$Res> {
-  factory _$FirstNameChangedCopyWith(
-          _FirstNameChanged value, $Res Function(_FirstNameChanged) then) =
-      __$FirstNameChangedCopyWithImpl<$Res>;
+abstract class _$$_FirstNameChangedCopyWith<$Res> {
+  factory _$$_FirstNameChangedCopyWith(
+          _$_FirstNameChanged value, $Res Function(_$_FirstNameChanged) then) =
+      __$$_FirstNameChangedCopyWithImpl<$Res>;
   $Res call({String firstNameStr});
 }
 
 /// @nodoc
-class __$FirstNameChangedCopyWithImpl<$Res>
+class __$$_FirstNameChangedCopyWithImpl<$Res>
     extends _$SignUpFormEventCopyWithImpl<$Res>
-    implements _$FirstNameChangedCopyWith<$Res> {
-  __$FirstNameChangedCopyWithImpl(
-      _FirstNameChanged _value, $Res Function(_FirstNameChanged) _then)
-      : super(_value, (v) => _then(v as _FirstNameChanged));
+    implements _$$_FirstNameChangedCopyWith<$Res> {
+  __$$_FirstNameChangedCopyWithImpl(
+      _$_FirstNameChanged _value, $Res Function(_$_FirstNameChanged) _then)
+      : super(_value, (v) => _then(v as _$_FirstNameChanged));
 
   @override
-  _FirstNameChanged get _value => super._value as _FirstNameChanged;
+  _$_FirstNameChanged get _value => super._value as _$_FirstNameChanged;
 
   @override
   $Res call({
     Object? firstNameStr = freezed,
   }) {
-    return _then(_FirstNameChanged(
+    return _then(_$_FirstNameChanged(
       firstNameStr == freezed
           ? _value.firstNameStr
           : firstNameStr // ignore: cast_nullable_to_non_nullable
@@ -873,7 +822,7 @@ class _$_FirstNameChanged implements _FirstNameChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FirstNameChanged &&
+            other is _$_FirstNameChanged &&
             const DeepCollectionEquality()
                 .equals(other.firstNameStr, firstNameStr));
   }
@@ -884,8 +833,8 @@ class _$_FirstNameChanged implements _FirstNameChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$FirstNameChangedCopyWith<_FirstNameChanged> get copyWith =>
-      __$FirstNameChangedCopyWithImpl<_FirstNameChanged>(this, _$identity);
+  _$$_FirstNameChangedCopyWith<_$_FirstNameChanged> get copyWith =>
+      __$$_FirstNameChangedCopyWithImpl<_$_FirstNameChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -988,38 +937,39 @@ class _$_FirstNameChanged implements _FirstNameChanged {
 }
 
 abstract class _FirstNameChanged implements SignUpFormEvent {
-  const factory _FirstNameChanged(String firstNameStr) = _$_FirstNameChanged;
+  const factory _FirstNameChanged(final String firstNameStr) =
+      _$_FirstNameChanged;
 
   String get firstNameStr;
   @JsonKey(ignore: true)
-  _$FirstNameChangedCopyWith<_FirstNameChanged> get copyWith =>
+  _$$_FirstNameChangedCopyWith<_$_FirstNameChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LastNameChangedCopyWith<$Res> {
-  factory _$LastNameChangedCopyWith(
-          _LastNameChanged value, $Res Function(_LastNameChanged) then) =
-      __$LastNameChangedCopyWithImpl<$Res>;
+abstract class _$$_LastNameChangedCopyWith<$Res> {
+  factory _$$_LastNameChangedCopyWith(
+          _$_LastNameChanged value, $Res Function(_$_LastNameChanged) then) =
+      __$$_LastNameChangedCopyWithImpl<$Res>;
   $Res call({String lastNameStr});
 }
 
 /// @nodoc
-class __$LastNameChangedCopyWithImpl<$Res>
+class __$$_LastNameChangedCopyWithImpl<$Res>
     extends _$SignUpFormEventCopyWithImpl<$Res>
-    implements _$LastNameChangedCopyWith<$Res> {
-  __$LastNameChangedCopyWithImpl(
-      _LastNameChanged _value, $Res Function(_LastNameChanged) _then)
-      : super(_value, (v) => _then(v as _LastNameChanged));
+    implements _$$_LastNameChangedCopyWith<$Res> {
+  __$$_LastNameChangedCopyWithImpl(
+      _$_LastNameChanged _value, $Res Function(_$_LastNameChanged) _then)
+      : super(_value, (v) => _then(v as _$_LastNameChanged));
 
   @override
-  _LastNameChanged get _value => super._value as _LastNameChanged;
+  _$_LastNameChanged get _value => super._value as _$_LastNameChanged;
 
   @override
   $Res call({
     Object? lastNameStr = freezed,
   }) {
-    return _then(_LastNameChanged(
+    return _then(_$_LastNameChanged(
       lastNameStr == freezed
           ? _value.lastNameStr
           : lastNameStr // ignore: cast_nullable_to_non_nullable
@@ -1045,7 +995,7 @@ class _$_LastNameChanged implements _LastNameChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _LastNameChanged &&
+            other is _$_LastNameChanged &&
             const DeepCollectionEquality()
                 .equals(other.lastNameStr, lastNameStr));
   }
@@ -1056,8 +1006,8 @@ class _$_LastNameChanged implements _LastNameChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$LastNameChangedCopyWith<_LastNameChanged> get copyWith =>
-      __$LastNameChangedCopyWithImpl<_LastNameChanged>(this, _$identity);
+  _$$_LastNameChangedCopyWith<_$_LastNameChanged> get copyWith =>
+      __$$_LastNameChangedCopyWithImpl<_$_LastNameChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1160,38 +1110,38 @@ class _$_LastNameChanged implements _LastNameChanged {
 }
 
 abstract class _LastNameChanged implements SignUpFormEvent {
-  const factory _LastNameChanged(String lastNameStr) = _$_LastNameChanged;
+  const factory _LastNameChanged(final String lastNameStr) = _$_LastNameChanged;
 
   String get lastNameStr;
   @JsonKey(ignore: true)
-  _$LastNameChangedCopyWith<_LastNameChanged> get copyWith =>
+  _$$_LastNameChangedCopyWith<_$_LastNameChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$UserNameChangedCopyWith<$Res> {
-  factory _$UserNameChangedCopyWith(
-          _UserNameChanged value, $Res Function(_UserNameChanged) then) =
-      __$UserNameChangedCopyWithImpl<$Res>;
+abstract class _$$_UserNameChangedCopyWith<$Res> {
+  factory _$$_UserNameChangedCopyWith(
+          _$_UserNameChanged value, $Res Function(_$_UserNameChanged) then) =
+      __$$_UserNameChangedCopyWithImpl<$Res>;
   $Res call({String userNameStr});
 }
 
 /// @nodoc
-class __$UserNameChangedCopyWithImpl<$Res>
+class __$$_UserNameChangedCopyWithImpl<$Res>
     extends _$SignUpFormEventCopyWithImpl<$Res>
-    implements _$UserNameChangedCopyWith<$Res> {
-  __$UserNameChangedCopyWithImpl(
-      _UserNameChanged _value, $Res Function(_UserNameChanged) _then)
-      : super(_value, (v) => _then(v as _UserNameChanged));
+    implements _$$_UserNameChangedCopyWith<$Res> {
+  __$$_UserNameChangedCopyWithImpl(
+      _$_UserNameChanged _value, $Res Function(_$_UserNameChanged) _then)
+      : super(_value, (v) => _then(v as _$_UserNameChanged));
 
   @override
-  _UserNameChanged get _value => super._value as _UserNameChanged;
+  _$_UserNameChanged get _value => super._value as _$_UserNameChanged;
 
   @override
   $Res call({
     Object? userNameStr = freezed,
   }) {
-    return _then(_UserNameChanged(
+    return _then(_$_UserNameChanged(
       userNameStr == freezed
           ? _value.userNameStr
           : userNameStr // ignore: cast_nullable_to_non_nullable
@@ -1217,7 +1167,7 @@ class _$_UserNameChanged implements _UserNameChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UserNameChanged &&
+            other is _$_UserNameChanged &&
             const DeepCollectionEquality()
                 .equals(other.userNameStr, userNameStr));
   }
@@ -1228,8 +1178,8 @@ class _$_UserNameChanged implements _UserNameChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$UserNameChangedCopyWith<_UserNameChanged> get copyWith =>
-      __$UserNameChangedCopyWithImpl<_UserNameChanged>(this, _$identity);
+  _$$_UserNameChangedCopyWith<_$_UserNameChanged> get copyWith =>
+      __$$_UserNameChangedCopyWithImpl<_$_UserNameChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1332,38 +1282,38 @@ class _$_UserNameChanged implements _UserNameChanged {
 }
 
 abstract class _UserNameChanged implements SignUpFormEvent {
-  const factory _UserNameChanged(String userNameStr) = _$_UserNameChanged;
+  const factory _UserNameChanged(final String userNameStr) = _$_UserNameChanged;
 
   String get userNameStr;
   @JsonKey(ignore: true)
-  _$UserNameChangedCopyWith<_UserNameChanged> get copyWith =>
+  _$$_UserNameChangedCopyWith<_$_UserNameChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PhoneNumberChangedCopyWith<$Res> {
-  factory _$PhoneNumberChangedCopyWith(
-          _PhoneNumberChanged value, $Res Function(_PhoneNumberChanged) then) =
-      __$PhoneNumberChangedCopyWithImpl<$Res>;
+abstract class _$$_PhoneNumberChangedCopyWith<$Res> {
+  factory _$$_PhoneNumberChangedCopyWith(_$_PhoneNumberChanged value,
+          $Res Function(_$_PhoneNumberChanged) then) =
+      __$$_PhoneNumberChangedCopyWithImpl<$Res>;
   $Res call({String phoneNumberStr});
 }
 
 /// @nodoc
-class __$PhoneNumberChangedCopyWithImpl<$Res>
+class __$$_PhoneNumberChangedCopyWithImpl<$Res>
     extends _$SignUpFormEventCopyWithImpl<$Res>
-    implements _$PhoneNumberChangedCopyWith<$Res> {
-  __$PhoneNumberChangedCopyWithImpl(
-      _PhoneNumberChanged _value, $Res Function(_PhoneNumberChanged) _then)
-      : super(_value, (v) => _then(v as _PhoneNumberChanged));
+    implements _$$_PhoneNumberChangedCopyWith<$Res> {
+  __$$_PhoneNumberChangedCopyWithImpl(
+      _$_PhoneNumberChanged _value, $Res Function(_$_PhoneNumberChanged) _then)
+      : super(_value, (v) => _then(v as _$_PhoneNumberChanged));
 
   @override
-  _PhoneNumberChanged get _value => super._value as _PhoneNumberChanged;
+  _$_PhoneNumberChanged get _value => super._value as _$_PhoneNumberChanged;
 
   @override
   $Res call({
     Object? phoneNumberStr = freezed,
   }) {
-    return _then(_PhoneNumberChanged(
+    return _then(_$_PhoneNumberChanged(
       phoneNumberStr == freezed
           ? _value.phoneNumberStr
           : phoneNumberStr // ignore: cast_nullable_to_non_nullable
@@ -1389,7 +1339,7 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PhoneNumberChanged &&
+            other is _$_PhoneNumberChanged &&
             const DeepCollectionEquality()
                 .equals(other.phoneNumberStr, phoneNumberStr));
   }
@@ -1400,8 +1350,9 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$PhoneNumberChangedCopyWith<_PhoneNumberChanged> get copyWith =>
-      __$PhoneNumberChangedCopyWithImpl<_PhoneNumberChanged>(this, _$identity);
+  _$$_PhoneNumberChangedCopyWith<_$_PhoneNumberChanged> get copyWith =>
+      __$$_PhoneNumberChangedCopyWithImpl<_$_PhoneNumberChanged>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1504,45 +1455,14 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
 }
 
 abstract class _PhoneNumberChanged implements SignUpFormEvent {
-  const factory _PhoneNumberChanged(String phoneNumberStr) =
+  const factory _PhoneNumberChanged(final String phoneNumberStr) =
       _$_PhoneNumberChanged;
 
   String get phoneNumberStr;
   @JsonKey(ignore: true)
-  _$PhoneNumberChangedCopyWith<_PhoneNumberChanged> get copyWith =>
+  _$$_PhoneNumberChangedCopyWith<_$_PhoneNumberChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$SignUpFormStateTearOff {
-  const _$SignUpFormStateTearOff();
-
-  _SignUpFormState call(
-      {required EmailAddress emailAddress,
-      required Password password,
-      required Password passwordConfirm,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-      required bool isSubmitting,
-      required NotEmptyString firstName,
-      required NotEmptyString lastName,
-      required UserName userName,
-      required PhoneNumber phoneNumber}) {
-    return _SignUpFormState(
-      emailAddress: emailAddress,
-      password: password,
-      passwordConfirm: passwordConfirm,
-      authFailureOrSuccessOption: authFailureOrSuccessOption,
-      isSubmitting: isSubmitting,
-      firstName: firstName,
-      lastName: lastName,
-      userName: userName,
-      phoneNumber: phoneNumber,
-    );
-  }
-}
-
-/// @nodoc
-const $SignUpFormState = _$SignUpFormStateTearOff();
 
 /// @nodoc
 mixin _$SignUpFormState {
@@ -1642,11 +1562,11 @@ class _$SignUpFormStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SignUpFormStateCopyWith<$Res>
+abstract class _$$_SignUpFormStateCopyWith<$Res>
     implements $SignUpFormStateCopyWith<$Res> {
-  factory _$SignUpFormStateCopyWith(
-          _SignUpFormState value, $Res Function(_SignUpFormState) then) =
-      __$SignUpFormStateCopyWithImpl<$Res>;
+  factory _$$_SignUpFormStateCopyWith(
+          _$_SignUpFormState value, $Res Function(_$_SignUpFormState) then) =
+      __$$_SignUpFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {EmailAddress emailAddress,
@@ -1661,15 +1581,15 @@ abstract class _$SignUpFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SignUpFormStateCopyWithImpl<$Res>
+class __$$_SignUpFormStateCopyWithImpl<$Res>
     extends _$SignUpFormStateCopyWithImpl<$Res>
-    implements _$SignUpFormStateCopyWith<$Res> {
-  __$SignUpFormStateCopyWithImpl(
-      _SignUpFormState _value, $Res Function(_SignUpFormState) _then)
-      : super(_value, (v) => _then(v as _SignUpFormState));
+    implements _$$_SignUpFormStateCopyWith<$Res> {
+  __$$_SignUpFormStateCopyWithImpl(
+      _$_SignUpFormState _value, $Res Function(_$_SignUpFormState) _then)
+      : super(_value, (v) => _then(v as _$_SignUpFormState));
 
   @override
-  _SignUpFormState get _value => super._value as _SignUpFormState;
+  _$_SignUpFormState get _value => super._value as _$_SignUpFormState;
 
   @override
   $Res call({
@@ -1683,7 +1603,7 @@ class __$SignUpFormStateCopyWithImpl<$Res>
     Object? userName = freezed,
     Object? phoneNumber = freezed,
   }) {
-    return _then(_SignUpFormState(
+    return _then(_$_SignUpFormState(
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
@@ -1766,7 +1686,7 @@ class _$_SignUpFormState implements _SignUpFormState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SignUpFormState &&
+            other is _$_SignUpFormState &&
             const DeepCollectionEquality()
                 .equals(other.emailAddress, emailAddress) &&
             const DeepCollectionEquality().equals(other.password, password) &&
@@ -1798,21 +1718,22 @@ class _$_SignUpFormState implements _SignUpFormState {
 
   @JsonKey(ignore: true)
   @override
-  _$SignUpFormStateCopyWith<_SignUpFormState> get copyWith =>
-      __$SignUpFormStateCopyWithImpl<_SignUpFormState>(this, _$identity);
+  _$$_SignUpFormStateCopyWith<_$_SignUpFormState> get copyWith =>
+      __$$_SignUpFormStateCopyWithImpl<_$_SignUpFormState>(this, _$identity);
 }
 
 abstract class _SignUpFormState implements SignUpFormState {
   const factory _SignUpFormState(
-      {required EmailAddress emailAddress,
-      required Password password,
-      required Password passwordConfirm,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-      required bool isSubmitting,
-      required NotEmptyString firstName,
-      required NotEmptyString lastName,
-      required UserName userName,
-      required PhoneNumber phoneNumber}) = _$_SignUpFormState;
+      {required final EmailAddress emailAddress,
+      required final Password password,
+      required final Password passwordConfirm,
+      required final Option<Either<AuthFailure, Unit>>
+          authFailureOrSuccessOption,
+      required final bool isSubmitting,
+      required final NotEmptyString firstName,
+      required final NotEmptyString lastName,
+      required final UserName userName,
+      required final PhoneNumber phoneNumber}) = _$_SignUpFormState;
 
   @override
   EmailAddress get emailAddress;
@@ -1834,6 +1755,6 @@ abstract class _SignUpFormState implements SignUpFormState {
   PhoneNumber get phoneNumber;
   @override
   @JsonKey(ignore: true)
-  _$SignUpFormStateCopyWith<_SignUpFormState> get copyWith =>
+  _$$_SignUpFormStateCopyWith<_$_SignUpFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }

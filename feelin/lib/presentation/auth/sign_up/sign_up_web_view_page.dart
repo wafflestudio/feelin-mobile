@@ -1,9 +1,11 @@
-
 import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+import '../../main/root_page.dart';
 
 class SignUpWebViewPage extends StatefulWidget{
   const SignUpWebViewPage({Key? key}) : super(key: key);
@@ -14,6 +16,7 @@ class SignUpWebViewPage extends StatefulWidget{
 
 class _SignUpWebViewState extends State<SignUpWebViewPage>{
 
+  final storage = const FlutterSecureStorage();
   late WebViewController _controller;
   final Completer<WebViewController> _completer = Completer<WebViewController>();
   var loadingPercentage = 0;
@@ -46,12 +49,12 @@ class _SignUpWebViewState extends State<SignUpWebViewPage>{
               builder: (context, AsyncSnapshot<WebViewController> controller) {
               return IconButton(
                 onPressed: () async{
-                  if(controller.hasData && await controller.data!.canGoBack()){
-                    await controller.data!.goBack();
-                  }else{
-                    Navigator.pop(context);
-                  }
-
+                  // if(controller.hasData && await controller.data!.canGoBack()){
+                  //   await controller.data!.goBack();
+                  // }else{
+                  //   Navigator.pop(context);
+                  // }
+                  _controller.runJavascript('sendToFlutter()');
                 },
                 color: Colors.grey,
                 icon: const Icon(Icons.arrow_back_ios_new),
@@ -63,7 +66,7 @@ class _SignUpWebViewState extends State<SignUpWebViewPage>{
           child: Stack(
             children: [
               WebView(
-                initialUrl: 'http://ec2-54-180-105-114.ap-northeast-2.compute.amazonaws.com/email-verify',
+                initialUrl: 'http://ec2-54-180-105-114.ap-northeast-2.compute.amazonaws.com/login',
                 javascriptMode: JavascriptMode.unrestricted,
                 onWebViewCreated: (WebViewController webViewController){
                   _completer.future.then((value) => _controller = value);
@@ -86,6 +89,7 @@ class _SignUpWebViewState extends State<SignUpWebViewPage>{
                   setState(() {
                     loadingPercentage = 100;
                   });
+                  //_controller.reload();
                 },
                 gestureNavigationEnabled: true,
               ),
@@ -96,35 +100,20 @@ class _SignUpWebViewState extends State<SignUpWebViewPage>{
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          currentIndex: 2,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.folder_copy_outlined),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: '',
-            ),
-          ],
-        ),
       ),
     );
   }
 
   JavascriptChannel _webToAppToken(BuildContext context){
     return JavascriptChannel(
-        name: "Token",
+        name: "flutterChannel",
         onMessageReceived: (JavascriptMessage message){
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(message.message)));
+          storage.write(key: "token", value: message.message);
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){
+          return const RootPage();
+          }),(route) => false);
         });
   }
 

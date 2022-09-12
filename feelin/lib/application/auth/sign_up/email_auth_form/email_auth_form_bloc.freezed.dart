@@ -12,35 +12,7 @@ part of 'email_auth_form_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$EmailAuthFormEventTearOff {
-  const _$EmailAuthFormEventTearOff();
-
-  _EmailChanged emailChanged(String emailAddressStr) {
-    return _EmailChanged(
-      emailAddressStr,
-    );
-  }
-
-  _CodeChanged codeChanged(String codeStr) {
-    return _CodeChanged(
-      codeStr,
-    );
-  }
-
-  _Submitted submitted() {
-    return const _Submitted();
-  }
-
-  _Requested requested() {
-    return const _Requested();
-  }
-}
-
-/// @nodoc
-const $EmailAuthFormEvent = _$EmailAuthFormEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$EmailAuthFormEvent {
@@ -114,29 +86,29 @@ class _$EmailAuthFormEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$EmailChangedCopyWith<$Res> {
-  factory _$EmailChangedCopyWith(
-          _EmailChanged value, $Res Function(_EmailChanged) then) =
-      __$EmailChangedCopyWithImpl<$Res>;
+abstract class _$$_EmailChangedCopyWith<$Res> {
+  factory _$$_EmailChangedCopyWith(
+          _$_EmailChanged value, $Res Function(_$_EmailChanged) then) =
+      __$$_EmailChangedCopyWithImpl<$Res>;
   $Res call({String emailAddressStr});
 }
 
 /// @nodoc
-class __$EmailChangedCopyWithImpl<$Res>
+class __$$_EmailChangedCopyWithImpl<$Res>
     extends _$EmailAuthFormEventCopyWithImpl<$Res>
-    implements _$EmailChangedCopyWith<$Res> {
-  __$EmailChangedCopyWithImpl(
-      _EmailChanged _value, $Res Function(_EmailChanged) _then)
-      : super(_value, (v) => _then(v as _EmailChanged));
+    implements _$$_EmailChangedCopyWith<$Res> {
+  __$$_EmailChangedCopyWithImpl(
+      _$_EmailChanged _value, $Res Function(_$_EmailChanged) _then)
+      : super(_value, (v) => _then(v as _$_EmailChanged));
 
   @override
-  _EmailChanged get _value => super._value as _EmailChanged;
+  _$_EmailChanged get _value => super._value as _$_EmailChanged;
 
   @override
   $Res call({
     Object? emailAddressStr = freezed,
   }) {
-    return _then(_EmailChanged(
+    return _then(_$_EmailChanged(
       emailAddressStr == freezed
           ? _value.emailAddressStr
           : emailAddressStr // ignore: cast_nullable_to_non_nullable
@@ -162,7 +134,7 @@ class _$_EmailChanged implements _EmailChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EmailChanged &&
+            other is _$_EmailChanged &&
             const DeepCollectionEquality()
                 .equals(other.emailAddressStr, emailAddressStr));
   }
@@ -173,8 +145,8 @@ class _$_EmailChanged implements _EmailChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$EmailChangedCopyWith<_EmailChanged> get copyWith =>
-      __$EmailChangedCopyWithImpl<_EmailChanged>(this, _$identity);
+  _$$_EmailChangedCopyWith<_$_EmailChanged> get copyWith =>
+      __$$_EmailChangedCopyWithImpl<_$_EmailChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -252,38 +224,38 @@ class _$_EmailChanged implements _EmailChanged {
 }
 
 abstract class _EmailChanged implements EmailAuthFormEvent {
-  const factory _EmailChanged(String emailAddressStr) = _$_EmailChanged;
+  const factory _EmailChanged(final String emailAddressStr) = _$_EmailChanged;
 
   String get emailAddressStr;
   @JsonKey(ignore: true)
-  _$EmailChangedCopyWith<_EmailChanged> get copyWith =>
+  _$$_EmailChangedCopyWith<_$_EmailChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$CodeChangedCopyWith<$Res> {
-  factory _$CodeChangedCopyWith(
-          _CodeChanged value, $Res Function(_CodeChanged) then) =
-      __$CodeChangedCopyWithImpl<$Res>;
+abstract class _$$_CodeChangedCopyWith<$Res> {
+  factory _$$_CodeChangedCopyWith(
+          _$_CodeChanged value, $Res Function(_$_CodeChanged) then) =
+      __$$_CodeChangedCopyWithImpl<$Res>;
   $Res call({String codeStr});
 }
 
 /// @nodoc
-class __$CodeChangedCopyWithImpl<$Res>
+class __$$_CodeChangedCopyWithImpl<$Res>
     extends _$EmailAuthFormEventCopyWithImpl<$Res>
-    implements _$CodeChangedCopyWith<$Res> {
-  __$CodeChangedCopyWithImpl(
-      _CodeChanged _value, $Res Function(_CodeChanged) _then)
-      : super(_value, (v) => _then(v as _CodeChanged));
+    implements _$$_CodeChangedCopyWith<$Res> {
+  __$$_CodeChangedCopyWithImpl(
+      _$_CodeChanged _value, $Res Function(_$_CodeChanged) _then)
+      : super(_value, (v) => _then(v as _$_CodeChanged));
 
   @override
-  _CodeChanged get _value => super._value as _CodeChanged;
+  _$_CodeChanged get _value => super._value as _$_CodeChanged;
 
   @override
   $Res call({
     Object? codeStr = freezed,
   }) {
-    return _then(_CodeChanged(
+    return _then(_$_CodeChanged(
       codeStr == freezed
           ? _value.codeStr
           : codeStr // ignore: cast_nullable_to_non_nullable
@@ -309,7 +281,7 @@ class _$_CodeChanged implements _CodeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CodeChanged &&
+            other is _$_CodeChanged &&
             const DeepCollectionEquality().equals(other.codeStr, codeStr));
   }
 
@@ -319,8 +291,8 @@ class _$_CodeChanged implements _CodeChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$CodeChangedCopyWith<_CodeChanged> get copyWith =>
-      __$CodeChangedCopyWithImpl<_CodeChanged>(this, _$identity);
+  _$$_CodeChangedCopyWith<_$_CodeChanged> get copyWith =>
+      __$$_CodeChangedCopyWithImpl<_$_CodeChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -398,30 +370,31 @@ class _$_CodeChanged implements _CodeChanged {
 }
 
 abstract class _CodeChanged implements EmailAuthFormEvent {
-  const factory _CodeChanged(String codeStr) = _$_CodeChanged;
+  const factory _CodeChanged(final String codeStr) = _$_CodeChanged;
 
   String get codeStr;
   @JsonKey(ignore: true)
-  _$CodeChangedCopyWith<_CodeChanged> get copyWith =>
+  _$$_CodeChangedCopyWith<_$_CodeChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SubmittedCopyWith<$Res> {
-  factory _$SubmittedCopyWith(
-          _Submitted value, $Res Function(_Submitted) then) =
-      __$SubmittedCopyWithImpl<$Res>;
+abstract class _$$_SubmittedCopyWith<$Res> {
+  factory _$$_SubmittedCopyWith(
+          _$_Submitted value, $Res Function(_$_Submitted) then) =
+      __$$_SubmittedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SubmittedCopyWithImpl<$Res>
+class __$$_SubmittedCopyWithImpl<$Res>
     extends _$EmailAuthFormEventCopyWithImpl<$Res>
-    implements _$SubmittedCopyWith<$Res> {
-  __$SubmittedCopyWithImpl(_Submitted _value, $Res Function(_Submitted) _then)
-      : super(_value, (v) => _then(v as _Submitted));
+    implements _$$_SubmittedCopyWith<$Res> {
+  __$$_SubmittedCopyWithImpl(
+      _$_Submitted _value, $Res Function(_$_Submitted) _then)
+      : super(_value, (v) => _then(v as _$_Submitted));
 
   @override
-  _Submitted get _value => super._value as _Submitted;
+  _$_Submitted get _value => super._value as _$_Submitted;
 }
 
 /// @nodoc
@@ -437,7 +410,7 @@ class _$_Submitted implements _Submitted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Submitted);
+        (other.runtimeType == runtimeType && other is _$_Submitted);
   }
 
   @override
@@ -523,21 +496,22 @@ abstract class _Submitted implements EmailAuthFormEvent {
 }
 
 /// @nodoc
-abstract class _$RequestedCopyWith<$Res> {
-  factory _$RequestedCopyWith(
-          _Requested value, $Res Function(_Requested) then) =
-      __$RequestedCopyWithImpl<$Res>;
+abstract class _$$_RequestedCopyWith<$Res> {
+  factory _$$_RequestedCopyWith(
+          _$_Requested value, $Res Function(_$_Requested) then) =
+      __$$_RequestedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$RequestedCopyWithImpl<$Res>
+class __$$_RequestedCopyWithImpl<$Res>
     extends _$EmailAuthFormEventCopyWithImpl<$Res>
-    implements _$RequestedCopyWith<$Res> {
-  __$RequestedCopyWithImpl(_Requested _value, $Res Function(_Requested) _then)
-      : super(_value, (v) => _then(v as _Requested));
+    implements _$$_RequestedCopyWith<$Res> {
+  __$$_RequestedCopyWithImpl(
+      _$_Requested _value, $Res Function(_$_Requested) _then)
+      : super(_value, (v) => _then(v as _$_Requested));
 
   @override
-  _Requested get _value => super._value as _Requested;
+  _$_Requested get _value => super._value as _$_Requested;
 }
 
 /// @nodoc
@@ -553,7 +527,7 @@ class _$_Requested implements _Requested {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Requested);
+        (other.runtimeType == runtimeType && other is _$_Requested);
   }
 
   @override
@@ -639,29 +613,6 @@ abstract class _Requested implements EmailAuthFormEvent {
 }
 
 /// @nodoc
-class _$EmailAuthFormStateTearOff {
-  const _$EmailAuthFormStateTearOff();
-
-  _EmailAuthFormState call(
-      {required EmailAddress emailAddress,
-      required EmailAuthCode code,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-      required bool isSubmitting,
-      required bool isRequested}) {
-    return _EmailAuthFormState(
-      emailAddress: emailAddress,
-      code: code,
-      authFailureOrSuccessOption: authFailureOrSuccessOption,
-      isSubmitting: isSubmitting,
-      isRequested: isRequested,
-    );
-  }
-}
-
-/// @nodoc
-const $EmailAuthFormState = _$EmailAuthFormStateTearOff();
-
-/// @nodoc
 mixin _$EmailAuthFormState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   EmailAuthCode get code => throw _privateConstructorUsedError;
@@ -731,11 +682,11 @@ class _$EmailAuthFormStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$EmailAuthFormStateCopyWith<$Res>
+abstract class _$$_EmailAuthFormStateCopyWith<$Res>
     implements $EmailAuthFormStateCopyWith<$Res> {
-  factory _$EmailAuthFormStateCopyWith(
-          _EmailAuthFormState value, $Res Function(_EmailAuthFormState) then) =
-      __$EmailAuthFormStateCopyWithImpl<$Res>;
+  factory _$$_EmailAuthFormStateCopyWith(_$_EmailAuthFormState value,
+          $Res Function(_$_EmailAuthFormState) then) =
+      __$$_EmailAuthFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {EmailAddress emailAddress,
@@ -746,15 +697,15 @@ abstract class _$EmailAuthFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$EmailAuthFormStateCopyWithImpl<$Res>
+class __$$_EmailAuthFormStateCopyWithImpl<$Res>
     extends _$EmailAuthFormStateCopyWithImpl<$Res>
-    implements _$EmailAuthFormStateCopyWith<$Res> {
-  __$EmailAuthFormStateCopyWithImpl(
-      _EmailAuthFormState _value, $Res Function(_EmailAuthFormState) _then)
-      : super(_value, (v) => _then(v as _EmailAuthFormState));
+    implements _$$_EmailAuthFormStateCopyWith<$Res> {
+  __$$_EmailAuthFormStateCopyWithImpl(
+      _$_EmailAuthFormState _value, $Res Function(_$_EmailAuthFormState) _then)
+      : super(_value, (v) => _then(v as _$_EmailAuthFormState));
 
   @override
-  _EmailAuthFormState get _value => super._value as _EmailAuthFormState;
+  _$_EmailAuthFormState get _value => super._value as _$_EmailAuthFormState;
 
   @override
   $Res call({
@@ -764,7 +715,7 @@ class __$EmailAuthFormStateCopyWithImpl<$Res>
     Object? isSubmitting = freezed,
     Object? isRequested = freezed,
   }) {
-    return _then(_EmailAuthFormState(
+    return _then(_$_EmailAuthFormState(
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
@@ -819,7 +770,7 @@ class _$_EmailAuthFormState implements _EmailAuthFormState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EmailAuthFormState &&
+            other is _$_EmailAuthFormState &&
             const DeepCollectionEquality()
                 .equals(other.emailAddress, emailAddress) &&
             const DeepCollectionEquality().equals(other.code, code) &&
@@ -842,17 +793,19 @@ class _$_EmailAuthFormState implements _EmailAuthFormState {
 
   @JsonKey(ignore: true)
   @override
-  _$EmailAuthFormStateCopyWith<_EmailAuthFormState> get copyWith =>
-      __$EmailAuthFormStateCopyWithImpl<_EmailAuthFormState>(this, _$identity);
+  _$$_EmailAuthFormStateCopyWith<_$_EmailAuthFormState> get copyWith =>
+      __$$_EmailAuthFormStateCopyWithImpl<_$_EmailAuthFormState>(
+          this, _$identity);
 }
 
 abstract class _EmailAuthFormState implements EmailAuthFormState {
   const factory _EmailAuthFormState(
-      {required EmailAddress emailAddress,
-      required EmailAuthCode code,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-      required bool isSubmitting,
-      required bool isRequested}) = _$_EmailAuthFormState;
+      {required final EmailAddress emailAddress,
+      required final EmailAuthCode code,
+      required final Option<Either<AuthFailure, Unit>>
+          authFailureOrSuccessOption,
+      required final bool isSubmitting,
+      required final bool isRequested}) = _$_EmailAuthFormState;
 
   @override
   EmailAddress get emailAddress;
@@ -866,6 +819,6 @@ abstract class _EmailAuthFormState implements EmailAuthFormState {
   bool get isRequested;
   @override
   @JsonKey(ignore: true)
-  _$EmailAuthFormStateCopyWith<_EmailAuthFormState> get copyWith =>
+  _$$_EmailAuthFormStateCopyWith<_$_EmailAuthFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }

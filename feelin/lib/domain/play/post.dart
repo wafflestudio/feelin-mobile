@@ -6,7 +6,7 @@ part 'post.g.dart';
 @JsonSerializable()
 class Post{
   @JsonKey(name:"id")
-  int id;
+  String id;
 
   @JsonKey(name:"writer")
   String writer;

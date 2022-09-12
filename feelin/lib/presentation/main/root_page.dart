@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/application/profile/profile_bloc.dart';
 import 'package:music_sns/presentation/main/explore/explore_page.dart';
 import 'package:music_sns/presentation/main/post/post_page.dart';
 import 'package:music_sns/presentation/main/profile/profile_page.dart';
 
 import '../../application/navigation/nav_bar_item.dart';
 import '../../application/navigation/navigation_cubit.dart';
+import '../../application/post/post_form/post_form_bloc.dart';
+import '../../injection.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
@@ -27,11 +30,6 @@ class _RootPageState extends State<RootPage> {
             fontSize: 20,
           ),
         ),
-        // leading: IconButton(
-        //   onPressed: () {}, //TODO: implement to go back
-        //   color: Colors.grey,
-        //   icon: const Icon(Icons.arrow_back_ios_new),
-        // ),
         centerTitle: true,
       ),
       bottomNavigationBar: BlocBuilder<NavigationCubit, NavigationState>(
@@ -74,9 +72,11 @@ class _RootPageState extends State<RootPage> {
             if (state.navbarItem == NavbarItem.explore) {
               return const ExplorePage();
             } else if (state.navbarItem == NavbarItem.post) {
-              return const PostPage();
+              return BlocProvider(create: (context) => getIt<PostFormBloc>(),
+                  child: const PostPage());
             } else if (state.navbarItem == NavbarItem.profile) {
-              return const ProfilePage();
+              return BlocProvider(create: (context) => getIt<ProfileBloc>(),
+                  child: const ProfilePage());
             }
             return Container();
           }),

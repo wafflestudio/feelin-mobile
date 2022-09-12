@@ -29,4 +29,7 @@ class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.wrongPasswordConfirm({
     required T failedValue,
   }) = WrongPasswordConfirm<T>;
+  const factory ValueFailure.invalidUrl({
+    required T failedValue,
+  }) = InvalidUrl<T>;
 }

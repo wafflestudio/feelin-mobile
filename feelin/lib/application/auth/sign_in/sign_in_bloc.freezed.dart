@@ -12,23 +12,7 @@ part of 'sign_in_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SignInEventTearOff {
-  const _$SignInEventTearOff();
-
-  _LoginIdChanged loginIdChanged() {
-    return const _LoginIdChanged();
-  }
-
-  _EmailChanged emailChanged() {
-    return const _EmailChanged();
-  }
-}
-
-/// @nodoc
-const $SignInEvent = _$SignInEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SignInEvent {
@@ -89,22 +73,22 @@ class _$SignInEventCopyWithImpl<$Res> implements $SignInEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$LoginIdChangedCopyWith<$Res> {
-  factory _$LoginIdChangedCopyWith(
-          _LoginIdChanged value, $Res Function(_LoginIdChanged) then) =
-      __$LoginIdChangedCopyWithImpl<$Res>;
+abstract class _$$_LoginIdChangedCopyWith<$Res> {
+  factory _$$_LoginIdChangedCopyWith(
+          _$_LoginIdChanged value, $Res Function(_$_LoginIdChanged) then) =
+      __$$_LoginIdChangedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoginIdChangedCopyWithImpl<$Res>
+class __$$_LoginIdChangedCopyWithImpl<$Res>
     extends _$SignInEventCopyWithImpl<$Res>
-    implements _$LoginIdChangedCopyWith<$Res> {
-  __$LoginIdChangedCopyWithImpl(
-      _LoginIdChanged _value, $Res Function(_LoginIdChanged) _then)
-      : super(_value, (v) => _then(v as _LoginIdChanged));
+    implements _$$_LoginIdChangedCopyWith<$Res> {
+  __$$_LoginIdChangedCopyWithImpl(
+      _$_LoginIdChanged _value, $Res Function(_$_LoginIdChanged) _then)
+      : super(_value, (v) => _then(v as _$_LoginIdChanged));
 
   @override
-  _LoginIdChanged get _value => super._value as _LoginIdChanged;
+  _$_LoginIdChanged get _value => super._value as _$_LoginIdChanged;
 }
 
 /// @nodoc
@@ -120,7 +104,7 @@ class _$_LoginIdChanged implements _LoginIdChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoginIdChanged);
+        (other.runtimeType == runtimeType && other is _$_LoginIdChanged);
   }
 
   @override
@@ -194,21 +178,22 @@ abstract class _LoginIdChanged implements SignInEvent {
 }
 
 /// @nodoc
-abstract class _$EmailChangedCopyWith<$Res> {
-  factory _$EmailChangedCopyWith(
-          _EmailChanged value, $Res Function(_EmailChanged) then) =
-      __$EmailChangedCopyWithImpl<$Res>;
+abstract class _$$_EmailChangedCopyWith<$Res> {
+  factory _$$_EmailChangedCopyWith(
+          _$_EmailChanged value, $Res Function(_$_EmailChanged) then) =
+      __$$_EmailChangedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$EmailChangedCopyWithImpl<$Res> extends _$SignInEventCopyWithImpl<$Res>
-    implements _$EmailChangedCopyWith<$Res> {
-  __$EmailChangedCopyWithImpl(
-      _EmailChanged _value, $Res Function(_EmailChanged) _then)
-      : super(_value, (v) => _then(v as _EmailChanged));
+class __$$_EmailChangedCopyWithImpl<$Res>
+    extends _$SignInEventCopyWithImpl<$Res>
+    implements _$$_EmailChangedCopyWith<$Res> {
+  __$$_EmailChangedCopyWithImpl(
+      _$_EmailChanged _value, $Res Function(_$_EmailChanged) _then)
+      : super(_value, (v) => _then(v as _$_EmailChanged));
 
   @override
-  _EmailChanged get _value => super._value as _EmailChanged;
+  _$_EmailChanged get _value => super._value as _$_EmailChanged;
 }
 
 /// @nodoc
@@ -224,7 +209,7 @@ class _$_EmailChanged implements _EmailChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _EmailChanged);
+        (other.runtimeType == runtimeType && other is _$_EmailChanged);
   }
 
   @override
@@ -298,18 +283,6 @@ abstract class _EmailChanged implements SignInEvent {
 }
 
 /// @nodoc
-class _$SignInStateTearOff {
-  const _$SignInStateTearOff();
-
-  _SignInState call() {
-    return const _SignInState();
-  }
-}
-
-/// @nodoc
-const $SignInState = _$SignInStateTearOff();
-
-/// @nodoc
 mixin _$SignInState {}
 
 /// @nodoc
@@ -329,21 +302,21 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SignInStateCopyWith<$Res> {
-  factory _$SignInStateCopyWith(
-          _SignInState value, $Res Function(_SignInState) then) =
-      __$SignInStateCopyWithImpl<$Res>;
+abstract class _$$_SignInStateCopyWith<$Res> {
+  factory _$$_SignInStateCopyWith(
+          _$_SignInState value, $Res Function(_$_SignInState) then) =
+      __$$_SignInStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
-    implements _$SignInStateCopyWith<$Res> {
-  __$SignInStateCopyWithImpl(
-      _SignInState _value, $Res Function(_SignInState) _then)
-      : super(_value, (v) => _then(v as _SignInState));
+class __$$_SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
+    implements _$$_SignInStateCopyWith<$Res> {
+  __$$_SignInStateCopyWithImpl(
+      _$_SignInState _value, $Res Function(_$_SignInState) _then)
+      : super(_value, (v) => _then(v as _$_SignInState));
 
   @override
-  _SignInState get _value => super._value as _SignInState;
+  _$_SignInState get _value => super._value as _$_SignInState;
 }
 
 /// @nodoc
@@ -359,7 +332,7 @@ class _$_SignInState implements _SignInState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _SignInState);
+        (other.runtimeType == runtimeType && other is _$_SignInState);
   }
 
   @override

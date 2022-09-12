@@ -12,70 +12,11 @@ part of 'value_failures.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ValueFailureTearOff {
-  const _$ValueFailureTearOff();
-
-  ExceedingLength<T> exceedingLength<T>(
-      {required T failedValue, required int max}) {
-    return ExceedingLength<T>(
-      failedValue: failedValue,
-      max: max,
-    );
-  }
-
-  Empty<T> empty<T>({required T failedValue}) {
-    return Empty<T>(
-      failedValue: failedValue,
-    );
-  }
-
-  InvalidEmail<T> invalidEmail<T>({required T failedValue}) {
-    return InvalidEmail<T>(
-      failedValue: failedValue,
-    );
-  }
-
-  ShortPassword<T> shortPassword<T>({required T failedValue}) {
-    return ShortPassword<T>(
-      failedValue: failedValue,
-    );
-  }
-
-  InvalidEmailAuthCode<T> invalidEmailAuthCode<T>({required T failedValue}) {
-    return InvalidEmailAuthCode<T>(
-      failedValue: failedValue,
-    );
-  }
-
-  InvalidPhoneNum<T> invalidPhoneNum<T>({required T failedValue}) {
-    return InvalidPhoneNum<T>(
-      failedValue: failedValue,
-    );
-  }
-
-  InvalidPhoneNumber<T> invalidUserName<T>({required T failedValue}) {
-    return InvalidPhoneNumber<T>(
-      failedValue: failedValue,
-    );
-  }
-
-  WrongPasswordConfirm<T> wrongPasswordConfirm<T>({required T failedValue}) {
-    return WrongPasswordConfirm<T>(
-      failedValue: failedValue,
-    );
-  }
-}
-
-/// @nodoc
-const $ValueFailure = _$ValueFailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ValueFailure<T> {
   T get failedValue => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue, int max) exceedingLength,
@@ -86,6 +27,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
     required TResult Function(T failedValue) wrongPasswordConfirm,
+    required TResult Function(T failedValue) invalidUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -98,6 +40,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -110,6 +53,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,6 +69,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
     required TResult Function(WrongPasswordConfirm<T> value)
         wrongPasswordConfirm,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -137,6 +82,7 @@ mixin _$ValueFailure<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -149,6 +95,7 @@ mixin _$ValueFailure<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -189,32 +136,32 @@ class _$ValueFailureCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-abstract class $ExceedingLengthCopyWith<T, $Res>
+abstract class _$$ExceedingLengthCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory $ExceedingLengthCopyWith(
-          ExceedingLength<T> value, $Res Function(ExceedingLength<T>) then) =
-      _$ExceedingLengthCopyWithImpl<T, $Res>;
+  factory _$$ExceedingLengthCopyWith(_$ExceedingLength<T> value,
+          $Res Function(_$ExceedingLength<T>) then) =
+      __$$ExceedingLengthCopyWithImpl<T, $Res>;
   @override
   $Res call({T failedValue, int max});
 }
 
 /// @nodoc
-class _$ExceedingLengthCopyWithImpl<T, $Res>
+class __$$ExceedingLengthCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $ExceedingLengthCopyWith<T, $Res> {
-  _$ExceedingLengthCopyWithImpl(
-      ExceedingLength<T> _value, $Res Function(ExceedingLength<T>) _then)
-      : super(_value, (v) => _then(v as ExceedingLength<T>));
+    implements _$$ExceedingLengthCopyWith<T, $Res> {
+  __$$ExceedingLengthCopyWithImpl(
+      _$ExceedingLength<T> _value, $Res Function(_$ExceedingLength<T>) _then)
+      : super(_value, (v) => _then(v as _$ExceedingLength<T>));
 
   @override
-  ExceedingLength<T> get _value => super._value as ExceedingLength<T>;
+  _$ExceedingLength<T> get _value => super._value as _$ExceedingLength<T>;
 
   @override
   $Res call({
     Object? failedValue = freezed,
     Object? max = freezed,
   }) {
-    return _then(ExceedingLength<T>(
+    return _then(_$ExceedingLength<T>(
       failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -246,7 +193,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ExceedingLength<T> &&
+            other is _$ExceedingLength<T> &&
             const DeepCollectionEquality()
                 .equals(other.failedValue, failedValue) &&
             const DeepCollectionEquality().equals(other.max, max));
@@ -260,8 +207,9 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
 
   @JsonKey(ignore: true)
   @override
-  $ExceedingLengthCopyWith<T, ExceedingLength<T>> get copyWith =>
-      _$ExceedingLengthCopyWithImpl<T, ExceedingLength<T>>(this, _$identity);
+  _$$ExceedingLengthCopyWith<T, _$ExceedingLength<T>> get copyWith =>
+      __$$ExceedingLengthCopyWithImpl<T, _$ExceedingLength<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -274,6 +222,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
     required TResult Function(T failedValue) wrongPasswordConfirm,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return exceedingLength(failedValue, max);
   }
@@ -289,6 +238,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
   }) {
     return exceedingLength?.call(failedValue, max);
   }
@@ -304,6 +254,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -325,6 +276,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
     required TResult Function(WrongPasswordConfirm<T> value)
         wrongPasswordConfirm,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
   }) {
     return exceedingLength(this);
   }
@@ -340,6 +292,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
   }) {
     return exceedingLength?.call(this);
   }
@@ -355,6 +308,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -365,41 +319,42 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
 }
 
 abstract class ExceedingLength<T> implements ValueFailure<T> {
-  const factory ExceedingLength({required T failedValue, required int max}) =
-      _$ExceedingLength<T>;
+  const factory ExceedingLength(
+      {required final T failedValue,
+      required final int max}) = _$ExceedingLength<T>;
 
   @override
   T get failedValue;
   int get max;
   @override
   @JsonKey(ignore: true)
-  $ExceedingLengthCopyWith<T, ExceedingLength<T>> get copyWith =>
+  _$$ExceedingLengthCopyWith<T, _$ExceedingLength<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EmptyCopyWith<T, $Res>
+abstract class _$$EmptyCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory $EmptyCopyWith(Empty<T> value, $Res Function(Empty<T>) then) =
-      _$EmptyCopyWithImpl<T, $Res>;
+  factory _$$EmptyCopyWith(_$Empty<T> value, $Res Function(_$Empty<T>) then) =
+      __$$EmptyCopyWithImpl<T, $Res>;
   @override
   $Res call({T failedValue});
 }
 
 /// @nodoc
-class _$EmptyCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $EmptyCopyWith<T, $Res> {
-  _$EmptyCopyWithImpl(Empty<T> _value, $Res Function(Empty<T>) _then)
-      : super(_value, (v) => _then(v as Empty<T>));
+class __$$EmptyCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$$EmptyCopyWith<T, $Res> {
+  __$$EmptyCopyWithImpl(_$Empty<T> _value, $Res Function(_$Empty<T>) _then)
+      : super(_value, (v) => _then(v as _$Empty<T>));
 
   @override
-  Empty<T> get _value => super._value as Empty<T>;
+  _$Empty<T> get _value => super._value as _$Empty<T>;
 
   @override
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(Empty<T>(
+    return _then(_$Empty<T>(
       failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -425,7 +380,7 @@ class _$Empty<T> implements Empty<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is Empty<T> &&
+            other is _$Empty<T> &&
             const DeepCollectionEquality()
                 .equals(other.failedValue, failedValue));
   }
@@ -436,8 +391,8 @@ class _$Empty<T> implements Empty<T> {
 
   @JsonKey(ignore: true)
   @override
-  $EmptyCopyWith<T, Empty<T>> get copyWith =>
-      _$EmptyCopyWithImpl<T, Empty<T>>(this, _$identity);
+  _$$EmptyCopyWith<T, _$Empty<T>> get copyWith =>
+      __$$EmptyCopyWithImpl<T, _$Empty<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -450,6 +405,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
     required TResult Function(T failedValue) wrongPasswordConfirm,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return empty(failedValue);
   }
@@ -465,6 +421,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
   }) {
     return empty?.call(failedValue);
   }
@@ -480,6 +437,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -501,6 +459,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
     required TResult Function(WrongPasswordConfirm<T> value)
         wrongPasswordConfirm,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
   }) {
     return empty(this);
   }
@@ -516,6 +475,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
   }) {
     return empty?.call(this);
   }
@@ -531,6 +491,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -541,42 +502,42 @@ class _$Empty<T> implements Empty<T> {
 }
 
 abstract class Empty<T> implements ValueFailure<T> {
-  const factory Empty({required T failedValue}) = _$Empty<T>;
+  const factory Empty({required final T failedValue}) = _$Empty<T>;
 
   @override
   T get failedValue;
   @override
   @JsonKey(ignore: true)
-  $EmptyCopyWith<T, Empty<T>> get copyWith =>
+  _$$EmptyCopyWith<T, _$Empty<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $InvalidEmailCopyWith<T, $Res>
+abstract class _$$InvalidEmailCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory $InvalidEmailCopyWith(
-          InvalidEmail<T> value, $Res Function(InvalidEmail<T>) then) =
-      _$InvalidEmailCopyWithImpl<T, $Res>;
+  factory _$$InvalidEmailCopyWith(
+          _$InvalidEmail<T> value, $Res Function(_$InvalidEmail<T>) then) =
+      __$$InvalidEmailCopyWithImpl<T, $Res>;
   @override
   $Res call({T failedValue});
 }
 
 /// @nodoc
-class _$InvalidEmailCopyWithImpl<T, $Res>
+class __$$InvalidEmailCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $InvalidEmailCopyWith<T, $Res> {
-  _$InvalidEmailCopyWithImpl(
-      InvalidEmail<T> _value, $Res Function(InvalidEmail<T>) _then)
-      : super(_value, (v) => _then(v as InvalidEmail<T>));
+    implements _$$InvalidEmailCopyWith<T, $Res> {
+  __$$InvalidEmailCopyWithImpl(
+      _$InvalidEmail<T> _value, $Res Function(_$InvalidEmail<T>) _then)
+      : super(_value, (v) => _then(v as _$InvalidEmail<T>));
 
   @override
-  InvalidEmail<T> get _value => super._value as InvalidEmail<T>;
+  _$InvalidEmail<T> get _value => super._value as _$InvalidEmail<T>;
 
   @override
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(InvalidEmail<T>(
+    return _then(_$InvalidEmail<T>(
       failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -602,7 +563,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is InvalidEmail<T> &&
+            other is _$InvalidEmail<T> &&
             const DeepCollectionEquality()
                 .equals(other.failedValue, failedValue));
   }
@@ -613,8 +574,8 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
 
   @JsonKey(ignore: true)
   @override
-  $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith =>
-      _$InvalidEmailCopyWithImpl<T, InvalidEmail<T>>(this, _$identity);
+  _$$InvalidEmailCopyWith<T, _$InvalidEmail<T>> get copyWith =>
+      __$$InvalidEmailCopyWithImpl<T, _$InvalidEmail<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -627,6 +588,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
     required TResult Function(T failedValue) wrongPasswordConfirm,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return invalidEmail(failedValue);
   }
@@ -642,6 +604,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
   }) {
     return invalidEmail?.call(failedValue);
   }
@@ -657,6 +620,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -678,6 +642,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
     required TResult Function(WrongPasswordConfirm<T> value)
         wrongPasswordConfirm,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
   }) {
     return invalidEmail(this);
   }
@@ -693,6 +658,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
   }) {
     return invalidEmail?.call(this);
   }
@@ -708,6 +674,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -718,42 +685,43 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
 }
 
 abstract class InvalidEmail<T> implements ValueFailure<T> {
-  const factory InvalidEmail({required T failedValue}) = _$InvalidEmail<T>;
+  const factory InvalidEmail({required final T failedValue}) =
+      _$InvalidEmail<T>;
 
   @override
   T get failedValue;
   @override
   @JsonKey(ignore: true)
-  $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith =>
+  _$$InvalidEmailCopyWith<T, _$InvalidEmail<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ShortPasswordCopyWith<T, $Res>
+abstract class _$$ShortPasswordCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory $ShortPasswordCopyWith(
-          ShortPassword<T> value, $Res Function(ShortPassword<T>) then) =
-      _$ShortPasswordCopyWithImpl<T, $Res>;
+  factory _$$ShortPasswordCopyWith(
+          _$ShortPassword<T> value, $Res Function(_$ShortPassword<T>) then) =
+      __$$ShortPasswordCopyWithImpl<T, $Res>;
   @override
   $Res call({T failedValue});
 }
 
 /// @nodoc
-class _$ShortPasswordCopyWithImpl<T, $Res>
+class __$$ShortPasswordCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $ShortPasswordCopyWith<T, $Res> {
-  _$ShortPasswordCopyWithImpl(
-      ShortPassword<T> _value, $Res Function(ShortPassword<T>) _then)
-      : super(_value, (v) => _then(v as ShortPassword<T>));
+    implements _$$ShortPasswordCopyWith<T, $Res> {
+  __$$ShortPasswordCopyWithImpl(
+      _$ShortPassword<T> _value, $Res Function(_$ShortPassword<T>) _then)
+      : super(_value, (v) => _then(v as _$ShortPassword<T>));
 
   @override
-  ShortPassword<T> get _value => super._value as ShortPassword<T>;
+  _$ShortPassword<T> get _value => super._value as _$ShortPassword<T>;
 
   @override
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(ShortPassword<T>(
+    return _then(_$ShortPassword<T>(
       failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -779,7 +747,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ShortPassword<T> &&
+            other is _$ShortPassword<T> &&
             const DeepCollectionEquality()
                 .equals(other.failedValue, failedValue));
   }
@@ -790,8 +758,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
 
   @JsonKey(ignore: true)
   @override
-  $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith =>
-      _$ShortPasswordCopyWithImpl<T, ShortPassword<T>>(this, _$identity);
+  _$$ShortPasswordCopyWith<T, _$ShortPassword<T>> get copyWith =>
+      __$$ShortPasswordCopyWithImpl<T, _$ShortPassword<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -804,6 +772,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
     required TResult Function(T failedValue) wrongPasswordConfirm,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return shortPassword(failedValue);
   }
@@ -819,6 +788,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
   }) {
     return shortPassword?.call(failedValue);
   }
@@ -834,6 +804,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -855,6 +826,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
     required TResult Function(WrongPasswordConfirm<T> value)
         wrongPasswordConfirm,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
   }) {
     return shortPassword(this);
   }
@@ -870,6 +842,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
   }) {
     return shortPassword?.call(this);
   }
@@ -885,6 +858,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -895,42 +869,44 @@ class _$ShortPassword<T> implements ShortPassword<T> {
 }
 
 abstract class ShortPassword<T> implements ValueFailure<T> {
-  const factory ShortPassword({required T failedValue}) = _$ShortPassword<T>;
+  const factory ShortPassword({required final T failedValue}) =
+      _$ShortPassword<T>;
 
   @override
   T get failedValue;
   @override
   @JsonKey(ignore: true)
-  $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith =>
+  _$$ShortPasswordCopyWith<T, _$ShortPassword<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $InvalidEmailAuthCodeCopyWith<T, $Res>
+abstract class _$$InvalidEmailAuthCodeCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory $InvalidEmailAuthCodeCopyWith(InvalidEmailAuthCode<T> value,
-          $Res Function(InvalidEmailAuthCode<T>) then) =
-      _$InvalidEmailAuthCodeCopyWithImpl<T, $Res>;
+  factory _$$InvalidEmailAuthCodeCopyWith(_$InvalidEmailAuthCode<T> value,
+          $Res Function(_$InvalidEmailAuthCode<T>) then) =
+      __$$InvalidEmailAuthCodeCopyWithImpl<T, $Res>;
   @override
   $Res call({T failedValue});
 }
 
 /// @nodoc
-class _$InvalidEmailAuthCodeCopyWithImpl<T, $Res>
+class __$$InvalidEmailAuthCodeCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $InvalidEmailAuthCodeCopyWith<T, $Res> {
-  _$InvalidEmailAuthCodeCopyWithImpl(InvalidEmailAuthCode<T> _value,
-      $Res Function(InvalidEmailAuthCode<T>) _then)
-      : super(_value, (v) => _then(v as InvalidEmailAuthCode<T>));
+    implements _$$InvalidEmailAuthCodeCopyWith<T, $Res> {
+  __$$InvalidEmailAuthCodeCopyWithImpl(_$InvalidEmailAuthCode<T> _value,
+      $Res Function(_$InvalidEmailAuthCode<T>) _then)
+      : super(_value, (v) => _then(v as _$InvalidEmailAuthCode<T>));
 
   @override
-  InvalidEmailAuthCode<T> get _value => super._value as InvalidEmailAuthCode<T>;
+  _$InvalidEmailAuthCode<T> get _value =>
+      super._value as _$InvalidEmailAuthCode<T>;
 
   @override
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(InvalidEmailAuthCode<T>(
+    return _then(_$InvalidEmailAuthCode<T>(
       failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -956,7 +932,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is InvalidEmailAuthCode<T> &&
+            other is _$InvalidEmailAuthCode<T> &&
             const DeepCollectionEquality()
                 .equals(other.failedValue, failedValue));
   }
@@ -967,8 +943,8 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
 
   @JsonKey(ignore: true)
   @override
-  $InvalidEmailAuthCodeCopyWith<T, InvalidEmailAuthCode<T>> get copyWith =>
-      _$InvalidEmailAuthCodeCopyWithImpl<T, InvalidEmailAuthCode<T>>(
+  _$$InvalidEmailAuthCodeCopyWith<T, _$InvalidEmailAuthCode<T>> get copyWith =>
+      __$$InvalidEmailAuthCodeCopyWithImpl<T, _$InvalidEmailAuthCode<T>>(
           this, _$identity);
 
   @override
@@ -982,6 +958,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
     required TResult Function(T failedValue) wrongPasswordConfirm,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return invalidEmailAuthCode(failedValue);
   }
@@ -997,6 +974,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
   }) {
     return invalidEmailAuthCode?.call(failedValue);
   }
@@ -1012,6 +990,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidEmailAuthCode != null) {
@@ -1033,6 +1012,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
     required TResult Function(WrongPasswordConfirm<T> value)
         wrongPasswordConfirm,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
   }) {
     return invalidEmailAuthCode(this);
   }
@@ -1048,6 +1028,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
   }) {
     return invalidEmailAuthCode?.call(this);
   }
@@ -1063,6 +1044,7 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidEmailAuthCode != null) {
@@ -1073,43 +1055,43 @@ class _$InvalidEmailAuthCode<T> implements InvalidEmailAuthCode<T> {
 }
 
 abstract class InvalidEmailAuthCode<T> implements ValueFailure<T> {
-  const factory InvalidEmailAuthCode({required T failedValue}) =
+  const factory InvalidEmailAuthCode({required final T failedValue}) =
       _$InvalidEmailAuthCode<T>;
 
   @override
   T get failedValue;
   @override
   @JsonKey(ignore: true)
-  $InvalidEmailAuthCodeCopyWith<T, InvalidEmailAuthCode<T>> get copyWith =>
+  _$$InvalidEmailAuthCodeCopyWith<T, _$InvalidEmailAuthCode<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $InvalidPhoneNumCopyWith<T, $Res>
+abstract class _$$InvalidPhoneNumCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory $InvalidPhoneNumCopyWith(
-          InvalidPhoneNum<T> value, $Res Function(InvalidPhoneNum<T>) then) =
-      _$InvalidPhoneNumCopyWithImpl<T, $Res>;
+  factory _$$InvalidPhoneNumCopyWith(_$InvalidPhoneNum<T> value,
+          $Res Function(_$InvalidPhoneNum<T>) then) =
+      __$$InvalidPhoneNumCopyWithImpl<T, $Res>;
   @override
   $Res call({T failedValue});
 }
 
 /// @nodoc
-class _$InvalidPhoneNumCopyWithImpl<T, $Res>
+class __$$InvalidPhoneNumCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $InvalidPhoneNumCopyWith<T, $Res> {
-  _$InvalidPhoneNumCopyWithImpl(
-      InvalidPhoneNum<T> _value, $Res Function(InvalidPhoneNum<T>) _then)
-      : super(_value, (v) => _then(v as InvalidPhoneNum<T>));
+    implements _$$InvalidPhoneNumCopyWith<T, $Res> {
+  __$$InvalidPhoneNumCopyWithImpl(
+      _$InvalidPhoneNum<T> _value, $Res Function(_$InvalidPhoneNum<T>) _then)
+      : super(_value, (v) => _then(v as _$InvalidPhoneNum<T>));
 
   @override
-  InvalidPhoneNum<T> get _value => super._value as InvalidPhoneNum<T>;
+  _$InvalidPhoneNum<T> get _value => super._value as _$InvalidPhoneNum<T>;
 
   @override
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(InvalidPhoneNum<T>(
+    return _then(_$InvalidPhoneNum<T>(
       failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -1135,7 +1117,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is InvalidPhoneNum<T> &&
+            other is _$InvalidPhoneNum<T> &&
             const DeepCollectionEquality()
                 .equals(other.failedValue, failedValue));
   }
@@ -1146,8 +1128,9 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
 
   @JsonKey(ignore: true)
   @override
-  $InvalidPhoneNumCopyWith<T, InvalidPhoneNum<T>> get copyWith =>
-      _$InvalidPhoneNumCopyWithImpl<T, InvalidPhoneNum<T>>(this, _$identity);
+  _$$InvalidPhoneNumCopyWith<T, _$InvalidPhoneNum<T>> get copyWith =>
+      __$$InvalidPhoneNumCopyWithImpl<T, _$InvalidPhoneNum<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1160,6 +1143,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
     required TResult Function(T failedValue) wrongPasswordConfirm,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return invalidPhoneNum(failedValue);
   }
@@ -1175,6 +1159,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
   }) {
     return invalidPhoneNum?.call(failedValue);
   }
@@ -1190,6 +1175,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidPhoneNum != null) {
@@ -1211,6 +1197,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
     required TResult Function(WrongPasswordConfirm<T> value)
         wrongPasswordConfirm,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
   }) {
     return invalidPhoneNum(this);
   }
@@ -1226,6 +1213,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
   }) {
     return invalidPhoneNum?.call(this);
   }
@@ -1241,6 +1229,7 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidPhoneNum != null) {
@@ -1251,43 +1240,43 @@ class _$InvalidPhoneNum<T> implements InvalidPhoneNum<T> {
 }
 
 abstract class InvalidPhoneNum<T> implements ValueFailure<T> {
-  const factory InvalidPhoneNum({required T failedValue}) =
+  const factory InvalidPhoneNum({required final T failedValue}) =
       _$InvalidPhoneNum<T>;
 
   @override
   T get failedValue;
   @override
   @JsonKey(ignore: true)
-  $InvalidPhoneNumCopyWith<T, InvalidPhoneNum<T>> get copyWith =>
+  _$$InvalidPhoneNumCopyWith<T, _$InvalidPhoneNum<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $InvalidPhoneNumberCopyWith<T, $Res>
+abstract class _$$InvalidPhoneNumberCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory $InvalidPhoneNumberCopyWith(InvalidPhoneNumber<T> value,
-          $Res Function(InvalidPhoneNumber<T>) then) =
-      _$InvalidPhoneNumberCopyWithImpl<T, $Res>;
+  factory _$$InvalidPhoneNumberCopyWith(_$InvalidPhoneNumber<T> value,
+          $Res Function(_$InvalidPhoneNumber<T>) then) =
+      __$$InvalidPhoneNumberCopyWithImpl<T, $Res>;
   @override
   $Res call({T failedValue});
 }
 
 /// @nodoc
-class _$InvalidPhoneNumberCopyWithImpl<T, $Res>
+class __$$InvalidPhoneNumberCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $InvalidPhoneNumberCopyWith<T, $Res> {
-  _$InvalidPhoneNumberCopyWithImpl(
-      InvalidPhoneNumber<T> _value, $Res Function(InvalidPhoneNumber<T>) _then)
-      : super(_value, (v) => _then(v as InvalidPhoneNumber<T>));
+    implements _$$InvalidPhoneNumberCopyWith<T, $Res> {
+  __$$InvalidPhoneNumberCopyWithImpl(_$InvalidPhoneNumber<T> _value,
+      $Res Function(_$InvalidPhoneNumber<T>) _then)
+      : super(_value, (v) => _then(v as _$InvalidPhoneNumber<T>));
 
   @override
-  InvalidPhoneNumber<T> get _value => super._value as InvalidPhoneNumber<T>;
+  _$InvalidPhoneNumber<T> get _value => super._value as _$InvalidPhoneNumber<T>;
 
   @override
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(InvalidPhoneNumber<T>(
+    return _then(_$InvalidPhoneNumber<T>(
       failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -1313,7 +1302,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is InvalidPhoneNumber<T> &&
+            other is _$InvalidPhoneNumber<T> &&
             const DeepCollectionEquality()
                 .equals(other.failedValue, failedValue));
   }
@@ -1324,8 +1313,8 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
 
   @JsonKey(ignore: true)
   @override
-  $InvalidPhoneNumberCopyWith<T, InvalidPhoneNumber<T>> get copyWith =>
-      _$InvalidPhoneNumberCopyWithImpl<T, InvalidPhoneNumber<T>>(
+  _$$InvalidPhoneNumberCopyWith<T, _$InvalidPhoneNumber<T>> get copyWith =>
+      __$$InvalidPhoneNumberCopyWithImpl<T, _$InvalidPhoneNumber<T>>(
           this, _$identity);
 
   @override
@@ -1339,6 +1328,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
     required TResult Function(T failedValue) wrongPasswordConfirm,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return invalidUserName(failedValue);
   }
@@ -1354,6 +1344,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
   }) {
     return invalidUserName?.call(failedValue);
   }
@@ -1369,6 +1360,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidUserName != null) {
@@ -1390,6 +1382,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
     required TResult Function(WrongPasswordConfirm<T> value)
         wrongPasswordConfirm,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
   }) {
     return invalidUserName(this);
   }
@@ -1405,6 +1398,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
   }) {
     return invalidUserName?.call(this);
   }
@@ -1420,6 +1414,7 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidUserName != null) {
@@ -1430,43 +1425,44 @@ class _$InvalidPhoneNumber<T> implements InvalidPhoneNumber<T> {
 }
 
 abstract class InvalidPhoneNumber<T> implements ValueFailure<T> {
-  const factory InvalidPhoneNumber({required T failedValue}) =
+  const factory InvalidPhoneNumber({required final T failedValue}) =
       _$InvalidPhoneNumber<T>;
 
   @override
   T get failedValue;
   @override
   @JsonKey(ignore: true)
-  $InvalidPhoneNumberCopyWith<T, InvalidPhoneNumber<T>> get copyWith =>
+  _$$InvalidPhoneNumberCopyWith<T, _$InvalidPhoneNumber<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WrongPasswordConfirmCopyWith<T, $Res>
+abstract class _$$WrongPasswordConfirmCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory $WrongPasswordConfirmCopyWith(WrongPasswordConfirm<T> value,
-          $Res Function(WrongPasswordConfirm<T>) then) =
-      _$WrongPasswordConfirmCopyWithImpl<T, $Res>;
+  factory _$$WrongPasswordConfirmCopyWith(_$WrongPasswordConfirm<T> value,
+          $Res Function(_$WrongPasswordConfirm<T>) then) =
+      __$$WrongPasswordConfirmCopyWithImpl<T, $Res>;
   @override
   $Res call({T failedValue});
 }
 
 /// @nodoc
-class _$WrongPasswordConfirmCopyWithImpl<T, $Res>
+class __$$WrongPasswordConfirmCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $WrongPasswordConfirmCopyWith<T, $Res> {
-  _$WrongPasswordConfirmCopyWithImpl(WrongPasswordConfirm<T> _value,
-      $Res Function(WrongPasswordConfirm<T>) _then)
-      : super(_value, (v) => _then(v as WrongPasswordConfirm<T>));
+    implements _$$WrongPasswordConfirmCopyWith<T, $Res> {
+  __$$WrongPasswordConfirmCopyWithImpl(_$WrongPasswordConfirm<T> _value,
+      $Res Function(_$WrongPasswordConfirm<T>) _then)
+      : super(_value, (v) => _then(v as _$WrongPasswordConfirm<T>));
 
   @override
-  WrongPasswordConfirm<T> get _value => super._value as WrongPasswordConfirm<T>;
+  _$WrongPasswordConfirm<T> get _value =>
+      super._value as _$WrongPasswordConfirm<T>;
 
   @override
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(WrongPasswordConfirm<T>(
+    return _then(_$WrongPasswordConfirm<T>(
       failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -1492,7 +1488,7 @@ class _$WrongPasswordConfirm<T> implements WrongPasswordConfirm<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is WrongPasswordConfirm<T> &&
+            other is _$WrongPasswordConfirm<T> &&
             const DeepCollectionEquality()
                 .equals(other.failedValue, failedValue));
   }
@@ -1503,8 +1499,8 @@ class _$WrongPasswordConfirm<T> implements WrongPasswordConfirm<T> {
 
   @JsonKey(ignore: true)
   @override
-  $WrongPasswordConfirmCopyWith<T, WrongPasswordConfirm<T>> get copyWith =>
-      _$WrongPasswordConfirmCopyWithImpl<T, WrongPasswordConfirm<T>>(
+  _$$WrongPasswordConfirmCopyWith<T, _$WrongPasswordConfirm<T>> get copyWith =>
+      __$$WrongPasswordConfirmCopyWithImpl<T, _$WrongPasswordConfirm<T>>(
           this, _$identity);
 
   @override
@@ -1518,6 +1514,7 @@ class _$WrongPasswordConfirm<T> implements WrongPasswordConfirm<T> {
     required TResult Function(T failedValue) invalidPhoneNum,
     required TResult Function(T failedValue) invalidUserName,
     required TResult Function(T failedValue) wrongPasswordConfirm,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return wrongPasswordConfirm(failedValue);
   }
@@ -1533,6 +1530,7 @@ class _$WrongPasswordConfirm<T> implements WrongPasswordConfirm<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
   }) {
     return wrongPasswordConfirm?.call(failedValue);
   }
@@ -1548,6 +1546,7 @@ class _$WrongPasswordConfirm<T> implements WrongPasswordConfirm<T> {
     TResult Function(T failedValue)? invalidPhoneNum,
     TResult Function(T failedValue)? invalidUserName,
     TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (wrongPasswordConfirm != null) {
@@ -1569,6 +1568,7 @@ class _$WrongPasswordConfirm<T> implements WrongPasswordConfirm<T> {
     required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
     required TResult Function(WrongPasswordConfirm<T> value)
         wrongPasswordConfirm,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
   }) {
     return wrongPasswordConfirm(this);
   }
@@ -1584,6 +1584,7 @@ class _$WrongPasswordConfirm<T> implements WrongPasswordConfirm<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
   }) {
     return wrongPasswordConfirm?.call(this);
   }
@@ -1599,6 +1600,7 @@ class _$WrongPasswordConfirm<T> implements WrongPasswordConfirm<T> {
     TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
     TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
     TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (wrongPasswordConfirm != null) {
@@ -1609,13 +1611,196 @@ class _$WrongPasswordConfirm<T> implements WrongPasswordConfirm<T> {
 }
 
 abstract class WrongPasswordConfirm<T> implements ValueFailure<T> {
-  const factory WrongPasswordConfirm({required T failedValue}) =
+  const factory WrongPasswordConfirm({required final T failedValue}) =
       _$WrongPasswordConfirm<T>;
 
   @override
   T get failedValue;
   @override
   @JsonKey(ignore: true)
-  $WrongPasswordConfirmCopyWith<T, WrongPasswordConfirm<T>> get copyWith =>
+  _$$WrongPasswordConfirmCopyWith<T, _$WrongPasswordConfirm<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InvalidUrlCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$InvalidUrlCopyWith(
+          _$InvalidUrl<T> value, $Res Function(_$InvalidUrl<T>) then) =
+      __$$InvalidUrlCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$InvalidUrlCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$$InvalidUrlCopyWith<T, $Res> {
+  __$$InvalidUrlCopyWithImpl(
+      _$InvalidUrl<T> _value, $Res Function(_$InvalidUrl<T>) _then)
+      : super(_value, (v) => _then(v as _$InvalidUrl<T>));
+
+  @override
+  _$InvalidUrl<T> get _value => super._value as _$InvalidUrl<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$InvalidUrl<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidUrl<T> implements InvalidUrl<T> {
+  const _$InvalidUrl({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidUrl(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidUrl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$InvalidUrlCopyWith<T, _$InvalidUrl<T>> get copyWith =>
+      __$$InvalidUrlCopyWithImpl<T, _$InvalidUrl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidEmailAuthCode,
+    required TResult Function(T failedValue) invalidPhoneNum,
+    required TResult Function(T failedValue) invalidUserName,
+    required TResult Function(T failedValue) wrongPasswordConfirm,
+    required TResult Function(T failedValue) invalidUrl,
+  }) {
+    return invalidUrl(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidEmailAuthCode,
+    TResult Function(T failedValue)? invalidPhoneNum,
+    TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
+  }) {
+    return invalidUrl?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidEmailAuthCode,
+    TResult Function(T failedValue)? invalidPhoneNum,
+    TResult Function(T failedValue)? invalidUserName,
+    TResult Function(T failedValue)? wrongPasswordConfirm,
+    TResult Function(T failedValue)? invalidUrl,
+    required TResult orElse(),
+  }) {
+    if (invalidUrl != null) {
+      return invalidUrl(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidEmailAuthCode<T> value)
+        invalidEmailAuthCode,
+    required TResult Function(InvalidPhoneNum<T> value) invalidPhoneNum,
+    required TResult Function(InvalidPhoneNumber<T> value) invalidUserName,
+    required TResult Function(WrongPasswordConfirm<T> value)
+        wrongPasswordConfirm,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
+  }) {
+    return invalidUrl(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
+    TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
+    TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
+  }) {
+    return invalidUrl?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidEmailAuthCode<T> value)? invalidEmailAuthCode,
+    TResult Function(InvalidPhoneNum<T> value)? invalidPhoneNum,
+    TResult Function(InvalidPhoneNumber<T> value)? invalidUserName,
+    TResult Function(WrongPasswordConfirm<T> value)? wrongPasswordConfirm,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
+    required TResult orElse(),
+  }) {
+    if (invalidUrl != null) {
+      return invalidUrl(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidUrl<T> implements ValueFailure<T> {
+  const factory InvalidUrl({required final T failedValue}) = _$InvalidUrl<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$InvalidUrlCopyWith<T, _$InvalidUrl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

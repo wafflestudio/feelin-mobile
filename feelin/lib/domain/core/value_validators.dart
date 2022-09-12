@@ -81,3 +81,20 @@ Either<ValueFailure<String>, String> confirmPassword(String input, String input2
     return left(ValueFailure.wrongPasswordConfirm(failedValue: input));
   }
 }
+
+Either<ValueFailure<String>, String> validateUrl(String input) {
+  const urlRegex = r'(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+';
+  if (RegExp(urlRegex).hasMatch(input)) {
+    return right(input);
+  } else {
+    return left(ValueFailure.invalidUrl(failedValue: input));
+  }
+}
+
+Either<ValueFailure<String>, String> validateContent(String input) {
+  if (input.length <= 100) {
+    return right(input);
+  } else {
+    return left(ValueFailure.exceedingLength(failedValue: input, max: 100));
+  }
+}

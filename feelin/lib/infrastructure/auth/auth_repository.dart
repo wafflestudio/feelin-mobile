@@ -59,14 +59,13 @@ class AuthRepository implements IAuthRepository {
   Future<Either<AuthFailure, Token>> signIn(
       {required Account account, required Password password}) async {
     try{
-      HttpResponse<Token> httpResponse = await AuthClient(Dio()).signIn(SignInRequest(account: account.getOrCrash(), password: password.getOrCrash()));
+      HttpResponse<Token> httpResponse = await authClient.signIn(SignInRequest(account: account.getOrCrash(), password: password.getOrCrash()));
       if(httpResponse.response.statusCode == 200){
         return Right(httpResponse.data);
       }else{
         return const Left(AuthFailure.invalidEmailAndPasswordCombination());
       }
     } on DioError catch(e){
-      print('http error: ${e.toString()}');
       if(e.response?.statusCode == 401){
         return const Left(AuthFailure.invalidEmailAndPasswordCombination());
       }

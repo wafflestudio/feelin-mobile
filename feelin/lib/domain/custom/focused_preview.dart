@@ -44,7 +44,7 @@ class FocusedPreView extends StatefulWidget {
       : super(key: key);
 
   @override
-  _FocusedPreviewState createState() => _FocusedPreviewState();
+  State<FocusedPreView> createState() => _FocusedPreviewState();
 }
 
 class _FocusedPreviewState extends State<FocusedPreView> {
@@ -251,7 +251,7 @@ class FocusedMenuDetails extends StatelessWidget {
                                               itemCount: item.artists.length,
                                               itemBuilder: (context, index){
                                                 return Text(
-                                                  item.artists[index],
+                                                  item.artists[index].name,
                                                   textAlign: TextAlign.center,
                                                   style: const TextStyle(
                                                      color: Color(0xff7077D5),
