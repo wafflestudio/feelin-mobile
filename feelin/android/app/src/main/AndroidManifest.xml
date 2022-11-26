@@ -1,5 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wafflestudio.music_sns">
+<!--    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />-->
+    <queries>
+        <package android:name="skplanet.musicmate" />
+        <package android:name="com.spotify.music" />
+        <package android:name="com.naver.vibe" />
+        <package android:name="com.google.android.apps.youtube.music" />
+        <package android:name="com.iloen.melon" />
+        <package android:name="com.ktmusic.geniemusic" />
+        <package android:name="com.neowiz.android.bugs" />
+        <package android:name="com.apple.android.music" />
+    </queries>
    <application
         android:label="music_sns"
         android:name="${applicationName}"
@@ -24,6 +35,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.

@@ -5,7 +5,7 @@ class SignInFormState with _$SignInFormState {
   const factory SignInFormState({
     required Account account,
     required Password password,
-    required Option<Either<AuthFailure, Token>> authFailureOrSuccessOption,
+    required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
     required bool isSubmitting,
   }) = _SignInFormState;
   factory SignInFormState.initial() => SignInFormState(

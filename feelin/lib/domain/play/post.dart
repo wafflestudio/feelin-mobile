@@ -1,18 +1,22 @@
+import 'dart:convert';
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:music_sns/domain/play/playlist.dart';
+
+import '../profile/profile.dart';
 
 part 'post.g.dart';
 
 @JsonSerializable()
 class Post{
   @JsonKey(name:"id")
-  String id;
+  int id;
 
-  @JsonKey(name:"writer")
-  String writer;
+  @JsonKey(name:"user")
+  Profile? writer;
 
-  @JsonKey(name:"profile")
-  String profile;
+  @JsonKey(name:"title")
+  String title;
 
   @JsonKey(name:"content")
   String content;
@@ -22,8 +26,8 @@ class Post{
 
   Post({
     required this.id,
-    required this.writer,
-    required this.profile,
+    this.writer,
+    required this.title,
     required this.content,
     required this.playlist,
   });
@@ -31,4 +35,9 @@ class Post{
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 
   Map<String, dynamic> toJson() => _$PostToJson(this);
+
+  Post clone(){
+    final jsonResponse = json.decode(json.encode(this));
+        return Post.fromJson(jsonResponse as Map<String, dynamic>);
+  }
 }

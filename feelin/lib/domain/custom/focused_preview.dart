@@ -158,7 +158,7 @@ class FocusedMenuDetails extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     final maxMenuHeight = size.height * 0.7;
-    final listHeight = 28 + post.playlist.tracks.length * (itemExtent ?? 53.0);
+    final listHeight = 28 + post.playlist.tracks!.length * (itemExtent ?? 53.0);
 
     final maxMenuWidth = menuWidth??(size.width * 0.50);
     final menuHeight = 100.0;
@@ -206,11 +206,11 @@ class FocusedMenuDetails extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                   child: ListView.builder(
-                    itemCount: post.playlist.tracks.length,
+                    itemCount: post.playlist.tracks!.length,
                     padding: EdgeInsets.zero,
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
-                      Track item = post.playlist.tracks[index];
+                      Track item = post.playlist.tracks![index];
                       Widget listItem = GestureDetector(
                           behavior: HitTestBehavior.translucent,
                           onTap:

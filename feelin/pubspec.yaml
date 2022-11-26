@@ -26,7 +26,19 @@ dependencies:
   freezed_annotation: ^2.1.0
   bloc: ^8.1.0
   cached_network_image: ^3.2.1
-  flutter_inappwebview: ^5.4.3+7
+  rxdart: ^0.27.5
+  external_app_launcher: ^3.1.0
+  firebase_core: ^2.1.1
+  hexcolor:
+
+  # share
+  share_plus: ^6.3.0
+  firebase_dynamic_links: ^5.0.6
+
+  #sign up
+  pin_code_fields: ^7.4.0
+  intl_phone_number_input: ^0.7.1
+  email_validator: ^2.1.17
 
 
 dev_dependencies:

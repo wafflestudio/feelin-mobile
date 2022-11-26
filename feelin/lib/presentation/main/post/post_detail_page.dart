@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/navigation/nav_bar_item.dart';
@@ -28,7 +30,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
   void initState(){
     super.initState();
     context.read<PostDetailFormBloc>().add(PostDetailFormEvent.titleChanged(widget.playlist.title));
-    context.read<PostDetailFormBloc>().add(PostDetailFormEvent.playlistPreviewChanged(widget.playlist.playlistPreview));
+    context.read<PostDetailFormBloc>().add(PostDetailFormEvent.playlistPreviewChanged(widget.playlist.playlistPreview!));
     _titleTextController.text = widget.playlist.title;
   }
 
@@ -36,7 +38,6 @@ class _PostDetailPageState extends State<PostDetailPage> {
   Widget build(BuildContext context) {
     MediaQueryData deviceData = MediaQuery.of(context);
     Size screenSize = deviceData.size;
-    //_titleTextController.text = context.read<PostDetailFormBloc>().state.title.value.fold((f) => widget.playlist.title, (title) => title);
 
     return Scaffold(
       extendBody: true,
@@ -55,7 +56,6 @@ class _PostDetailPageState extends State<PostDetailPage> {
         actions: [
           IconButton(
             onPressed: () {
-              //TODO: implement the post button.
               context.read<PostDetailFormBloc>().add(const PostDetailFormEvent.submitted());
             },
             color: const Color(0xff7077D5),
@@ -72,7 +72,6 @@ class _PostDetailPageState extends State<PostDetailPage> {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            //TODO: implement the post button.
             context.read<PostDetailFormBloc>().add(const PostDetailFormEvent.submitted());
           },
           backgroundColor: const Color(0xff7077D5),
@@ -118,7 +117,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                 (_) => {
                 //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.playlist.tracks[0].id.toString()))),
               Navigator.push(context,
-                MaterialPageRoute(
+                CupertinoPageRoute(
                   builder: (context){
                     BlocProvider.of<NavigationCubit>(context)
                         .getNavBarItem(NavbarItem.profile);
@@ -143,7 +142,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image(
-                    image: NetworkImage(widget.playlist.tracks[0].album.thumbnail),
+                    image: CachedNetworkImageProvider(widget.playlist.tracks![0].album.thumbnail),
                     width: 130,
                     height: 130,
                     fit: BoxFit.cover,
@@ -241,12 +240,12 @@ class _PostDetailPageState extends State<PostDetailPage> {
                           if (oldIndex < newIndex) {
                             newIndex -= 1;
                           }
-                          final Track item = widget.playlist.tracks.removeAt(oldIndex);
-                          widget.playlist.tracks.insert(newIndex, item);
+                          final Track item = widget.playlist.tracks!.removeAt(oldIndex);
+                          widget.playlist.tracks!.insert(newIndex, item);
                           }
                         );
                       },
-                      itemCount: widget.playlist.tracks.length,
+                      itemCount: widget.playlist.tracks!.length,
                       itemBuilder: (context, index) {
                         return Container(
                           key: ValueKey(index),
@@ -254,8 +253,8 @@ class _PostDetailPageState extends State<PostDetailPage> {
                           child: Row(
                             children: [
                               Image(
-                                image: NetworkImage(
-                                    widget.playlist.tracks[index].album.thumbnail),
+                                image: CachedNetworkImageProvider(
+                                    widget.playlist.tracks![index].album.thumbnail),
                                 fit: BoxFit.cover,
                                 width: 45,
                                 height: 45,),
@@ -292,7 +291,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Text(widget.playlist.tracks[index].title,
+            child: Text(widget.playlist.tracks![index].title,
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
               ),
@@ -305,10 +304,10 @@ class _PostDetailPageState extends State<PostDetailPage> {
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: widget.playlist.tracks[index].artists.length,
+                itemCount: widget.playlist.tracks![index].artists.length,
                 itemBuilder: (context, index2){
                   return Text(
-                    widget.playlist.tracks[index].artists[index2].name,
+                    widget.playlist.tracks![index].artists[index2].name,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                         color: Color(0xff7077D5),

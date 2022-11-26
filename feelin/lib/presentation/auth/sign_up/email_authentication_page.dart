@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/auth/sign_up/email_auth_form/email_auth_form_bloc.dart';
@@ -54,8 +55,11 @@ class _EmailAuthenticationPageState extends State<EmailAuthenticationPage>{
               (failureOrSuccess) => failureOrSuccess.fold(
                   (f) => _showSnackBar(context, f.toString()), // 인증 실패
                   (_) => {
-                Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return SignUpPage(emailAddress: state.emailAddress,);
+                Navigator.push(context, CupertinoPageRoute(
+                    builder: (context){
+                  return BlocProvider(
+                      create: (context) => getIt<SignUpFormBloc>(),
+                      child: SignUpPage(emailAddress: state.emailAddress,));
                 })), // 인증 성공
               }
 
@@ -185,10 +189,6 @@ class _EmailAuthenticationPageState extends State<EmailAuthenticationPage>{
                   }
                 }
                     : null,
-                child: const Text(
-                  '인증하기',
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
-                ),
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all(
                       const ContinuousRectangleBorder()),
@@ -205,6 +205,10 @@ class _EmailAuthenticationPageState extends State<EmailAuthenticationPage>{
                     },
                   ),
                   foregroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+                child: const Text(
+                  '인증하기',
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
                 ),
               ),
             ),
@@ -256,10 +260,6 @@ class _EmailAuthenticationPageState extends State<EmailAuthenticationPage>{
                   }
                 }
                     : null,
-                child: const Text(
-                  '인증 요청',
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
-                ),
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all(
                       const ContinuousRectangleBorder()),
@@ -276,6 +276,10 @@ class _EmailAuthenticationPageState extends State<EmailAuthenticationPage>{
                     },
                   ),
                   foregroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+                child: const Text(
+                  '인증 요청',
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
                 ),
               ),
             ),

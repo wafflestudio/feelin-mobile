@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -9,7 +10,17 @@ import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
 import 'package:music_sns/presentation/main/profile/profile_page.dart';
 import 'package:music_sns/presentation/main/root_page.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Use platform channels to call native code to initialize Firebase.
+  // Thus, 'async' main() and placed next to ensureInitialized()
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
   configureInjection(Environment.prod);
 }
@@ -28,7 +39,7 @@ class MyApp extends StatelessWidget {
           primaryColor: const Color.fromARGB(1, 193, 156, 1),
           fontFamily: 'SpoqaHanSansNeo',
         ),
-        home: SignInPage(),
+        home: const SignInPage(),
       ),
     );
   }

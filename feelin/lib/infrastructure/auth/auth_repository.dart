@@ -1,9 +1,11 @@
-import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/auth/auth_failure.dart';
+import 'package:music_sns/domain/auth/check_username_request.dart';
+import 'package:music_sns/domain/auth/exists_username.dart';
 import 'package:music_sns/domain/auth/i_auth_repository.dart';
 import 'package:music_sns/domain/auth/sign_in_request.dart';
 import 'package:music_sns/domain/auth/sign_up_request.dart';
@@ -19,6 +21,7 @@ import 'package:retrofit/dio.dart';
 class AuthRepository implements IAuthRepository {
   static final AuthRepository _singletonAuthRepository = AuthRepository._internal();
   final authClient = AuthClient(Dio());
+  final storage = const FlutterSecureStorage();
 
   factory AuthRepository() {
     return _singletonAuthRepository;
@@ -33,35 +36,17 @@ class AuthRepository implements IAuthRepository {
     throw UnimplementedError();
   }
 
-  @override
-  Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {required EmailAddress emailAddress, required Password password}) {
-    // TODO: implement registerWithEmailAndPassword
-
-    throw UnimplementedError();
-  }
-
-  Future<Either<AuthFailure, String>> test() async{
-    try{
-      HttpResponse<String> httpResponse = await AuthClient(Dio()).test();
-      if(httpResponse.response.statusCode == 200){
-        return Right(httpResponse.data);
-      }else{
-        return const Left(AuthFailure.serverError());
-      }
-    }on DioError catch(e){
-      log("message"+e.toString());
-      return const Left(AuthFailure.serverError());
-    }
-  }
 
   @override
-  Future<Either<AuthFailure, Token>> signIn(
+  Future<Either<AuthFailure, Unit>> signIn(
       {required Account account, required Password password}) async {
     try{
-      HttpResponse<Token> httpResponse = await authClient.signIn(SignInRequest(account: account.getOrCrash(), password: password.getOrCrash()));
+      HttpResponse<User> httpResponse = await authClient.signIn(SignInRequest(account: account.getOrCrash(), password: password.getOrCrash()));
       if(httpResponse.response.statusCode == 200){
-        return Right(httpResponse.data);
+        storage.write(key: 'token', value: httpResponse.response.headers['Access-Token']![0]);
+        storage.write(key: 'refresh', value: httpResponse.response.headers['Refresh-Token']![0]);
+        storage.write(key: 'id', value: httpResponse.data.id.toString());
+        return const Right(unit);
       }else{
         return const Left(AuthFailure.invalidEmailAndPasswordCombination());
       }
@@ -71,22 +56,51 @@ class AuthRepository implements IAuthRepository {
       }
       return const Left(AuthFailure.serverError());
     }
-   }
+  }
 
   @override
-  Future<Either<AuthFailure, Token>> signUpWithEmail({required EmailAddress emailAddress, required Password password,
-    required NotEmptyString lastName, required NotEmptyString firstName, required UserName username, required PhoneNumber phoneNumber}) async{
+  Future<Either<AuthFailure, bool>> checkUsername({required Username username,}) async {
     try{
-      HttpResponse<Token> httpResponse = await authClient.signUp(
-          SignUpRequest(email: emailAddress.getOrCrash(), password: password.getOrCrash(),
-              lastName: lastName.getOrCrash(), firstName: firstName.getOrCrash(), username: username.getOrCrash(), phoneNumber: phoneNumber.getOrCrash()));
+      HttpResponse<ExistsUsername> httpResponse = await authClient.checkUsername(CheckUsernameRequest(username: username.getOrCrash()));
       if(httpResponse.response.statusCode == 200){
-        return Right(httpResponse.data);
+        return Right(httpResponse.data.existsUsername);
       }else{
-        return const Left(AuthFailure.emailAlreadyInUse());
+        return const Left(AuthFailure.serverError());
       }
-    }catch(e){
-      throw UnimplementedError();
+    } on DioError catch(e){
+      return const Left(AuthFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> signUpWithEmail({required EmailAddress emailAddress, required Password password,
+    required NotEmptyString lastName, required NotEmptyString firstName, required Username username, required PhoneNumber phoneNumber, required NotEmptyString birthday}) async{
+    try{
+      HttpResponse<User> httpResponse = await authClient.signUp(
+          SignUpRequest(email: emailAddress.getOrCrash(), password: password.getOrCrash(),
+              lastName: lastName.getOrCrash(), firstName: firstName.getOrCrash(), username: username.getOrCrash(), phoneNumber: phoneNumber.getOrCrash(), birthday: birthday.getOrCrash()));
+      switch(httpResponse.response.statusCode){
+        case 201 : {
+          storage.write(key: 'token', value: httpResponse.response.headers['Access-Token']![0]);
+          storage.write(key: 'refresh', value: httpResponse.response.headers['Refresh-Token']![0]);
+          storage.write(key: 'id', value: httpResponse.data.id.toString());
+          return const Right(unit);
+        }
+        case 400 : return const Left(AuthFailure.invalidBirthdayForm());
+        case 403 : return const Left(AuthFailure.unauthorizedEmail());
+        case 404 : return const Left(AuthFailure.tokenNotFound());
+        case 409 : return const Left(AuthFailure.usernameAlreadyInUse());
+        default : return const Left(AuthFailure.serverError());
+      }
+    }on DioError catch(e){
+      print(e);
+      switch(e.response?.statusCode){
+        case 400 : return const Left(AuthFailure.invalidBirthdayForm());
+        case 403 : return const Left(AuthFailure.unauthorizedEmail());
+        case 404 : return const Left(AuthFailure.tokenNotFound());
+        case 409 : return const Left(AuthFailure.usernameAlreadyInUse());
+        default : return const Left(AuthFailure.serverError());
+      }
     }
   }
 
@@ -114,7 +128,8 @@ class AuthRepository implements IAuthRepository {
         return const Left(AuthFailure.invalidAuthCode());
       }
     }catch(e){
-      throw UnimplementedError();
+      print(e);
+      return const Left(AuthFailure.invalidAuthCode());
     }
   }
 
@@ -128,7 +143,6 @@ class AuthRepository implements IAuthRepository {
         return const Left(AuthFailure.invalidAuthCode());
       }
     } on DioError catch(e){
-        print('http error: ${e.response?.statusCode}');
         return const Left(AuthFailure.serverError());
     }
   }

@@ -1,11 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
-import 'package:music_sns/domain/auth/token.dart';
 import 'package:music_sns/domain/auth/value_objects.dart';
 import 'package:music_sns/injection.dart';
-import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
 import 'package:music_sns/presentation/main/profile/profile_page.dart';
 
 class SignUpPage extends StatefulWidget{
@@ -25,8 +24,14 @@ class _SignUpPageState extends State<SignUpPage>{
   final TextEditingController _firstNameTextController = TextEditingController();
   final TextEditingController _userNameTextController = TextEditingController();
   final TextEditingController _phoneNumberTextController = TextEditingController();
+  final TextEditingController _birthdayTextController = TextEditingController();
   final storage = const FlutterSecureStorage();
 
+  @override
+  void initState(){
+    super.initState();
+    context.read<SignUpFormBloc>().add(SignUpFormEvent.emailAddressChanged(widget.emailAddress.getOrCrash()));
+  }
 
   @override
   void dispose(){
@@ -36,6 +41,7 @@ class _SignUpPageState extends State<SignUpPage>{
     _firstNameTextController.dispose();
     _userNameTextController.dispose();
     _phoneNumberTextController.dispose();
+    _birthdayTextController.dispose();
     super.dispose();
   }
 
@@ -50,10 +56,7 @@ class _SignUpPageState extends State<SignUpPage>{
       },
       child: Scaffold(
         body: SingleChildScrollView(
-          child: BlocProvider(
-            create: (context) => getIt<SignUpFormBloc>(),
-            child: _signUpForm(screenSize),
-          ),
+          child: _signUpForm(screenSize),
         ),
       ),
     );
@@ -67,10 +70,9 @@ class _SignUpPageState extends State<SignUpPage>{
                 (failureOrSuccess) => failureOrSuccess.fold(
                         (f) => _showSnackBar(context, f.toString()),
                         (_) => {
-                          storage.write(key: "token", value: (_ as Token).token),
-                          Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return ProfilePage();
-                          })),
+                          Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context){
+                            return const ProfilePage();
+                          }),(route) => false),
                         }
             ),
           );
@@ -133,6 +135,20 @@ class _SignUpPageState extends State<SignUpPage>{
                     vertical: 4,
                   ),
                   child: _phoneNumberField(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 4,
+                  ),
+                  child: _birthdayField(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 4,
+                  ),
+                  child: _signUpButton(size),
                 ),
               ],
             ),
@@ -282,26 +298,29 @@ class _SignUpPageState extends State<SignUpPage>{
         builder: (context, state) {
           return TextFormField(
             controller: _userNameTextController,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: '사용자 이름',
               isDense: true,
-              focusedBorder: UnderlineInputBorder(
+              focusedBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(
                   color: Color(0xff7DD8C6),
                 ),
               ),
+              suffixIcon: (state.canUseName) ? const Icon(Icons.check_circle, color: Colors.green,) : const SizedBox.shrink(),
             ),
             validator: (_) =>
-                context.read<SignUpFormBloc>().state.userName.value.fold(
+                context.read<SignUpFormBloc>().state.username.value.fold(
                       (f) => f.maybeMap(
                     invalidUserName: (_) => '사용자 이름을 입력해주세요',
                     orElse: () => null,
                   ),
                       (_) => null,
                 ),
-            onChanged: (value) => context
-                .read<SignUpFormBloc>()
-                .add(SignUpFormEvent.userNameChanged(value)),
+            onChanged: (value) {
+              context.read<SignUpFormBloc>().add(SignUpFormEvent.usernameChanged(value));
+              context.read<SignUpFormBloc>().add(const SignUpFormEvent.resetCanUseName());
+            }
+            ,
           );
         });
   }
@@ -330,9 +349,136 @@ class _SignUpPageState extends State<SignUpPage>{
                 ),
             onChanged: (value) => context
                 .read<SignUpFormBloc>()
-                .add(SignUpFormEvent.userNameChanged(value)),
+                .add(SignUpFormEvent.phoneNumberChanged(value)),
           );
         });
+  }
+
+  Widget _birthdayField() {
+    return BlocBuilder<SignUpFormBloc, SignUpFormState>(
+        builder: (context, state) {
+          return TextFormField(
+            controller: _birthdayTextController,
+            decoration: const InputDecoration(
+              hintText: '생일',
+              isDense: true,
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xff7DD8C6),
+                ),
+              ),
+            ),
+            validator: (_) =>
+                context.read<SignUpFormBloc>().state.birthday.value.fold(
+                      (f) => f.maybeMap(
+                    invalidPhoneNum: (_) => '생일 입력해주세요',
+                    orElse: () => null,
+                  ),
+                      (_) => null,
+                ),
+            onChanged: (value) => context
+                .read<SignUpFormBloc>()
+                .add(SignUpFormEvent.birthdayChanged(value)),
+          );
+        });
+  }
+
+  Widget _signUpButton(Size size) {
+    return BlocBuilder<SignUpFormBloc, SignUpFormState>(
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: double.infinity,
+              height: 38,
+              child: ElevatedButton(
+                onPressed: (!state.isSubmitting && state.emailAddress.isValid()
+                    && state.password.isValid() && state.passwordConfirm.isValid() &&
+                    state.password.getOrCrash() == state.passwordConfirm.getOrCrash()
+                    && state.firstName.isValid() && state.lastName.isValid() &&
+                    state.username.isValid() && state.phoneNumber.isValid() &&
+                    state.birthday.isValid() && state.canUseName)
+                    ? () {
+                  if (_formKey.currentState!.validate()) {
+                    context
+                        .read<SignUpFormBloc>()
+                        .add(const SignUpFormEvent.submitted());
+                  }
+                }
+                    : null,
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all(
+                      const ContinuousRectangleBorder()),
+                  elevation: MaterialStateProperty.resolveWith((states) => 0.0),
+                  backgroundColor: MaterialStateProperty.resolveWith(
+                        (states) {
+                      if (states.contains(MaterialState.disabled)) {
+                        return const Color(0xff7DD8C6);
+                      }
+                      if (states.contains(MaterialState.pressed)) {
+                        return const Color(0xff008E73);
+                      }
+                      return const Color(0xff00C19C);
+                    },
+                  ),
+                  foregroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+                child: const Text(
+                  '가입하기',
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10.0),
+            state.authFailureOrSuccessOption.fold(
+                    () => const Offstage(),
+                    (failureOrSuccess) => failureOrSuccess.fold(
+                        (f) => f.maybeMap(
+                      usernameAlreadyInUse: (_) =>
+                      const Text(
+                        '! 입력하신 사용자 이름 혹은 전화번호가 이미 사용 중입니다.',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xff00C19C),
+                        ),
+                      ),
+                          invalidBirthdayForm: (_) =>
+                          const Text(
+                            '! 입력하신 생일의 양식이 잘못되었습니다. 다시 입력해주세요.',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xff00C19C),
+                            ),
+                          ),
+                          unauthorizedEmail: (_) =>
+                          const Text(
+                            '! 인증되지 않은 이메일입니다.',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xff00C19C),
+                            ),
+                          ),
+                          tokenNotFound: (_) =>
+                          const Text(
+                            '! 인증 토큰을 찾을 수 없습니다.',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xff00C19C),
+                            ),
+                          ),
+                      orElse: () => const Offstage(),),
+                        (_) => const Offstage()
+                )
+            ),
+          ],
+        );
+      },
+    );
   }
 }
 

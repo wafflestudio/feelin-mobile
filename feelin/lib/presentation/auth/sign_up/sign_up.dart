@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_code.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_complete.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_name.dart';
+
+import '../../../injection.dart';
+import 'sign_up_birthday.dart';
+import 'sign_up_confirmation.dart';
+import 'sign_up_password.dart';
+import 'sign_up_username.dart';
+
+class SignUp extends StatefulWidget{
+  const SignUp({Key? key}) : super(key: key);
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp>{
+
+  final Map<String, String> input = {
+    'email' : '',
+    'password' : '',
+    'name' : '',
+    'username' : '',
+    'birth': '',
+    'phoneNumber': '',
+  };
+
+  int _currPage = 1;
+
+  void goToNext() => setState(() {
+    _currPage++;
+  });
+
+  void goToPrevious() => setState(() {
+    _currPage--;
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    MediaQueryData deviceData = MediaQuery.of(context);
+    Size screenSize = deviceData.size;
+
+    return GestureDetector(
+      onTap: (){
+        FocusScope.of(context).unfocus();
+      },
+      child: WillPopScope(
+        onWillPop: (){
+          if(_currPage == 1){
+            return Future.value(true);
+          }else{
+            setState(() {
+              _currPage --;
+            });
+
+            return Future.value(false);
+          }
+        },
+        child: Scaffold(
+          body: SafeArea(
+            child: BlocProvider(
+              create: (context) => getIt<SignUpFormBloc>(),
+              child: SizedBox(
+                width: screenSize.width,
+                height: screenSize.height,
+                child: Builder(builder: (BuildContext context){
+                  if(_currPage == 1) return SignUpName(input: input, goToNext: goToNext,);
+                  if(_currPage == 2) return SignUpConfirmation(input: input, goToNext: goToNext);
+                  if(_currPage == 3) return SignUpConfirmation(input: input, goToNext: goToNext);
+                  if(_currPage == 4) return SignUpCode(input: input, goToNext: goToNext);
+                  if(_currPage == 5) return SignUpBirthday(input: input, goToNext: goToNext);
+                  if(_currPage == 6) return SignUpUsername(input: input, goToNext: goToNext);
+                  if(_currPage == 7) return SignUpPassword(input: input, goToNext: goToNext);
+                  if(_currPage == 8) return const SignUpComplete();
+                  return Container();
+                })
+                // Column(
+                //   mainAxisSize: MainAxisSize.max,
+                //   children: [
+                //     if(_currPage == 1) SignUpName(input: input, goToNext: goToNext,),
+                //     if(_currPage == 2) SignUpConfirmation(input: input, goToNext: goToNext),
+                //     if(_currPage == 3) SignUpConfirmation(input: input, goToNext: goToNext),
+                //     if(_currPage == 4) SignUpCode(input: input, goToNext: goToNext)
+                //   ],
+                // ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+}

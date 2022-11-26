@@ -6,23 +6,24 @@ part 'playlist.g.dart';
 
 @JsonSerializable()
 class Playlist{
-  @JsonKey(name: "id")
-  String id;
 
   @JsonKey(name: "title")
   String title;
 
   @JsonKey(name: "tracks")
-  List<Track> tracks;
+  List<Track>? tracks;
 
   @JsonKey(name: "preview")
-  PlaylistPreview playlistPreview;
+  PlaylistPreview? playlistPreview;
+
+  @JsonKey(name: "thumbnail")
+  String? thumbnail;
 
   Playlist({
-    required this.id,
-    required this.title,
-    required this.tracks,
-    required this.playlistPreview,
+    this.title = '',
+    this.tracks,
+    this.playlistPreview,
+    this.thumbnail,
   });
 
   factory Playlist.fromJson(Map<String, dynamic> json) => _$PlaylistFromJson(json);

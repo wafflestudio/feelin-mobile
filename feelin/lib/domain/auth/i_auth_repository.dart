@@ -8,23 +8,21 @@ import 'package:retrofit/dio.dart';
 abstract class IAuthRepository {
   Future<Option<User>> getSignedInUser();
 
-  Future<Either<AuthFailure, String>> test();
-
-  Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
-    required EmailAddress emailAddress,
-    required Password password,
-  });
-  Future<Either<AuthFailure, Token>> signIn({
+  Future<Either<AuthFailure, Unit>> signIn({
     required Account account,
     required Password password,
   });
-  Future<Either<AuthFailure, Token>> signUpWithEmail({
+  Future<Either<AuthFailure, bool>> checkUsername({
+    required Username username,
+  });
+  Future<Either<AuthFailure, Unit>> signUpWithEmail({
     required EmailAddress emailAddress,
     required Password password,
     required NotEmptyString lastName,
     required NotEmptyString firstName,
-    required UserName username,
+    required Username username,
     required PhoneNumber phoneNumber,
+    required NotEmptyString birthday,
   });
   Future<Either<AuthFailure, void>> verifyEmail({
     required EmailAddress emailAddress,

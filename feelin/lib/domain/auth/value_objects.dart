@@ -68,17 +68,17 @@ class PhoneNumber extends ValueObject<String> {
   const PhoneNumber._(this.value);
 }
 
-class UserName extends ValueObject<String> {
+class Username extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  factory UserName(String input) {
-    return UserName._(
+  factory Username(String input) {
+    return Username._(
       validateUserName(input),
     );
   }
 
-  const UserName._(this.value);
+  const Username._(this.value);
 }
 
 class NotEmptyString extends ValueObject<String> {

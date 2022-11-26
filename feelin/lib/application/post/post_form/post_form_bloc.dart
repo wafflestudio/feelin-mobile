@@ -28,6 +28,7 @@ class PostFormBloc extends Bloc<PostFormEvent, PostFormState>{
     on<_Submitted>((event, emit) async {
       emit(state.copyWith(
         isSubmitting: true,
+        isNavigated: false,
       ));
 
       if(state.playlistUrl.isValid()){
@@ -57,6 +58,7 @@ class PostFormBloc extends Bloc<PostFormEvent, PostFormState>{
     on<_Navigated>((event, emit){
       emit(state.copyWith(
         isNavigated: true,
+        postFailureOrSuccessOption: none(),
       ));
     });
   }

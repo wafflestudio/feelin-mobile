@@ -41,10 +41,10 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
               authFailureOrSuccessOption: some(left(f)),
             ));
           },
-              (token) {
+              (_) {
             emit(state.copyWith(
               isSubmitting: false,
-              authFailureOrSuccessOption: some(right(token)),
+              authFailureOrSuccessOption: some(right(unit)),
             ));
           },
         );

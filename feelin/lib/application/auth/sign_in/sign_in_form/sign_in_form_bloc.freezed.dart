@@ -476,7 +476,7 @@ abstract class _Submitted implements SignInFormEvent {
 mixin _$SignInFormState {
   Account get account => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
-  Option<Either<AuthFailure, Token>> get authFailureOrSuccessOption =>
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
 
@@ -493,7 +493,7 @@ abstract class $SignInFormStateCopyWith<$Res> {
   $Res call(
       {Account account,
       Password password,
-      Option<Either<AuthFailure, Token>> authFailureOrSuccessOption,
+      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
       bool isSubmitting});
 }
 
@@ -525,7 +525,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, Token>>,
+              as Option<Either<AuthFailure, Unit>>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -544,7 +544,7 @@ abstract class _$$_SignInFormStateCopyWith<$Res>
   $Res call(
       {Account account,
       Password password,
-      Option<Either<AuthFailure, Token>> authFailureOrSuccessOption,
+      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
       bool isSubmitting});
 }
 
@@ -578,7 +578,7 @@ class __$$_SignInFormStateCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, Token>>,
+              as Option<Either<AuthFailure, Unit>>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -601,7 +601,7 @@ class _$_SignInFormState implements _SignInFormState {
   @override
   final Password password;
   @override
-  final Option<Either<AuthFailure, Token>> authFailureOrSuccessOption;
+  final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
   @override
   final bool isSubmitting;
 
@@ -641,7 +641,7 @@ abstract class _SignInFormState implements SignInFormState {
   const factory _SignInFormState(
       {required final Account account,
       required final Password password,
-      required final Option<Either<AuthFailure, Token>>
+      required final Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption,
       required final bool isSubmitting}) = _$_SignInFormState;
 
@@ -650,7 +650,7 @@ abstract class _SignInFormState implements SignInFormState {
   @override
   Password get password;
   @override
-  Option<Either<AuthFailure, Token>> get authFailureOrSuccessOption;
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @override
   bool get isSubmitting;
   @override

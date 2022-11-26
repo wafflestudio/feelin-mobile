@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -111,7 +112,7 @@ class _SignUpWebViewState extends State<SignUpWebViewPage>{
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(message.message)));
           storage.write(key: "token", value: message.message);
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){
+          Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context){
           return const RootPage();
           }),(route) => false);
         });

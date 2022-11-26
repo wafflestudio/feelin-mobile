@@ -21,17 +21,6 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        title: const Text('Feelin\'',
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: 20,
-          ),
-        ),
-        centerTitle: true,
-      ),
       bottomNavigationBar: BlocBuilder<NavigationCubit, NavigationState>(
         builder: (context, state) {
           return BottomNavigationBar(

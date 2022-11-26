@@ -45,4 +45,8 @@ class PostRepository{
       }
     }
   }
+
+  Future<Either<PostFailure, Unit>> editPost({required NotEmptyString title, required ContentString content}) async{
+    throw UnimplementedError();
+  }
 }

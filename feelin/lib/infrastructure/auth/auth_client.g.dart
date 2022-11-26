@@ -35,37 +35,56 @@ class _AuthClient implements AuthClient {
   }
 
   @override
-  Future<HttpResponse<Token>> signIn(signInRequest) async {
+  Future<HttpResponse<User>> signIn(signInRequest) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(signInRequest.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<HttpResponse<Token>>(
+        _setStreamType<HttpResponse<User>>(
             Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/auth/user/signin',
+                .compose(_dio.options, '/auth/signin',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = Token.fromJson(_result.data!);
+    final value = User.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }
 
   @override
-  Future<HttpResponse<Token>> signUp(signUpRequest) async {
+  Future<HttpResponse<ExistsUsername>> checkUsername(
+      checkUsernameRequest) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(checkUsernameRequest.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<HttpResponse<ExistsUsername>>(
+            Options(method: 'POST', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/auth/username',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ExistsUsername.fromJson(_result.data!);
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<User>> signUp(signUpRequest) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(signUpRequest.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<HttpResponse<Token>>(
+        _setStreamType<HttpResponse<User>>(
             Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/auth/user/signup',
+                .compose(_dio.options, '/auth/signup',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = Token.fromJson(_result.data!);
+    final value = User.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }
@@ -79,7 +98,7 @@ class _AuthClient implements AuthClient {
     _data.addAll(verifyEmailRequest.toJson());
     final _result = await _dio.fetch<void>(_setStreamType<HttpResponse<void>>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/auth/user/verify-code',
+            .compose(_dio.options, '/auth/verify-code',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final httpResponse = HttpResponse(null, _result);
@@ -95,7 +114,7 @@ class _AuthClient implements AuthClient {
     _data.addAll(verifyEmailRequest.toJson());
     final _result = await _dio.fetch<void>(_setStreamType<HttpResponse<void>>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/auth/user',
+            .compose(_dio.options, '/auth',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final httpResponse = HttpResponse(null, _result);
@@ -111,7 +130,7 @@ class _AuthClient implements AuthClient {
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<void>(_setStreamType<HttpResponse<void>>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/auth/user/sign-out',
+            .compose(_dio.options, '/auth/sign-out',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final httpResponse = HttpResponse(null, _result);

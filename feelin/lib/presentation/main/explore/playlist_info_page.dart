@@ -1,317 +1,465 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/application/edit/edit_post_form/edit_post_form_bloc.dart';
+import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/domain/custom/marquee.dart';
-import 'package:music_sns/domain/play/playlist.dart';
-import 'package:music_sns/domain/play/post.dart';
 import 'package:music_sns/domain/play/track.dart';
+import 'package:music_sns/injection.dart';
 
-class PlaylistInfoPage extends StatelessWidget {
+import '../../../application/navigation/nav_bar_item.dart';
+import '../../../application/navigation/navigation_cubit.dart';
+import '../../edit/post/edit_post_page.dart';
+import '../root_page.dart';
 
-  PlaylistInfoPage({Key? key, required this.post, required this.heroNumber}) : super(key: key);
+class PlaylistInfoPage extends StatefulWidget{
+  const PlaylistInfoPage({Key? key, required this.postId, required this.heroNumber}) : super(key: key);
 
-  final Post post;
+  final int postId;
   final int heroNumber;
 
   @override
+  State<PlaylistInfoPage> createState() => _PlaylistInfoPageState();
+}
+
+class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
+
+  @override
+  void initState(){
+    super.initState();
+    context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.loadRequest(widget.postId));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: key,
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        title: const Text(''),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          color: Colors.grey,
-          icon: const Icon(Icons.arrow_back_ios_new),
-        ),
-      ),
-      body: Container(
-        child: listView(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        currentIndex: 2,
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.folder_copy_outlined),
-              label: ''
+    return BlocListener<PlaylistInfoBloc, PlaylistInfoState>(
+      listener: (context, state){
+        state.maybeWhen((loadFailureOrSuccessOption, deleteFailureOrSuccessOption, post, isLoading) =>
+            deleteFailureOrSuccessOption.fold(
+              () => null,
+              (failureOrSuccess) => failureOrSuccess.fold(
+                (f) => null,
+                (unit) => {
+                  print('test'),
+                  Navigator.pushReplacement(context,
+                    CupertinoPageRoute(
+                      builder: (context){
+                        BlocProvider.of<NavigationCubit>(context)
+                            .getNavBarItem(NavbarItem.profile);
+                        return const RootPage();
+                      },
+                    ),
+                  ),
+            },
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: ''
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: ''
-          ),
-        ],
+        ), orElse: () {});
+      },
+      child: BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
+        builder: (context, state) {
+          return state.when(
+                  (loadFailureOrSuccessOption, deleteFailureOrSuccessOption, post, isLoading) {
+                    if(isLoading) {
+                      return Scaffold(
+                      appBar: AppBar(
+                        elevation: 0.0,
+                        backgroundColor: Colors.transparent,
+                        title: const Text(''),
+                        leading: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          color: Colors.grey,
+                          icon: const Icon(Icons.arrow_back_ios_new),
+                        ),
+                      ),
+                        body: const Center(child: CupertinoActivityIndicator(radius: 20,)),
+                    );
+                    }
+                    return Scaffold(
+                      key: widget.key,
+                      appBar: AppBar(
+                        elevation: 0.0,
+                        backgroundColor: Colors.transparent,
+                        title: const Text(''),
+                        leading: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          color: Colors.grey,
+                          icon: const Icon(Icons.arrow_back_ios_new),
+                        ),
+                        actions: [IconButton(onPressed: (){
+                          showModalBottomSheet<void>(
+                            context: context,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                            ),
+                            builder: (BuildContext context) {
+                              return SizedBox(
+                                height: 200,
+                                child: Column(
+                                  children: <Widget>[
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    SizedBox(
+                                      width: double.infinity,
+                                      height: 60,
+                                      child: TextButton(onPressed: (){
+
+
+                                      }, child: const Text('공유하기', textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),)),
+                                    ),
+                                    SizedBox(
+                                        width: double.infinity,
+                                        height: 60,
+                                        child: TextButton(onPressed: (){
+                                          Navigator.push(context,
+                                              CupertinoPageRoute(
+                                                  builder: (context) => BlocProvider(create: (context) => getIt<EditPostFormBloc>(),
+                                                  child: EditPostPage(post: post.clone(),),
+                                              ))
+                                          );
+                                        }, child: const Text('수정하기', style: TextStyle(color: Colors.black, fontSize: 16),))),
+                                    SizedBox(
+                                        width: double.infinity,
+                                        height: 60,
+                                        child: TextButton(onPressed: (){
+                                          getIt<PlaylistInfoBloc>().add(PlaylistInfoEvent.deleteRequest(post.id));
+                                          Navigator.pushReplacement(context,
+                                            CupertinoPageRoute(
+                                              builder: (context){
+                                                BlocProvider.of<NavigationCubit>(context)
+                                                    .getNavBarItem(NavbarItem.profile);
+                                                return const RootPage();
+                                              },
+                                            ),
+                                          );
+                                        }, child: const Text('삭제하기', style: TextStyle(color: Colors.red, fontSize: 16),))),
+                                  ],
+                                ),
+                              );
+                            },
+                          ).then((value) { setState(() { }); });
+                        }, icon: const Icon(Icons.more_vert))],
+                      ),
+                      body: Container(
+                        child: listView(),
+                      ),
+                      bottomNavigationBar: BottomNavigationBar(
+                        showSelectedLabels: false,
+                        showUnselectedLabels: false,
+                        currentIndex: 2,
+                        items: const [
+                          BottomNavigationBarItem(
+                              icon: Icon(Icons.folder_copy_outlined),
+                              label: ''
+                          ),
+                          BottomNavigationBarItem(
+                              icon: Icon(Icons.add),
+                              label: ''
+                          ),
+                          BottomNavigationBarItem(
+                              icon: Icon(Icons.person),
+                              label: ''
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+              loading: () => const CircularProgressIndicator(),
+              loaded: () => const CircularProgressIndicator(),
+          );
+        }
       ),
     );
   }
 
 
-  var username = 'Waffle';
-  var playTime = '57';
-  var coverImage = 'https://image.bugsm.co.kr/album/images/1000/200/20013.jpg';
-  var profileImage = 'https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/guest/image/caTw7KNdDMeoe833RVMZ4Y11ErQ.JPG';
-  var content = 'Example';
+  var playTime = '??';
 
   Widget listView() {
     final ScrollController scrollController = ScrollController();
 
-    return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          return Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              SizedBox(
-                child: _playlistCover(context),
-              ),
-              Container(
-                width: double.infinity,
-                height: 1.5,
-                decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: FractionalOffset(0.0, 0.0),
-                        end: FractionalOffset(1.0, 1.0),
-                        colors: <Color>[
-                          Color(0xff00C19C),
-                          Color(0xff7077D5),
-                        ],
-                        stops: <double>[0.0, 1.0],
-                        tileMode: TileMode.clamp
-                    )
-                ),
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: Scrollbar(
-                    controller: scrollController,
-                    child: ListView.builder(
-                        physics: const BouncingScrollPhysics(),
-                        controller: scrollController,
-                        itemCount: post.playlist.tracks.length,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            behavior: HitTestBehavior.translucent,
-                            onTap: () {
-                              showPopup(context, post.playlist.tracks, index);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(5),
-                              child: Row(
-                                children: [
-                                  Image(
-                                    image: NetworkImage(
-                                        post.playlist.tracks[index].album.thumbnail),
-                                    fit: BoxFit.cover,
-                                    width: 45,
-                                    height: 45,),
-                                  _itemText(context, index),
-                                ],
-                              ),
-                            ),
-                          );
-                        }),
-                  ),
-                ),
-              ),
+    return BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
+      builder: (context, state) {
+        return state.maybeWhen((loadFailureOrSuccessOption, deleteFailureOrSuccessOption,post, isLoading) {
+          return LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    SizedBox(
+                      child: _playlistCover(context),
+                    ),
+                    Container(
+                      width: double.infinity,
+                      height: 1.5,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: FractionalOffset(0.0, 0.0),
+                              end: FractionalOffset(1.0, 1.0),
+                              colors: <Color>[
+                                Color(0xff00C19C),
+                                Color(0xff7077D5),
+                              ],
+                              stops: <double>[0.0, 1.0],
+                              tileMode: TileMode.clamp
+                          )
+                      ),
+                    ),
+                    Flexible(
+                      fit: FlexFit.tight,
+                      child: Container(
+                        margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                        child: Scrollbar(
+                          controller: scrollController,
+                          child: ListView.builder(
+                              physics: const BouncingScrollPhysics(),
+                              controller: scrollController,
+                              itemCount: post.playlist.tracks!.length,
+                              itemBuilder: (context, index) {
+                                return GestureDetector(
+                                  behavior: HitTestBehavior.translucent,
+                                  onTap: () {
+                                    showPopup(context, post.playlist.tracks!, index);
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.all(5),
+                                    child: Row(
+                                      children: [
+                                        Image(
+                                          image: CachedNetworkImageProvider(
+                                              post.playlist.tracks![index].album.thumbnail),
+                                          fit: BoxFit.cover,
+                                          width: 45,
+                                          height: 45,),
+                                        _itemText(context, index),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }),
+                        ),
+                      ),
+                    ),
 
-            ],
+                  ],
+                );
+              }
           );
-        }
+        }, orElse: () => const SizedBox.shrink() );
+      }
     );
   }
 
   Widget _itemText(context, int index) {
-    return Container(
-      alignment: Alignment.centerLeft,
-      height: 35,
-      width: MediaQuery.of(context).size.width - 95,
-      padding: const EdgeInsets.only(left: 10),
-      child: Column(
-        //mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Text(post.playlist.tracks[index].title,
-              style: const TextStyle(
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-          Expanded(
-            child: Marquee(
-              direction: Axis.horizontal,
-              child: ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: post.playlist.tracks[index].artists.length,
-                itemBuilder: (context, index2){
-                  return Text(
-                    post.playlist.tracks[index].artists[index2].name,
-                    textAlign: TextAlign.center,
+    return BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
+      builder: (context, state) {
+        return state.maybeWhen((loadFailureOrSuccessOption, deleteFailureOrSuccessOption,post, isLoading) {
+          return Container(
+            alignment: Alignment.centerLeft,
+            height: 35,
+            width: MediaQuery.of(context).size.width - 95,
+            padding: const EdgeInsets.only(left: 10),
+            child: Column(
+              //mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Text(post.playlist.tracks![index].title,
                     style: const TextStyle(
-                      color: Color(0xff7077D5),
-                      fontSize: 12
+                      fontWeight: FontWeight.w700,
                     ),
-                  );
-                },
-                separatorBuilder: (context, index2) => const Text(
-                  ", ",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color(0xff7077D5),
-                    fontSize: 12
                   ),
                 ),
-              ),
+                Expanded(
+                  child: Marquee(
+                    direction: Axis.horizontal,
+                    child: ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: post.playlist.tracks![index].artists.length,
+                      itemBuilder: (context, index2){
+                        return Text(
+                          post.playlist.tracks![index].artists[index2].name,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              color: Color(0xff7077D5),
+                              fontSize: 12
+                          ),
+                        );
+                      },
+                      separatorBuilder: (context, index2) => const Text(
+                        ", ",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Color(0xff7077D5),
+                            fontSize: 12
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
+          );
+        },
+            orElse: () => const SizedBox.shrink());
+      }
     );
   }
 
   Widget _playlistCover(context) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(30, 0, 30, 20),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 130,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Hero(
-                  tag: "playlistCover" + heroNumber.toString(),
-                  child: Image(
-                    image: NetworkImage(post.playlist.tracks[0].album.thumbnail),
-                    width: 130,
-                    height: 130,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(left: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Row(
+    return BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
+        builder: (context, state) {
+          return state.maybeWhen(
+                (loadFailureOrSuccessOption, deleteFailureOrSuccessOption,post, isLoading) {
+              return Container(
+                margin: const EdgeInsets.fromLTRB(30, 0, 30, 20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 130,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image(
-                              image: NetworkImage(post.profile),
-                              width: 30,
-                              height: 30,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(post.writer,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        post.playlist.title,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.music_note,
-                            color: Color(0xff00C19C),),
-                          Text('${post.playlist.tracks.length}곡',
-                            style: const TextStyle(
-                                color: Color(0xff00C19C),
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14
-                            ),),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          const Icon(Icons.access_time,
-                            color: Color(0xff00C19C),),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text('$playTime분',
-                            style: const TextStyle(
-                                color: Color(0xff00C19C),
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14
-                            ),)
-                        ],
-                      ),
-                      GestureDetector(
-                        onTap: () {
-
-                        },
-                        child: Row(
-                            children: const [
-                              Icon(Icons.ios_share,
-                                color: Colors.grey,),
-                              Text('공유하기',
-                                style: TextStyle(
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 14
-                                ),
+                            Hero(
+                              tag: "playlistCover${widget.heroNumber}",
+                              child: Image(
+                                image: CachedNetworkImageProvider(post.playlist.tracks![0].album.thumbnail),
+                                width: 130,
+                                height: 130,
+                                fit: BoxFit.cover,
                               ),
-                            ]),
-                      ),
-                      /*
-                      Container(
-                        height: 20,
+                            ),
+                          Container(
+                            margin: const EdgeInsets.only(left: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Row(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: Image(
+                                        image: CachedNetworkImageProvider(post.writer!.image!.isNotEmpty ? post.writer!.image! : 'https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/guest/image/caTw7KNdDMeoe833RVMZ4Y11ErQ.JPG'),
+                                        width: 30,
+                                        height: 30,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(post.writer!.username,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 174,
+                                  child: Marquee(
+                                    direction: Axis.horizontal,
+                                    child: Text(
+                                      post.title,
+                                      style: const TextStyle(
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.music_note,
+                                      color: Color(0xff00C19C),),
+                                    Text('${post.playlist.tracks!.length}곡',
+                                      style: const TextStyle(
+                                          color: Color(0xff00C19C),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14
+                                      ),),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    const Icon(Icons.access_time,
+                                      color: Color(0xff00C19C),),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text('$playTime분',
+                                      style: const TextStyle(
+                                          color: Color(0xff00C19C),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14
+                                      ),)
+                                  ],
+                                ),
+                                GestureDetector(
+                                  onTap: () {
 
-                        child: ElevatedButton.icon(
-                            onPressed: (){},
-                            label: const Text('공유하기'),
-                            icon: const Icon(Icons.ios_share,
-                            size: 18,),
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(Colors.transparent),
-                              foregroundColor: MaterialStateProperty.all(Colors.grey),
-                              elevation: MaterialStateProperty.all(0.0)
-                            ),),
+                                  },
+                                  child: Row(
+                                      children: const [
+                                        Icon(Icons.ios_share,
+                                          color: Colors.grey,),
+                                        Text('공유하기',
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 14
+                                          ),
+                                        ),
+                                      ]),
+                                ),
+                                /*
+                          Container(
+                            height: 20,
+
+                            child: ElevatedButton.icon(
+                                onPressed: (){},
+                                label: const Text('공유하기'),
+                                icon: const Icon(Icons.ios_share,
+                                size: 18,),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(Colors.transparent),
+                                  foregroundColor: MaterialStateProperty.all(Colors.grey),
+                                  elevation: MaterialStateProperty.all(0.0)
+                                ),),
+                          ),
+                           */
+                              ],
+                            ),
+                          )
+                        ],
                       ),
-                       */
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
-              margin: const EdgeInsets.only(top: 15, bottom: 15),
-              child: Text(post.content,
-                style: const TextStyle(
-                    fontSize: 13,
-                    height: 1.5,
-                ),)),
-          _storeButton(context),
-        ],
-      ),
+                    ),
+                    Container(
+                        margin: const EdgeInsets.only(top: 15, bottom: 15),
+                        child: Text(post.content,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            height: 1.5,
+                          ),)),
+                    _storeButton(context),
+                  ],
+                ),
+              );
+            },
+            orElse: () => const SizedBox.shrink(),
+          );
+        }
     );
   }
 
@@ -337,10 +485,9 @@ class PlaylistInfoPage extends StatelessWidget {
           //margin: const EdgeInsets.all(0),
           child: OutlinedButton(
               onPressed: () {
-                choosePlatform(context);
+                //choosePlatform(context);
               } //TODO: implement to store a playlist.
               ,
-              child: const Text("내 계정에 플레이리스트 저장",),
               style: ButtonStyle(
                   shape: MaterialStateProperty.all(
                       const ContinuousRectangleBorder()),
@@ -365,7 +512,8 @@ class PlaylistInfoPage extends StatelessWidget {
                       return Colors.transparent;
                     }
                     return Colors.transparent;
-                  }))
+                  })),
+              child: const Text("내 계정에 플레이리스트 저장",)
           ),
         ));
   }
@@ -375,7 +523,7 @@ class PlaylistInfoPage extends StatelessWidget {
         builder: (context) {
           return Dialog(
             backgroundColor: Colors.black12,
-            child: Container(
+            child: SizedBox(
               width: MediaQuery
                   .of(context)
                   .size
@@ -393,7 +541,7 @@ class PlaylistInfoPage extends StatelessWidget {
                   return Column(
                     children: [
                       Image(
-                          image: NetworkImage(tracks[index].album.thumbnail),
+                          image: CachedNetworkImageProvider(tracks[index].album.thumbnail),
                           fit: BoxFit.cover,
                           width: MediaQuery
                               .of(context)
@@ -476,11 +624,10 @@ class PlaylistInfoPage extends StatelessWidget {
                             color: Colors.transparent,
                             child: OutlinedButton(
                                 onPressed: () {
-                                  choosePlatform(context);
+                                  //choosePlatform(context);
                                 }
                                 //TODO: implement to store a track.
                                 ,
-                                child: const Text("노래 듣기",),
                                 style: ButtonStyle(
                                     shape: MaterialStateProperty.all(
                                         const ContinuousRectangleBorder()),
@@ -511,7 +658,8 @@ class PlaylistInfoPage extends StatelessWidget {
                                         return Colors.transparent;
                                       }
                                       return Colors.transparent;
-                                    }))
+                                    })),
+                                child: const Text("노래 듣기",)
                             ),
                           ))
                     ],
@@ -519,234 +667,6 @@ class PlaylistInfoPage extends StatelessWidget {
                 },
               ),
             ),
-          );
-        }
-    );
-  }
-  void choosePlatform(context) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return SimpleDialog(
-            backgroundColor: Colors.white,
-            children: [
-              SimpleDialogOption(
-                onPressed: (){},
-                child: Row(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: const Image(
-                      image: NetworkImage('https://play-lh.googleusercontent.com/GweSpOJ7p8RZ0lzMDr7sU0x5EtvbsAubkVjLY-chdyV6exnSUfl99Am0g8X0w_a2Qo4'),
-                      width: 30,
-                      height: 30,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  const Text('Melon',
-                  style: TextStyle(
-                    color: Color(0xff04e632),
-                    fontWeight: FontWeight.w700
-                  ),),
-                ],
-              ),
-              ),
-              SimpleDialogOption(
-                onPressed: (){},
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: const Image(
-                        image: NetworkImage('https://play-lh.googleusercontent.com/gSjYDowrYi_BIdXKIsxhc4Y3Zj5zGA3os_SCm8cqWWCrXQYejcmser-UOEM-PnCGRgk'),
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text('Genie',
-                      style: TextStyle(
-                          color: Color(0xff448aff),
-                          fontWeight: FontWeight.w700
-                      ),),
-                  ],
-                ),
-              ),
-              SimpleDialogOption(
-                onPressed: (){},
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: const Image(
-                        image: NetworkImage('https://play-lh.googleusercontent.com/GnYnNfKBr2nysHBYgYRCQtcv_RRNN0Sosn47F5ArKJu89DMR3_jHRAazoIVsPUoaMg'),
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text('YouTube Music',
-                      style: TextStyle(
-                          color: Color(0xffff0000),
-                          fontWeight: FontWeight.w700
-                      ),),
-                  ],
-                ),
-              ),
-              SimpleDialogOption(
-                onPressed: (){},
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: const Image(
-                        image: NetworkImage('https://play-lh.googleusercontent.com/31RGCuepZn9kCR-ASp6aM-fWNm34YvHX2EkkSsypIUHZ_nbDkKI_1Z8fsuSnfpvBEHk=w240-h480-rw'),
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text('Flo',
-                      style: TextStyle(
-                          color: Color(0xff2828ff),
-                          fontWeight: FontWeight.w700
-                      ),),
-                  ],
-                ),
-              ),
-              SimpleDialogOption(
-                onPressed: (){},
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: const Image(
-                        image: NetworkImage('https://play-lh.googleusercontent.com/yHyThRQ7idHmfkEaz0abkkCYZAMbNulSU-hZL0TP-KgXTP9Y1ph1w8-n-l0kaBnrfI8=w240-h480-rw'),
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text('Vive',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w700
-                      ),),
-                  ],
-                ),
-              ),
-              SimpleDialogOption(
-                onPressed: (){},
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: const Image(
-                        image: NetworkImage('https://play-lh.googleusercontent.com/waHxALPR_cDykucu_QZ8YI7zEsuzzI-4_76bmD19WBx2JwBvNokISMcT5H6K8qxXvQ'),
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text('Kakao Music',
-                      style: TextStyle(
-                          color: Color(0xfffbe300),
-                          fontWeight: FontWeight.w700
-                      ),),
-                  ],
-                ),
-              ),
-              SimpleDialogOption(
-                onPressed: (){},
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: const Image(
-                        image: NetworkImage('https://play-lh.googleusercontent.com/1EYBuARUQsNbhEQ1Ax4q9G-E_KuMuzxklmBdMXlIksKtYlebieUxvVLrrtQv6oBWR4k'),
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text('Bugs',
-                      style: TextStyle(
-                          color: Color(0xffff3c28),
-                          fontWeight: FontWeight.w700
-                      ),),
-                  ],
-                ),
-              ),
-              SimpleDialogOption(
-                onPressed: (){},
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: const Image(
-                        image: NetworkImage('https://play-lh.googleusercontent.com/UrY7BAZ-XfXGpfkeWg0zCCeo-7ras4DCoRalC_WXXWTK9q5b0Iw7B0YQMsVxZaNB7DM'),
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text('Spotify',
-                      style: TextStyle(
-                          color: Color(0xff1ed760),
-                          fontWeight: FontWeight.w700
-                      ),),
-                  ],
-                ),
-              ),
-              SimpleDialogOption(
-                onPressed: (){},
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: const Image(
-                        image: NetworkImage('https://play-lh.googleusercontent.com/mOkjjo5Rzcpk7BsHrsLWnqVadUK1FlLd2-UlQvYkLL4E9A0LpyODNIQinXPfUMjUrbE'),
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text('Apple Music',
-                      style: TextStyle(
-                          color: Color(0xfffa2239),
-                          fontWeight: FontWeight.w700
-                      ),),
-                  ],
-                ),
-              ),
-            ],
           );
         }
     );

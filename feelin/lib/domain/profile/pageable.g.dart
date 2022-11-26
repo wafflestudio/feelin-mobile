@@ -8,7 +8,7 @@ part of 'pageable.dart';
 
 Pageable _$PageableFromJson(Map<String, dynamic> json) => Pageable(
       content: (json['content'] as List<dynamic>)
-          .map((e) => PostThumbnail.fromJson(e as Map<String, dynamic>))
+          .map((e) => Post.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

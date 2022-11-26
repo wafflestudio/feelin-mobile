@@ -10,8 +10,10 @@ class SignUpFormState with _$SignUpFormState {
     required bool isSubmitting,
     required NotEmptyString firstName,
     required NotEmptyString lastName,
-    required UserName userName,
-    required PhoneNumber phoneNumber
+    required Username username,
+    required bool canUseName,
+    required PhoneNumber phoneNumber,
+    required NotEmptyString birthday,
   }) = _SignUpFormState;
   factory SignUpFormState.initial() => SignUpFormState(
     emailAddress: EmailAddress(''),
@@ -21,7 +23,9 @@ class SignUpFormState with _$SignUpFormState {
     isSubmitting: false,
     firstName: NotEmptyString(''),
     lastName: NotEmptyString(''),
-    userName: UserName(''),
+    username: Username(''),
+    canUseName: false,
     phoneNumber: PhoneNumber(''),
+    birthday: NotEmptyString(''),
   );
 }

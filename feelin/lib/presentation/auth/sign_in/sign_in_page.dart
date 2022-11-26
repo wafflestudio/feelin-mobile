@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -5,6 +6,7 @@ import 'package:music_sns/application/auth/sign_in/sign_in_form/sign_in_form_blo
 import 'package:music_sns/domain/auth/token.dart';
 import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/auth/sign_up/email_authentication_page.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_page.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_web_view_page.dart';
 import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
@@ -69,9 +71,8 @@ class _SignInPageState extends State<SignInPage> {
             (f) => null
               //_showSnackBar(context, f.toString())
               , // 로그인 실패
-            (token) => {
-              storage.write(key: "token", value: token.token),
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){
+            (_) => {
+              Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context){
                 return const RootPage();
               }),(route) => false), // 로그인 성공
             }
@@ -187,6 +188,7 @@ class _SignInPageState extends State<SignInPage> {
                           context
                               .read<SignInFormBloc>()
                               .add(const SignInFormEvent.submitted());
+                          FocusManager.instance.primaryFocus?.unfocus();
                         }
                       }
                     : null,
@@ -280,8 +282,8 @@ class _SignInPageState extends State<SignInPage> {
         margin: const EdgeInsets.all(2),
         child: OutlinedButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context){
-              return const SignUpWebViewPage();
+            Navigator.push(context, CupertinoPageRoute(builder: (context){
+              return const SignUp();
             }));
           }
           ,

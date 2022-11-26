@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'post_failure.freezed.dart';
 
 @freezed
-abstract class PostFailure with _$PostFailure {
+class PostFailure with _$PostFailure {
   const factory PostFailure.duplicateTitle() = _DuplicateTitle;
   const factory PostFailure.serverError() = _ServerError;
   const factory PostFailure.blankedTitle() = _BlankedTitle;

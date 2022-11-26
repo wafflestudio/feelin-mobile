@@ -59,7 +59,8 @@ Either<ValueFailure<String>, String> validateEmailAuthCode(String input) {
 Either<ValueFailure<String>, String> validatePhoneNumber(String input) {
   const phoneNumberRegex =
   r"/\d{2,3}-\d{3,4}-\d{4}/";
-  if (RegExp(phoneNumberRegex).hasMatch(input)) {
+  //if (RegExp(phoneNumberRegex).hasMatch(input)) {
+  if (input.isNotEmpty) {
     return right(input);
   } else {
     return left(ValueFailure.invalidPhoneNum(failedValue: input));
@@ -92,6 +93,14 @@ Either<ValueFailure<String>, String> validateUrl(String input) {
 }
 
 Either<ValueFailure<String>, String> validateContent(String input) {
+  if (input.length <= 100) {
+    return right(input);
+  } else {
+    return left(ValueFailure.exceedingLength(failedValue: input, max: 100));
+  }
+}
+
+Either<ValueFailure<String>, String> validateIntroduction(String input) {
   if (input.length <= 100) {
     return right(input);
   } else {

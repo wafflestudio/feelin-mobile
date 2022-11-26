@@ -20,18 +20,21 @@ mixin _$ProfileFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() unauthorized,
+    required TResult Function() usernameAlreadyInUse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unauthorized,
+    TResult Function()? usernameAlreadyInUse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unauthorized,
+    TResult Function()? usernameAlreadyInUse,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$ProfileFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_UsernameAlreadyInUse value) usernameAlreadyInUse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,6 +122,7 @@ class _$_ServerError implements _ServerError {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() unauthorized,
+    required TResult Function() usernameAlreadyInUse,
   }) {
     return serverError();
   }
@@ -125,6 +132,7 @@ class _$_ServerError implements _ServerError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unauthorized,
+    TResult Function()? usernameAlreadyInUse,
   }) {
     return serverError?.call();
   }
@@ -134,6 +142,7 @@ class _$_ServerError implements _ServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unauthorized,
+    TResult Function()? usernameAlreadyInUse,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -147,6 +156,7 @@ class _$_ServerError implements _ServerError {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_UsernameAlreadyInUse value) usernameAlreadyInUse,
   }) {
     return serverError(this);
   }
@@ -156,6 +166,7 @@ class _$_ServerError implements _ServerError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return serverError?.call(this);
   }
@@ -165,6 +176,7 @@ class _$_ServerError implements _ServerError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -221,6 +233,7 @@ class _$_Unauthorized implements _Unauthorized {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() unauthorized,
+    required TResult Function() usernameAlreadyInUse,
   }) {
     return unauthorized();
   }
@@ -230,6 +243,7 @@ class _$_Unauthorized implements _Unauthorized {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unauthorized,
+    TResult Function()? usernameAlreadyInUse,
   }) {
     return unauthorized?.call();
   }
@@ -239,6 +253,7 @@ class _$_Unauthorized implements _Unauthorized {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unauthorized,
+    TResult Function()? usernameAlreadyInUse,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -252,6 +267,7 @@ class _$_Unauthorized implements _Unauthorized {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_UsernameAlreadyInUse value) usernameAlreadyInUse,
   }) {
     return unauthorized(this);
   }
@@ -261,6 +277,7 @@ class _$_Unauthorized implements _Unauthorized {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return unauthorized?.call(this);
   }
@@ -270,6 +287,7 @@ class _$_Unauthorized implements _Unauthorized {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -281,4 +299,115 @@ class _$_Unauthorized implements _Unauthorized {
 
 abstract class _Unauthorized implements ProfileFailure {
   const factory _Unauthorized() = _$_Unauthorized;
+}
+
+/// @nodoc
+abstract class _$$_UsernameAlreadyInUseCopyWith<$Res> {
+  factory _$$_UsernameAlreadyInUseCopyWith(_$_UsernameAlreadyInUse value,
+          $Res Function(_$_UsernameAlreadyInUse) then) =
+      __$$_UsernameAlreadyInUseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UsernameAlreadyInUseCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res>
+    implements _$$_UsernameAlreadyInUseCopyWith<$Res> {
+  __$$_UsernameAlreadyInUseCopyWithImpl(_$_UsernameAlreadyInUse _value,
+      $Res Function(_$_UsernameAlreadyInUse) _then)
+      : super(_value, (v) => _then(v as _$_UsernameAlreadyInUse));
+
+  @override
+  _$_UsernameAlreadyInUse get _value => super._value as _$_UsernameAlreadyInUse;
+}
+
+/// @nodoc
+
+class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
+  const _$_UsernameAlreadyInUse();
+
+  @override
+  String toString() {
+    return 'ProfileFailure.usernameAlreadyInUse()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_UsernameAlreadyInUse);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() unauthorized,
+    required TResult Function() usernameAlreadyInUse,
+  }) {
+    return usernameAlreadyInUse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? unauthorized,
+    TResult Function()? usernameAlreadyInUse,
+  }) {
+    return usernameAlreadyInUse?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? unauthorized,
+    TResult Function()? usernameAlreadyInUse,
+    required TResult orElse(),
+  }) {
+    if (usernameAlreadyInUse != null) {
+      return usernameAlreadyInUse();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_UsernameAlreadyInUse value) usernameAlreadyInUse,
+  }) {
+    return usernameAlreadyInUse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+  }) {
+    return usernameAlreadyInUse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    required TResult orElse(),
+  }) {
+    if (usernameAlreadyInUse != null) {
+      return usernameAlreadyInUse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UsernameAlreadyInUse implements ProfileFailure {
+  const factory _UsernameAlreadyInUse() = _$_UsernameAlreadyInUse;
 }

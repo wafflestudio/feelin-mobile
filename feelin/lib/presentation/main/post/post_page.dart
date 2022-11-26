@@ -1,6 +1,10 @@
 
+import 'package:external_app_launcher/external_app_launcher.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/post/post_detail_form/post_detail_form_bloc.dart';
 import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/main/post/post_detail_page.dart';
@@ -16,6 +20,7 @@ class PostPage extends StatefulWidget{
 class _PostPageState extends State<PostPage>{
   final _formKey = GlobalKey<FormState>();
   final GlobalKey<TooltipState> _tooltipKey = GlobalKey<TooltipState>();
+  final storage = const FlutterSecureStorage();
 
   final TextEditingController _linkTextController = TextEditingController();
 
@@ -26,40 +31,69 @@ class _PostPageState extends State<PostPage>{
   }
 
   @override
+  void initState(){
+    super.initState();
+    storage.write(key: 'MusicPlatform', value: 'Flo');
+  }
+
+  void _pasteFromClipboard() async {
+    ClipboardData? cdata = await Clipboard.getData(Clipboard.kTextPlain);
+    setState(() {
+      if(cdata?.text != null){
+        _linkTextController.text = cdata?.text ?? '';
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context){
     MediaQueryData deviceData = MediaQuery.of(context);
     Size screenSize = deviceData.size;
 
-    return Stack(
-        children : [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(),
-              _postForm(screenSize),
-              _openYourMusicAppButton(screenSize),
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
+        title: const Text('Feelin\'',
+          style: TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
-          Positioned(
-            top: 10,
-            right: 10,
-            child: Align(
-              alignment: Alignment.topRight,
-              child: SizedBox(
-                child: FloatingActionButton(
-                  backgroundColor: const Color(0xff00C19C),
-                  foregroundColor: Colors.white,
-                  heroTag: null,
-                  onPressed: (){
-                    _tooltipKey.currentState?.ensureTooltipVisible();
-                  },
-                  child: const Icon(Icons.question_mark),
+        ),
+        centerTitle: true,
+      ),
+      body: Stack(
+          children : [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(),
+                _postForm(screenSize),
+                _openYourMusicAppButton(screenSize),
+              ],
+            ),
+            Positioned(
+              top: 10,
+              right: 10,
+              child: Align(
+                alignment: Alignment.topRight,
+                child: SizedBox(
+                  child: FloatingActionButton(
+                    backgroundColor: const Color(0xff00C19C),
+                    foregroundColor: Colors.white,
+                    heroTag: null,
+                    onPressed: (){
+                      _tooltipKey.currentState?.ensureTooltipVisible();
+                    },
+                    child: const Icon(Icons.question_mark),
+                  ),
                 ),
               ),
             ),
-          ),
-        ]
+          ]
+      ),
     );
   }
 
@@ -72,18 +106,22 @@ class _PostPageState extends State<PostPage>{
                 (f) => null,
                 (playlist) => {
               Navigator.push(context,
-                MaterialPageRoute(
+                CupertinoPageRoute(
                     builder: (context){
-                      //PostFormState.initial();
                       return BlocProvider(
                           create: (context) => getIt<PostDetailFormBloc>(),
                           child: PostDetailPage(playlist: playlist,));
                     }
                 ),
-              ),
+              ).then((value) {
+                context.read<PostFormBloc>().add(const PostFormEvent.navigated());
+              }),
             },
           ),
         );
+      },
+      listenWhen: (previous, current){
+        return !current.isNavigated;
       },
       child: Form(
         key: _formKey,
@@ -119,6 +157,7 @@ class _PostPageState extends State<PostPage>{
                 decoration: const InputDecoration(
                   hintText: '플레이리스트 링크',
                  isDense: true,
+                  //suffixIcon: IconButton(onPressed: _pasteFromClipboard, icon: const Icon(Icons.paste_sharp)),
                   focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0xff7DD8C6),
@@ -245,6 +284,7 @@ class _PostPageState extends State<PostPage>{
         child: OutlinedButton(
           onPressed: () {
             //TODO: open user's Music Platform App.
+            openMusicApp();
           }
           ,
           style: ButtonStyle(
@@ -289,5 +329,82 @@ class _PostPageState extends State<PostPage>{
         ),
       ),
     );
+  }
+
+  void openMusicApp() async {
+    final myMusicPlatform = await storage.read(key: 'MusicPlatform');
+    switch(myMusicPlatform){
+      case 'Flo': {
+        LaunchApp.openApp(
+          androidPackageName: 'skplanet.musicmate',
+          iosUrlScheme: '',
+          appStoreLink: 'https://apps.apple.com/kr/app/flo-%ED%94%8C%EB%A1%9C/id1129048043',
+          openStore: true,
+        );
+      }
+      break;
+      case 'Spotify': {
+        LaunchApp.openApp(
+          androidPackageName: 'com.spotify.music',
+          iosUrlScheme: 'spotify://',
+          appStoreLink: 'https://apps.apple.com/kr/app/spotify-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4/id324684580',
+          openStore: true,
+        );
+      }
+      break;
+      case 'Vive': {
+        LaunchApp.openApp(
+          androidPackageName: 'com.naver.vibe',
+          iosUrlScheme: '',
+          appStoreLink: 'https://apps.apple.com/kr/app/naver-vibe-%EB%B0%94%EC%9D%B4%EB%B8%8C/id1338631589',
+          openStore: true,
+        );
+      }
+      break;
+      case 'YTMusic': {
+        LaunchApp.openApp(
+          androidPackageName: 'com.google.android.apps.youtube.music',
+          iosUrlScheme: 'youtubemusic://',
+          appStoreLink: 'https://apps.apple.com/kr/app/youtube-music/id1017492454',
+          openStore: true,
+        );
+      }
+      break;
+      case 'Melon': {
+        LaunchApp.openApp(
+          androidPackageName: 'com.iloen.melon',
+          iosUrlScheme: 'fb329785880437397://',
+          appStoreLink: 'https://apps.apple.com/kr/app/%EB%A9%9C%EB%A1%A0-melon/id415597317',
+          openStore: true,
+        );
+      }
+      break;
+      case 'Genie': {
+        LaunchApp.openApp(
+          androidPackageName: 'com.ktmusic.geniemusic',
+          iosUrlScheme: '',
+          appStoreLink: 'https://apps.apple.com/kr/app/%EC%A7%80%EB%8B%88%EB%AE%A4%EC%A7%81-genie/id858266085',
+          openStore: true,
+        );
+      }
+      break;
+      case 'Bugs': {
+        LaunchApp.openApp(
+          androidPackageName: 'com.neowiz.android.bugs',
+          iosUrlScheme: '',
+          appStoreLink: 'https://apps.apple.com/kr/app/%EB%B2%85%EC%8A%A4-bugs/id348555322',
+          openStore: true,
+        );
+      }
+      break;
+      case 'AppleMusic': {
+        LaunchApp.openApp(
+          androidPackageName: 'com.apple.android.music',
+          iosUrlScheme: '',
+          appStoreLink: 'https://apps.apple.com/kr/app/apple-music/id1108187390',
+          openStore: true,
+        );
+      }
+    }
   }
 }
