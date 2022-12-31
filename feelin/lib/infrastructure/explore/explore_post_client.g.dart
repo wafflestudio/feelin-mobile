@@ -10,7 +10,7 @@ part of 'explore_post_client.dart';
 
 class _ExplorePostClient implements ExplorePostClient {
   _ExplorePostClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://api-feelin.kro.kr/api/v1';
+    baseUrl ??= 'https://feelin-social-api-dev.wafflestudio.com/api/v1';
   }
 
   final Dio _dio;

@@ -70,23 +70,13 @@ class _SignUpState extends State<SignUp>{
                 child: Builder(builder: (BuildContext context){
                   if(_currPage == 1) return SignUpName(input: input, goToNext: goToNext,);
                   if(_currPage == 2) return SignUpConfirmation(input: input, goToNext: goToNext);
-                  if(_currPage == 3) return SignUpConfirmation(input: input, goToNext: goToNext);
-                  if(_currPage == 4) return SignUpCode(input: input, goToNext: goToNext);
-                  if(_currPage == 5) return SignUpBirthday(input: input, goToNext: goToNext);
-                  if(_currPage == 6) return SignUpUsername(input: input, goToNext: goToNext);
-                  if(_currPage == 7) return SignUpPassword(input: input, goToNext: goToNext);
-                  if(_currPage == 8) return const SignUpComplete();
+                  if(_currPage == 3) return SignUpCode(input: input, goToNext: goToNext);
+                  if(_currPage == 4) return SignUpBirthday(input: input, goToNext: goToNext);
+                  if(_currPage == 5) return SignUpUsername(input: input, goToNext: goToNext);
+                  if(_currPage == 6) return SignUpPassword(input: input, goToNext: goToNext);
+                  if(_currPage == 7) return const SignUpComplete();
                   return Container();
                 })
-                // Column(
-                //   mainAxisSize: MainAxisSize.max,
-                //   children: [
-                //     if(_currPage == 1) SignUpName(input: input, goToNext: goToNext,),
-                //     if(_currPage == 2) SignUpConfirmation(input: input, goToNext: goToNext),
-                //     if(_currPage == 3) SignUpConfirmation(input: input, goToNext: goToNext),
-                //     if(_currPage == 4) SignUpCode(input: input, goToNext: goToNext)
-                //   ],
-                // ),
               ),
             ),
           ),

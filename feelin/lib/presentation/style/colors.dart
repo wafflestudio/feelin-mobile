@@ -12,7 +12,9 @@ class HexColorToColor extends Color {
 class FeelinColorFamily {
   static HexColor grayscaleGray1 = HexColor('#C0C0C0');
   static HexColor grayscaleGray2 = HexColor('#808080');
-
+  static HexColor grayscaleGray3 = HexColor('F8F8F8');
+  static HexColor grayDivider = HexColor('D9D9D9');
+  static HexColor grayBorder = HexColor('CECECE');
   static HexColor blueCore = HexColor('#3B88FC');
   static HexColor redCore = HexColor('#BE4444');
 

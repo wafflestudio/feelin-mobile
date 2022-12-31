@@ -5,7 +5,7 @@ import 'package:music_sns/presentation/auth/sign_up/common_title.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
-import 'next_button.dart';
+import '../../common/next_button.dart';
 
 class SignUpName extends StatefulWidget{
   final Map<String, String> input;
@@ -79,14 +79,11 @@ class _SignUpNameState extends State<SignUpName>{
                 ),
                 ),
               validator: (_) =>
-                  context.read<SignUpFormBloc>().state.lastName.value.fold(
-                        (f) => f.maybeMap(
-                      empty: (_) => '이름을 입력해주세요',
-                      orElse: () => null,
-                    ),
-                        (_) => null,
-                  ),
+                  null,
               onChanged: (value) {
+                context
+                    .read<SignUpFormBloc>()
+                    .add(SignUpFormEvent.nameChanged(value));
                 setState((){
                   name = value;
                 });

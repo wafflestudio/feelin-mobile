@@ -10,20 +10,16 @@ SignUpRequest _$SignUpRequestFromJson(Map<String, dynamic> json) =>
     SignUpRequest(
       email: json['email'] as String,
       password: json['password'] as String,
-      lastName: json['lastName'] as String,
-      firstName: json['firstName'] as String,
+      name: json['name'] as String,
       username: json['username'] as String,
-      phoneNumber: json['phoneNumber'] as String,
-      birthday: json['birth'] as String,
+      birthday: json['birthDate'] as String,
     );
 
 Map<String, dynamic> _$SignUpRequestToJson(SignUpRequest instance) =>
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,
-      'lastName': instance.lastName,
-      'firstName': instance.firstName,
+      'name': instance.name,
       'username': instance.username,
-      'phoneNumber': instance.phoneNumber,
-      'birth': instance.birthday,
+      'birthDate': instance.birthday,
     };

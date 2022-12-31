@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -30,10 +32,17 @@ class AuthRepository implements IAuthRepository {
   AuthRepository._internal();
 
   @override
-  Future<Option<User>> getSignedInUser() {
-    // TODO: implement getSignedInUser
-
-    throw UnimplementedError();
+  Future<Either<AuthFailure, Unit>> getSignedInUser({required Token token}) async{
+    try{
+      HttpResponse<void> httpResponse = await authClient.getSignedInUser(token.token);
+      if(httpResponse.response.statusCode == 200){
+        return const Right(unit);
+      }else{
+        return const Left(AuthFailure.unauthorized());
+      }
+    } on DioError catch(e){
+      return const Left(AuthFailure.serverError());
+    }
   }
 
 
@@ -74,12 +83,15 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> signUpWithEmail({required EmailAddress emailAddress, required Password password,
-    required NotEmptyString lastName, required NotEmptyString firstName, required Username username, required PhoneNumber phoneNumber, required NotEmptyString birthday}) async{
+    required NotEmptyString name, required Username username, required NotEmptyString birthday}) async{
     try{
       HttpResponse<User> httpResponse = await authClient.signUp(
           SignUpRequest(email: emailAddress.getOrCrash(), password: password.getOrCrash(),
-              lastName: lastName.getOrCrash(), firstName: firstName.getOrCrash(), username: username.getOrCrash(), phoneNumber: phoneNumber.getOrCrash(), birthday: birthday.getOrCrash()));
+              name: name.getOrCrash(), username: username.getOrCrash(), birthday: birthday.getOrCrash()));
+      print(httpResponse.response.statusCode);
+      log(httpResponse.response.statusCode.toString());
       switch(httpResponse.response.statusCode){
+
         case 201 : {
           storage.write(key: 'token', value: httpResponse.response.headers['Access-Token']![0]);
           storage.write(key: 'refresh', value: httpResponse.response.headers['Refresh-Token']![0]);

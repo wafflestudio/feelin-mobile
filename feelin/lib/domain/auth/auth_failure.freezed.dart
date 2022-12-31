@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
@@ -31,6 +32,7 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -44,6 +46,7 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -58,6 +61,7 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_CancelledByUser value) cancelledByUser,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
@@ -72,6 +76,7 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -86,6 +91,7 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -115,6 +121,162 @@ class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
   final AuthFailure _value;
   // ignore: unused_field
   final $Res Function(AuthFailure) _then;
+}
+
+/// @nodoc
+abstract class _$$_UnauthorizedCopyWith<$Res> {
+  factory _$$_UnauthorizedCopyWith(
+          _$_Unauthorized value, $Res Function(_$_Unauthorized) then) =
+      __$$_UnauthorizedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UnauthorizedCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements _$$_UnauthorizedCopyWith<$Res> {
+  __$$_UnauthorizedCopyWithImpl(
+      _$_Unauthorized _value, $Res Function(_$_Unauthorized) _then)
+      : super(_value, (v) => _then(v as _$_Unauthorized));
+
+  @override
+  _$_Unauthorized get _value => super._value as _$_Unauthorized;
+}
+
+/// @nodoc
+
+class _$_Unauthorized implements _Unauthorized {
+  const _$_Unauthorized();
+
+  @override
+  String toString() {
+    return 'AuthFailure.unauthorized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Unauthorized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAuthCode,
+    required TResult Function() invalidBirthdayForm,
+    required TResult Function() unauthorizedEmail,
+    required TResult Function() tokenNotFound,
+    required TResult Function() usernameAlreadyInUse,
+  }) {
+    return unauthorized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAuthCode,
+    TResult Function()? invalidBirthdayForm,
+    TResult Function()? unauthorizedEmail,
+    TResult Function()? tokenNotFound,
+    TResult Function()? usernameAlreadyInUse,
+  }) {
+    return unauthorized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAuthCode,
+    TResult Function()? invalidBirthdayForm,
+    TResult Function()? unauthorizedEmail,
+    TResult Function()? tokenNotFound,
+    TResult Function()? usernameAlreadyInUse,
+    required TResult orElse(),
+  }) {
+    if (unauthorized != null) {
+      return unauthorized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_CancelledByUser value) cancelledByUser,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(_InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(_InvalidAuthCode value) invalidAuthCode,
+    required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
+    required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
+    required TResult Function(_TokenNotFound value) tokenNotFound,
+    required TResult Function(_UsernameAlreadyInUse value) usernameAlreadyInUse,
+  }) {
+    return unauthorized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_CancelledByUser value)? cancelledByUser,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(_InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult Function(_TokenNotFound value)? tokenNotFound,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+  }) {
+    return unauthorized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_CancelledByUser value)? cancelledByUser,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(_InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult Function(_TokenNotFound value)? tokenNotFound,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    required TResult orElse(),
+  }) {
+    if (unauthorized != null) {
+      return unauthorized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Unauthorized implements AuthFailure {
+  const factory _Unauthorized() = _$_Unauthorized;
 }
 
 /// @nodoc
@@ -158,6 +320,7 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
@@ -174,6 +337,7 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -190,6 +354,7 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -210,6 +375,7 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_CancelledByUser value) cancelledByUser,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
@@ -227,6 +393,7 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -244,6 +411,7 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -307,6 +475,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
@@ -323,6 +492,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -339,6 +509,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -359,6 +530,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_CancelledByUser value) cancelledByUser,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
@@ -376,6 +548,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -393,6 +566,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -457,6 +631,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
@@ -473,6 +648,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -489,6 +665,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -509,6 +686,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_CancelledByUser value) cancelledByUser,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
@@ -526,6 +704,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -543,6 +722,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -612,6 +792,7 @@ class _$_InvalidEmailAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
@@ -628,6 +809,7 @@ class _$_InvalidEmailAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -644,6 +826,7 @@ class _$_InvalidEmailAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -664,6 +847,7 @@ class _$_InvalidEmailAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_CancelledByUser value) cancelledByUser,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
@@ -681,6 +865,7 @@ class _$_InvalidEmailAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -698,6 +883,7 @@ class _$_InvalidEmailAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -763,6 +949,7 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
@@ -779,6 +966,7 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -795,6 +983,7 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -815,6 +1004,7 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_CancelledByUser value) cancelledByUser,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
@@ -832,6 +1022,7 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -849,6 +1040,7 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -913,6 +1105,7 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
@@ -929,6 +1122,7 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -945,6 +1139,7 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -965,6 +1160,7 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_CancelledByUser value) cancelledByUser,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
@@ -982,6 +1178,7 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -999,6 +1196,7 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -1063,6 +1261,7 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
@@ -1079,6 +1278,7 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -1095,6 +1295,7 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -1115,6 +1316,7 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_CancelledByUser value) cancelledByUser,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
@@ -1132,6 +1334,7 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -1149,6 +1352,7 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -1213,6 +1417,7 @@ class _$_TokenNotFound implements _TokenNotFound {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
@@ -1229,6 +1434,7 @@ class _$_TokenNotFound implements _TokenNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -1245,6 +1451,7 @@ class _$_TokenNotFound implements _TokenNotFound {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -1265,6 +1472,7 @@ class _$_TokenNotFound implements _TokenNotFound {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_CancelledByUser value) cancelledByUser,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
@@ -1282,6 +1490,7 @@ class _$_TokenNotFound implements _TokenNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -1299,6 +1508,7 @@ class _$_TokenNotFound implements _TokenNotFound {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -1363,6 +1573,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() unauthorized,
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
@@ -1379,6 +1590,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -1395,6 +1607,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthorized,
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
@@ -1415,6 +1628,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_CancelledByUser value) cancelledByUser,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
@@ -1432,6 +1646,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
@@ -1449,6 +1664,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_CancelledByUser value)? cancelledByUser,
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,

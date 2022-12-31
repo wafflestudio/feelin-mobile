@@ -5,7 +5,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'explore_post_client.g.dart';
 
-@RestApi(baseUrl: "https://api-feelin.kro.kr/api/v1")
+@RestApi(baseUrl: "https://feelin-social-api-dev.wafflestudio.com/api/v1")
 abstract class ExplorePostClient{
   factory ExplorePostClient(Dio dio, {String baseUrl}) = _ExplorePostClient;
 

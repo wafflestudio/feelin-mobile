@@ -2,15 +2,17 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/application/navigation/navigation_cubit.dart';
 import 'package:music_sns/injection.dart';
+import 'package:music_sns/presentation/app/app.dart';
 import 'package:music_sns/presentation/auth/sign_in/sign_in_page.dart';
-import 'package:music_sns/presentation/auth/sign_up/sign_up_page.dart';
 import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
 import 'package:music_sns/presentation/main/profile/profile_page.dart';
 import 'package:music_sns/presentation/main/root_page.dart';
 
 import 'firebase_options.dart';
+import 'presentation/auth/auth.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,8 +40,11 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.lightGreen,
           primaryColor: const Color.fromARGB(1, 193, 156, 1),
           fontFamily: 'SpoqaHanSansNeo',
+          scaffoldBackgroundColor: Colors.white,
         ),
-        home: const SignInPage(),
+        home: BlocProvider(
+            create: (context) => getIt<AuthBloc>(),
+            child: Auth()),
       ),
     );
   }

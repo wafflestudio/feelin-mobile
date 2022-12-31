@@ -40,6 +40,8 @@ dependencies:
   intl_phone_number_input: ^0.7.1
   email_validator: ^2.1.17
 
+  # date format
+  intl:
 
 dev_dependencies:
   flutter_test:

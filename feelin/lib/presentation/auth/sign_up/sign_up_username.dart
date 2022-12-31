@@ -5,7 +5,7 @@ import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../style/colors.dart';
 import 'common_description.dart';
 import 'common_title.dart';
-import 'next_button.dart';
+import '../../common/next_button.dart';
 
 class SignUpUsername extends StatefulWidget{
   final Map<String, String> input;
@@ -83,14 +83,7 @@ class _SignUpNameState extends State<SignUpUsername>{
                 ),
                 suffixIcon: (state.canUseName) ? const Icon(Icons.check_circle_outline, color: Colors.green,) : const SizedBox.shrink(),
               ),
-              validator: (_) =>
-                  context.read<SignUpFormBloc>().state.lastName.value.fold(
-                        (f) => f.maybeMap(
-                      empty: (_) => '사용자 이름을 입력해주세요',
-                      orElse: () => null,
-                    ),
-                        (_) => null,
-                  ),
+              validator: (_) => null,
               onChanged: (value) {
                 context.read<SignUpFormBloc>().add(SignUpFormEvent.usernameChanged(value));
                 context.read<SignUpFormBloc>().add(const SignUpFormEvent.resetCanUseName());

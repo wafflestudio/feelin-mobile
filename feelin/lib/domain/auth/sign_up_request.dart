@@ -8,24 +8,22 @@ class SignUpRequest{
   String email;
   @JsonKey(name: "password")
   String password;
-  @JsonKey(name: "lastName")
-  String lastName;
-  @JsonKey(name: "firstName")
-  String firstName;
+  @JsonKey(name: "name")
+  String name;
   @JsonKey(name: "username")
   String username;
-  @JsonKey(name: "phoneNumber")
-  String phoneNumber;
-  @JsonKey(name: "birth")
+  @JsonKey(name: "birthDate")
   String birthday;
+  // @JsonKey(name: "countryCode")
+  // String countryCode = '+82';
+  // @JsonKey(name: "phoneNumber")
+  // String phoneNumber = '010-0000-1111';
 
   SignUpRequest({
     required this.email,
     required this.password,
-    required this.lastName,
-    required this.firstName,
+    required this.name,
     required this.username,
-    required this.phoneNumber,
     required this.birthday,
   });
 

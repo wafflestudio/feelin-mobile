@@ -6,7 +6,9 @@ import 'package:music_sns/domain/auth/value_objects.dart';
 import 'package:retrofit/dio.dart';
 
 abstract class IAuthRepository {
-  Future<Option<User>> getSignedInUser();
+  Future<Either<AuthFailure, Unit>> getSignedInUser({
+    required Token token,
+  });
 
   Future<Either<AuthFailure, Unit>> signIn({
     required Account account,
@@ -18,10 +20,8 @@ abstract class IAuthRepository {
   Future<Either<AuthFailure, Unit>> signUpWithEmail({
     required EmailAddress emailAddress,
     required Password password,
-    required NotEmptyString lastName,
-    required NotEmptyString firstName,
+    required NotEmptyString name,
     required Username username,
-    required PhoneNumber phoneNumber,
     required NotEmptyString birthday,
   });
   Future<Either<AuthFailure, void>> verifyEmail({

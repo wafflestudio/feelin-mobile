@@ -62,7 +62,7 @@ class _RootPageState extends State<RootPage> {
               return const ExplorePage();
             } else if (state.navbarItem == NavbarItem.post) {
               return BlocProvider(create: (context) => getIt<PostFormBloc>(),
-                  child: const PostPage());
+                  child: Container());
             } else if (state.navbarItem == NavbarItem.profile) {
               return BlocProvider(create: (context) => getIt<ProfileBloc>(),
                   child: const ProfilePage());

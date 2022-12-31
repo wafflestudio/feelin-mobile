@@ -11,7 +11,7 @@ class CreatePostRequest{
   String title;
   @JsonKey(name: "content")
   String content;
-  @JsonKey(name: "playlistPreview")
+  @JsonKey(name: "playlist")
   PlaylistPreview playlistPreview;
 
   CreatePostRequest({

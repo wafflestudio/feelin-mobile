@@ -22,8 +22,10 @@ mixin _$SignUpFormEvent {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
@@ -36,8 +38,10 @@ mixin _$SignUpFormEvent {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -50,8 +54,10 @@ mixin _$SignUpFormEvent {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -66,8 +72,10 @@ mixin _$SignUpFormEvent {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
@@ -80,8 +88,10 @@ mixin _$SignUpFormEvent {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -94,8 +104,10 @@ mixin _$SignUpFormEvent {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -193,8 +205,10 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
@@ -210,8 +224,10 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -227,8 +243,10 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -249,8 +267,10 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
@@ -266,8 +286,10 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -283,8 +305,10 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -380,8 +404,10 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
@@ -397,8 +423,10 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -414,8 +442,10 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -436,8 +466,10 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
@@ -453,8 +485,10 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -470,8 +504,10 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -565,8 +601,10 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
@@ -582,8 +620,10 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -599,8 +639,10 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -621,8 +663,10 @@ class _$_PasswordChanged implements _PasswordChanged {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
@@ -638,8 +682,10 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -655,8 +701,10 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -724,8 +772,10 @@ class _$_Submitted implements _Submitted {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
@@ -741,8 +791,10 @@ class _$_Submitted implements _Submitted {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -758,8 +810,10 @@ class _$_Submitted implements _Submitted {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -780,8 +834,10 @@ class _$_Submitted implements _Submitted {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
@@ -797,8 +853,10 @@ class _$_Submitted implements _Submitted {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -814,8 +872,10 @@ class _$_Submitted implements _Submitted {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -834,32 +894,32 @@ abstract class _Submitted implements SignUpFormEvent {
 }
 
 /// @nodoc
-abstract class _$$_FirstNameChangedCopyWith<$Res> {
-  factory _$$_FirstNameChangedCopyWith(
-          _$_FirstNameChanged value, $Res Function(_$_FirstNameChanged) then) =
-      __$$_FirstNameChangedCopyWithImpl<$Res>;
-  $Res call({String firstNameStr});
+abstract class _$$_CodeChangedCopyWith<$Res> {
+  factory _$$_CodeChangedCopyWith(
+          _$_CodeChanged value, $Res Function(_$_CodeChanged) then) =
+      __$$_CodeChangedCopyWithImpl<$Res>;
+  $Res call({String codeStr});
 }
 
 /// @nodoc
-class __$$_FirstNameChangedCopyWithImpl<$Res>
+class __$$_CodeChangedCopyWithImpl<$Res>
     extends _$SignUpFormEventCopyWithImpl<$Res>
-    implements _$$_FirstNameChangedCopyWith<$Res> {
-  __$$_FirstNameChangedCopyWithImpl(
-      _$_FirstNameChanged _value, $Res Function(_$_FirstNameChanged) _then)
-      : super(_value, (v) => _then(v as _$_FirstNameChanged));
+    implements _$$_CodeChangedCopyWith<$Res> {
+  __$$_CodeChangedCopyWithImpl(
+      _$_CodeChanged _value, $Res Function(_$_CodeChanged) _then)
+      : super(_value, (v) => _then(v as _$_CodeChanged));
 
   @override
-  _$_FirstNameChanged get _value => super._value as _$_FirstNameChanged;
+  _$_CodeChanged get _value => super._value as _$_CodeChanged;
 
   @override
   $Res call({
-    Object? firstNameStr = freezed,
+    Object? codeStr = freezed,
   }) {
-    return _then(_$_FirstNameChanged(
-      firstNameStr == freezed
-          ? _value.firstNameStr
-          : firstNameStr // ignore: cast_nullable_to_non_nullable
+    return _then(_$_CodeChanged(
+      codeStr == freezed
+          ? _value.codeStr
+          : codeStr // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -867,34 +927,33 @@ class __$$_FirstNameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FirstNameChanged implements _FirstNameChanged {
-  const _$_FirstNameChanged(this.firstNameStr);
+class _$_CodeChanged implements _CodeChanged {
+  const _$_CodeChanged(this.codeStr);
 
   @override
-  final String firstNameStr;
+  final String codeStr;
 
   @override
   String toString() {
-    return 'SignUpFormEvent.firstNameChanged(firstNameStr: $firstNameStr)';
+    return 'SignUpFormEvent.codeChanged(codeStr: $codeStr)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FirstNameChanged &&
-            const DeepCollectionEquality()
-                .equals(other.firstNameStr, firstNameStr));
+            other is _$_CodeChanged &&
+            const DeepCollectionEquality().equals(other.codeStr, codeStr));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(firstNameStr));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(codeStr));
 
   @JsonKey(ignore: true)
   @override
-  _$$_FirstNameChangedCopyWith<_$_FirstNameChanged> get copyWith =>
-      __$$_FirstNameChangedCopyWithImpl<_$_FirstNameChanged>(this, _$identity);
+  _$$_CodeChangedCopyWith<_$_CodeChanged> get copyWith =>
+      __$$_CodeChangedCopyWithImpl<_$_CodeChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -903,14 +962,16 @@ class _$_FirstNameChanged implements _FirstNameChanged {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
   }) {
-    return firstNameChanged(firstNameStr);
+    return codeChanged(codeStr);
   }
 
   @override
@@ -920,14 +981,16 @@ class _$_FirstNameChanged implements _FirstNameChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
   }) {
-    return firstNameChanged?.call(firstNameStr);
+    return codeChanged?.call(codeStr);
   }
 
   @override
@@ -937,16 +1000,18 @@ class _$_FirstNameChanged implements _FirstNameChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
     required TResult orElse(),
   }) {
-    if (firstNameChanged != null) {
-      return firstNameChanged(firstNameStr);
+    if (codeChanged != null) {
+      return codeChanged(codeStr);
     }
     return orElse();
   }
@@ -959,14 +1024,16 @@ class _$_FirstNameChanged implements _FirstNameChanged {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
   }) {
-    return firstNameChanged(this);
+    return codeChanged(this);
   }
 
   @override
@@ -976,14 +1043,16 @@ class _$_FirstNameChanged implements _FirstNameChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
   }) {
-    return firstNameChanged?.call(this);
+    return codeChanged?.call(this);
   }
 
   @override
@@ -993,93 +1062,69 @@ class _$_FirstNameChanged implements _FirstNameChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
     required TResult orElse(),
   }) {
-    if (firstNameChanged != null) {
-      return firstNameChanged(this);
+    if (codeChanged != null) {
+      return codeChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class _FirstNameChanged implements SignUpFormEvent {
-  const factory _FirstNameChanged(final String firstNameStr) =
-      _$_FirstNameChanged;
+abstract class _CodeChanged implements SignUpFormEvent {
+  const factory _CodeChanged(final String codeStr) = _$_CodeChanged;
 
-  String get firstNameStr;
+  String get codeStr;
   @JsonKey(ignore: true)
-  _$$_FirstNameChangedCopyWith<_$_FirstNameChanged> get copyWith =>
+  _$$_CodeChangedCopyWith<_$_CodeChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LastNameChangedCopyWith<$Res> {
-  factory _$$_LastNameChangedCopyWith(
-          _$_LastNameChanged value, $Res Function(_$_LastNameChanged) then) =
-      __$$_LastNameChangedCopyWithImpl<$Res>;
-  $Res call({String lastNameStr});
+abstract class _$$_EmailSubmittedCopyWith<$Res> {
+  factory _$$_EmailSubmittedCopyWith(
+          _$_EmailSubmitted value, $Res Function(_$_EmailSubmitted) then) =
+      __$$_EmailSubmittedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LastNameChangedCopyWithImpl<$Res>
+class __$$_EmailSubmittedCopyWithImpl<$Res>
     extends _$SignUpFormEventCopyWithImpl<$Res>
-    implements _$$_LastNameChangedCopyWith<$Res> {
-  __$$_LastNameChangedCopyWithImpl(
-      _$_LastNameChanged _value, $Res Function(_$_LastNameChanged) _then)
-      : super(_value, (v) => _then(v as _$_LastNameChanged));
+    implements _$$_EmailSubmittedCopyWith<$Res> {
+  __$$_EmailSubmittedCopyWithImpl(
+      _$_EmailSubmitted _value, $Res Function(_$_EmailSubmitted) _then)
+      : super(_value, (v) => _then(v as _$_EmailSubmitted));
 
   @override
-  _$_LastNameChanged get _value => super._value as _$_LastNameChanged;
-
-  @override
-  $Res call({
-    Object? lastNameStr = freezed,
-  }) {
-    return _then(_$_LastNameChanged(
-      lastNameStr == freezed
-          ? _value.lastNameStr
-          : lastNameStr // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+  _$_EmailSubmitted get _value => super._value as _$_EmailSubmitted;
 }
 
 /// @nodoc
 
-class _$_LastNameChanged implements _LastNameChanged {
-  const _$_LastNameChanged(this.lastNameStr);
-
-  @override
-  final String lastNameStr;
+class _$_EmailSubmitted implements _EmailSubmitted {
+  const _$_EmailSubmitted();
 
   @override
   String toString() {
-    return 'SignUpFormEvent.lastNameChanged(lastNameStr: $lastNameStr)';
+    return 'SignUpFormEvent.emailSubmitted()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_LastNameChanged &&
-            const DeepCollectionEquality()
-                .equals(other.lastNameStr, lastNameStr));
+        (other.runtimeType == runtimeType && other is _$_EmailSubmitted);
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(lastNameStr));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_LastNameChangedCopyWith<_$_LastNameChanged> get copyWith =>
-      __$$_LastNameChangedCopyWithImpl<_$_LastNameChanged>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -1088,14 +1133,16 @@ class _$_LastNameChanged implements _LastNameChanged {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
   }) {
-    return lastNameChanged(lastNameStr);
+    return emailSubmitted();
   }
 
   @override
@@ -1105,14 +1152,16 @@ class _$_LastNameChanged implements _LastNameChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
   }) {
-    return lastNameChanged?.call(lastNameStr);
+    return emailSubmitted?.call();
   }
 
   @override
@@ -1122,16 +1171,18 @@ class _$_LastNameChanged implements _LastNameChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
     required TResult orElse(),
   }) {
-    if (lastNameChanged != null) {
-      return lastNameChanged(lastNameStr);
+    if (emailSubmitted != null) {
+      return emailSubmitted();
     }
     return orElse();
   }
@@ -1144,14 +1195,16 @@ class _$_LastNameChanged implements _LastNameChanged {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
   }) {
-    return lastNameChanged(this);
+    return emailSubmitted(this);
   }
 
   @override
@@ -1161,14 +1214,16 @@ class _$_LastNameChanged implements _LastNameChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
   }) {
-    return lastNameChanged?.call(this);
+    return emailSubmitted?.call(this);
   }
 
   @override
@@ -1178,27 +1233,385 @@ class _$_LastNameChanged implements _LastNameChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
     required TResult orElse(),
   }) {
-    if (lastNameChanged != null) {
-      return lastNameChanged(this);
+    if (emailSubmitted != null) {
+      return emailSubmitted(this);
     }
     return orElse();
   }
 }
 
-abstract class _LastNameChanged implements SignUpFormEvent {
-  const factory _LastNameChanged(final String lastNameStr) = _$_LastNameChanged;
+abstract class _EmailSubmitted implements SignUpFormEvent {
+  const factory _EmailSubmitted() = _$_EmailSubmitted;
+}
 
-  String get lastNameStr;
+/// @nodoc
+abstract class _$$_RequestedCopyWith<$Res> {
+  factory _$$_RequestedCopyWith(
+          _$_Requested value, $Res Function(_$_Requested) then) =
+      __$$_RequestedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RequestedCopyWithImpl<$Res>
+    extends _$SignUpFormEventCopyWithImpl<$Res>
+    implements _$$_RequestedCopyWith<$Res> {
+  __$$_RequestedCopyWithImpl(
+      _$_Requested _value, $Res Function(_$_Requested) _then)
+      : super(_value, (v) => _then(v as _$_Requested));
+
+  @override
+  _$_Requested get _value => super._value as _$_Requested;
+}
+
+/// @nodoc
+
+class _$_Requested implements _Requested {
+  const _$_Requested();
+
+  @override
+  String toString() {
+    return 'SignUpFormEvent.requested()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Requested);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailAddressStr) emailAddressChanged,
+    required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() submitted,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() resetCanUseName,
+    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(String birthdayStr) birthdayChanged,
+  }) {
+    return requested();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailAddressStr)? emailAddressChanged,
+    TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? submitted,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? resetCanUseName,
+    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(String birthdayStr)? birthdayChanged,
+  }) {
+    return requested?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailAddressStr)? emailAddressChanged,
+    TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? submitted,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? resetCanUseName,
+    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(String birthdayStr)? birthdayChanged,
+    required TResult orElse(),
+  }) {
+    if (requested != null) {
+      return requested();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_PasswordConfirmChanged value)
+        passwordConfirmChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_ResetCanUseName value) resetCanUseName,
+    required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(_BirthdayChanged value) birthdayChanged,
+  }) {
+    return requested(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(_BirthdayChanged value)? birthdayChanged,
+  }) {
+    return requested?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(_BirthdayChanged value)? birthdayChanged,
+    required TResult orElse(),
+  }) {
+    if (requested != null) {
+      return requested(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Requested implements SignUpFormEvent {
+  const factory _Requested() = _$_Requested;
+}
+
+/// @nodoc
+abstract class _$$_NameChangedCopyWith<$Res> {
+  factory _$$_NameChangedCopyWith(
+          _$_NameChanged value, $Res Function(_$_NameChanged) then) =
+      __$$_NameChangedCopyWithImpl<$Res>;
+  $Res call({String nameStr});
+}
+
+/// @nodoc
+class __$$_NameChangedCopyWithImpl<$Res>
+    extends _$SignUpFormEventCopyWithImpl<$Res>
+    implements _$$_NameChangedCopyWith<$Res> {
+  __$$_NameChangedCopyWithImpl(
+      _$_NameChanged _value, $Res Function(_$_NameChanged) _then)
+      : super(_value, (v) => _then(v as _$_NameChanged));
+
+  @override
+  _$_NameChanged get _value => super._value as _$_NameChanged;
+
+  @override
+  $Res call({
+    Object? nameStr = freezed,
+  }) {
+    return _then(_$_NameChanged(
+      nameStr == freezed
+          ? _value.nameStr
+          : nameStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NameChanged implements _NameChanged {
+  const _$_NameChanged(this.nameStr);
+
+  @override
+  final String nameStr;
+
+  @override
+  String toString() {
+    return 'SignUpFormEvent.nameChanged(nameStr: $nameStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NameChanged &&
+            const DeepCollectionEquality().equals(other.nameStr, nameStr));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(nameStr));
+
   @JsonKey(ignore: true)
-  _$$_LastNameChangedCopyWith<_$_LastNameChanged> get copyWith =>
+  @override
+  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
+      __$$_NameChangedCopyWithImpl<_$_NameChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailAddressStr) emailAddressChanged,
+    required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() submitted,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() resetCanUseName,
+    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(String birthdayStr) birthdayChanged,
+  }) {
+    return nameChanged(nameStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailAddressStr)? emailAddressChanged,
+    TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? submitted,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? resetCanUseName,
+    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(String birthdayStr)? birthdayChanged,
+  }) {
+    return nameChanged?.call(nameStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailAddressStr)? emailAddressChanged,
+    TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? submitted,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? resetCanUseName,
+    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(String birthdayStr)? birthdayChanged,
+    required TResult orElse(),
+  }) {
+    if (nameChanged != null) {
+      return nameChanged(nameStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_PasswordConfirmChanged value)
+        passwordConfirmChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_ResetCanUseName value) resetCanUseName,
+    required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(_BirthdayChanged value) birthdayChanged,
+  }) {
+    return nameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(_BirthdayChanged value)? birthdayChanged,
+  }) {
+    return nameChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(_BirthdayChanged value)? birthdayChanged,
+    required TResult orElse(),
+  }) {
+    if (nameChanged != null) {
+      return nameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NameChanged implements SignUpFormEvent {
+  const factory _NameChanged(final String nameStr) = _$_NameChanged;
+
+  String get nameStr;
+  @JsonKey(ignore: true)
+  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1272,8 +1685,10 @@ class _$_UsernameChanged implements _UsernameChanged {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
@@ -1289,8 +1704,10 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -1306,8 +1723,10 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -1328,8 +1747,10 @@ class _$_UsernameChanged implements _UsernameChanged {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
@@ -1345,8 +1766,10 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -1362,8 +1785,10 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -1431,8 +1856,10 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
@@ -1448,8 +1875,10 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -1465,8 +1894,10 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -1487,8 +1918,10 @@ class _$_ResetCanUseName implements _ResetCanUseName {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
@@ -1504,8 +1937,10 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -1521,8 +1956,10 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -1611,8 +2048,10 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
@@ -1628,8 +2067,10 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -1645,8 +2086,10 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -1667,8 +2110,10 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
@@ -1684,8 +2129,10 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -1701,8 +2148,10 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -1796,8 +2245,10 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() submitted,
-    required TResult Function(String firstNameStr) firstNameChanged,
-    required TResult Function(String lastNameStr) lastNameChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
@@ -1813,8 +2264,10 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -1830,8 +2283,10 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? submitted,
-    TResult Function(String firstNameStr)? firstNameChanged,
-    TResult Function(String lastNameStr)? lastNameChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
@@ -1852,8 +2307,10 @@ class _$_BirthdayChanged implements _BirthdayChanged {
         passwordConfirmChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_Submitted value) submitted,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
@@ -1869,8 +2326,10 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -1886,8 +2345,10 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_Submitted value)? submitted,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
@@ -1913,13 +2374,17 @@ abstract class _BirthdayChanged implements SignUpFormEvent {
 /// @nodoc
 mixin _$SignUpFormState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  EmailAuthCode get code => throw _privateConstructorUsedError;
+  bool get isEmailSubmitting => throw _privateConstructorUsedError;
+  bool get isRequested => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   Password get passwordConfirm => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, Unit>> get verifyFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
-  NotEmptyString get firstName => throw _privateConstructorUsedError;
-  NotEmptyString get lastName => throw _privateConstructorUsedError;
+  NotEmptyString get name => throw _privateConstructorUsedError;
   Username get username => throw _privateConstructorUsedError;
   bool get canUseName => throw _privateConstructorUsedError;
   PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
@@ -1937,12 +2402,15 @@ abstract class $SignUpFormStateCopyWith<$Res> {
       _$SignUpFormStateCopyWithImpl<$Res>;
   $Res call(
       {EmailAddress emailAddress,
+      EmailAuthCode code,
+      bool isEmailSubmitting,
+      bool isRequested,
       Password password,
       Password passwordConfirm,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      Option<Either<AuthFailure, Unit>> verifyFailureOrSuccessOption,
       bool isSubmitting,
-      NotEmptyString firstName,
-      NotEmptyString lastName,
+      NotEmptyString name,
       Username username,
       bool canUseName,
       PhoneNumber phoneNumber,
@@ -1961,12 +2429,15 @@ class _$SignUpFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? emailAddress = freezed,
+    Object? code = freezed,
+    Object? isEmailSubmitting = freezed,
+    Object? isRequested = freezed,
     Object? password = freezed,
     Object? passwordConfirm = freezed,
     Object? authFailureOrSuccessOption = freezed,
+    Object? verifyFailureOrSuccessOption = freezed,
     Object? isSubmitting = freezed,
-    Object? firstName = freezed,
-    Object? lastName = freezed,
+    Object? name = freezed,
     Object? username = freezed,
     Object? canUseName = freezed,
     Object? phoneNumber = freezed,
@@ -1977,6 +2448,18 @@ class _$SignUpFormStateCopyWithImpl<$Res>
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as EmailAuthCode,
+      isEmailSubmitting: isEmailSubmitting == freezed
+          ? _value.isEmailSubmitting
+          : isEmailSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRequested: isRequested == freezed
+          ? _value.isRequested
+          : isRequested // ignore: cast_nullable_to_non_nullable
+              as bool,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -1989,17 +2472,17 @@ class _$SignUpFormStateCopyWithImpl<$Res>
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
+      verifyFailureOrSuccessOption: verifyFailureOrSuccessOption == freezed
+          ? _value.verifyFailureOrSuccessOption
+          : verifyFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as NotEmptyString,
-      lastName: lastName == freezed
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as NotEmptyString,
       username: username == freezed
           ? _value.username
@@ -2030,12 +2513,15 @@ abstract class _$$_SignUpFormStateCopyWith<$Res>
   @override
   $Res call(
       {EmailAddress emailAddress,
+      EmailAuthCode code,
+      bool isEmailSubmitting,
+      bool isRequested,
       Password password,
       Password passwordConfirm,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      Option<Either<AuthFailure, Unit>> verifyFailureOrSuccessOption,
       bool isSubmitting,
-      NotEmptyString firstName,
-      NotEmptyString lastName,
+      NotEmptyString name,
       Username username,
       bool canUseName,
       PhoneNumber phoneNumber,
@@ -2056,12 +2542,15 @@ class __$$_SignUpFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? emailAddress = freezed,
+    Object? code = freezed,
+    Object? isEmailSubmitting = freezed,
+    Object? isRequested = freezed,
     Object? password = freezed,
     Object? passwordConfirm = freezed,
     Object? authFailureOrSuccessOption = freezed,
+    Object? verifyFailureOrSuccessOption = freezed,
     Object? isSubmitting = freezed,
-    Object? firstName = freezed,
-    Object? lastName = freezed,
+    Object? name = freezed,
     Object? username = freezed,
     Object? canUseName = freezed,
     Object? phoneNumber = freezed,
@@ -2072,6 +2561,18 @@ class __$$_SignUpFormStateCopyWithImpl<$Res>
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as EmailAuthCode,
+      isEmailSubmitting: isEmailSubmitting == freezed
+          ? _value.isEmailSubmitting
+          : isEmailSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRequested: isRequested == freezed
+          ? _value.isRequested
+          : isRequested // ignore: cast_nullable_to_non_nullable
+              as bool,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -2084,17 +2585,17 @@ class __$$_SignUpFormStateCopyWithImpl<$Res>
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
+      verifyFailureOrSuccessOption: verifyFailureOrSuccessOption == freezed
+          ? _value.verifyFailureOrSuccessOption
+          : verifyFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as NotEmptyString,
-      lastName: lastName == freezed
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as NotEmptyString,
       username: username == freezed
           ? _value.username
@@ -2121,12 +2622,15 @@ class __$$_SignUpFormStateCopyWithImpl<$Res>
 class _$_SignUpFormState implements _SignUpFormState {
   const _$_SignUpFormState(
       {required this.emailAddress,
+      required this.code,
+      required this.isEmailSubmitting,
+      required this.isRequested,
       required this.password,
       required this.passwordConfirm,
       required this.authFailureOrSuccessOption,
+      required this.verifyFailureOrSuccessOption,
       required this.isSubmitting,
-      required this.firstName,
-      required this.lastName,
+      required this.name,
       required this.username,
       required this.canUseName,
       required this.phoneNumber,
@@ -2135,17 +2639,23 @@ class _$_SignUpFormState implements _SignUpFormState {
   @override
   final EmailAddress emailAddress;
   @override
+  final EmailAuthCode code;
+  @override
+  final bool isEmailSubmitting;
+  @override
+  final bool isRequested;
+  @override
   final Password password;
   @override
   final Password passwordConfirm;
   @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
   @override
+  final Option<Either<AuthFailure, Unit>> verifyFailureOrSuccessOption;
+  @override
   final bool isSubmitting;
   @override
-  final NotEmptyString firstName;
-  @override
-  final NotEmptyString lastName;
+  final NotEmptyString name;
   @override
   final Username username;
   @override
@@ -2157,7 +2667,7 @@ class _$_SignUpFormState implements _SignUpFormState {
 
   @override
   String toString() {
-    return 'SignUpFormState(emailAddress: $emailAddress, password: $password, passwordConfirm: $passwordConfirm, authFailureOrSuccessOption: $authFailureOrSuccessOption, isSubmitting: $isSubmitting, firstName: $firstName, lastName: $lastName, username: $username, canUseName: $canUseName, phoneNumber: $phoneNumber, birthday: $birthday)';
+    return 'SignUpFormState(emailAddress: $emailAddress, code: $code, isEmailSubmitting: $isEmailSubmitting, isRequested: $isRequested, password: $password, passwordConfirm: $passwordConfirm, authFailureOrSuccessOption: $authFailureOrSuccessOption, verifyFailureOrSuccessOption: $verifyFailureOrSuccessOption, isSubmitting: $isSubmitting, name: $name, username: $username, canUseName: $canUseName, phoneNumber: $phoneNumber, birthday: $birthday)';
   }
 
   @override
@@ -2167,15 +2677,22 @@ class _$_SignUpFormState implements _SignUpFormState {
             other is _$_SignUpFormState &&
             const DeepCollectionEquality()
                 .equals(other.emailAddress, emailAddress) &&
+            const DeepCollectionEquality().equals(other.code, code) &&
+            const DeepCollectionEquality()
+                .equals(other.isEmailSubmitting, isEmailSubmitting) &&
+            const DeepCollectionEquality()
+                .equals(other.isRequested, isRequested) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
                 .equals(other.passwordConfirm, passwordConfirm) &&
             const DeepCollectionEquality().equals(
                 other.authFailureOrSuccessOption, authFailureOrSuccessOption) &&
+            const DeepCollectionEquality().equals(
+                other.verifyFailureOrSuccessOption,
+                verifyFailureOrSuccessOption) &&
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality().equals(other.firstName, firstName) &&
-            const DeepCollectionEquality().equals(other.lastName, lastName) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality()
                 .equals(other.canUseName, canUseName) &&
@@ -2188,12 +2705,15 @@ class _$_SignUpFormState implements _SignUpFormState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(emailAddress),
+      const DeepCollectionEquality().hash(code),
+      const DeepCollectionEquality().hash(isEmailSubmitting),
+      const DeepCollectionEquality().hash(isRequested),
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(passwordConfirm),
       const DeepCollectionEquality().hash(authFailureOrSuccessOption),
+      const DeepCollectionEquality().hash(verifyFailureOrSuccessOption),
       const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(firstName),
-      const DeepCollectionEquality().hash(lastName),
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(username),
       const DeepCollectionEquality().hash(canUseName),
       const DeepCollectionEquality().hash(phoneNumber),
@@ -2208,13 +2728,17 @@ class _$_SignUpFormState implements _SignUpFormState {
 abstract class _SignUpFormState implements SignUpFormState {
   const factory _SignUpFormState(
       {required final EmailAddress emailAddress,
+      required final EmailAuthCode code,
+      required final bool isEmailSubmitting,
+      required final bool isRequested,
       required final Password password,
       required final Password passwordConfirm,
       required final Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption,
+      required final Option<Either<AuthFailure, Unit>>
+          verifyFailureOrSuccessOption,
       required final bool isSubmitting,
-      required final NotEmptyString firstName,
-      required final NotEmptyString lastName,
+      required final NotEmptyString name,
       required final Username username,
       required final bool canUseName,
       required final PhoneNumber phoneNumber,
@@ -2223,17 +2747,23 @@ abstract class _SignUpFormState implements SignUpFormState {
   @override
   EmailAddress get emailAddress;
   @override
+  EmailAuthCode get code;
+  @override
+  bool get isEmailSubmitting;
+  @override
+  bool get isRequested;
+  @override
   Password get password;
   @override
   Password get passwordConfirm;
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @override
+  Option<Either<AuthFailure, Unit>> get verifyFailureOrSuccessOption;
+  @override
   bool get isSubmitting;
   @override
-  NotEmptyString get firstName;
-  @override
-  NotEmptyString get lastName;
+  NotEmptyString get name;
   @override
   Username get username;
   @override

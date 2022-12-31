@@ -10,13 +10,13 @@ CreatePostRequest _$CreatePostRequestFromJson(Map<String, dynamic> json) =>
     CreatePostRequest(
       title: json['title'] as String,
       content: json['content'] as String,
-      playlistPreview: PlaylistPreview.fromJson(
-          json['playlistPreview'] as Map<String, dynamic>),
+      playlistPreview:
+          PlaylistPreview.fromJson(json['playlist'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CreatePostRequestToJson(CreatePostRequest instance) =>
     <String, dynamic>{
       'title': instance.title,
       'content': instance.content,
-      'playlistPreview': instance.playlistPreview,
+      'playlist': instance.playlistPreview,
     };

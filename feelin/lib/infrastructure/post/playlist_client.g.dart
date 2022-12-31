@@ -10,8 +10,7 @@ part of 'playlist_client.dart';
 
 class _PlaylistClient implements PlaylistClient {
   _PlaylistClient(this._dio, {this.baseUrl}) {
-    baseUrl ??=
-        'http://ec2-3-38-41-181.ap-northeast-2.compute.amazonaws.com:3000/api/v1';
+    baseUrl ??= 'https://feelin-api-dev.wafflestudio.com/api/v1';
   }
 
   final Dio _dio;

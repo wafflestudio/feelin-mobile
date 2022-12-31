@@ -21,6 +21,11 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
         emailAddress: EmailAddress(event.emailAddressStr),
       ));
     });
+    on<_CodeChanged>((event, emit) {
+      emit(state.copyWith(
+        code: EmailAuthCode(event.codeStr),
+      ));
+    });
     on<_PasswordChanged>((event, emit) {
       emit(state.copyWith(
         password: Password(event.passwordStr),
@@ -31,14 +36,9 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
         passwordConfirm: Password(event.passwordConfirmStr),
       ));
     });
-    on<_LastNameChanged>((event, emit) {
+    on<_NameChanged>((event, emit) {
       emit(state.copyWith(
-        lastName: NotEmptyString(event.lastNameStr),
-      ));
-    });
-    on<_FirstNameChanged>((event, emit) {
-      emit(state.copyWith(
-        firstName: NotEmptyString(event.firstNameStr),
+        name: NotEmptyString(event.nameStr),
       ));
     });
     // debounce 를 이용한 사용자 이름 중복 확인
@@ -46,7 +46,7 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
       emit(state.copyWith(
         username: Username(event.usernameStr),
       ));
-      // 유저네임 중복 요청 api
+      // 유저네임 중복 확인 요청 api
       if(state.username.isValid()){
         final failureOrSuccess = await _authRepository.checkUsername(username: state.username,);
         failureOrSuccess.fold(
@@ -79,17 +79,55 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
         birthday: NotEmptyString(event.birthdayStr),
       ));
     });
-    on<_Submitted>((event, emit) async {
+    on<_EmailSubmitted>((event, emit) async {
       emit(state.copyWith(
         isSubmitting: true,
       ));
-      if(state.password.isValid() && state.phoneNumber.isValid() && state.passwordConfirm.isValid() &&
-          state.birthday.isValid() && state.username.isValid() &&
-          state.password.value == state.passwordConfirm.value && state.canUseName){
+      final failureOrSuccess = await _authRepository.verifyEmail(
+          emailAddress: state.emailAddress, code: state.code);
+      failureOrSuccess.fold(
+            (f) {
+          emit(state.copyWith(
+            isSubmitting: false,
+            verifyFailureOrSuccessOption: some(left(f)),
+          ));
+        },
+            (_) {
+          emit(state.copyWith(
+            isSubmitting: false,
+            verifyFailureOrSuccessOption: some(right(unit)),
+          ));
+        },
+      );
+    });
+    on<_Requested>((event, emit) async{
+      final failureOrSuccess = await _authRepository.tryEmailVerification(
+          emailAddress: state.emailAddress);
+      failureOrSuccess.fold(
+            (f) {
+          emit(state.copyWith(
+              isRequested: false
+          ));
+        },
+            (_) {
+          emit(state.copyWith(
+            //isSubmitting: false,
+              isRequested: true
+          ));
+        },
+      );
+    });
+
+    on<_Submitted>((event, emit) async {
+      print('kkkkkkk');
+      emit(state.copyWith(
+        isSubmitting: true,
+      ));
+      if(state.password.isValid() &&
+          state.birthday.isValid() && state.username.isValid() && state.canUseName){
         final failureOrSuccess = await _authRepository.signUpWithEmail(
-          emailAddress: state.emailAddress, password: state.password, lastName: state.lastName,
-          firstName: state.firstName, username: state.username, phoneNumber: state.phoneNumber,
-          birthday: state.birthday,
+          emailAddress: state.emailAddress, password: state.password, name: state.name,
+          username: state.username, birthday: state.birthday,
         );
         failureOrSuccess.fold(
               (f) {

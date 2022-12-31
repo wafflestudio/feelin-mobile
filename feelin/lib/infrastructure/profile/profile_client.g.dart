@@ -10,7 +10,7 @@ part of 'profile_client.dart';
 
 class _ProfileClient implements ProfileClient {
   _ProfileClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://api-feelin.kro.kr/api/v1';
+    baseUrl ??= 'https://feelin-social-api-dev.wafflestudio.com/api/v1';
   }
 
   final Dio _dio;

@@ -10,7 +10,7 @@ part of 'auth_client.dart';
 
 class _AuthClient implements AuthClient {
   _AuthClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://api-feelin.kro.kr/api/v1';
+    baseUrl ??= 'https://feelin-social-api-dev.wafflestudio.com/api/v1';
   }
 
   final Dio _dio;
@@ -131,6 +131,22 @@ class _AuthClient implements AuthClient {
     final _result = await _dio.fetch<void>(_setStreamType<HttpResponse<void>>(
         Options(method: 'POST', headers: _headers, extra: _extra)
             .compose(_dio.options, '/auth/sign-out',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final httpResponse = HttpResponse(null, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<void>> getSignedInUser(token) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authentication': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<void>(_setStreamType<HttpResponse<void>>(
+        Options(method: 'GET', headers: _headers, extra: _extra)
+            .compose(_dio.options, '/user/me',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final httpResponse = HttpResponse(null, _result);

@@ -13,7 +13,7 @@ import '../../domain/auth/exists_username.dart';
 
 part 'auth_client.g.dart';
 
-@RestApi(baseUrl: "https://api-feelin.kro.kr/api/v1")
+@RestApi(baseUrl: "https://feelin-social-api-dev.wafflestudio.com/api/v1")
 abstract class AuthClient{
   factory AuthClient(Dio dio, {String baseUrl}) = _AuthClient;
 
@@ -37,4 +37,7 @@ abstract class AuthClient{
 
   @POST('/auth/sign-out')
   Future<HttpResponse<void>> signOut(@Header("Authentication") String token);
+
+  @GET('/user/me')
+  Future<HttpResponse<void>> getSignedInUser(@Header("Authentication") String token);
 }

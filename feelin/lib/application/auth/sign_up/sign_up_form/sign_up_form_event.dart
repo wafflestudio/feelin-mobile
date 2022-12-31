@@ -8,11 +8,14 @@ class SignUpFormEvent with _$SignUpFormEvent {
   _PasswordConfirmChanged;
   const factory SignUpFormEvent.passwordChanged(String passwordStr) =
   _PasswordChanged;
-  const factory SignUpFormEvent.submitted() = _Submitted;
-  const factory SignUpFormEvent.firstNameChanged(String firstNameStr) =
-  _FirstNameChanged;
-  const factory SignUpFormEvent.lastNameChanged(String lastNameStr) =
-  _LastNameChanged;
+  const factory SignUpFormEvent.submitted() =
+  _Submitted;
+  const factory SignUpFormEvent.codeChanged(String codeStr) =
+  _CodeChanged;
+  const factory SignUpFormEvent.emailSubmitted() = _EmailSubmitted;
+  const factory SignUpFormEvent.requested() = _Requested;
+  const factory SignUpFormEvent.nameChanged(String nameStr) =
+  _NameChanged;
   const factory SignUpFormEvent.usernameChanged(String usernameStr) =
   _UsernameChanged;
   const factory SignUpFormEvent.resetCanUseName() =

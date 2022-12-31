@@ -70,7 +70,7 @@ class Share{
     // );
   }
 
-  Future<String> _getShortLink(int id, String postTitle) async {
+  Future<String> _getShortLink(int id, String postTitle, String thumbnail) async {
     String dynamicLinkPrefix = 'https://feelinsns.page.link';
     final dynamicLinkParams = DynamicLinkParameters(
       uriPrefix: dynamicLinkPrefix,
@@ -82,7 +82,7 @@ class Share{
       ),
       socialMetaTagParameters: SocialMetaTagParameters(
         title: postTitle,
-        imageUrl: Uri.parse("https://guam.wafflestudio.com/_next/static/media/favicon.e7a111af.svg"),
+        imageUrl: Uri.parse(thumbnail),
       ),
     );
     final unguessableDynamicLink = await FirebaseDynamicLinks.instance.buildShortLink(
@@ -93,11 +93,11 @@ class Share{
     return unguessableDynamicLink.shortUrl.toString();
   }
 
-  void share(int? id, String? postTitle) async{
+  void share(int id, String postTitle, String thumbnail) async{
     if(!isLoading){
       isLoading = true;
       share_plus.Share.share(
-        await _getShortLink(id!, postTitle!),
+        await _getShortLink(id, postTitle, thumbnail),
       ).then((value) {
         Future.delayed(const Duration(milliseconds: 500),(){
           isLoading = false;

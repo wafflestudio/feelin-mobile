@@ -4,18 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/edit/edit_post_form/edit_post_form_bloc.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
+import 'package:music_sns/application/share/share.dart';
 import 'package:music_sns/domain/custom/marquee.dart';
 import 'package:music_sns/domain/play/track.dart';
 import 'package:music_sns/injection.dart';
 
 import '../../../application/navigation/nav_bar_item.dart';
 import '../../../application/navigation/navigation_cubit.dart';
+import '../../../domain/play/post.dart';
 import '../../edit/post/edit_post_page.dart';
 import '../root_page.dart';
 
 class PlaylistInfoPage extends StatefulWidget{
-  const PlaylistInfoPage({Key? key, required this.postId, required this.heroNumber}) : super(key: key);
+  const PlaylistInfoPage({Key? key, required this.post, required this.postId, required this.heroNumber}) : super(key: key);
 
+  final Post post;
   final int postId;
   final int heroNumber;
 
@@ -42,15 +45,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                 (f) => null,
                 (unit) => {
                   print('test'),
-                  Navigator.pushReplacement(context,
-                    CupertinoPageRoute(
-                      builder: (context){
-                        BlocProvider.of<NavigationCubit>(context)
-                            .getNavBarItem(NavbarItem.profile);
-                        return const RootPage();
-                      },
-                    ),
-                  ),
+                  Navigator.pop(context),
             },
           ),
         ), orElse: () {});
@@ -73,7 +68,32 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                           icon: const Icon(Icons.arrow_back_ios_new),
                         ),
                       ),
-                        body: const Center(child: CupertinoActivityIndicator(radius: 20,)),
+                        body: Column(
+                          children: [
+                            SizedBox(
+                              child: _playlistCover(context),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: 1.5,
+                              decoration: const BoxDecoration(
+                                  gradient: LinearGradient(
+                                      begin: FractionalOffset(0.0, 0.0),
+                                      end: FractionalOffset(1.0, 1.0),
+                                      colors: <Color>[
+                                        Color(0xff00C19C),
+                                        Color(0xff7077D5),
+                                      ],
+                                      stops: <double>[0.0, 1.0],
+                                      tileMode: TileMode.clamp
+                                  )
+                              ),
+                            ),
+                            Container(
+                                height: 300,
+                                child: CupertinoActivityIndicator(radius: 20,)),
+                          ],
+                        ),
                     );
                     }
                     return Scaffold(
@@ -127,15 +147,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                                         height: 60,
                                         child: TextButton(onPressed: (){
                                           getIt<PlaylistInfoBloc>().add(PlaylistInfoEvent.deleteRequest(post.id));
-                                          Navigator.pushReplacement(context,
-                                            CupertinoPageRoute(
-                                              builder: (context){
-                                                BlocProvider.of<NavigationCubit>(context)
-                                                    .getNavBarItem(NavbarItem.profile);
-                                                return const RootPage();
-                                              },
-                                            ),
-                                          );
+                                          Navigator.pop(context);
                                         }, child: const Text('삭제하기', style: TextStyle(color: Colors.red, fontSize: 16),))),
                                   ],
                                 ),
@@ -144,25 +156,30 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                           ).then((value) { setState(() { }); });
                         }, icon: const Icon(Icons.more_vert))],
                       ),
-                      body: Container(
-                        child: listView(),
-                      ),
-                      bottomNavigationBar: BottomNavigationBar(
-                        showSelectedLabels: false,
-                        showUnselectedLabels: false,
-                        currentIndex: 2,
-                        items: const [
-                          BottomNavigationBarItem(
-                              icon: Icon(Icons.folder_copy_outlined),
-                              label: ''
+                      body: Column(
+                        children: [
+                          SizedBox(
+                            child: _playlistCover(context),
                           ),
-                          BottomNavigationBarItem(
-                              icon: Icon(Icons.add),
-                              label: ''
+                          Container(
+                            width: double.infinity,
+                            height: 1.5,
+                            decoration: const BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: FractionalOffset(0.0, 0.0),
+                                    end: FractionalOffset(1.0, 1.0),
+                                    colors: <Color>[
+                                      Color(0xff00C19C),
+                                      Color(0xff7077D5),
+                                    ],
+                                    stops: <double>[0.0, 1.0],
+                                    tileMode: TileMode.clamp
+                                )
+                            ),
                           ),
-                          BottomNavigationBarItem(
-                              icon: Icon(Icons.person),
-                              label: ''
+                          Flexible(
+                              fit: FlexFit.tight,
+                              child: listView(),
                           ),
                         ],
                       ),
@@ -187,65 +204,37 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
         return state.maybeWhen((loadFailureOrSuccessOption, deleteFailureOrSuccessOption,post, isLoading) {
           return LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
-                return Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    SizedBox(
-                      child: _playlistCover(context),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 1.5,
-                      decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: FractionalOffset(0.0, 0.0),
-                              end: FractionalOffset(1.0, 1.0),
-                              colors: <Color>[
-                                Color(0xff00C19C),
-                                Color(0xff7077D5),
-                              ],
-                              stops: <double>[0.0, 1.0],
-                              tileMode: TileMode.clamp
-                          )
-                      ),
-                    ),
-                    Flexible(
-                      fit: FlexFit.tight,
-                      child: Container(
-                        margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                        child: Scrollbar(
-                          controller: scrollController,
-                          child: ListView.builder(
-                              physics: const BouncingScrollPhysics(),
-                              controller: scrollController,
-                              itemCount: post.playlist.tracks!.length,
-                              itemBuilder: (context, index) {
-                                return GestureDetector(
-                                  behavior: HitTestBehavior.translucent,
-                                  onTap: () {
-                                    showPopup(context, post.playlist.tracks!, index);
-                                  },
-                                  child: Container(
-                                    padding: const EdgeInsets.all(5),
-                                    child: Row(
-                                      children: [
-                                        Image(
-                                          image: CachedNetworkImageProvider(
-                                              post.playlist.tracks![index].album.thumbnail),
-                                          fit: BoxFit.cover,
-                                          width: 45,
-                                          height: 45,),
-                                        _itemText(context, index),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              }),
-                        ),
-                      ),
-                    ),
-
-                  ],
+                return Container(
+                  margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                  child: Scrollbar(
+                    controller: scrollController,
+                    child: ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        controller: scrollController,
+                        itemCount: post.playlist.tracks!.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            behavior: HitTestBehavior.translucent,
+                            onTap: () {
+                              showPopup(context, post.playlist.tracks!, index);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(5),
+                              child: Row(
+                                children: [
+                                  Image(
+                                    image: CachedNetworkImageProvider(
+                                        post.playlist.tracks![index].album.thumbnail),
+                                    fit: BoxFit.cover,
+                                    width: 45,
+                                    height: 45,),
+                                  _itemText(context, index),
+                                ],
+                              ),
+                            ),
+                          );
+                        }),
+                  ),
                 );
               }
           );
@@ -333,7 +322,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                             Hero(
                               tag: "playlistCover${widget.heroNumber}",
                               child: Image(
-                                image: CachedNetworkImageProvider(post.playlist.tracks![0].album.thumbnail),
+                                image: CachedNetworkImageProvider(widget.post.playlist.thumbnail!),
                                 width: 130,
                                 height: 130,
                                 fit: BoxFit.cover,
@@ -346,12 +335,12 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Row(
+                                if(!isLoading)Row(
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(15),
                                       child: Image(
-                                        image: CachedNetworkImageProvider(post.writer!.image!.isNotEmpty ? post.writer!.image! : 'https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/guest/image/caTw7KNdDMeoe833RVMZ4Y11ErQ.JPG'),
+                                        image: CachedNetworkImageProvider(post.writer!.image ?? 'https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/guest/image/caTw7KNdDMeoe833RVMZ4Y11ErQ.JPG'),
                                         width: 30,
                                         height: 30,
                                         fit: BoxFit.cover,
@@ -366,13 +355,13 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                                       ),
                                     ),
                                   ],
-                                ),
+                                ) else SizedBox(height: 30,),
                                 SizedBox(
                                   width: 174,
                                   child: Marquee(
                                     direction: Axis.horizontal,
                                     child: Text(
-                                      post.title,
+                                      widget.post.title,
                                       style: const TextStyle(
                                         fontSize: 19,
                                         fontWeight: FontWeight.w700,
@@ -408,7 +397,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-
+                                    Share(context: context).share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail!);
                                   },
                                   child: Row(
                                       children: const [

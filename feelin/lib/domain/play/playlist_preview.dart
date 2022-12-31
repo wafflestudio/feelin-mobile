@@ -10,9 +10,17 @@ class PlaylistPreview{
   @JsonKey(name: "thumbnail")
   String thumbnail;
 
+  @JsonKey(name: "order")
+  String order;
+
+  @JsonKey(name: "length")
+  int length;
+
   PlaylistPreview({
     required this.id,
     required this.thumbnail,
+    this.order = '',
+    this.length = 0,
   });
 
   factory PlaylistPreview.fromJson(Map<String, dynamic> json) => _$PlaylistPreviewFromJson(json);

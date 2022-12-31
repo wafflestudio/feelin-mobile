@@ -1,6 +1,8 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:music_sns/application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 
 import '../../style/colors.dart';
 import 'common_description.dart';
@@ -97,36 +99,43 @@ class _NextButtonState extends State<ConfirmationTabBar>{
   }
 
   Widget _emailField() {
-    return TextFormField(
-      controller: _emailTextController,
-      decoration: InputDecoration(
-        hintText: 'Email address',
-        isDense: true,
-        border: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-          borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-          borderSide: BorderSide(color: FeelinColorFamily.blueCore, width: 0.5),
-        ),
-        errorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-          borderSide: BorderSide(color: Colors.red, width: 0.5),
-        ),
-      ),
-      autovalidateMode: AutovalidateMode.always,
-      validator: (value){
-        if(value != null && value != '' && !EmailValidator.validate(value ?? '')){
-          return 'please enter a valid email.';
-        }else{
-          return null;
-        }
+    return BlocBuilder<SignUpFormBloc, SignUpFormState>(
+      builder: (context, state) {
+        return TextFormField(
+          controller: _emailTextController,
+          decoration: InputDecoration(
+            hintText: 'Email address',
+            isDense: true,
+            border: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+              borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+              borderSide: BorderSide(color: FeelinColorFamily.blueCore, width: 0.5),
+            ),
+            errorBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8.0)),
+              borderSide: BorderSide(color: Colors.red, width: 0.5),
+            ),
+          ),
+          autovalidateMode: AutovalidateMode.always,
+          validator: (value){
+            if(value != null && value != '' && !EmailValidator.validate(value ?? '')){
+              return 'please enter a valid email.';
+            }else{
+              return null;
+            }
 
-      },
-      onChanged: (value) => setState(() {
-        widget.input['email'] = value;
-      }),
+          },
+          onChanged: (value) => setState(() {
+            widget.input['email'] = value;
+            context
+                .read<SignUpFormBloc>()
+                .add(SignUpFormEvent.emailAddressChanged(value));
+          }),
+        );
+      }
     );
   }
 
