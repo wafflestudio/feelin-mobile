@@ -35,6 +35,12 @@ platform :ios do
       )
   end
 
+  desc "🔐 Configure certificates and provisioning profiles for development"
+  lane :certificates_development do
+    match(type: "development", app_identifier: [BUNDLE_IDENTIFIER], readonly: true)
+    update_xcodeproj(type: "development")
+  end
+
   desc "🔐 Configure certificates and provisioning profiles for distribution"
   lane :certificates_distribution do
     match(type: "appstore", app_identifier: [BUNDLE_IDENTIFIER], readonly: true)
