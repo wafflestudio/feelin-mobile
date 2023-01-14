@@ -64,7 +64,7 @@ class SignUpComplete extends StatelessWidget{
               builder: (context){
                 return BlocProvider(
                     create: (context) => getIt<ConnectStreamingBloc>(),
-                    child: const ConnectStreamingPage());
+                    child: ConnectStreamingPage());
               },
             ),
             );

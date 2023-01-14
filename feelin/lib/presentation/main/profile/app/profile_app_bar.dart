@@ -74,7 +74,7 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                               builder: (context){
                                 return BlocProvider(
                                     create: (context) => getIt<ConnectStreamingBloc>(),
-                                    child: const ConnectStreamingPage());
+                                    child: ConnectStreamingPage());
                               },
                             ),
                             );

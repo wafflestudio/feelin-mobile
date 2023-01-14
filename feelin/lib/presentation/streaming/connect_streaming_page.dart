@@ -10,7 +10,10 @@ import 'package:music_sns/presentation/streaming/streaming_web_view_page.dart';
 import '../auth/sign_up/common_title.dart';
 
 class ConnectStreamingPage extends StatelessWidget{
-  const ConnectStreamingPage({Key? key,}) : super(key: key);
+
+  ConnectStreamingPage({Key? key,}) : super(key: key);
+
+  bool navigated = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +42,19 @@ class ConnectStreamingPage extends StatelessWidget{
               (failureOrSuccess) => failureOrSuccess.fold(
                   (f) => _showSnackBar(context, f.toString())
               , // 로그인 실패
-                  (url) => {
-                  Navigator.push(context,
-                  CupertinoPageRoute(
-                  builder: (context){
-                  return StreamingWebViewPage(url: url.url,);
-                  },
-                  ),
-                  ),
+                  (url){
+                    if(!navigated){
+                      navigated = true;
+                      print('result is '+ url.url);
+                      Navigator.push(context,
+                        CupertinoPageRoute(
+                          builder: (context){
+                            return StreamingWebViewPage(url: url.url,);
+                          },
+                        ),
+                      );
+                    }
+
                     // showCupertinoModalBottomSheet(
                     //   context: context,
                     //   builder: (context) => StreamingWebViewPage(url: url.url),
@@ -60,10 +68,21 @@ class ConnectStreamingPage extends StatelessWidget{
           return Column(
             children: [
               PlatformButton(function: (){
-                context
-                    .read<ConnectStreamingBloc>()
-                    .add(const ConnectStreamingEvent.requestLogin('spotify'));
-              }, label: 'Connect to Spotify', icon: Icon(Icons.library_music))
+                if(!state.isSubmitting){
+                  navigated = false;
+                  context
+                      .read<ConnectStreamingBloc>()
+                      .add(const ConnectStreamingEvent.requestLogin('spotify'));
+                }
+              }, label: 'Connect to Spotify', icon: Icon(Icons.library_music)),
+              PlatformButton(function: (){
+                if(!state.isSubmitting){
+                  navigated = false;
+                  context
+                      .read<ConnectStreamingBloc>()
+                      .add(const ConnectStreamingEvent.requestLogin('applemusic'));
+                }
+              }, label: 'Connect to Apple Music', icon: Icon(Icons.library_music)),
             ],
           );
         }

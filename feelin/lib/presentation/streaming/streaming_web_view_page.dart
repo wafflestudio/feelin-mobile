@@ -48,12 +48,12 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
               builder: (context, AsyncSnapshot<WebViewController> controller) {
                 return IconButton(
                   onPressed: () async{
-                    // if(controller.hasData && await controller.data!.canGoBack()){
-                    //   await controller.data!.goBack();
-                    // }else{
-                    //   Navigator.pop(context);
-                    // }
-                    _controller.runJavascript('sendToFlutter()');
+                    if(controller.hasData && await controller.data!.canGoBack()){
+                      await controller.data!.goBack();
+                    }else{
+                      Navigator.pop(context);
+                    }
+                    //_controller.runJavascript('sendToFlutter()');
                   },
                   color: Colors.grey,
                   icon: const Icon(Icons.arrow_back_ios_new),
