@@ -93,7 +93,7 @@ Either<ValueFailure<String>, String> validateUrl(String input) {
 }
 
 Either<ValueFailure<String>, String> validateContent(String input) {
-  if (input.length <= 100) {
+  if (input.length <= 200) {
     return right(input);
   } else {
     return left(ValueFailure.exceedingLength(failedValue: input, max: 100));
@@ -101,7 +101,7 @@ Either<ValueFailure<String>, String> validateContent(String input) {
 }
 
 Either<ValueFailure<String>, String> validateIntroduction(String input) {
-  if (input.length <= 100) {
+  if (input.length <= 200) {
     return right(input);
   } else {
     return left(ValueFailure.exceedingLength(failedValue: input, max: 100));

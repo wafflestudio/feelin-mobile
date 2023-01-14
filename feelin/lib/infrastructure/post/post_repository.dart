@@ -14,7 +14,6 @@ import '../auth/get_auth_dio.dart';
 class PostRepository{
   static final PostRepository _singletonPostRepository = PostRepository._internal();
   final dio = getAuthDio();
-  //TODO:수정?? late?
   late PostClient postClient = PostClient(dio);
 
   factory PostRepository() {

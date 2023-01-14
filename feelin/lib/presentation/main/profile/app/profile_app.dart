@@ -9,14 +9,15 @@ import '../profile_page.dart';
 
 class ProfileApp extends StatelessWidget {
   final int? userId;
+  final GlobalKey<ProfileAppScaffoldState>? profileKey;
 
-  const ProfileApp({Key? key, this.userId}) : super(key: key);
+  const ProfileApp({Key? key, this.userId, this.profileKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
 
     return BlocProvider(create: (context) => getIt<ProfileBloc>(),
-      child: ProfileAppScaffold(userId),
+      child: ProfileAppScaffold(userId, key: profileKey,),
     );
   }
 }
@@ -27,10 +28,10 @@ class ProfileAppScaffold extends StatefulWidget {
   const ProfileAppScaffold(this.userId, {Key? key}) : super(key: key);
 
   @override
-  State<ProfileAppScaffold> createState() => _ProfileAppScaffoldState();
+  State<ProfileAppScaffold> createState() => ProfileAppScaffoldState();
 }
 
-class _ProfileAppScaffoldState extends State<ProfileAppScaffold> {
+class ProfileAppScaffoldState extends State<ProfileAppScaffold> {
   final storage = const FlutterSecureStorage();
   String? token;
 
@@ -41,19 +42,35 @@ class _ProfileAppScaffoldState extends State<ProfileAppScaffold> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _async();
     });
-    context.read<ProfileBloc>().add(const ProfileEvent.profileRequest());
+    if(widget.userId == null){
+      context.read<ProfileBloc>().add(const ProfileEvent.myProfileRequest());
+    }else{
+      context.read<ProfileBloc>().add(ProfileEvent.profileRequest(widget.userId!));
+    }
   }
 
   _async() async{
     token = await storage.read(key: "token");
   }
 
+  void onRefresh() {
+    if(widget.userId == null){
+      context.read<ProfileBloc>().add(const ProfileEvent.myProfileRequest());
+      context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest(0));
+    }else{
+      context.read<ProfileBloc>().add(ProfileEvent.profileRequest(widget.userId!));
+      context.read<ProfileBloc>().add(ProfileEvent.pageRequest(0, widget.userId!));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       //backgroundColor: Colors.white,
-      appBar: ProfileAppBar(),
-      body: ProfilePage(),
+      appBar: ProfileAppBar(isRoot: (widget.userId == null),),
+      body: RefreshIndicator(
+        onRefresh: () async => onRefresh(),
+          child: const ProfilePage()),
     );
   }
 }

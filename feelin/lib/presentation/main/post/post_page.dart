@@ -27,6 +27,7 @@ class _PostPageState extends State<PostPage>{
   final GlobalKey<TooltipState> _tooltipKey = GlobalKey<TooltipState>();
   final storage = const FlutterSecureStorage();
   String link = '';
+  bool navigated = false;
 
   final TextEditingController _linkTextController = TextEditingController();
 
@@ -58,8 +59,11 @@ class _PostPageState extends State<PostPage>{
               () => null,
               (failureOrSuccess) => failureOrSuccess.fold(
                 (f) => null,
-                (playlist) => {
-                  widget.goToNext()
+                (playlist) {
+                  if(!navigated) {
+                    navigated = true;
+                    widget.goToNext();
+                  }
             },
           ),
         );
@@ -152,8 +156,8 @@ class _PostPageState extends State<PostPage>{
                 }
               }),
               NextButton(disabled: link.isEmpty, function: (){
+                navigated = false;
                 context.read<PostFormBloc>().add(const PostFormEvent.fetchRequested());
-
               }, margin: const EdgeInsets.all(0),)
             ],
           ),

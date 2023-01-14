@@ -24,12 +24,20 @@ class Post{
   @JsonKey(name:"playlist")
   Playlist playlist;
 
+  @JsonKey(name:"doesLike")
+  bool? isLiked;
+
+  @JsonKey(name:"likes")
+  int? likeCount;
+
   Post({
     required this.id,
     this.writer,
     required this.title,
     required this.content,
     required this.playlist,
+    this.isLiked,
+    this.likeCount = 0,
   });
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);

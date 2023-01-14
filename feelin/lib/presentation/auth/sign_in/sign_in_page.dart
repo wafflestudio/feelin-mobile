@@ -9,7 +9,7 @@ import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/auth/sign_in/sign_up_button.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_web_view_page.dart';
-import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
+import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 import 'package:music_sns/presentation/main/profile/profile_page.dart';
 
 import '../../main/root_page.dart';

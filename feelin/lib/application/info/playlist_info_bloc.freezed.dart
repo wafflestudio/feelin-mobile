@@ -369,67 +369,15 @@ abstract class _DeleteRequest implements PlaylistInfoEvent {
 
 /// @nodoc
 mixin _$PlaylistInfoState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)
-        $default, {
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) =>
+  Option<Either<ExplorePostFailure, Post>> get loadFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)?
-        $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-  }) =>
+  Option<Either<ExplorePostFailure, Unit>> get deleteFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)?
-        $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value) $default, {
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) =>
+  Post get post => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PlaylistInfoStateCopyWith<PlaylistInfoState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -438,6 +386,11 @@ abstract class $PlaylistInfoStateCopyWith<$Res> {
   factory $PlaylistInfoStateCopyWith(
           PlaylistInfoState value, $Res Function(PlaylistInfoState) then) =
       _$PlaylistInfoStateCopyWithImpl<$Res>;
+  $Res call(
+      {Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
+      Option<Either<ExplorePostFailure, Unit>> deleteFailureOrSuccessOption,
+      Post post,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -448,13 +401,42 @@ class _$PlaylistInfoStateCopyWithImpl<$Res>
   final PlaylistInfoState _value;
   // ignore: unused_field
   final $Res Function(PlaylistInfoState) _then;
+
+  @override
+  $Res call({
+    Object? loadFailureOrSuccessOption = freezed,
+    Object? deleteFailureOrSuccessOption = freezed,
+    Object? post = freezed,
+    Object? isLoading = freezed,
+  }) {
+    return _then(_value.copyWith(
+      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+          ? _value.loadFailureOrSuccessOption
+          : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ExplorePostFailure, Post>>,
+      deleteFailureOrSuccessOption: deleteFailureOrSuccessOption == freezed
+          ? _value.deleteFailureOrSuccessOption
+          : deleteFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ExplorePostFailure, Unit>>,
+      post: post == freezed
+          ? _value.post
+          : post // ignore: cast_nullable_to_non_nullable
+              as Post,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$$_PlaylistInfoStateCopyWith<$Res> {
+abstract class _$$_PlaylistInfoStateCopyWith<$Res>
+    implements $PlaylistInfoStateCopyWith<$Res> {
   factory _$$_PlaylistInfoStateCopyWith(_$_PlaylistInfoState value,
           $Res Function(_$_PlaylistInfoState) then) =
       __$$_PlaylistInfoStateCopyWithImpl<$Res>;
+  @override
   $Res call(
       {Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
       Option<Either<ExplorePostFailure, Unit>> deleteFailureOrSuccessOption,
@@ -551,95 +533,6 @@ class _$_PlaylistInfoState implements _PlaylistInfoState {
   _$$_PlaylistInfoStateCopyWith<_$_PlaylistInfoState> get copyWith =>
       __$$_PlaylistInfoStateCopyWithImpl<_$_PlaylistInfoState>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)
-        $default, {
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return $default(loadFailureOrSuccessOption, deleteFailureOrSuccessOption,
-        post, isLoading);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)?
-        $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-  }) {
-    return $default?.call(loadFailureOrSuccessOption,
-        deleteFailureOrSuccessOption, post, isLoading);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)?
-        $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(loadFailureOrSuccessOption, deleteFailureOrSuccessOption,
-          post, isLoading);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value) $default, {
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class _PlaylistInfoState implements PlaylistInfoState {
@@ -651,264 +544,16 @@ abstract class _PlaylistInfoState implements PlaylistInfoState {
       required final Post post,
       required final bool isLoading}) = _$_PlaylistInfoState;
 
+  @override
   Option<Either<ExplorePostFailure, Post>> get loadFailureOrSuccessOption;
+  @override
   Option<Either<ExplorePostFailure, Unit>> get deleteFailureOrSuccessOption;
+  @override
   Post get post;
+  @override
   bool get isLoading;
+  @override
   @JsonKey(ignore: true)
   _$$_PlaylistInfoStateCopyWith<_$_PlaylistInfoState> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LoadingCopyWith<$Res> {
-  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
-      __$$LoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingCopyWithImpl<$Res>
-    extends _$PlaylistInfoStateCopyWithImpl<$Res>
-    implements _$$LoadingCopyWith<$Res> {
-  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
-      : super(_value, (v) => _then(v as _$Loading));
-
-  @override
-  _$Loading get _value => super._value as _$Loading;
-}
-
-/// @nodoc
-
-class _$Loading implements Loading {
-  const _$Loading();
-
-  @override
-  String toString() {
-    return 'PlaylistInfoState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)
-        $default, {
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)?
-        $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)?
-        $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value) $default, {
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Loading implements PlaylistInfoState {
-  const factory Loading() = _$Loading;
-}
-
-/// @nodoc
-abstract class _$$LoadedCopyWith<$Res> {
-  factory _$$LoadedCopyWith(_$Loaded value, $Res Function(_$Loaded) then) =
-      __$$LoadedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadedCopyWithImpl<$Res> extends _$PlaylistInfoStateCopyWithImpl<$Res>
-    implements _$$LoadedCopyWith<$Res> {
-  __$$LoadedCopyWithImpl(_$Loaded _value, $Res Function(_$Loaded) _then)
-      : super(_value, (v) => _then(v as _$Loaded));
-
-  @override
-  _$Loaded get _value => super._value as _$Loaded;
-}
-
-/// @nodoc
-
-class _$Loaded implements Loaded {
-  const _$Loaded();
-
-  @override
-  String toString() {
-    return 'PlaylistInfoState.loaded()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loaded);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)
-        $default, {
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)?
-        $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
-            Option<Either<ExplorePostFailure, Unit>>
-                deleteFailureOrSuccessOption,
-            Post post,
-            bool isLoading)?
-        $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value) $default, {
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PlaylistInfoState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Loaded implements PlaylistInfoState {
-  const factory Loaded() = _$Loaded;
 }

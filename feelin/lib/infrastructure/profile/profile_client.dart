@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:music_sns/domain/profile/pageable.dart';
+import 'package:music_sns/domain/profile/page.dart';
 import 'package:music_sns/domain/profile/profile.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../domain/auth/check_username_request.dart';
 import '../../domain/auth/exists_username.dart';
+import '../../domain/play/post.dart';
 import '../../domain/profile/edit_my_profile_request.dart';
 
 part 'profile_client.g.dart';
@@ -13,11 +14,11 @@ part 'profile_client.g.dart';
 abstract class ProfileClient{
   factory ProfileClient(Dio dio, {String baseUrl}) = _ProfileClient;
 
-  @GET('/user/{user_id}/posts')
-  Future<HttpResponse<Pageable>> getPostsById(@Path('user_id') int id);
+  @GET('/{user_id}/posts')
+  Future<HttpResponse<Page>> getPostsById(@Path('user_id') int id);
 
   @GET('/posts')
-  Future<HttpResponse<Pageable>> getMyPosts();
+  Future<HttpResponse<Page>> getMyPosts();
 
   @GET('/user/profile')
   Future<HttpResponse<Profile>> getMyProfile();
@@ -30,4 +31,10 @@ abstract class ProfileClient{
 
   @POST('/auth/username')
   Future<HttpResponse<ExistsUsername>> checkUsername(@Body() CheckUsernameRequest checkUsernameRequest);
+
+  @POST('/follows/{user_id}')
+  Future<HttpResponse<void>> follow(@Path('user_id')int id);
+
+  @DELETE('/follows/{user_id}')
+  Future<HttpResponse<void>> unFollow(@Path('user_id')int id);
 }

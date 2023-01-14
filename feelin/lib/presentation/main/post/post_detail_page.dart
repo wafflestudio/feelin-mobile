@@ -8,6 +8,7 @@ import 'package:music_sns/application/post/post_form/post_form_bloc.dart';
 import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/main/root_page.dart';
 
+import '../../../application/profile/profile_bloc.dart';
 import '../../../domain/custom/marquee.dart';
 import '../../../domain/play/playlist.dart';
 import '../../../domain/play/track.dart';
@@ -57,7 +58,9 @@ class _PostDetailPageState extends State<PostDetailPage> {
                 (f) => _showSnackBar(context, f.toString()),
                 (_) => {
                 //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.playlist.tracks[0].id.toString()))),
-              Navigator.pop(context),
+                // context.read<ProfileBloc>().add(const ProfileEvent.myProfileRequest()),
+                //   context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest(0)),
+                Navigator.pop(context, true),
             },
           ),
 
@@ -97,6 +100,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                       controller: _titleTextController,
                       decoration: const InputDecoration(
                         hintText: 'Title',
+                        counterText: '',
                         isDense: true,
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
@@ -121,7 +125,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                     margin: const EdgeInsets.symmetric(horizontal: 30),
                     height: 100,
                     child: TextFormField(
-                      maxLength: 100,
+                      maxLength: 200,
                       minLines: 4,
                       maxLines: 5,
                       expands: false,
@@ -129,6 +133,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                       controller: _contentTextController,
                       decoration: InputDecoration(
                         hintText: 'Description',
+                        counterText: '',
                         isDense: true,
                         border: OutlineInputBorder(
                           borderRadius: const BorderRadius.all(Radius.circular(8.0)),

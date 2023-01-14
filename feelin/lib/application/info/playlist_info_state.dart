@@ -14,6 +14,4 @@ class PlaylistInfoState with _$PlaylistInfoState {
     post: Post(id: -1, writer: Profile(id: 0, username: '', image: ''),title: '', content: '', playlist: Playlist(title: '', tracks: [])),
     isLoading: false,
   );
-  const factory PlaylistInfoState.loading() = Loading;
-  const factory PlaylistInfoState.loaded() = Loaded;
 }

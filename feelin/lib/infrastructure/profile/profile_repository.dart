@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:music_sns/domain/profile/pageable.dart';
+import 'package:music_sns/domain/play/post.dart';
+import 'package:music_sns/domain/profile/page.dart';
 import 'package:music_sns/domain/profile/profile.dart';
 import 'package:music_sns/domain/profile/profile_failure.dart';
 import 'package:music_sns/infrastructure/auth/get_auth_dio.dart';
@@ -17,7 +18,7 @@ import '../../domain/profile/edit_my_profile_request.dart';
 class ProfileRepository{
   static final ProfileRepository _singletonProfileRepository = ProfileRepository._internal();
   final dio = getAuthDio();
-  //TODO:수정?? late?
+
   late ProfileClient profileClient = ProfileClient(dio);
 
   factory ProfileRepository() {
@@ -26,9 +27,9 @@ class ProfileRepository{
 
   ProfileRepository._internal();
 
-  Future<Either<ProfileFailure, Pageable>> getPostsById({required int id}) async{
+  Future<Either<ProfileFailure, Page>> getPostsById({required int id}) async{
     try{
-      HttpResponse<Pageable> httpResponse = await profileClient.getPostsById(id);
+      HttpResponse<Page> httpResponse = await profileClient.getPostsById(id);
       switch(httpResponse.response.statusCode){
         case 200 : return Right(httpResponse.data);
         case 401 : return const Left(ProfileFailure.unauthorized());
@@ -42,9 +43,9 @@ class ProfileRepository{
     }
   }
 
-  Future<Either<ProfileFailure, Pageable>> getMyPosts() async{
+  Future<Either<ProfileFailure, Page>> getMyPosts() async{
     try{
-      HttpResponse<Pageable> httpResponse = await profileClient.getMyPosts();
+      HttpResponse<Page> httpResponse = await profileClient.getMyPosts();
       switch(httpResponse.response.statusCode){
         case 200 : return Right(httpResponse.data);
         case 401 : return const Left(ProfileFailure.unauthorized());
@@ -87,6 +88,22 @@ class ProfileRepository{
     }
   }
 
+  Future<Either<ProfileFailure, Profile>> getProfileById({required int id}) async{
+    try{
+      HttpResponse<Profile> httpResponse = await profileClient.getProfileById(id);
+      switch(httpResponse.response.statusCode){
+        case 200 : return Right(httpResponse.data);
+        case 401 : return const Left(ProfileFailure.unauthorized());
+        default : return const Left(ProfileFailure.serverError());
+      }
+    }on DioError catch(e){
+      switch(e.response?.statusCode){
+        case 401 : return const Left(ProfileFailure.unauthorized());
+        default : return const Left(ProfileFailure.serverError());
+      }
+    }
+  }
+
   Future<Either<ProfileFailure, Profile>> editMyProfile
       ({required Username username, required String image, required Introduction introduction}) async{
     try{
@@ -102,6 +119,48 @@ class ProfileRepository{
       switch(e.response?.statusCode){
         case 401 : return const Left(ProfileFailure.unauthorized());
         case 403 : return const Left(ProfileFailure.usernameAlreadyInUse());
+        default : return const Left(ProfileFailure.serverError());
+      }
+    }
+  }
+
+  Future<Either<ProfileFailure, Unit>> follow
+      ({required int id,}) async{
+    try{
+      HttpResponse<void> httpResponse = await profileClient.follow(id);
+      switch(httpResponse.response.statusCode){
+        case 201 : return const Right(unit);
+        case 403 : return const Left(ProfileFailure.cannotFollowYourself());
+        case 404 : return const Left(ProfileFailure.userNotFound());
+        case 409 : return const Left(ProfileFailure.alreadyFollowed());
+        default : return const Left(ProfileFailure.serverError());
+      }
+    }on DioError catch(e){
+      switch(e.response?.statusCode){
+        case 403 : return const Left(ProfileFailure.cannotFollowYourself());
+        case 404 : return const Left(ProfileFailure.userNotFound());
+        case 409 : return const Left(ProfileFailure.alreadyFollowed());
+        default : return const Left(ProfileFailure.serverError());
+      }
+    }
+  }
+
+  Future<Either<ProfileFailure, Unit>> unFollow
+      ({required int id,}) async{
+    try{
+      HttpResponse<void> httpResponse = await profileClient.unFollow(id);
+      switch(httpResponse.response.statusCode){
+        case 200 : return const Right(unit);
+        case 403 : return const Left(ProfileFailure.cannotFollowYourself());
+        case 404 : return const Left(ProfileFailure.userNotFound());
+        case 409 : return const Left(ProfileFailure.alreadyFollowed());
+        default : return const Left(ProfileFailure.serverError());
+      }
+    }on DioError catch(e){
+      switch(e.response?.statusCode){
+        case 403 : return const Left(ProfileFailure.cannotFollowYourself());
+        case 404 : return const Left(ProfileFailure.userNotFound());
+        case 409 : return const Left(ProfileFailure.alreadyFollowed());
         default : return const Left(ProfileFailure.serverError());
       }
     }

@@ -59,7 +59,7 @@ class _RootPageState extends State<RootPage> {
       body: BlocBuilder<NavigationCubit, NavigationState>(
           builder: (context, state) {
             if (state.navbarItem == NavbarItem.explore) {
-              return const ExplorePage();
+              return Container();
             } else if (state.navbarItem == NavbarItem.post) {
               return BlocProvider(create: (context) => getIt<PostFormBloc>(),
                   child: Container());

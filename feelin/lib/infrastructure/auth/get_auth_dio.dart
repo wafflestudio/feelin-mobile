@@ -15,11 +15,12 @@ Dio getAuthDio() {
 
     // 매 요청마다 헤더에 AccessToken을 포함
     options.headers['Authentication'] = token;
+    options.headers['Authorization'] = token;
     return handler.next(options);
   }, onError: (error, handler) async {
 
     // 인증 오류가 발생했을 경우: AccessToken의 만료
-    if (error.response?.statusCode == 401) {
+    if (error.response?.statusCode == 401 ) {
 
       // 기기에 저장된 AccessToken과 RefreshToken 로드
       final accessToken = await storage.read(key: 'token');
@@ -34,7 +35,7 @@ Dio getAuthDio() {
           .add(InterceptorsWrapper(onError: (error, handler) async {
 
         // 다시 인증 오류가 발생했을 경우: RefreshToken의 만료
-        if (error.response?.statusCode == 401) {
+        if (error.response?.statusCode == 401 || error.response?.statusCode == 403 || error.response?.statusCode == 404) {
 
           // 기기의 자동 로그인 정보 삭제
           await storage.deleteAll();
@@ -47,11 +48,11 @@ Dio getAuthDio() {
       }));
 
       // 토큰 갱신 API 요청 시 AccessToken(만료), RefreshToken 포함
-      refreshDio.options.headers['Authorization'] = refreshToken;
+      refreshDio.options.headers['Authentication'] = refreshToken;
       //refreshDio.options.headers['Refresh'] = refreshToken;
 
       // 토큰 갱신 API 요청
-      final refreshResponse = await refreshDio.post('https://api-feelin.kro.kr/api/v1/auth/refresh');
+      final refreshResponse = await refreshDio.post('/auth/refresh');
 
       // response로부터 새로 갱신된 AccessToken과 RefreshToken 파싱
       final newAccessToken = refreshResponse.headers['Access-Token']![0];
@@ -62,7 +63,7 @@ Dio getAuthDio() {
       await storage.write(key: 'refresh', value: newRefreshToken);
 
       // AccessToken의 만료로 수행하지 못했던 API 요청에 담겼던 AccessToken 갱신
-      error.requestOptions.headers['Authorization'] = newAccessToken;
+      error.requestOptions.headers['Authentication'] = newAccessToken;
 
       // 수행하지 못했던 API 요청 복사본 생성
       final clonedRequest = await dio.request(error.requestOptions.path,

@@ -12,6 +12,7 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) => Profile(
       image: json['image'] as String?,
       introduction: json['introduction'] as String?,
       countPosts: json['countPosts'] as int?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
@@ -20,4 +21,5 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
       'image': instance.image,
       'introduction': instance.introduction,
       'countPosts': instance.countPosts,
+      'name': instance.name,
     };

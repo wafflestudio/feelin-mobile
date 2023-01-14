@@ -19,7 +19,7 @@ class _FollowButtonState extends State<FollowButton> {
       width: double.infinity,
       height: 40,
       child: ElevatedButton(
-          onPressed: widget.alreadyFollowed ? null : ()=>widget.function(),
+          onPressed: ()=>widget.function(),
           style: ButtonStyle(
               shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)

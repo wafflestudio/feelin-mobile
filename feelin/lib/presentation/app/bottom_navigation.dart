@@ -1,15 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/application/profile/profile_bloc.dart';
 import 'package:music_sns/presentation/main/post/app/post_app.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
+import '../main/profile/app/profile_app.dart';
 import 'tab_item.dart';
 
 class BottomNavigation extends StatelessWidget {
-  BottomNavigation({required this.currentTab, required this.onSelectTab});
+  BottomNavigation({required this.currentTab, required this.onSelectTab, required this.profileKey});
 
   final TabItem currentTab;
   final ValueChanged<TabItem> onSelectTab;
+  //https://stackoverflow.com/questions/51029655/call-method-in-one-stateful-widget-from-another-stateful-widget-flutter
+  final GlobalKey<ProfileAppScaffoldState> profileKey;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +52,7 @@ class BottomNavigation extends StatelessWidget {
               return const PostApp();
             },
           ),
-          );
+          ).then((value) { if(value != null) onSelectTab(TabItem.profile); profileKey.currentState?.onRefresh();});
         }
 
       },

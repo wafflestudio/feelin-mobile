@@ -6,19 +6,22 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../../application/auth/auth/auth_bloc.dart';
 import '../../../../application/edit/edit_profile_form/edit_profile_form_bloc.dart';
 import '../../../../application/profile/profile_bloc.dart';
+import '../../../../application/streaming/connect_streaming_bloc.dart';
 import '../../../../domain/profile/profile.dart';
 import '../../../../injection.dart';
 import '../../../auth/sign_in/sign_in_page.dart';
 import '../../../edit/profile/edit_profile_page.dart';
+import '../../../streaming/connect_streaming_page.dart';
 
 class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
 
   final storage = const FlutterSecureStorage();
+  final bool isRoot;
 
   @override
   Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
 
-  const ProfileAppBar({Key? key}) : super(key: key);
+  const ProfileAppBar({Key? key, required this.isRoot}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,7 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
         builder: (context, state) {
         return AppBar(
           elevation: 0.0,
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: true,
           backgroundColor: Colors.transparent,
           title: Text(state.profile.username,
             style: const TextStyle(
@@ -35,7 +38,7 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
             ),
           ),
           centerTitle: true,
-          actions: [IconButton(onPressed: () async{
+          actions: isRoot ? [IconButton(onPressed: () async{
             final newProfile = await showModalBottomSheet<Profile>(
               context: context,
               shape: const RoundedRectangleBorder(
@@ -66,7 +69,16 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                       SizedBox(
                           width: double.infinity,
                           height: 60,
-                          child: TextButton(onPressed: (){}, child: const Text('설정', style: TextStyle(color: Colors.black, fontSize: 16),))),
+                          child: TextButton(onPressed: (){
+                            Navigator.push(context, CupertinoPageRoute(
+                              builder: (context){
+                                return BlocProvider(
+                                    create: (context) => getIt<ConnectStreamingBloc>(),
+                                    child: const ConnectStreamingPage());
+                              },
+                            ),
+                            );
+                          }, child: const Text('설정', style: TextStyle(color: Colors.black, fontSize: 16),))),
                       SizedBox(
                           width: double.infinity,
                           height: 60,
@@ -79,7 +91,7 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                 );
               },
             );
-          }, icon: const Icon(Icons.table_rows))],
+          }, icon: const Icon(Icons.table_rows))] : [],
         );
       }
     );

@@ -6,7 +6,7 @@ import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../application/info/playlist_info_bloc.dart';
 import '../../../injection.dart';
-import '../explore/playlist_info_page.dart';
+import '../playlist_info/playlist_info_page.dart';
 
 class PostPreview extends StatelessWidget {
   final int index;
@@ -22,7 +22,7 @@ class PostPreview extends StatelessWidget {
           builder: (context){
             return BlocProvider(
                 create: (context) => getIt<PlaylistInfoBloc>(),
-                child: PlaylistInfoPage(post: post, postId: post.id, heroNumber: index,));
+                child: PlaylistInfoPage(post: post, postId: post.id, heroNumber: index, width: MediaQuery.of(context).size.width,));
           },
         ),
         );

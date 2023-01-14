@@ -7,7 +7,7 @@ import 'package:music_sns/application/navigation/navigation_cubit.dart';
 import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/app/app.dart';
 import 'package:music_sns/presentation/auth/sign_in/sign_in_page.dart';
-import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
+import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 import 'package:music_sns/presentation/main/profile/profile_page.dart';
 import 'package:music_sns/presentation/main/root_page.dart';
 
@@ -34,17 +34,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<NavigationCubit>(
       create: (context) => NavigationCubit(),
-      child: MaterialApp(
-        title: 'Feelin\'',
-        theme: ThemeData(
-          primarySwatch: Colors.lightGreen,
-          primaryColor: const Color.fromARGB(1, 193, 156, 1),
-          fontFamily: 'SpoqaHanSansNeo',
-          scaffoldBackgroundColor: Colors.white,
+      child: BlocProvider(
+        create: (context) => getIt<AuthBloc>(),
+        child: MaterialApp(
+          title: 'Feelin\'',
+          theme: ThemeData(
+            primarySwatch: Colors.lightGreen,
+            primaryColor: Colors.white,
+            fontFamily: 'SpoqaHanSansNeo',
+            scaffoldBackgroundColor: Colors.white,
+          ),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const Auth(),
+
+          },
         ),
-        home: BlocProvider(
-            create: (context) => getIt<AuthBloc>(),
-            child: Auth()),
       ),
     );
   }

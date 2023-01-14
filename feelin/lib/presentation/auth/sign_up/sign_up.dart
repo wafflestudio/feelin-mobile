@@ -6,6 +6,7 @@ import 'package:music_sns/presentation/auth/sign_up/sign_up_complete.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_name.dart';
 
 import '../../../injection.dart';
+import 'sign_up_app_bar.dart';
 import 'sign_up_birthday.dart';
 import 'sign_up_confirmation.dart';
 import 'sign_up_password.dart';
@@ -61,6 +62,15 @@ class _SignUpState extends State<SignUp>{
           }
         },
         child: Scaffold(
+          appBar: SignUpAppBar(goToBack: (){
+            if(_currPage == 1){
+              Navigator.pop(context);
+            }else{
+              setState(() {
+                _currPage --;
+              });
+            }
+          }),
           body: SafeArea(
             child: BlocProvider(
               create: (context) => getIt<SignUpFormBloc>(),

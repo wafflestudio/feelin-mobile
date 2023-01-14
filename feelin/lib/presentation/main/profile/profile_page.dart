@@ -8,7 +8,7 @@ import 'package:music_sns/application/edit/edit_profile_form/edit_profile_form_b
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/application/profile/profile_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_in/sign_in_page.dart';
-import 'package:music_sns/presentation/main/explore/playlist_info_page.dart';
+import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 import 'package:music_sns/presentation/main/profile/follow_button.dart';
 import 'package:music_sns/presentation/main/profile/post_preview.dart';
 
@@ -18,7 +18,8 @@ import '../../edit/profile/edit_profile_page.dart';
 
 
 class ProfilePage extends StatefulWidget{
-  const ProfilePage({Key? key}) : super(key: key);
+  final int? userId;
+  const ProfilePage({Key? key, this.userId}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -27,6 +28,7 @@ class ProfilePage extends StatefulWidget{
 class _ProfilePageState extends State<ProfilePage>{
   final storage = const FlutterSecureStorage();
   String? token;
+  String? id;
 
   @override
   void initState(){
@@ -35,11 +37,17 @@ class _ProfilePageState extends State<ProfilePage>{
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _async();
     });
-    context.read<ProfileBloc>().add(const ProfileEvent.pageRequest(0));
+    if(widget.userId == null){
+      context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest(0));
+    }else{
+      context.read<ProfileBloc>().add(ProfileEvent.pageRequest(0, widget.userId!));
+    }
+
   }
 
   _async() async{
     token = await storage.read(key: "token");
+    id = await storage.read(key: 'id');
   }
 
   @override
@@ -120,7 +128,7 @@ class _ProfilePageState extends State<ProfilePage>{
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('${state.posts.length}',
+                        Text('${state.profile.countPosts}',
                           style: TextStyle(
                           fontSize: 15,
                           color: Colors.black,
@@ -175,7 +183,7 @@ class _ProfilePageState extends State<ProfilePage>{
               ),
               Container(
                 margin: const EdgeInsets.only(top: 15, bottom: 4),
-                child: Text(state.profile.username,
+                child: Text(state.profile.name ?? '',
                   style: const TextStyle(
                       fontSize: 13,
                     fontWeight: FontWeight.w700
@@ -191,7 +199,13 @@ class _ProfilePageState extends State<ProfilePage>{
                     ),
                   ),
               ),
-              FollowButton(alreadyFollowed: false, function: (){}),
+              if(state.profile.id != int.parse(id!)) FollowButton(alreadyFollowed: state.isFollowed, function: (){
+                if(!state.isFollowed){
+                  context.read<ProfileBloc>().add(const ProfileEvent.followRequest());
+                }else{
+                  context.read<ProfileBloc>().add(const ProfileEvent.unFollowRequest());
+                }
+              }),
             ],
           ),
         );

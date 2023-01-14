@@ -1,9 +1,13 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/application/streaming/connect_streaming_bloc.dart';
 
 import '../../../application/auth/auth/auth_bloc.dart';
+import '../../../injection.dart';
+import '../../streaming/connect_streaming_page.dart';
 import '../../style/colors.dart';
 import 'common_title.dart';
 
@@ -18,7 +22,7 @@ class SignUpComplete extends StatelessWidget{
         const SizedBox(height: 40,),
         const CommonTitle(title: 'All Complete! 🎉'),
         const Spacer(),
-        _buttonCSS(),
+        _buttonCSS(context),
         const SizedBox(height: 20,),
         _laterButton(),
         const SizedBox(height: 20,),
@@ -29,17 +33,12 @@ class SignUpComplete extends StatelessWidget{
   Widget _laterButton() {
     return Builder(
       builder: (context) {
-        return ElevatedButton(
-            onPressed: (){
+        return InkWell(
+            onTap: (){
               context.read<AuthBloc>()
                   .add(const AuthEvent.submitted());
-              Navigator.maybePop(context);
+              Navigator.popUntil(context, (route) => route.isFirst);
             },
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.transparent),
-              overlayColor: MaterialStateProperty.all(Colors.white),
-              shadowColor: MaterialStateProperty.all(Colors.transparent)
-            ),
             child: Center(
               child: Text(
                 'Maybe later',
@@ -53,7 +52,7 @@ class SignUpComplete extends StatelessWidget{
     );
   }
 
-  Widget _buttonCSS(){
+  Widget _buttonCSS(BuildContext context){
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
@@ -61,6 +60,14 @@ class SignUpComplete extends StatelessWidget{
       child: ElevatedButton(
           onPressed: (){
             // 스트리밍 연동 페이지
+            Navigator.push(context, CupertinoPageRoute(
+              builder: (context){
+                return BlocProvider(
+                    create: (context) => getIt<ConnectStreamingBloc>(),
+                    child: const ConnectStreamingPage());
+              },
+            ),
+            );
 
           },
           style: ButtonStyle(

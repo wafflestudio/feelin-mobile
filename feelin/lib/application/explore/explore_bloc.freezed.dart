@@ -16,42 +16,55 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ExploreEvent {
-  int get postId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int postId) loadRequest,
+    required TResult Function() loadRequest,
+    required TResult Function() resetRequest,
+    required TResult Function() resetFRequest,
+    required TResult Function() loadFRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadRequest value) loadRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_ResetFRequest value) resetFRequest,
+    required TResult Function(_LoadFRequest value) loadFRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ExploreEventCopyWith<ExploreEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,7 +73,6 @@ abstract class $ExploreEventCopyWith<$Res> {
   factory $ExploreEventCopyWith(
           ExploreEvent value, $Res Function(ExploreEvent) then) =
       _$ExploreEventCopyWithImpl<$Res>;
-  $Res call({int postId});
 }
 
 /// @nodoc
@@ -70,28 +82,13 @@ class _$ExploreEventCopyWithImpl<$Res> implements $ExploreEventCopyWith<$Res> {
   final ExploreEvent _value;
   // ignore: unused_field
   final $Res Function(ExploreEvent) _then;
-
-  @override
-  $Res call({
-    Object? postId = freezed,
-  }) {
-    return _then(_value.copyWith(
-      postId: postId == freezed
-          ? _value.postId
-          : postId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$$_LoadRequestCopyWith<$Res>
-    implements $ExploreEventCopyWith<$Res> {
+abstract class _$$_LoadRequestCopyWith<$Res> {
   factory _$$_LoadRequestCopyWith(
           _$_LoadRequest value, $Res Function(_$_LoadRequest) then) =
       __$$_LoadRequestCopyWithImpl<$Res>;
-  @override
-  $Res call({int postId});
 }
 
 /// @nodoc
@@ -104,74 +101,60 @@ class __$$_LoadRequestCopyWithImpl<$Res>
 
   @override
   _$_LoadRequest get _value => super._value as _$_LoadRequest;
-
-  @override
-  $Res call({
-    Object? postId = freezed,
-  }) {
-    return _then(_$_LoadRequest(
-      postId == freezed
-          ? _value.postId
-          : postId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_LoadRequest implements _LoadRequest {
-  const _$_LoadRequest(this.postId);
-
-  @override
-  final int postId;
+  const _$_LoadRequest();
 
   @override
   String toString() {
-    return 'ExploreEvent.loadRequest(postId: $postId)';
+    return 'ExploreEvent.loadRequest()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_LoadRequest &&
-            const DeepCollectionEquality().equals(other.postId, postId));
+        (other.runtimeType == runtimeType && other is _$_LoadRequest);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(postId));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_LoadRequestCopyWith<_$_LoadRequest> get copyWith =>
-      __$$_LoadRequestCopyWithImpl<_$_LoadRequest>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int postId) loadRequest,
+    required TResult Function() loadRequest,
+    required TResult Function() resetRequest,
+    required TResult Function() resetFRequest,
+    required TResult Function() loadFRequest,
   }) {
-    return loadRequest(postId);
+    return loadRequest();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
   }) {
-    return loadRequest?.call(postId);
+    return loadRequest?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
     required TResult orElse(),
   }) {
     if (loadRequest != null) {
-      return loadRequest(postId);
+      return loadRequest();
     }
     return orElse();
   }
@@ -180,6 +163,9 @@ class _$_LoadRequest implements _LoadRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadRequest value) loadRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_ResetFRequest value) resetFRequest,
+    required TResult Function(_LoadFRequest value) loadFRequest,
   }) {
     return loadRequest(this);
   }
@@ -188,6 +174,9 @@ class _$_LoadRequest implements _LoadRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
   }) {
     return loadRequest?.call(this);
   }
@@ -196,6 +185,9 @@ class _$_LoadRequest implements _LoadRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
     required TResult orElse(),
   }) {
     if (loadRequest != null) {
@@ -206,61 +198,377 @@ class _$_LoadRequest implements _LoadRequest {
 }
 
 abstract class _LoadRequest implements ExploreEvent {
-  const factory _LoadRequest(final int postId) = _$_LoadRequest;
+  const factory _LoadRequest() = _$_LoadRequest;
+}
+
+/// @nodoc
+abstract class _$$_ResetRequestCopyWith<$Res> {
+  factory _$$_ResetRequestCopyWith(
+          _$_ResetRequest value, $Res Function(_$_ResetRequest) then) =
+      __$$_ResetRequestCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetRequestCopyWithImpl<$Res>
+    extends _$ExploreEventCopyWithImpl<$Res>
+    implements _$$_ResetRequestCopyWith<$Res> {
+  __$$_ResetRequestCopyWithImpl(
+      _$_ResetRequest _value, $Res Function(_$_ResetRequest) _then)
+      : super(_value, (v) => _then(v as _$_ResetRequest));
 
   @override
-  int get postId;
+  _$_ResetRequest get _value => super._value as _$_ResetRequest;
+}
+
+/// @nodoc
+
+class _$_ResetRequest implements _ResetRequest {
+  const _$_ResetRequest();
+
   @override
-  @JsonKey(ignore: true)
-  _$$_LoadRequestCopyWith<_$_LoadRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  String toString() {
+    return 'ExploreEvent.resetRequest()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetRequest);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadRequest,
+    required TResult Function() resetRequest,
+    required TResult Function() resetFRequest,
+    required TResult Function() loadFRequest,
+  }) {
+    return resetRequest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
+  }) {
+    return resetRequest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
+    required TResult orElse(),
+  }) {
+    if (resetRequest != null) {
+      return resetRequest();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRequest value) loadRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_ResetFRequest value) resetFRequest,
+    required TResult Function(_LoadFRequest value) loadFRequest,
+  }) {
+    return resetRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
+  }) {
+    return resetRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
+    required TResult orElse(),
+  }) {
+    if (resetRequest != null) {
+      return resetRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetRequest implements ExploreEvent {
+  const factory _ResetRequest() = _$_ResetRequest;
+}
+
+/// @nodoc
+abstract class _$$_ResetFRequestCopyWith<$Res> {
+  factory _$$_ResetFRequestCopyWith(
+          _$_ResetFRequest value, $Res Function(_$_ResetFRequest) then) =
+      __$$_ResetFRequestCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetFRequestCopyWithImpl<$Res>
+    extends _$ExploreEventCopyWithImpl<$Res>
+    implements _$$_ResetFRequestCopyWith<$Res> {
+  __$$_ResetFRequestCopyWithImpl(
+      _$_ResetFRequest _value, $Res Function(_$_ResetFRequest) _then)
+      : super(_value, (v) => _then(v as _$_ResetFRequest));
+
+  @override
+  _$_ResetFRequest get _value => super._value as _$_ResetFRequest;
+}
+
+/// @nodoc
+
+class _$_ResetFRequest implements _ResetFRequest {
+  const _$_ResetFRequest();
+
+  @override
+  String toString() {
+    return 'ExploreEvent.resetFRequest()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetFRequest);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadRequest,
+    required TResult Function() resetRequest,
+    required TResult Function() resetFRequest,
+    required TResult Function() loadFRequest,
+  }) {
+    return resetFRequest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
+  }) {
+    return resetFRequest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
+    required TResult orElse(),
+  }) {
+    if (resetFRequest != null) {
+      return resetFRequest();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRequest value) loadRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_ResetFRequest value) resetFRequest,
+    required TResult Function(_LoadFRequest value) loadFRequest,
+  }) {
+    return resetFRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
+  }) {
+    return resetFRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
+    required TResult orElse(),
+  }) {
+    if (resetFRequest != null) {
+      return resetFRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetFRequest implements ExploreEvent {
+  const factory _ResetFRequest() = _$_ResetFRequest;
+}
+
+/// @nodoc
+abstract class _$$_LoadFRequestCopyWith<$Res> {
+  factory _$$_LoadFRequestCopyWith(
+          _$_LoadFRequest value, $Res Function(_$_LoadFRequest) then) =
+      __$$_LoadFRequestCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadFRequestCopyWithImpl<$Res>
+    extends _$ExploreEventCopyWithImpl<$Res>
+    implements _$$_LoadFRequestCopyWith<$Res> {
+  __$$_LoadFRequestCopyWithImpl(
+      _$_LoadFRequest _value, $Res Function(_$_LoadFRequest) _then)
+      : super(_value, (v) => _then(v as _$_LoadFRequest));
+
+  @override
+  _$_LoadFRequest get _value => super._value as _$_LoadFRequest;
+}
+
+/// @nodoc
+
+class _$_LoadFRequest implements _LoadFRequest {
+  const _$_LoadFRequest();
+
+  @override
+  String toString() {
+    return 'ExploreEvent.loadFRequest()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadFRequest);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadRequest,
+    required TResult Function() resetRequest,
+    required TResult Function() resetFRequest,
+    required TResult Function() loadFRequest,
+  }) {
+    return loadFRequest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
+  }) {
+    return loadFRequest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
+    required TResult orElse(),
+  }) {
+    if (loadFRequest != null) {
+      return loadFRequest();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRequest value) loadRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_ResetFRequest value) resetFRequest,
+    required TResult Function(_LoadFRequest value) loadFRequest,
+  }) {
+    return loadFRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
+  }) {
+    return loadFRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
+    required TResult orElse(),
+  }) {
+    if (loadFRequest != null) {
+      return loadFRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadFRequest implements ExploreEvent {
+  const factory _LoadFRequest() = _$_LoadFRequest;
 }
 
 /// @nodoc
 mixin _$ExploreState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(bool isLoading) $default, {
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) =>
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoadingF => throw _privateConstructorUsedError;
+  Option<Either<ExploreFailure, Page>> get loadFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(bool isLoading)? $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-  }) =>
+  Option<Either<ExploreFailure, Page>> get loadFFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool isLoading)? $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ExploreState value) $default, {
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ExploreState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ExploreState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) =>
+  List<Post> get feeds => throw _privateConstructorUsedError;
+  List<Post> get feedsF => throw _privateConstructorUsedError;
+  bool get isLast => throw _privateConstructorUsedError;
+  bool get isLastF => throw _privateConstructorUsedError;
+  String? get cursor => throw _privateConstructorUsedError;
+  String? get cursorF => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ExploreStateCopyWith<ExploreState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -269,6 +577,17 @@ abstract class $ExploreStateCopyWith<$Res> {
   factory $ExploreStateCopyWith(
           ExploreState value, $Res Function(ExploreState) then) =
       _$ExploreStateCopyWithImpl<$Res>;
+  $Res call(
+      {bool isLoading,
+      bool isLoadingF,
+      Option<Either<ExploreFailure, Page>> loadFailureOrSuccessOption,
+      Option<Either<ExploreFailure, Page>> loadFFailureOrSuccessOption,
+      List<Post> feeds,
+      List<Post> feedsF,
+      bool isLast,
+      bool isLastF,
+      String? cursor,
+      String? cursorF});
 }
 
 /// @nodoc
@@ -278,14 +597,83 @@ class _$ExploreStateCopyWithImpl<$Res> implements $ExploreStateCopyWith<$Res> {
   final ExploreState _value;
   // ignore: unused_field
   final $Res Function(ExploreState) _then;
+
+  @override
+  $Res call({
+    Object? isLoading = freezed,
+    Object? isLoadingF = freezed,
+    Object? loadFailureOrSuccessOption = freezed,
+    Object? loadFFailureOrSuccessOption = freezed,
+    Object? feeds = freezed,
+    Object? feedsF = freezed,
+    Object? isLast = freezed,
+    Object? isLastF = freezed,
+    Object? cursor = freezed,
+    Object? cursorF = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoadingF: isLoadingF == freezed
+          ? _value.isLoadingF
+          : isLoadingF // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+          ? _value.loadFailureOrSuccessOption
+          : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ExploreFailure, Page>>,
+      loadFFailureOrSuccessOption: loadFFailureOrSuccessOption == freezed
+          ? _value.loadFFailureOrSuccessOption
+          : loadFFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ExploreFailure, Page>>,
+      feeds: feeds == freezed
+          ? _value.feeds
+          : feeds // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+      feedsF: feedsF == freezed
+          ? _value.feedsF
+          : feedsF // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+      isLast: isLast == freezed
+          ? _value.isLast
+          : isLast // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLastF: isLastF == freezed
+          ? _value.isLastF
+          : isLastF // ignore: cast_nullable_to_non_nullable
+              as bool,
+      cursor: cursor == freezed
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cursorF: cursorF == freezed
+          ? _value.cursorF
+          : cursorF // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$$_ExploreStateCopyWith<$Res> {
+abstract class _$$_ExploreStateCopyWith<$Res>
+    implements $ExploreStateCopyWith<$Res> {
   factory _$$_ExploreStateCopyWith(
           _$_ExploreState value, $Res Function(_$_ExploreState) then) =
       __$$_ExploreStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading});
+  @override
+  $Res call(
+      {bool isLoading,
+      bool isLoadingF,
+      Option<Either<ExploreFailure, Page>> loadFailureOrSuccessOption,
+      Option<Either<ExploreFailure, Page>> loadFFailureOrSuccessOption,
+      List<Post> feeds,
+      List<Post> feedsF,
+      bool isLast,
+      bool isLastF,
+      String? cursor,
+      String? cursorF});
 }
 
 /// @nodoc
@@ -302,12 +690,57 @@ class __$$_ExploreStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isLoadingF = freezed,
+    Object? loadFailureOrSuccessOption = freezed,
+    Object? loadFFailureOrSuccessOption = freezed,
+    Object? feeds = freezed,
+    Object? feedsF = freezed,
+    Object? isLast = freezed,
+    Object? isLastF = freezed,
+    Object? cursor = freezed,
+    Object? cursorF = freezed,
   }) {
     return _then(_$_ExploreState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoadingF: isLoadingF == freezed
+          ? _value.isLoadingF
+          : isLoadingF // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+          ? _value.loadFailureOrSuccessOption
+          : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ExploreFailure, Page>>,
+      loadFFailureOrSuccessOption: loadFFailureOrSuccessOption == freezed
+          ? _value.loadFFailureOrSuccessOption
+          : loadFFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ExploreFailure, Page>>,
+      feeds: feeds == freezed
+          ? _value._feeds
+          : feeds // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+      feedsF: feedsF == freezed
+          ? _value._feedsF
+          : feedsF // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+      isLast: isLast == freezed
+          ? _value.isLast
+          : isLast // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLastF: isLastF == freezed
+          ? _value.isLastF
+          : isLastF // ignore: cast_nullable_to_non_nullable
+              as bool,
+      cursor: cursor == freezed
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cursorF: cursorF == freezed
+          ? _value.cursorF
+          : cursorF // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -315,14 +748,54 @@ class __$$_ExploreStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ExploreState implements _ExploreState {
-  const _$_ExploreState({required this.isLoading});
+  const _$_ExploreState(
+      {required this.isLoading,
+      required this.isLoadingF,
+      required this.loadFailureOrSuccessOption,
+      required this.loadFFailureOrSuccessOption,
+      required final List<Post> feeds,
+      required final List<Post> feedsF,
+      required this.isLast,
+      required this.isLastF,
+      required this.cursor,
+      required this.cursorF})
+      : _feeds = feeds,
+        _feedsF = feedsF;
 
   @override
   final bool isLoading;
+  @override
+  final bool isLoadingF;
+  @override
+  final Option<Either<ExploreFailure, Page>> loadFailureOrSuccessOption;
+  @override
+  final Option<Either<ExploreFailure, Page>> loadFFailureOrSuccessOption;
+  final List<Post> _feeds;
+  @override
+  List<Post> get feeds {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_feeds);
+  }
+
+  final List<Post> _feedsF;
+  @override
+  List<Post> get feedsF {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_feedsF);
+  }
+
+  @override
+  final bool isLast;
+  @override
+  final bool isLastF;
+  @override
+  final String? cursor;
+  @override
+  final String? cursorF;
 
   @override
   String toString() {
-    return 'ExploreState(isLoading: $isLoading)';
+    return 'ExploreState(isLoading: $isLoading, isLoadingF: $isLoadingF, loadFailureOrSuccessOption: $loadFailureOrSuccessOption, loadFFailureOrSuccessOption: $loadFFailureOrSuccessOption, feeds: $feeds, feedsF: $feedsF, isLast: $isLast, isLastF: $isLastF, cursor: $cursor, cursorF: $cursorF)';
   }
 
   @override
@@ -330,309 +803,79 @@ class _$_ExploreState implements _ExploreState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ExploreState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading));
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.isLoadingF, isLoadingF) &&
+            const DeepCollectionEquality().equals(
+                other.loadFailureOrSuccessOption, loadFailureOrSuccessOption) &&
+            const DeepCollectionEquality().equals(
+                other.loadFFailureOrSuccessOption,
+                loadFFailureOrSuccessOption) &&
+            const DeepCollectionEquality().equals(other._feeds, _feeds) &&
+            const DeepCollectionEquality().equals(other._feedsF, _feedsF) &&
+            const DeepCollectionEquality().equals(other.isLast, isLast) &&
+            const DeepCollectionEquality().equals(other.isLastF, isLastF) &&
+            const DeepCollectionEquality().equals(other.cursor, cursor) &&
+            const DeepCollectionEquality().equals(other.cursorF, cursorF));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isLoading));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isLoadingF),
+      const DeepCollectionEquality().hash(loadFailureOrSuccessOption),
+      const DeepCollectionEquality().hash(loadFFailureOrSuccessOption),
+      const DeepCollectionEquality().hash(_feeds),
+      const DeepCollectionEquality().hash(_feedsF),
+      const DeepCollectionEquality().hash(isLast),
+      const DeepCollectionEquality().hash(isLastF),
+      const DeepCollectionEquality().hash(cursor),
+      const DeepCollectionEquality().hash(cursorF));
 
   @JsonKey(ignore: true)
   @override
   _$$_ExploreStateCopyWith<_$_ExploreState> get copyWith =>
       __$$_ExploreStateCopyWithImpl<_$_ExploreState>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(bool isLoading) $default, {
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return $default(isLoading);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(bool isLoading)? $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-  }) {
-    return $default?.call(isLoading);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool isLoading)? $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(isLoading);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ExploreState value) $default, {
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ExploreState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ExploreState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ExploreState implements ExploreState {
-  const factory _ExploreState({required final bool isLoading}) =
-      _$_ExploreState;
+  const factory _ExploreState(
+      {required final bool isLoading,
+      required final bool isLoadingF,
+      required final Option<Either<ExploreFailure, Page>>
+          loadFailureOrSuccessOption,
+      required final Option<Either<ExploreFailure, Page>>
+          loadFFailureOrSuccessOption,
+      required final List<Post> feeds,
+      required final List<Post> feedsF,
+      required final bool isLast,
+      required final bool isLastF,
+      required final String? cursor,
+      required final String? cursorF}) = _$_ExploreState;
 
+  @override
   bool get isLoading;
+  @override
+  bool get isLoadingF;
+  @override
+  Option<Either<ExploreFailure, Page>> get loadFailureOrSuccessOption;
+  @override
+  Option<Either<ExploreFailure, Page>> get loadFFailureOrSuccessOption;
+  @override
+  List<Post> get feeds;
+  @override
+  List<Post> get feedsF;
+  @override
+  bool get isLast;
+  @override
+  bool get isLastF;
+  @override
+  String? get cursor;
+  @override
+  String? get cursorF;
+  @override
   @JsonKey(ignore: true)
   _$$_ExploreStateCopyWith<_$_ExploreState> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LoadingCopyWith<$Res> {
-  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
-      __$$LoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingCopyWithImpl<$Res> extends _$ExploreStateCopyWithImpl<$Res>
-    implements _$$LoadingCopyWith<$Res> {
-  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
-      : super(_value, (v) => _then(v as _$Loading));
-
-  @override
-  _$Loading get _value => super._value as _$Loading;
-}
-
-/// @nodoc
-
-class _$Loading implements Loading {
-  const _$Loading();
-
-  @override
-  String toString() {
-    return 'ExploreState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(bool isLoading) $default, {
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(bool isLoading)? $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool isLoading)? $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ExploreState value) $default, {
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ExploreState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ExploreState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Loading implements ExploreState {
-  const factory Loading() = _$Loading;
-}
-
-/// @nodoc
-abstract class _$$LoadedCopyWith<$Res> {
-  factory _$$LoadedCopyWith(_$Loaded value, $Res Function(_$Loaded) then) =
-      __$$LoadedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadedCopyWithImpl<$Res> extends _$ExploreStateCopyWithImpl<$Res>
-    implements _$$LoadedCopyWith<$Res> {
-  __$$LoadedCopyWithImpl(_$Loaded _value, $Res Function(_$Loaded) _then)
-      : super(_value, (v) => _then(v as _$Loaded));
-
-  @override
-  _$Loaded get _value => super._value as _$Loaded;
-}
-
-/// @nodoc
-
-class _$Loaded implements Loaded {
-  const _$Loaded();
-
-  @override
-  String toString() {
-    return 'ExploreState.loaded()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loaded);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(bool isLoading) $default, {
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(bool isLoading)? $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool isLoading)? $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ExploreState value) $default, {
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ExploreState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ExploreState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Loaded implements ExploreState {
-  const factory Loaded() = _$Loaded;
 }

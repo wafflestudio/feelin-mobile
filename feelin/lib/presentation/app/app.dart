@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../application/share/share.dart';
+import '../main/profile/app/profile_app.dart';
 import 'bottom_navigation.dart';
 import 'tab_item.dart';
 import 'tab_navigator.dart';
@@ -17,6 +18,9 @@ class AppState extends State<App>{
     TabItem.post: GlobalKey<NavigatorState>(),
     TabItem.profile: GlobalKey<NavigatorState>(),
   };
+
+  //https://stackoverflow.com/questions/51029655/call-method-in-one-stateful-widget-from-another-stateful-widget-flutter
+  final GlobalKey<ProfileAppScaffoldState> _profileKey = GlobalKey();
 
   void _selectTab(TabItem tabItem) {
     if (tabItem == _currentTab) {
@@ -67,6 +71,7 @@ class AppState extends State<App>{
         bottomNavigationBar: BottomNavigation(
           currentTab: _currentTab,
           onSelectTab: _selectTab,
+          profileKey: _profileKey,
         ),
       ),
     );
@@ -78,6 +83,7 @@ class AppState extends State<App>{
       child: TabNavigator(
         navigatorKey: _navigatorKeys[tabItem],
         tabItem: tabItem,
+        profileKey: _profileKey,
       ),
     );
   }

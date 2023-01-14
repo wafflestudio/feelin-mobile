@@ -17,20 +17,20 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
   final ExplorePostRepository _explorePostRepository;
   PlaylistInfoBloc(this._explorePostRepository) : super(PlaylistInfoState.initial()){
     on<_LoadRequest>((event, emit) async {
-      emit((state as _PlaylistInfoState).copyWith(
+      emit(state.copyWith(
         isLoading: true,
       ));
 
       final failureOrSuccess = await _explorePostRepository.getPost(id: event.postId);
       failureOrSuccess.fold(
             (f) {
-          emit((state as _PlaylistInfoState).copyWith(
+          emit(state.copyWith(
             isLoading: false,
             loadFailureOrSuccessOption: some(left(f)),
           ));
         },
             (post) {
-          emit((state as _PlaylistInfoState).copyWith(
+          emit(state.copyWith(
             isLoading: false,
             loadFailureOrSuccessOption: some(right(post)),
             post: post,
@@ -42,12 +42,12 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
       final failureOrSuccess = await _explorePostRepository.deletePost(id: event.postId);
       failureOrSuccess.fold(
             (f) {
-          emit((state as _PlaylistInfoState).copyWith(
+          emit(state.copyWith(
             deleteFailureOrSuccessOption: some(left(f)),
           ));
         },
             (post) {
-          emit((state as _PlaylistInfoState).copyWith(
+          emit(state.copyWith(
             deleteFailureOrSuccessOption: some(right(unit)),
           ));
         },

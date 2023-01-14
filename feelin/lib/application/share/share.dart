@@ -1,6 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/injection.dart';
 import 'package:share_plus/share_plus.dart' as share_plus;
+
+import '../../presentation/main/playlist_info/playlist_info_page.dart';
+import '../info/playlist_info_bloc.dart';
 
 class Share{
   BuildContext context;
@@ -68,6 +74,14 @@ class Share{
     //     ),
     //   ),
     // );
+    Navigator.push(context, CupertinoPageRoute(
+      builder: (context){
+        return BlocProvider(
+            create: (context) => getIt<PlaylistInfoBloc>(),
+            child: PlaylistInfoPage(post: null, postId: int.parse(postId), heroNumber: 0, width: MediaQuery.of(context).size.width,));
+      },
+    ),
+    );
   }
 
   Future<String> _getShortLink(int id, String postTitle, String thumbnail) async {
@@ -78,8 +92,9 @@ class Share{
       link: Uri.parse('https://feelin.wafflestudio.com/posts/$id'),
       androidParameters: const AndroidParameters(
         packageName: 'com.wafflestudio.music_sns',
-        minimumVersion: 24,
+        minimumVersion: 1,
       ),
+      // TODO: ios parameter
       socialMetaTagParameters: SocialMetaTagParameters(
         title: postTitle,
         imageUrl: Uri.parse(thumbnail),
