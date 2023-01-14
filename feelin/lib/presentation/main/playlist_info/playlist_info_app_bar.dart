@@ -161,7 +161,9 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
   Widget flexibleSpaceBar(Share share){
     return BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
         builder: (context, state) {
-        return FlexibleSpaceBar(
+        return (state.isLoading && widget.post.playlist.thumbnail == null)
+            ? CupertinoActivityIndicator(radius: 18,)
+            : FlexibleSpaceBar(
           collapseMode: CollapseMode.pin,
           centerTitle: true,
           title: widget.isShrink

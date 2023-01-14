@@ -130,7 +130,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                               controller: _scrollController,
                               headerSliverBuilder: (context, innerBoxIsScrolled){
                                 return [
-                                  PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
+                                  if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
                                     goToTop: (){
                                     _scrollController!.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
                                   },
