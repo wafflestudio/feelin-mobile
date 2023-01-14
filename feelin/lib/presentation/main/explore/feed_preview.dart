@@ -51,7 +51,7 @@ class FeedPreview extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 14,),
+              const SizedBox(width: 14,),
               SizedBox(
                 height: 180,
                 child: Column(
@@ -71,7 +71,7 @@ class FeedPreview extends StatelessWidget {
                                 post.title,
                               textAlign: TextAlign.start,
                               overflow: TextOverflow.ellipsis,
-                              maxLines: 3,
+                              maxLines: 2,
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
@@ -89,7 +89,7 @@ class FeedPreview extends StatelessWidget {
                               post.content,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 6,
+                            maxLines: 5,
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 13,
