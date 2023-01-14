@@ -1,16 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wafflestudio.feelin">
 <!--    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />-->
-    <queries>
-        <package="com.wafflestudio.feelin">
-        <package="com.wafflestudio.feelin">
-        <package="com.wafflestudio.feelin">
-        <package="com.wafflestudio.feelin">
-        <package="com.wafflestudio.feelin">
-        <package="com.wafflestudio.feelin">
-        <package="com.wafflestudio.feelin">
-        <package="com.wafflestudio.feelin">
-    </queries>
+    
    <application
         android:label="Feelin'"
         android:name="${applicationName}"
