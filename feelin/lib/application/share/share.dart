@@ -95,8 +95,9 @@ class Share{
         minimumVersion: 1,
       ),
       // TODO: ios parameter
-      iosParameters: IOSParameters(
+      iosParameters: const IOSParameters(
         bundleId: 'com.wafflestudio.feelin',
+        appStoreId: '1665350212',
       ),
       socialMetaTagParameters: SocialMetaTagParameters(
         title: postTitle,
