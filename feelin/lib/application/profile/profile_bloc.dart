@@ -73,7 +73,17 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
             ));
           },
         );
+      }else{
+        emit(state.copyWith(
+          isLoading: false,
+        ));
       }
+    });
+    on<_ResetRequest>((event, emit) async {
+      emit(state.copyWith(
+        posts: [],
+        isLast: false,
+      ));
     });
     on<_MyProfileRequest>((event, emit) async {
       final failureOrSuccess = await _profileRepository.getMyProfile();

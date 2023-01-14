@@ -37,11 +37,6 @@ class _ProfilePageState extends State<ProfilePage>{
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _async();
     });
-    if(widget.userId == null){
-      context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest(0));
-    }else{
-      context.read<ProfileBloc>().add(ProfileEvent.pageRequest(0, widget.userId!));
-    }
 
   }
 

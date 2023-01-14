@@ -9,4 +9,5 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.pageRequest(int page, int id) = _PageRequest;
   const factory ProfileEvent.followRequest() = _FollowRequest;
   const factory ProfileEvent.unFollowRequest() = _UnFollowRequest;
+  const factory ProfileEvent.resetRequest() = _ResetRequest;
 }

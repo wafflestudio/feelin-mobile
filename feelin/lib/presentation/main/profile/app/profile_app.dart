@@ -42,10 +42,16 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _async();
     });
+    context.read<ProfileBloc>().add(const ProfileEvent.resetRequest());
     if(widget.userId == null){
       context.read<ProfileBloc>().add(const ProfileEvent.myProfileRequest());
     }else{
       context.read<ProfileBloc>().add(ProfileEvent.profileRequest(widget.userId!));
+    }
+    if(widget.userId == null){
+      context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest(0));
+    }else{
+      context.read<ProfileBloc>().add(ProfileEvent.pageRequest(0, widget.userId!));
     }
   }
 
@@ -54,6 +60,7 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> {
   }
 
   void onRefresh() {
+    context.read<ProfileBloc>().add(const ProfileEvent.resetRequest());
     if(widget.userId == null){
       context.read<ProfileBloc>().add(const ProfileEvent.myProfileRequest());
       context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest(0));
