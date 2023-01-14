@@ -15,7 +15,7 @@ class SignUpButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         Navigator.push(context, CupertinoPageRoute(builder: (context){
-          return BlocProvider(create: (context) => BlocProvider.of<AuthBloc>(context),child: const SignUp());
+          return BlocProvider(create: (context) => context.read<AuthBloc>(), child: const SignUp());
         }));
       }
       ,
