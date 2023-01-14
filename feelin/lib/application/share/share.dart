@@ -91,10 +91,13 @@ class Share{
       // 수정 필요
       link: Uri.parse('https://feelin.wafflestudio.com/posts/$id'),
       androidParameters: const AndroidParameters(
-        packageName: 'com.wafflestudio.music_sns',
+        packageName: 'com.wafflestudio.feelin',
         minimumVersion: 1,
       ),
       // TODO: ios parameter
+      iosParameters: IOSParameters(
+        bundleId: 'com.wafflestudio.feelin',
+      ),
       socialMetaTagParameters: SocialMetaTagParameters(
         title: postTitle,
         imageUrl: Uri.parse(thumbnail),

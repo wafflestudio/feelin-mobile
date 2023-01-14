@@ -1,18 +1,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wafflestudio.music_sns">
+    package="com.wafflestudio.feelin">
 <!--    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />-->
     <queries>
-        <package android:name="skplanet.musicmate" />
-        <package android:name="com.spotify.music" />
-        <package android:name="com.naver.vibe" />
-        <package android:name="com.google.android.apps.youtube.music" />
-        <package android:name="com.iloen.melon" />
-        <package android:name="com.ktmusic.geniemusic" />
-        <package android:name="com.neowiz.android.bugs" />
-        <package android:name="com.apple.android.music" />
+        <package="com.wafflestudio.feelin">
+        <package="com.wafflestudio.feelin">
+        <package="com.wafflestudio.feelin">
+        <package="com.wafflestudio.feelin">
+        <package="com.wafflestudio.feelin">
+        <package="com.wafflestudio.feelin">
+        <package="com.wafflestudio.feelin">
+        <package="com.wafflestudio.feelin">
     </queries>
    <application
-        android:label="music_sns"
+        android:label="Feelin'"
         android:name="${applicationName}"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">

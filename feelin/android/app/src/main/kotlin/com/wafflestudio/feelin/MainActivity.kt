@@ -1,4 +1,4 @@
-package com.wafflestudio.music_sns
+package com.wafflestudio.feelin
 
 import io.flutter.embedding.android.FlutterActivity
 
