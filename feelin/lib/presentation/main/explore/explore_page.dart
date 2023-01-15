@@ -14,9 +14,12 @@ class ExplorePage extends StatefulWidget{
   @override
   State<ExplorePage> createState() => _ExplorePageState();
 }
-class _ExplorePageState extends State<ExplorePage>{
+class _ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClientMixin<ExplorePage>{
   bool _isFirstLoadRunning = false;
   bool _isLoadMoreRunning = false;
+
+  @override
+  bool get wantKeepAlive => true;
 
   void _firstLoad() async {
     setState((){
@@ -70,6 +73,7 @@ class _ExplorePageState extends State<ExplorePage>{
 
   @override
   Widget build(BuildContext context){
+    super.build(context);
     return _isFirstLoadRunning
       ? const Center(
         child: CupertinoActivityIndicator(radius: 18,)

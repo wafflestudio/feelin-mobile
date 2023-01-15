@@ -12,6 +12,7 @@ import 'package:music_sns/presentation/main/profile/profile_page.dart';
 import 'package:music_sns/presentation/main/root_page.dart';
 
 import 'firebase_options.dart';
+import 'infrastructure/auth/navigation_service.dart';
 import 'presentation/auth/auth.dart';
 
 void main() async{
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
       child: BlocProvider(
         create: (context) => getIt<AuthBloc>(),
         child: MaterialApp(
+          navigatorKey: NavigationService.navigatorKey,
           title: 'Feelin\'',
           theme: ThemeData(
             primarySwatch: Colors.lightGreen,
@@ -47,7 +49,6 @@ class MyApp extends StatelessWidget {
           initialRoute: '/',
           routes: {
             '/': (context) => const Auth(),
-
           },
         ),
       ),

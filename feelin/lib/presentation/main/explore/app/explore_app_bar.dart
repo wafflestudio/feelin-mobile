@@ -27,10 +27,17 @@ class _ExploreAppBarState extends State<ExploreAppBar> {
           onTap: (){
             widget.function();
           },
-          child: const Text('Feelin\'',
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 20,
+          child: Container(
+            width: double.infinity,
+            height: 100,
+            color: Colors.white,
+            child: Center(
+              child: const Text('Feelin\'',
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20,
+                ),
+              ),
             ),
           ),
         ),
@@ -39,6 +46,7 @@ class _ExploreAppBarState extends State<ExploreAppBar> {
           preferredSize: const Size.fromWidth(200),
           child: TabBar(
             controller: widget.tabController,
+            overlayColor: MaterialStateProperty.all(Colors.transparent),
             isScrollable: true,
             physics: const BouncingScrollPhysics(),
             labelColor: Colors.black,

@@ -29,7 +29,7 @@ class ExploreAppScaffold extends StatefulWidget {
   State<ExploreAppScaffold> createState() => _ExploreAppScaffoldState();
 }
 
-class _ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProviderStateMixin{
+class _ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProviderStateMixin {
 
   final ScrollController _scrollController = ScrollController();
   final ScrollController _scrollControllerF = ScrollController();
@@ -44,24 +44,27 @@ class _ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProv
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      //backgroundColor: Colors.white,
-      appBar: ExploreAppBar(
-        tabController: _tabController,
-        function: (){
-        if(!_tabController.indexIsChanging && _tabController.index == 0){
-          _scrollControllerF.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-        }else if(!_tabController.indexIsChanging && _tabController.index == 1){
-          _scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-        }
-      },),
-      body: TabBarView(
-        controller: _tabController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          ExplorePage(scrollController: _scrollControllerF, isFollowing: true,),
-          ExplorePage(scrollController: _scrollController, isFollowing: false,),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        //backgroundColor: Colors.white,
+        extendBodyBehindAppBar: true,
+        appBar: ExploreAppBar(
+          tabController: _tabController,
+          function: (){
+          if(!_tabController.indexIsChanging && _tabController.index == 0){
+            _scrollControllerF.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+          }else if(!_tabController.indexIsChanging && _tabController.index == 1){
+            _scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+          }
+        },),
+        body: TabBarView(
+          controller: _tabController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            ExplorePage(scrollController: _scrollControllerF, isFollowing: true,),
+            ExplorePage(scrollController: _scrollController, isFollowing: false,),
+          ],
+        ),
       ),
     );
   }

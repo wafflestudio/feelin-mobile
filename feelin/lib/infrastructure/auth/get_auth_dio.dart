@@ -1,5 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:music_sns/application/auth/auth/auth_bloc.dart';
+
+import 'navigation_service.dart';
 
 Dio getAuthDio() {
   var dio = Dio();
@@ -43,6 +48,8 @@ Dio getAuthDio() {
           // . . .
           // 로그인 만료 dialog 발생 후 로그인 페이지로 이동
           // . . .
+          BuildContext context = NavigationService.navigatorKey.currentContext!;
+          if (context.mounted) context.read<AuthBloc>().add(const AuthEvent.submitted());
         }
         return handler.next(error);
       }));
@@ -55,8 +62,8 @@ Dio getAuthDio() {
       final refreshResponse = await refreshDio.post('/auth/refresh');
 
       // response로부터 새로 갱신된 AccessToken과 RefreshToken 파싱
-      final newAccessToken = refreshResponse.headers['Access-Token']![0];
-      final newRefreshToken = refreshResponse.headers['Refresh-Token']![0];
+      final newAccessToken = refreshResponse.data['accessToken'];
+      final newRefreshToken = refreshResponse.data['refreshToken'];
 
       // 기기에 저장된 AccessToken과 RefreshToken 갱신
       await storage.write(key: 'token', value: newAccessToken);
@@ -82,3 +89,16 @@ Dio getAuthDio() {
 
   return dio;
 }
+
+extension ContextExtensions on BuildContext {
+  bool get mounted {
+    try {
+      widget;
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+}
+//https://stackoverflow.com/questions/66139776/get-the-global-context-in-flutter
+//https://stackoverflow.com/questions/68871880/do-not-use-buildcontexts-across-async-gaps

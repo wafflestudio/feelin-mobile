@@ -11,6 +11,7 @@ import 'package:music_sns/presentation/auth/sign_in/sign_in_page.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 import 'package:music_sns/presentation/main/profile/follow_button.dart';
 import 'package:music_sns/presentation/main/profile/post_preview.dart';
+import 'package:music_sns/presentation/main/profile/profile_view.dart';
 
 import '../../../domain/profile/profile.dart';
 import '../../../injection.dart';
@@ -49,7 +50,7 @@ class _ProfilePageState extends State<ProfilePage>{
   Widget build(BuildContext context){
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
-        return (state.isLoading) ? const Center(child: CupertinoActivityIndicator(radius: 20,)):gridView();
+        return (state.isLoading) ? const Center(child: CupertinoActivityIndicator(radius: 20,)) : gridView();
       }
     );
   }
@@ -61,30 +62,48 @@ class _ProfilePageState extends State<ProfilePage>{
       builder: (context, state) {
         return LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-              return Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  _profileView(context),
-                  Flexible(
-                    child: Container(
-                      margin: const EdgeInsets.fromLTRB(10, 10, 10, 5),
-                      child: GridView.builder(
-                        controller: scrollController,
-                        physics: const BouncingScrollPhysics(),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 10.0,
-                          crossAxisSpacing: 10.0,
-                          childAspectRatio: 0.82,
-                        ),
-                        itemCount: state.posts.length,
-                        itemBuilder: (BuildContext context, int index){
-                          return PostPreview(index: index, post: state.posts[index]);
-                        },
+              return CustomScrollView(
+                controller: scrollController,
+                // headerSliverBuilder: (context, innerBoxIsScrolled){
+                //   return [
+                //     ProfileView(child: _profileView(context), maxHeight: 500,)
+                //   ];
+                // },
+                slivers: [
+                  ProfileView(child: _profileView(context), maxHeight: 500,),
+                  SliverGrid(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 10.0,
+                        crossAxisSpacing: 10.0,
+                        childAspectRatio: 0.82,
                       ),
-                    ),
+                      delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) {
+                                return PostPreview(index: index, post: state.posts[index]);
+                          }, childCount: state.posts.length,
+                      )
                   )
                 ],
+                // body:
+                //   Container(
+                //     margin: const EdgeInsets.fromLTRB(10, 10, 10, 5),
+                //     child: GridView.builder(
+                //       controller: scrollController,
+                //       physics: const BouncingScrollPhysics(),
+                //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                //         crossAxisCount: 2,
+                //         mainAxisSpacing: 10.0,
+                //         crossAxisSpacing: 10.0,
+                //         childAspectRatio: 0.82,
+                //       ),
+                //       itemCount: state.posts.length,
+                //       itemBuilder: (BuildContext context, int index){
+                //         return PostPreview(index: index, post: state.posts[index]);
+                //       },
+                //     ),
+                //   )
+                // ,
               );
             });
       }
@@ -124,12 +143,12 @@ class _ProfilePageState extends State<ProfilePage>{
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text('${state.profile.countPosts}',
-                          style: TextStyle(
+                          style: const TextStyle(
                           fontSize: 15,
                           color: Colors.black,
                           fontWeight: FontWeight.w600
                         ),),
-                        Text('Posts',
+                        const Text('Posts',
                           style: TextStyle(
                               fontSize: 14,
                               color: Colors.black,
@@ -141,13 +160,13 @@ class _ProfilePageState extends State<ProfilePage>{
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('123',
-                          style: TextStyle(
+                        Text('${state.profile.followerCount}',
+                          style: const TextStyle(
                               fontSize: 15,
                               color: Colors.black,
                               fontWeight: FontWeight.w600
                           ),),
-                        Text('Followers',
+                        const Text('Followers',
                           style: TextStyle(
                               fontSize: 14,
                               color: Colors.black,
@@ -159,13 +178,13 @@ class _ProfilePageState extends State<ProfilePage>{
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('123',
-                          style: TextStyle(
+                        Text('${state.profile.followingCount}',
+                          style: const TextStyle(
                               fontSize: 15,
                               color: Colors.black,
                               fontWeight: FontWeight.w600
                           ),),
-                        Text('Following',
+                        const Text('Following',
                           style: TextStyle(
                               fontSize: 14,
                               color: Colors.black,
@@ -194,7 +213,7 @@ class _ProfilePageState extends State<ProfilePage>{
                     ),
                   ),
               ),
-              if(state.profile.id != int.parse(id!)) FollowButton(alreadyFollowed: state.isFollowed, function: (){
+              if(state.profile.id != -1 && state.profile.id != int.parse(id!)) FollowButton(isFollowed: state.isFollowed, function: (){
                 if(!state.isFollowed){
                   context.read<ProfileBloc>().add(const ProfileEvent.followRequest());
                 }else{

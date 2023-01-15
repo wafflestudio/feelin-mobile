@@ -13,6 +13,9 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) => Profile(
       introduction: json['introduction'] as String?,
       countPosts: json['countPosts'] as int?,
       name: json['name'] as String?,
+      followerCount: json['countFollowers'] as int?,
+      followingCount: json['countFollowings'] as int?,
+      isFollowed: json['isFollowing'] as bool?,
     );
 
 Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
@@ -22,4 +25,7 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
       'introduction': instance.introduction,
       'countPosts': instance.countPosts,
       'name': instance.name,
+      'countFollowers': instance.followerCount,
+      'countFollowings': instance.followingCount,
+      'isFollowing': instance.isFollowed,
     };

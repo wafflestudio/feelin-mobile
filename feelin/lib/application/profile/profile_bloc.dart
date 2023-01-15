@@ -113,6 +113,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
           emit(state.copyWith(
             isLoaded: true,
             profile: profile,
+            isFollowed: profile.isFollowed ?? false,
+
           ));
         },
       );
@@ -137,6 +139,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
             emit(state.copyWith(
               isFollowed: true,
             ));
+            state.profile.followerCount = state.profile.followerCount! + 1;
           },
         );
       }
@@ -156,6 +159,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
             emit(state.copyWith(
               isFollowed: false,
             ));
+            state.profile.followerCount = state.profile.followerCount! - 1;
           },
         );
       }

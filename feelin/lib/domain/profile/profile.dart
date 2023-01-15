@@ -22,6 +22,15 @@ class Profile{
   @JsonKey(name: "name")
   String? name;
 
+  @JsonKey(name: "countFollowers")
+  int? followerCount;
+
+  @JsonKey(name: "countFollowings")
+  int? followingCount;
+
+  @JsonKey(name: "isFollowing")
+  bool? isFollowed;
+
   Profile({
     required this.id,
     required this.username,
@@ -29,6 +38,9 @@ class Profile{
     this.introduction,
     this.countPosts,
     this.name,
+    this.followerCount,
+    this.followingCount,
+    this.isFollowed,
   });
 
   factory Profile.fromJson(Map<String, dynamic> json) => _$ProfileFromJson(json);

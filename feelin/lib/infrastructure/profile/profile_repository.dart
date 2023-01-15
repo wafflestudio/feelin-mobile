@@ -150,7 +150,7 @@ class ProfileRepository{
     try{
       HttpResponse<void> httpResponse = await profileClient.unFollow(id);
       switch(httpResponse.response.statusCode){
-        case 200 : return const Right(unit);
+        case 204 : return const Right(unit);
         case 403 : return const Left(ProfileFailure.cannotFollowYourself());
         case 404 : return const Left(ProfileFailure.userNotFound());
         case 409 : return const Left(ProfileFailure.alreadyFollowed());
