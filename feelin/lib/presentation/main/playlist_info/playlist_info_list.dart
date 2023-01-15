@@ -23,7 +23,7 @@ class _PostListState extends State<PlaylistInfoList> {
             child: ScrollConfiguration(
               behavior: ScrollBehavior().copyWith(overscroll: false),
               child: ListView.builder(
-                  physics: AlwaysScrollableScrollPhysics(),
+                  physics: const ClampingScrollPhysics(),
                   itemCount: state.post.playlist.tracks!.length,
                   itemBuilder: (context, index){
                     return TrackItem(index: index, post: state.post);
