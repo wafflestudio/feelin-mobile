@@ -5,13 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/edit/edit_profile_form/edit_profile_form_bloc.dart';
+import 'package:music_sns/application/follow/follow_bloc.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/application/profile/profile_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_in/sign_in_page.dart';
+import 'package:music_sns/presentation/follow/follow_page.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 import 'package:music_sns/presentation/main/profile/follow_button.dart';
 import 'package:music_sns/presentation/main/profile/post_preview.dart';
-import 'package:music_sns/presentation/main/profile/profile_view.dart';
+import 'package:music_sns/presentation/main/profile/dynamic_sliver_app_bar.dart';
 
 import '../../../domain/profile/profile.dart';
 import '../../../injection.dart';
@@ -70,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage>{
                 //   ];
                 // },
                 slivers: [
-                  ProfileView(child: _profileView(context), maxHeight: 500,),
+                  DynamicSliverAppBar(child: _profileView(context), maxHeight: 600,),
                   SliverGrid(
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -138,59 +140,98 @@ class _ProfilePageState extends State<ProfilePage>{
                         fit: BoxFit.cover,
                       ),
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('${state.profile.countPosts}',
-                          style: const TextStyle(
-                          fontSize: 15,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600
-                        ),),
-                        const Text('Posts',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal
+                    SizedBox(
+                      width: 70,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('${state.profile.countPosts}',
+                            style: const TextStyle(
+                            fontSize: 15,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600
                           ),),
-                      ],
+                          const Text('Posts',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal
+                            ),),
+                        ],
+                      ),
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('${state.profile.followerCount}',
-                          style: const TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600
-                          ),),
-                        const Text('Followers',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal
-                          ),),
-                      ],
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, CupertinoPageRoute(
+                          builder: (context){
+                            return BlocProvider(
+                                create: (context) => getIt<FollowBloc>(),
+                                child: FollowPage(id: state.profile.id, isFollowerPage: true));
+                          },
+                        ),
+                        );
+                      },
+                      child: AbsorbPointer(
+                        child: SizedBox(
+                          width: 70,
+                          height: 100,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('${state.profile.followerCount}',
+                                style: const TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600
+                                ),),
+                              const Text('Followers',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal
+                                ),),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('${state.profile.followingCount}',
-                          style: const TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600
-                          ),),
-                        const Text('Following',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal
-                          ),),
-                      ],
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, CupertinoPageRoute(
+                          builder: (context){
+                            return BlocProvider(
+                                create: (context) => getIt<FollowBloc>(),
+                                child: FollowPage(id: state.profile.id, isFollowerPage: false));
+                          },
+                        ),
+                        );
+                      },
+                      child: AbsorbPointer(
+                        child: SizedBox(
+                          width: 70,
+                          height: 100,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('${state.profile.followingCount}',
+                                style: const TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600
+                                ),),
+                              const Text('Following',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal
+                                ),),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -213,7 +254,7 @@ class _ProfilePageState extends State<ProfilePage>{
                     ),
                   ),
               ),
-              if(state.profile.id != -1 && state.profile.id != int.parse(id!)) FollowButton(isFollowed: state.isFollowed, function: (){
+              if(widget.userId != null && widget.userId != int.parse(id!)) FollowButton(isFollowed: state.isFollowed, function: (){
                 if(!state.isFollowed){
                   context.read<ProfileBloc>().add(const ProfileEvent.followRequest());
                 }else{

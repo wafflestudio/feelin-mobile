@@ -77,7 +77,7 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> {
       appBar: ProfileAppBar(isRoot: (widget.userId == null),),
       body: RefreshIndicator(
         onRefresh: () async => onRefresh(),
-          child: const ProfilePage()),
+          child: ProfilePage(userId: widget.userId,)),
     );
   }
 }

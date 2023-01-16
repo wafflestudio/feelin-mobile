@@ -2,7 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:music_sns/application/auth/auth/auth_bloc.dart';
+import 'package:music_sns/presentation/style/colors.dart';
 
 import 'navigation_service.dart';
 
@@ -36,6 +38,8 @@ Dio getAuthDio() {
 
       refreshDio.interceptors.clear();
 
+      refreshDio.options.baseUrl = 'https://feelin-social-api-dev.wafflestudio.com/api/v1';
+
       refreshDio.interceptors
           .add(InterceptorsWrapper(onError: (error, handler) async {
 
@@ -49,7 +53,23 @@ Dio getAuthDio() {
           // 로그인 만료 dialog 발생 후 로그인 페이지로 이동
           // . . .
           BuildContext context = NavigationService.navigatorKey.currentContext!;
-          if (context.mounted) context.read<AuthBloc>().add(const AuthEvent.submitted());
+          if (context.mounted) {
+            context.read<AuthBloc>().add(const AuthEvent.submitted());
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              backgroundColor: FeelinColorFamily.blueCore,
+              content: Text("The Access Token has expired. Please log in again."),
+            ));
+
+            Fluttertoast.showToast(
+                msg: "The Access Token has expired. Please log in again.",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 1,
+                backgroundColor: FeelinColorFamily.blueCore,
+                textColor: Colors.white,
+                fontSize: 16.0
+            );
+          }
         }
         return handler.next(error);
       }));

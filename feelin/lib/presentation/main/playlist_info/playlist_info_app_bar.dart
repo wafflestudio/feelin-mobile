@@ -84,7 +84,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                     : BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.topCenter,
-                        end: FractionalOffset(0.5, 0.6),
+                        end: const FractionalOffset(0.5, 0.6),
                         colors: <Color>[
                           imageColor,
                           Colors.white,
@@ -102,7 +102,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                     onPressed: (){},
                     backgroundColor: Colors.black,
                     foregroundColor: Colors.white,
-                    child: Icon(Icons.heart_broken),
+                    child: const Icon(Icons.heart_broken),
                   ),
               )
             ],
@@ -162,7 +162,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
     return BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
         builder: (context, state) {
         return (state.isLoading && widget.post.playlist.thumbnail == null)
-            ? CupertinoActivityIndicator(radius: 18,)
+            ? const CupertinoActivityIndicator(radius: 18,)
             : FlexibleSpaceBar(
           collapseMode: CollapseMode.pin,
           centerTitle: true,

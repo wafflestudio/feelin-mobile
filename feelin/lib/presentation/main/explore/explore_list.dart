@@ -32,6 +32,7 @@ class _PostListState extends State<ExploreList> {
             const Center(child: Text('아직 게시물이 없습니다.')) :
           ListView.builder(
             controller: widget.scrollController,
+            physics: BouncingScrollPhysics(),
             itemCount: (widget.isLoading && !widget.isLast)
                 ? widget.feeds.length + 1 : widget.feeds.length,
             itemBuilder: (context, index){

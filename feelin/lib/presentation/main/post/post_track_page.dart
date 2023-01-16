@@ -6,7 +6,6 @@ import 'package:music_sns/domain/play/playlist.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../domain/custom/marquee.dart';
-import '../../../domain/play/track.dart';
 import '../../common/next_button.dart';
 
 class PostTrackPage extends StatefulWidget{
@@ -63,7 +62,7 @@ class _PostDetailPageState extends State<PostTrackPage> {
                     width: 72,
                     height: 72,),
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 Container(
                   width: size.width - 122,
                   child: Text(

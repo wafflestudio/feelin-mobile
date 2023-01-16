@@ -12,7 +12,7 @@ Post _$PostFromJson(Map<String, dynamic> json) => Post(
           ? null
           : Profile.fromJson(json['user'] as Map<String, dynamic>),
       title: json['title'] as String,
-      content: json['content'] as String,
+      content: json['user'] == null ? '' : json['content'] as String,
       playlist: Playlist.fromJson(json['playlist'] as Map<String, dynamic>),
       isLiked: json['doesLike'] as bool?,
       likeCount: json['likes'] as int? ?? 0,

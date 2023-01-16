@@ -1,14 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:music_sns/application/post/post_detail_form/post_detail_form_bloc.dart';
-import 'package:music_sns/injection.dart';
-import 'package:music_sns/presentation/main/post/fetchedPlaylistPreview.dart';
-import 'package:music_sns/presentation/main/post/open_your_music_app_button.dart';
-import 'package:music_sns/presentation/main/post/post_detail_page.dart';
 
 import '../../../application/post/post_form/post_form_bloc.dart';
 import '../../common/next_button.dart';

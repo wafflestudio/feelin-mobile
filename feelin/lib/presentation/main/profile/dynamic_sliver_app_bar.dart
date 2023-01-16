@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ProfileView extends StatefulWidget {
+class DynamicSliverAppBar extends StatefulWidget {
   final Widget child;
   final double maxHeight;
 
-  ProfileView({
+  DynamicSliverAppBar({
     required this.child,
     required this.maxHeight,
     Key? key,
@@ -14,7 +14,7 @@ class ProfileView extends StatefulWidget {
   _DynamicSliverAppBarState createState() => _DynamicSliverAppBarState();
 }
 
-class _DynamicSliverAppBarState extends State<ProfileView> {
+class _DynamicSliverAppBarState extends State<DynamicSliverAppBar> {
   final GlobalKey _childKey = GlobalKey();
   bool isHeightCalculated = false;
   late double height;

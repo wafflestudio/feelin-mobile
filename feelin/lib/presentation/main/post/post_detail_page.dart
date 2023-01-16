@@ -1,17 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_sns/application/navigation/nav_bar_item.dart';
-import 'package:music_sns/application/navigation/navigation_cubit.dart';
 import 'package:music_sns/application/post/post_form/post_form_bloc.dart';
-import 'package:music_sns/injection.dart';
-import 'package:music_sns/presentation/main/root_page.dart';
 
-import '../../../application/profile/profile_bloc.dart';
-import '../../../domain/custom/marquee.dart';
 import '../../../domain/play/playlist.dart';
-import '../../../domain/play/track.dart';
 import '../../common/next_button.dart';
 import '../../style/colors.dart';
 

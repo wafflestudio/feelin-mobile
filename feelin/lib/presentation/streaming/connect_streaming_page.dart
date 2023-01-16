@@ -74,7 +74,7 @@ class ConnectStreamingPage extends StatelessWidget{
                       .read<ConnectStreamingBloc>()
                       .add(const ConnectStreamingEvent.requestLogin('spotify'));
                 }
-              }, label: 'Connect to Spotify', icon: Icon(Icons.library_music)),
+              }, label: 'Connect to Spotify', icon: const Icon(Icons.library_music)),
               PlatformButton(function: (){
                 if(!state.isSubmitting){
                   navigated = false;
@@ -82,7 +82,7 @@ class ConnectStreamingPage extends StatelessWidget{
                       .read<ConnectStreamingBloc>()
                       .add(const ConnectStreamingEvent.requestLogin('applemusic'));
                 }
-              }, label: 'Connect to Apple Music', icon: Icon(Icons.library_music)),
+              }, label: 'Connect to Apple Music', icon: const Icon(Icons.library_music)),
             ],
           );
         }

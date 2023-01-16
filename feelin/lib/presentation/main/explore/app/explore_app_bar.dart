@@ -21,7 +21,7 @@ class _ExploreAppBarState extends State<ExploreAppBar> {
       preferredSize: const Size.fromHeight(100),
       child: AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: GestureDetector(
           onTap: (){

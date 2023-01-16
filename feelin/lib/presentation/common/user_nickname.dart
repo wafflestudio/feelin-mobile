@@ -42,7 +42,4 @@ class UserNickname extends StatelessWidget{
       ),
     );
   }
-
-
-
 }

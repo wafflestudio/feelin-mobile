@@ -14,7 +14,7 @@ part 'profile_client.g.dart';
 abstract class ProfileClient{
   factory ProfileClient(Dio dio, {String baseUrl}) = _ProfileClient;
 
-  @GET('/{user_id}/posts')
+  @GET('/user/{user_id}/posts')
   Future<HttpResponse<Page>> getPostsById(@Path('user_id') int id);
 
   @GET('/posts')

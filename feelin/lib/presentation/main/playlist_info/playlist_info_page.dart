@@ -1,23 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_sns/application/edit/edit_post_form/edit_post_form_bloc.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
-import 'package:music_sns/application/share/share.dart';
-import 'package:music_sns/domain/custom/marquee.dart';
-import 'package:music_sns/domain/play/track.dart';
-import 'package:music_sns/injection.dart';
-import 'package:music_sns/presentation/common/user_nickname.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_app_bar.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_list.dart';
-import 'package:music_sns/presentation/main/playlist_info/track_item.dart';
 
-import '../../../application/navigation/nav_bar_item.dart';
-import '../../../application/navigation/navigation_cubit.dart';
 import '../../../domain/play/post.dart';
-import '../../edit/post/edit_post_page.dart';
-import '../root_page.dart';
 
 class PlaylistInfoPage extends StatefulWidget{
   const PlaylistInfoPage({Key? key, this.post, required this.postId, required this.heroNumber, required this.width}) : super(key: key);
@@ -103,8 +90,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                         + textHeight(state.post.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600,), MediaQuery.of(context).size.width-32)
                         + textHeight(state.post.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13,), MediaQuery.of(context).size.width-32);
                     height = expandedHeight - 30;
-                  }), print(textHeight(state.post.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600,), MediaQuery.of(context).size.width-32)),
-                  print(textHeight(state.post.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13,), MediaQuery.of(context).size.width-32))
+                  }),
             },
           ),
         );
@@ -164,7 +150,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                     onPressed: (){},
                     backgroundColor: Colors.black,
                     foregroundColor: Colors.white,
-                    child: Icon(Icons.heart_broken),
+                    child: const Icon(Icons.heart_broken),
                   )),
             ],
           );
