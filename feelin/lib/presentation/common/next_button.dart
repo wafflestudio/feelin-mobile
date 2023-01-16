@@ -23,16 +23,16 @@ class _NextButtonState extends State<NextButton> {
           onPressed: widget.disabled ? null : ()=>widget.function(),
           style: ButtonStyle(
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8)
+              borderRadius: BorderRadius.circular(28)
             )),
             backgroundColor: MaterialStateProperty.resolveWith((states){
               if (states.contains(MaterialState.disabled)) {
                 return FeelinColorFamily.grayscaleGray1;
               }
               if (states.contains(MaterialState.pressed)) {
-                return FeelinColorFamily.blueCore;
+                return Colors.black;
               }
-              return FeelinColorFamily.blueCore;
+              return Colors.black;
             })
           ),
           child: const Center(

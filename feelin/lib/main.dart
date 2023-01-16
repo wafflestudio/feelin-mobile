@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.lightGreen,
             primaryColor: Colors.white,
-            fontFamily: 'SpoqaHanSansNeo',
+            //fontFamily: 'SpoqaHanSansNeo',
             scaffoldBackgroundColor: Colors.white,
           ),
           initialRoute: '/',

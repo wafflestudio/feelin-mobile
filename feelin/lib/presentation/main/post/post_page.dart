@@ -88,7 +88,7 @@ class _PostPageState extends State<PostPage>{
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                            borderSide: BorderSide(color: FeelinColorFamily.blueCore, width: 0.5),
+                            borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
                           ),
                           errorBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -135,7 +135,7 @@ class _PostPageState extends State<PostPage>{
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 13,
-                        color: FeelinColorFamily.blueCore,
+                        color: FeelinColorFamily.red500,
                       ),
                     ),
                   ),

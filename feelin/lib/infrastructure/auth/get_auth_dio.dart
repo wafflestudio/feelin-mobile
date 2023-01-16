@@ -15,6 +15,8 @@ Dio getAuthDio() {
 
   dio.interceptors.clear();
 
+  dio.options.baseUrl = 'https://feelin-social-api-dev.wafflestudio.com/api/v1';
+
   dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) async {
 
     // 기기에 저장된 AccessToken 로드
@@ -56,7 +58,7 @@ Dio getAuthDio() {
           if (context.mounted) {
             context.read<AuthBloc>().add(const AuthEvent.submitted());
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              backgroundColor: FeelinColorFamily.blueCore,
+              backgroundColor: FeelinColorFamily.red500,
               content: Text("The Access Token has expired. Please log in again."),
             ));
 
@@ -65,7 +67,7 @@ Dio getAuthDio() {
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.BOTTOM,
                 timeInSecForIosWeb: 1,
-                backgroundColor: FeelinColorFamily.blueCore,
+                backgroundColor: FeelinColorFamily.red500,
                 textColor: Colors.white,
                 fontSize: 16.0
             );

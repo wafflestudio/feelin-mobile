@@ -112,7 +112,7 @@ class _NextButtonState extends State<ConfirmationTabBar>{
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-              borderSide: BorderSide(color: FeelinColorFamily.blueCore, width: 0.5),
+              borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
             ),
             errorBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -173,7 +173,7 @@ class _NextButtonState extends State<ConfirmationTabBar>{
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-          borderSide: BorderSide(color: FeelinColorFamily.blueCore, width: 0.5),
+          borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
         ),
         errorBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -181,7 +181,7 @@ class _NextButtonState extends State<ConfirmationTabBar>{
         ),
       ),
       selectorTextStyle: TextStyle(
-        color: FeelinColorFamily.blueCore,
+        color: FeelinColorFamily.red500,
       ),
     );
   }

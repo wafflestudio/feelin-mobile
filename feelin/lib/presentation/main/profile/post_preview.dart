@@ -60,6 +60,7 @@ class PostPreview extends StatelessWidget {
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 13,
+                    letterSpacing: -0.41,
                   ),),
                 ),
               ),

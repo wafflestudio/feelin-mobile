@@ -6,6 +6,7 @@ import 'package:music_sns/presentation/main/playlist_info/playlist_info_app_bar.
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_list.dart';
 
 import '../../../domain/play/post.dart';
+import '../../style/colors.dart';
 
 class PlaylistInfoPage extends StatefulWidget{
   const PlaylistInfoPage({Key? key, this.post, required this.postId, required this.heroNumber, required this.width}) : super(key: key);
@@ -64,8 +65,12 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
     context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.loadRequest(widget.postId));
     setState((){
       expandedHeight = 350
-          + textHeight(widget.post == null ? '': widget.post!.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, fontFamily: 'SpoqaHanSansNeo'), widget.width-32)
-          + textHeight(widget.post == null ? '': widget.post!.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, fontFamily: 'SpoqaHanSansNeo'), widget.width-32);
+          + textHeight(widget.post == null ? '': widget.post!.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
+              //fontFamily: 'SpoqaHanSansNeo'
+          ), widget.width-32)
+          + textHeight(widget.post == null ? '': widget.post!.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, letterSpacing: -0.41,
+              //fontFamily: 'SpoqaHanSansNeo'
+          ), widget.width-32);
       height = expandedHeight - 30;
     });
   }
@@ -88,8 +93,12 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                 (post) => {
               setState((){
                     expandedHeight = 350
-                        + textHeight(state.post.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, fontFamily: 'SpoqaHanSansNeo'), MediaQuery.of(context).size.width-32)
-                        + textHeight(state.post.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, fontFamily: 'SpoqaHanSansNeo'), MediaQuery.of(context).size.width-32);
+                        + textHeight(state.post.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
+                            //fontFamily: 'SpoqaHanSansNeo'
+                        ), MediaQuery.of(context).size.width-32)
+                        + textHeight(state.post.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, letterSpacing: -0.41,
+                            //fontFamily: 'SpoqaHanSansNeo'
+                        ), MediaQuery.of(context).size.width-32);
                     height = expandedHeight - 30;
                   }),
             },
@@ -140,7 +149,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                                 focusElevation: 0,
                                 highlightElevation: 0,
                                 //shape: RoundedRectangleBorder(side: BorderSide(),borderRadius: BorderRadius.circular(28)),
-                                label: const Text('Save to account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),),
+                                label: const Text('Save to account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),),),
                             ),
                             floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
                         ),
@@ -160,7 +169,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                     child: SvgPicture.asset(
                       state.isLiked ? 'assets/icons/heart_filled.svg'
                           : 'assets/icons/heart.svg',
-                      color: state.isLiked ? Colors.red : Colors.white,
+                      color: state.isLiked ? FeelinColorFamily.redPrimary : Colors.white,
                       width: 24,
                       height: 24,
                     ),

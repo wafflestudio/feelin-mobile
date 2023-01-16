@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/post/post_form/post_form_bloc.dart';
 
 import '../../../domain/play/playlist.dart';
+import '../../../domain/post/max_lines_input_formatters.dart';
 import '../../common/next_button.dart';
 import '../../style/colors.dart';
 
@@ -84,6 +85,9 @@ class _PostDetailPageState extends State<PostDetailPage> {
                       maxLength: 100,
                       minLines: 1,
                       maxLines: 2,
+                      inputFormatters: [
+                        MaxLinesInputFormatters(1),
+                      ],
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
@@ -133,7 +137,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                          borderSide: BorderSide(color: FeelinColorFamily.blueCore, width: 0.5),
+                          borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
                         ),
                         errorBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8.0)),

@@ -76,6 +76,7 @@ class FeedPreview extends StatelessWidget {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.black,
+                                letterSpacing: -0.41,
                               ),
                             ),
                           )
@@ -94,6 +95,7 @@ class FeedPreview extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                               fontSize: 13,
                               color: FeelinColorFamily.gray600,
+                              letterSpacing: -0.41,
                             ),
                           ),
                         )

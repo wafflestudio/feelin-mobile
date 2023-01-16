@@ -25,8 +25,29 @@ class FeelinColorFamily {
   static HexColor gray900 = HexColor('#212121');
   static HexColor grayDivider = HexColor('D9D9D9');
   static HexColor grayBorder = HexColor('CECECE');
-  static HexColor blueCore = HexColor('#3B88FC');
-  static HexColor redCore = HexColor('#BE4444');
-
-
+  static HexColor red50 = HexColor('#FFE9EC');
+  static HexColor red100 = HexColor('#FFC9CD');
+  static HexColor red200 = HexColor('#F69390');
+  static HexColor red300 = HexColor('#ED6764');
+  static HexColor red400 = HexColor('#F6403B');
+  static HexColor red500 = HexColor('#FA2618');
+  static HexColor red600 = HexColor('#EC151A');
+  static HexColor red700 = HexColor('#DA0015');
+  static HexColor red800 = HexColor('#CD000C');
+  static HexColor red900 = HexColor('#BF0000');
+  static HexColor redPrimary = red500;
+  static HexColor redSecondary = red50;
+  static HexColor orange50 = HexColor('#FFF3E0');
+  static HexColor orange100 = HexColor('#FEE0B2');
+  static HexColor orange200 = HexColor('#FECC80');
+  static HexColor orange300 = HexColor('#FEB64D');
+  static HexColor orange400 = HexColor('#FDA627');
+  static HexColor orange500 = HexColor('#FD9703');
+  static HexColor orange600 = HexColor('#F98B03');
+  static HexColor orange700 = HexColor('#F37C02');
+  static HexColor orange800 = HexColor('#ED6C02');
+  static HexColor orange900 = HexColor('#E45102');
+  static HexColor errorDark = orange900;
+  static HexColor errorPrimary = orange800;
+  static HexColor errorLight = orange700;
 }

@@ -64,6 +64,7 @@ class TrackItem extends StatelessWidget {
                         style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 16,
+                          letterSpacing: -0.41,
                         ),
                       ),
                     ),
@@ -87,6 +88,7 @@ class TrackItem extends StatelessWidget {
                               color: FeelinColorFamily.gray700,
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
+                              letterSpacing: -0.41,
                             ),
                           );
                         },
@@ -96,7 +98,8 @@ class TrackItem extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Color(0xff7077D5),
-                              fontSize: 12
+                              fontSize: 12,
+                              letterSpacing: -0.41,
                           ),
                         ),
                       ),

@@ -24,7 +24,7 @@ class SignUpButton extends StatelessWidget {
         overlayColor: MaterialStateProperty.all(Colors.transparent),
         elevation: MaterialStateProperty.all(0.0),
         minimumSize: MaterialStateProperty.all(const Size(250,50)),
-        foregroundColor: MaterialStateProperty.all(FeelinColorFamily.blueCore),
+        foregroundColor: MaterialStateProperty.all(FeelinColorFamily.red500),
         backgroundColor: MaterialStateProperty.all(Colors.transparent),
       ),
       child: const Text(

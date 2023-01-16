@@ -74,7 +74,7 @@ class SignUpComplete extends StatelessWidget{
               shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)
               )),
-              backgroundColor: MaterialStateProperty.all(FeelinColorFamily.blueCore)
+              backgroundColor: MaterialStateProperty.all(FeelinColorFamily.red500)
           ),
           child: const Center(
             child: Text(

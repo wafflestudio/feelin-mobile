@@ -1,23 +1,16 @@
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:music_sns/application/edit/edit_profile_form/edit_profile_form_bloc.dart';
 import 'package:music_sns/application/follow/follow_bloc.dart';
-import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/application/profile/profile_bloc.dart';
-import 'package:music_sns/presentation/auth/sign_in/sign_in_page.dart';
 import 'package:music_sns/presentation/follow/follow_page.dart';
-import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 import 'package:music_sns/presentation/main/profile/follow_button.dart';
 import 'package:music_sns/presentation/main/profile/post_preview.dart';
 import 'package:music_sns/presentation/main/profile/dynamic_sliver_app_bar.dart';
 
-import '../../../domain/profile/profile.dart';
 import '../../../injection.dart';
-import '../../edit/profile/edit_profile_page.dart';
 
 
 class ProfilePage extends StatefulWidget{
@@ -66,14 +59,14 @@ class _ProfilePageState extends State<ProfilePage>{
             builder: (BuildContext context, BoxConstraints constraints) {
               return CustomScrollView(
                 controller: scrollController,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 // headerSliverBuilder: (context, innerBoxIsScrolled){
                 //   return [
                 //     ProfileView(child: _profileView(context), maxHeight: 500,)
                 //   ];
                 // },
                 slivers: [
-                  DynamicSliverAppBar(child: _profileView(context), maxHeight: 600,),
+                  DynamicSliverAppBar(maxHeight: 600,child: _profileView(context),),
                   SliverGrid(
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -246,7 +239,7 @@ class _ProfilePageState extends State<ProfilePage>{
                   ),
                 ),
               ),
-              Container(
+              if(state.profile.introduction != null && state.profile.introduction!.isNotEmpty)Container(
                   margin: const EdgeInsets.only(top: 4, bottom: 0),
                   child: Text(state.profile.introduction ?? '',
                     style: const TextStyle(

@@ -40,7 +40,7 @@ class BottomNavigation extends StatelessWidget {
       showUnselectedLabels: false,
       showSelectedLabels: false,
       type: BottomNavigationBarType.fixed,
-      selectedItemColor: FeelinColorFamily.blueCore,
+      selectedItemColor: Colors.black,
       backgroundColor: Colors.white,
       unselectedItemColor: FeelinColorFamily.grayscaleGray2,
       onTap: (index) {

@@ -97,10 +97,10 @@ class _SignUpCodeState extends State<SignUpCode>{
             activeFillColor: Colors.transparent,
             selectedFillColor: Colors.transparent,
             inactiveFillColor: Colors.transparent,
-            activeColor: hasError ? FeelinColorFamily.redCore : FeelinColorFamily.grayscaleGray1,
-            selectedColor: FeelinColorFamily.blueCore,
+            activeColor: hasError ? FeelinColorFamily.redPrimary : FeelinColorFamily.grayscaleGray1,
+            selectedColor: FeelinColorFamily.red500,
             inactiveColor: FeelinColorFamily.grayscaleGray1,
-            errorBorderColor: FeelinColorFamily.redCore,
+            errorBorderColor: FeelinColorFamily.redPrimary,
 
           ),
           showCursor: false,

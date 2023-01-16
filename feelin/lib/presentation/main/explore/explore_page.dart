@@ -82,7 +82,7 @@ class _ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClient
       builder: (context, state) {
         return RefreshIndicator(
             onRefresh: () async => _firstLoad(),
-            color: FeelinColorFamily.blueCore,
+            color: FeelinColorFamily.red500,
             child: widget.isFollowing
                 ? ExploreList(isLast: state.isLastF, feeds: state.feedsF, isLoading: state.isLoadingF, scrollController: widget.scrollController)
                 : ExploreList(isLast: state.isLast, feeds: state.feeds, isLoading: state.isLoading, scrollController: widget.scrollController)

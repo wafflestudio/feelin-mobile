@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/presentation/common/user_nickname.dart';
@@ -35,13 +36,23 @@ class PlaylistInfoAppBar extends StatefulWidget with PreferredSizeWidget {
 class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
 
   final GlobalKey imageKey = GlobalKey();
+  final storage = const FlutterSecureStorage();
   late PaletteGenerator paletteGenerator;
   Color imageColor = Colors.white;
+
+  String? id;
+
+  _async() async{
+    id = await storage.read(key: 'id');
+  }
 
   @override
   void initState() {
     super.initState();
     _updatePaletteGenerator();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _async();
+    });
   }
 
   Future<void> _updatePaletteGenerator() async {
@@ -50,6 +61,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
     );
 
     setState(() {
+      //imageColor = paletteGenerator.lightVibrantColor != null ? paletteGenerator.lightVibrantColor!.color : paletteGenerator.dominantColor!.color;
       imageColor = paletteGenerator.dominantColor!.color;
     });
   }
@@ -85,7 +97,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                     : BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.topCenter,
-                        end: const FractionalOffset(0.5, 0.6),
+                        end: FractionalOffset(0.5, 250 / widget.expandedHeight),
                         colors: <Color>[
                           imageColor,
                           Colors.white,
@@ -112,7 +124,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                     child: SvgPicture.asset(
                       state.isLiked ? 'assets/icons/heart_filled.svg'
                           : 'assets/icons/heart.svg',
-                      color: state.isLiked ? Colors.red : Colors.white,
+                      color: state.isLiked ? FeelinColorFamily.redPrimary : Colors.white,
                       width: 24,
                       height: 24,
                     ),
@@ -129,7 +141,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
               ),
               builder: (BuildContext context) {
                 return SizedBox(
-                  height: 200,
+                  height: (state.post.writer!.id == int.parse(id!)) ? 200 : 80,
                   child: Column(
                     children: <Widget>[
                       const SizedBox(
@@ -142,7 +154,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                           share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail);
                         }, child: const Text('공유하기', textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),)),
                       ),
-                      SizedBox(
+                      if(state.post.writer!.id == int.parse(id!)) SizedBox(
                           width: double.infinity,
                           height: 60,
                           child: TextButton(onPressed: (){
@@ -153,7 +165,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                                     ))
                             );
                           }, child: const Text('수정하기', style: TextStyle(color: Colors.black, fontSize: 16),))),
-                      SizedBox(
+                      if(state.post.writer!.id == int.parse(id!)) SizedBox(
                           width: double.infinity,
                           height: 60,
                           child: TextButton(onPressed: (){
@@ -190,6 +202,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
             style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 18,
+                  letterSpacing: -0.41,
                   color: isDark(imageColor) ? Colors.white : Colors.black
             ),
           ),
@@ -228,6 +241,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w600,
+                          letterSpacing: -0.41,
                         ),
                       ),
                       Padding(
@@ -238,6 +252,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                             fontWeight: FontWeight.w400,
                             fontSize: 13,
                             color: FeelinColorFamily.gray600,
+                            letterSpacing: -0.41,
                           ),
                         ),
                       ),
@@ -250,6 +265,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
                               color: FeelinColorFamily.gray700,
+                              letterSpacing: -0.41,
                             ),
                           ),
                           IconButton(

@@ -35,7 +35,8 @@ class UserNickname extends StatelessWidget{
           Text(writer.username,
             style: TextStyle(
               fontWeight: isSmall ? FontWeight.w500 : FontWeight.w700,
-              fontSize: isSmall ? 12 : 14
+              fontSize: isSmall ? 12 : 14,
+              letterSpacing: -0.41,
             ),
           ),
         ],
