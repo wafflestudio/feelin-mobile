@@ -26,7 +26,7 @@ class _ProfileClient implements ProfileClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<Page>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/usery/${id}/posts',
+                .compose(_dio.options, '/user/${id}/posts',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = Page.fromJson(_result.data!);

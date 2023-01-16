@@ -55,4 +55,42 @@ class ExplorePostRepository{
       }
     }
   }
+
+  Future<Either<ExplorePostFailure, Unit>> like({required int id,}) async{
+    try{
+      HttpResponse<void> httpResponse = await explorePostClient.like(id);
+      switch(httpResponse.response.statusCode){
+        case 200 : return const Right(unit);
+        case 201 : return const Right(unit);
+        case 403 : return const Left(ExplorePostFailure.forbidden());
+        case 404 : return const Left(ExplorePostFailure.notFound());
+        default : return const Left(ExplorePostFailure.serverError());
+      }
+    }on DioError catch(e){
+      switch(e.response?.statusCode){
+        case 403 : return const Left(ExplorePostFailure.forbidden());
+        case 404 : return const Left(ExplorePostFailure.notFound());
+        default : return const Left(ExplorePostFailure.serverError());
+      }
+    }
+  }
+
+  Future<Either<ExplorePostFailure, Unit>> unlike({required int id,}) async{
+    try{
+      HttpResponse<void> httpResponse = await explorePostClient.unlike(id);
+      switch(httpResponse.response.statusCode){
+        case 200 : return const Right(unit);
+        case 201 : return const Right(unit);
+        case 403 : return const Left(ExplorePostFailure.forbidden());
+        case 404 : return const Left(ExplorePostFailure.notFound());
+        default : return const Left(ExplorePostFailure.serverError());
+      }
+    }on DioError catch(e){
+      switch(e.response?.statusCode){
+        case 403 : return const Left(ExplorePostFailure.forbidden());
+        case 404 : return const Left(ExplorePostFailure.notFound());
+        default : return const Left(ExplorePostFailure.serverError());
+      }
+    }
+  }
 }

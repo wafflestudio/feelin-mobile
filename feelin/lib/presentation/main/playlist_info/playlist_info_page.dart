@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_app_bar.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_list.dart';
@@ -63,8 +64,8 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
     context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.loadRequest(widget.postId));
     setState((){
       expandedHeight = 350
-          + textHeight(widget.post == null ? '': widget.post!.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600,), widget.width-32)
-          + textHeight(widget.post == null ? '': widget.post!.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13,), widget.width-32);
+          + textHeight(widget.post == null ? '': widget.post!.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, fontFamily: 'SpoqaHanSansNeo'), widget.width-32)
+          + textHeight(widget.post == null ? '': widget.post!.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, fontFamily: 'SpoqaHanSansNeo'), widget.width-32);
       height = expandedHeight - 30;
     });
   }
@@ -87,8 +88,8 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                 (post) => {
               setState((){
                     expandedHeight = 350
-                        + textHeight(state.post.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600,), MediaQuery.of(context).size.width-32)
-                        + textHeight(state.post.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13,), MediaQuery.of(context).size.width-32);
+                        + textHeight(state.post.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, fontFamily: 'SpoqaHanSansNeo'), MediaQuery.of(context).size.width-32)
+                        + textHeight(state.post.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, fontFamily: 'SpoqaHanSansNeo'), MediaQuery.of(context).size.width-32);
                     height = expandedHeight - 30;
                   }),
             },
@@ -147,11 +148,24 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                   top: kToolbarHeight,
                   right: 15,
                   child: FloatingActionButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      if(!state.isLiked){
+                        context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.likeRequest());
+                      }else{
+                        context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.unlikeRequest());
+                      }
+                    },
                     backgroundColor: Colors.black,
-                    foregroundColor: Colors.white,
-                    child: const Icon(Icons.heart_broken),
-                  )),
+                    //foregroundColor: Colors.white,
+                    child: SvgPicture.asset(
+                      state.isLiked ? 'assets/icons/heart_filled.svg'
+                          : 'assets/icons/heart.svg',
+                      color: state.isLiked ? Colors.red : Colors.white,
+                      width: 24,
+                      height: 24,
+                    ),
+                  ),
+              ),
             ],
           );
                     }

@@ -34,6 +34,7 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
             isLoading: false,
             loadFailureOrSuccessOption: some(right(post)),
             post: post,
+            isLiked: post.isLiked!
           ));
         },
       );
@@ -52,6 +53,46 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
           ));
         },
       );
+    });
+
+    on<_LikeRequest>((event, emit) async {
+
+      if(!state.isLiked){
+        final failureOrSuccess = await _explorePostRepository.like(id: state.post.id);
+        failureOrSuccess.fold(
+              (f) {
+            emit(state.copyWith(
+              isLiked: false,
+            ));
+          },
+              (posts) {
+            emit(state.copyWith(
+              isLiked: true,
+            ));
+            state.post.likeCount = state.post.likeCount! + 1;
+          },
+        );
+      }
+    });
+
+    on<_UnlikeRequest>((event, emit) async {
+
+      if(state.isLiked){
+        final failureOrSuccess = await _explorePostRepository.unlike(id: state.post.id);
+        failureOrSuccess.fold(
+              (f) {
+            emit(state.copyWith(
+              isLiked: true,
+            ));
+          },
+              (posts) {
+            emit(state.copyWith(
+              isLiked: false,
+            ));
+            state.post.likeCount = state.post.likeCount! - 1;
+          },
+        );
+      }
     });
   }
 }

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/presentation/common/user_nickname.dart';
 import 'package:music_sns/presentation/style/colors.dart';
@@ -99,10 +100,22 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                 right: 15,
                   bottom: 0,
                   child: FloatingActionButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      if(!state.isLiked){
+                        context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.likeRequest());
+                      }else{
+                        context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.unlikeRequest());
+                      }
+                    },
                     backgroundColor: Colors.black,
-                    foregroundColor: Colors.white,
-                    child: const Icon(Icons.heart_broken),
+                    //foregroundColor: Colors.white,
+                    child: SvgPicture.asset(
+                      state.isLiked ? 'assets/icons/heart_filled.svg'
+                          : 'assets/icons/heart.svg',
+                      color: state.isLiked ? Colors.red : Colors.white,
+                      width: 24,
+                      height: 24,
+                    ),
                   ),
               )
             ],

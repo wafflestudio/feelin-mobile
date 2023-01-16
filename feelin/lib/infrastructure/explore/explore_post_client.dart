@@ -14,4 +14,10 @@ abstract class ExplorePostClient{
 
   @DELETE('/posts/{post_id}')
   Future<HttpResponse<void>> deletePost(@Path('post_id') int id);
+
+  @POST('/likes/posts/{post_id}')
+  Future<HttpResponse<void>> like(@Path('post_id') int id);
+
+  @DELETE('/likes/posts/{post_id}')
+  Future<HttpResponse<void>> unlike(@Path('post_id') int id);
 }

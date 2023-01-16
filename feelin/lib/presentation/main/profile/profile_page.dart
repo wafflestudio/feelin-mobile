@@ -66,6 +66,7 @@ class _ProfilePageState extends State<ProfilePage>{
             builder: (BuildContext context, BoxConstraints constraints) {
               return CustomScrollView(
                 controller: scrollController,
+                physics: BouncingScrollPhysics(),
                 // headerSliverBuilder: (context, innerBoxIsScrolled){
                 //   return [
                 //     ProfileView(child: _profileView(context), maxHeight: 500,)
