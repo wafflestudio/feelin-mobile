@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/presentation/main/profile/app/profile_app_bar.dart';
+import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../../application/profile/profile_bloc.dart';
 import '../../../../injection.dart';
@@ -76,6 +77,8 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> {
       //backgroundColor: Colors.white,
       appBar: ProfileAppBar(isRoot: (widget.userId == null),),
       body: RefreshIndicator(
+        color: FeelinColorFamily.redPrimary,
+        backgroundColor: FeelinColorFamily.redSecondary,
         onRefresh: () async => onRefresh(),
           child: ProfilePage(userId: widget.userId,)),
     );

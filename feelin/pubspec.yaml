@@ -48,6 +48,7 @@ dependencies:
   palette_generator: ^0.3.3+2
   change_app_package_name: ^1.1.0
   fluttertoast: ^8.1.2
+  validators: ^3.0.0
 
 dev_dependencies:
   flutter_test:

@@ -27,6 +27,7 @@ class PostFormBloc extends Bloc<PostFormEvent, PostFormState>{
     on<_UrlChanged>((event, emit) async{
       emit(state.copyWith(
         playlistUrl : PlaylistUrl(event.urlStr),
+        fetchFailureOrSuccessOption: none(),
       ));
     });
 

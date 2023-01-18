@@ -21,7 +21,7 @@ class _PostPageState extends State<PostPage>{
   final GlobalKey<TooltipState> _tooltipKey = GlobalKey<TooltipState>();
   final storage = const FlutterSecureStorage();
   String link = '';
-  bool navigated = false;
+  bool navigated = true;
 
   final TextEditingController _linkTextController = TextEditingController();
 
@@ -37,6 +37,17 @@ class _PostPageState extends State<PostPage>{
     storage.write(key: 'MusicPlatform', value: 'Flo');
   }
 
+  void onSubmitted(){
+    navigated = false;
+    context.read<PostFormBloc>().add(const PostFormEvent.fetchRequested());
+  }
+
+  void showSnackBar(String text){
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: FeelinColorFamily.errorPrimary,
+      content: Text(text),
+    ));
+  }
 
   @override
   Widget build(BuildContext context){
@@ -52,7 +63,10 @@ class _PostPageState extends State<PostPage>{
         state.fetchFailureOrSuccessOption.fold(
               () => null,
               (failureOrSuccess) => failureOrSuccess.fold(
-                (f) => null,
+                (f) => f.maybeMap(
+                  noSuchPlaylistExists: (_) =>showSnackBar('playlist does not exist.'),
+                  invalidUrl: (_) => showSnackBar('Please enter the valid Playlist URL.'),
+                  orElse: () => showSnackBar('server error'),),
                 (playlist) {
                   if(!navigated) {
                     navigated = true;
@@ -64,97 +78,96 @@ class _PostPageState extends State<PostPage>{
       },
       child: Form(
         key: _formKey,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 5),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.end,
+        child: Stack(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 200),
+              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 5),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(height: 12,),
-                  BlocBuilder<PostFormBloc, PostFormState>(
-                    builder: (context, state) {
-                      return TextFormField(
-                        controller: _linkTextController,
-                        decoration: InputDecoration(
-                          hintText: 'Playlist URL',
-                          isDense: true,
-                          border: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                            borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                            borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
-                          ),
-                          errorBorder: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                            borderSide: BorderSide(color: Colors.red, width: 0.5),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      const SizedBox(height: 12,),
+                      BlocBuilder<PostFormBloc, PostFormState>(
+                        builder: (context, state) {
+                          return TextFormField(
+                            controller: _linkTextController,
+                            onFieldSubmitted: (_)=>onSubmitted(),
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                              hintText: 'Playlist URL',
+                              isDense: true,
+                            ),
+                            validator: (_) => state.fetchFailureOrSuccessOption.fold(
+                                        () => null,
+                                        (failureOrSuccess) => failureOrSuccess.fold(
+                                            (f) => f.maybeMap(
+                                          noSuchPlaylistExists: (_) =>'playlist does not exist.',
+                                          invalidUrl: (_) => 'Please enter the valid Playlist URL.',
+                                          orElse: () => 'server error',),
+                                            (playlist) => null
+                                    )
+                                ),
+                            onChanged: (value) {
+                              context
+                                .read<PostFormBloc>()
+                                .add(PostFormEvent.urlChanged(value));
+                              setState(() {
+                                link = value;
+                              });
+                              },
+                          );
+                        }
+                      ),
+                      const SizedBox(height: 12,),
+                      Tooltip(
+                        key: _tooltipKey,
+                        margin: const EdgeInsets.symmetric(horizontal: 10,),
+                        triggerMode: TooltipTriggerMode.tap,
+                        showDuration: const Duration(seconds: 3),
+                        message: '[Flo] 보관함 > 내 리스트 > 리스트 선택 > 더보기 > 공유하기를 통해 링크를 복사해보세요!',
+                        preferBelow: true,
+                        height: 40,
+                        textStyle: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.white
+                        ),
+                        child: Text(
+                          'How can I get the playlist URL?',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13,
+                            color: FeelinColorFamily.red500,
                           ),
                         ),
-                        validator: (_) => state.fetchFailureOrSuccessOption.fold(
-                                    () => null,
-                                    (failureOrSuccess) => failureOrSuccess.fold(
-                                        (f) => f.maybeMap(
-                                      noSuchPlaylistExists: (_) =>'playlist does not exist.',
-                                      invalidUrl: (_) => 'Please enter the valid Playlist URL.',
-                                      orElse: () => 'server error',),
-                                        (playlist) => null
-                                )
-                            ),
-                        onChanged: (value) {
-                          context
-                            .read<PostFormBloc>()
-                            .add(PostFormEvent.urlChanged(value));
-                          setState(() {
-                            link = value;
-                          });
-                          },
-                      );
-                    }
-                  ),
-                  const SizedBox(height: 12,),
-                  Tooltip(
-                    key: _tooltipKey,
-                    margin: const EdgeInsets.symmetric(horizontal: 10,),
-                    triggerMode: TooltipTriggerMode.tap,
-                    showDuration: const Duration(seconds: 3),
-                    message: '[Flo] 보관함 > 내 리스트 > 리스트 선택 > 더보기 > 공유하기를 통해 링크를 복사해보세요!',
-                    preferBelow: true,
-                    height: 40,
-                    textStyle: const TextStyle(
-                        fontSize: 12,
-                        color: Colors.white
-                    ),
-                    child: Text(
-                      'How can I get the playlist URL?',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 13,
-                        color: FeelinColorFamily.red500,
                       ),
-                    ),
+                    ],
                   ),
+                  BlocBuilder<PostFormBloc, PostFormState>(builder: (context, state){
+                    if(state.isFetching) {
+                      return const CupertinoActivityIndicator(radius: 18,);
+                    }
+                    else {
+                      return const Offstage();
+                    }
+                  }),
                 ],
               ),
-              BlocBuilder<PostFormBloc, PostFormState>(builder: (context, state){
-                if(state.isFetching) {
-                  return const CupertinoActivityIndicator(radius: 18,);
-                }
-                else {
-                  return const Offstage();
-                }
-              }),
-              NextButton(disabled: link.isEmpty, function: (){
-                navigated = false;
-                context.read<PostFormBloc>().add(const PostFormEvent.fetchRequested());
-              }, margin: const EdgeInsets.all(0),)
-            ],
-          ),
+            ),
+            Positioned(
+                bottom: 10,
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: NextButton(disabled: link.isEmpty, function: (){
+              onSubmitted();
+            },),
+                ))
+          ],
         ),
       ),
     );

@@ -89,7 +89,16 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
         state.loadFailureOrSuccessOption.fold(
               () => null,
               (failureOrSuccess) => failureOrSuccess.fold(
-                (f) => null,
+                (f) => f.maybeMap(
+                  notFound: (_) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      backgroundColor: FeelinColorFamily.errorPrimary,
+                      content: const Text("This post has been deleted."),
+                    ));
+                    Navigator.pop(context);
+                    }
+                ,orElse: () => null,
+              ),
                 (post) => {
               setState((){
                     expandedHeight = 350
@@ -122,19 +131,32 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
             children: [
               Scaffold(
                           extendBodyBehindAppBar: true,
-                          body: NestedScrollView(
-                              controller: _scrollController,
-                              headerSliverBuilder: (context, innerBoxIsScrolled){
-                                return [
-                                  if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
-                                    goToTop: (){
+                          body: ScrollConfiguration(
+                            behavior: const ScrollBehavior().copyWith(overscroll: false),
+                            child: CustomScrollView(
+                                controller: _scrollController,
+                                physics: const ClampingScrollPhysics(),
+                                // headerSliverBuilder: (context, innerBoxIsScrolled){
+                                //   return [
+                                //     if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
+                                //       goToTop: (){
+                                //       _scrollController!.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+                                //     },
+                                //       expandedHeight: expandedHeight,
+                                //     ),
+                                //   ];
+                                // },
+                              slivers: [
+                                if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
+                                  goToTop: (){
                                     _scrollController!.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
                                   },
-                                    expandedHeight: expandedHeight,
-                                  ),
-                                ];
-                              },
-                              body: const PlaylistInfoList(),
+                                  expandedHeight: expandedHeight,
+                                ),
+                                const PlaylistInfoList()
+                              ],
+                                //body: const PlaylistInfoList(),
+                            ),
                           ),
                             floatingActionButton: Container(
                               width: 326,

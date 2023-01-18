@@ -11,10 +11,11 @@ class CommonDescription extends StatelessWidget{
     return Text(
       description,
       textAlign: TextAlign.center,
-      style: TextStyle(
-        color: isGrey ? FeelinColorFamily.grayscaleGray1 : Colors.black,
-        fontSize: 14,
-        fontWeight: FontWeight.normal,
+      style: const TextStyle(
+        color: Colors.black,
+        fontSize: 15,
+        fontWeight: FontWeight.w400,
+        letterSpacing: -0.41
       ),
     );
   }

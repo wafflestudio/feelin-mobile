@@ -41,6 +41,7 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
           actions: isRoot ? [IconButton(onPressed: () async{
             final newProfile = await showModalBottomSheet<Profile>(
               context: context,
+              useRootNavigator: true,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
               ),
@@ -51,20 +52,6 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                     children: <Widget>[
                       const SizedBox(
                         height: 20,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 60,
-                        child: TextButton(onPressed: () async {
-                          Profile newProfile = await Navigator.push(context, CupertinoPageRoute(
-                              builder: (context){
-                                return BlocProvider(
-                                    create: (context) => getIt<EditProfileFormBloc>(),
-                                    child: EditProfilePage(profile: state.profile));
-                              }
-                          ),
-                          );
-                        }, child: const Text('프로필 수정하기', style: TextStyle(color: Colors.black, fontSize: 16),)),
                       ),
                       SizedBox(
                           width: double.infinity,
@@ -78,14 +65,29 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                               },
                             ),
                             );
-                          }, child: const Text('설정', style: TextStyle(color: Colors.black, fontSize: 16),))),
+                          }, child: const Text('Connect to streaming service', style: TextStyle(color: Colors.black, fontSize: 16),))),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 60,
+                        child: TextButton(onPressed: () async {
+                          Profile newProfile = await Navigator.push(context, CupertinoPageRoute(
+                              builder: (context){
+                                return BlocProvider(
+                                    create: (context) => getIt<EditProfileFormBloc>(),
+                                    child: EditProfilePage(profile: state.profile));
+                              }
+                          ),
+                          );
+                        }, child: const Text('Edit Profile', style: TextStyle(color: Colors.black, fontSize: 16),)),
+                      ),
                       SizedBox(
                           width: double.infinity,
                           height: 60,
                           child: TextButton(onPressed: (){
                             storage.deleteAll();
                             context.read<AuthBloc>().add(const AuthEvent.submitted());
-                          }, child: const Text('로그아웃', style: TextStyle(color: Colors.black, fontSize: 16),))),
+                            Navigator.pop(context);
+                          }, child: const Text('Settings(Log Out)', style: TextStyle(color: Colors.black, fontSize: 16),))),
                     ],
                   ),
                 );

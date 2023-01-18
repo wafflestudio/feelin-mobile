@@ -140,25 +140,9 @@ class _SignInPageState extends State<SignInPage> {
         decoration: InputDecoration(
           hintText: 'Phone number, username or email',
           isDense: true,
-          fillColor: _idTextController.text == '' ? FeelinColorFamily.grayscaleGray3 : Colors.white,
+          //fillColor: _idTextController.text == '' ? FeelinColorFamily.grayscaleGray3 : Colors.white,
           hoverColor: Colors.transparent,
-          filled: true,
-          border: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-            borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-            borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-            borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
-          ),
-          errorBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            borderSide: BorderSide(color: Colors.red, width: 0.5),
-          ),
+          //filled: true,
         ),
         validator: (_) =>
             context.read<SignInFormBloc>().state.account.value.fold(
@@ -186,24 +170,24 @@ class _SignInPageState extends State<SignInPage> {
         decoration: InputDecoration(
             hintText: 'Password',
             isDense: true,
-            fillColor: _passwordTextController.text == '' ? FeelinColorFamily.grayscaleGray3 : Colors.white,
-            filled: true,
-            border: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-              borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-              borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-              borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
-            ),
-            errorBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8.0)),
-              borderSide: BorderSide(color: Colors.red, width: 0.5),
-            ),
+            //fillColor: _passwordTextController.text == '' ? FeelinColorFamily.grayscaleGray3 : Colors.white,
+            //filled: true,
+            // border: OutlineInputBorder(
+            //   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+            //   borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
+            // ),
+            // enabledBorder: OutlineInputBorder(
+            //   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+            //   borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
+            // ),
+            // focusedBorder: OutlineInputBorder(
+            //   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+            //   borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
+            // ),
+            // errorBorder: const OutlineInputBorder(
+            //   borderRadius: BorderRadius.all(Radius.circular(8.0)),
+            //   borderSide: BorderSide(color: Colors.red, width: 0.5),
+            // ),
         ),
         validator: (_) => state.authFailureOrSuccessOption.fold(
                 () => null,
@@ -244,17 +228,17 @@ class _SignInPageState extends State<SignInPage> {
                     : null,
                 style: ButtonStyle(
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)
+                        borderRadius: BorderRadius.circular(28)
                     )),
                     foregroundColor: MaterialStateProperty.all(Colors.white),
                     backgroundColor: MaterialStateProperty.resolveWith((states){
                       if (states.contains(MaterialState.disabled)) {
-                        return FeelinColorFamily.grayscaleGray1;
+                        return FeelinColorFamily.gray400;
                       }
                       if (states.contains(MaterialState.pressed)) {
-                        return FeelinColorFamily.red500;
+                        return Colors.black;
                       }
-                      return FeelinColorFamily.red500;
+                      return Colors.black;
                     })
                 ),
                 child: const Text(

@@ -68,7 +68,7 @@ class _PostAppScaffoldState extends State<PostAppScaffold> {
       },
       child: Scaffold(
         //backgroundColor: Colors.white,
-        appBar: PostAppBar(goToBack: goToPrevious,),
+        appBar: PostAppBar(goToBack: goToPrevious, goToNext: goToNext, currPage: _currPage,),
         body: Builder(builder: (BuildContext context){
           if(_currPage == 1) return PostPage(goToNext: goToNext);
           if(_currPage == 2) return PostTrackPage(goToNext: goToNext);

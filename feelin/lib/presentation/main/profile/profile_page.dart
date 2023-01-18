@@ -57,49 +57,52 @@ class _ProfilePageState extends State<ProfilePage>{
       builder: (context, state) {
         return LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-              return CustomScrollView(
-                controller: scrollController,
-                physics: const BouncingScrollPhysics(),
-                // headerSliverBuilder: (context, innerBoxIsScrolled){
-                //   return [
-                //     ProfileView(child: _profileView(context), maxHeight: 500,)
-                //   ];
-                // },
-                slivers: [
-                  DynamicSliverAppBar(maxHeight: 600,child: _profileView(context),),
-                  SliverGrid(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 10.0,
-                        crossAxisSpacing: 10.0,
-                        childAspectRatio: 0.82,
-                      ),
-                      delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) {
-                                return PostPreview(index: index, post: state.posts[index]);
-                          }, childCount: state.posts.length,
-                      )
-                  )
-                ],
-                // body:
-                //   Container(
-                //     margin: const EdgeInsets.fromLTRB(10, 10, 10, 5),
-                //     child: GridView.builder(
-                //       controller: scrollController,
-                //       physics: const BouncingScrollPhysics(),
-                //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                //         crossAxisCount: 2,
-                //         mainAxisSpacing: 10.0,
-                //         crossAxisSpacing: 10.0,
-                //         childAspectRatio: 0.82,
-                //       ),
-                //       itemCount: state.posts.length,
-                //       itemBuilder: (BuildContext context, int index){
-                //         return PostPreview(index: index, post: state.posts[index]);
-                //       },
-                //     ),
-                //   )
-                // ,
+              return ScrollConfiguration(
+                behavior: const ScrollBehavior().copyWith(overscroll: false),
+                child: CustomScrollView(
+                  controller: scrollController,
+                  physics: const ClampingScrollPhysics(),
+                  // headerSliverBuilder: (context, innerBoxIsScrolled){
+                  //   return [
+                  //     ProfileView(child: _profileView(context), maxHeight: 500,)
+                  //   ];
+                  // },
+                  slivers: [
+                    DynamicSliverAppBar(maxHeight: 600,child: _profileView(context),),
+                    SliverGrid(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 10.0,
+                          crossAxisSpacing: 10.0,
+                          childAspectRatio: 0.82,
+                        ),
+                        delegate: SliverChildBuilderDelegate(
+                                (BuildContext context, int index) {
+                                  return PostPreview(index: index, post: state.posts[index]);
+                            }, childCount: state.posts.length,
+                        ),
+                    )
+                  ],
+                  // body:
+                  //   Container(
+                  //     margin: const EdgeInsets.fromLTRB(10, 10, 10, 5),
+                  //     child: GridView.builder(
+                  //       controller: scrollController,
+                  //       physics: const BouncingScrollPhysics(),
+                  //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  //         crossAxisCount: 2,
+                  //         mainAxisSpacing: 10.0,
+                  //         crossAxisSpacing: 10.0,
+                  //         childAspectRatio: 0.82,
+                  //       ),
+                  //       itemCount: state.posts.length,
+                  //       itemBuilder: (BuildContext context, int index){
+                  //         return PostPreview(index: index, post: state.posts[index]);
+                  //       },
+                  //     ),
+                  //   )
+                  // ,
+                ),
               );
             });
       }

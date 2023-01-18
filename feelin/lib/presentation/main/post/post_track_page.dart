@@ -112,9 +112,7 @@ class _PostDetailPageState extends State<PostTrackPage> {
               ),
             ),
           ),
-          NextButton(disabled: false, function: (){
-            widget.goToNext();
-          })
+
         ],
       ),
     );
@@ -124,7 +122,7 @@ class _PostDetailPageState extends State<PostTrackPage> {
     return Container(
       alignment: Alignment.centerLeft,
       height: 35,
-      width: MediaQuery.of(context).size.width - 140,
+      width: MediaQuery.of(context).size.width - 110,
       padding: const EdgeInsets.only(left: 10),
       child: Column(
         //mainAxisSize: MainAxisSize.min,
@@ -132,10 +130,12 @@ class _PostDetailPageState extends State<PostTrackPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Text(playlist.tracks![index].title,
-              style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 14,
+            child: Marquee(
+              child: Text(playlist.tracks![index].title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                ),
               ),
             ),
           ),

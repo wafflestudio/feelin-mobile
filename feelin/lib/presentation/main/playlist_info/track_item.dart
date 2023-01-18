@@ -59,12 +59,13 @@ class TrackItem extends StatelessWidget {
                     alignment: Alignment.bottomLeft,
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 2),
-                      child: Text(state.post.playlist.tracks![index].title,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                          letterSpacing: -0.41,
+                      child: Marquee(
+                        child: Text(state.post.playlist.tracks![index].title,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                            letterSpacing: -0.41,
+                          ),
                         ),
                       ),
                     ),

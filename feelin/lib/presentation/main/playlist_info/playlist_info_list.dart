@@ -18,16 +18,21 @@ class _PostListState extends State<PlaylistInfoList> {
   Widget build(BuildContext context) {
     return BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
         builder: (context, state) {
-          return Padding(
+          return SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: ScrollConfiguration(
-              behavior: ScrollBehavior().copyWith(overscroll: false),
-              child: ListView.builder(
-                  physics: const ClampingScrollPhysics(),
-                  itemCount: state.post.playlist.tracks!.length,
-                  itemBuilder: (context, index){
-                    return TrackItem(index: index, post: state.post);
-                  }),
+            sliver: ScrollConfiguration(
+              behavior: const ScrollBehavior().copyWith(overscroll: false),
+              child: SliverList(delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return TrackItem(index: index, post: state.post);
+                }, childCount: state.post.playlist.tracks!.length,
+              ),)
+              // ListView.builder(
+              //     physics: const ClampingScrollPhysics(),
+              //     itemCount: state.post.playlist.tracks!.length,
+              //     itemBuilder: (context, index){
+              //       return TrackItem(index: index, post: state.post);
+              //     }),
             ),
           );
         }

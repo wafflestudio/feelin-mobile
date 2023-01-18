@@ -58,7 +58,7 @@ Dio getAuthDio() {
           if (context.mounted) {
             context.read<AuthBloc>().add(const AuthEvent.submitted());
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              backgroundColor: FeelinColorFamily.red500,
+              backgroundColor: FeelinColorFamily.errorPrimary,
               content: Text("The Access Token has expired. Please log in again."),
             ));
 

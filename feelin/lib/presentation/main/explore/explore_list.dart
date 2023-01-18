@@ -30,36 +30,39 @@ class _PostListState extends State<ExploreList> {
       builder: (context, state) {
         return widget.feeds.isEmpty ?
             const Center(child: Text('아직 게시물이 없습니다.')) :
-          ListView.builder(
-            controller: widget.scrollController,
-            physics: BouncingScrollPhysics(),
-            itemCount: (widget.isLoading && !widget.isLast)
-                ? widget.feeds.length + 1 : widget.feeds.length,
-            itemBuilder: (context, index){
-              if(index == widget.feeds.length){
-                if(widget.isLoading) {
-                  return const Padding(
-                  padding: EdgeInsets.only(top: 10, bottom: 40),
-                  child: CupertinoActivityIndicator(radius: 18,),
-                );
+          ScrollConfiguration(
+            behavior: const ScrollBehavior().copyWith(overscroll: false),
+            child: ListView.builder(
+              controller: widget.scrollController,
+              physics: const ClampingScrollPhysics(),
+              itemCount: (widget.isLoading && !widget.isLast)
+                  ? widget.feeds.length + 1 : widget.feeds.length,
+              itemBuilder: (context, index){
+                if(index == widget.feeds.length){
+                  if(widget.isLoading) {
+                    return const Padding(
+                    padding: EdgeInsets.only(top: 10, bottom: 40),
+                    child: CupertinoActivityIndicator(radius: 18,),
+                  );
+                  } else {
+                    return Container(
+                    padding: const EdgeInsets.only(top: 10, bottom: 10),
+                    child: const Center(child: Text(
+                      '모든 게시글을 불러왔습니다!',
+                      style: TextStyle(
+                        fontSize: 13,
+                      ),
+                    )),
+                  );
+                  }
                 } else {
-                  return Container(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  child: const Center(child: Text(
-                    '모든 게시글을 불러왔습니다!',
-                    style: TextStyle(
-                      fontSize: 13,
-                    ),
-                  )),
-                );
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 5.0, left: 8, right: 8),
+                    child: FeedPreview(index: index, post: widget.feeds[index]),
+                  );
                 }
-              } else {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 5.0, left: 8, right: 8),
-                  child: FeedPreview(index: index, post: widget.feeds[index]),
-                );
-              }
-            });
+              }),
+          );
       }
     );
   }

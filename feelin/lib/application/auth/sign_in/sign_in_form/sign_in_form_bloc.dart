@@ -48,6 +48,10 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
             ));
           },
         );
+      }else{
+        emit(state.copyWith(
+          isSubmitting: false,
+        ));
       }
 
     });

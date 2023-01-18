@@ -134,8 +134,10 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
           ),
           actions: widget.isShrink
               ? null : [IconButton(onPressed: (){
+                PlaylistInfoBloc bloc = context.read<PlaylistInfoBloc>();
             showModalBottomSheet<void>(
               context: context,
+              useRootNavigator: true,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
               ),
@@ -152,7 +154,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                         height: 60,
                         child: TextButton(onPressed: (){
                           share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail);
-                        }, child: const Text('공유하기', textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),)),
+                        }, child: const Text('Share', textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),)),
                       ),
                       if(state.post.writer!.id == int.parse(id!)) SizedBox(
                           width: double.infinity,
@@ -161,17 +163,84 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                             Navigator.push(context,
                                 CupertinoPageRoute(
                                     builder: (context) => BlocProvider(create: (context) => getIt<EditPostFormBloc>(),
-                                      child: EditPostPage(post: widget.post.clone(),),
+                                      child: EditPostPage(post: state.post.clone(),),
                                     ))
-                            );
-                          }, child: const Text('수정하기', style: TextStyle(color: Colors.black, fontSize: 16),))),
+                            ).then((value) {
+                              if(value != null){
+                                bloc.add(PlaylistInfoEvent.loadRequest(widget.post.id));
+                              }
+                            });
+                          }, child: const Text('Edit', style: TextStyle(color: Colors.black, fontSize: 16),))),
                       if(state.post.writer!.id == int.parse(id!)) SizedBox(
                           width: double.infinity,
                           height: 60,
-                          child: TextButton(onPressed: (){
-                            context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.deleteRequest(widget.post.id));
-                            Navigator.pop(context);
-                          }, child: const Text('삭제하기', style: TextStyle(color: Colors.red, fontSize: 16),))),
+                          child: TextButton(onPressed: ()=>showModalBottomSheet<void>(
+                            context: context,
+                            useRootNavigator: true,
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                            ),
+                            builder: (context) => SingleChildScrollView(
+                              child: Container(
+                                padding: EdgeInsets.only(left: 24, top: 24, right: 18, bottom: 14),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Delete Post',
+                                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
+                                        ),
+                                        TextButton(
+                                          child: Text(
+                                            'Cancel',
+                                            style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary,
+                                            ),
+                                          ),
+                                          style: TextButton.styleFrom(
+                                            padding: EdgeInsets.zero,
+                                            minimumSize: Size(30, 26),
+                                            alignment: Alignment.centerRight,
+                                          ),
+                                          onPressed: () => Navigator.of(context).pop(),
+                                        ),
+                                      ],
+                                    ),
+                                    //CustomDivider(color: FeelinColorFamily.gray700),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(vertical: 20),
+                                      child: Center(
+                                        child: Text(
+                                          'Are you sure you want to delete the post?',
+                                          style: TextStyle(fontSize: 14, ),
+                                        ),
+                                      ),
+                                    ),
+                                    Center(
+                                      child: TextButton(
+                                        onPressed: (){
+                                          bloc.add(PlaylistInfoEvent.deleteRequest(widget.post.id));
+                                          Navigator.pop(context);
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text(
+                                          'Delete',
+                                          style: TextStyle(fontSize: 16, color: FeelinColorFamily.errorPrimary),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
+                          , child: Text('Delete', style: TextStyle(color: FeelinColorFamily.errorPrimary, fontSize: 16),))),
                     ],
                   ),
                 );

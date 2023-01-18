@@ -84,14 +84,15 @@ class _PostDetailPageState extends State<PostDetailPage> {
                     child: TextFormField(
                       maxLength: 100,
                       minLines: 1,
-                      maxLines: 2,
+                      maxLines: 1,
                       inputFormatters: [
                         MaxLinesInputFormatters(1),
                       ],
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 28,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24,
+                        letterSpacing: -0.41,
                       ),
                       controller: _titleTextController,
                       decoration: const InputDecoration(
@@ -121,28 +122,21 @@ class _PostDetailPageState extends State<PostDetailPage> {
                     margin: const EdgeInsets.symmetric(horizontal: 30),
                     height: 100,
                     child: TextFormField(
-                      maxLength: 200,
-                      minLines: 4,
-                      maxLines: 5,
+                      maxLength: 1000,
+                      minLines: 1,
+                      maxLines: 4,
                       expands: false,
                       keyboardType: TextInputType.multiline,
                       controller: _contentTextController,
-                      decoration: InputDecoration(
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        letterSpacing: -0.41,
+                      ),
+                      decoration: const InputDecoration(
                         hintText: 'Description',
                         counterText: '',
                         isDense: true,
-                        border: OutlineInputBorder(
-                          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                          borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                          borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
-                        ),
-                        errorBorder: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                          borderSide: BorderSide(color: Colors.red, width: 0.5),
-                        ),
                       ),
                       validator: (_) =>
                           context.read<PostFormBloc>().state.content.value.fold(
@@ -156,17 +150,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                           .add(PostFormEvent.contentChanged(value)),
                     ),
                   ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: BlocBuilder<PostFormBloc, PostFormState>(
-                      builder: (context, state) {
-                        return NextButton(disabled: !state.title.isValid(), function: (){
-                          context.read<PostFormBloc>().add(const PostFormEvent.submitted());
-                        });
-                      }
-                    ),
-                  )
+
                 ],
               ),
             ),

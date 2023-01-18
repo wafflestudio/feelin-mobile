@@ -5,7 +5,8 @@ class NextButton extends StatefulWidget{
   final bool disabled;
   final Function function;
   final EdgeInsetsGeometry? margin;
-  const NextButton({Key? key, required this.disabled, required this.function, this.margin}) : super(key: key);
+  final String? text;
+  const NextButton({Key? key, required this.disabled, required this.function, this.margin, this.text}) : super(key: key);
 
   @override
   State<NextButton> createState() => _NextButtonState();
@@ -17,7 +18,7 @@ class _NextButtonState extends State<NextButton> {
   Widget build(BuildContext context) {
     return Container(
       margin: widget.margin ?? const EdgeInsets.symmetric(horizontal: 20),
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width,
       height: 48,
       child: ElevatedButton(
           onPressed: widget.disabled ? null : ()=>widget.function(),
@@ -27,7 +28,7 @@ class _NextButtonState extends State<NextButton> {
             )),
             backgroundColor: MaterialStateProperty.resolveWith((states){
               if (states.contains(MaterialState.disabled)) {
-                return FeelinColorFamily.grayscaleGray1;
+                return FeelinColorFamily.gray400;
               }
               if (states.contains(MaterialState.pressed)) {
                 return Colors.black;
@@ -35,10 +36,10 @@ class _NextButtonState extends State<NextButton> {
               return Colors.black;
             })
           ),
-          child: const Center(
+          child: Center(
             child: Text(
-                'Next',
-              style: TextStyle(
+                widget.text ?? 'Next',
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 15,
               ),

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:music_sns/domain/auth/value_objects.dart';
 import 'package:music_sns/domain/core/value_failures.dart';
+import 'package:validators/validators.dart';
 
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   const emailRegex =
@@ -84,8 +85,7 @@ Either<ValueFailure<String>, String> confirmPassword(String input, String input2
 }
 
 Either<ValueFailure<String>, String> validateUrl(String input) {
-  const urlRegex = r'(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+';
-  if (RegExp(urlRegex).hasMatch(input)) {
+  if (isURL(input)) {
     return right(input);
   } else {
     return left(ValueFailure.invalidUrl(failedValue: input));

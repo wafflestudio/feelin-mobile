@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'measure_size.dart';
 
 class Marquee extends StatefulWidget {
   final Widget child;
@@ -10,8 +11,8 @@ class Marquee extends StatefulWidget {
     required this.child,
     this.direction = Axis.horizontal,
     this.animationDuration = const Duration(milliseconds: 3000),
-    this.backDuration = const Duration(milliseconds: 400),
-    this.pauseDuration = const Duration(milliseconds: 400),
+    this.backDuration = const Duration(milliseconds: 3000),
+    this.pauseDuration = const Duration(milliseconds: 500),
   }) : super(key: key);
 
   @override
@@ -20,7 +21,7 @@ class Marquee extends StatefulWidget {
 
 class _MarqueeState extends State<Marquee> {
   late ScrollController scrollController;
-
+  late Duration animationDuration, backDuration;
   @override
   void initState() {
     scrollController = ScrollController(initialScrollOffset: 0);
@@ -37,10 +38,15 @@ class _MarqueeState extends State<Marquee> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: widget.child,
       scrollDirection: widget.direction,
       controller: scrollController,
       physics: const NeverScrollableScrollPhysics(),
+      child: MeasureSize(onChange: (size){
+        setState(() {
+          animationDuration = Duration(milliseconds: 1000+(size.width.floor()-300) * 15);
+          backDuration = animationDuration;
+        });
+      } ,child: widget.child),
     );
   }
 
@@ -50,15 +56,15 @@ class _MarqueeState extends State<Marquee> {
       if (scrollController.hasClients) {
         await scrollController.animateTo(
           scrollController.position.maxScrollExtent,
-          duration: widget.animationDuration,
-          curve: Curves.ease,
+          duration: animationDuration,
+          curve: Curves.linear,
         );
       }
       await Future.delayed(widget.pauseDuration);
       if (scrollController.hasClients) {
         await scrollController.animateTo(
           0.0,
-          duration: widget.backDuration,
+          duration: backDuration,
           curve: Curves.easeOut,
         );
       }

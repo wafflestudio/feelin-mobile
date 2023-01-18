@@ -10,8 +10,9 @@ class CommonTitle extends StatelessWidget{
       title,
       style: const TextStyle(
         color: Colors.black,
-        fontSize: 24,
+        fontSize: 32,
         fontWeight: FontWeight.bold,
+        letterSpacing: -0.41
       ),
     );
   }

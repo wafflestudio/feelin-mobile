@@ -71,25 +71,6 @@ class _EditPostPageState extends State<EditPostPage> {
           child: _postDetailForm(screenSize),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        currentIndex: 2,
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.folder_copy_outlined),
-              label: ''
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: ''
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: ''
-          ),
-        ],
-      ),
     );
   }
 
@@ -104,15 +85,7 @@ class _EditPostPageState extends State<EditPostPage> {
                 (f) => _showSnackBar(context, f.toString()),
                 (_) => {
               //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.playlist.tracks[0].id.toString()))),
-              Navigator.push(context,
-                CupertinoPageRoute(
-                  builder: (context){
-                    BlocProvider.of<NavigationCubit>(context)
-                        .getNavBarItem(NavbarItem.profile);
-                    return const RootPage();
-                  },
-                ),
-              ),
+              Navigator.pop(context, true),
             },
           ),
 
@@ -138,7 +111,7 @@ class _EditPostPageState extends State<EditPostPage> {
                   const SizedBox(width: 10,),
                   Flexible(
                     child: TextFormField(
-                      maxLength: 25,
+                      maxLength: 100,
                       controller: _titleTextController,
                       decoration: const InputDecoration(
                         labelText: '제목',
@@ -170,7 +143,7 @@ class _EditPostPageState extends State<EditPostPage> {
               margin: const EdgeInsets.symmetric(horizontal: 30),
               height: 100,
               child: TextFormField(
-                maxLength: 100,
+                maxLength: 1000,
                 minLines: 1,
                 maxLines: 3,
                 expands: false,

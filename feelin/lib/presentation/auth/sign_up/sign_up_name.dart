@@ -35,9 +35,7 @@ class _SignUpNameState extends State<SignUpName>{
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
 
-        const CommonTitle(title: 'Add Your Name'),
-        const SizedBox(height: 10,),
-        const CommonDescription(description: 'Enter the name you use in real life', isGrey: true,),
+        const CommonTitle(title: 'What\'s your name?'),
         const SizedBox(height: 30,),
         _nameField(),
         const SizedBox(height: 30,),
@@ -62,21 +60,19 @@ class _SignUpNameState extends State<SignUpName>{
             height: 48,
             child: TextFormField(
               controller: _nameTextController,
+              textAlign: TextAlign.center,
+              onFieldSubmitted: (_){
+
+              },
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+                color: Colors.black,
+                letterSpacing: -0.41,
+              ),
               decoration: InputDecoration(
                 hintText: 'Name',
                 isDense: true,
-                border: OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                    borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
-                ),
-                errorBorder: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: Colors.red, width: 0.5),
-                ),
                 ),
               validator: (_) =>
                   null,
