@@ -17,6 +17,7 @@ class SignUpFormState with _$SignUpFormState {
     required bool canUseName,
     required PhoneNumber phoneNumber,
     required NotEmptyString birthday,
+    required bool signUpWithEmail,
   }) = _SignUpFormState;
   factory SignUpFormState.initial() => SignUpFormState(
     emailAddress: EmailAddress(''),
@@ -33,5 +34,6 @@ class SignUpFormState with _$SignUpFormState {
     birthday: NotEmptyString(''),
     isEmailSubmitting: false,
     isRequested: false,
+    signUpWithEmail: false,
   );
 }

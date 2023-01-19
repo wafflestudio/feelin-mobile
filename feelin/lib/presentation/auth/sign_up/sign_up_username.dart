@@ -30,29 +30,44 @@ class _SignUpNameState extends State<SignUpUsername>{
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Container(
+        constraints: BoxConstraints(maxHeight: 475),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 30),
+              constraints: BoxConstraints(maxHeight: 210),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
 
-        const CommonTitle(title: 'Choose your username'),
-        const SizedBox(height: 30,),
-        _usernameField(),
-        const SizedBox(height: 10,),
-        const CommonDescription(description: 'You can always change your username later',),
-        const SizedBox(height: 30,),
-        BlocBuilder<SignUpFormBloc, SignUpFormState>(
-          builder: (context, state) {
-            return NextButton(disabled: !state.canUseName,
-              function: (){
-                setState(() {
-                  widget.input['username'] = name;
-                });
-                widget.goToNext();
-              },);
-          }
-        )
-      ],
+                  const CommonTitle(title: 'Choose your username'),
+                  _usernameField(),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: BlocBuilder<SignUpFormBloc, SignUpFormState>(
+                  builder: (context, state) {
+                    return NextButton(disabled: !state.canUseName,
+                      function: (){
+                        setState(() {
+                          widget.input['username'] = name;
+                        });
+                        widget.goToNext();
+                      },);
+                  }
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -66,21 +81,15 @@ class _SignUpNameState extends State<SignUpUsername>{
             height: 48,
             child: TextFormField(
               controller: _nameTextController,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+                letterSpacing: -0.41,
+              ),
               decoration: InputDecoration(
                 hintText: 'Username',
                 isDense: true,
-                border: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
-                ),
-                errorBorder: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: Colors.red, width: 0.5),
-                ),
                 suffixIcon: (state.canUseName) ? const Icon(Icons.check_circle_outline, color: Colors.green,) : const SizedBox.shrink(),
               ),
               validator: (_) => null,

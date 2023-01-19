@@ -20,7 +20,7 @@ class SignUpComplete extends StatelessWidget{
       mainAxisSize: MainAxisSize.max,
       children: [
         const SizedBox(height: 40,),
-        const CommonTitle(title: 'All Complete! 🎉'),
+        const CommonTitle(title: 'Connect to your streaming account'),
         const Spacer(),
         _buttonCSS(context),
         const SizedBox(height: 20,),

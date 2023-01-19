@@ -147,7 +147,7 @@ class OpenYourMusicAppButton extends StatelessWidget{
       case 'AppleMusic': {
         LaunchApp.openApp(
           androidPackageName: 'com.apple.android.music',
-          iosUrlScheme: '',
+          iosUrlScheme: 'music://',
           appStoreLink: 'https://apps.apple.com/kr/app/apple-music/id1108187390',
           openStore: true,
         );

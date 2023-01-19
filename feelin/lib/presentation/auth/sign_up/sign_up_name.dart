@@ -16,10 +16,13 @@ class SignUpName extends StatefulWidget{
   State<SignUpName> createState() => _SignUpNameState();
 
 }
-class _SignUpNameState extends State<SignUpName>{
+class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMixin<SignUpName>{
 
   final TextEditingController _nameTextController = TextEditingController();
   String name = '';
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void dispose(){
@@ -30,23 +33,39 @@ class _SignUpNameState extends State<SignUpName>{
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-
-        const CommonTitle(title: 'What\'s your name?'),
-        const SizedBox(height: 30,),
-        _nameField(),
-        const SizedBox(height: 30,),
-        NextButton(disabled: name.isEmpty,
-          function: (){
-          setState(() {
-            widget.input['name'] = name;
-          });
-          widget.goToNext();
-        },)
-      ],
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Container(
+        constraints: BoxConstraints(maxHeight: 475),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 30),
+              constraints: BoxConstraints(maxHeight: 210),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const CommonTitle(title: 'What\'s your name?'),
+                  _nameField(),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: NextButton(disabled: name.isEmpty,
+                function: (){
+                  setState(() {
+                    widget.input['name'] = name;
+                  });
+                  widget.goToNext();
+                },),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -61,8 +80,14 @@ class _SignUpNameState extends State<SignUpName>{
             child: TextFormField(
               controller: _nameTextController,
               textAlign: TextAlign.center,
+              textInputAction: TextInputAction.next,
               onFieldSubmitted: (_){
-
+                if(!name.isEmpty){
+                  setState(() {
+                    widget.input['name'] = name;
+                  });
+                  widget.goToNext();
+                }
               },
               style: TextStyle(
                 fontSize: 24,

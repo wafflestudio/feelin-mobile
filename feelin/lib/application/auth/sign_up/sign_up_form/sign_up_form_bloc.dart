@@ -118,6 +118,18 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
       );
     });
 
+    on<_SetEmail>((event, emit) {
+      emit(state.copyWith(
+        signUpWithEmail: true,
+      ));
+    });
+
+    on<_SetPhone>((event, emit) {
+      emit(state.copyWith(
+        signUpWithEmail: false,
+      ));
+    });
+
     on<_Submitted>((event, emit) async {
       print('kkkkkkk');
       emit(state.copyWith(
@@ -125,24 +137,29 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
       ));
       if(state.password.isValid() &&
           state.birthday.isValid() && state.username.isValid() && state.canUseName){
-        final failureOrSuccess = await _authRepository.signUpWithEmail(
-          emailAddress: state.emailAddress, password: state.password, name: state.name,
-          username: state.username, birthday: state.birthday,
-        );
-        failureOrSuccess.fold(
-              (f) {
-            emit(state.copyWith(
-              isSubmitting: false,
-              authFailureOrSuccessOption: some(left(f)),
-            ));
-          },
-              (_) {
-            emit(state.copyWith(
-              isSubmitting: false,
-              authFailureOrSuccessOption: some(right(unit)),
-            ));
-          },
-        );
+        if(state.signUpWithEmail){
+          final failureOrSuccess = await _authRepository.signUpWithEmail(
+            emailAddress: state.emailAddress, password: state.password, name: state.name,
+            username: state.username, birthday: state.birthday,
+          );
+          failureOrSuccess.fold(
+                (f) {
+              emit(state.copyWith(
+                isSubmitting: false,
+                authFailureOrSuccessOption: some(left(f)),
+              ));
+            },
+                (_) {
+              emit(state.copyWith(
+                isSubmitting: false,
+                authFailureOrSuccessOption: some(right(unit)),
+              ));
+            },
+          );
+        }else{
+
+        }
+
       }
     });
   }

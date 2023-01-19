@@ -3,12 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_code.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_complete.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_email.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_name.dart';
 
 import '../../../injection.dart';
 import 'sign_up_app_bar.dart';
 import 'sign_up_birthday.dart';
-import 'sign_up_confirmation.dart';
+import 'sign_up_phone.dart';
 import 'sign_up_password.dart';
 import 'sign_up_username.dart';
 
@@ -31,6 +32,7 @@ class _SignUpState extends State<SignUp>{
   };
 
   int _currPage = 1;
+  bool withEmail = false;
 
   void goToNext() => setState(() {
     _currPage++;
@@ -38,6 +40,10 @@ class _SignUpState extends State<SignUp>{
 
   void goToPrevious() => setState(() {
     _currPage--;
+  });
+
+  void toggleMethod() => setState(() {
+    withEmail = !withEmail;
   });
 
   @override
@@ -79,7 +85,8 @@ class _SignUpState extends State<SignUp>{
                 height: screenSize.height,
                 child: Builder(builder: (BuildContext context){
                   if(_currPage == 1) return SignUpName(input: input, goToNext: goToNext,);
-                  if(_currPage == 2) return SignUpConfirmation(input: input, goToNext: goToNext);
+                  if(_currPage == 2 && !withEmail) return SignUpPhone(input: input, goToNext: goToNext, toggleMethod: toggleMethod,);
+                  if(_currPage == 2 && withEmail) return SignUpEmail(input: input, goToNext: goToNext, toggleMethod: toggleMethod,);
                   if(_currPage == 3) return SignUpCode(input: input, goToNext: goToNext);
                   if(_currPage == 4) return SignUpBirthday(input: input, goToNext: goToNext);
                   if(_currPage == 5) return SignUpUsername(input: input, goToNext: goToNext);

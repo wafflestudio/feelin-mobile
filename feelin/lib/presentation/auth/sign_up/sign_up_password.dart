@@ -36,39 +36,60 @@ class _SignUpNameState extends State<SignUpPassword>{
                 () => null,
                 (failOrSuccess) => failOrSuccess.fold((f) => null, (_) => widget.goToNext()));
       },
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-
-          const CommonTitle(title: 'Choose your password'),
-          const SizedBox(height: 10,),
-          const CommonDescription(description: 'Your password should be 8 letters or longer',),
-          const SizedBox(height: 30,),
-          _passwordField(),
-          const SizedBox(height: 30,),
-          NextButton(disabled: password.length < 8,
-            function: (){
-              setState(() {
-                widget.input['password'] = password;
-              });
-              print(context
-                  .read<SignUpFormBloc>().state.password.getOrCrash());
-              print(context
-                  .read<SignUpFormBloc>().state.username.getOrCrash());
-              print(context
-                  .read<SignUpFormBloc>().state.birthday.getOrCrash());
-              print(context
-                  .read<SignUpFormBloc>().state.name.getOrCrash());
-              print(context
-                  .read<SignUpFormBloc>().state.emailAddress.getOrCrash());
-              print(context
-                  .read<SignUpFormBloc>().state.canUseName);
-              context
-                  .read<SignUpFormBloc>()
-                  .add(const SignUpFormEvent.submitted());
-            },)
-        ],
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Container(
+          constraints: const BoxConstraints(maxHeight: 505),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                constraints: const BoxConstraints(maxHeight: 210),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: const [
+                        CommonTitle(title: 'Choose your password'),
+                        SizedBox(height: 10,),
+                        CommonDescription(description: 'It should be 8 letters or longer',),
+                      ],
+                    ),
+                    _passwordField(),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: NextButton(disabled: password.length < 8,
+                  function: (){
+                    setState(() {
+                      widget.input['password'] = password;
+                    });
+                    print(context
+                        .read<SignUpFormBloc>().state.password.getOrCrash());
+                    print(context
+                        .read<SignUpFormBloc>().state.username.getOrCrash());
+                    print(context
+                        .read<SignUpFormBloc>().state.birthday.getOrCrash());
+                    print(context
+                        .read<SignUpFormBloc>().state.name.getOrCrash());
+                    print(context
+                        .read<SignUpFormBloc>().state.emailAddress.getOrCrash());
+                    print(context
+                        .read<SignUpFormBloc>().state.canUseName);
+                    context
+                        .read<SignUpFormBloc>()
+                        .add(const SignUpFormEvent.submitted());
+                  },),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -83,24 +104,22 @@ class _SignUpNameState extends State<SignUpPassword>{
             height: 48,
             child: TextFormField(
               controller: _passwordTextController,
-              obscureText: true,
-              obscuringCharacter: '●',
               keyboardType: TextInputType.visiblePassword,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, letterSpacing: -0.41),
+              textInputAction: TextInputAction.done,
+              onFieldSubmitted: (_){
+                if(password.length >= 8){
+                  setState(() {
+                    widget.input['password'] = password;
+                  });
+                  context
+                      .read<SignUpFormBloc>()
+                      .add(const SignUpFormEvent.submitted());
+                }
+              },
               decoration: InputDecoration(
                 hintText: 'Password',
                 isDense: true,
-                border: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
-                ),
-                errorBorder: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: Colors.red, width: 0.5),
-                ),
                 suffixIcon: (password.isNotEmpty) ? IconButton(onPressed: (){_passwordTextController.clear(); setState(() {
                   password = '';
                 });}, icon: const Icon(Icons.cancel, color: Colors.grey,)): const SizedBox.shrink()
@@ -108,7 +127,7 @@ class _SignUpNameState extends State<SignUpPassword>{
               validator: (_) =>
                   context.read<SignUpFormBloc>().state.password.value.fold(
                         (f) => f.maybeMap(
-                      empty: (_) => '비밀번호를 입력해주세요',
+                      empty: (_) => 'Please enter password.',
                       orElse: () => null,
                     ),
                         (_) => null,

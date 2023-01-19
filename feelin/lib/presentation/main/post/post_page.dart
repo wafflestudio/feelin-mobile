@@ -96,7 +96,7 @@ class _PostPageState extends State<PostPage>{
                         builder: (context, state) {
                           return TextFormField(
                             controller: _linkTextController,
-                            onFieldSubmitted: (_)=>onSubmitted(),
+                            onFieldSubmitted: (_){if(link.isNotEmpty){onSubmitted();}},
                             textInputAction: TextInputAction.next,
                             decoration: const InputDecoration(
                               hintText: 'Playlist URL',

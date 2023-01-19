@@ -24,4 +24,8 @@ class SignUpFormEvent with _$SignUpFormEvent {
   _PhoneNumberChanged;
   const factory SignUpFormEvent.birthdayChanged(String birthdayStr) =
   _BirthdayChanged;
+  const factory SignUpFormEvent.setEmail() =
+  _SetEmail;
+  const factory SignUpFormEvent.setPhone() =
+  _SetPhone;
 }

@@ -80,31 +80,10 @@ class _SignUpNameState extends State<SignUpBirthday>{
             margin: const EdgeInsets.symmetric(horizontal: 20),
             width: double.infinity,
             height: 48,
-            child: TextFormField(
-              controller: _nameTextController,
-              keyboardType: TextInputType.datetime,
-              decoration: InputDecoration(
-                hintText: 'Birthday',
-                isDense: true,
-                border: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
-                ),
-                errorBorder: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  borderSide: BorderSide(color: Colors.red, width: 0.5),
-                ),
-              ),
-              validator: (_) =>null,
-              onChanged: (value) {
-                setState((){
-                  name = value;
-                });
-              },
+            child: Column(
+              children: [
+
+              ],
             ),
           );
         });

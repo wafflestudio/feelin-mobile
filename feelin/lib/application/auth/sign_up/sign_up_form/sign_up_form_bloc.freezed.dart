@@ -30,6 +30,8 @@ mixin _$SignUpFormEvent {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,6 +48,8 @@ mixin _$SignUpFormEvent {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +66,8 @@ mixin _$SignUpFormEvent {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -80,6 +86,8 @@ mixin _$SignUpFormEvent {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,6 +104,8 @@ mixin _$SignUpFormEvent {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -112,6 +122,8 @@ mixin _$SignUpFormEvent {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -213,6 +225,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return emailAddressChanged(emailAddressStr);
   }
@@ -232,6 +246,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return emailAddressChanged?.call(emailAddressStr);
   }
@@ -251,6 +267,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (emailAddressChanged != null) {
@@ -275,6 +293,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return emailAddressChanged(this);
   }
@@ -294,6 +314,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return emailAddressChanged?.call(this);
   }
@@ -313,6 +335,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (emailAddressChanged != null) {
@@ -412,6 +436,8 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return passwordConfirmChanged(passwordConfirmStr);
   }
@@ -431,6 +457,8 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return passwordConfirmChanged?.call(passwordConfirmStr);
   }
@@ -450,6 +478,8 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (passwordConfirmChanged != null) {
@@ -474,6 +504,8 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return passwordConfirmChanged(this);
   }
@@ -493,6 +525,8 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return passwordConfirmChanged?.call(this);
   }
@@ -512,6 +546,8 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (passwordConfirmChanged != null) {
@@ -609,6 +645,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return passwordChanged(passwordStr);
   }
@@ -628,6 +666,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return passwordChanged?.call(passwordStr);
   }
@@ -647,6 +687,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -671,6 +713,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return passwordChanged(this);
   }
@@ -690,6 +734,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return passwordChanged?.call(this);
   }
@@ -709,6 +755,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -780,6 +828,8 @@ class _$_Submitted implements _Submitted {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return submitted();
   }
@@ -799,6 +849,8 @@ class _$_Submitted implements _Submitted {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return submitted?.call();
   }
@@ -818,6 +870,8 @@ class _$_Submitted implements _Submitted {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -842,6 +896,8 @@ class _$_Submitted implements _Submitted {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return submitted(this);
   }
@@ -861,6 +917,8 @@ class _$_Submitted implements _Submitted {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return submitted?.call(this);
   }
@@ -880,6 +938,8 @@ class _$_Submitted implements _Submitted {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -970,6 +1030,8 @@ class _$_CodeChanged implements _CodeChanged {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return codeChanged(codeStr);
   }
@@ -989,6 +1051,8 @@ class _$_CodeChanged implements _CodeChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return codeChanged?.call(codeStr);
   }
@@ -1008,6 +1072,8 @@ class _$_CodeChanged implements _CodeChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (codeChanged != null) {
@@ -1032,6 +1098,8 @@ class _$_CodeChanged implements _CodeChanged {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return codeChanged(this);
   }
@@ -1051,6 +1119,8 @@ class _$_CodeChanged implements _CodeChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return codeChanged?.call(this);
   }
@@ -1070,6 +1140,8 @@ class _$_CodeChanged implements _CodeChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (codeChanged != null) {
@@ -1141,6 +1213,8 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return emailSubmitted();
   }
@@ -1160,6 +1234,8 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return emailSubmitted?.call();
   }
@@ -1179,6 +1255,8 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (emailSubmitted != null) {
@@ -1203,6 +1281,8 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return emailSubmitted(this);
   }
@@ -1222,6 +1302,8 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return emailSubmitted?.call(this);
   }
@@ -1241,6 +1323,8 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (emailSubmitted != null) {
@@ -1307,6 +1391,8 @@ class _$_Requested implements _Requested {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return requested();
   }
@@ -1326,6 +1412,8 @@ class _$_Requested implements _Requested {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return requested?.call();
   }
@@ -1345,6 +1433,8 @@ class _$_Requested implements _Requested {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (requested != null) {
@@ -1369,6 +1459,8 @@ class _$_Requested implements _Requested {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return requested(this);
   }
@@ -1388,6 +1480,8 @@ class _$_Requested implements _Requested {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return requested?.call(this);
   }
@@ -1407,6 +1501,8 @@ class _$_Requested implements _Requested {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (requested != null) {
@@ -1497,6 +1593,8 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return nameChanged(nameStr);
   }
@@ -1516,6 +1614,8 @@ class _$_NameChanged implements _NameChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return nameChanged?.call(nameStr);
   }
@@ -1535,6 +1635,8 @@ class _$_NameChanged implements _NameChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -1559,6 +1661,8 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return nameChanged(this);
   }
@@ -1578,6 +1682,8 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return nameChanged?.call(this);
   }
@@ -1597,6 +1703,8 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -1693,6 +1801,8 @@ class _$_UsernameChanged implements _UsernameChanged {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return usernameChanged(usernameStr);
   }
@@ -1712,6 +1822,8 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return usernameChanged?.call(usernameStr);
   }
@@ -1731,6 +1843,8 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (usernameChanged != null) {
@@ -1755,6 +1869,8 @@ class _$_UsernameChanged implements _UsernameChanged {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return usernameChanged(this);
   }
@@ -1774,6 +1890,8 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return usernameChanged?.call(this);
   }
@@ -1793,6 +1911,8 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (usernameChanged != null) {
@@ -1864,6 +1984,8 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return resetCanUseName();
   }
@@ -1883,6 +2005,8 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return resetCanUseName?.call();
   }
@@ -1902,6 +2026,8 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (resetCanUseName != null) {
@@ -1926,6 +2052,8 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return resetCanUseName(this);
   }
@@ -1945,6 +2073,8 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return resetCanUseName?.call(this);
   }
@@ -1964,6 +2094,8 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (resetCanUseName != null) {
@@ -2056,6 +2188,8 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return phoneNumberChanged(phoneNumberStr);
   }
@@ -2075,6 +2209,8 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return phoneNumberChanged?.call(phoneNumberStr);
   }
@@ -2094,6 +2230,8 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (phoneNumberChanged != null) {
@@ -2118,6 +2256,8 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return phoneNumberChanged(this);
   }
@@ -2137,6 +2277,8 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return phoneNumberChanged?.call(this);
   }
@@ -2156,6 +2298,8 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (phoneNumberChanged != null) {
@@ -2253,6 +2397,8 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
   }) {
     return birthdayChanged(birthdayStr);
   }
@@ -2272,6 +2418,8 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
   }) {
     return birthdayChanged?.call(birthdayStr);
   }
@@ -2291,6 +2439,8 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
     required TResult orElse(),
   }) {
     if (birthdayChanged != null) {
@@ -2315,6 +2465,8 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
   }) {
     return birthdayChanged(this);
   }
@@ -2334,6 +2486,8 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
   }) {
     return birthdayChanged?.call(this);
   }
@@ -2353,6 +2507,8 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
     required TResult orElse(),
   }) {
     if (birthdayChanged != null) {
@@ -2369,6 +2525,362 @@ abstract class _BirthdayChanged implements SignUpFormEvent {
   @JsonKey(ignore: true)
   _$$_BirthdayChangedCopyWith<_$_BirthdayChanged> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetEmailCopyWith<$Res> {
+  factory _$$_SetEmailCopyWith(
+          _$_SetEmail value, $Res Function(_$_SetEmail) then) =
+      __$$_SetEmailCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SetEmailCopyWithImpl<$Res>
+    extends _$SignUpFormEventCopyWithImpl<$Res>
+    implements _$$_SetEmailCopyWith<$Res> {
+  __$$_SetEmailCopyWithImpl(
+      _$_SetEmail _value, $Res Function(_$_SetEmail) _then)
+      : super(_value, (v) => _then(v as _$_SetEmail));
+
+  @override
+  _$_SetEmail get _value => super._value as _$_SetEmail;
+}
+
+/// @nodoc
+
+class _$_SetEmail implements _SetEmail {
+  const _$_SetEmail();
+
+  @override
+  String toString() {
+    return 'SignUpFormEvent.setEmail()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SetEmail);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailAddressStr) emailAddressChanged,
+    required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() submitted,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() resetCanUseName,
+    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
+  }) {
+    return setEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailAddressStr)? emailAddressChanged,
+    TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? submitted,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? resetCanUseName,
+    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
+  }) {
+    return setEmail?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailAddressStr)? emailAddressChanged,
+    TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? submitted,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? resetCanUseName,
+    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
+    required TResult orElse(),
+  }) {
+    if (setEmail != null) {
+      return setEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_PasswordConfirmChanged value)
+        passwordConfirmChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_ResetCanUseName value) resetCanUseName,
+    required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
+  }) {
+    return setEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
+  }) {
+    return setEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
+    required TResult orElse(),
+  }) {
+    if (setEmail != null) {
+      return setEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetEmail implements SignUpFormEvent {
+  const factory _SetEmail() = _$_SetEmail;
+}
+
+/// @nodoc
+abstract class _$$_SetPhoneCopyWith<$Res> {
+  factory _$$_SetPhoneCopyWith(
+          _$_SetPhone value, $Res Function(_$_SetPhone) then) =
+      __$$_SetPhoneCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SetPhoneCopyWithImpl<$Res>
+    extends _$SignUpFormEventCopyWithImpl<$Res>
+    implements _$$_SetPhoneCopyWith<$Res> {
+  __$$_SetPhoneCopyWithImpl(
+      _$_SetPhone _value, $Res Function(_$_SetPhone) _then)
+      : super(_value, (v) => _then(v as _$_SetPhone));
+
+  @override
+  _$_SetPhone get _value => super._value as _$_SetPhone;
+}
+
+/// @nodoc
+
+class _$_SetPhone implements _SetPhone {
+  const _$_SetPhone();
+
+  @override
+  String toString() {
+    return 'SignUpFormEvent.setPhone()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SetPhone);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailAddressStr) emailAddressChanged,
+    required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() submitted,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() requested,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() resetCanUseName,
+    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
+  }) {
+    return setPhone();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailAddressStr)? emailAddressChanged,
+    TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? submitted,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? resetCanUseName,
+    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
+  }) {
+    return setPhone?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailAddressStr)? emailAddressChanged,
+    TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? submitted,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? requested,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? resetCanUseName,
+    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
+    required TResult orElse(),
+  }) {
+    if (setPhone != null) {
+      return setPhone();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_PasswordConfirmChanged value)
+        passwordConfirmChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_Requested value) requested,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_ResetCanUseName value) resetCanUseName,
+    required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
+  }) {
+    return setPhone(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
+  }) {
+    return setPhone?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_Requested value)? requested,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
+    required TResult orElse(),
+  }) {
+    if (setPhone != null) {
+      return setPhone(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetPhone implements SignUpFormEvent {
+  const factory _SetPhone() = _$_SetPhone;
 }
 
 /// @nodoc
@@ -2389,6 +2901,7 @@ mixin _$SignUpFormState {
   bool get canUseName => throw _privateConstructorUsedError;
   PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
   NotEmptyString get birthday => throw _privateConstructorUsedError;
+  bool get signUpWithEmail => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignUpFormStateCopyWith<SignUpFormState> get copyWith =>
@@ -2414,7 +2927,8 @@ abstract class $SignUpFormStateCopyWith<$Res> {
       Username username,
       bool canUseName,
       PhoneNumber phoneNumber,
-      NotEmptyString birthday});
+      NotEmptyString birthday,
+      bool signUpWithEmail});
 }
 
 /// @nodoc
@@ -2442,6 +2956,7 @@ class _$SignUpFormStateCopyWithImpl<$Res>
     Object? canUseName = freezed,
     Object? phoneNumber = freezed,
     Object? birthday = freezed,
+    Object? signUpWithEmail = freezed,
   }) {
     return _then(_value.copyWith(
       emailAddress: emailAddress == freezed
@@ -2500,6 +3015,10 @@ class _$SignUpFormStateCopyWithImpl<$Res>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as NotEmptyString,
+      signUpWithEmail: signUpWithEmail == freezed
+          ? _value.signUpWithEmail
+          : signUpWithEmail // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2525,7 +3044,8 @@ abstract class _$$_SignUpFormStateCopyWith<$Res>
       Username username,
       bool canUseName,
       PhoneNumber phoneNumber,
-      NotEmptyString birthday});
+      NotEmptyString birthday,
+      bool signUpWithEmail});
 }
 
 /// @nodoc
@@ -2555,6 +3075,7 @@ class __$$_SignUpFormStateCopyWithImpl<$Res>
     Object? canUseName = freezed,
     Object? phoneNumber = freezed,
     Object? birthday = freezed,
+    Object? signUpWithEmail = freezed,
   }) {
     return _then(_$_SignUpFormState(
       emailAddress: emailAddress == freezed
@@ -2613,6 +3134,10 @@ class __$$_SignUpFormStateCopyWithImpl<$Res>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as NotEmptyString,
+      signUpWithEmail: signUpWithEmail == freezed
+          ? _value.signUpWithEmail
+          : signUpWithEmail // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2634,7 +3159,8 @@ class _$_SignUpFormState implements _SignUpFormState {
       required this.username,
       required this.canUseName,
       required this.phoneNumber,
-      required this.birthday});
+      required this.birthday,
+      required this.signUpWithEmail});
 
   @override
   final EmailAddress emailAddress;
@@ -2664,10 +3190,12 @@ class _$_SignUpFormState implements _SignUpFormState {
   final PhoneNumber phoneNumber;
   @override
   final NotEmptyString birthday;
+  @override
+  final bool signUpWithEmail;
 
   @override
   String toString() {
-    return 'SignUpFormState(emailAddress: $emailAddress, code: $code, isEmailSubmitting: $isEmailSubmitting, isRequested: $isRequested, password: $password, passwordConfirm: $passwordConfirm, authFailureOrSuccessOption: $authFailureOrSuccessOption, verifyFailureOrSuccessOption: $verifyFailureOrSuccessOption, isSubmitting: $isSubmitting, name: $name, username: $username, canUseName: $canUseName, phoneNumber: $phoneNumber, birthday: $birthday)';
+    return 'SignUpFormState(emailAddress: $emailAddress, code: $code, isEmailSubmitting: $isEmailSubmitting, isRequested: $isRequested, password: $password, passwordConfirm: $passwordConfirm, authFailureOrSuccessOption: $authFailureOrSuccessOption, verifyFailureOrSuccessOption: $verifyFailureOrSuccessOption, isSubmitting: $isSubmitting, name: $name, username: $username, canUseName: $canUseName, phoneNumber: $phoneNumber, birthday: $birthday, signUpWithEmail: $signUpWithEmail)';
   }
 
   @override
@@ -2698,7 +3226,9 @@ class _$_SignUpFormState implements _SignUpFormState {
                 .equals(other.canUseName, canUseName) &&
             const DeepCollectionEquality()
                 .equals(other.phoneNumber, phoneNumber) &&
-            const DeepCollectionEquality().equals(other.birthday, birthday));
+            const DeepCollectionEquality().equals(other.birthday, birthday) &&
+            const DeepCollectionEquality()
+                .equals(other.signUpWithEmail, signUpWithEmail));
   }
 
   @override
@@ -2717,7 +3247,8 @@ class _$_SignUpFormState implements _SignUpFormState {
       const DeepCollectionEquality().hash(username),
       const DeepCollectionEquality().hash(canUseName),
       const DeepCollectionEquality().hash(phoneNumber),
-      const DeepCollectionEquality().hash(birthday));
+      const DeepCollectionEquality().hash(birthday),
+      const DeepCollectionEquality().hash(signUpWithEmail));
 
   @JsonKey(ignore: true)
   @override
@@ -2742,7 +3273,8 @@ abstract class _SignUpFormState implements SignUpFormState {
       required final Username username,
       required final bool canUseName,
       required final PhoneNumber phoneNumber,
-      required final NotEmptyString birthday}) = _$_SignUpFormState;
+      required final NotEmptyString birthday,
+      required final bool signUpWithEmail}) = _$_SignUpFormState;
 
   @override
   EmailAddress get emailAddress;
@@ -2772,6 +3304,8 @@ abstract class _SignUpFormState implements SignUpFormState {
   PhoneNumber get phoneNumber;
   @override
   NotEmptyString get birthday;
+  @override
+  bool get signUpWithEmail;
   @override
   @JsonKey(ignore: true)
   _$$_SignUpFormStateCopyWith<_$_SignUpFormState> get copyWith =>

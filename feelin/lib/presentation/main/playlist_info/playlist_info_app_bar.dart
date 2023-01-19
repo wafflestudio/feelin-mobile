@@ -231,7 +231,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                                         },
                                         child: Text(
                                           'Delete',
-                                          style: TextStyle(fontSize: 16, color: FeelinColorFamily.errorPrimary),
+                                          style: TextStyle(fontSize: 16, color: FeelinColorFamily.errorDark),
                                         ),
                                       ),
                                     ),
@@ -240,7 +240,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                               ),
                             ),
                           )
-                          , child: Text('Delete', style: TextStyle(color: FeelinColorFamily.errorPrimary, fontSize: 16),))),
+                          , child: Text('Delete', style: TextStyle(color: FeelinColorFamily.errorDark, fontSize: 16),))),
                     ],
                   ),
                 );
