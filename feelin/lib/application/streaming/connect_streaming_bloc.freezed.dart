@@ -20,7 +20,7 @@ mixin _$ConnectStreamingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String vendorStr) requestLogin,
     required TResult Function() spotifyLogin,
-    required TResult Function(String token, int id) appleMusicLogin,
+    required TResult Function(String token, String id) appleMusicLogin,
     required TResult Function() submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$ConnectStreamingEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
-    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function(String token, String id)? appleMusicLogin,
     TResult Function()? submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$ConnectStreamingEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
-    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function(String token, String id)? appleMusicLogin,
     TResult Function()? submitted,
     required TResult orElse(),
   }) =>
@@ -152,7 +152,7 @@ class _$_RequestLogin implements _RequestLogin {
   TResult when<TResult extends Object?>({
     required TResult Function(String vendorStr) requestLogin,
     required TResult Function() spotifyLogin,
-    required TResult Function(String token, int id) appleMusicLogin,
+    required TResult Function(String token, String id) appleMusicLogin,
     required TResult Function() submitted,
   }) {
     return requestLogin(vendorStr);
@@ -163,7 +163,7 @@ class _$_RequestLogin implements _RequestLogin {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
-    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function(String token, String id)? appleMusicLogin,
     TResult Function()? submitted,
   }) {
     return requestLogin?.call(vendorStr);
@@ -174,7 +174,7 @@ class _$_RequestLogin implements _RequestLogin {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
-    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function(String token, String id)? appleMusicLogin,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -274,7 +274,7 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   TResult when<TResult extends Object?>({
     required TResult Function(String vendorStr) requestLogin,
     required TResult Function() spotifyLogin,
-    required TResult Function(String token, int id) appleMusicLogin,
+    required TResult Function(String token, String id) appleMusicLogin,
     required TResult Function() submitted,
   }) {
     return spotifyLogin();
@@ -285,7 +285,7 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
-    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function(String token, String id)? appleMusicLogin,
     TResult Function()? submitted,
   }) {
     return spotifyLogin?.call();
@@ -296,7 +296,7 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
-    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function(String token, String id)? appleMusicLogin,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -353,7 +353,7 @@ abstract class _$$_AppleMusicLoginCopyWith<$Res> {
   factory _$$_AppleMusicLoginCopyWith(
           _$_AppleMusicLogin value, $Res Function(_$_AppleMusicLogin) then) =
       __$$_AppleMusicLoginCopyWithImpl<$Res>;
-  $Res call({String token, int id});
+  $Res call({String token, String id});
 }
 
 /// @nodoc
@@ -380,7 +380,7 @@ class __$$_AppleMusicLoginCopyWithImpl<$Res>
       id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -393,7 +393,7 @@ class _$_AppleMusicLogin implements _AppleMusicLogin {
   @override
   final String token;
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -425,7 +425,7 @@ class _$_AppleMusicLogin implements _AppleMusicLogin {
   TResult when<TResult extends Object?>({
     required TResult Function(String vendorStr) requestLogin,
     required TResult Function() spotifyLogin,
-    required TResult Function(String token, int id) appleMusicLogin,
+    required TResult Function(String token, String id) appleMusicLogin,
     required TResult Function() submitted,
   }) {
     return appleMusicLogin(token, id);
@@ -436,7 +436,7 @@ class _$_AppleMusicLogin implements _AppleMusicLogin {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
-    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function(String token, String id)? appleMusicLogin,
     TResult Function()? submitted,
   }) {
     return appleMusicLogin?.call(token, id);
@@ -447,7 +447,7 @@ class _$_AppleMusicLogin implements _AppleMusicLogin {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
-    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function(String token, String id)? appleMusicLogin,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -496,11 +496,11 @@ class _$_AppleMusicLogin implements _AppleMusicLogin {
 }
 
 abstract class _AppleMusicLogin implements ConnectStreamingEvent {
-  const factory _AppleMusicLogin(final String token, final int id) =
+  const factory _AppleMusicLogin(final String token, final String id) =
       _$_AppleMusicLogin;
 
   String get token;
-  int get id;
+  String get id;
   @JsonKey(ignore: true)
   _$$_AppleMusicLoginCopyWith<_$_AppleMusicLogin> get copyWith =>
       throw _privateConstructorUsedError;
@@ -549,7 +549,7 @@ class _$_Submitted implements _Submitted {
   TResult when<TResult extends Object?>({
     required TResult Function(String vendorStr) requestLogin,
     required TResult Function() spotifyLogin,
-    required TResult Function(String token, int id) appleMusicLogin,
+    required TResult Function(String token, String id) appleMusicLogin,
     required TResult Function() submitted,
   }) {
     return submitted();
@@ -560,7 +560,7 @@ class _$_Submitted implements _Submitted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
-    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function(String token, String id)? appleMusicLogin,
     TResult Function()? submitted,
   }) {
     return submitted?.call();
@@ -571,7 +571,7 @@ class _$_Submitted implements _Submitted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
-    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function(String token, String id)? appleMusicLogin,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {

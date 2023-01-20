@@ -25,7 +25,7 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
   final Completer<WebViewController> _completer = Completer<WebViewController>();
   var loadingPercentage = 0;
 
-  late int id;
+  late String id;
 
   @override
   void initState() {
@@ -33,7 +33,8 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
     // Enable virtual display.
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
     if(widget.isApple){
-      id = int.parse(Uri.parse(widget.url).queryParameters['id']??'');
+      id = Uri.parse(widget.url).queryParameters['id']??'';
+      print(Uri.parse(widget.url).queryParameters['id']??'');
     }
   }
 
@@ -155,6 +156,7 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
     return JavascriptChannel(
         name: "flutterChannel",
         onMessageReceived: (JavascriptMessage message){
+          print(message.message);
           context.read<ConnectStreamingBloc>().add(ConnectStreamingEvent.appleMusicLogin(message.message, id));
           // ScaffoldMessenger.of(context)
           //     .showSnackBar(SnackBar(content: Text(message.message)));

@@ -12,7 +12,7 @@ class ConnectMusicRequest{
   String? refreshToken;
 
   @JsonKey(name: "id")
-  int id;
+  String id;
 
 
   ConnectMusicRequest({

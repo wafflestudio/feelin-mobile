@@ -10,7 +10,7 @@ ConnectMusicRequest _$ConnectMusicRequestFromJson(Map<String, dynamic> json) =>
     ConnectMusicRequest(
       accessToken: json['accessToken'] as String,
       refreshToken: json['refreshToken'] as String?,
-      id: json['id'] as int,
+      id: json['id'] as String,
     );
 
 Map<String, dynamic> _$ConnectMusicRequestToJson(

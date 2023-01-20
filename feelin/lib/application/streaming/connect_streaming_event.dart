@@ -6,7 +6,7 @@ class ConnectStreamingEvent with _$ConnectStreamingEvent {
   _RequestLogin;
   const factory ConnectStreamingEvent.spotifyLogin() =
   _SpotifyLogin;
-  const factory ConnectStreamingEvent.appleMusicLogin(String token, int id) =
+  const factory ConnectStreamingEvent.appleMusicLogin(String token, String id) =
   _AppleMusicLogin;
   const factory ConnectStreamingEvent.submitted() = _Submitted;
 }

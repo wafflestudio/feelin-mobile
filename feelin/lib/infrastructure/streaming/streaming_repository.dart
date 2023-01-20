@@ -35,7 +35,7 @@ class StreamingRepository{
     }
   }
 
-  Future<Either<ConnectFailure, Unit>> requestAppleMusicLogin({required String accessToken, required int id}) async{
+  Future<Either<ConnectFailure, Unit>> requestAppleMusicLogin({required String accessToken, required String id}) async{
     try{
       HttpResponse<void> httpResponse = await streamingClient.requestAppleMusicLogin(ConnectMusicRequest(accessToken: accessToken, id: id));
       if(httpResponse.response.statusCode == 200){

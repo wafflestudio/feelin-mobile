@@ -49,7 +49,7 @@ class ConnectStreamingPage extends StatelessWidget{
                           builder: (context){
                             return BlocProvider(
                                 create: (context) => getIt<ConnectStreamingBloc>(),
-                                child: StreamingWebViewPage(url: url.url,),
+                                child: StreamingWebViewPage(url: url.url, isApple: true,),
                             );
                           },
                         ),
