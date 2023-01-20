@@ -8,6 +8,7 @@ import 'package:music_sns/presentation/streaming/platform_button.dart';
 import 'package:music_sns/presentation/streaming/streaming_web_view_page.dart';
 
 import '../auth/sign_up/common_title.dart';
+import '../style/colors.dart';
 
 class ConnectStreamingPage extends StatelessWidget{
 
@@ -43,12 +44,13 @@ class ConnectStreamingPage extends StatelessWidget{
                   (f) => _showSnackBar(context, f.toString()),
                   (url){
                     if(!navigated){
+                      final bloc = context.read<ConnectStreamingBloc>();
                       navigated = true;
                       Navigator.push(context,
                         CupertinoPageRoute(
                           builder: (context){
                             return BlocProvider(
-                                create: (context) => getIt<ConnectStreamingBloc>(),
+                                create: (context) => bloc,
                                 child: StreamingWebViewPage(url: url.url, isApple: true,),
                             );
                           },
@@ -62,6 +64,23 @@ class ConnectStreamingPage extends StatelessWidget{
                     // ), // 로그인 성공
               }
           ),
+        );
+        state.requestFailureOrSuccessOption.fold(
+              () => null,
+              (failureOrSuccess) => failureOrSuccess.fold(
+                (f) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              backgroundColor: FeelinColorFamily.errorPrimary,
+              content: const Text('Connection failed.'),
+            )),
+                (_) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                backgroundColor: FeelinColorFamily.redPrimary,
+                content: const Text('Successfully connected.'),
+              ));
+              //Navigator.pop(context);
+            },
+          ),
+
         );
       },
       child: BlocBuilder<ConnectStreamingBloc, ConnectStreamingState>(

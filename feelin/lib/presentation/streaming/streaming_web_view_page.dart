@@ -89,7 +89,6 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
                     Navigator.pop(context);
                 },
               ),
-
             );
           },
           child: LayoutBuilder(
@@ -158,6 +157,7 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
         onMessageReceived: (JavascriptMessage message){
           print(message.message);
           context.read<ConnectStreamingBloc>().add(ConnectStreamingEvent.appleMusicLogin(message.message, id));
+          Navigator.pop(context);
           // ScaffoldMessenger.of(context)
           //     .showSnackBar(SnackBar(content: Text(message.message)));
           // storage.write(key: "token", value: message.message);
