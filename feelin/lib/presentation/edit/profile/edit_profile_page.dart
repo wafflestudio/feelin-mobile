@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/domain/profile/profile.dart';
+import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../application/edit/edit_profile_form/edit_profile_form_bloc.dart';
 import '../../../application/navigation/nav_bar_item.dart';
@@ -141,7 +142,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ),
               ),
               suffixIcon: ((state.username.isValid() && state.username.getOrCrash() == widget.profile.username) ||
-                  state.canUseName) ? const Icon(Icons.check_circle, color: Colors.green,) : const Icon(Icons.cancel, color: Colors.red,),
+                  state.canUseName) ? const Icon(Icons.check_circle_outline, color: Colors.green,) : Icon(Icons.remove_circle_outline, color: FeelinColorFamily.errorPrimary,),
             ),
             validator: (_) =>
                 context.read<EditProfileFormBloc>().state.username.value.fold(

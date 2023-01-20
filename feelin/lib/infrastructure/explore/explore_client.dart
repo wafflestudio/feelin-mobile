@@ -1,6 +1,4 @@
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:music_sns/domain/play/post.dart';
 import 'package:music_sns/domain/profile/page.dart';
 import 'package:retrofit/retrofit.dart';
 

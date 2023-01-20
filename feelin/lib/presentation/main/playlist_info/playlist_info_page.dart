@@ -26,6 +26,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
   bool lastStatus = true;
   double height = 378;
   double expandedHeight = 400;
+  bool isEdited = false;
 
   void _scrollListener() {
     if (_isShrink != lastStatus) {
@@ -41,12 +42,13 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
         _scrollController!.offset >= (height - kToolbarHeight);
   }
 
-  Size _textSize(String text, TextStyle style) {
+  Size _textSize(String text, TextStyle style, {bool scaleFactor = false}) {
     final TextPainter textPainter = TextPainter(
-        text: TextSpan(text: text, style: style), maxLines: 1, textDirection: TextDirection.ltr, textScaleFactor: MediaQuery.of(context).textScaleFactor,)
-      ..layout(minWidth: 0, maxWidth: MediaQuery.of(context).size.width - 32);
+        text: TextSpan(text: text, style: style), maxLines: 2, textDirection: TextDirection.ltr, textScaleFactor: scaleFactor ? MediaQuery.of(context).textScaleFactor : 1.0,)
+      ..layout(minWidth: 0, maxWidth: widget.width-32);
     return textPainter.size;
   }
+
   double textHeight(String text, TextStyle style, double textWidth) {
     final TextPainter textPainter = TextPainter(
       text: TextSpan(text: text, style: style),
@@ -65,12 +67,12 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
     context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.loadRequest(widget.postId));
     setState((){
       expandedHeight = 350
-          + textHeight(widget.post == null ? '': widget.post!.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
+          + _textSize(widget.post == null ? '': widget.post!.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
               //fontFamily: 'SpoqaHanSansNeo'
-          ), widget.width-32)
-          + textHeight(widget.post == null ? '': widget.post!.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, letterSpacing: -0.41,
+          ),).height
+          + _textSize(widget.post == null ? '': widget.post!.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, letterSpacing: -0.41,
               //fontFamily: 'SpoqaHanSansNeo'
-          ), widget.width-32);
+          )).height;
       height = expandedHeight - 30;
     });
   }
@@ -102,12 +104,12 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                 (post) => {
               setState((){
                     expandedHeight = 350
-                        + textHeight(state.post.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
+                        + _textSize(state.post.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
                             //fontFamily: 'SpoqaHanSansNeo'
-                        ), MediaQuery.of(context).size.width-32)
-                        + textHeight(state.post.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, letterSpacing: -0.41,
+                        ), scaleFactor: true).height
+                        + _textSize(state.post.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, letterSpacing: -0.41,
                             //fontFamily: 'SpoqaHanSansNeo'
-                        ), MediaQuery.of(context).size.width-32);
+                        ), scaleFactor: true).height;
                     height = expandedHeight - 30;
                   }),
             },
@@ -129,52 +131,56 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
         builder: (context, state) {
           return Stack(
             children: [
-              Scaffold(
-                          extendBodyBehindAppBar: true,
-                          body: ScrollConfiguration(
-                            behavior: const ScrollBehavior().copyWith(overscroll: false),
-                            child: CustomScrollView(
-                                controller: _scrollController,
-                                physics: const ClampingScrollPhysics(),
-                                // headerSliverBuilder: (context, innerBoxIsScrolled){
-                                //   return [
-                                //     if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
-                                //       goToTop: (){
-                                //       _scrollController!.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-                                //     },
-                                //       expandedHeight: expandedHeight,
-                                //     ),
-                                //   ];
-                                // },
-                              slivers: [
-                                if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
-                                  goToTop: (){
-                                    _scrollController!.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-                                  },
-                                  expandedHeight: expandedHeight,
-                                ),
-                                const PlaylistInfoList()
-                              ],
-                                //body: const PlaylistInfoList(),
+              WillPopScope(
+                onWillPop: () async {
+                  if(isEdited){
+                    Navigator.pop(context, widget.post);
+                    return false;
+                  }else{
+                    return true;
+                  }
+                },
+                child: Scaffold(
+                            extendBodyBehindAppBar: true,
+                            body: ScrollConfiguration(
+                              behavior: const ScrollBehavior().copyWith(overscroll: false),
+                              child: CustomScrollView(
+                                  controller: _scrollController,
+                                  physics: const ClampingScrollPhysics(),
+                                slivers: [
+                                  if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
+                                    goToTop: (){
+                                      _scrollController!.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+                                    },
+                                    expandedHeight: expandedHeight,
+                                    edit: (){
+                                      setState(() {
+                                        isEdited = true;
+                                      });
+                                    },
+                                    isEdited: isEdited,
+                                  ),
+                                  const PlaylistInfoList()
+                                ],
+                              ),
                             ),
+                              floatingActionButton: Container(
+                                width: MediaQuery.of(context).size.width - 24,
+                                height: 56,
+                                child: FloatingActionButton.extended(
+                                  onPressed: (){},
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+                                  backgroundColor: Colors.black,
+                                  foregroundColor: Colors.white,
+                                  hoverColor: Colors.transparent,
+                                  icon: null,
+                                  elevation: 4,
+                                  //shape: RoundedRectangleBorder(side: BorderSide(),borderRadius: BorderRadius.circular(28)),
+                                  label: const Text('Save to account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),),),
+                              ),
+                              floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
                           ),
-                            floatingActionButton: Container(
-                              width: 326,
-                              height: 56,
-                              child: FloatingActionButton.extended(
-                                onPressed: (){},
-                                backgroundColor: Colors.black,
-                                foregroundColor: Colors.white,
-                                hoverColor: Colors.transparent,
-                                elevation: 0,
-                                hoverElevation: 0,
-                                focusElevation: 0,
-                                highlightElevation: 0,
-                                //shape: RoundedRectangleBorder(side: BorderSide(),borderRadius: BorderRadius.circular(28)),
-                                label: const Text('Save to account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),),),
-                            ),
-                            floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-                        ),
+              ),
               if(_isShrink)Positioned(
                   top: kToolbarHeight,
                   right: 15,

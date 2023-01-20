@@ -14,7 +14,7 @@ Widget build(BuildContext context) {
     backgroundColor: Colors.transparent,
     automaticallyImplyLeading: false,
     leading: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back_ios_new),),
-    title: Text(isFollowerPage ? 'Follower':'Following',
+    title: Text(isFollowerPage ? 'Followers':'Following',
       style: const TextStyle(
         fontWeight: FontWeight.w700,
         fontSize: 20,

@@ -4,15 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/application/auth/sign_in/sign_in_form/sign_in_form_bloc.dart';
-import 'package:music_sns/domain/auth/token.dart';
 import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/auth/sign_in/sign_up_button.dart';
-import 'package:music_sns/presentation/auth/sign_up/sign_up.dart';
-import 'package:music_sns/presentation/auth/sign_up/sign_up_web_view_page.dart';
-import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
-import 'package:music_sns/presentation/main/profile/profile_page.dart';
 
-import '../../main/root_page.dart';
 import '../../style/colors.dart';
 
 class SignInPage extends StatefulWidget {
@@ -28,6 +22,8 @@ class _SignInPageState extends State<SignInPage> {
   final TextEditingController _idTextController = TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
   final storage = const FlutterSecureStorage();
+
+  final focusNode = FocusNode();
 
   @override
   void dispose() {
@@ -47,16 +43,20 @@ class _SignInPageState extends State<SignInPage> {
       },
       child: Scaffold(
         body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BlocProvider(
-                create: (context) => getIt<SignInFormBloc>(),
-                child: _loginForm(screenSize),
-              ),
-              _divider(),
-              const SignUpButton(),
-            ],
+          child: SizedBox(
+            height: 680,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                BlocProvider(
+                  create: (context) => getIt<SignInFormBloc>(),
+                  child: _loginForm(screenSize),
+                ),
+                _divider(),
+                const SignUpButton(),
+              ],
+            ),
           ),
         ),
       ),
@@ -67,7 +67,7 @@ class _SignInPageState extends State<SignInPage> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
       child: Row(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(color: FeelinColorFamily.grayDivider, width: 150, height: 0.25,),
@@ -84,8 +84,7 @@ class _SignInPageState extends State<SignInPage> {
         state.authFailureOrSuccessOption.fold(
           () => null,
           (failureOrSuccess) => failureOrSuccess.fold(
-            (f) => null
-              //_showSnackBar(context, f.toString())
+            (f) => null //f.maybeMap(orElse: ()=>_showSnackBar(context, 'server error'))
               , // 로그인 실패
             (_) => {
             context.read<AuthBloc>()
@@ -103,6 +102,7 @@ class _SignInPageState extends State<SignInPage> {
           alignment: Alignment.center,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -117,7 +117,7 @@ class _SignInPageState extends State<SignInPage> {
                 child: _passwordField(),
               ),
               const SizedBox(
-                height: 62,
+                height: 50,
               ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -137,6 +137,10 @@ class _SignInPageState extends State<SignInPage> {
         builder: (context, state) {
       return TextFormField(
         controller: _idTextController,
+        textInputAction: TextInputAction.next,
+        onFieldSubmitted: (_){
+          focusNode.requestFocus();
+        },
         decoration: InputDecoration(
           hintText: 'Phone number, username or email',
           isDense: true,
@@ -144,14 +148,6 @@ class _SignInPageState extends State<SignInPage> {
           hoverColor: Colors.transparent,
           //filled: true,
         ),
-        validator: (_) =>
-            context.read<SignInFormBloc>().state.account.value.fold(
-                  (f) => f.maybeMap(
-                    invalidEmail: (_) => null, //'올바른 형식의 이메일을 입력해 주세요.',
-                    orElse: () => null,
-                  ),
-                  (_) => null,
-                ),
         onChanged: (value) => context
             .read<SignInFormBloc>()
             .add(SignInFormEvent.accountChanged(value)),
@@ -164,30 +160,25 @@ class _SignInPageState extends State<SignInPage> {
         builder: (context, state) {
       return TextFormField(
         controller: _passwordTextController,
+        focusNode: focusNode,
+        onFieldSubmitted: (_){
+          if(_idTextController.text.isNotEmpty &&
+              _passwordTextController.text.isNotEmpty){
+            if (_formKey.currentState!.validate()) {
+              context
+                  .read<SignInFormBloc>()
+                  .add(const SignInFormEvent.submitted());
+              FocusManager.instance.primaryFocus?.unfocus();
+            }
+          }
+        },
         obscureText: true,
         obscuringCharacter: '*', // <- 크롬에서 문자가 깨짐
         keyboardType: TextInputType.visiblePassword,
         decoration: InputDecoration(
             hintText: 'Password',
             isDense: true,
-            //fillColor: _passwordTextController.text == '' ? FeelinColorFamily.grayscaleGray3 : Colors.white,
-            //filled: true,
-            // border: OutlineInputBorder(
-            //   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-            //   borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-            // ),
-            // enabledBorder: OutlineInputBorder(
-            //   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-            //   borderSide: BorderSide(color: FeelinColorFamily.grayscaleGray1, width: 0.5),
-            // ),
-            // focusedBorder: OutlineInputBorder(
-            //   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-            //   borderSide: BorderSide(color: FeelinColorFamily.red500, width: 0.5),
-            // ),
-            // errorBorder: const OutlineInputBorder(
-            //   borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            //   borderSide: BorderSide(color: Colors.red, width: 0.5),
-            // ),
+
         ),
         validator: (_) => state.authFailureOrSuccessOption.fold(
                 () => null,

@@ -4,12 +4,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/profile/profile_failure.dart';
 import 'package:rxdart/rxdart.dart';
+
 import '../../../domain/profile/value_objects.dart';
 import '../../../infrastructure/profile/profile_repository.dart';
 
+part 'edit_profile_form_bloc.freezed.dart';
 part 'edit_profile_form_event.dart';
 part 'edit_profile_form_state.dart';
-part 'edit_profile_form_bloc.freezed.dart';
 
 @injectable
 class EditProfileFormBloc extends Bloc<EditProfileFormEvent, EditProfileFormState> {

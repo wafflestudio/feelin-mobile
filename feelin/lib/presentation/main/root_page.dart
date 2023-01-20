@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/profile/profile_bloc.dart';
-import 'package:music_sns/presentation/main/explore/explore_page.dart';
-import 'package:music_sns/presentation/main/post/post_page.dart';
 import 'package:music_sns/presentation/main/profile/profile_page.dart';
 
 import '../../application/navigation/nav_bar_item.dart';

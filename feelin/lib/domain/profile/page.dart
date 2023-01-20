@@ -1,7 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:music_sns/domain/play/post.dart';
 
-
 part 'page.g.dart';
 
 @JsonSerializable()

@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:music_sns/domain/auth/sign_in_request.dart';
 import 'package:music_sns/domain/auth/sign_up_request.dart';
-import 'package:music_sns/domain/auth/token.dart';
 import 'package:music_sns/domain/auth/try_email_verification_request.dart';
 import 'package:music_sns/domain/auth/user.dart';
 import 'package:music_sns/domain/auth/verify_email_request.dart';
@@ -16,9 +15,6 @@ part 'auth_client.g.dart';
 @RestApi(baseUrl: "https://feelin-social-api-dev.wafflestudio.com/api/v1")
 abstract class AuthClient{
   factory AuthClient(Dio dio, {String baseUrl}) = _AuthClient;
-
-  @GET("")
-  Future<HttpResponse<String>> test();
 
   @POST('/auth/signin')
   Future<HttpResponse<User>> signIn(@Body() SignInRequest signInRequest);

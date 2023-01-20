@@ -6,7 +6,6 @@ import 'package:music_sns/domain/play/playlist.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../domain/custom/marquee.dart';
-import '../../common/next_button.dart';
 
 class PostTrackPage extends StatefulWidget{
   final Function goToNext;

@@ -2,12 +2,17 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:music_sns/application/streaming/connect_streaming_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+import '../style/colors.dart';
 
 class StreamingWebViewPage extends StatefulWidget{
   final String url;
-  const StreamingWebViewPage({Key? key, required this.url}) : super(key: key);
+  final bool isApple;
+  const StreamingWebViewPage({Key? key, required this.url, this.isApple = false}) : super(key: key);
 
   @override
   State<StreamingWebViewPage> createState() => _SignUpWebViewState();
@@ -20,11 +25,16 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
   final Completer<WebViewController> _completer = Completer<WebViewController>();
   var loadingPercentage = 0;
 
+  late int id;
+
   @override
   void initState() {
     super.initState();
     // Enable virtual display.
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
+    if(widget.isApple){
+      id = int.parse(Uri.parse(widget.url).queryParameters['id']??'');
+    }
   }
 
   @override
@@ -61,7 +71,26 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
               }
           ),
         ),
-        body: Container(
+        body: BlocListener<ConnectStreamingBloc, ConnectStreamingState>(
+          listener: (context, state){
+            state.requestFailureOrSuccessOption.fold(
+                  () => null,
+                  (failureOrSuccess) => failureOrSuccess.fold(
+                    (f) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      backgroundColor: FeelinColorFamily.errorPrimary,
+                      content: const Text('Connection failed.'),
+                    )),
+                    (_) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    backgroundColor: FeelinColorFamily.redPrimary,
+                    content: const Text('Successfully connected.'),
+                    ));
+                    Navigator.pop(context);
+                },
+              ),
+
+            );
+          },
           child: LayoutBuilder(
             builder: (context, constrains) {
               return Container(
@@ -95,6 +124,17 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
                         });
                         //_controller.reload();
                       },
+                      navigationDelegate: (request){
+                        print(request);
+                        if(request.url.startsWith('https://feelin-api-dev.wafflestudio.com')){
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            backgroundColor: FeelinColorFamily.redPrimary,
+                            content: const Text('Successfully connected.'),
+                          ));
+                          Navigator.pop(context);
+                        }
+                        return NavigationDecision.navigate;
+                      },
                       gestureNavigationEnabled: true,
                     ),
                     if (loadingPercentage < 100)
@@ -115,6 +155,7 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
     return JavascriptChannel(
         name: "flutterChannel",
         onMessageReceived: (JavascriptMessage message){
+          context.read<ConnectStreamingBloc>().add(ConnectStreamingEvent.appleMusicLogin(message.message, id));
           // ScaffoldMessenger.of(context)
           //     .showSnackBar(SnackBar(content: Text(message.message)));
           // storage.write(key: "token", value: message.message);

@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:music_sns/domain/core/errors.dart';
 import 'package:uuid/uuid.dart';
+
 import 'value_failures.dart';
-import 'package:flutter/material.dart';
 
 @immutable
 abstract class ValueObject<T> {

@@ -9,8 +9,8 @@ import '../../../../application/profile/profile_bloc.dart';
 import '../../../../application/streaming/connect_streaming_bloc.dart';
 import '../../../../domain/profile/profile.dart';
 import '../../../../injection.dart';
-import '../../../auth/sign_in/sign_in_page.dart';
 import '../../../edit/profile/edit_profile_page.dart';
+import '../../../setting/setting_app.dart';
 import '../../../streaming/connect_streaming_page.dart';
 
 class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
@@ -84,10 +84,15 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                           width: double.infinity,
                           height: 60,
                           child: TextButton(onPressed: (){
-                            storage.deleteAll();
-                            context.read<AuthBloc>().add(const AuthEvent.submitted());
-                            Navigator.pop(context);
-                          }, child: const Text('Settings(Log Out)', style: TextStyle(color: Colors.black, fontSize: 16),))),
+                            Navigator.push(context, CupertinoPageRoute(
+                                builder: (context){
+                                  return BlocProvider(
+                                      create: (context) => context.read<AuthBloc>(),
+                                      child: const SettingApp());
+                                }
+                            ),
+                            );
+                          }, child: const Text('Settings', style: TextStyle(color: Colors.black, fontSize: 16),))),
                     ],
                   ),
                 );
@@ -98,5 +103,4 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
       }
     );
   }
-
 }

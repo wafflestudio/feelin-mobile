@@ -8,9 +8,9 @@ import 'package:music_sns/domain/play/post.dart';
 import 'package:music_sns/domain/profile/profile.dart';
 import 'package:music_sns/infrastructure/explore/explore_post_repository.dart';
 
+part 'playlist_info_bloc.freezed.dart';
 part 'playlist_info_event.dart';
 part 'playlist_info_state.dart';
-part 'playlist_info_bloc.freezed.dart';
 
 @injectable
 class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{

@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'album.dart';
 import 'artist.dart';
+
 part 'track.g.dart';
 
 @JsonSerializable()

@@ -18,23 +18,6 @@ class _AuthClient implements AuthClient {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<String>> test() async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<String>(
-        _setStreamType<HttpResponse<String>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = _result.data!;
-    final httpResponse = HttpResponse(value, _result);
-    return httpResponse;
-  }
-
-  @override
   Future<HttpResponse<User>> signIn(signInRequest) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

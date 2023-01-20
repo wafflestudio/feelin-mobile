@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
@@ -61,16 +60,6 @@ Dio getAuthDio() {
               backgroundColor: FeelinColorFamily.errorPrimary,
               content: Text("The Access Token has expired. Please log in again."),
             ));
-
-            Fluttertoast.showToast(
-                msg: "The Access Token has expired. Please log in again.",
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.BOTTOM,
-                timeInSecForIosWeb: 1,
-                backgroundColor: FeelinColorFamily.red500,
-                textColor: Colors.white,
-                fontSize: 16.0
-            );
           }
         }
         return handler.next(error);

@@ -21,9 +21,11 @@ class PlaylistInfoAppBar extends StatefulWidget with PreferredSizeWidget {
   final int heroNumber;
   final Function goToTop;
   final double expandedHeight;
+  final Function edit;
+  final bool isEdited;
 
   const PlaylistInfoAppBar(
-      {Key? key, required this.isShrink, required this.post, required this.heroNumber, required this.goToTop, required this.expandedHeight}) : super(key: key);
+      {Key? key, required this.isShrink, required this.post, required this.heroNumber, required this.goToTop, required this.expandedHeight, required this.edit, required this.isEdited}) : super(key: key);
 
   @override
   State<PlaylistInfoAppBar> createState() => _PlaylistInfoAppBarState();
@@ -76,179 +78,197 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
 
     final share = Share(context: context);
 
-    return BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
-      builder: (context, state) {
-        return SliverAppBar(
-          elevation: 0,
-          pinned: true,
-          expandedHeight: widget.expandedHeight,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
+    return BlocListener<PlaylistInfoBloc, PlaylistInfoState>(
+      listener: (context, state){
+        state.loadFailureOrSuccessOption.fold(
+              () => null,
+              (failureOrSuccess) => failureOrSuccess.fold(
+                (f) => null,
+                (post) {
+              widget.post.title = post.title;
+              widget.post.content = post.content;
             },
-            color: Colors.black,
-            icon: const Icon(Icons.arrow_back_ios_new),
           ),
-          flexibleSpace: Stack(
-            children: [
-              Container(
-                decoration: widget.isShrink
-                    ? BoxDecoration(color: imageColor)
-                    : BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: FractionalOffset(0.5, 250 / widget.expandedHeight),
-                        colors: <Color>[
-                          imageColor,
-                          Colors.white,
-                        ],
-                        stops: const <double>[0.0, 1.0],
-                        tileMode: TileMode.clamp
-                    )
-                ),
-                child: flexibleSpaceBar(share),
-              ),
-              if(!widget.isShrink)Positioned(
-                right: 15,
-                  bottom: 0,
-                  child: FloatingActionButton(
-                    onPressed: (){
-                      if(!state.isLiked){
-                        context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.likeRequest());
-                      }else{
-                        context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.unlikeRequest());
-                      }
-                    },
-                    backgroundColor: Colors.black,
-                    //foregroundColor: Colors.white,
-                    child: SvgPicture.asset(
-                      state.isLiked ? 'assets/icons/heart_filled.svg'
-                          : 'assets/icons/heart.svg',
-                      color: state.isLiked ? FeelinColorFamily.redPrimary : Colors.white,
-                      width: 24,
-                      height: 24,
-                    ),
+        );
+      },
+      child: BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
+        builder: (context, state) {
+          return SliverAppBar(
+            elevation: 0,
+            pinned: true,
+            expandedHeight: widget.expandedHeight,
+            leading: IconButton(
+              onPressed: () {
+                if(widget.isEdited){
+                  Navigator.pop(context, widget.post);
+                }else{
+                  Navigator.pop(context);
+                }
+              },
+              color: Colors.black,
+              icon: const Icon(Icons.arrow_back_ios_new),
+            ),
+            flexibleSpace: Stack(
+              children: [
+                Container(
+                  decoration: widget.isShrink
+                      ? BoxDecoration(color: imageColor)
+                      : BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: FractionalOffset(0.5, 250 / widget.expandedHeight),
+                          colors: <Color>[
+                            imageColor,
+                            Colors.white,
+                          ],
+                          stops: const <double>[0.0, 1.0],
+                          tileMode: TileMode.clamp
+                      )
                   ),
-              )
-            ],
-          ),
-          actions: widget.isShrink
-              ? null : [IconButton(onPressed: (){
-                PlaylistInfoBloc bloc = context.read<PlaylistInfoBloc>();
-            showModalBottomSheet<void>(
-              context: context,
-              useRootNavigator: true,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-              ),
-              builder: (BuildContext context) {
-                return SizedBox(
-                  height: (state.post.writer!.id == int.parse(id!)) ? 200 : 80,
-                  child: Column(
-                    children: <Widget>[
-                      const SizedBox(
-                        height: 20,
+                  child: flexibleSpaceBar(share),
+                ),
+                if(!widget.isShrink)Positioned(
+                  right: 15,
+                    bottom: 0,
+                    child: FloatingActionButton(
+                      onPressed: (){
+                        if(!state.isLiked){
+                          context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.likeRequest());
+                        }else{
+                          context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.unlikeRequest());
+                        }
+                      },
+                      backgroundColor: Colors.black,
+                      //foregroundColor: Colors.white,
+                      child: SvgPicture.asset(
+                        state.isLiked ? 'assets/icons/heart_filled.svg'
+                            : 'assets/icons/heart.svg',
+                        color: state.isLiked ? FeelinColorFamily.redPrimary : Colors.white,
+                        width: 24,
+                        height: 24,
                       ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 60,
-                        child: TextButton(onPressed: (){
-                          share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail);
-                        }, child: const Text('Share', textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),)),
-                      ),
-                      if(state.post.writer!.id == int.parse(id!)) SizedBox(
+                    ),
+                )
+              ],
+            ),
+            actions: widget.isShrink
+                ? null : [IconButton(onPressed: (){
+                  PlaylistInfoBloc bloc = context.read<PlaylistInfoBloc>();
+              showModalBottomSheet<void>(
+                context: context,
+                useRootNavigator: true,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                ),
+                builder: (BuildContext context) {
+                  return SizedBox(
+                    height: (state.post.writer!.id == int.parse(id!)) ? 200 : 80,
+                    child: Column(
+                      children: <Widget>[
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
                           width: double.infinity,
                           height: 60,
                           child: TextButton(onPressed: (){
-                            Navigator.push(context,
-                                CupertinoPageRoute(
-                                    builder: (context) => BlocProvider(create: (context) => getIt<EditPostFormBloc>(),
-                                      child: EditPostPage(post: state.post.clone(),),
-                                    ))
-                            ).then((value) {
-                              if(value != null){
-                                bloc.add(PlaylistInfoEvent.loadRequest(widget.post.id));
-                              }
-                            });
-                          }, child: const Text('Edit', style: TextStyle(color: Colors.black, fontSize: 16),))),
-                      if(state.post.writer!.id == int.parse(id!)) SizedBox(
-                          width: double.infinity,
-                          height: 60,
-                          child: TextButton(onPressed: ()=>showModalBottomSheet<void>(
-                            context: context,
-                            useRootNavigator: true,
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                              ),
-                            ),
-                            builder: (context) => SingleChildScrollView(
-                              child: Container(
-                                padding: EdgeInsets.only(left: 24, top: 24, right: 18, bottom: 14),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          'Delete Post',
-                                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
-                                        ),
-                                        TextButton(
-                                          child: Text(
-                                            'Cancel',
-                                            style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary,
-                                            ),
-                                          ),
-                                          style: TextButton.styleFrom(
-                                            padding: EdgeInsets.zero,
-                                            minimumSize: Size(30, 26),
-                                            alignment: Alignment.centerRight,
-                                          ),
-                                          onPressed: () => Navigator.of(context).pop(),
-                                        ),
-                                      ],
-                                    ),
-                                    //CustomDivider(color: FeelinColorFamily.gray700),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(vertical: 20),
-                                      child: Center(
-                                        child: Text(
-                                          'Are you sure you want to delete the post?',
-                                          style: TextStyle(fontSize: 14, ),
-                                        ),
-                                      ),
-                                    ),
-                                    Center(
-                                      child: TextButton(
-                                        onPressed: (){
-                                          bloc.add(PlaylistInfoEvent.deleteRequest(widget.post.id));
-                                          Navigator.pop(context);
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text(
-                                          'Delete',
-                                          style: TextStyle(fontSize: 16, color: FeelinColorFamily.errorDark),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                            share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail);
+                          }, child: const Text('Share', textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),)),
+                        ),
+                        if(state.post.writer!.id == int.parse(id!)) SizedBox(
+                            width: double.infinity,
+                            height: 60,
+                            child: TextButton(onPressed: (){
+                              Navigator.push(context,
+                                  CupertinoPageRoute(
+                                      builder: (context) => BlocProvider(create: (context) => getIt<EditPostFormBloc>(),
+                                        child: EditPostPage(post: state.post.clone(),),
+                                      ))
+                              ).then((value) {
+                                if(value != null){
+                                  bloc.add(PlaylistInfoEvent.loadRequest(widget.post.id));
+                                  widget.edit();
+                                }
+                              });
+                            }, child: const Text('Edit', style: TextStyle(color: Colors.black, fontSize: 16),))),
+                        if(state.post.writer!.id == int.parse(id!)) SizedBox(
+                            width: double.infinity,
+                            height: 60,
+                            child: TextButton(onPressed: ()=>showModalBottomSheet<void>(
+                              context: context,
+                              useRootNavigator: true,
+                              backgroundColor: Colors.white,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
                                 ),
                               ),
-                            ),
-                          )
-                          , child: Text('Delete', style: TextStyle(color: FeelinColorFamily.errorDark, fontSize: 16),))),
-                    ],
-                  ),
-                );
-              },
-            ).then((value) {  });
-          }, icon: const Icon(Icons.more_vert))],
-        );
-      }
+                              builder: (context) => SingleChildScrollView(
+                                child: Container(
+                                  padding: const EdgeInsets.only(left: 24, top: 24, right: 18, bottom: 14),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            'Delete Post',
+                                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
+                                          ),
+                                          TextButton(
+                                            style: TextButton.styleFrom(
+                                              padding: EdgeInsets.zero,
+                                              minimumSize: const Size(30, 26),
+                                              alignment: Alignment.centerRight,
+                                            ),
+                                            onPressed: () => Navigator.of(context).pop(),
+                                            child: Text(
+                                              'Cancel',
+                                              style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const Padding(
+                                        padding: EdgeInsets.symmetric(vertical: 20),
+                                        child: Center(
+                                          child: Text(
+                                            'Are you sure you want to delete the post?',
+                                            style: TextStyle(fontSize: 14, ),
+                                          ),
+                                        ),
+                                      ),
+                                      Center(
+                                        child: TextButton(
+                                          onPressed: (){
+                                            bloc.add(PlaylistInfoEvent.deleteRequest(widget.post.id));
+                                            Navigator.pop(context);
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text(
+                                            'Delete',
+                                            style: TextStyle(fontSize: 16, color: FeelinColorFamily.errorDark),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            )
+                            , child: Text('Delete', style: TextStyle(color: FeelinColorFamily.errorDark, fontSize: 16),))),
+                      ],
+                    ),
+                  );
+                },
+              ).then((value) {  });
+            }, icon: const Icon(Icons.more_vert))],
+          );
+        }
+      ),
     );
   }
 
@@ -279,75 +299,82 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
               )
               : null,
           background: SafeArea(
-            child: Column(
-              children: [
-                if(widget.post.playlist.thumbnail != null || !state.isLoading)Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Material(
-                    shadowColor: Colors.black,
-                    elevation: 8,
-                    child: Hero(
-                      tag: "playlistCover${widget.heroNumber}",
-                      child: Image(
-                        image: CachedNetworkImageProvider(widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail),
-                        width: 233,
-                        height: 233,
-                        fit: BoxFit.cover,
+            child: SizedBox(
+              child: Column(
+                children: [
+                  if(widget.post.playlist.thumbnail != null || !state.isLoading)Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: Material(
+                      shadowColor: Colors.black,
+                      elevation: 8,
+                      child: Hero(
+                        tag: "playlistCover${widget.heroNumber}",
+                        child: Image(
+                          image: CachedNetworkImageProvider(widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail),
+                          width: 233,
+                          height: 233,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.post.title,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: -0.41,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Text(
-                          widget.post.content,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 13,
-                            color: FeelinColorFamily.gray600,
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.post.title,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          style: const TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600,
                             letterSpacing: -0.41,
                           ),
                         ),
-                      ),
-                      if(!state.isLoading)UserNickname(writer: state.post.writer!),
-                      if(!state.isLoading)Row(
-                        children: [
-                          Text(
-                            "${state.post.playlist.tracks!.length} tracks | ${state.post.likeCount!} likes |",
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 5),
+                          child: Text(
+                            widget.post.content,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
                             style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color: FeelinColorFamily.gray700,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 13,
+                              color: FeelinColorFamily.gray600,
                               letterSpacing: -0.41,
                             ),
                           ),
-                          IconButton(
-                              onPressed: (){
-                                share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail);
-                              },
-                              icon: Icon(Icons.ios_share, size: 27,color: FeelinColorFamily.gray700,))
-                        ],
-                      ),
-                    ],
+                        ),
+                        if(!state.isLoading)UserNickname(writer: state.post.writer!),
+                        if(!state.isLoading)Row(
+                          children: [
+                            Text(
+                              "${state.post.playlist.tracks!.length} tracks | ${state.post.likeCount!} likes |",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: FeelinColorFamily.gray700,
+                                letterSpacing: -0.41,
+                              ),
+                            ),
+                            IconButton(
+                                onPressed: (){
+                                  share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail);
+                                },
+                                icon: Icon(Icons.ios_share, size: 27,color: FeelinColorFamily.gray700,))
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );

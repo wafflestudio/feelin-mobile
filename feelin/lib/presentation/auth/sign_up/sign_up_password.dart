@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
-import '../../style/colors.dart';
+import '../../common/next_button.dart';
 import 'common_description.dart';
 import 'common_title.dart';
-import '../../common/next_button.dart';
 
 class SignUpPassword extends StatefulWidget{
   final Map<String, String> input;

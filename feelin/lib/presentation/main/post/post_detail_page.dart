@@ -5,8 +5,6 @@ import 'package:music_sns/application/post/post_form/post_form_bloc.dart';
 
 import '../../../domain/play/playlist.dart';
 import '../../../domain/post/max_lines_input_formatters.dart';
-import '../../common/next_button.dart';
-import '../../style/colors.dart';
 
 class PostDetailPage extends StatefulWidget{
   const PostDetailPage({Key? key,}) : super(key: key);
@@ -150,7 +148,6 @@ class _PostDetailPageState extends State<PostDetailPage> {
                           .add(PostFormEvent.contentChanged(value)),
                     ),
                   ),
-
                 ],
               ),
             ),

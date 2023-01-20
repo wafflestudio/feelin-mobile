@@ -45,7 +45,26 @@ class PostRepository{
     }
   }
 
-  Future<Either<PostFailure, Unit>> editPost({required NotEmptyString title, required ContentString content}) async{
-    throw UnimplementedError();
+  Future<Either<PostFailure, Unit>> editPost({required PlaylistPreview playlistPreview, required NotEmptyString title, required ContentString content, required int id}) async{
+    try{
+      HttpResponse<void> httpResponse = await postClient.editPost(
+          CreatePostRequest(title: title.getOrCrash(), content: content.getOrCrash(), playlistPreview: playlistPreview), id
+      );
+      switch(httpResponse.response.statusCode){
+        case 200 : return const Right(unit);
+        case 400 : return const Left(PostFailure.blankedTitle());
+        case 401 : return const Left(PostFailure.unauthorized());
+        case 403 : return const Left(PostFailure.duplicateTitle());
+        default : return const Left(PostFailure.serverError());
+      }
+    }on DioError catch(e){
+      print(e);
+      switch(e.response?.statusCode){
+        case 400 : return const Left(PostFailure.blankedTitle());
+        case 401 : return const Left(PostFailure.unauthorized());
+        case 403 : return const Left(PostFailure.duplicateTitle());
+        default : return const Left(PostFailure.serverError());
+      }
+    }
   }
 }

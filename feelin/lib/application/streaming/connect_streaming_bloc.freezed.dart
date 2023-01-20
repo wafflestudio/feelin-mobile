@@ -20,6 +20,7 @@ mixin _$ConnectStreamingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String vendorStr) requestLogin,
     required TResult Function() spotifyLogin,
+    required TResult Function(String token, int id) appleMusicLogin,
     required TResult Function() submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +28,7 @@ mixin _$ConnectStreamingEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
+    TResult Function(String token, int id)? appleMusicLogin,
     TResult Function()? submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +36,7 @@ mixin _$ConnectStreamingEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
+    TResult Function(String token, int id)? appleMusicLogin,
     TResult Function()? submitted,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,7 @@ mixin _$ConnectStreamingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestLogin value) requestLogin,
     required TResult Function(_SpotifyLogin value) spotifyLogin,
+    required TResult Function(_AppleMusicLogin value) appleMusicLogin,
     required TResult Function(_Submitted value) submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +53,7 @@ mixin _$ConnectStreamingEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_RequestLogin value)? requestLogin,
     TResult Function(_SpotifyLogin value)? spotifyLogin,
+    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
     TResult Function(_Submitted value)? submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,7 @@ mixin _$ConnectStreamingEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestLogin value)? requestLogin,
     TResult Function(_SpotifyLogin value)? spotifyLogin,
+    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
   }) =>
@@ -146,6 +152,7 @@ class _$_RequestLogin implements _RequestLogin {
   TResult when<TResult extends Object?>({
     required TResult Function(String vendorStr) requestLogin,
     required TResult Function() spotifyLogin,
+    required TResult Function(String token, int id) appleMusicLogin,
     required TResult Function() submitted,
   }) {
     return requestLogin(vendorStr);
@@ -156,6 +163,7 @@ class _$_RequestLogin implements _RequestLogin {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
+    TResult Function(String token, int id)? appleMusicLogin,
     TResult Function()? submitted,
   }) {
     return requestLogin?.call(vendorStr);
@@ -166,6 +174,7 @@ class _$_RequestLogin implements _RequestLogin {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
+    TResult Function(String token, int id)? appleMusicLogin,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -180,6 +189,7 @@ class _$_RequestLogin implements _RequestLogin {
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestLogin value) requestLogin,
     required TResult Function(_SpotifyLogin value) spotifyLogin,
+    required TResult Function(_AppleMusicLogin value) appleMusicLogin,
     required TResult Function(_Submitted value) submitted,
   }) {
     return requestLogin(this);
@@ -190,6 +200,7 @@ class _$_RequestLogin implements _RequestLogin {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_RequestLogin value)? requestLogin,
     TResult Function(_SpotifyLogin value)? spotifyLogin,
+    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
     TResult Function(_Submitted value)? submitted,
   }) {
     return requestLogin?.call(this);
@@ -200,6 +211,7 @@ class _$_RequestLogin implements _RequestLogin {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestLogin value)? requestLogin,
     TResult Function(_SpotifyLogin value)? spotifyLogin,
+    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
   }) {
@@ -262,6 +274,7 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   TResult when<TResult extends Object?>({
     required TResult Function(String vendorStr) requestLogin,
     required TResult Function() spotifyLogin,
+    required TResult Function(String token, int id) appleMusicLogin,
     required TResult Function() submitted,
   }) {
     return spotifyLogin();
@@ -272,6 +285,7 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
+    TResult Function(String token, int id)? appleMusicLogin,
     TResult Function()? submitted,
   }) {
     return spotifyLogin?.call();
@@ -282,6 +296,7 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
+    TResult Function(String token, int id)? appleMusicLogin,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -296,6 +311,7 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestLogin value) requestLogin,
     required TResult Function(_SpotifyLogin value) spotifyLogin,
+    required TResult Function(_AppleMusicLogin value) appleMusicLogin,
     required TResult Function(_Submitted value) submitted,
   }) {
     return spotifyLogin(this);
@@ -306,6 +322,7 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_RequestLogin value)? requestLogin,
     TResult Function(_SpotifyLogin value)? spotifyLogin,
+    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
     TResult Function(_Submitted value)? submitted,
   }) {
     return spotifyLogin?.call(this);
@@ -316,6 +333,7 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestLogin value)? requestLogin,
     TResult Function(_SpotifyLogin value)? spotifyLogin,
+    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
   }) {
@@ -328,6 +346,164 @@ class _$_SpotifyLogin implements _SpotifyLogin {
 
 abstract class _SpotifyLogin implements ConnectStreamingEvent {
   const factory _SpotifyLogin() = _$_SpotifyLogin;
+}
+
+/// @nodoc
+abstract class _$$_AppleMusicLoginCopyWith<$Res> {
+  factory _$$_AppleMusicLoginCopyWith(
+          _$_AppleMusicLogin value, $Res Function(_$_AppleMusicLogin) then) =
+      __$$_AppleMusicLoginCopyWithImpl<$Res>;
+  $Res call({String token, int id});
+}
+
+/// @nodoc
+class __$$_AppleMusicLoginCopyWithImpl<$Res>
+    extends _$ConnectStreamingEventCopyWithImpl<$Res>
+    implements _$$_AppleMusicLoginCopyWith<$Res> {
+  __$$_AppleMusicLoginCopyWithImpl(
+      _$_AppleMusicLogin _value, $Res Function(_$_AppleMusicLogin) _then)
+      : super(_value, (v) => _then(v as _$_AppleMusicLogin));
+
+  @override
+  _$_AppleMusicLogin get _value => super._value as _$_AppleMusicLogin;
+
+  @override
+  $Res call({
+    Object? token = freezed,
+    Object? id = freezed,
+  }) {
+    return _then(_$_AppleMusicLogin(
+      token == freezed
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AppleMusicLogin implements _AppleMusicLogin {
+  const _$_AppleMusicLogin(this.token, this.id);
+
+  @override
+  final String token;
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'ConnectStreamingEvent.appleMusicLogin(token: $token, id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AppleMusicLogin &&
+            const DeepCollectionEquality().equals(other.token, token) &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(token),
+      const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_AppleMusicLoginCopyWith<_$_AppleMusicLogin> get copyWith =>
+      __$$_AppleMusicLoginCopyWithImpl<_$_AppleMusicLogin>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String vendorStr) requestLogin,
+    required TResult Function() spotifyLogin,
+    required TResult Function(String token, int id) appleMusicLogin,
+    required TResult Function() submitted,
+  }) {
+    return appleMusicLogin(token, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String vendorStr)? requestLogin,
+    TResult Function()? spotifyLogin,
+    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function()? submitted,
+  }) {
+    return appleMusicLogin?.call(token, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String vendorStr)? requestLogin,
+    TResult Function()? spotifyLogin,
+    TResult Function(String token, int id)? appleMusicLogin,
+    TResult Function()? submitted,
+    required TResult orElse(),
+  }) {
+    if (appleMusicLogin != null) {
+      return appleMusicLogin(token, id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RequestLogin value) requestLogin,
+    required TResult Function(_SpotifyLogin value) spotifyLogin,
+    required TResult Function(_AppleMusicLogin value) appleMusicLogin,
+    required TResult Function(_Submitted value) submitted,
+  }) {
+    return appleMusicLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RequestLogin value)? requestLogin,
+    TResult Function(_SpotifyLogin value)? spotifyLogin,
+    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
+    TResult Function(_Submitted value)? submitted,
+  }) {
+    return appleMusicLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RequestLogin value)? requestLogin,
+    TResult Function(_SpotifyLogin value)? spotifyLogin,
+    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
+    TResult Function(_Submitted value)? submitted,
+    required TResult orElse(),
+  }) {
+    if (appleMusicLogin != null) {
+      return appleMusicLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppleMusicLogin implements ConnectStreamingEvent {
+  const factory _AppleMusicLogin(final String token, final int id) =
+      _$_AppleMusicLogin;
+
+  String get token;
+  int get id;
+  @JsonKey(ignore: true)
+  _$$_AppleMusicLoginCopyWith<_$_AppleMusicLogin> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -373,6 +549,7 @@ class _$_Submitted implements _Submitted {
   TResult when<TResult extends Object?>({
     required TResult Function(String vendorStr) requestLogin,
     required TResult Function() spotifyLogin,
+    required TResult Function(String token, int id) appleMusicLogin,
     required TResult Function() submitted,
   }) {
     return submitted();
@@ -383,6 +560,7 @@ class _$_Submitted implements _Submitted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
+    TResult Function(String token, int id)? appleMusicLogin,
     TResult Function()? submitted,
   }) {
     return submitted?.call();
@@ -393,6 +571,7 @@ class _$_Submitted implements _Submitted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String vendorStr)? requestLogin,
     TResult Function()? spotifyLogin,
+    TResult Function(String token, int id)? appleMusicLogin,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -407,6 +586,7 @@ class _$_Submitted implements _Submitted {
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestLogin value) requestLogin,
     required TResult Function(_SpotifyLogin value) spotifyLogin,
+    required TResult Function(_AppleMusicLogin value) appleMusicLogin,
     required TResult Function(_Submitted value) submitted,
   }) {
     return submitted(this);
@@ -417,6 +597,7 @@ class _$_Submitted implements _Submitted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_RequestLogin value)? requestLogin,
     TResult Function(_SpotifyLogin value)? spotifyLogin,
+    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
     TResult Function(_Submitted value)? submitted,
   }) {
     return submitted?.call(this);
@@ -427,6 +608,7 @@ class _$_Submitted implements _Submitted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestLogin value)? requestLogin,
     TResult Function(_SpotifyLogin value)? spotifyLogin,
+    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
   }) {
@@ -444,7 +626,10 @@ abstract class _Submitted implements ConnectStreamingEvent {
 /// @nodoc
 mixin _$ConnectStreamingState {
   Option<Either<ConnectFailure, RedirectUrl>>
-      get requestFailureOrSuccessOption => throw _privateConstructorUsedError;
+      get urlRequestFailureOrSuccessOption =>
+          throw _privateConstructorUsedError;
+  Option<Either<ConnectFailure, Unit>> get requestFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -459,7 +644,8 @@ abstract class $ConnectStreamingStateCopyWith<$Res> {
       _$ConnectStreamingStateCopyWithImpl<$Res>;
   $Res call(
       {Option<Either<ConnectFailure, RedirectUrl>>
-          requestFailureOrSuccessOption,
+          urlRequestFailureOrSuccessOption,
+      Option<Either<ConnectFailure, Unit>> requestFailureOrSuccessOption,
       bool isSubmitting});
 }
 
@@ -474,14 +660,20 @@ class _$ConnectStreamingStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? urlRequestFailureOrSuccessOption = freezed,
     Object? requestFailureOrSuccessOption = freezed,
     Object? isSubmitting = freezed,
   }) {
     return _then(_value.copyWith(
+      urlRequestFailureOrSuccessOption: urlRequestFailureOrSuccessOption ==
+              freezed
+          ? _value.urlRequestFailureOrSuccessOption
+          : urlRequestFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ConnectFailure, RedirectUrl>>,
       requestFailureOrSuccessOption: requestFailureOrSuccessOption == freezed
           ? _value.requestFailureOrSuccessOption
           : requestFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ConnectFailure, RedirectUrl>>,
+              as Option<Either<ConnectFailure, Unit>>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -499,7 +691,8 @@ abstract class _$$_ConnectStreamingStateCopyWith<$Res>
   @override
   $Res call(
       {Option<Either<ConnectFailure, RedirectUrl>>
-          requestFailureOrSuccessOption,
+          urlRequestFailureOrSuccessOption,
+      Option<Either<ConnectFailure, Unit>> requestFailureOrSuccessOption,
       bool isSubmitting});
 }
 
@@ -517,14 +710,20 @@ class __$$_ConnectStreamingStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? urlRequestFailureOrSuccessOption = freezed,
     Object? requestFailureOrSuccessOption = freezed,
     Object? isSubmitting = freezed,
   }) {
     return _then(_$_ConnectStreamingState(
+      urlRequestFailureOrSuccessOption: urlRequestFailureOrSuccessOption ==
+              freezed
+          ? _value.urlRequestFailureOrSuccessOption
+          : urlRequestFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ConnectFailure, RedirectUrl>>,
       requestFailureOrSuccessOption: requestFailureOrSuccessOption == freezed
           ? _value.requestFailureOrSuccessOption
           : requestFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ConnectFailure, RedirectUrl>>,
+              as Option<Either<ConnectFailure, Unit>>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -537,18 +736,21 @@ class __$$_ConnectStreamingStateCopyWithImpl<$Res>
 
 class _$_ConnectStreamingState implements _ConnectStreamingState {
   const _$_ConnectStreamingState(
-      {required this.requestFailureOrSuccessOption,
+      {required this.urlRequestFailureOrSuccessOption,
+      required this.requestFailureOrSuccessOption,
       required this.isSubmitting});
 
   @override
   final Option<Either<ConnectFailure, RedirectUrl>>
-      requestFailureOrSuccessOption;
+      urlRequestFailureOrSuccessOption;
+  @override
+  final Option<Either<ConnectFailure, Unit>> requestFailureOrSuccessOption;
   @override
   final bool isSubmitting;
 
   @override
   String toString() {
-    return 'ConnectStreamingState(requestFailureOrSuccessOption: $requestFailureOrSuccessOption, isSubmitting: $isSubmitting)';
+    return 'ConnectStreamingState(urlRequestFailureOrSuccessOption: $urlRequestFailureOrSuccessOption, requestFailureOrSuccessOption: $requestFailureOrSuccessOption, isSubmitting: $isSubmitting)';
   }
 
   @override
@@ -556,6 +758,9 @@ class _$_ConnectStreamingState implements _ConnectStreamingState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ConnectStreamingState &&
+            const DeepCollectionEquality().equals(
+                other.urlRequestFailureOrSuccessOption,
+                urlRequestFailureOrSuccessOption) &&
             const DeepCollectionEquality().equals(
                 other.requestFailureOrSuccessOption,
                 requestFailureOrSuccessOption) &&
@@ -566,6 +771,7 @@ class _$_ConnectStreamingState implements _ConnectStreamingState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(urlRequestFailureOrSuccessOption),
       const DeepCollectionEquality().hash(requestFailureOrSuccessOption),
       const DeepCollectionEquality().hash(isSubmitting));
 
@@ -579,11 +785,16 @@ class _$_ConnectStreamingState implements _ConnectStreamingState {
 abstract class _ConnectStreamingState implements ConnectStreamingState {
   const factory _ConnectStreamingState(
       {required final Option<Either<ConnectFailure, RedirectUrl>>
+          urlRequestFailureOrSuccessOption,
+      required final Option<Either<ConnectFailure, Unit>>
           requestFailureOrSuccessOption,
       required final bool isSubmitting}) = _$_ConnectStreamingState;
 
   @override
-  Option<Either<ConnectFailure, RedirectUrl>> get requestFailureOrSuccessOption;
+  Option<Either<ConnectFailure, RedirectUrl>>
+      get urlRequestFailureOrSuccessOption;
+  @override
+  Option<Either<ConnectFailure, Unit>> get requestFailureOrSuccessOption;
   @override
   bool get isSubmitting;
   @override

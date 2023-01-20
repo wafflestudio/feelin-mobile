@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:music_sns/domain/auth/value_objects.dart';
 import 'package:music_sns/domain/core/value_failures.dart';
 import 'package:validators/validators.dart';
 
@@ -93,7 +92,7 @@ Either<ValueFailure<String>, String> validateUrl(String input) {
 }
 
 Either<ValueFailure<String>, String> validateContent(String input) {
-  if (input.length <= 200) {
+  if (input.length <= 1000) {
     return right(input);
   } else {
     return left(ValueFailure.exceedingLength(failedValue: input, max: 100));
@@ -101,7 +100,7 @@ Either<ValueFailure<String>, String> validateContent(String input) {
 }
 
 Either<ValueFailure<String>, String> validateIntroduction(String input) {
-  if (input.length <= 200) {
+  if (input.length <= 1000) {
     return right(input);
   } else {
     return left(ValueFailure.exceedingLength(failedValue: input, max: 100));

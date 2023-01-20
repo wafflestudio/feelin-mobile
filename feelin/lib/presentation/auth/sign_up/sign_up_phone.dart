@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:music_sns/application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
-import 'package:music_sns/presentation/auth/sign_up/confirmation_tab_bar.dart';
 
-import '../../style/colors.dart';
-import 'common_description.dart';
-import 'common_title.dart';
 import '../../common/next_button.dart';
+import '../../style/colors.dart';
+import 'common_title.dart';
 
 class SignUpPhone extends StatefulWidget{
   final Map input;
@@ -24,9 +22,9 @@ class _SignUpNameState extends State<SignUpPhone> with TickerProviderStateMixin{
   bool isPhoneValid = false;
 
   final TextEditingController _phoneTextController = TextEditingController();
-  String initialCountry = 'KR';
-  PhoneNumber number = PhoneNumber(isoCode: 'KR');
-
+  String initialCountry = WidgetsBinding.instance.window.locale.countryCode ?? 'US';
+  late PhoneNumber initialNumber = PhoneNumber(isoCode: initialCountry);
+  late PhoneNumber number = PhoneNumber(isoCode: initialCountry);
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +58,7 @@ class _SignUpNameState extends State<SignUpPhone> with TickerProviderStateMixin{
                   //     .read<SignUpFormBloc>()
                   //     .add(const SignUpFormEvent.requested());
                   // 요청 성공 시 goToNext();
+                  print('${number.dialCode}${number.parseNumber()}');
                   widget.goToNext();
                 },),
             )
@@ -93,13 +92,14 @@ class _SignUpNameState extends State<SignUpPhone> with TickerProviderStateMixin{
       },
       onInputChanged: (PhoneNumber value) { setState(() {
         widget.input['phoneNumber'] = value.phoneNumber;
+        number = value;
       });},
       onInputValidated: (bool value) {
         isPhoneValid = value;
       },
       errorMessage: 'please enter a valid phone number.',
       autoValidateMode: AutovalidateMode.always,
-      initialValue: number,
+      initialValue: initialNumber,
       textFieldController: _phoneTextController,
       formatInput: false,
       keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),

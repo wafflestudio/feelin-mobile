@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:music_sns/domain/play/post.dart';
 import 'package:music_sns/domain/profile/page.dart';
 import 'package:music_sns/domain/profile/profile.dart';
 import 'package:music_sns/domain/profile/profile_failure.dart';
@@ -11,8 +10,8 @@ import 'package:retrofit/retrofit.dart';
 
 import '../../domain/auth/check_username_request.dart';
 import '../../domain/auth/exists_username.dart';
-import '../../domain/profile/value_objects.dart';
 import '../../domain/profile/edit_my_profile_request.dart';
+import '../../domain/profile/value_objects.dart';
 
 @LazySingleton()
 class ProfileRepository{

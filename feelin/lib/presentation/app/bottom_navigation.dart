@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_sns/application/profile/profile_bloc.dart';
 import 'package:music_sns/presentation/main/post/app/post_app.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 

@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,9 +5,9 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/follow/follow_bloc.dart';
 import 'package:music_sns/application/profile/profile_bloc.dart';
 import 'package:music_sns/presentation/follow/follow_page.dart';
+import 'package:music_sns/presentation/main/profile/dynamic_sliver_app_bar.dart';
 import 'package:music_sns/presentation/main/profile/follow_button.dart';
 import 'package:music_sns/presentation/main/profile/post_preview.dart';
-import 'package:music_sns/presentation/main/profile/dynamic_sliver_app_bar.dart';
 
 import '../../../injection.dart';
 
@@ -62,46 +61,19 @@ class _ProfilePageState extends State<ProfilePage>{
                 child: CustomScrollView(
                   controller: scrollController,
                   physics: const ClampingScrollPhysics(),
-                  // headerSliverBuilder: (context, innerBoxIsScrolled){
-                  //   return [
-                  //     ProfileView(child: _profileView(context), maxHeight: 500,)
-                  //   ];
-                  // },
                   slivers: [
                     DynamicSliverAppBar(maxHeight: 600,child: _profileView(context),),
-                    SliverGrid(
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 10.0,
-                          crossAxisSpacing: 10.0,
-                          childAspectRatio: 0.82,
-                        ),
+                    SliverList(
                         delegate: SliverChildBuilderDelegate(
                                 (BuildContext context, int index) {
-                                  return PostPreview(index: index, post: state.posts[index]);
+                                  return Padding(
+                                    padding: const EdgeInsets.only(bottom: 4),
+                                    child: PostPreview(index: index, post: state.posts[index]),
+                                  );
                             }, childCount: state.posts.length,
                         ),
                     )
                   ],
-                  // body:
-                  //   Container(
-                  //     margin: const EdgeInsets.fromLTRB(10, 10, 10, 5),
-                  //     child: GridView.builder(
-                  //       controller: scrollController,
-                  //       physics: const BouncingScrollPhysics(),
-                  //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  //         crossAxisCount: 2,
-                  //         mainAxisSpacing: 10.0,
-                  //         crossAxisSpacing: 10.0,
-                  //         childAspectRatio: 0.82,
-                  //       ),
-                  //       itemCount: state.posts.length,
-                  //       itemBuilder: (BuildContext context, int index){
-                  //         return PostPreview(index: index, post: state.posts[index]);
-                  //       },
-                  //     ),
-                  //   )
-                  // ,
                 ),
               );
             });
@@ -121,10 +93,9 @@ class _ProfilePageState extends State<ProfilePage>{
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 100,
-                child: Row(
+                child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ClipRRect(
@@ -137,127 +108,112 @@ class _ProfilePageState extends State<ProfilePage>{
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(
-                      width: 70,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('${state.profile.countPosts}',
-                            style: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600
-                          ),),
-                          const Text('Posts',
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal
-                            ),),
-                        ],
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, CupertinoPageRoute(
-                          builder: (context){
-                            return BlocProvider(
-                                create: (context) => getIt<FollowBloc>(),
-                                child: FollowPage(id: state.profile.id, isFollowerPage: true));
+                    const SizedBox(height: 10,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, CupertinoPageRoute(
+                              builder: (context){
+                                return BlocProvider(
+                                    create: (context) => getIt<FollowBloc>(),
+                                    child: FollowPage(id: state.profile.id, isFollowerPage: true));
+                              },
+                            ),
+                            );
                           },
-                        ),
-                        );
-                      },
-                      child: AbsorbPointer(
-                        child: SizedBox(
-                          width: 70,
-                          height: 100,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('${state.profile.followerCount}',
-                                style: const TextStyle(
-                                    fontSize: 15,
+                          child: AbsorbPointer(
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text('${state.profile.followerCount}',
+                                  style: const TextStyle(
+                                    fontSize: 18,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w600
-                                ),),
-                              const Text('Followers',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal
-                                ),),
-                            ],
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: -0.41,
+                                  ),),
+                                const SizedBox(width: 2,),
+                                const Text('Followers',
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      letterSpacing: -0.41,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w400
+                                  ),),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, CupertinoPageRoute(
-                          builder: (context){
-                            return BlocProvider(
-                                create: (context) => getIt<FollowBloc>(),
-                                child: FollowPage(id: state.profile.id, isFollowerPage: false));
+                        const SizedBox(width: 10,),
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, CupertinoPageRoute(
+                              builder: (context){
+                                return BlocProvider(
+                                    create: (context) => getIt<FollowBloc>(),
+                                    child: FollowPage(id: state.profile.id, isFollowerPage: false));
+                              },
+                            ),
+                            );
                           },
-                        ),
-                        );
-                      },
-                      child: AbsorbPointer(
-                        child: SizedBox(
-                          width: 70,
-                          height: 100,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('${state.profile.followingCount}',
-                                style: const TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600
-                                ),),
-                              const Text('Following',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal
-                                ),),
-                            ],
+                          child: AbsorbPointer(
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text('${state.profile.followingCount}',
+                                  style: const TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: -0.41,
+                                  ),),
+                                const SizedBox(width: 2,),
+                                const Text('Following',
+                                  style:  TextStyle(
+                                      fontSize: 13,
+                                      letterSpacing: -0.41,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w400
+                                  ),),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
                   ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 15, bottom: 4),
-                child: Text(state.profile.name ?? '',
-                  style: const TextStyle(
-                      fontSize: 13,
-                    fontWeight: FontWeight.w700
-                  ),
                 ),
               ),
               if(state.profile.introduction != null && state.profile.introduction!.isNotEmpty)Container(
                   margin: const EdgeInsets.only(top: 4, bottom: 0),
                   child: Text(state.profile.introduction ?? '',
+                    textAlign: TextAlign.center,
                     style: const TextStyle(
-                        fontSize: 13,
-                        height: 1.5,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: -0.41,
                     ),
                   ),
               ),
-              if(widget.userId != null && widget.userId != int.parse(id!)) FollowButton(isFollowed: state.isFollowed, function: (){
-                if(!state.isFollowed){
-                  context.read<ProfileBloc>().add(const ProfileEvent.followRequest());
-                }else{
-                  context.read<ProfileBloc>().add(const ProfileEvent.unFollowRequest());
-                }
-              }),
+              if(widget.userId != null && widget.userId != int.parse(id!))
+                Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: FollowButton(isFollowed: state.isFollowed, function: (){
+                  if(!state.isFollowed){
+                    context.read<ProfileBloc>().add(const ProfileEvent.followRequest());
+                  }else{
+                    context.read<ProfileBloc>().add(const ProfileEvent.unFollowRequest());
+                  }
+                }),
+              ),
+              const SizedBox(height: 30,),
             ],
           ),
         );

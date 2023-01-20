@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/edit/edit_post_form/edit_post_form_bloc.dart';
-import '../../../application/navigation/nav_bar_item.dart';
-import '../../../application/navigation/navigation_cubit.dart';
 import '../../../domain/custom/marquee.dart';
+import '../../../domain/play/playlist_preview.dart';
 import '../../../domain/play/post.dart';
 import '../../../domain/play/track.dart';
-import '../../main/root_page.dart';
+import '../../../domain/post/max_lines_input_formatters.dart';
+import 'edit_post_app_bar.dart';
 
 class EditPostPage extends StatefulWidget{
   const EditPostPage({Key? key, required this.post}) : super(key: key);
@@ -29,8 +29,13 @@ class _EditPostPageState extends State<EditPostPage> {
   @override
   void initState(){
     super.initState();
+    context.read<EditPostFormBloc>().add(EditPostFormEvent.idChanged(widget.post.id));
     context.read<EditPostFormBloc>().add(EditPostFormEvent.titleChanged(widget.post.title));
     context.read<EditPostFormBloc>().add(EditPostFormEvent.contentChanged(widget.post.content));
+    PlaylistPreview playlistPreview = context.read<EditPostFormBloc>().state.playlistPreview;
+    playlistPreview.thumbnail = widget.post.playlist.tracks![0].album.thumbnail;
+    playlistPreview.order = List.generate(widget.post.playlist.tracks!.length, (index) => index+1).join(' ');
+    context.read<EditPostFormBloc>().add(EditPostFormEvent.previewChanged(playlistPreview));
     _titleTextController.text = widget.post.title;
     _contentTextController.text = widget.post.content;
   }
@@ -43,27 +48,7 @@ class _EditPostPageState extends State<EditPostPage> {
     return Scaffold(
       extendBody: true,
       key: widget.key,
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        title: const Text(''),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          color: Colors.grey,
-          icon: const Icon(Icons.arrow_back_ios_new),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              context.read<EditPostFormBloc>().add(const EditPostFormEvent.submitted());
-            },
-            color: const Color(0xff7077D5),
-            icon: const Icon(Icons.check),
-          ),
-        ],
-      ),
+      appBar: const EditPostAppBar(),
       body: SafeArea(
         bottom: false,
         maintainBottomViewPadding: true,
@@ -96,46 +81,52 @@ class _EditPostPageState extends State<EditPostPage> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 30),
-              height: 130,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image(
-                    image: CachedNetworkImageProvider(widget.post.playlist.tracks![0].album.thumbnail),
-                    width: 130,
-                    height: 130,
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(width: 10,),
-                  Flexible(
-                    child: TextFormField(
-                      maxLength: 100,
-                      controller: _titleTextController,
-                      decoration: const InputDecoration(
-                        labelText: '제목',
-                        hintText: '제목 입력..',
-                        isDense: true,
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xff7DD8C6),
-                          ),
-                        ),
-                      ),
-                      validator: (_) =>
-                          context.read<EditPostFormBloc>().state.title.value.fold(
-                                (f) => f.maybeMap(
-                              orElse: () => null,
-                            ),
-                                (_) => null,
-                          ),
-                      onChanged: (value) => context
-                          .read<EditPostFormBloc>()
-                          .add(EditPostFormEvent.titleChanged(value)),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image(
+                image: CachedNetworkImageProvider(widget.post.playlist.tracks![0].album.thumbnail),
+                width: 200,
+                height: 200,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(width: 10,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 8),
+              child: TextFormField(
+                maxLength: 100,
+                minLines: 1,
+                maxLines: 1,
+                inputFormatters: [
+                  MaxLinesInputFormatters(1),
+                ],
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 24,
+                  letterSpacing: -0.41,
+                ),
+                controller: _titleTextController,
+                decoration: const InputDecoration(
+                  hintText: 'Title',
+                  counterText: '',
+                  isDense: true,
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
                     ),
                   ),
-                ],
+                ),
+                validator: (_) =>
+                    context.read<EditPostFormBloc>().state.title.value.fold(
+                          (f) => f.maybeMap(
+                        orElse: () => null,
+                      ),
+                          (_) => null,
+                    ),
+                onChanged: (value) => context
+                    .read<EditPostFormBloc>()
+                    .add(EditPostFormEvent.titleChanged(value)),
               ),
             ),
             const SizedBox(height: 5,),
@@ -145,18 +136,19 @@ class _EditPostPageState extends State<EditPostPage> {
               child: TextFormField(
                 maxLength: 1000,
                 minLines: 1,
-                maxLines: 3,
+                maxLines: 4,
                 expands: false,
                 keyboardType: TextInputType.multiline,
                 controller: _contentTextController,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  letterSpacing: -0.41,
+                ),
                 decoration: const InputDecoration(
-                  hintText: '문구 입력..',
+                  hintText: 'Description',
+                  counterText: '',
                   isDense: true,
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xff7DD8C6),
-                    ),
-                  ),
                 ),
                 validator: (_) =>
                     context.read<EditPostFormBloc>().state.content.value.fold(
@@ -168,70 +160,6 @@ class _EditPostPageState extends State<EditPostPage> {
                 onChanged: (value) => context
                     .read<EditPostFormBloc>()
                     .add(EditPostFormEvent.contentChanged(value)),
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 1.5,
-              decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: FractionalOffset(0.0, 0.0),
-                      end: FractionalOffset(1.0, 1.0),
-                      colors: <Color>[
-                        Color(0xff00C19C),
-                        Color(0xff7077D5),
-                      ],
-                      stops: <double>[0.0, 1.0],
-                      tileMode: TileMode.clamp
-                  )
-              ),
-            ),
-            Flexible(
-              fit: FlexFit.tight,
-              child: Container(
-                margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                child: ScrollConfiguration(
-                  behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-                  child: ReorderableListView.builder(
-                      footer: const SizedBox(height: 50,),
-                      physics: const BouncingScrollPhysics(),
-                      scrollController: scrollController,
-                      onReorder: (int oldIndex, int newIndex) {
-                        setState(() {
-                          if (oldIndex < newIndex) {
-                            newIndex -= 1;
-                          }
-                          final Track item = widget.post.playlist.tracks!.removeAt(oldIndex);
-                          widget.post.playlist.tracks!.insert(newIndex, item);
-                        }
-                        );
-                      },
-                      itemCount: widget.post.playlist.tracks!.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          key: ValueKey(index),
-                          padding: const EdgeInsets.all(5),
-                          child: Row(
-                            children: [
-                              Image(
-                                image: CachedNetworkImageProvider(
-                                    widget.post.playlist.tracks![index].album.thumbnail),
-                                fit: BoxFit.cover,
-                                width: 45,
-                                height: 45,),
-                              _itemText(context, index),
-                              ReorderableDragStartListener(
-                                index: index,
-                                child: const SizedBox(
-                                    height: 45,
-                                    width: 45,
-                                    child: Icon(Icons.drag_handle)),
-                              ),
-                            ],
-                          ),
-                        );
-                      }),
-                ),
               ),
             ),
           ],

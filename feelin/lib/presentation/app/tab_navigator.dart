@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_sns/presentation/main/explore/app/explore_app.dart';
-import 'package:music_sns/presentation/main/explore/explore_page.dart';
 import 'package:music_sns/presentation/main/post/app/post_app.dart';
-import 'package:music_sns/presentation/main/post/post_page.dart';
 
 import '../main/profile/app/profile_app.dart';
 import 'tab_item.dart';

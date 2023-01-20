@@ -11,4 +11,6 @@ abstract class PostClient{
   @POST('/posts')
   Future<HttpResponse<void>> createPost(@Body() CreatePostRequest createPostRequest);
 
+  @PUT('/posts/{post_id}')
+  Future<HttpResponse<void>> editPost(@Body() CreatePostRequest createPostRequest, @Path('post_id') int id);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'measure_size.dart';
 
 class Marquee extends StatefulWidget {

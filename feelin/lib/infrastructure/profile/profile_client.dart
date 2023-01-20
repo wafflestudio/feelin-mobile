@@ -5,7 +5,6 @@ import 'package:retrofit/retrofit.dart';
 
 import '../../domain/auth/check_username_request.dart';
 import '../../domain/auth/exists_username.dart';
-import '../../domain/play/post.dart';
 import '../../domain/profile/edit_my_profile_request.dart';
 
 part 'profile_client.g.dart';

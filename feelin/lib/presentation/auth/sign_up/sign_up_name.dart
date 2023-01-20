@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_sns/presentation/auth/sign_up/common_description.dart';
 import 'package:music_sns/presentation/auth/sign_up/common_title.dart';
-import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';
@@ -16,7 +14,7 @@ class SignUpName extends StatefulWidget{
   State<SignUpName> createState() => _SignUpNameState();
 
 }
-class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMixin<SignUpName>{
+class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMixin{
 
   final TextEditingController _nameTextController = TextEditingController();
   String name = '';
@@ -33,6 +31,7 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Align(
       alignment: Alignment.topCenter,
       child: Container(

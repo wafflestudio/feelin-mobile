@@ -18,44 +18,56 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EditPostFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(int id) idChanged,
     required TResult Function(String titleStr) titleChanged,
     required TResult Function(String contentStr) contentChanged,
+    required TResult Function(PlaylistPreview preview) previewChanged,
     required TResult Function() submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
     TResult Function(String titleStr)? titleChanged,
     TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
     TResult Function()? submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
     TResult Function(String titleStr)? titleChanged,
     TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_IdChanged value) idChanged,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_ContentChanged value) contentChanged,
+    required TResult Function(_PreviewChanged value) previewChanged,
     required TResult Function(_Submitted value) submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
     TResult Function(_Submitted value)? submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
   }) =>
@@ -77,6 +89,158 @@ class _$EditPostFormEventCopyWithImpl<$Res>
   final EditPostFormEvent _value;
   // ignore: unused_field
   final $Res Function(EditPostFormEvent) _then;
+}
+
+/// @nodoc
+abstract class _$$_IdChangedCopyWith<$Res> {
+  factory _$$_IdChangedCopyWith(
+          _$_IdChanged value, $Res Function(_$_IdChanged) then) =
+      __$$_IdChangedCopyWithImpl<$Res>;
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$_IdChangedCopyWithImpl<$Res>
+    extends _$EditPostFormEventCopyWithImpl<$Res>
+    implements _$$_IdChangedCopyWith<$Res> {
+  __$$_IdChangedCopyWithImpl(
+      _$_IdChanged _value, $Res Function(_$_IdChanged) _then)
+      : super(_value, (v) => _then(v as _$_IdChanged));
+
+  @override
+  _$_IdChanged get _value => super._value as _$_IdChanged;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_$_IdChanged(
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_IdChanged implements _IdChanged {
+  const _$_IdChanged(this.id);
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'EditPostFormEvent.idChanged(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_IdChanged &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_IdChangedCopyWith<_$_IdChanged> get copyWith =>
+      __$$_IdChangedCopyWithImpl<_$_IdChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) idChanged,
+    required TResult Function(String titleStr) titleChanged,
+    required TResult Function(String contentStr) contentChanged,
+    required TResult Function(PlaylistPreview preview) previewChanged,
+    required TResult Function() submitted,
+  }) {
+    return idChanged(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
+    TResult Function(String titleStr)? titleChanged,
+    TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
+    TResult Function()? submitted,
+  }) {
+    return idChanged?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
+    TResult Function(String titleStr)? titleChanged,
+    TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
+    TResult Function()? submitted,
+    required TResult orElse(),
+  }) {
+    if (idChanged != null) {
+      return idChanged(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_ContentChanged value) contentChanged,
+    required TResult Function(_PreviewChanged value) previewChanged,
+    required TResult Function(_Submitted value) submitted,
+  }) {
+    return idChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
+    TResult Function(_Submitted value)? submitted,
+  }) {
+    return idChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
+    TResult Function(_Submitted value)? submitted,
+    required TResult orElse(),
+  }) {
+    if (idChanged != null) {
+      return idChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IdChanged implements EditPostFormEvent {
+  const factory _IdChanged(final int id) = _$_IdChanged;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$$_IdChangedCopyWith<_$_IdChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -144,8 +308,10 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(int id) idChanged,
     required TResult Function(String titleStr) titleChanged,
     required TResult Function(String contentStr) contentChanged,
+    required TResult Function(PlaylistPreview preview) previewChanged,
     required TResult Function() submitted,
   }) {
     return titleChanged(titleStr);
@@ -154,8 +320,10 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
     TResult Function(String titleStr)? titleChanged,
     TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
     TResult Function()? submitted,
   }) {
     return titleChanged?.call(titleStr);
@@ -164,8 +332,10 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
     TResult Function(String titleStr)? titleChanged,
     TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -178,8 +348,10 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_IdChanged value) idChanged,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_ContentChanged value) contentChanged,
+    required TResult Function(_PreviewChanged value) previewChanged,
     required TResult Function(_Submitted value) submitted,
   }) {
     return titleChanged(this);
@@ -188,8 +360,10 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
     TResult Function(_Submitted value)? submitted,
   }) {
     return titleChanged?.call(this);
@@ -198,8 +372,10 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
   }) {
@@ -285,8 +461,10 @@ class _$_ContentChanged implements _ContentChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(int id) idChanged,
     required TResult Function(String titleStr) titleChanged,
     required TResult Function(String contentStr) contentChanged,
+    required TResult Function(PlaylistPreview preview) previewChanged,
     required TResult Function() submitted,
   }) {
     return contentChanged(contentStr);
@@ -295,8 +473,10 @@ class _$_ContentChanged implements _ContentChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
     TResult Function(String titleStr)? titleChanged,
     TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
     TResult Function()? submitted,
   }) {
     return contentChanged?.call(contentStr);
@@ -305,8 +485,10 @@ class _$_ContentChanged implements _ContentChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
     TResult Function(String titleStr)? titleChanged,
     TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -319,8 +501,10 @@ class _$_ContentChanged implements _ContentChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_IdChanged value) idChanged,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_ContentChanged value) contentChanged,
+    required TResult Function(_PreviewChanged value) previewChanged,
     required TResult Function(_Submitted value) submitted,
   }) {
     return contentChanged(this);
@@ -329,8 +513,10 @@ class _$_ContentChanged implements _ContentChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
     TResult Function(_Submitted value)? submitted,
   }) {
     return contentChanged?.call(this);
@@ -339,8 +525,10 @@ class _$_ContentChanged implements _ContentChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
   }) {
@@ -357,6 +545,159 @@ abstract class _ContentChanged implements EditPostFormEvent {
   String get contentStr;
   @JsonKey(ignore: true)
   _$$_ContentChangedCopyWith<_$_ContentChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_PreviewChangedCopyWith<$Res> {
+  factory _$$_PreviewChangedCopyWith(
+          _$_PreviewChanged value, $Res Function(_$_PreviewChanged) then) =
+      __$$_PreviewChangedCopyWithImpl<$Res>;
+  $Res call({PlaylistPreview preview});
+}
+
+/// @nodoc
+class __$$_PreviewChangedCopyWithImpl<$Res>
+    extends _$EditPostFormEventCopyWithImpl<$Res>
+    implements _$$_PreviewChangedCopyWith<$Res> {
+  __$$_PreviewChangedCopyWithImpl(
+      _$_PreviewChanged _value, $Res Function(_$_PreviewChanged) _then)
+      : super(_value, (v) => _then(v as _$_PreviewChanged));
+
+  @override
+  _$_PreviewChanged get _value => super._value as _$_PreviewChanged;
+
+  @override
+  $Res call({
+    Object? preview = freezed,
+  }) {
+    return _then(_$_PreviewChanged(
+      preview == freezed
+          ? _value.preview
+          : preview // ignore: cast_nullable_to_non_nullable
+              as PlaylistPreview,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PreviewChanged implements _PreviewChanged {
+  const _$_PreviewChanged(this.preview);
+
+  @override
+  final PlaylistPreview preview;
+
+  @override
+  String toString() {
+    return 'EditPostFormEvent.previewChanged(preview: $preview)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PreviewChanged &&
+            const DeepCollectionEquality().equals(other.preview, preview));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(preview));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_PreviewChangedCopyWith<_$_PreviewChanged> get copyWith =>
+      __$$_PreviewChangedCopyWithImpl<_$_PreviewChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) idChanged,
+    required TResult Function(String titleStr) titleChanged,
+    required TResult Function(String contentStr) contentChanged,
+    required TResult Function(PlaylistPreview preview) previewChanged,
+    required TResult Function() submitted,
+  }) {
+    return previewChanged(preview);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
+    TResult Function(String titleStr)? titleChanged,
+    TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
+    TResult Function()? submitted,
+  }) {
+    return previewChanged?.call(preview);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
+    TResult Function(String titleStr)? titleChanged,
+    TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
+    TResult Function()? submitted,
+    required TResult orElse(),
+  }) {
+    if (previewChanged != null) {
+      return previewChanged(preview);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_ContentChanged value) contentChanged,
+    required TResult Function(_PreviewChanged value) previewChanged,
+    required TResult Function(_Submitted value) submitted,
+  }) {
+    return previewChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
+    TResult Function(_Submitted value)? submitted,
+  }) {
+    return previewChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
+    TResult Function(_Submitted value)? submitted,
+    required TResult orElse(),
+  }) {
+    if (previewChanged != null) {
+      return previewChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PreviewChanged implements EditPostFormEvent {
+  const factory _PreviewChanged(final PlaylistPreview preview) =
+      _$_PreviewChanged;
+
+  PlaylistPreview get preview;
+  @JsonKey(ignore: true)
+  _$$_PreviewChangedCopyWith<_$_PreviewChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -401,8 +742,10 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(int id) idChanged,
     required TResult Function(String titleStr) titleChanged,
     required TResult Function(String contentStr) contentChanged,
+    required TResult Function(PlaylistPreview preview) previewChanged,
     required TResult Function() submitted,
   }) {
     return submitted();
@@ -411,8 +754,10 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
     TResult Function(String titleStr)? titleChanged,
     TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
     TResult Function()? submitted,
   }) {
     return submitted?.call();
@@ -421,8 +766,10 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? idChanged,
     TResult Function(String titleStr)? titleChanged,
     TResult Function(String contentStr)? contentChanged,
+    TResult Function(PlaylistPreview preview)? previewChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -435,8 +782,10 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_IdChanged value) idChanged,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_ContentChanged value) contentChanged,
+    required TResult Function(_PreviewChanged value) previewChanged,
     required TResult Function(_Submitted value) submitted,
   }) {
     return submitted(this);
@@ -445,8 +794,10 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
     TResult Function(_Submitted value)? submitted,
   }) {
     return submitted?.call(this);
@@ -455,8 +806,10 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IdChanged value)? idChanged,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ContentChanged value)? contentChanged,
+    TResult Function(_PreviewChanged value)? previewChanged,
     TResult Function(_Submitted value)? submitted,
     required TResult orElse(),
   }) {
@@ -473,8 +826,10 @@ abstract class _Submitted implements EditPostFormEvent {
 
 /// @nodoc
 mixin _$EditPostFormState {
+  int get postId => throw _privateConstructorUsedError;
   NotEmptyString get title => throw _privateConstructorUsedError;
   ContentString get content => throw _privateConstructorUsedError;
+  PlaylistPreview get playlistPreview => throw _privateConstructorUsedError;
   Option<Either<PostFailure, Unit>> get editFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
@@ -490,8 +845,10 @@ abstract class $EditPostFormStateCopyWith<$Res> {
           EditPostFormState value, $Res Function(EditPostFormState) then) =
       _$EditPostFormStateCopyWithImpl<$Res>;
   $Res call(
-      {NotEmptyString title,
+      {int postId,
+      NotEmptyString title,
       ContentString content,
+      PlaylistPreview playlistPreview,
       Option<Either<PostFailure, Unit>> editFailureOrSuccessOption,
       bool isSubmitting});
 }
@@ -507,12 +864,18 @@ class _$EditPostFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? postId = freezed,
     Object? title = freezed,
     Object? content = freezed,
+    Object? playlistPreview = freezed,
     Object? editFailureOrSuccessOption = freezed,
     Object? isSubmitting = freezed,
   }) {
     return _then(_value.copyWith(
+      postId: postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as int,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -521,6 +884,10 @@ class _$EditPostFormStateCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as ContentString,
+      playlistPreview: playlistPreview == freezed
+          ? _value.playlistPreview
+          : playlistPreview // ignore: cast_nullable_to_non_nullable
+              as PlaylistPreview,
       editFailureOrSuccessOption: editFailureOrSuccessOption == freezed
           ? _value.editFailureOrSuccessOption
           : editFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -541,8 +908,10 @@ abstract class _$$_PostDetailFormStateCopyWith<$Res>
       __$$_PostDetailFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {NotEmptyString title,
+      {int postId,
+      NotEmptyString title,
       ContentString content,
+      PlaylistPreview playlistPreview,
       Option<Either<PostFailure, Unit>> editFailureOrSuccessOption,
       bool isSubmitting});
 }
@@ -560,12 +929,18 @@ class __$$_PostDetailFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? postId = freezed,
     Object? title = freezed,
     Object? content = freezed,
+    Object? playlistPreview = freezed,
     Object? editFailureOrSuccessOption = freezed,
     Object? isSubmitting = freezed,
   }) {
     return _then(_$_PostDetailFormState(
+      postId: postId == freezed
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as int,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -574,6 +949,10 @@ class __$$_PostDetailFormStateCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as ContentString,
+      playlistPreview: playlistPreview == freezed
+          ? _value.playlistPreview
+          : playlistPreview // ignore: cast_nullable_to_non_nullable
+              as PlaylistPreview,
       editFailureOrSuccessOption: editFailureOrSuccessOption == freezed
           ? _value.editFailureOrSuccessOption
           : editFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -590,15 +969,21 @@ class __$$_PostDetailFormStateCopyWithImpl<$Res>
 
 class _$_PostDetailFormState implements _PostDetailFormState {
   const _$_PostDetailFormState(
-      {required this.title,
+      {required this.postId,
+      required this.title,
       required this.content,
+      required this.playlistPreview,
       required this.editFailureOrSuccessOption,
       required this.isSubmitting});
 
   @override
+  final int postId;
+  @override
   final NotEmptyString title;
   @override
   final ContentString content;
+  @override
+  final PlaylistPreview playlistPreview;
   @override
   final Option<Either<PostFailure, Unit>> editFailureOrSuccessOption;
   @override
@@ -606,7 +991,7 @@ class _$_PostDetailFormState implements _PostDetailFormState {
 
   @override
   String toString() {
-    return 'EditPostFormState(title: $title, content: $content, editFailureOrSuccessOption: $editFailureOrSuccessOption, isSubmitting: $isSubmitting)';
+    return 'EditPostFormState(postId: $postId, title: $title, content: $content, playlistPreview: $playlistPreview, editFailureOrSuccessOption: $editFailureOrSuccessOption, isSubmitting: $isSubmitting)';
   }
 
   @override
@@ -614,8 +999,11 @@ class _$_PostDetailFormState implements _PostDetailFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PostDetailFormState &&
+            const DeepCollectionEquality().equals(other.postId, postId) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.content, content) &&
+            const DeepCollectionEquality()
+                .equals(other.playlistPreview, playlistPreview) &&
             const DeepCollectionEquality().equals(
                 other.editFailureOrSuccessOption, editFailureOrSuccessOption) &&
             const DeepCollectionEquality()
@@ -625,8 +1013,10 @@ class _$_PostDetailFormState implements _PostDetailFormState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(postId),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(content),
+      const DeepCollectionEquality().hash(playlistPreview),
       const DeepCollectionEquality().hash(editFailureOrSuccessOption),
       const DeepCollectionEquality().hash(isSubmitting));
 
@@ -639,16 +1029,22 @@ class _$_PostDetailFormState implements _PostDetailFormState {
 
 abstract class _PostDetailFormState implements EditPostFormState {
   const factory _PostDetailFormState(
-      {required final NotEmptyString title,
+      {required final int postId,
+      required final NotEmptyString title,
       required final ContentString content,
+      required final PlaylistPreview playlistPreview,
       required final Option<Either<PostFailure, Unit>>
           editFailureOrSuccessOption,
       required final bool isSubmitting}) = _$_PostDetailFormState;
 
   @override
+  int get postId;
+  @override
   NotEmptyString get title;
   @override
   ContentString get content;
+  @override
+  PlaylistPreview get playlistPreview;
   @override
   Option<Either<PostFailure, Unit>> get editFailureOrSuccessOption;
   @override

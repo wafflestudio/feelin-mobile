@@ -2,7 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:music_sns/application/explore/explore_bloc.dart';
 import 'package:music_sns/presentation/common/user_nickname.dart';
+import 'package:music_sns/presentation/main/explore/track_preview.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
@@ -10,103 +13,153 @@ import '../../../application/info/playlist_info_bloc.dart';
 import '../../../domain/play/post.dart';
 import '../../../injection.dart';
 
-class FeedPreview extends StatelessWidget {
+class FeedPreview extends StatefulWidget {
   final int index;
   final Post post;
 
   const FeedPreview({Key? key, required this.index, required this.post}) : super(key: key);
 
   @override
+  State<FeedPreview> createState() => _FeedPreviewState();
+}
+
+class _FeedPreviewState extends State<FeedPreview> {
+  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (){
-        Navigator.push(context, CupertinoPageRoute(
-          builder: (context){
-            return BlocProvider(
-                create: (context) => getIt<PlaylistInfoBloc>(),
-                child: PlaylistInfoPage(post: post, postId: post.id, heroNumber: index, width: MediaQuery.of(context).size.width,));
+    return BlocBuilder<ExploreBloc, ExploreState>(
+      builder: (context, state) {
+        return GestureDetector(
+          onTap: (){
+            Navigator.push(context, CupertinoPageRoute(
+              builder: (context){
+                return BlocProvider(
+                    create: (context) => getIt<PlaylistInfoBloc>(),
+                    child: PlaylistInfoPage(post: widget.post, postId: widget.post.id, heroNumber: widget.index, width: MediaQuery.of(context).size.width,));
+              },
+            ),
+            ).then((value){
+              if(value != null){
+                setState(() {
+                  widget.post.title = value.title;
+                  widget.post.content = value.content;
+                });
+            }});
           },
-        ),
-        );
-      },
-      child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: FeelinColorFamily.gray50,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(15, 15, 11, 15),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(
-                width: 178,
-                height: 178,
-                child: Hero(
-                  tag: "playlistCover$index",
-                  child: Image(
-                    image: CachedNetworkImageProvider(
-                        post.playlist.thumbnail!),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+              Padding(
+                padding: const EdgeInsets.only(left: 12),
+                child: UserNickname(writer: widget.post.writer!, isBig: true,),
               ),
-              const SizedBox(width: 14,),
-              SizedBox(
-                height: 180,
+              const SizedBox(height: 5,),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: FeelinColorFamily.gray50,
+                ),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
                   children: [
-                    Flexible(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                      child: AspectRatio(
+                        aspectRatio: 1.0,
+                        child: Hero(
+                          tag: "playlistCover${widget.index}",
+                          child: Image(
+                            image: CachedNetworkImageProvider(
+                                widget.post.playlist.thumbnail!),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                    if(widget.post.trackPreview!.isNotEmpty)SizedBox(
+                      height: 36,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: widget.post.trackPreview!.length,
+                          itemBuilder: (context, index){
+                            if(index == 0){
+                              return Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                  child: TrackPreview(index: index, track: widget.post.trackPreview![index]));
+                            }
+                            return TrackPreview(index: index, track: widget.post.trackPreview![index]);
+                          }),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                      constraints: const BoxConstraints(minHeight: 60, minWidth: double.infinity),
+                      child: Stack(
                         children: [
-                          UserNickname(writer: post.writer!, isSmall: true,),
                           SizedBox(
-                            width: 150,
-                            child: Text(
-                                post.title,
-                              textAlign: TextAlign.start,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
-                                letterSpacing: -0.41,
+                            width: MediaQuery.of(context).size.width-86,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                    widget.post.title,
+                                  textAlign: TextAlign.start,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black,
+                                    letterSpacing: -0.41,
+                                  ),
+                                ),
+                                if(widget.post.content.isNotEmpty)Text(
+                                  widget.post.content,
+                                  textAlign: TextAlign.start,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: FeelinColorFamily.gray600,
+                                    letterSpacing: -0.41,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 10,
+                            right: 0,
+                            child: SizedBox(
+                              width: 24,
+                              child: GestureDetector(
+                                onTap: (){
+                                  // if(!state.isLiked){
+                                  //   context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.likeRequest());
+                                  // }else{
+                                  //   context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.unlikeRequest());
+                                  // }
+                                },
+                                child: SvgPicture.asset(
+                                  true ? 'assets/icons/heart_filled.svg'
+                                      : 'assets/icons/heart.svg',
+                                  color: true ? FeelinColorFamily.redPrimary : Colors.white,
+                                  width: 24,
+                                  height: 24,
+                                ),
                               ),
                             ),
                           )
                         ],
                       ),
                     ),
-                    Flexible(
-                        child: SizedBox(
-                          width: 150,
-                          child: Text(
-                              post.content,
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 5,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 13,
-                              color: FeelinColorFamily.gray600,
-                              letterSpacing: -0.41,
-                            ),
-                          ),
-                        )
-                    )
                   ],
                 ),
-              )
+              ),
             ],
           ),
-        ),
-      ),
+        );
+      }
     );
   }
 }

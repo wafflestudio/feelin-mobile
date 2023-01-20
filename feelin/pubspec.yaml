@@ -14,7 +14,6 @@ dependencies:
   freezed:
   cupertino_icons: ^1.0.2
   dartz:
-  uuid:
   get_it:
   injectable:
   retrofit:
@@ -43,12 +42,11 @@ dependencies:
 
   # date format
   intl:
-  modal_bottom_sheet: ^2.1.2
+
   tuple: ^2.0.1
   palette_generator: ^0.3.3+2
-  change_app_package_name: ^1.1.0
-  fluttertoast: ^8.1.2
   validators: ^3.0.0
+  top_snackbar_flutter: ^3.0.0+1
 
 dev_dependencies:
   flutter_test:

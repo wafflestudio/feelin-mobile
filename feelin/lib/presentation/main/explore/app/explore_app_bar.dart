@@ -31,8 +31,8 @@ class _ExploreAppBarState extends State<ExploreAppBar> {
             width: double.infinity,
             height: 100,
             color: Colors.white,
-            child: Center(
-              child: const Text('Feelin\'',
+            child: const Center(
+              child: Text('Feelin\'',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
@@ -52,8 +52,8 @@ class _ExploreAppBarState extends State<ExploreAppBar> {
             labelColor: Colors.black,
             labelStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
             unselectedLabelColor: FeelinColorFamily.gray500,
-            indicatorColor: Colors.transparent,
-            indicator: const BoxDecoration(color: Colors.transparent),
+            indicatorColor: Colors.black,
+            indicator: const CustomTabIndicator(),
             indicatorWeight: 2,
             tabs: const [
               Tab(
@@ -67,5 +67,70 @@ class _ExploreAppBarState extends State<ExploreAppBar> {
         ),
       ),
     );
+  }
+}
+
+class CustomTabIndicator extends Decoration {
+  final double radius;
+
+  final Color color;
+
+
+  final double indicatorHeight;
+
+  const CustomTabIndicator({
+    this.radius = 2,
+    this.indicatorHeight = 4,
+    this.color = Colors.black,
+  });
+
+  @override
+  CustomPainter createBoxPainter([VoidCallback? onChanged]) {
+    return CustomPainter(
+      this,
+      onChanged,
+      radius,
+      color,
+      indicatorHeight,
+    );
+  }
+}
+
+class CustomPainter extends BoxPainter {
+  final CustomTabIndicator decoration;
+  final double radius;
+  final Color color;
+  final double indicatorHeight;
+
+  CustomPainter(
+      this.decoration,
+      VoidCallback? onChanged,
+      this.radius,
+      this.color,
+      this.indicatorHeight,
+      ) : super(onChanged);
+
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+    assert(configuration.size != null);
+
+    final Paint paint = Paint();
+    double xAxisPos = offset.dx + configuration.size!.width / 2;
+    double yAxisPos = offset.dy + configuration.size!.height - indicatorHeight/2;
+    paint.color = color;
+
+    RRect fullRect = RRect.fromRectAndCorners(
+      Rect.fromCenter(
+        center: Offset(xAxisPos, yAxisPos),
+        width: configuration.size!.width / 5,
+        height: indicatorHeight,
+      ),
+      topLeft: Radius.circular(radius),
+      topRight: Radius.circular(radius),
+      bottomLeft: Radius.circular(radius),
+      bottomRight: Radius.circular(radius),
+    );
+
+    canvas.drawRRect(fullRect, paint);
   }
 }

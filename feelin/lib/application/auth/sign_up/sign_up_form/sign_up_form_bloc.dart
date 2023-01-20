@@ -7,9 +7,9 @@ import 'package:music_sns/domain/auth/i_auth_repository.dart';
 import 'package:music_sns/domain/auth/value_objects.dart';
 import 'package:rxdart/rxdart.dart';
 
+part 'sign_up_form_bloc.freezed.dart';
 part 'sign_up_form_event.dart';
 part 'sign_up_form_state.dart';
-part 'sign_up_form_bloc.freezed.dart';
 
 @injectable
 class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {

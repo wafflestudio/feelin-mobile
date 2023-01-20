@@ -5,13 +5,12 @@ import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/play/playlist_preview.dart';
 import 'package:music_sns/domain/post/value_objects.dart';
 
-import '../../../domain/play/playlist.dart';
 import '../../../domain/post/post_failure.dart';
 import '../../../infrastructure/post/post_repository.dart';
 
+part 'post_detail_form_bloc.freezed.dart';
 part 'post_detail_form_event.dart';
 part 'post_detail_form_state.dart';
-part 'post_detail_form_bloc.freezed.dart';
 
 @injectable
 class PostDetailFormBloc extends Bloc<PostDetailFormEvent, PostDetailFormState>{

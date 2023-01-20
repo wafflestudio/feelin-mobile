@@ -2,8 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:music_sns/application/streaming/connect_streaming_bloc.dart';
+import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/streaming/platform_button.dart';
 import 'package:music_sns/presentation/streaming/streaming_web_view_page.dart';
 
@@ -37,19 +37,20 @@ class ConnectStreamingPage extends StatelessWidget{
   Widget _selectPlatform(){
     return BlocListener<ConnectStreamingBloc, ConnectStreamingState>(
       listener: (context, state){
-        state.requestFailureOrSuccessOption.fold(
+        state.urlRequestFailureOrSuccessOption.fold(
               () => null,
               (failureOrSuccess) => failureOrSuccess.fold(
-                  (f) => _showSnackBar(context, f.toString())
-              , // 로그인 실패
+                  (f) => _showSnackBar(context, f.toString()),
                   (url){
                     if(!navigated){
                       navigated = true;
-                      print('result is '+ url.url);
                       Navigator.push(context,
                         CupertinoPageRoute(
                           builder: (context){
-                            return StreamingWebViewPage(url: url.url,);
+                            return BlocProvider(
+                                create: (context) => getIt<ConnectStreamingBloc>(),
+                                child: StreamingWebViewPage(url: url.url,),
+                            );
                           },
                         ),
                       );

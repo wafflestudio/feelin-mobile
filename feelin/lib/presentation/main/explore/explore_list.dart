@@ -29,7 +29,7 @@ class _PostListState extends State<ExploreList> {
     return BlocBuilder<ExploreBloc, ExploreState>(
       builder: (context, state) {
         return widget.feeds.isEmpty ?
-            const Center(child: Text('아직 게시물이 없습니다.')) :
+            const Center(child: Text('No Post.')) :
           ScrollConfiguration(
             behavior: const ScrollBehavior().copyWith(overscroll: false),
             child: ListView.builder(

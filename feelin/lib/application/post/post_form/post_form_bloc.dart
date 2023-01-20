@@ -1,22 +1,18 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:music_sns/domain/play/album.dart';
-import 'package:music_sns/domain/play/artist.dart';
+import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/play/playlist.dart';
 import 'package:music_sns/domain/play/playlist_preview.dart';
-import 'package:music_sns/domain/play/track.dart';
 import 'package:music_sns/infrastructure/post/playlist_repository.dart';
-import 'package:rxdart/rxdart.dart';
 
 import '../../../domain/post/post_failure.dart';
 import '../../../domain/post/value_objects.dart';
 import '../../../infrastructure/post/post_repository.dart';
 
+part 'post_form_bloc.freezed.dart';
 part 'post_form_event.dart';
 part 'post_form_state.dart';
-part 'post_form_bloc.freezed.dart';
 
 @injectable
 class PostFormBloc extends Bloc<PostFormEvent, PostFormState>{

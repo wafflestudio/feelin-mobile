@@ -9,8 +9,8 @@ import 'package:music_sns/presentation/auth/sign_up/sign_up_name.dart';
 import '../../../injection.dart';
 import 'sign_up_app_bar.dart';
 import 'sign_up_birthday.dart';
-import 'sign_up_phone.dart';
 import 'sign_up_password.dart';
+import 'sign_up_phone.dart';
 import 'sign_up_username.dart';
 
 class SignUp extends StatefulWidget{

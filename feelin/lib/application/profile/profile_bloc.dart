@@ -3,17 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/profile/page.dart';
-import 'package:music_sns/domain/profile/post_thumbnail.dart';
 import 'package:music_sns/domain/profile/profile.dart';
 import 'package:music_sns/domain/profile/profile_failure.dart';
-import 'package:music_sns/infrastructure/post/post_repository.dart';
 import 'package:music_sns/infrastructure/profile/profile_repository.dart';
 
 import '../../domain/play/post.dart';
 
+part 'profile_bloc.freezed.dart';
 part 'profile_event.dart';
 part 'profile_state.dart';
-part 'profile_bloc.freezed.dart';
 
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
@@ -38,7 +36,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
               isLoading: false,
               loadFailureOrSuccessOption: some(right(posts)),
               posts: posts.content,
-              // For the test
               isLast: true,
             ));
           },
@@ -68,7 +65,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
               isLoading: false,
               loadFailureOrSuccessOption: some(right(posts)),
               posts: posts.content,
-              // For the test
               isLast: true,
             ));
           },

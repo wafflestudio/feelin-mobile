@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:music_sns/domain/streaming/connect_music_request.dart';
 import 'package:music_sns/infrastructure/streaming/streaming_client.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -25,6 +26,20 @@ class StreamingRepository{
       HttpResponse<RedirectUrl> httpResponse = await streamingClient.callLogin(vendor);
       if(httpResponse.response.statusCode == 200){
         return Right(httpResponse.data);
+      } else{
+        return const Left(ConnectFailure.serverError());
+      }
+    } on DioError catch(e){
+      print(e.error.toString());
+      return const Left(ConnectFailure.serverError());
+    }
+  }
+
+  Future<Either<ConnectFailure, Unit>> requestAppleMusicLogin({required String accessToken, required int id}) async{
+    try{
+      HttpResponse<void> httpResponse = await streamingClient.requestAppleMusicLogin(ConnectMusicRequest(accessToken: accessToken, id: id));
+      if(httpResponse.response.statusCode == 200){
+        return const Right(unit);
       } else{
         return const Left(ConnectFailure.serverError());
       }

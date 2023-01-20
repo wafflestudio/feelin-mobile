@@ -8,9 +8,9 @@ import '../../domain/follow/page_user.dart';
 import '../../domain/profile/profile.dart';
 import '../../domain/profile/profile_failure.dart';
 
+part 'follow_bloc.freezed.dart';
 part 'follow_event.dart';
 part 'follow_state.dart';
-part 'follow_bloc.freezed.dart';
 
 @injectable
 class FollowBloc extends Bloc<FollowEvent, FollowState>{

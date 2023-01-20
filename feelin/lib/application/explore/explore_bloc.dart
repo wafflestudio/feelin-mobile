@@ -6,12 +6,11 @@ import 'package:injectable/injectable.dart';
 import '../../domain/explore/explore_failure.dart';
 import '../../domain/play/post.dart';
 import '../../domain/profile/page.dart';
-import '../../infrastructure/explore/explore_post_repository.dart';
 import '../../infrastructure/explore/explore_repository.dart';
 
+part 'explore_bloc.freezed.dart';
 part 'explore_event.dart';
 part 'explore_state.dart';
-part 'explore_bloc.freezed.dart';
 
 @injectable
 class ExploreBloc extends Bloc<ExploreEvent, ExploreState>{

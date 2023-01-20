@@ -18,27 +18,29 @@ class FollowUserItem extends StatelessWidget{
         Navigator.of(context,).push(
             MaterialPageRoute(builder: (_) => ProfileApp(userId: user.id)));
       },
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(24),
-            child: Image(
-              image: CachedNetworkImageProvider(user.image ?? 'https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/guest/image/caTw7KNdDMeoe833RVMZ4Y11ErQ.JPG'),
-              width: 48,
-              height: 48,
-              fit: BoxFit.cover,
+      child: AbsorbPointer(
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(24),
+              child: Image(
+                image: CachedNetworkImageProvider(user.image ?? 'https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/guest/image/caTw7KNdDMeoe833RVMZ4Y11ErQ.JPG'),
+                width: 48,
+                height: 48,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          Text(user.username,
-            style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 18,
+            const SizedBox(
+              width: 8,
             ),
-          ),
-        ],
+            Text(user.username,
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
