@@ -38,7 +38,7 @@ class StreamingRepository{
   Future<Either<ConnectFailure, Unit>> requestAppleMusicLogin({required String accessToken, required String id}) async{
     try{
       HttpResponse<void> httpResponse = await streamingClient.requestAppleMusicLogin(ConnectMusicRequest(accessToken: accessToken, id: id));
-      if(httpResponse.response.statusCode == 200){
+      if(httpResponse.response.statusCode == 201){
         return const Right(unit);
       } else{
         return const Left(ConnectFailure.serverError());
