@@ -282,12 +282,10 @@ class SettingPage extends StatelessWidget{
                       Center(
                         child: TextButton(
                           onPressed: (){
-                            storage.deleteAll();
-                            context.read<AuthBloc>().add(const AuthEvent.submitted());
+                            context.read<AuthBloc>().add(const AuthEvent.deleteAccount());
                             Navigator.of(context).popUntil((route) => route.isFirst);
                           },
                           child: Container(
-                            //color: FeelinColorFamily.gray50,
                             decoration: BoxDecoration(
                                 color: FeelinColorFamily.gray50,
                                 borderRadius: BorderRadius.circular(8)

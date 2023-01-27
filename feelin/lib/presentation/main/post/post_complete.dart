@@ -34,43 +34,48 @@ class PostCompletePage extends StatelessWidget{
         ),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image(
-              image: CachedNetworkImageProvider(post.tempThumbnail!),
-              width: 200,
-              height: 200,
-              fit: BoxFit.cover,
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Material(
+              shadowColor: Colors.black,
+              elevation: 8,
+              child: Image(
+                image: CachedNetworkImageProvider(post.playlist.thumbnail!),
+                width: 200,
+                height: 200,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          const SizedBox(width: 10,),
-          Text(post.title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 24,
+            const SizedBox(height: 30,),
+            Text(post.title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 24,
+              ),
             ),
-          ),
-          const Spacer(),
-          button(screenSize, FeelinColorFamily.gray900, Colors.white, (){
-            share.share(post.id, post.title, post.tempThumbnail!);
-          }, 'Share Playlist'),
-          button(screenSize, FeelinColorFamily.gray50, Colors.black, (){
-            Navigator.pushReplacement(context, CupertinoPageRoute(
-              builder: (context){
-                return BlocProvider(
-                    create: (context) => getIt<PlaylistInfoBloc>(),
-                    child: PlaylistInfoPage(post: null, postId: post.id, heroNumber: 0, width: MediaQuery.of(context).size.width,));
-              },
-            ),
-            );
-          }, 'Go to Post')
-
-        ],
+            const Spacer(),
+            button(screenSize, FeelinColorFamily.gray900, Colors.white, (){
+              share.share(post.id, post.title, post.playlist.thumbnail!);
+            }, 'Share Playlist'),
+            const SizedBox(height: 10,),
+            button(screenSize, FeelinColorFamily.gray50, Colors.black, (){
+              Navigator.pushReplacement(context, CupertinoPageRoute(
+                builder: (context){
+                  return BlocProvider(
+                      create: (context) => getIt<PlaylistInfoBloc>(),
+                      child: PlaylistInfoPage(post: null, postId: post.id, heroNumber: 0, width: MediaQuery.of(context).size.width,));
+                },
+              ),
+              );
+            }, 'Go to Post'),
+            const SizedBox(height: 40,),
+          ],
+        ),
       ),
     );
   }

@@ -7,6 +7,7 @@ import 'package:music_sns/domain/streaming/redirect_url.dart';
 import 'package:music_sns/infrastructure/explore/explore_post_client.dart';
 import 'package:retrofit/dio.dart';
 
+import '../../domain/post/report_post_request.dart';
 import '../../domain/streaming/save_to_account_request.dart';
 import '../auth/get_auth_dio.dart';
 
@@ -82,6 +83,25 @@ class ExplorePostRepository{
   Future<Either<ExplorePostFailure, Unit>> unlike({required String id,}) async{
     try{
       HttpResponse<void> httpResponse = await explorePostClient.unlike(id);
+      switch(httpResponse.response.statusCode){
+        case 200 : return const Right(unit);
+        case 201 : return const Right(unit);
+        case 403 : return const Left(ExplorePostFailure.forbidden());
+        case 404 : return const Left(ExplorePostFailure.notFound());
+        default : return const Left(ExplorePostFailure.serverError());
+      }
+    }on DioError catch(e){
+      switch(e.response?.statusCode){
+        case 403 : return const Left(ExplorePostFailure.forbidden());
+        case 404 : return const Left(ExplorePostFailure.notFound());
+        default : return const Left(ExplorePostFailure.serverError());
+      }
+    }
+  }
+
+  Future<Either<ExplorePostFailure, Unit>> report({required String reportType, required String username, required String description, required Post post}) async{
+    try{
+      HttpResponse<void> httpResponse = await explorePostClient.report(ReportPostRequest(reportType: reportType, username: username, description: description, post: post));
       switch(httpResponse.response.statusCode){
         case 200 : return const Right(unit);
         case 201 : return const Right(unit);

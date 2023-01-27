@@ -21,7 +21,7 @@ class EditProfileAppBar extends StatelessWidget with PreferredSizeWidget{
             backgroundColor: Colors.transparent,
             automaticallyImplyLeading: false,
             leading: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back_ios_new), color: Colors.black,),
-            title: const Text('Edit post',
+            title: const Text('Edit profile',
               style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 20,

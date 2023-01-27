@@ -70,10 +70,10 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
     setState((){
       expandedHeight = 350
           + _textSize(widget.post == null ? '': widget.post!.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
-              //fontFamily: 'SpoqaHanSansNeo'
+              fontFamily: 'Pretendard'
           ),).height
           + _textSize(widget.post == null ? '': widget.post!.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, letterSpacing: -0.41,
-              //fontFamily: 'SpoqaHanSansNeo'
+              fontFamily: 'Pretendard'
           )).height;
       height = expandedHeight - 30;
     });
@@ -107,10 +107,10 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
               setState((){
                     expandedHeight = 350
                         + _textSize(state.post.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
-                            //fontFamily: 'SpoqaHanSansNeo'
+                            fontFamily: 'Pretendard'
                         ), scaleFactor: true).height
                         + _textSize(state.post.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, letterSpacing: -0.41,
-                            //fontFamily: 'SpoqaHanSansNeo'
+                            fontFamily: 'Pretendard'
                         ), scaleFactor: true).height;
                     height = expandedHeight - 30;
                   }),

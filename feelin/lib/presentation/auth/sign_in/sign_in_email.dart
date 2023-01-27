@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/auth/sign_in/sign_in_form/sign_in_form_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_in/sign_in_password.dart';
+import 'package:music_sns/presentation/auth/sign_up/common_description.dart';
 import '../../../application/auth/auth/auth_bloc.dart';
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../../injection.dart';
@@ -55,16 +56,18 @@ class _SignInEmailState extends State<SignInEmail> with TickerProviderStateMixin
               margin: const EdgeInsets.only(top: 10,),
               constraints: const BoxConstraints(maxHeight: 210, minHeight: 140),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
                   CommonTitle(title: 'What’s your \nemail address?'),
+                  SizedBox(height: 10,),
+                  CommonDescription(description: 'Your email is used for signup and login'),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 28),
               child: _emailField(),
             ),
             insteadButton(),
@@ -129,9 +132,12 @@ class _SignInEmailState extends State<SignInEmail> with TickerProviderStateMixin
                 }
               },
               enabled: !state.isRequesting,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Email address',
                 isDense: true,
+                errorStyle: TextStyle(
+                  color: FeelinColorFamily.errorPrimary,
+                ),
               ),
               autovalidateMode: AutovalidateMode.always,
               validator: (value){

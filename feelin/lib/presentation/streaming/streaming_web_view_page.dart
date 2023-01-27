@@ -43,11 +43,15 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async{
-        if(await _controller.canGoBack()){
-          _controller.goBack();
-          return false;
-        }else{
+        if(widget.isApple){
           return true;
+        }else{
+          if(await _controller.canGoBack()){
+            _controller.goBack();
+            return false;
+          }else{
+            return true;
+          }
         }
       },
       child: Scaffold(
@@ -60,12 +64,15 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
               builder: (context, AsyncSnapshot<WebViewController> controller) {
                 return IconButton(
                   onPressed: () async{
-                    if(controller.hasData && await controller.data!.canGoBack()){
-                      await controller.data!.goBack();
-                    }else{
+                    if(widget.isApple){
                       Navigator.pop(context);
+                    }else{
+                      if(controller.hasData && await controller.data!.canGoBack()){
+                        await controller.data!.goBack();
+                      }else{
+                        Navigator.pop(context);
+                      }
                     }
-                    //_controller.runJavascript('sendToFlutter()');
                   },
                   color: Colors.black,
                   icon: const Icon(Icons.arrow_back_ios_new),

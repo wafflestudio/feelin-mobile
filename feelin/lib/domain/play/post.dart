@@ -33,9 +33,6 @@ class Post{
   @JsonKey(name:"likes")
   int? likeCount;
 
-  @JsonKey(name:"thumbnail")
-  String? tempThumbnail;
-
   //@JsonKey(name:"trackPreview")
   List<Track>? trackPreview = [
     Track(id: '', title: 'I Still Love You', artists: [Artist(id: '', name: '나얼')], album: Album(id: '', title: '', thumbnail: 'https://image.bugsm.co.kr/album/images/1000/40830/4083027.jpg')),
@@ -51,7 +48,6 @@ class Post{
     required this.playlist,
     this.isLiked,
     this.likeCount = 0,
-    this.tempThumbnail,
     //this.trackPreview,
   });
 

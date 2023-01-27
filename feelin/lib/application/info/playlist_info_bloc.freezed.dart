@@ -23,6 +23,8 @@ mixin _$PlaylistInfoEvent {
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
     required TResult Function(String vendorId) saveRequest,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,7 @@ mixin _$PlaylistInfoEvent {
     TResult? Function()? likeRequest,
     TResult? Function()? unlikeRequest,
     TResult? Function(String vendorId)? saveRequest,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +44,7 @@ mixin _$PlaylistInfoEvent {
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
     TResult Function(String vendorId)? saveRequest,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +55,7 @@ mixin _$PlaylistInfoEvent {
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +65,7 @@ mixin _$PlaylistInfoEvent {
     TResult? Function(_LikeRequest value)? likeRequest,
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +75,7 @@ mixin _$PlaylistInfoEvent {
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -161,6 +168,8 @@ class _$_LoadRequest implements _LoadRequest {
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
     required TResult Function(String vendorId) saveRequest,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return loadRequest(postId);
   }
@@ -173,6 +182,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult? Function()? likeRequest,
     TResult? Function()? unlikeRequest,
     TResult? Function(String vendorId)? saveRequest,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return loadRequest?.call(postId);
   }
@@ -185,6 +195,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
     TResult Function(String vendorId)? saveRequest,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (loadRequest != null) {
@@ -201,6 +212,7 @@ class _$_LoadRequest implements _LoadRequest {
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return loadRequest(this);
   }
@@ -213,6 +225,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult? Function(_LikeRequest value)? likeRequest,
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return loadRequest?.call(this);
   }
@@ -225,6 +238,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (loadRequest != null) {
@@ -312,6 +326,8 @@ class _$_DeleteRequest implements _DeleteRequest {
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
     required TResult Function(String vendorId) saveRequest,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return deleteRequest(postId);
   }
@@ -324,6 +340,7 @@ class _$_DeleteRequest implements _DeleteRequest {
     TResult? Function()? likeRequest,
     TResult? Function()? unlikeRequest,
     TResult? Function(String vendorId)? saveRequest,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return deleteRequest?.call(postId);
   }
@@ -336,6 +353,7 @@ class _$_DeleteRequest implements _DeleteRequest {
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
     TResult Function(String vendorId)? saveRequest,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (deleteRequest != null) {
@@ -352,6 +370,7 @@ class _$_DeleteRequest implements _DeleteRequest {
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return deleteRequest(this);
   }
@@ -364,6 +383,7 @@ class _$_DeleteRequest implements _DeleteRequest {
     TResult? Function(_LikeRequest value)? likeRequest,
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return deleteRequest?.call(this);
   }
@@ -376,6 +396,7 @@ class _$_DeleteRequest implements _DeleteRequest {
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (deleteRequest != null) {
@@ -437,6 +458,8 @@ class _$_LikeRequest implements _LikeRequest {
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
     required TResult Function(String vendorId) saveRequest,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return likeRequest();
   }
@@ -449,6 +472,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult? Function()? likeRequest,
     TResult? Function()? unlikeRequest,
     TResult? Function(String vendorId)? saveRequest,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return likeRequest?.call();
   }
@@ -461,6 +485,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
     TResult Function(String vendorId)? saveRequest,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (likeRequest != null) {
@@ -477,6 +502,7 @@ class _$_LikeRequest implements _LikeRequest {
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return likeRequest(this);
   }
@@ -489,6 +515,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult? Function(_LikeRequest value)? likeRequest,
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return likeRequest?.call(this);
   }
@@ -501,6 +528,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (likeRequest != null) {
@@ -557,6 +585,8 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
     required TResult Function(String vendorId) saveRequest,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return unlikeRequest();
   }
@@ -569,6 +599,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult? Function()? likeRequest,
     TResult? Function()? unlikeRequest,
     TResult? Function(String vendorId)? saveRequest,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return unlikeRequest?.call();
   }
@@ -581,6 +612,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
     TResult Function(String vendorId)? saveRequest,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (unlikeRequest != null) {
@@ -597,6 +629,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return unlikeRequest(this);
   }
@@ -609,6 +642,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult? Function(_LikeRequest value)? likeRequest,
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return unlikeRequest?.call(this);
   }
@@ -621,6 +655,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (unlikeRequest != null) {
@@ -704,6 +739,8 @@ class _$_SaveRequest implements _SaveRequest {
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
     required TResult Function(String vendorId) saveRequest,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return saveRequest(vendorId);
   }
@@ -716,6 +753,7 @@ class _$_SaveRequest implements _SaveRequest {
     TResult? Function()? likeRequest,
     TResult? Function()? unlikeRequest,
     TResult? Function(String vendorId)? saveRequest,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return saveRequest?.call(vendorId);
   }
@@ -728,6 +766,7 @@ class _$_SaveRequest implements _SaveRequest {
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
     TResult Function(String vendorId)? saveRequest,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (saveRequest != null) {
@@ -744,6 +783,7 @@ class _$_SaveRequest implements _SaveRequest {
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return saveRequest(this);
   }
@@ -756,6 +796,7 @@ class _$_SaveRequest implements _SaveRequest {
     TResult? Function(_LikeRequest value)? likeRequest,
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return saveRequest?.call(this);
   }
@@ -768,6 +809,7 @@ class _$_SaveRequest implements _SaveRequest {
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (saveRequest != null) {
@@ -787,6 +829,174 @@ abstract class _SaveRequest implements PlaylistInfoEvent {
 }
 
 /// @nodoc
+abstract class _$$_ReportRequestCopyWith<$Res> {
+  factory _$$_ReportRequestCopyWith(
+          _$_ReportRequest value, $Res Function(_$_ReportRequest) then) =
+      __$$_ReportRequestCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String reportType, dynamic description});
+}
+
+/// @nodoc
+class __$$_ReportRequestCopyWithImpl<$Res>
+    extends _$PlaylistInfoEventCopyWithImpl<$Res, _$_ReportRequest>
+    implements _$$_ReportRequestCopyWith<$Res> {
+  __$$_ReportRequestCopyWithImpl(
+      _$_ReportRequest _value, $Res Function(_$_ReportRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? reportType = null,
+    Object? description = freezed,
+  }) {
+    return _then(_$_ReportRequest(
+      null == reportType
+          ? _value.reportType
+          : reportType // ignore: cast_nullable_to_non_nullable
+              as String,
+      freezed == description ? _value.description! : description,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ReportRequest implements _ReportRequest {
+  const _$_ReportRequest(this.reportType, this.description);
+
+  @override
+  final String reportType;
+  @override
+  final dynamic description;
+
+  @override
+  String toString() {
+    return 'PlaylistInfoEvent.reportRequest(reportType: $reportType, description: $description)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ReportRequest &&
+            (identical(other.reportType, reportType) ||
+                other.reportType == reportType) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, reportType,
+      const DeepCollectionEquality().hash(description));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ReportRequestCopyWith<_$_ReportRequest> get copyWith =>
+      __$$_ReportRequestCopyWithImpl<_$_ReportRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String postId) loadRequest,
+    required TResult Function(String postId) deleteRequest,
+    required TResult Function() likeRequest,
+    required TResult Function() unlikeRequest,
+    required TResult Function(String vendorId) saveRequest,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
+  }) {
+    return reportRequest(reportType, description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String postId)? loadRequest,
+    TResult? Function(String postId)? deleteRequest,
+    TResult? Function()? likeRequest,
+    TResult? Function()? unlikeRequest,
+    TResult? Function(String vendorId)? saveRequest,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
+  }) {
+    return reportRequest?.call(reportType, description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String postId)? loadRequest,
+    TResult Function(String postId)? deleteRequest,
+    TResult Function()? likeRequest,
+    TResult Function()? unlikeRequest,
+    TResult Function(String vendorId)? saveRequest,
+    TResult Function(String reportType, dynamic description)? reportRequest,
+    required TResult orElse(),
+  }) {
+    if (reportRequest != null) {
+      return reportRequest(reportType, description);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRequest value) loadRequest,
+    required TResult Function(_DeleteRequest value) deleteRequest,
+    required TResult Function(_LikeRequest value) likeRequest,
+    required TResult Function(_UnlikeRequest value) unlikeRequest,
+    required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ReportRequest value) reportRequest,
+  }) {
+    return reportRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_DeleteRequest value)? deleteRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ReportRequest value)? reportRequest,
+  }) {
+    return reportRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_DeleteRequest value)? deleteRequest,
+    TResult Function(_LikeRequest value)? likeRequest,
+    TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ReportRequest value)? reportRequest,
+    required TResult orElse(),
+  }) {
+    if (reportRequest != null) {
+      return reportRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReportRequest implements PlaylistInfoEvent {
+  const factory _ReportRequest(
+      final String reportType, final dynamic description) = _$_ReportRequest;
+
+  String get reportType;
+  dynamic get description;
+  @JsonKey(ignore: true)
+  _$$_ReportRequestCopyWith<_$_ReportRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$PlaylistInfoState {
   Option<Either<ExplorePostFailure, Post>> get loadFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -794,6 +1004,8 @@ mixin _$PlaylistInfoState {
       throw _privateConstructorUsedError;
   Option<Either<ExplorePostFailure, RedirectUrl>>
       get saveFailureOrSuccessOption => throw _privateConstructorUsedError;
+  Option<Either<ExplorePostFailure, Unit>> get reportFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
   Post get post => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
@@ -815,6 +1027,7 @@ abstract class $PlaylistInfoStateCopyWith<$Res> {
       Option<Either<ExplorePostFailure, Unit>> deleteFailureOrSuccessOption,
       Option<Either<ExplorePostFailure, RedirectUrl>>
           saveFailureOrSuccessOption,
+      Option<Either<ExplorePostFailure, Unit>> reportFailureOrSuccessOption,
       Post post,
       bool isLoading,
       bool isSaving,
@@ -837,6 +1050,7 @@ class _$PlaylistInfoStateCopyWithImpl<$Res, $Val extends PlaylistInfoState>
     Object? loadFailureOrSuccessOption = null,
     Object? deleteFailureOrSuccessOption = null,
     Object? saveFailureOrSuccessOption = null,
+    Object? reportFailureOrSuccessOption = null,
     Object? post = null,
     Object? isLoading = null,
     Object? isSaving = null,
@@ -855,6 +1069,10 @@ class _$PlaylistInfoStateCopyWithImpl<$Res, $Val extends PlaylistInfoState>
           ? _value.saveFailureOrSuccessOption
           : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ExplorePostFailure, RedirectUrl>>,
+      reportFailureOrSuccessOption: null == reportFailureOrSuccessOption
+          ? _value.reportFailureOrSuccessOption
+          : reportFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ExplorePostFailure, Unit>>,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -888,6 +1106,7 @@ abstract class _$$_PlaylistInfoStateCopyWith<$Res>
       Option<Either<ExplorePostFailure, Unit>> deleteFailureOrSuccessOption,
       Option<Either<ExplorePostFailure, RedirectUrl>>
           saveFailureOrSuccessOption,
+      Option<Either<ExplorePostFailure, Unit>> reportFailureOrSuccessOption,
       Post post,
       bool isLoading,
       bool isSaving,
@@ -908,6 +1127,7 @@ class __$$_PlaylistInfoStateCopyWithImpl<$Res>
     Object? loadFailureOrSuccessOption = null,
     Object? deleteFailureOrSuccessOption = null,
     Object? saveFailureOrSuccessOption = null,
+    Object? reportFailureOrSuccessOption = null,
     Object? post = null,
     Object? isLoading = null,
     Object? isSaving = null,
@@ -926,6 +1146,10 @@ class __$$_PlaylistInfoStateCopyWithImpl<$Res>
           ? _value.saveFailureOrSuccessOption
           : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ExplorePostFailure, RedirectUrl>>,
+      reportFailureOrSuccessOption: null == reportFailureOrSuccessOption
+          ? _value.reportFailureOrSuccessOption
+          : reportFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ExplorePostFailure, Unit>>,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -953,6 +1177,7 @@ class _$_PlaylistInfoState implements _PlaylistInfoState {
       {required this.loadFailureOrSuccessOption,
       required this.deleteFailureOrSuccessOption,
       required this.saveFailureOrSuccessOption,
+      required this.reportFailureOrSuccessOption,
       required this.post,
       required this.isLoading,
       required this.isSaving,
@@ -966,6 +1191,8 @@ class _$_PlaylistInfoState implements _PlaylistInfoState {
   final Option<Either<ExplorePostFailure, RedirectUrl>>
       saveFailureOrSuccessOption;
   @override
+  final Option<Either<ExplorePostFailure, Unit>> reportFailureOrSuccessOption;
+  @override
   final Post post;
   @override
   final bool isLoading;
@@ -976,7 +1203,7 @@ class _$_PlaylistInfoState implements _PlaylistInfoState {
 
   @override
   String toString() {
-    return 'PlaylistInfoState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, deleteFailureOrSuccessOption: $deleteFailureOrSuccessOption, saveFailureOrSuccessOption: $saveFailureOrSuccessOption, post: $post, isLoading: $isLoading, isSaving: $isSaving, isLiked: $isLiked)';
+    return 'PlaylistInfoState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, deleteFailureOrSuccessOption: $deleteFailureOrSuccessOption, saveFailureOrSuccessOption: $saveFailureOrSuccessOption, reportFailureOrSuccessOption: $reportFailureOrSuccessOption, post: $post, isLoading: $isLoading, isSaving: $isSaving, isLiked: $isLiked)';
   }
 
   @override
@@ -996,6 +1223,10 @@ class _$_PlaylistInfoState implements _PlaylistInfoState {
                     saveFailureOrSuccessOption) ||
                 other.saveFailureOrSuccessOption ==
                     saveFailureOrSuccessOption) &&
+            (identical(other.reportFailureOrSuccessOption,
+                    reportFailureOrSuccessOption) ||
+                other.reportFailureOrSuccessOption ==
+                    reportFailureOrSuccessOption) &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
@@ -1010,6 +1241,7 @@ class _$_PlaylistInfoState implements _PlaylistInfoState {
       loadFailureOrSuccessOption,
       deleteFailureOrSuccessOption,
       saveFailureOrSuccessOption,
+      reportFailureOrSuccessOption,
       post,
       isLoading,
       isSaving,
@@ -1031,6 +1263,8 @@ abstract class _PlaylistInfoState implements PlaylistInfoState {
           deleteFailureOrSuccessOption,
       required final Option<Either<ExplorePostFailure, RedirectUrl>>
           saveFailureOrSuccessOption,
+      required final Option<Either<ExplorePostFailure, Unit>>
+          reportFailureOrSuccessOption,
       required final Post post,
       required final bool isLoading,
       required final bool isSaving,
@@ -1043,6 +1277,8 @@ abstract class _PlaylistInfoState implements PlaylistInfoState {
   @override
   Option<Either<ExplorePostFailure, RedirectUrl>>
       get saveFailureOrSuccessOption;
+  @override
+  Option<Either<ExplorePostFailure, Unit>> get reportFailureOrSuccessOption;
   @override
   Post get post;
   @override

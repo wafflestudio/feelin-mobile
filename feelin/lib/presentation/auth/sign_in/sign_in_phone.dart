@@ -9,6 +9,7 @@ import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../../injection.dart';
 import '../../common/next_button.dart';
 import '../../style/colors.dart';
+import '../sign_up/common_description.dart';
 import '../sign_up/common_title.dart';
 import '../sign_up/sign_up.dart';
 import 'sign_in_password.dart';
@@ -52,16 +53,18 @@ class _SignInPhoneState extends State<SignInPhone> with TickerProviderStateMixin
               margin: const EdgeInsets.only(top: 10,),
               constraints: const BoxConstraints(maxHeight: 210, minHeight: 140),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const CommonTitle(title: 'What\’s your \nphone number?'),
+                children: const [
+                  CommonTitle(title: 'What\’s your \nphone number?'),
+                  SizedBox(height: 10,),
+                  CommonDescription(description: 'Your phone number is used for signup and login'),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 28),
               child: _phoneField(),
             ),
             insteadButton(),
@@ -151,9 +154,12 @@ class _SignInPhoneState extends State<SignInPhone> with TickerProviderStateMixin
         textFieldController: _phoneTextController,
         formatInput: false,
         keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
-        inputDecoration: const InputDecoration(
+        inputDecoration: InputDecoration(
           hintText: 'Phone number',
           isDense: true,
+          errorStyle: TextStyle(
+            color: FeelinColorFamily.errorPrimary
+          )
         ),
         selectorTextStyle: const TextStyle(
           color: Colors.black,

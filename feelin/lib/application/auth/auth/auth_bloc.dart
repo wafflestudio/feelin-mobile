@@ -61,7 +61,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 (f) {
               emit(state.copyWith(
                 initialLoading: false,
-                authenticated: false,
+                authenticated: true,
               ));
             },
                 (_) {
@@ -74,13 +74,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }else{
           emit(state.copyWith(
             initialLoading: false,
-            authenticated: false,
+            authenticated: true,
           ));
         }
       }else{
         emit(state.copyWith(
           initialLoading: false,
-          authenticated: false,
+          authenticated: true,
         ));
       }
 

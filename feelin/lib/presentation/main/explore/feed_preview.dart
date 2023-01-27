@@ -50,7 +50,7 @@ class _FeedPreviewState extends State<FeedPreview> {
             ).then((value){
               if(value != null){
                 setState(() {
-                  widget.post.title = value.title;
+                  widget.post.title = value.reportType;
                   widget.post.content = value.content;
                   isLiked = value.isLiked;
                   widget.post.likeCount = value.likeCount;

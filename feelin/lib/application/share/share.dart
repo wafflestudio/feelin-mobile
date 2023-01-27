@@ -49,31 +49,7 @@ class Share{
 
   void _navigatePage(String dynamicLink) {
     String postId = dynamicLink.split('/').last;
-    // 페이지 이동
-    // Navigator.of(context).push(
-    //   MaterialPageRoute(
-    //     builder: (_) => MultiProvider(
-    //       providers: [
-    //         ChangeNotifierProvider(create: (_) => Posts(authProvider)),
-    //         ChangeNotifierProvider(create: (_) => Messages(authProvider)),
-    //       ],
-    //       child: FutureBuilder(
-    //         future: postProvider.getPost(int.parse(postId)),
-    //         builder: (_, AsyncSnapshot<Post?> snapshot) {
-    //           if (snapshot.hasData) {
-    //             return PostDetail(post: snapshot.data);
-    //           } else if (snapshot.hasError) {
-    //             showToast(success: false, msg: '공유된 게시글을 찾을 수 없습니다.');
-    //             Navigator.pop(context);
-    //             return Container();
-    //           } else {
-    //             return Center(child: guamProgressIndicator());
-    //           }
-    //         },
-    //       ),
-    //     ),
-    //   ),
-    // );
+
     Navigator.push(context, CupertinoPageRoute(
       builder: (context){
         return BlocProvider(
@@ -88,11 +64,9 @@ class Share{
     String dynamicLinkPrefix = 'https://feelinsns.page.link';
     final dynamicLinkParams = DynamicLinkParameters(
       uriPrefix: dynamicLinkPrefix,
-      // 수정 필요
       link: Uri.parse('https://feelin.wafflestudio.com/posts/$id'),
       androidParameters: const AndroidParameters(
         packageName: 'com.wafflestudio.feelin',
-        minimumVersion: 1,
       ),
       // TODO: ios parameter
       iosParameters: const IOSParameters(

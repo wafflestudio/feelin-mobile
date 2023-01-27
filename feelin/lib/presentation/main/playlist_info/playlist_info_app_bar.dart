@@ -14,6 +14,7 @@ import '../../../application/share/share.dart';
 import '../../../domain/play/post.dart';
 import '../../../injection.dart';
 import '../../edit/post/edit_post_page.dart';
+import 'report_bottom_modal.dart';
 
 class PlaylistInfoAppBar extends StatefulWidget with PreferredSizeWidget {
   final bool isShrink;
@@ -59,7 +60,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
 
   Future<void> _updatePaletteGenerator() async {
     paletteGenerator = await PaletteGenerator.fromImageProvider(
-      NetworkImage(widget.post.playlist.thumbnail ?? context.read<PlaylistInfoBloc>().state.post.playlist.tracks![0].album.thumbnail),
+      NetworkImage(widget.post.playlist.thumbnail ?? context.read<PlaylistInfoBloc>().state.post.playlist.thumbnail!),
     );
 
     setState(() {
@@ -165,7 +166,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                 ),
                 builder: (BuildContext context2) {
                   return SizedBox(
-                    height: (state.post.writer!.id == id!) ? 200 : 80,
+                    height: (state.post.writer!.id == id!) ? 220 : 160,
                     child: Column(
                       children: <Widget>[
                         const SizedBox(
@@ -175,7 +176,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                           width: double.infinity,
                           height: 60,
                           child: TextButton(onPressed: (){
-                            share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail);
+                            share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.thumbnail!);
                             Navigator.pop(context2);
                           }, child: const Text('Share', textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),)),
                         ),
@@ -264,7 +265,28 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                                 ),
                               ),
                             )
-                            , child: Text('Delete', style: TextStyle(color: FeelinColorFamily.errorDark, fontSize: 16),))),
+                                , child: Text('Delete', style: TextStyle(color: FeelinColorFamily.errorDark, fontSize: 16),))),
+                        if(state.post.writer!.id != id!) SizedBox(
+                            width: double.infinity,
+                            height: 60,
+                            child: TextButton(onPressed: (){
+                              Navigator.pop(context2);
+                              showModalBottomSheet<void>(
+                              context: context,
+                              useRootNavigator: true,
+                              backgroundColor: Colors.white,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                ),
+                              ),
+                              builder: (context) {
+                                return ReportBottomModal();
+                                },
+                            );
+                              }
+                  , child: Text('Report', style: TextStyle(color: FeelinColorFamily.errorDark, fontSize: 16),))),
                       ],
                     ),
                   );
@@ -315,7 +337,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                       child: Hero(
                         tag: "playlistCover${widget.heroNumber}",
                         child: Image(
-                          image: CachedNetworkImageProvider(widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail),
+                          image: CachedNetworkImageProvider(widget.post.playlist.thumbnail ?? state.post.playlist.thumbnail!),
                           width: 233,
                           height: 233,
                           fit: BoxFit.cover,
@@ -386,7 +408,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                             ),
                             IconButton(
                                 onPressed: (){
-                                  share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail);
+                                  share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.thumbnail!);
                                 },
                                 icon: Icon(Icons.ios_share, size: 27,color: FeelinColorFamily.gray700,))
                           ],

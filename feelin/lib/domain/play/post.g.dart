@@ -16,7 +16,6 @@ Post _$PostFromJson(Map<String, dynamic> json) => Post(
       playlist: Playlist.fromJson(json['playlist'] as Map<String, dynamic>),
       isLiked: json['doesLike'] as bool?,
       likeCount: json['likes'] as int? ?? 0,
-      tempThumbnail: json['thumbnail'] as String?,
     );
 
 Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
@@ -27,5 +26,4 @@ Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
       'playlist': instance.playlist,
       'doesLike': instance.isLiked,
       'likes': instance.likeCount,
-      'thumbnail': instance.tempThumbnail,
     };

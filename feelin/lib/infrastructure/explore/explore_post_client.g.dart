@@ -114,6 +114,30 @@ class _ExplorePostClient implements ExplorePostClient {
   }
 
   @override
+  Future<HttpResponse<void>> report(reportPostRequest) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(reportPostRequest.toJson());
+    final _result =
+        await _dio.fetch<void>(_setStreamType<HttpResponse<void>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/posts/report',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final httpResponse = HttpResponse(null, _result);
+    return httpResponse;
+  }
+
+  @override
   Future<HttpResponse<RedirectUrl>> save(
     playlistId,
     vendorId,

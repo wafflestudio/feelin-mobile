@@ -105,15 +105,23 @@ flutter:
     - assets/images/
 
   fonts:
-    - family: SpoqaHanSansNeo
+    - family: Pretendard
       fonts:
-        - asset: assets/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Thin.otf
+        - asset: assets/font/pretendard/Pretendard-Thin.otf
           weight: 100
-        - asset: assets/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Light.otf
+        - asset: assets/font/pretendard/Pretendard-ExtraLight.otf
+          weight: 200
+        - asset: assets/font/pretendard/Pretendard-Light.otf
           weight: 300
-        - asset: assets/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Regular.otf
+        - asset: assets/font/pretendard/Pretendard-Regular.otf
           weight: 400
-        - asset: assets/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Medium.otf
+        - asset: assets/font/pretendard/Pretendard-Medium.otf
           weight: 500
-        - asset: assets/font/SpoqaHanSansNeo_OTF_subset/SpoqaHanSansNeo-Bold.otf
+        - asset: assets/font/pretendard/Pretendard-SemiBold.otf
+          weight: 600
+        - asset: assets/font/pretendard/Pretendard-Bold.otf
           weight: 700
+        - asset: assets/font/pretendard/Pretendard-ExtraBold.otf
+          weight: 800
+        - asset: assets/font/pretendard/Pretendard-Black.otf
+          weight: 900

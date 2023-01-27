@@ -101,6 +101,22 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
       }
     });
 
+    on<_ReportRequest>((event, emit) async {
+      final failureOrSuccess = await _explorePostRepository.report(reportType: event.reportType, username: state.post.writer!.username, description: event.description, post: state.post);
+      failureOrSuccess.fold(
+            (f) {
+          emit(state.copyWith(
+            reportFailureOrSuccessOption: some(left(f)),
+          ));
+        },
+            (post) {
+          emit(state.copyWith(
+            reportFailureOrSuccessOption: some(right(unit)),
+          ));
+        },
+      );
+    });
+
     on<_SaveRequest>((event, emit) async {
       if(!state.isSaving){
         emit(state.copyWith(

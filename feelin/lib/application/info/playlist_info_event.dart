@@ -7,4 +7,5 @@ class PlaylistInfoEvent with _$PlaylistInfoEvent {
   const factory PlaylistInfoEvent.likeRequest() = _LikeRequest;
   const factory PlaylistInfoEvent.unlikeRequest() = _UnlikeRequest;
   const factory PlaylistInfoEvent.saveRequest(String vendorId) = _SaveRequest;
+  const factory PlaylistInfoEvent.reportRequest(String reportType, description) = _ReportRequest;
 }

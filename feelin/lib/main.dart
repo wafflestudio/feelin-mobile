@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/application/auth/auth/auth_bloc.dart';
-import 'package:music_sns/application/navigation/navigation_cubit.dart';
 import 'package:music_sns/application/streaming/streaming_bloc.dart';
 import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/style/colors.dart';
@@ -44,24 +43,17 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.navigatorKey,
         title: 'Feelin\'',
         theme: ThemeData(
-          primarySwatch: MaterialColor(0xFFFFFFFF, <int, Color>{
-            50: FeelinColorFamily.red50,
-            100: FeelinColorFamily.red100,
-            200: FeelinColorFamily.red200,
-            300: FeelinColorFamily.red300,
-            400: FeelinColorFamily.red400,
-            500: FeelinColorFamily.red500,
-            600: FeelinColorFamily.red600,
-            700: FeelinColorFamily.red700,
-            800: FeelinColorFamily.red800,
-            900: FeelinColorFamily.red900,
-          }),
           primaryColor: Colors.black,
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
               elevation: MaterialStateProperty.all(0),
+            )
+          ),
+          textButtonTheme: TextButtonThemeData(
+            style: ButtonStyle(
+              overlayColor: MaterialStateProperty.all(FeelinColorFamily.gray200)
             )
           ),
           snackBarTheme: SnackBarThemeData(backgroundColor: FeelinColorFamily.errorPrimary, actionTextColor: Colors.white),
@@ -77,10 +69,20 @@ class MyApp extends StatelessWidget {
             selectionColor: FeelinColorFamily.redSecondary,
             selectionHandleColor: FeelinColorFamily.redPrimary,
           ),
-          errorColor: FeelinColorFamily.errorPrimary,
           appBarTheme: const AppBarTheme(foregroundColor: Colors.black,),
-          //fontFamily: 'SpoqaHanSansNeo',
-          scaffoldBackgroundColor: Colors.white,
+          fontFamily: 'Pretendard',
+          scaffoldBackgroundColor: Colors.white, colorScheme: ColorScheme.fromSwatch(primarySwatch: MaterialColor(0xFFFFFFFF, <int, Color>{
+            50: FeelinColorFamily.red50,
+            100: FeelinColorFamily.red100,
+            200: FeelinColorFamily.red200,
+            300: FeelinColorFamily.red300,
+            400: FeelinColorFamily.red400,
+            500: FeelinColorFamily.red500,
+            600: FeelinColorFamily.red600,
+            700: FeelinColorFamily.red700,
+            800: FeelinColorFamily.red800,
+            900: FeelinColorFamily.red900,
+          })).copyWith(error: FeelinColorFamily.errorPrimary),
         ),
         initialRoute: '/',
         routes: {

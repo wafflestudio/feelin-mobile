@@ -11,6 +11,7 @@
         <package android:name="com.ktmusic.geniemusic" />
         <package android:name="com.neowiz.android.bugs" />
         <package android:name="com.apple.android.music" />
+        <package android:name="com.wafflestudio.feelin" />
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="https" />

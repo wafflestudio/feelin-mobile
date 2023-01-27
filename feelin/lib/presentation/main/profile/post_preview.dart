@@ -36,7 +36,7 @@ class _PostPreviewState extends State<PostPreview> {
         ).then((value) {
           if(value != null){
             setState(() {
-              widget.post.title = value.title;
+              widget.post.title = value.reportType;
               widget.post.content = value.content;
             });
         }});

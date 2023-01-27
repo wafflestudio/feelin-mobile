@@ -3,6 +3,7 @@ import 'package:music_sns/domain/play/post.dart';
 import 'package:music_sns/domain/streaming/redirect_url.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../domain/post/report_post_request.dart';
 import '../../domain/streaming/save_to_account_request.dart';
 
 part 'explore_post_client.g.dart';
@@ -22,6 +23,9 @@ abstract class ExplorePostClient{
 
   @DELETE('/likes/posts/{post_id}')
   Future<HttpResponse<void>> unlike(@Path('post_id') String id);
+
+  @POST('/posts/report')
+  Future<HttpResponse<void>> report(@Body() ReportPostRequest reportPostRequest);
 
   @POST('https://feelin-api-dev.wafflestudio.com/api/v1/playlists/{playlist_id}/save')
   Future<HttpResponse<RedirectUrl>> save(@Path('playlist_id') String playlistId, @Header('Vendor-Authorization') String vendorId, @Body() SaveToAccountRequest saveToAccountRequest);

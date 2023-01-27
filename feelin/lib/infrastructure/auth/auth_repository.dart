@@ -55,9 +55,11 @@ class AuthRepository{
         storage.deleteAll();
         return const Right(unit);
       }else{
+        print(httpResponse.response.statusCode);
         return const Left(AuthFailure.unauthorized());
       }
     } on DioError catch(e){
+      print(e);
       return const Left(AuthFailure.serverError());
     }
   }

@@ -22,9 +22,9 @@ class _NextButtonState extends State<NextButton> {
     return BouncingWidget(
       disabled: widget.disabled || (widget.isLoading != null && widget.isLoading!),
       child: Container(
-        margin: widget.margin ?? const EdgeInsets.symmetric(horizontal: 20),
+        margin: widget.margin ?? const EdgeInsets.symmetric(horizontal: 32),
         width: MediaQuery.of(context).size.width,
-        height: 48,
+        height: 56,
         child: ElevatedButton(
             onPressed: widget.disabled ? null : (){
               if(widget.isLoading != null && widget.isLoading!) return;
