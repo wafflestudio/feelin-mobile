@@ -19,32 +19,38 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() submitted,
+    required TResult Function() deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? submitted,
+    TResult? Function()? deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitted,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +112,7 @@ class _$_Submitted implements _Submitted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() submitted,
+    required TResult Function() deleteAccount,
   }) {
     return submitted();
   }
@@ -114,6 +121,7 @@ class _$_Submitted implements _Submitted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? submitted,
+    TResult? Function()? deleteAccount,
   }) {
     return submitted?.call();
   }
@@ -122,6 +130,7 @@ class _$_Submitted implements _Submitted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitted,
+    TResult Function()? deleteAccount,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -134,6 +143,7 @@ class _$_Submitted implements _Submitted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_DeleteAccount value) deleteAccount,
   }) {
     return submitted(this);
   }
@@ -142,6 +152,7 @@ class _$_Submitted implements _Submitted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
   }) {
     return submitted?.call(this);
   }
@@ -150,6 +161,7 @@ class _$_Submitted implements _Submitted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -161,6 +173,108 @@ class _$_Submitted implements _Submitted {
 
 abstract class _Submitted implements AuthEvent {
   const factory _Submitted() = _$_Submitted;
+}
+
+/// @nodoc
+abstract class _$$_DeleteAccountCopyWith<$Res> {
+  factory _$$_DeleteAccountCopyWith(
+          _$_DeleteAccount value, $Res Function(_$_DeleteAccount) then) =
+      __$$_DeleteAccountCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_DeleteAccountCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_DeleteAccount>
+    implements _$$_DeleteAccountCopyWith<$Res> {
+  __$$_DeleteAccountCopyWithImpl(
+      _$_DeleteAccount _value, $Res Function(_$_DeleteAccount) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_DeleteAccount implements _DeleteAccount {
+  const _$_DeleteAccount();
+
+  @override
+  String toString() {
+    return 'AuthEvent.deleteAccount()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_DeleteAccount);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() submitted,
+    required TResult Function() deleteAccount,
+  }) {
+    return deleteAccount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? submitted,
+    TResult? Function()? deleteAccount,
+  }) {
+    return deleteAccount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? submitted,
+    TResult Function()? deleteAccount,
+    required TResult orElse(),
+  }) {
+    if (deleteAccount != null) {
+      return deleteAccount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_DeleteAccount value) deleteAccount,
+  }) {
+    return deleteAccount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_DeleteAccount value)? deleteAccount,
+  }) {
+    return deleteAccount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_DeleteAccount value)? deleteAccount,
+    required TResult orElse(),
+  }) {
+    if (deleteAccount != null) {
+      return deleteAccount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteAccount implements AuthEvent {
+  const factory _DeleteAccount() = _$_DeleteAccount;
 }
 
 /// @nodoc

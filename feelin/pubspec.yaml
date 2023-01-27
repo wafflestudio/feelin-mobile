@@ -48,6 +48,7 @@ dependencies:
   validators: ^3.0.0
   top_snackbar_flutter: ^3.0.0+1
   sms_autofill: ^2.2.0
+  url_launcher: ^6.1.8
 
 dev_dependencies:
   flutter_test:

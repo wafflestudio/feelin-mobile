@@ -21,9 +21,13 @@ class _FollowClient implements FollowClient {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<PageUser>> getFollowingsById(id) async {
+  Future<HttpResponse<PageUser>> getFollowingsById(
+    id,
+    cursor,
+  ) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'cursor': cursor};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -45,9 +49,13 @@ class _FollowClient implements FollowClient {
   }
 
   @override
-  Future<HttpResponse<PageUser>> getFollowersById(id) async {
+  Future<HttpResponse<PageUser>> getFollowersById(
+    id,
+    cursor,
+  ) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'cursor': cursor};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(

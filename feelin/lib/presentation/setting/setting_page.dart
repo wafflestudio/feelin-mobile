@@ -6,6 +6,7 @@ import 'package:music_sns/application/streaming/streaming_bloc.dart';
 import 'package:music_sns/domain/streaming/vendor.dart';
 import 'package:music_sns/presentation/setting/our_email_page.dart';
 import 'package:music_sns/presentation/style/colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../application/auth/auth/auth_bloc.dart';
 import '../../application/streaming/connect/connect_streaming_bloc.dart';
@@ -30,11 +31,17 @@ class SettingPage extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           text('About'),
-          button(string: 'Privacy Policy', function: (){
-
+          button(string: 'Privacy Policy', function: () async {
+            final url = Uri.parse('https://feelin.wafflestudio.com/privacy-policy.html');
+            if (await canLaunchUrl(url)) {
+            launchUrl(url, mode: LaunchMode.externalApplication);
+            }
           }),
-          button(string: 'Terms of Use', function: (){
-
+          button(string: 'Terms of Use', function: () async {
+            final url = Uri.parse('https://feelin.wafflestudio.com/terms-of-use.html');
+            if (await canLaunchUrl(url)) {
+            launchUrl(url,  mode: LaunchMode.externalApplication);
+            }
           }),
           button(string: 'Open source libraries', function: (){
             Navigator.push(context, CupertinoPageRoute(
@@ -211,6 +218,85 @@ class SettingPage extends StatelessWidget{
                             child: Center(
                               child: Text(
                                 'Logout',
+                                style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }, color: FeelinColorFamily.redPrimary),
+          button(string: 'Delete Account', function: (){
+            showModalBottomSheet<void>(
+              context: context,
+              useRootNavigator: true,
+              backgroundColor: Colors.white,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
+              builder: (context) => SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.only(left: 24, top: 24, right: 18, bottom: 14),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Delete Account',
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
+                          ),
+                          TextButton(
+                            child: Text(
+                              'Cancel',
+                              style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
+                              ),
+                            ),
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              minimumSize: const Size(30, 26),
+                              alignment: Alignment.centerRight,
+                            ),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ),
+                        ],
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20),
+                        child: Center(
+                          child: Text(
+                            'If you delete the account, you cannot recover it again. Are you sure you want to delete it?',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 14, ),
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: TextButton(
+                          onPressed: (){
+                            storage.deleteAll();
+                            context.read<AuthBloc>().add(const AuthEvent.submitted());
+                            Navigator.of(context).popUntil((route) => route.isFirst);
+                          },
+                          child: Container(
+                            //color: FeelinColorFamily.gray50,
+                            decoration: BoxDecoration(
+                                color: FeelinColorFamily.gray50,
+                                borderRadius: BorderRadius.circular(8)
+                            ),
+                            width: 180,
+                            height: 40,
+                            child: Center(
+                              child: Text(
+                                'Delete Account',
                                 style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary),
                               ),
                             ),

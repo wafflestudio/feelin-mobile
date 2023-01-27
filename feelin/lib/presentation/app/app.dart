@@ -69,16 +69,11 @@ class AppState extends State<App>{
           _buildOffstageNavigator(TabItem.post),
           _buildOffstageNavigator(TabItem.profile),
         ]),
-        bottomNavigationBar: AnimatedContainer(
-          height: (false) ? 0.0 : kToolbarHeight,
-          curve: Curves.ease,
-          duration: const Duration(milliseconds: 30),
-          child: SingleChildScrollView(
-            child: BottomNavigation(
-              currentTab: _currentTab,
-              onSelectTab: _selectTab,
-              profileKey: _profileKey,
-            ),
+        bottomNavigationBar: SingleChildScrollView(
+          child: BottomNavigation(
+            currentTab: _currentTab,
+            onSelectTab: _selectTab,
+            profileKey: _profileKey,
           ),
         ),
       ),

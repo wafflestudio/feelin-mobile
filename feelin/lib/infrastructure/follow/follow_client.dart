@@ -9,10 +9,10 @@ abstract class FollowClient{
   factory FollowClient(Dio dio, {String baseUrl}) = _FollowClient;
 
   @GET('/follows/followings/{user_id}')
-  Future<HttpResponse<PageUser>> getFollowingsById(@Path('user_id') String id);
+  Future<HttpResponse<PageUser>> getFollowingsById(@Path('user_id') String id, @Query('cursor') String? cursor,);
 
   @GET('/follows/followers/{user_id}')
-  Future<HttpResponse<PageUser>> getFollowersById(@Path('user_id') String id);
+  Future<HttpResponse<PageUser>> getFollowersById(@Path('user_id') String id, @Query('cursor') String? cursor,);
 
   @POST('/follows/{user_id}')
   Future<HttpResponse<void>> follow(@Path('user_id')String id);

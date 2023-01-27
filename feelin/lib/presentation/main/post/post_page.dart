@@ -245,7 +245,7 @@ class _PostPageState extends State<PostPage>{
                           SizedBox(
                             width: 300,
                               height: 610,
-                              child: WebViewPage(url: 'https://feelin-dev.wafflestudio.com/guide/spotify'),
+                              child: WebViewPage(url: 'https://feelin.wafflestudio.com/guide/spotify'),
                           ),
                           const SizedBox(height: 10,),
                           PlatformButton(function: (){
@@ -268,7 +268,7 @@ class _PostPageState extends State<PostPage>{
                           SizedBox(
                             width: 300,
                             height: 610,
-                            child: WebViewPage(url: 'https://feelin-dev.wafflestudio.com/guide/applemusic'),
+                            child: WebViewPage(url: 'https://feelin.wafflestudio.com/guide/applemusic'),
                           ),
                           const SizedBox(height: 10,),
                           PlatformButton(function: (){

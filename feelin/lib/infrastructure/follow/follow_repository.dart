@@ -21,9 +21,9 @@ class FollowRepository{
 
   FollowRepository._internal();
 
-  Future<Either<ProfileFailure, Tuple2<PageUser, String?>>> getFollowingsById({required String id}) async{
+  Future<Either<ProfileFailure, Tuple2<PageUser, String?>>> getFollowingsById({required String id, required String? cursor}) async{
     try{
-      HttpResponse<PageUser> httpResponse = await followClient.getFollowingsById(id);
+      HttpResponse<PageUser> httpResponse = await followClient.getFollowingsById(id, cursor);
       switch(httpResponse.response.statusCode){
         case 200 : return Right(Tuple2(httpResponse.data, httpResponse.response.headers['cursor'] == null ? null : httpResponse.response.headers['cursor']![0]));
         case 401 : return const Left(ProfileFailure.unauthorized());
@@ -37,9 +37,9 @@ class FollowRepository{
     }
   }
 
-  Future<Either<ProfileFailure, Tuple2<PageUser, String?>>> getFollowersById({required String id}) async{
+  Future<Either<ProfileFailure, Tuple2<PageUser, String?>>> getFollowersById({required String id, required String? cursor}) async{
     try{
-      HttpResponse<PageUser> httpResponse = await followClient.getFollowersById(id);
+      HttpResponse<PageUser> httpResponse = await followClient.getFollowersById(id, cursor);
       switch(httpResponse.response.statusCode){
         case 200 : return Right(Tuple2(httpResponse.data, httpResponse.response.headers['cursor'] == null ? null : httpResponse.response.headers['cursor']![0]));
         case 401 : return const Left(ProfileFailure.unauthorized());

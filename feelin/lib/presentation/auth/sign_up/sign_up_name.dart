@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_up/common_title.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_birthday.dart';
+import 'package:music_sns/presentation/style/colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';
@@ -53,12 +56,62 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: NextButton(disabled: name.isEmpty,
-                function: (){
-                  widget.goToNext();
-                },),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                RichText(textAlign: TextAlign.center,text: TextSpan(
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 13,
+                    letterSpacing: -0.41,
+                  ),
+                  children: [
+                    TextSpan(
+                        text: 'By tapping Next, you acknowledged that you have read \nthe ',
+                      style: TextStyle(
+                        color: Colors.black,
+                      )
+                    ),
+                    TextSpan(
+                        text: 'Privacy Policy',
+                      style: TextStyle(
+                        color: FeelinColorFamily.redPrimary,
+                      ),
+                        recognizer: TapGestureRecognizer()..onTap = () async {
+                          final url = Uri.parse('https://feelin.wafflestudio.com/privacy-policy.html');
+                          if (await canLaunchUrl(url)) {
+                          launchUrl(url, mode: LaunchMode.externalApplication);
+                          }
+                        }
+                    ),
+                    TextSpan(
+                        text: ' and agree to the ',
+                      style: TextStyle(
+                        color: Colors.black
+                      )
+                    ),
+                    TextSpan(
+                      text: 'Terms of Use',
+                      style: TextStyle(
+                        color: FeelinColorFamily.redPrimary,
+                      ),
+                        recognizer: TapGestureRecognizer()..onTap = () async {
+                          final url = Uri.parse('https://feelin.wafflestudio.com/terms-of-use.html');
+                          if (await canLaunchUrl(url)) {
+                            launchUrl(url,  mode: LaunchMode.externalApplication);
+                          }
+                        }
+                    )
+                  ]
+                )),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20, top: 10),
+                  child: NextButton(disabled: name.isEmpty,
+                    function: (){
+                      widget.goToNext();
+                    },),
+                ),
+              ],
             ),
           ],
         ),

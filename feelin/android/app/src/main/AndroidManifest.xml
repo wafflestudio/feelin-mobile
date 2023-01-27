@@ -11,6 +11,10 @@
         <package android:name="com.ktmusic.geniemusic" />
         <package android:name="com.neowiz.android.bugs" />
         <package android:name="com.apple.android.music" />
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
     </queries>
 
    <application

@@ -55,4 +55,7 @@ abstract class AuthClient{
 
   @GET('/user/me')
   Future<HttpResponse<void>> getSignedInUser(@Header("Authorization") String token);
+
+  @DELETE('/auth')
+  Future<HttpResponse<void>> deleteAccount(@Header("Authorization") String token);
 }

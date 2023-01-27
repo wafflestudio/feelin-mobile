@@ -22,7 +22,7 @@ class FollowBloc extends Bloc<FollowEvent, FollowState>{
       ));
 
       if(!state.isLast){
-        final failureOrSuccess = await _followRepository.getFollowingsById(id: event.id);
+        final failureOrSuccess = await _followRepository.getFollowingsById(id: event.id, cursor: state.cursor);
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
@@ -49,7 +49,7 @@ class FollowBloc extends Bloc<FollowEvent, FollowState>{
       ));
 
       if(!state.isLast){
-        final failureOrSuccess = await _followRepository.getFollowersById(id: event.id);
+        final failureOrSuccess = await _followRepository.getFollowersById(id: event.id, cursor: state.cursor);
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(

@@ -48,6 +48,20 @@ class AuthRepository{
     }
   }
 
+  Future<Either<AuthFailure, Unit>> deleteAccount({required Token token}) async{
+    try{
+      HttpResponse<void> httpResponse = await authClient.deleteAccount(token.token);
+      if(httpResponse.response.statusCode == 204){
+        storage.deleteAll();
+        return const Right(unit);
+      }else{
+        return const Left(AuthFailure.unauthorized());
+      }
+    } on DioError catch(e){
+      return const Left(AuthFailure.serverError());
+    }
+  }
+
   Future<Either<AuthFailure, Unit>> signInWithEmail(
       {required EmailAddress emailAddress, required Password password}) async {
     try{

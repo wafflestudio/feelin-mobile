@@ -51,5 +51,39 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
 
     });
+
+    on<_DeleteAccount>((event, emit) async {
+      if(await storage.containsKey(key: 'token')){
+        final token = await storage.read(key: "token");
+        if(token != null && token != ''){
+          final failureOrSuccess = await _authRepository.deleteAccount(token: Token(token: token));
+          failureOrSuccess.fold(
+                (f) {
+              emit(state.copyWith(
+                initialLoading: false,
+                authenticated: false,
+              ));
+            },
+                (_) {
+              emit(state.copyWith(
+                initialLoading: false,
+                authenticated: false,
+              ));
+            },
+          );
+        }else{
+          emit(state.copyWith(
+            initialLoading: false,
+            authenticated: false,
+          ));
+        }
+      }else{
+        emit(state.copyWith(
+          initialLoading: false,
+          authenticated: false,
+        ));
+      }
+
+    });
   }
 }
