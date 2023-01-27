@@ -215,6 +215,6 @@ class _PostPageState extends State<PostPage>{
   }
 
   Widget openAppButton(){
-    
+    return Container();
   }
 }
