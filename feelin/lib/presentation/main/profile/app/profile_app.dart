@@ -9,7 +9,7 @@ import '../../../../injection.dart';
 import '../profile_page.dart';
 
 class ProfileApp extends StatelessWidget {
-  final int? userId;
+  final String? userId;
   final GlobalKey<ProfileAppScaffoldState>? profileKey;
 
   const ProfileApp({Key? key, this.userId, this.profileKey}) : super(key: key);
@@ -23,8 +23,8 @@ class ProfileApp extends StatelessWidget {
   }
 }
 
-class ProfileAppScaffold extends StatefulWidget {
-  final int? userId;
+class ProfileAppScaffold extends StatefulWidget{
+  final String? userId;
 
   const ProfileAppScaffold(this.userId, {Key? key}) : super(key: key);
 
@@ -32,16 +32,17 @@ class ProfileAppScaffold extends StatefulWidget {
   State<ProfileAppScaffold> createState() => ProfileAppScaffoldState();
 }
 
-class ProfileAppScaffoldState extends State<ProfileAppScaffold> {
+class ProfileAppScaffoldState extends State<ProfileAppScaffold> with AutomaticKeepAliveClientMixin<ProfileAppScaffold>{
   final storage = const FlutterSecureStorage();
+  final ScrollController scrollController = ScrollController();
   String? token;
 
-  @override
-  void initState(){
-    super.initState();
+  bool _isFirstLoadRunning = false;
+  bool _isLoadMoreRunning = false;
 
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _async();
+  void _firstLoad(){
+    setState((){
+      _isFirstLoadRunning = true;
     });
     context.read<ProfileBloc>().add(const ProfileEvent.resetRequest());
     if(widget.userId == null){
@@ -50,9 +51,24 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> {
       context.read<ProfileBloc>().add(ProfileEvent.profileRequest(widget.userId!));
     }
     if(widget.userId == null){
-      context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest(0));
+      context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest());
     }else{
-      context.read<ProfileBloc>().add(ProfileEvent.pageRequest(0, widget.userId!));
+      context.read<ProfileBloc>().add(ProfileEvent.pageRequest(widget.userId!));
+    }
+    setState(() => _isFirstLoadRunning = false);
+  }
+
+  void _loadMore() async {
+    if (_isFirstLoadRunning == false &&
+        _isLoadMoreRunning == false &&
+        scrollController.position.extentAfter < 300) {
+      setState(() => _isLoadMoreRunning = true);
+      if(widget.userId == null){
+        context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest());
+      }else{
+        context.read<ProfileBloc>().add(ProfileEvent.pageRequest(widget.userId!));
+      }
+      setState(() => _isLoadMoreRunning = false);
     }
   }
 
@@ -64,23 +80,44 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> {
     context.read<ProfileBloc>().add(const ProfileEvent.resetRequest());
     if(widget.userId == null){
       context.read<ProfileBloc>().add(const ProfileEvent.myProfileRequest());
-      context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest(0));
+      context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest());
     }else{
       context.read<ProfileBloc>().add(ProfileEvent.profileRequest(widget.userId!));
-      context.read<ProfileBloc>().add(ProfileEvent.pageRequest(0, widget.userId!));
+      context.read<ProfileBloc>().add(ProfileEvent.pageRequest(widget.userId!));
     }
+  }
+
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  void initState(){
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _async();
+    });
+    _firstLoad();
+    scrollController.addListener(_loadMore);
+  }
+
+  @override
+  void dispose() {
+    scrollController.removeListener(_loadMore);
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.white,
-      appBar: ProfileAppBar(isRoot: (widget.userId == null),),
+      appBar: ProfileAppBar(isRoot: (widget.userId == null), function: (){
+        scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+      }, onRefresh: onRefresh,),
       body: RefreshIndicator(
         color: FeelinColorFamily.redPrimary,
         backgroundColor: FeelinColorFamily.redSecondary,
         onRefresh: () async => onRefresh(),
-          child: ProfilePage(userId: widget.userId,)),
+          child: ProfilePage(userId: widget.userId, scrollController: scrollController,)),
     );
   }
 }

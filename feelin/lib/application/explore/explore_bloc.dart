@@ -35,7 +35,6 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState>{
               isLoading: false,
               loadFailureOrSuccessOption: some(right(tuple.value1)),
               feeds: state.feeds + tuple.value1.content,
-              // For the test
               isLast: tuple.value1.last,
               cursor: tuple.value2,
             ));
@@ -62,7 +61,6 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState>{
               isLoadingF: false,
               loadFFailureOrSuccessOption: some(right(tuple.value1)),
               feedsF: state.feedsF + tuple.value1.content,
-              // For the test
               isLastF: tuple.value1.last,
               cursorF: tuple.value2,
             ));
@@ -83,6 +81,36 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState>{
         isLastF: false,
         cursorF: null,
       ));
+    });
+
+    on<_LikeRequest>((event, emit) async {
+      final feeds = event.F ? state.feedsF : state.feeds;
+      if(!feeds[event.index].isLiked!){
+        final failureOrSuccess = await _exploreRepository.like(id: feeds[event.index].id);
+        failureOrSuccess.fold(
+              (f) {
+            feeds[event.index].isLiked = false;
+          },
+              (posts) {
+                feeds[event.index].isLiked = true;
+          },
+        );
+      }
+    });
+
+    on<_UnlikeRequest>((event, emit) async {
+      final feeds = event.F ? state.feedsF : state.feeds;
+      if(feeds[event.index].isLiked!){
+        final failureOrSuccess = await _exploreRepository.unlike(id: feeds[event.index].id);
+        failureOrSuccess.fold(
+              (f) {
+            feeds[event.index].isLiked = true;
+          },
+              (posts) {
+            feeds[event.index].isLiked = false;
+          },
+        );
+      }
     });
   }
 }

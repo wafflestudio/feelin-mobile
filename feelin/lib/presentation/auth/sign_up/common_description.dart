@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../../style/colors.dart';
+
 class CommonDescription extends StatelessWidget{
   final String description;
-  final bool isGrey;
-  const CommonDescription({Key? key, required this.description, this.isGrey = false}) : super(key: key);
+  final bool isRed;
+  const CommonDescription({Key? key, required this.description, this.isRed = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       description,
       textAlign: TextAlign.center,
-      style: const TextStyle(
-        color: Colors.black,
+      style: TextStyle(
+        color: isRed ? FeelinColorFamily.redPrimary : Colors.black,
         fontSize: 15,
-        fontWeight: FontWeight.w400,
+        fontWeight: isRed ? FontWeight.w600 : FontWeight.w400,
         letterSpacing: -0.41
       ),
     );

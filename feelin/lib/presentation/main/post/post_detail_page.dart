@@ -1,7 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/post/post_form/post_form_bloc.dart';
+import 'package:music_sns/presentation/main/post/post_complete.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../domain/play/playlist.dart';
 import '../../../domain/post/max_lines_input_formatters.dart';
@@ -46,12 +50,21 @@ class _PostDetailPageState extends State<PostDetailPage> {
         state.postFailureOrSuccessOption.fold(
               () => null,
               (failureOrSuccess) => failureOrSuccess.fold(
-                (f) => _showSnackBar(context, f.toString()),
-                (_) => {
+                (f) => showTopSnackBar(
+                    Overlay.of(context),
+                    CustomSnackBar.error(message: f.toString())
+                ),
+                (post) => {
                 //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.playlist.tracks[0].id.toString()))),
                 // context.read<ProfileBloc>().add(const ProfileEvent.myProfileRequest()),
                 //   context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest(0)),
-                Navigator.pop(context, true),
+                  Navigator.pop(context, true),
+                  Navigator.push(context, CupertinoPageRoute(
+                    builder: (context){
+                      return PostCompletePage(post: post);
+                    },
+                  ),
+                  ),
             },
           ),
 
@@ -67,8 +80,9 @@ class _PostDetailPageState extends State<PostDetailPage> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
+                  Material(
+                    shadowColor: Colors.black,
+                    elevation: 8,
                     child: Image(
                       image: CachedNetworkImageProvider(context.read<PostFormBloc>().state.playlistPreview.thumbnail),
                       width: 200,

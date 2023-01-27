@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
+import 'package:music_sns/presentation/app/app.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_app_bar.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_list.dart';
 
 import '../../../domain/play/post.dart';
 import '../../style/colors.dart';
+import 'save_to_account_button.dart';
 
 class PlaylistInfoPage extends StatefulWidget{
   const PlaylistInfoPage({Key? key, this.post, required this.postId, required this.heroNumber, required this.width}) : super(key: key);
 
   final Post? post;
-  final int postId;
+  final String postId;
   final int heroNumber;
   final double width;
 
@@ -26,7 +28,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
   bool lastStatus = true;
   double height = 378;
   double expandedHeight = 400;
-  bool isEdited = false;
+  bool isEdited = true;
 
   void _scrollListener() {
     if (_isShrink != lastStatus) {
@@ -126,6 +128,20 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
             },
           ),
         );
+
+        // state.saveFailureOrSuccessOption.fold(
+        //       () => null,
+        //       (failureOrSuccess) => failureOrSuccess.fold(
+        //         (f) => print('ffffffffffff'),
+        //         (url) => {
+        //       print('dddddddddddddd'),
+        //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        //         backgroundColor: FeelinColorFamily.redPrimary,
+        //         content: Text("Save"),
+        //       )),
+        //     },
+        //   ),
+        // );
       },
       child: BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
         builder: (context, state) {
@@ -133,7 +149,11 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
             children: [
               WillPopScope(
                 onWillPop: () async {
-                  if(isEdited){
+                  if(isEdited && widget.post != null){
+                    setState(() {
+                      widget.post!.isLiked = state.isLiked;
+                      widget.post!.likeCount = state.post.likeCount;
+                    });
                     Navigator.pop(context, widget.post);
                     return false;
                   }else{
@@ -164,20 +184,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                                 ],
                               ),
                             ),
-                              floatingActionButton: Container(
-                                width: MediaQuery.of(context).size.width - 24,
-                                height: 56,
-                                child: FloatingActionButton.extended(
-                                  onPressed: (){},
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
-                                  backgroundColor: Colors.black,
-                                  foregroundColor: Colors.white,
-                                  hoverColor: Colors.transparent,
-                                  icon: null,
-                                  elevation: 4,
-                                  //shape: RoundedRectangleBorder(side: BorderSide(),borderRadius: BorderRadius.circular(28)),
-                                  label: const Text('Save to account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),),),
-                              ),
+                              floatingActionButton: const SaveToAccountButton(),
                               floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
                           ),
               ),

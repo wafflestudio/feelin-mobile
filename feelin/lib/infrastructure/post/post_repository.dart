@@ -8,6 +8,7 @@ import 'package:music_sns/domain/post/value_objects.dart';
 import 'package:music_sns/infrastructure/post/post_client.dart';
 import 'package:retrofit/dio.dart';
 
+import '../../domain/play/post.dart';
 import '../auth/get_auth_dio.dart';
 
 @LazySingleton()
@@ -22,13 +23,13 @@ class PostRepository{
 
   PostRepository._internal();
 
-  Future<Either<PostFailure, Unit>> createPost({required PlaylistPreview playlistPreview, required NotEmptyString title, required ContentString content}) async{
+  Future<Either<PostFailure, Post>> createPost({required PlaylistPreview playlistPreview, required NotEmptyString title, required ContentString content}) async{
     try{
-      HttpResponse<void> httpResponse = await postClient.createPost(
+      HttpResponse<Post> httpResponse = await postClient.createPost(
         CreatePostRequest(title: title.getOrCrash(), content: content.getOrCrash(), playlistPreview: playlistPreview)
       );
       switch(httpResponse.response.statusCode){
-        case 201 : return const Right(unit);
+        case 201 : return Right(httpResponse.data);
         case 400 : return const Left(PostFailure.blankedTitle());
         case 401 : return const Left(PostFailure.unauthorized());
         case 403 : return const Left(PostFailure.duplicateTitle());
@@ -45,7 +46,7 @@ class PostRepository{
     }
   }
 
-  Future<Either<PostFailure, Unit>> editPost({required PlaylistPreview playlistPreview, required NotEmptyString title, required ContentString content, required int id}) async{
+  Future<Either<PostFailure, Unit>> editPost({required PlaylistPreview playlistPreview, required NotEmptyString title, required ContentString content, required String id}) async{
     try{
       HttpResponse<void> httpResponse = await postClient.editPost(
           CreatePostRequest(title: title.getOrCrash(), content: content.getOrCrash(), playlistPreview: playlistPreview), id

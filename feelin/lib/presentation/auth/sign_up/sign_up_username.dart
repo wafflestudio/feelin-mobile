@@ -1,14 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_password.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';
 import 'common_title.dart';
 
 class SignUpUsername extends StatefulWidget{
-  final Map<String, String> input;
   final Function goToNext;
-  const SignUpUsername({Key? key, required this.input, required this.goToNext}) : super(key: key);
+  const SignUpUsername({Key? key, required this.goToNext,}) : super(key: key);
 
   @override
   State<SignUpUsername> createState() => _SignUpNameState();
@@ -55,9 +57,6 @@ class _SignUpNameState extends State<SignUpUsername>{
                   builder: (context, state) {
                     return NextButton(disabled: !state.canUseName,
                       function: (){
-                        setState(() {
-                          widget.input['username'] = name;
-                        });
                         widget.goToNext();
                       },);
                   }
@@ -85,6 +84,15 @@ class _SignUpNameState extends State<SignUpUsername>{
                 fontWeight: FontWeight.w600,
                 letterSpacing: -0.41,
               ),
+              maxLength: 20,
+              textInputAction: TextInputAction.next,
+              onFieldSubmitted: (_){
+                widget.goToNext();
+              },
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(RegExp('[a-z A-Z 0-9 . _]')),
+                FilteringTextInputFormatter.deny(RegExp(r'\s')),
+              ],
               decoration: InputDecoration(
                 hintText: 'Username',
                 isDense: true,

@@ -1,55 +1,264 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_username.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
+import 'package:validators/validators.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';
+import '../../style/colors.dart';
 import 'common_description.dart';
 import 'common_title.dart';
 
 class SignUpBirthday extends StatefulWidget{
-  final Map<String, String> input;
   final Function goToNext;
-  const SignUpBirthday({Key? key, required this.input, required this.goToNext}) : super(key: key);
+  const SignUpBirthday({Key? key, required this.goToNext,}) : super(key: key);
 
   @override
-  State<SignUpBirthday> createState() => _SignUpNameState();
+  State<SignUpBirthday> createState() => _SignUpBirthdayState();
 
 }
-class _SignUpNameState extends State<SignUpBirthday>{
+class _SignUpBirthdayState extends State<SignUpBirthday>{
+  TextEditingController yearEditingController = TextEditingController();
+  TextEditingController monthEditingController = TextEditingController();
+  TextEditingController dayEditingController = TextEditingController();
+  StreamController<ErrorAnimationType>? errorController;
 
-  final TextEditingController _nameTextController = TextEditingController();
-  String name = '';
+  FocusNode monthFocusNode = FocusNode();
+  FocusNode dayFocusNode = FocusNode();
+
+  bool isBirthdayValid = false;
+  bool hasError = false;
+
+  String year = "";
+  String month = '';
+  String day = '';
 
   @override
-  void dispose(){
-    _nameTextController.dispose();
+  void initState() {
+    errorController = StreamController<ErrorAnimationType>();
+    super.initState();
+  }
 
+  @override
+  void dispose() {
+    errorController!.close();
     super.dispose();
+  }
+
+  bool validateBirthday(){
+    if(year.isNotEmpty && month.isNotEmpty && day.isNotEmpty){
+      final date = DateTime(int.parse(year), int.parse(month), int.parse(day));
+      print(date);
+      print('${year.toString().padLeft(4, '0')}-${month.toString().padLeft(2, '0')}-${day.toString().padLeft(2, '0')}');
+      if(isValidDate('${year.toString().padLeft(4, '0')}-${month.toString().padLeft(2, '0')}-${day.toString().padLeft(2, '0')}')){
+        DateTime today = DateTime.now();
+        DateTime maxDate = DateTime(
+          date.year + 100,
+          date.month,
+          date.day,
+        );
+        return today.isBefore(maxDate);
+      }else return false;
+    }
+    return false;
+  }
+
+  bool isValidDate(String input) {
+    try {
+      final DateTime d = DateFormat('yyyy-MM-dd').parseStrict(input);
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  bool isOver14(DateTime date){
+    DateTime today = DateTime.now();
+    DateTime minDate = DateTime(
+      date.year + 14,
+      date.month,
+      date.day,
+    );
+    return minDate.isBefore(today);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Container(
+        constraints: const BoxConstraints(maxHeight: 475),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 30),
+              constraints: const BoxConstraints(maxHeight: 210),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const CommonTitle(title: 'When’s your birthday?'),
+                  _dateField(),
+                ],
+              ),
+            ),
+            NextButton(disabled: !isBirthdayValid,
+              function: (){
+                final date = DateTime(int.parse(year), int.parse(month), int.parse(day));
+                if(isOver14(date)){
+                  context
+                      .read<SignUpFormBloc>()
+                      .add(SignUpFormEvent.birthdayChanged(DateFormat('yyyy-MM-dd').format(date)));
+                  widget.goToNext();
+                }else{
+                  showTopSnackBar(
+                    Overlay.of(context)!,
+                    const CustomSnackBar.error(message: 'You must be 14+ to use Feelin\'.')
+                  );
+                }
 
-        const CommonTitle(title: 'Add your birthday'),
-        const SizedBox(height: 10,),
-        const CommonDescription(description: 'This information won\'t be part of your public profile',),
-        const SizedBox(height: 30,),
-        _datePicker(),
-        const SizedBox(height: 30,),
-        NextButton(disabled: false,
-          function: (){
-            setState(() {
-              widget.input['birth'] = name;
-            });
-            widget.goToNext();
-          },)
-      ],
+              },)
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _dateField(){
+    return SizedBox(
+      width: MediaQuery.of(context).size.width - 94,
+      child: Row(
+        children: [
+          SizedBox(
+            width: 120,
+            child: TextFormField(
+              controller: yearEditingController,
+              maxLength: 4,
+              //textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+                fontSize: 24,
+                letterSpacing: 10,
+              ),
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.next,
+              onEditingComplete: (){
+                monthFocusNode.requestFocus();
+              },
+              onChanged: (value) {
+                setState(() {
+                  year = value;
+                  isBirthdayValid = validateBirthday();
+                });
+              },
+              autofillHints: [AutofillHints.birthdayYear],
+              decoration: InputDecoration(
+                hintText: 'YYYY',
+                counterText: '',
+                hintStyle: TextStyle(
+                  color: FeelinColorFamily.gray400,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 24,
+                  letterSpacing: 10,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 5,),
+          SizedBox(
+            width: 80,
+            child: TextFormField(
+              controller: monthEditingController,
+              maxLength: 2,
+              style: const TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+                fontSize: 24,
+                letterSpacing: 10,
+              ),
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.next,
+              autofillHints: [AutofillHints.birthdayMonth],
+              onEditingComplete: (){
+                dayFocusNode.requestFocus();
+              },
+              onChanged: (value) {
+                setState(() {
+                  month = value;
+                  isBirthdayValid = validateBirthday();
+                });
+              },
+              decoration: InputDecoration(
+                hintText: 'MM',
+                counterText: '',
+                hintStyle: TextStyle(
+                  color: FeelinColorFamily.gray400,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 24,
+                  letterSpacing: 8,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 5,),
+          SizedBox(
+            width: 80,
+            child: TextFormField(
+              controller: dayEditingController,
+              maxLength: 2,
+              style: const TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+                fontSize: 24,
+                letterSpacing: 10,
+              ),
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.next,
+              onEditingComplete: (){
+                FocusScope.of(context).unfocus();
+              },
+              onChanged: (value) {
+                setState(() {
+                  day = value;
+                  isBirthdayValid = validateBirthday();
+                });
+              },
+              autofillHints: [AutofillHints.birthdayDay],
+              decoration: InputDecoration(
+                hintText: 'DD',
+                counterText: '',
+                hintStyle: TextStyle(
+                  color: FeelinColorFamily.gray400,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 24,
+                  letterSpacing: 10,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -69,22 +278,5 @@ class _SignUpNameState extends State<SignUpBirthday>{
           mode: CupertinoDatePickerMode.date,
       ),
     );
-  }
-
-
-  Widget _nameField() {
-    return BlocBuilder<SignUpFormBloc, SignUpFormState>(
-        builder: (context, state) {
-          return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            width: double.infinity,
-            height: 48,
-            child: Column(
-              children: [
-
-              ],
-            ),
-          );
-        });
   }
 }

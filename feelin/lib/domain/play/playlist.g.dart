@@ -7,6 +7,7 @@ part of 'playlist.dart';
 // **************************************************************************
 
 Playlist _$PlaylistFromJson(Map<String, dynamic> json) => Playlist(
+      id: json['id'] as String? ?? '',
       title: json['title'] as String? ?? '',
       tracks: (json['tracks'] as List<dynamic>?)
           ?.map((e) => Track.fromJson(e as Map<String, dynamic>))
@@ -18,6 +19,7 @@ Playlist _$PlaylistFromJson(Map<String, dynamic> json) => Playlist(
     );
 
 Map<String, dynamic> _$PlaylistToJson(Playlist instance) => <String, dynamic>{
+      'id': instance.id,
       'title': instance.title,
       'tracks': instance.tracks,
       'preview': instance.playlistPreview,

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'profile_failure.dart';
 
@@ -28,12 +28,12 @@ mixin _$ProfileFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? cannotFollowYourself,
-    TResult Function()? userNotFound,
-    TResult Function()? alreadyFollowed,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? cannotFollowYourself,
+    TResult? Function()? userNotFound,
+    TResult? Function()? alreadyFollowed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,12 +59,12 @@ mixin _$ProfileFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,17 +84,18 @@ mixin _$ProfileFailure {
 abstract class $ProfileFailureCopyWith<$Res> {
   factory $ProfileFailureCopyWith(
           ProfileFailure value, $Res Function(ProfileFailure) then) =
-      _$ProfileFailureCopyWithImpl<$Res>;
+      _$ProfileFailureCopyWithImpl<$Res, ProfileFailure>;
 }
 
 /// @nodoc
-class _$ProfileFailureCopyWithImpl<$Res>
+class _$ProfileFailureCopyWithImpl<$Res, $Val extends ProfileFailure>
     implements $ProfileFailureCopyWith<$Res> {
   _$ProfileFailureCopyWithImpl(this._value, this._then);
 
-  final ProfileFailure _value;
   // ignore: unused_field
-  final $Res Function(ProfileFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -106,14 +107,11 @@ abstract class _$$_ServerErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ServerErrorCopyWithImpl<$Res>
-    extends _$ProfileFailureCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res, _$_ServerError>
     implements _$$_ServerErrorCopyWith<$Res> {
   __$$_ServerErrorCopyWithImpl(
       _$_ServerError _value, $Res Function(_$_ServerError) _then)
-      : super(_value, (v) => _then(v as _$_ServerError));
-
-  @override
-  _$_ServerError get _value => super._value as _$_ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -151,12 +149,12 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? cannotFollowYourself,
-    TResult Function()? userNotFound,
-    TResult Function()? alreadyFollowed,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? cannotFollowYourself,
+    TResult? Function()? userNotFound,
+    TResult? Function()? alreadyFollowed,
   }) {
     return serverError?.call();
   }
@@ -194,12 +192,12 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
   }) {
     return serverError?.call(this);
   }
@@ -235,14 +233,11 @@ abstract class _$$_UnauthorizedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnauthorizedCopyWithImpl<$Res>
-    extends _$ProfileFailureCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res, _$_Unauthorized>
     implements _$$_UnauthorizedCopyWith<$Res> {
   __$$_UnauthorizedCopyWithImpl(
       _$_Unauthorized _value, $Res Function(_$_Unauthorized) _then)
-      : super(_value, (v) => _then(v as _$_Unauthorized));
-
-  @override
-  _$_Unauthorized get _value => super._value as _$_Unauthorized;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -280,12 +275,12 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? cannotFollowYourself,
-    TResult Function()? userNotFound,
-    TResult Function()? alreadyFollowed,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? cannotFollowYourself,
+    TResult? Function()? userNotFound,
+    TResult? Function()? alreadyFollowed,
   }) {
     return unauthorized?.call();
   }
@@ -323,12 +318,12 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
   }) {
     return unauthorized?.call(this);
   }
@@ -364,14 +359,11 @@ abstract class _$$_UsernameAlreadyInUseCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UsernameAlreadyInUseCopyWithImpl<$Res>
-    extends _$ProfileFailureCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res, _$_UsernameAlreadyInUse>
     implements _$$_UsernameAlreadyInUseCopyWith<$Res> {
   __$$_UsernameAlreadyInUseCopyWithImpl(_$_UsernameAlreadyInUse _value,
       $Res Function(_$_UsernameAlreadyInUse) _then)
-      : super(_value, (v) => _then(v as _$_UsernameAlreadyInUse));
-
-  @override
-  _$_UsernameAlreadyInUse get _value => super._value as _$_UsernameAlreadyInUse;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -409,12 +401,12 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? cannotFollowYourself,
-    TResult Function()? userNotFound,
-    TResult Function()? alreadyFollowed,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? cannotFollowYourself,
+    TResult? Function()? userNotFound,
+    TResult? Function()? alreadyFollowed,
   }) {
     return usernameAlreadyInUse?.call();
   }
@@ -452,12 +444,12 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
   }) {
     return usernameAlreadyInUse?.call(this);
   }
@@ -493,14 +485,11 @@ abstract class _$$_CannotFollowYourselfCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CannotFollowYourselfCopyWithImpl<$Res>
-    extends _$ProfileFailureCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res, _$_CannotFollowYourself>
     implements _$$_CannotFollowYourselfCopyWith<$Res> {
   __$$_CannotFollowYourselfCopyWithImpl(_$_CannotFollowYourself _value,
       $Res Function(_$_CannotFollowYourself) _then)
-      : super(_value, (v) => _then(v as _$_CannotFollowYourself));
-
-  @override
-  _$_CannotFollowYourself get _value => super._value as _$_CannotFollowYourself;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -538,12 +527,12 @@ class _$_CannotFollowYourself implements _CannotFollowYourself {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? cannotFollowYourself,
-    TResult Function()? userNotFound,
-    TResult Function()? alreadyFollowed,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? cannotFollowYourself,
+    TResult? Function()? userNotFound,
+    TResult? Function()? alreadyFollowed,
   }) {
     return cannotFollowYourself?.call();
   }
@@ -581,12 +570,12 @@ class _$_CannotFollowYourself implements _CannotFollowYourself {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
   }) {
     return cannotFollowYourself?.call(this);
   }
@@ -622,14 +611,11 @@ abstract class _$$_UserNotFoundCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UserNotFoundCopyWithImpl<$Res>
-    extends _$ProfileFailureCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res, _$_UserNotFound>
     implements _$$_UserNotFoundCopyWith<$Res> {
   __$$_UserNotFoundCopyWithImpl(
       _$_UserNotFound _value, $Res Function(_$_UserNotFound) _then)
-      : super(_value, (v) => _then(v as _$_UserNotFound));
-
-  @override
-  _$_UserNotFound get _value => super._value as _$_UserNotFound;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -667,12 +653,12 @@ class _$_UserNotFound implements _UserNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? cannotFollowYourself,
-    TResult Function()? userNotFound,
-    TResult Function()? alreadyFollowed,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? cannotFollowYourself,
+    TResult? Function()? userNotFound,
+    TResult? Function()? alreadyFollowed,
   }) {
     return userNotFound?.call();
   }
@@ -710,12 +696,12 @@ class _$_UserNotFound implements _UserNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
   }) {
     return userNotFound?.call(this);
   }
@@ -751,14 +737,11 @@ abstract class _$$_AlreadyFollowedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AlreadyFollowedCopyWithImpl<$Res>
-    extends _$ProfileFailureCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res, _$_AlreadyFollowed>
     implements _$$_AlreadyFollowedCopyWith<$Res> {
   __$$_AlreadyFollowedCopyWithImpl(
       _$_AlreadyFollowed _value, $Res Function(_$_AlreadyFollowed) _then)
-      : super(_value, (v) => _then(v as _$_AlreadyFollowed));
-
-  @override
-  _$_AlreadyFollowed get _value => super._value as _$_AlreadyFollowed;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -796,12 +779,12 @@ class _$_AlreadyFollowed implements _AlreadyFollowed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? usernameAlreadyInUse,
-    TResult Function()? cannotFollowYourself,
-    TResult Function()? userNotFound,
-    TResult Function()? alreadyFollowed,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? cannotFollowYourself,
+    TResult? Function()? userNotFound,
+    TResult? Function()? alreadyFollowed,
   }) {
     return alreadyFollowed?.call();
   }
@@ -839,12 +822,12 @@ class _$_AlreadyFollowed implements _AlreadyFollowed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
-    TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
   }) {
     return alreadyFollowed?.call(this);
   }

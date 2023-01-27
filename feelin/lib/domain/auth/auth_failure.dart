@@ -8,7 +8,7 @@ class AuthFailure with _$AuthFailure {
   const factory AuthFailure.cancelledByUser() = _CancelledByUser;
   const factory AuthFailure.serverError() = _ServerError;
   const factory AuthFailure.emailAlreadyInUse() = _EmailAlreadyInUse;
-  const factory AuthFailure.invalidEmailAndPasswordCombination() =
+  const factory AuthFailure.invalidAccountAndPasswordCombination() =
       _InvalidEmailAndPasswordCombination;
   const factory AuthFailure.invalidAuthCode() = _InvalidAuthCode;
   const factory AuthFailure.invalidBirthdayForm() = _InvalidBirthdayForm;

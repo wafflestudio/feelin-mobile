@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'edit_profile_form_bloc.dart';
 
@@ -20,22 +20,25 @@ mixin _$EditProfileFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? submitted,
-    TResult Function(String usernameStr)? usernameChanged,
-    TResult Function()? resetCanUseName,
-    TResult Function(String introductionStr)? introductionChanged,
+    TResult? Function()? submitted,
+    TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function()? resetCanUseName,
+    TResult? Function(String introductionStr)? introductionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -45,22 +48,25 @@ mixin _$EditProfileFormEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_UsernameChanged value)? usernameChanged,
-    TResult Function(_ResetCanUseName value)? resetCanUseName,
-    TResult Function(_IntroductionChanged value)? introductionChanged,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ResetCanUseName value)? resetCanUseName,
+    TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -72,17 +78,19 @@ mixin _$EditProfileFormEvent {
 abstract class $EditProfileFormEventCopyWith<$Res> {
   factory $EditProfileFormEventCopyWith(EditProfileFormEvent value,
           $Res Function(EditProfileFormEvent) then) =
-      _$EditProfileFormEventCopyWithImpl<$Res>;
+      _$EditProfileFormEventCopyWithImpl<$Res, EditProfileFormEvent>;
 }
 
 /// @nodoc
-class _$EditProfileFormEventCopyWithImpl<$Res>
+class _$EditProfileFormEventCopyWithImpl<$Res,
+        $Val extends EditProfileFormEvent>
     implements $EditProfileFormEventCopyWith<$Res> {
   _$EditProfileFormEventCopyWithImpl(this._value, this._then);
 
-  final EditProfileFormEvent _value;
   // ignore: unused_field
-  final $Res Function(EditProfileFormEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -94,14 +102,11 @@ abstract class _$$_SubmittedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SubmittedCopyWithImpl<$Res>
-    extends _$EditProfileFormEventCopyWithImpl<$Res>
+    extends _$EditProfileFormEventCopyWithImpl<$Res, _$_Submitted>
     implements _$$_SubmittedCopyWith<$Res> {
   __$$_SubmittedCopyWithImpl(
       _$_Submitted _value, $Res Function(_$_Submitted) _then)
-      : super(_value, (v) => _then(v as _$_Submitted));
-
-  @override
-  _$_Submitted get _value => super._value as _$_Submitted;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -128,6 +133,7 @@ class _$_Submitted implements _Submitted {
   TResult when<TResult extends Object?>({
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) {
@@ -137,10 +143,11 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? submitted,
-    TResult Function(String usernameStr)? usernameChanged,
-    TResult Function()? resetCanUseName,
-    TResult Function(String introductionStr)? introductionChanged,
+    TResult? Function()? submitted,
+    TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function()? resetCanUseName,
+    TResult? Function(String introductionStr)? introductionChanged,
   }) {
     return submitted?.call();
   }
@@ -150,6 +157,7 @@ class _$_Submitted implements _Submitted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -165,6 +173,7 @@ class _$_Submitted implements _Submitted {
   TResult map<TResult extends Object?>({
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) {
@@ -174,10 +183,11 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_UsernameChanged value)? usernameChanged,
-    TResult Function(_ResetCanUseName value)? resetCanUseName,
-    TResult Function(_IntroductionChanged value)? introductionChanged,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ResetCanUseName value)? resetCanUseName,
+    TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) {
     return submitted?.call(this);
   }
@@ -187,6 +197,7 @@ class _$_Submitted implements _Submitted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -207,26 +218,25 @@ abstract class _$$_UsernameChangedCopyWith<$Res> {
   factory _$$_UsernameChangedCopyWith(
           _$_UsernameChanged value, $Res Function(_$_UsernameChanged) then) =
       __$$_UsernameChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String usernameStr});
 }
 
 /// @nodoc
 class __$$_UsernameChangedCopyWithImpl<$Res>
-    extends _$EditProfileFormEventCopyWithImpl<$Res>
+    extends _$EditProfileFormEventCopyWithImpl<$Res, _$_UsernameChanged>
     implements _$$_UsernameChangedCopyWith<$Res> {
   __$$_UsernameChangedCopyWithImpl(
       _$_UsernameChanged _value, $Res Function(_$_UsernameChanged) _then)
-      : super(_value, (v) => _then(v as _$_UsernameChanged));
+      : super(_value, _then);
 
-  @override
-  _$_UsernameChanged get _value => super._value as _$_UsernameChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? usernameStr = freezed,
+    Object? usernameStr = null,
   }) {
     return _then(_$_UsernameChanged(
-      usernameStr == freezed
+      null == usernameStr
           ? _value.usernameStr
           : usernameStr // ignore: cast_nullable_to_non_nullable
               as String,
@@ -252,16 +262,16 @@ class _$_UsernameChanged implements _UsernameChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UsernameChanged &&
-            const DeepCollectionEquality()
-                .equals(other.usernameStr, usernameStr));
+            (identical(other.usernameStr, usernameStr) ||
+                other.usernameStr == usernameStr));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(usernameStr));
+  int get hashCode => Object.hash(runtimeType, usernameStr);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UsernameChangedCopyWith<_$_UsernameChanged> get copyWith =>
       __$$_UsernameChangedCopyWithImpl<_$_UsernameChanged>(this, _$identity);
 
@@ -270,6 +280,7 @@ class _$_UsernameChanged implements _UsernameChanged {
   TResult when<TResult extends Object?>({
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) {
@@ -279,10 +290,11 @@ class _$_UsernameChanged implements _UsernameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? submitted,
-    TResult Function(String usernameStr)? usernameChanged,
-    TResult Function()? resetCanUseName,
-    TResult Function(String introductionStr)? introductionChanged,
+    TResult? Function()? submitted,
+    TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function()? resetCanUseName,
+    TResult? Function(String introductionStr)? introductionChanged,
   }) {
     return usernameChanged?.call(usernameStr);
   }
@@ -292,6 +304,7 @@ class _$_UsernameChanged implements _UsernameChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -307,6 +320,7 @@ class _$_UsernameChanged implements _UsernameChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) {
@@ -316,10 +330,11 @@ class _$_UsernameChanged implements _UsernameChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_UsernameChanged value)? usernameChanged,
-    TResult Function(_ResetCanUseName value)? resetCanUseName,
-    TResult Function(_IntroductionChanged value)? introductionChanged,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ResetCanUseName value)? resetCanUseName,
+    TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) {
     return usernameChanged?.call(this);
   }
@@ -329,6 +344,7 @@ class _$_UsernameChanged implements _UsernameChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -350,6 +366,157 @@ abstract class _UsernameChanged implements EditProfileFormEvent {
 }
 
 /// @nodoc
+abstract class _$$_NameChangedCopyWith<$Res> {
+  factory _$$_NameChangedCopyWith(
+          _$_NameChanged value, $Res Function(_$_NameChanged) then) =
+      __$$_NameChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String nameStr});
+}
+
+/// @nodoc
+class __$$_NameChangedCopyWithImpl<$Res>
+    extends _$EditProfileFormEventCopyWithImpl<$Res, _$_NameChanged>
+    implements _$$_NameChangedCopyWith<$Res> {
+  __$$_NameChangedCopyWithImpl(
+      _$_NameChanged _value, $Res Function(_$_NameChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nameStr = null,
+  }) {
+    return _then(_$_NameChanged(
+      null == nameStr
+          ? _value.nameStr
+          : nameStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NameChanged implements _NameChanged {
+  const _$_NameChanged(this.nameStr);
+
+  @override
+  final String nameStr;
+
+  @override
+  String toString() {
+    return 'EditProfileFormEvent.nameChanged(nameStr: $nameStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NameChanged &&
+            (identical(other.nameStr, nameStr) || other.nameStr == nameStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, nameStr);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
+      __$$_NameChangedCopyWithImpl<_$_NameChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() submitted,
+    required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function() resetCanUseName,
+    required TResult Function(String introductionStr) introductionChanged,
+  }) {
+    return nameChanged(nameStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? submitted,
+    TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function()? resetCanUseName,
+    TResult? Function(String introductionStr)? introductionChanged,
+  }) {
+    return nameChanged?.call(nameStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? submitted,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function()? resetCanUseName,
+    TResult Function(String introductionStr)? introductionChanged,
+    required TResult orElse(),
+  }) {
+    if (nameChanged != null) {
+      return nameChanged(nameStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_ResetCanUseName value) resetCanUseName,
+    required TResult Function(_IntroductionChanged value) introductionChanged,
+  }) {
+    return nameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ResetCanUseName value)? resetCanUseName,
+    TResult? Function(_IntroductionChanged value)? introductionChanged,
+  }) {
+    return nameChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_IntroductionChanged value)? introductionChanged,
+    required TResult orElse(),
+  }) {
+    if (nameChanged != null) {
+      return nameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NameChanged implements EditProfileFormEvent {
+  const factory _NameChanged(final String nameStr) = _$_NameChanged;
+
+  String get nameStr;
+  @JsonKey(ignore: true)
+  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$_ResetCanUseNameCopyWith<$Res> {
   factory _$$_ResetCanUseNameCopyWith(
           _$_ResetCanUseName value, $Res Function(_$_ResetCanUseName) then) =
@@ -358,14 +525,11 @@ abstract class _$$_ResetCanUseNameCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ResetCanUseNameCopyWithImpl<$Res>
-    extends _$EditProfileFormEventCopyWithImpl<$Res>
+    extends _$EditProfileFormEventCopyWithImpl<$Res, _$_ResetCanUseName>
     implements _$$_ResetCanUseNameCopyWith<$Res> {
   __$$_ResetCanUseNameCopyWithImpl(
       _$_ResetCanUseName _value, $Res Function(_$_ResetCanUseName) _then)
-      : super(_value, (v) => _then(v as _$_ResetCanUseName));
-
-  @override
-  _$_ResetCanUseName get _value => super._value as _$_ResetCanUseName;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -392,6 +556,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
   TResult when<TResult extends Object?>({
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) {
@@ -401,10 +566,11 @@ class _$_ResetCanUseName implements _ResetCanUseName {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? submitted,
-    TResult Function(String usernameStr)? usernameChanged,
-    TResult Function()? resetCanUseName,
-    TResult Function(String introductionStr)? introductionChanged,
+    TResult? Function()? submitted,
+    TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function()? resetCanUseName,
+    TResult? Function(String introductionStr)? introductionChanged,
   }) {
     return resetCanUseName?.call();
   }
@@ -414,6 +580,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -429,6 +596,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
   TResult map<TResult extends Object?>({
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) {
@@ -438,10 +606,11 @@ class _$_ResetCanUseName implements _ResetCanUseName {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_UsernameChanged value)? usernameChanged,
-    TResult Function(_ResetCanUseName value)? resetCanUseName,
-    TResult Function(_IntroductionChanged value)? introductionChanged,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ResetCanUseName value)? resetCanUseName,
+    TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) {
     return resetCanUseName?.call(this);
   }
@@ -451,6 +620,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -471,26 +641,25 @@ abstract class _$$_IntroductionChangedCopyWith<$Res> {
   factory _$$_IntroductionChangedCopyWith(_$_IntroductionChanged value,
           $Res Function(_$_IntroductionChanged) then) =
       __$$_IntroductionChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String introductionStr});
 }
 
 /// @nodoc
 class __$$_IntroductionChangedCopyWithImpl<$Res>
-    extends _$EditProfileFormEventCopyWithImpl<$Res>
+    extends _$EditProfileFormEventCopyWithImpl<$Res, _$_IntroductionChanged>
     implements _$$_IntroductionChangedCopyWith<$Res> {
   __$$_IntroductionChangedCopyWithImpl(_$_IntroductionChanged _value,
       $Res Function(_$_IntroductionChanged) _then)
-      : super(_value, (v) => _then(v as _$_IntroductionChanged));
+      : super(_value, _then);
 
-  @override
-  _$_IntroductionChanged get _value => super._value as _$_IntroductionChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? introductionStr = freezed,
+    Object? introductionStr = null,
   }) {
     return _then(_$_IntroductionChanged(
-      introductionStr == freezed
+      null == introductionStr
           ? _value.introductionStr
           : introductionStr // ignore: cast_nullable_to_non_nullable
               as String,
@@ -516,16 +685,16 @@ class _$_IntroductionChanged implements _IntroductionChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IntroductionChanged &&
-            const DeepCollectionEquality()
-                .equals(other.introductionStr, introductionStr));
+            (identical(other.introductionStr, introductionStr) ||
+                other.introductionStr == introductionStr));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(introductionStr));
+  int get hashCode => Object.hash(runtimeType, introductionStr);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_IntroductionChangedCopyWith<_$_IntroductionChanged> get copyWith =>
       __$$_IntroductionChangedCopyWithImpl<_$_IntroductionChanged>(
           this, _$identity);
@@ -535,6 +704,7 @@ class _$_IntroductionChanged implements _IntroductionChanged {
   TResult when<TResult extends Object?>({
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) {
@@ -544,10 +714,11 @@ class _$_IntroductionChanged implements _IntroductionChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? submitted,
-    TResult Function(String usernameStr)? usernameChanged,
-    TResult Function()? resetCanUseName,
-    TResult Function(String introductionStr)? introductionChanged,
+    TResult? Function()? submitted,
+    TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function()? resetCanUseName,
+    TResult? Function(String introductionStr)? introductionChanged,
   }) {
     return introductionChanged?.call(introductionStr);
   }
@@ -557,6 +728,7 @@ class _$_IntroductionChanged implements _IntroductionChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -572,6 +744,7 @@ class _$_IntroductionChanged implements _IntroductionChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) {
@@ -581,10 +754,11 @@ class _$_IntroductionChanged implements _IntroductionChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_UsernameChanged value)? usernameChanged,
-    TResult Function(_ResetCanUseName value)? resetCanUseName,
-    TResult Function(_IntroductionChanged value)? introductionChanged,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ResetCanUseName value)? resetCanUseName,
+    TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) {
     return introductionChanged?.call(this);
   }
@@ -594,6 +768,7 @@ class _$_IntroductionChanged implements _IntroductionChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -620,6 +795,7 @@ mixin _$EditProfileFormState {
   Option<Either<ProfileFailure, Unit>> get editFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
+  NotEmptyString get name => throw _privateConstructorUsedError;
   Username get username => throw _privateConstructorUsedError;
   bool get canUseName => throw _privateConstructorUsedError;
   Introduction get introduction => throw _privateConstructorUsedError;
@@ -633,54 +809,64 @@ mixin _$EditProfileFormState {
 abstract class $EditProfileFormStateCopyWith<$Res> {
   factory $EditProfileFormStateCopyWith(EditProfileFormState value,
           $Res Function(EditProfileFormState) then) =
-      _$EditProfileFormStateCopyWithImpl<$Res>;
+      _$EditProfileFormStateCopyWithImpl<$Res, EditProfileFormState>;
+  @useResult
   $Res call(
       {Option<Either<ProfileFailure, Unit>> editFailureOrSuccessOption,
       bool isSubmitting,
+      NotEmptyString name,
       Username username,
       bool canUseName,
       Introduction introduction});
 }
 
 /// @nodoc
-class _$EditProfileFormStateCopyWithImpl<$Res>
+class _$EditProfileFormStateCopyWithImpl<$Res,
+        $Val extends EditProfileFormState>
     implements $EditProfileFormStateCopyWith<$Res> {
   _$EditProfileFormStateCopyWithImpl(this._value, this._then);
 
-  final EditProfileFormState _value;
   // ignore: unused_field
-  final $Res Function(EditProfileFormState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? editFailureOrSuccessOption = freezed,
-    Object? isSubmitting = freezed,
-    Object? username = freezed,
-    Object? canUseName = freezed,
-    Object? introduction = freezed,
+    Object? editFailureOrSuccessOption = null,
+    Object? isSubmitting = null,
+    Object? name = null,
+    Object? username = null,
+    Object? canUseName = null,
+    Object? introduction = null,
   }) {
     return _then(_value.copyWith(
-      editFailureOrSuccessOption: editFailureOrSuccessOption == freezed
+      editFailureOrSuccessOption: null == editFailureOrSuccessOption
           ? _value.editFailureOrSuccessOption
           : editFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ProfileFailure, Unit>>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      username: username == freezed
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as NotEmptyString,
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as Username,
-      canUseName: canUseName == freezed
+      canUseName: null == canUseName
           ? _value.canUseName
           : canUseName // ignore: cast_nullable_to_non_nullable
               as bool,
-      introduction: introduction == freezed
+      introduction: null == introduction
           ? _value.introduction
           : introduction // ignore: cast_nullable_to_non_nullable
               as Introduction,
-    ));
+    ) as $Val);
   }
 }
 
@@ -691,9 +877,11 @@ abstract class _$$_EditProfileFormStateCopyWith<$Res>
           $Res Function(_$_EditProfileFormState) then) =
       __$$_EditProfileFormStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Option<Either<ProfileFailure, Unit>> editFailureOrSuccessOption,
       bool isSubmitting,
+      NotEmptyString name,
       Username username,
       bool canUseName,
       Introduction introduction});
@@ -701,41 +889,44 @@ abstract class _$$_EditProfileFormStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_EditProfileFormStateCopyWithImpl<$Res>
-    extends _$EditProfileFormStateCopyWithImpl<$Res>
+    extends _$EditProfileFormStateCopyWithImpl<$Res, _$_EditProfileFormState>
     implements _$$_EditProfileFormStateCopyWith<$Res> {
   __$$_EditProfileFormStateCopyWithImpl(_$_EditProfileFormState _value,
       $Res Function(_$_EditProfileFormState) _then)
-      : super(_value, (v) => _then(v as _$_EditProfileFormState));
+      : super(_value, _then);
 
-  @override
-  _$_EditProfileFormState get _value => super._value as _$_EditProfileFormState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? editFailureOrSuccessOption = freezed,
-    Object? isSubmitting = freezed,
-    Object? username = freezed,
-    Object? canUseName = freezed,
-    Object? introduction = freezed,
+    Object? editFailureOrSuccessOption = null,
+    Object? isSubmitting = null,
+    Object? name = null,
+    Object? username = null,
+    Object? canUseName = null,
+    Object? introduction = null,
   }) {
     return _then(_$_EditProfileFormState(
-      editFailureOrSuccessOption: editFailureOrSuccessOption == freezed
+      editFailureOrSuccessOption: null == editFailureOrSuccessOption
           ? _value.editFailureOrSuccessOption
           : editFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ProfileFailure, Unit>>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      username: username == freezed
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as NotEmptyString,
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as Username,
-      canUseName: canUseName == freezed
+      canUseName: null == canUseName
           ? _value.canUseName
           : canUseName // ignore: cast_nullable_to_non_nullable
               as bool,
-      introduction: introduction == freezed
+      introduction: null == introduction
           ? _value.introduction
           : introduction // ignore: cast_nullable_to_non_nullable
               as Introduction,
@@ -749,6 +940,7 @@ class _$_EditProfileFormState implements _EditProfileFormState {
   const _$_EditProfileFormState(
       {required this.editFailureOrSuccessOption,
       required this.isSubmitting,
+      required this.name,
       required this.username,
       required this.canUseName,
       required this.introduction});
@@ -758,6 +950,8 @@ class _$_EditProfileFormState implements _EditProfileFormState {
   @override
   final bool isSubmitting;
   @override
+  final NotEmptyString name;
+  @override
   final Username username;
   @override
   final bool canUseName;
@@ -766,7 +960,7 @@ class _$_EditProfileFormState implements _EditProfileFormState {
 
   @override
   String toString() {
-    return 'EditProfileFormState(editFailureOrSuccessOption: $editFailureOrSuccessOption, isSubmitting: $isSubmitting, username: $username, canUseName: $canUseName, introduction: $introduction)';
+    return 'EditProfileFormState(editFailureOrSuccessOption: $editFailureOrSuccessOption, isSubmitting: $isSubmitting, name: $name, username: $username, canUseName: $canUseName, introduction: $introduction)';
   }
 
   @override
@@ -774,28 +968,28 @@ class _$_EditProfileFormState implements _EditProfileFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EditProfileFormState &&
-            const DeepCollectionEquality().equals(
-                other.editFailureOrSuccessOption, editFailureOrSuccessOption) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality()
-                .equals(other.canUseName, canUseName) &&
-            const DeepCollectionEquality()
-                .equals(other.introduction, introduction));
+            (identical(other.editFailureOrSuccessOption,
+                    editFailureOrSuccessOption) ||
+                other.editFailureOrSuccessOption ==
+                    editFailureOrSuccessOption) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.canUseName, canUseName) ||
+                other.canUseName == canUseName) &&
+            (identical(other.introduction, introduction) ||
+                other.introduction == introduction));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(editFailureOrSuccessOption),
-      const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(canUseName),
-      const DeepCollectionEquality().hash(introduction));
+  int get hashCode => Object.hash(runtimeType, editFailureOrSuccessOption,
+      isSubmitting, name, username, canUseName, introduction);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EditProfileFormStateCopyWith<_$_EditProfileFormState> get copyWith =>
       __$$_EditProfileFormStateCopyWithImpl<_$_EditProfileFormState>(
           this, _$identity);
@@ -806,6 +1000,7 @@ abstract class _EditProfileFormState implements EditProfileFormState {
       {required final Option<Either<ProfileFailure, Unit>>
           editFailureOrSuccessOption,
       required final bool isSubmitting,
+      required final NotEmptyString name,
       required final Username username,
       required final bool canUseName,
       required final Introduction introduction}) = _$_EditProfileFormState;
@@ -814,6 +1009,8 @@ abstract class _EditProfileFormState implements EditProfileFormState {
   Option<Either<ProfileFailure, Unit>> get editFailureOrSuccessOption;
   @override
   bool get isSubmitting;
+  @override
+  NotEmptyString get name;
   @override
   Username get username;
   @override

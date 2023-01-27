@@ -5,13 +5,13 @@ part 'profile.g.dart';
 @JsonSerializable()
 class Profile{
   @JsonKey(name: "id")
-  int id;
+  String id;
 
   @JsonKey(name: "username")
   String username;
 
-  @JsonKey(name: "image")
-  String? image;
+  @JsonKey(name: "profileImageUrl")
+  String? profileImage;
 
   @JsonKey(name: "introduction")
   String? introduction;
@@ -34,7 +34,7 @@ class Profile{
   Profile({
     required this.id,
     required this.username,
-    this.image,
+    this.profileImage,
     this.introduction,
     this.countPosts,
     this.name,

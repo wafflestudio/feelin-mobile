@@ -4,5 +4,5 @@ part 'connect_failure.freezed.dart';
 @freezed
 class ConnectFailure with _$ConnectFailure {
   const factory ConnectFailure.serverError() = _ServerError;
-
+  const factory ConnectFailure.alreadyConnected() = _AlreadyConnected;
 }

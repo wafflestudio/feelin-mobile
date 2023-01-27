@@ -3,8 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/auth/token.dart';
-
-import '../../../domain/auth/i_auth_repository.dart';
+import '../../../infrastructure/auth/auth_repository.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
@@ -12,7 +11,7 @@ part 'auth_state.dart';
 
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final IAuthRepository _authRepository;
+  final AuthRepository _authRepository;
   final storage = const FlutterSecureStorage();
 
   AuthBloc(this._authRepository) : super(AuthState.initial()) {

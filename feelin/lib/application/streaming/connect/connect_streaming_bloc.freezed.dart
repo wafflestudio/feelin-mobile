@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'connect_streaming_bloc.dart';
 
@@ -26,10 +26,10 @@ mixin _$ConnectStreamingEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String vendorStr)? requestLogin,
-    TResult Function()? spotifyLogin,
-    TResult Function(String token, String id)? appleMusicLogin,
-    TResult Function()? submitted,
+    TResult? Function(String vendorStr)? requestLogin,
+    TResult? Function()? spotifyLogin,
+    TResult? Function(String token, String id)? appleMusicLogin,
+    TResult? Function()? submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$ConnectStreamingEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_RequestLogin value)? requestLogin,
-    TResult Function(_SpotifyLogin value)? spotifyLogin,
-    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
-    TResult Function(_Submitted value)? submitted,
+    TResult? Function(_RequestLogin value)? requestLogin,
+    TResult? Function(_SpotifyLogin value)? spotifyLogin,
+    TResult? Function(_AppleMusicLogin value)? appleMusicLogin,
+    TResult? Function(_Submitted value)? submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,17 +72,19 @@ mixin _$ConnectStreamingEvent {
 abstract class $ConnectStreamingEventCopyWith<$Res> {
   factory $ConnectStreamingEventCopyWith(ConnectStreamingEvent value,
           $Res Function(ConnectStreamingEvent) then) =
-      _$ConnectStreamingEventCopyWithImpl<$Res>;
+      _$ConnectStreamingEventCopyWithImpl<$Res, ConnectStreamingEvent>;
 }
 
 /// @nodoc
-class _$ConnectStreamingEventCopyWithImpl<$Res>
+class _$ConnectStreamingEventCopyWithImpl<$Res,
+        $Val extends ConnectStreamingEvent>
     implements $ConnectStreamingEventCopyWith<$Res> {
   _$ConnectStreamingEventCopyWithImpl(this._value, this._then);
 
-  final ConnectStreamingEvent _value;
   // ignore: unused_field
-  final $Res Function(ConnectStreamingEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -90,26 +92,25 @@ abstract class _$$_RequestLoginCopyWith<$Res> {
   factory _$$_RequestLoginCopyWith(
           _$_RequestLogin value, $Res Function(_$_RequestLogin) then) =
       __$$_RequestLoginCopyWithImpl<$Res>;
+  @useResult
   $Res call({String vendorStr});
 }
 
 /// @nodoc
 class __$$_RequestLoginCopyWithImpl<$Res>
-    extends _$ConnectStreamingEventCopyWithImpl<$Res>
+    extends _$ConnectStreamingEventCopyWithImpl<$Res, _$_RequestLogin>
     implements _$$_RequestLoginCopyWith<$Res> {
   __$$_RequestLoginCopyWithImpl(
       _$_RequestLogin _value, $Res Function(_$_RequestLogin) _then)
-      : super(_value, (v) => _then(v as _$_RequestLogin));
+      : super(_value, _then);
 
-  @override
-  _$_RequestLogin get _value => super._value as _$_RequestLogin;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? vendorStr = freezed,
+    Object? vendorStr = null,
   }) {
     return _then(_$_RequestLogin(
-      vendorStr == freezed
+      null == vendorStr
           ? _value.vendorStr
           : vendorStr // ignore: cast_nullable_to_non_nullable
               as String,
@@ -135,15 +136,16 @@ class _$_RequestLogin implements _RequestLogin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RequestLogin &&
-            const DeepCollectionEquality().equals(other.vendorStr, vendorStr));
+            (identical(other.vendorStr, vendorStr) ||
+                other.vendorStr == vendorStr));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(vendorStr));
+  int get hashCode => Object.hash(runtimeType, vendorStr);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RequestLoginCopyWith<_$_RequestLogin> get copyWith =>
       __$$_RequestLoginCopyWithImpl<_$_RequestLogin>(this, _$identity);
 
@@ -161,10 +163,10 @@ class _$_RequestLogin implements _RequestLogin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String vendorStr)? requestLogin,
-    TResult Function()? spotifyLogin,
-    TResult Function(String token, String id)? appleMusicLogin,
-    TResult Function()? submitted,
+    TResult? Function(String vendorStr)? requestLogin,
+    TResult? Function()? spotifyLogin,
+    TResult? Function(String token, String id)? appleMusicLogin,
+    TResult? Function()? submitted,
   }) {
     return requestLogin?.call(vendorStr);
   }
@@ -198,10 +200,10 @@ class _$_RequestLogin implements _RequestLogin {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_RequestLogin value)? requestLogin,
-    TResult Function(_SpotifyLogin value)? spotifyLogin,
-    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
-    TResult Function(_Submitted value)? submitted,
+    TResult? Function(_RequestLogin value)? requestLogin,
+    TResult? Function(_SpotifyLogin value)? spotifyLogin,
+    TResult? Function(_AppleMusicLogin value)? appleMusicLogin,
+    TResult? Function(_Submitted value)? submitted,
   }) {
     return requestLogin?.call(this);
   }
@@ -240,14 +242,11 @@ abstract class _$$_SpotifyLoginCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SpotifyLoginCopyWithImpl<$Res>
-    extends _$ConnectStreamingEventCopyWithImpl<$Res>
+    extends _$ConnectStreamingEventCopyWithImpl<$Res, _$_SpotifyLogin>
     implements _$$_SpotifyLoginCopyWith<$Res> {
   __$$_SpotifyLoginCopyWithImpl(
       _$_SpotifyLogin _value, $Res Function(_$_SpotifyLogin) _then)
-      : super(_value, (v) => _then(v as _$_SpotifyLogin));
-
-  @override
-  _$_SpotifyLogin get _value => super._value as _$_SpotifyLogin;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -283,10 +282,10 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String vendorStr)? requestLogin,
-    TResult Function()? spotifyLogin,
-    TResult Function(String token, String id)? appleMusicLogin,
-    TResult Function()? submitted,
+    TResult? Function(String vendorStr)? requestLogin,
+    TResult? Function()? spotifyLogin,
+    TResult? Function(String token, String id)? appleMusicLogin,
+    TResult? Function()? submitted,
   }) {
     return spotifyLogin?.call();
   }
@@ -320,10 +319,10 @@ class _$_SpotifyLogin implements _SpotifyLogin {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_RequestLogin value)? requestLogin,
-    TResult Function(_SpotifyLogin value)? spotifyLogin,
-    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
-    TResult Function(_Submitted value)? submitted,
+    TResult? Function(_RequestLogin value)? requestLogin,
+    TResult? Function(_SpotifyLogin value)? spotifyLogin,
+    TResult? Function(_AppleMusicLogin value)? appleMusicLogin,
+    TResult? Function(_Submitted value)? submitted,
   }) {
     return spotifyLogin?.call(this);
   }
@@ -353,31 +352,30 @@ abstract class _$$_AppleMusicLoginCopyWith<$Res> {
   factory _$$_AppleMusicLoginCopyWith(
           _$_AppleMusicLogin value, $Res Function(_$_AppleMusicLogin) then) =
       __$$_AppleMusicLoginCopyWithImpl<$Res>;
+  @useResult
   $Res call({String token, String id});
 }
 
 /// @nodoc
 class __$$_AppleMusicLoginCopyWithImpl<$Res>
-    extends _$ConnectStreamingEventCopyWithImpl<$Res>
+    extends _$ConnectStreamingEventCopyWithImpl<$Res, _$_AppleMusicLogin>
     implements _$$_AppleMusicLoginCopyWith<$Res> {
   __$$_AppleMusicLoginCopyWithImpl(
       _$_AppleMusicLogin _value, $Res Function(_$_AppleMusicLogin) _then)
-      : super(_value, (v) => _then(v as _$_AppleMusicLogin));
+      : super(_value, _then);
 
-  @override
-  _$_AppleMusicLogin get _value => super._value as _$_AppleMusicLogin;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? token = freezed,
-    Object? id = freezed,
+    Object? token = null,
+    Object? id = null,
   }) {
     return _then(_$_AppleMusicLogin(
-      token == freezed
+      null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
-      id == freezed
+      null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
@@ -405,18 +403,16 @@ class _$_AppleMusicLogin implements _AppleMusicLogin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AppleMusicLogin &&
-            const DeepCollectionEquality().equals(other.token, token) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(token),
-      const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, token, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AppleMusicLoginCopyWith<_$_AppleMusicLogin> get copyWith =>
       __$$_AppleMusicLoginCopyWithImpl<_$_AppleMusicLogin>(this, _$identity);
 
@@ -434,10 +430,10 @@ class _$_AppleMusicLogin implements _AppleMusicLogin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String vendorStr)? requestLogin,
-    TResult Function()? spotifyLogin,
-    TResult Function(String token, String id)? appleMusicLogin,
-    TResult Function()? submitted,
+    TResult? Function(String vendorStr)? requestLogin,
+    TResult? Function()? spotifyLogin,
+    TResult? Function(String token, String id)? appleMusicLogin,
+    TResult? Function()? submitted,
   }) {
     return appleMusicLogin?.call(token, id);
   }
@@ -471,10 +467,10 @@ class _$_AppleMusicLogin implements _AppleMusicLogin {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_RequestLogin value)? requestLogin,
-    TResult Function(_SpotifyLogin value)? spotifyLogin,
-    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
-    TResult Function(_Submitted value)? submitted,
+    TResult? Function(_RequestLogin value)? requestLogin,
+    TResult? Function(_SpotifyLogin value)? spotifyLogin,
+    TResult? Function(_AppleMusicLogin value)? appleMusicLogin,
+    TResult? Function(_Submitted value)? submitted,
   }) {
     return appleMusicLogin?.call(this);
   }
@@ -515,14 +511,11 @@ abstract class _$$_SubmittedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SubmittedCopyWithImpl<$Res>
-    extends _$ConnectStreamingEventCopyWithImpl<$Res>
+    extends _$ConnectStreamingEventCopyWithImpl<$Res, _$_Submitted>
     implements _$$_SubmittedCopyWith<$Res> {
   __$$_SubmittedCopyWithImpl(
       _$_Submitted _value, $Res Function(_$_Submitted) _then)
-      : super(_value, (v) => _then(v as _$_Submitted));
-
-  @override
-  _$_Submitted get _value => super._value as _$_Submitted;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -558,10 +551,10 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String vendorStr)? requestLogin,
-    TResult Function()? spotifyLogin,
-    TResult Function(String token, String id)? appleMusicLogin,
-    TResult Function()? submitted,
+    TResult? Function(String vendorStr)? requestLogin,
+    TResult? Function()? spotifyLogin,
+    TResult? Function(String token, String id)? appleMusicLogin,
+    TResult? Function()? submitted,
   }) {
     return submitted?.call();
   }
@@ -595,10 +588,10 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_RequestLogin value)? requestLogin,
-    TResult Function(_SpotifyLogin value)? spotifyLogin,
-    TResult Function(_AppleMusicLogin value)? appleMusicLogin,
-    TResult Function(_Submitted value)? submitted,
+    TResult? Function(_RequestLogin value)? requestLogin,
+    TResult? Function(_SpotifyLogin value)? spotifyLogin,
+    TResult? Function(_AppleMusicLogin value)? appleMusicLogin,
+    TResult? Function(_Submitted value)? submitted,
   }) {
     return submitted?.call(this);
   }
@@ -641,7 +634,8 @@ mixin _$ConnectStreamingState {
 abstract class $ConnectStreamingStateCopyWith<$Res> {
   factory $ConnectStreamingStateCopyWith(ConnectStreamingState value,
           $Res Function(ConnectStreamingState) then) =
-      _$ConnectStreamingStateCopyWithImpl<$Res>;
+      _$ConnectStreamingStateCopyWithImpl<$Res, ConnectStreamingState>;
+  @useResult
   $Res call(
       {Option<Either<ConnectFailure, RedirectUrl>>
           urlRequestFailureOrSuccessOption,
@@ -650,35 +644,37 @@ abstract class $ConnectStreamingStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConnectStreamingStateCopyWithImpl<$Res>
+class _$ConnectStreamingStateCopyWithImpl<$Res,
+        $Val extends ConnectStreamingState>
     implements $ConnectStreamingStateCopyWith<$Res> {
   _$ConnectStreamingStateCopyWithImpl(this._value, this._then);
 
-  final ConnectStreamingState _value;
   // ignore: unused_field
-  final $Res Function(ConnectStreamingState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? urlRequestFailureOrSuccessOption = freezed,
-    Object? requestFailureOrSuccessOption = freezed,
-    Object? isSubmitting = freezed,
+    Object? urlRequestFailureOrSuccessOption = null,
+    Object? requestFailureOrSuccessOption = null,
+    Object? isSubmitting = null,
   }) {
     return _then(_value.copyWith(
-      urlRequestFailureOrSuccessOption: urlRequestFailureOrSuccessOption ==
-              freezed
+      urlRequestFailureOrSuccessOption: null == urlRequestFailureOrSuccessOption
           ? _value.urlRequestFailureOrSuccessOption
           : urlRequestFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ConnectFailure, RedirectUrl>>,
-      requestFailureOrSuccessOption: requestFailureOrSuccessOption == freezed
+      requestFailureOrSuccessOption: null == requestFailureOrSuccessOption
           ? _value.requestFailureOrSuccessOption
           : requestFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ConnectFailure, Unit>>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -689,6 +685,7 @@ abstract class _$$_ConnectStreamingStateCopyWith<$Res>
           $Res Function(_$_ConnectStreamingState) then) =
       __$$_ConnectStreamingStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Option<Either<ConnectFailure, RedirectUrl>>
           urlRequestFailureOrSuccessOption,
@@ -698,33 +695,29 @@ abstract class _$$_ConnectStreamingStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_ConnectStreamingStateCopyWithImpl<$Res>
-    extends _$ConnectStreamingStateCopyWithImpl<$Res>
+    extends _$ConnectStreamingStateCopyWithImpl<$Res, _$_ConnectStreamingState>
     implements _$$_ConnectStreamingStateCopyWith<$Res> {
   __$$_ConnectStreamingStateCopyWithImpl(_$_ConnectStreamingState _value,
       $Res Function(_$_ConnectStreamingState) _then)
-      : super(_value, (v) => _then(v as _$_ConnectStreamingState));
+      : super(_value, _then);
 
-  @override
-  _$_ConnectStreamingState get _value =>
-      super._value as _$_ConnectStreamingState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? urlRequestFailureOrSuccessOption = freezed,
-    Object? requestFailureOrSuccessOption = freezed,
-    Object? isSubmitting = freezed,
+    Object? urlRequestFailureOrSuccessOption = null,
+    Object? requestFailureOrSuccessOption = null,
+    Object? isSubmitting = null,
   }) {
     return _then(_$_ConnectStreamingState(
-      urlRequestFailureOrSuccessOption: urlRequestFailureOrSuccessOption ==
-              freezed
+      urlRequestFailureOrSuccessOption: null == urlRequestFailureOrSuccessOption
           ? _value.urlRequestFailureOrSuccessOption
           : urlRequestFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ConnectFailure, RedirectUrl>>,
-      requestFailureOrSuccessOption: requestFailureOrSuccessOption == freezed
+      requestFailureOrSuccessOption: null == requestFailureOrSuccessOption
           ? _value.requestFailureOrSuccessOption
           : requestFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ConnectFailure, Unit>>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -758,25 +751,25 @@ class _$_ConnectStreamingState implements _ConnectStreamingState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ConnectStreamingState &&
-            const DeepCollectionEquality().equals(
-                other.urlRequestFailureOrSuccessOption,
-                urlRequestFailureOrSuccessOption) &&
-            const DeepCollectionEquality().equals(
-                other.requestFailureOrSuccessOption,
-                requestFailureOrSuccessOption) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting));
+            (identical(other.urlRequestFailureOrSuccessOption,
+                    urlRequestFailureOrSuccessOption) ||
+                other.urlRequestFailureOrSuccessOption ==
+                    urlRequestFailureOrSuccessOption) &&
+            (identical(other.requestFailureOrSuccessOption,
+                    requestFailureOrSuccessOption) ||
+                other.requestFailureOrSuccessOption ==
+                    requestFailureOrSuccessOption) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(urlRequestFailureOrSuccessOption),
-      const DeepCollectionEquality().hash(requestFailureOrSuccessOption),
-      const DeepCollectionEquality().hash(isSubmitting));
+  int get hashCode => Object.hash(runtimeType, urlRequestFailureOrSuccessOption,
+      requestFailureOrSuccessOption, isSubmitting);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ConnectStreamingStateCopyWith<_$_ConnectStreamingState> get copyWith =>
       __$$_ConnectStreamingStateCopyWithImpl<_$_ConnectStreamingState>(
           this, _$identity);

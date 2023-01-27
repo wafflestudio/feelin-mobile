@@ -48,7 +48,7 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
   }
 }
 
-Either<ValueFailure<String>, String> validateEmailAuthCode(String input) {
+Either<ValueFailure<String>, String> validateAuthCode(String input) {
   if (input.length == 6) {
     return right(input);
   } else {

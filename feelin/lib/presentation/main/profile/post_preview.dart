@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/domain/play/post.dart';
+import 'package:music_sns/presentation/app/app.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../application/info/playlist_info_bloc.dart';

@@ -13,17 +13,17 @@ part 'profile_client.g.dart';
 abstract class ProfileClient{
   factory ProfileClient(Dio dio, {String baseUrl}) = _ProfileClient;
 
-  @GET('/user/{user_id}/posts')
-  Future<HttpResponse<Page>> getPostsById(@Path('user_id') int id);
+  @GET('/posts')
+  Future<HttpResponse<Page>> getPostsById(@Query('userId') String id, @Query('cursor') String? cursor,);
 
   @GET('/posts')
-  Future<HttpResponse<Page>> getMyPosts();
+  Future<HttpResponse<Page>> getMyPosts(@Query('cursor') String? cursor);
 
   @GET('/user/profile')
   Future<HttpResponse<Profile>> getMyProfile();
 
   @GET('/user/{user_id}/profile')
-  Future<HttpResponse<Profile>> getProfileById(@Path('user_id')int id);
+  Future<HttpResponse<Profile>> getProfileById(@Path('user_id')String id);
 
   @PUT('/user/profile')
   Future<HttpResponse<Profile>> editMyProfile(@Body() EditMyProfileRequest editMyProfileRequest);
@@ -32,8 +32,8 @@ abstract class ProfileClient{
   Future<HttpResponse<ExistsUsername>> checkUsername(@Body() CheckUsernameRequest checkUsernameRequest);
 
   @POST('/follows/{user_id}')
-  Future<HttpResponse<void>> follow(@Path('user_id')int id);
+  Future<HttpResponse<void>> follow(@Path('user_id')String id);
 
   @DELETE('/follows/{user_id}')
-  Future<HttpResponse<void>> unFollow(@Path('user_id')int id);
+  Future<HttpResponse<void>> unFollow(@Path('user_id')String id);
 }

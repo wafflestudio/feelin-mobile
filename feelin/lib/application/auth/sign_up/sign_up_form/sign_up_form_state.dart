@@ -4,9 +4,9 @@ part of 'sign_up_form_bloc.dart';
 class SignUpFormState with _$SignUpFormState {
   const factory SignUpFormState({
     required EmailAddress emailAddress,
-    required EmailAuthCode code,
+    required AuthCode code,
     required bool isEmailSubmitting,
-    required bool isRequested,
+    required Option<Either<AuthFailure, Unit>> requestFailureOrSuccessOption,
     required Password password,
     required Password passwordConfirm,
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
@@ -16,12 +16,13 @@ class SignUpFormState with _$SignUpFormState {
     required Username username,
     required bool canUseName,
     required PhoneNumber phoneNumber,
+    required NotEmptyString countryCode,
     required NotEmptyString birthday,
     required bool signUpWithEmail,
   }) = _SignUpFormState;
   factory SignUpFormState.initial() => SignUpFormState(
     emailAddress: EmailAddress(''),
-    code: EmailAuthCode(''),
+    code: AuthCode(''),
     passwordConfirm: Password(''),
     password: Password(''),
     authFailureOrSuccessOption: none(),
@@ -32,8 +33,9 @@ class SignUpFormState with _$SignUpFormState {
     canUseName: false,
     phoneNumber: PhoneNumber(''),
     birthday: NotEmptyString(''),
+    countryCode: NotEmptyString(''),
     isEmailSubmitting: false,
-    isRequested: false,
+    requestFailureOrSuccessOption: none(),
     signUpWithEmail: false,
   );
 }

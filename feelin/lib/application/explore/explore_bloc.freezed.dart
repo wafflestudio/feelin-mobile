@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'explore_bloc.dart';
 
@@ -22,14 +22,18 @@ mixin _$ExploreEvent {
     required TResult Function() resetRequest,
     required TResult Function() resetFRequest,
     required TResult Function() loadFRequest,
+    required TResult Function(int index, bool F) likeRequest,
+    required TResult Function(int index, bool F) unlikeRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadRequest,
-    TResult Function()? resetRequest,
-    TResult Function()? resetFRequest,
-    TResult Function()? loadFRequest,
+    TResult? Function()? loadRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function()? resetFRequest,
+    TResult? Function()? loadFRequest,
+    TResult? Function(int index, bool F)? likeRequest,
+    TResult? Function(int index, bool F)? unlikeRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$ExploreEvent {
     TResult Function()? resetRequest,
     TResult Function()? resetFRequest,
     TResult Function()? loadFRequest,
+    TResult Function(int index, bool F)? likeRequest,
+    TResult Function(int index, bool F)? unlikeRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,14 +53,18 @@ mixin _$ExploreEvent {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_ResetFRequest value) resetFRequest,
     required TResult Function(_LoadFRequest value) loadFRequest,
+    required TResult Function(_LikeRequest value) likeRequest,
+    required TResult Function(_UnlikeRequest value) unlikeRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadRequest value)? loadRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
-    TResult Function(_ResetFRequest value)? resetFRequest,
-    TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_ResetFRequest value)? resetFRequest,
+    TResult? Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +73,8 @@ mixin _$ExploreEvent {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_ResetFRequest value)? resetFRequest,
     TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult Function(_LikeRequest value)? likeRequest,
+    TResult Function(_UnlikeRequest value)? unlikeRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,16 +84,18 @@ mixin _$ExploreEvent {
 abstract class $ExploreEventCopyWith<$Res> {
   factory $ExploreEventCopyWith(
           ExploreEvent value, $Res Function(ExploreEvent) then) =
-      _$ExploreEventCopyWithImpl<$Res>;
+      _$ExploreEventCopyWithImpl<$Res, ExploreEvent>;
 }
 
 /// @nodoc
-class _$ExploreEventCopyWithImpl<$Res> implements $ExploreEventCopyWith<$Res> {
+class _$ExploreEventCopyWithImpl<$Res, $Val extends ExploreEvent>
+    implements $ExploreEventCopyWith<$Res> {
   _$ExploreEventCopyWithImpl(this._value, this._then);
 
-  final ExploreEvent _value;
   // ignore: unused_field
-  final $Res Function(ExploreEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -93,14 +107,11 @@ abstract class _$$_LoadRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadRequestCopyWithImpl<$Res>
-    extends _$ExploreEventCopyWithImpl<$Res>
+    extends _$ExploreEventCopyWithImpl<$Res, _$_LoadRequest>
     implements _$$_LoadRequestCopyWith<$Res> {
   __$$_LoadRequestCopyWithImpl(
       _$_LoadRequest _value, $Res Function(_$_LoadRequest) _then)
-      : super(_value, (v) => _then(v as _$_LoadRequest));
-
-  @override
-  _$_LoadRequest get _value => super._value as _$_LoadRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -129,6 +140,8 @@ class _$_LoadRequest implements _LoadRequest {
     required TResult Function() resetRequest,
     required TResult Function() resetFRequest,
     required TResult Function() loadFRequest,
+    required TResult Function(int index, bool F) likeRequest,
+    required TResult Function(int index, bool F) unlikeRequest,
   }) {
     return loadRequest();
   }
@@ -136,10 +149,12 @@ class _$_LoadRequest implements _LoadRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadRequest,
-    TResult Function()? resetRequest,
-    TResult Function()? resetFRequest,
-    TResult Function()? loadFRequest,
+    TResult? Function()? loadRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function()? resetFRequest,
+    TResult? Function()? loadFRequest,
+    TResult? Function(int index, bool F)? likeRequest,
+    TResult? Function(int index, bool F)? unlikeRequest,
   }) {
     return loadRequest?.call();
   }
@@ -151,6 +166,8 @@ class _$_LoadRequest implements _LoadRequest {
     TResult Function()? resetRequest,
     TResult Function()? resetFRequest,
     TResult Function()? loadFRequest,
+    TResult Function(int index, bool F)? likeRequest,
+    TResult Function(int index, bool F)? unlikeRequest,
     required TResult orElse(),
   }) {
     if (loadRequest != null) {
@@ -166,6 +183,8 @@ class _$_LoadRequest implements _LoadRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_ResetFRequest value) resetFRequest,
     required TResult Function(_LoadFRequest value) loadFRequest,
+    required TResult Function(_LikeRequest value) likeRequest,
+    required TResult Function(_UnlikeRequest value) unlikeRequest,
   }) {
     return loadRequest(this);
   }
@@ -173,10 +192,12 @@ class _$_LoadRequest implements _LoadRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadRequest value)? loadRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
-    TResult Function(_ResetFRequest value)? resetFRequest,
-    TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_ResetFRequest value)? resetFRequest,
+    TResult? Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
   }) {
     return loadRequest?.call(this);
   }
@@ -188,6 +209,8 @@ class _$_LoadRequest implements _LoadRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_ResetFRequest value)? resetFRequest,
     TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult Function(_LikeRequest value)? likeRequest,
+    TResult Function(_UnlikeRequest value)? unlikeRequest,
     required TResult orElse(),
   }) {
     if (loadRequest != null) {
@@ -210,14 +233,11 @@ abstract class _$$_ResetRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ResetRequestCopyWithImpl<$Res>
-    extends _$ExploreEventCopyWithImpl<$Res>
+    extends _$ExploreEventCopyWithImpl<$Res, _$_ResetRequest>
     implements _$$_ResetRequestCopyWith<$Res> {
   __$$_ResetRequestCopyWithImpl(
       _$_ResetRequest _value, $Res Function(_$_ResetRequest) _then)
-      : super(_value, (v) => _then(v as _$_ResetRequest));
-
-  @override
-  _$_ResetRequest get _value => super._value as _$_ResetRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -246,6 +266,8 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function() resetRequest,
     required TResult Function() resetFRequest,
     required TResult Function() loadFRequest,
+    required TResult Function(int index, bool F) likeRequest,
+    required TResult Function(int index, bool F) unlikeRequest,
   }) {
     return resetRequest();
   }
@@ -253,10 +275,12 @@ class _$_ResetRequest implements _ResetRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadRequest,
-    TResult Function()? resetRequest,
-    TResult Function()? resetFRequest,
-    TResult Function()? loadFRequest,
+    TResult? Function()? loadRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function()? resetFRequest,
+    TResult? Function()? loadFRequest,
+    TResult? Function(int index, bool F)? likeRequest,
+    TResult? Function(int index, bool F)? unlikeRequest,
   }) {
     return resetRequest?.call();
   }
@@ -268,6 +292,8 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function()? resetRequest,
     TResult Function()? resetFRequest,
     TResult Function()? loadFRequest,
+    TResult Function(int index, bool F)? likeRequest,
+    TResult Function(int index, bool F)? unlikeRequest,
     required TResult orElse(),
   }) {
     if (resetRequest != null) {
@@ -283,6 +309,8 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_ResetFRequest value) resetFRequest,
     required TResult Function(_LoadFRequest value) loadFRequest,
+    required TResult Function(_LikeRequest value) likeRequest,
+    required TResult Function(_UnlikeRequest value) unlikeRequest,
   }) {
     return resetRequest(this);
   }
@@ -290,10 +318,12 @@ class _$_ResetRequest implements _ResetRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadRequest value)? loadRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
-    TResult Function(_ResetFRequest value)? resetFRequest,
-    TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_ResetFRequest value)? resetFRequest,
+    TResult? Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
   }) {
     return resetRequest?.call(this);
   }
@@ -305,6 +335,8 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_ResetFRequest value)? resetFRequest,
     TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult Function(_LikeRequest value)? likeRequest,
+    TResult Function(_UnlikeRequest value)? unlikeRequest,
     required TResult orElse(),
   }) {
     if (resetRequest != null) {
@@ -327,14 +359,11 @@ abstract class _$$_ResetFRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ResetFRequestCopyWithImpl<$Res>
-    extends _$ExploreEventCopyWithImpl<$Res>
+    extends _$ExploreEventCopyWithImpl<$Res, _$_ResetFRequest>
     implements _$$_ResetFRequestCopyWith<$Res> {
   __$$_ResetFRequestCopyWithImpl(
       _$_ResetFRequest _value, $Res Function(_$_ResetFRequest) _then)
-      : super(_value, (v) => _then(v as _$_ResetFRequest));
-
-  @override
-  _$_ResetFRequest get _value => super._value as _$_ResetFRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -363,6 +392,8 @@ class _$_ResetFRequest implements _ResetFRequest {
     required TResult Function() resetRequest,
     required TResult Function() resetFRequest,
     required TResult Function() loadFRequest,
+    required TResult Function(int index, bool F) likeRequest,
+    required TResult Function(int index, bool F) unlikeRequest,
   }) {
     return resetFRequest();
   }
@@ -370,10 +401,12 @@ class _$_ResetFRequest implements _ResetFRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadRequest,
-    TResult Function()? resetRequest,
-    TResult Function()? resetFRequest,
-    TResult Function()? loadFRequest,
+    TResult? Function()? loadRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function()? resetFRequest,
+    TResult? Function()? loadFRequest,
+    TResult? Function(int index, bool F)? likeRequest,
+    TResult? Function(int index, bool F)? unlikeRequest,
   }) {
     return resetFRequest?.call();
   }
@@ -385,6 +418,8 @@ class _$_ResetFRequest implements _ResetFRequest {
     TResult Function()? resetRequest,
     TResult Function()? resetFRequest,
     TResult Function()? loadFRequest,
+    TResult Function(int index, bool F)? likeRequest,
+    TResult Function(int index, bool F)? unlikeRequest,
     required TResult orElse(),
   }) {
     if (resetFRequest != null) {
@@ -400,6 +435,8 @@ class _$_ResetFRequest implements _ResetFRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_ResetFRequest value) resetFRequest,
     required TResult Function(_LoadFRequest value) loadFRequest,
+    required TResult Function(_LikeRequest value) likeRequest,
+    required TResult Function(_UnlikeRequest value) unlikeRequest,
   }) {
     return resetFRequest(this);
   }
@@ -407,10 +444,12 @@ class _$_ResetFRequest implements _ResetFRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadRequest value)? loadRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
-    TResult Function(_ResetFRequest value)? resetFRequest,
-    TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_ResetFRequest value)? resetFRequest,
+    TResult? Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
   }) {
     return resetFRequest?.call(this);
   }
@@ -422,6 +461,8 @@ class _$_ResetFRequest implements _ResetFRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_ResetFRequest value)? resetFRequest,
     TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult Function(_LikeRequest value)? likeRequest,
+    TResult Function(_UnlikeRequest value)? unlikeRequest,
     required TResult orElse(),
   }) {
     if (resetFRequest != null) {
@@ -444,14 +485,11 @@ abstract class _$$_LoadFRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadFRequestCopyWithImpl<$Res>
-    extends _$ExploreEventCopyWithImpl<$Res>
+    extends _$ExploreEventCopyWithImpl<$Res, _$_LoadFRequest>
     implements _$$_LoadFRequestCopyWith<$Res> {
   __$$_LoadFRequestCopyWithImpl(
       _$_LoadFRequest _value, $Res Function(_$_LoadFRequest) _then)
-      : super(_value, (v) => _then(v as _$_LoadFRequest));
-
-  @override
-  _$_LoadFRequest get _value => super._value as _$_LoadFRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -480,6 +518,8 @@ class _$_LoadFRequest implements _LoadFRequest {
     required TResult Function() resetRequest,
     required TResult Function() resetFRequest,
     required TResult Function() loadFRequest,
+    required TResult Function(int index, bool F) likeRequest,
+    required TResult Function(int index, bool F) unlikeRequest,
   }) {
     return loadFRequest();
   }
@@ -487,10 +527,12 @@ class _$_LoadFRequest implements _LoadFRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadRequest,
-    TResult Function()? resetRequest,
-    TResult Function()? resetFRequest,
-    TResult Function()? loadFRequest,
+    TResult? Function()? loadRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function()? resetFRequest,
+    TResult? Function()? loadFRequest,
+    TResult? Function(int index, bool F)? likeRequest,
+    TResult? Function(int index, bool F)? unlikeRequest,
   }) {
     return loadFRequest?.call();
   }
@@ -502,6 +544,8 @@ class _$_LoadFRequest implements _LoadFRequest {
     TResult Function()? resetRequest,
     TResult Function()? resetFRequest,
     TResult Function()? loadFRequest,
+    TResult Function(int index, bool F)? likeRequest,
+    TResult Function(int index, bool F)? unlikeRequest,
     required TResult orElse(),
   }) {
     if (loadFRequest != null) {
@@ -517,6 +561,8 @@ class _$_LoadFRequest implements _LoadFRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_ResetFRequest value) resetFRequest,
     required TResult Function(_LoadFRequest value) loadFRequest,
+    required TResult Function(_LikeRequest value) likeRequest,
+    required TResult Function(_UnlikeRequest value) unlikeRequest,
   }) {
     return loadFRequest(this);
   }
@@ -524,10 +570,12 @@ class _$_LoadFRequest implements _LoadFRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadRequest value)? loadRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
-    TResult Function(_ResetFRequest value)? resetFRequest,
-    TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_ResetFRequest value)? resetFRequest,
+    TResult? Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
   }) {
     return loadFRequest?.call(this);
   }
@@ -539,6 +587,8 @@ class _$_LoadFRequest implements _LoadFRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_ResetFRequest value)? resetFRequest,
     TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult Function(_LikeRequest value)? likeRequest,
+    TResult Function(_UnlikeRequest value)? unlikeRequest,
     required TResult orElse(),
   }) {
     if (loadFRequest != null) {
@@ -550,6 +600,339 @@ class _$_LoadFRequest implements _LoadFRequest {
 
 abstract class _LoadFRequest implements ExploreEvent {
   const factory _LoadFRequest() = _$_LoadFRequest;
+}
+
+/// @nodoc
+abstract class _$$_LikeRequestCopyWith<$Res> {
+  factory _$$_LikeRequestCopyWith(
+          _$_LikeRequest value, $Res Function(_$_LikeRequest) then) =
+      __$$_LikeRequestCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index, bool F});
+}
+
+/// @nodoc
+class __$$_LikeRequestCopyWithImpl<$Res>
+    extends _$ExploreEventCopyWithImpl<$Res, _$_LikeRequest>
+    implements _$$_LikeRequestCopyWith<$Res> {
+  __$$_LikeRequestCopyWithImpl(
+      _$_LikeRequest _value, $Res Function(_$_LikeRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+    Object? F = null,
+  }) {
+    return _then(_$_LikeRequest(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == F
+          ? _value.F
+          : F // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LikeRequest implements _LikeRequest {
+  const _$_LikeRequest(this.index, this.F);
+
+  @override
+  final int index;
+  @override
+  final bool F;
+
+  @override
+  String toString() {
+    return 'ExploreEvent.likeRequest(index: $index, F: $F)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LikeRequest &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.F, F) || other.F == F));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index, F);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LikeRequestCopyWith<_$_LikeRequest> get copyWith =>
+      __$$_LikeRequestCopyWithImpl<_$_LikeRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadRequest,
+    required TResult Function() resetRequest,
+    required TResult Function() resetFRequest,
+    required TResult Function() loadFRequest,
+    required TResult Function(int index, bool F) likeRequest,
+    required TResult Function(int index, bool F) unlikeRequest,
+  }) {
+    return likeRequest(index, F);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function()? resetFRequest,
+    TResult? Function()? loadFRequest,
+    TResult? Function(int index, bool F)? likeRequest,
+    TResult? Function(int index, bool F)? unlikeRequest,
+  }) {
+    return likeRequest?.call(index, F);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
+    TResult Function(int index, bool F)? likeRequest,
+    TResult Function(int index, bool F)? unlikeRequest,
+    required TResult orElse(),
+  }) {
+    if (likeRequest != null) {
+      return likeRequest(index, F);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRequest value) loadRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_ResetFRequest value) resetFRequest,
+    required TResult Function(_LoadFRequest value) loadFRequest,
+    required TResult Function(_LikeRequest value) likeRequest,
+    required TResult Function(_UnlikeRequest value) unlikeRequest,
+  }) {
+    return likeRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_ResetFRequest value)? resetFRequest,
+    TResult? Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
+  }) {
+    return likeRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult Function(_LikeRequest value)? likeRequest,
+    TResult Function(_UnlikeRequest value)? unlikeRequest,
+    required TResult orElse(),
+  }) {
+    if (likeRequest != null) {
+      return likeRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LikeRequest implements ExploreEvent {
+  const factory _LikeRequest(final int index, final bool F) = _$_LikeRequest;
+
+  int get index;
+  bool get F;
+  @JsonKey(ignore: true)
+  _$$_LikeRequestCopyWith<_$_LikeRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UnlikeRequestCopyWith<$Res> {
+  factory _$$_UnlikeRequestCopyWith(
+          _$_UnlikeRequest value, $Res Function(_$_UnlikeRequest) then) =
+      __$$_UnlikeRequestCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index, bool F});
+}
+
+/// @nodoc
+class __$$_UnlikeRequestCopyWithImpl<$Res>
+    extends _$ExploreEventCopyWithImpl<$Res, _$_UnlikeRequest>
+    implements _$$_UnlikeRequestCopyWith<$Res> {
+  __$$_UnlikeRequestCopyWithImpl(
+      _$_UnlikeRequest _value, $Res Function(_$_UnlikeRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+    Object? F = null,
+  }) {
+    return _then(_$_UnlikeRequest(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == F
+          ? _value.F
+          : F // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UnlikeRequest implements _UnlikeRequest {
+  const _$_UnlikeRequest(this.index, this.F);
+
+  @override
+  final int index;
+  @override
+  final bool F;
+
+  @override
+  String toString() {
+    return 'ExploreEvent.unlikeRequest(index: $index, F: $F)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UnlikeRequest &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.F, F) || other.F == F));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index, F);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UnlikeRequestCopyWith<_$_UnlikeRequest> get copyWith =>
+      __$$_UnlikeRequestCopyWithImpl<_$_UnlikeRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadRequest,
+    required TResult Function() resetRequest,
+    required TResult Function() resetFRequest,
+    required TResult Function() loadFRequest,
+    required TResult Function(int index, bool F) likeRequest,
+    required TResult Function(int index, bool F) unlikeRequest,
+  }) {
+    return unlikeRequest(index, F);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function()? resetFRequest,
+    TResult? Function()? loadFRequest,
+    TResult? Function(int index, bool F)? likeRequest,
+    TResult? Function(int index, bool F)? unlikeRequest,
+  }) {
+    return unlikeRequest?.call(index, F);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
+    TResult Function(int index, bool F)? likeRequest,
+    TResult Function(int index, bool F)? unlikeRequest,
+    required TResult orElse(),
+  }) {
+    if (unlikeRequest != null) {
+      return unlikeRequest(index, F);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRequest value) loadRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_ResetFRequest value) resetFRequest,
+    required TResult Function(_LoadFRequest value) loadFRequest,
+    required TResult Function(_LikeRequest value) likeRequest,
+    required TResult Function(_UnlikeRequest value) unlikeRequest,
+  }) {
+    return unlikeRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_ResetFRequest value)? resetFRequest,
+    TResult? Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
+  }) {
+    return unlikeRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult Function(_LikeRequest value)? likeRequest,
+    TResult Function(_UnlikeRequest value)? unlikeRequest,
+    required TResult orElse(),
+  }) {
+    if (unlikeRequest != null) {
+      return unlikeRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnlikeRequest implements ExploreEvent {
+  const factory _UnlikeRequest(final int index, final bool F) =
+      _$_UnlikeRequest;
+
+  int get index;
+  bool get F;
+  @JsonKey(ignore: true)
+  _$$_UnlikeRequestCopyWith<_$_UnlikeRequest> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -576,7 +959,8 @@ mixin _$ExploreState {
 abstract class $ExploreStateCopyWith<$Res> {
   factory $ExploreStateCopyWith(
           ExploreState value, $Res Function(ExploreState) then) =
-      _$ExploreStateCopyWithImpl<$Res>;
+      _$ExploreStateCopyWithImpl<$Res, ExploreState>;
+  @useResult
   $Res call(
       {bool isLoading,
       bool isLoadingF,
@@ -591,68 +975,71 @@ abstract class $ExploreStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ExploreStateCopyWithImpl<$Res> implements $ExploreStateCopyWith<$Res> {
+class _$ExploreStateCopyWithImpl<$Res, $Val extends ExploreState>
+    implements $ExploreStateCopyWith<$Res> {
   _$ExploreStateCopyWithImpl(this._value, this._then);
 
-  final ExploreState _value;
   // ignore: unused_field
-  final $Res Function(ExploreState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? isLoadingF = freezed,
-    Object? loadFailureOrSuccessOption = freezed,
-    Object? loadFFailureOrSuccessOption = freezed,
-    Object? feeds = freezed,
-    Object? feedsF = freezed,
-    Object? isLast = freezed,
-    Object? isLastF = freezed,
+    Object? isLoading = null,
+    Object? isLoadingF = null,
+    Object? loadFailureOrSuccessOption = null,
+    Object? loadFFailureOrSuccessOption = null,
+    Object? feeds = null,
+    Object? feedsF = null,
+    Object? isLast = null,
+    Object? isLastF = null,
     Object? cursor = freezed,
     Object? cursorF = freezed,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLoadingF: isLoadingF == freezed
+      isLoadingF: null == isLoadingF
           ? _value.isLoadingF
           : isLoadingF // ignore: cast_nullable_to_non_nullable
               as bool,
-      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
           ? _value.loadFailureOrSuccessOption
           : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ExploreFailure, Page>>,
-      loadFFailureOrSuccessOption: loadFFailureOrSuccessOption == freezed
+      loadFFailureOrSuccessOption: null == loadFFailureOrSuccessOption
           ? _value.loadFFailureOrSuccessOption
           : loadFFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ExploreFailure, Page>>,
-      feeds: feeds == freezed
+      feeds: null == feeds
           ? _value.feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<Post>,
-      feedsF: feedsF == freezed
+      feedsF: null == feedsF
           ? _value.feedsF
           : feedsF // ignore: cast_nullable_to_non_nullable
               as List<Post>,
-      isLast: isLast == freezed
+      isLast: null == isLast
           ? _value.isLast
           : isLast // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLastF: isLastF == freezed
+      isLastF: null == isLastF
           ? _value.isLastF
           : isLastF // ignore: cast_nullable_to_non_nullable
               as bool,
-      cursor: cursor == freezed
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      cursorF: cursorF == freezed
+      cursorF: freezed == cursorF
           ? _value.cursorF
           : cursorF // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -663,6 +1050,7 @@ abstract class _$$_ExploreStateCopyWith<$Res>
           _$_ExploreState value, $Res Function(_$_ExploreState) then) =
       __$$_ExploreStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool isLoading,
       bool isLoadingF,
@@ -678,66 +1066,64 @@ abstract class _$$_ExploreStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_ExploreStateCopyWithImpl<$Res>
-    extends _$ExploreStateCopyWithImpl<$Res>
+    extends _$ExploreStateCopyWithImpl<$Res, _$_ExploreState>
     implements _$$_ExploreStateCopyWith<$Res> {
   __$$_ExploreStateCopyWithImpl(
       _$_ExploreState _value, $Res Function(_$_ExploreState) _then)
-      : super(_value, (v) => _then(v as _$_ExploreState));
+      : super(_value, _then);
 
-  @override
-  _$_ExploreState get _value => super._value as _$_ExploreState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? isLoadingF = freezed,
-    Object? loadFailureOrSuccessOption = freezed,
-    Object? loadFFailureOrSuccessOption = freezed,
-    Object? feeds = freezed,
-    Object? feedsF = freezed,
-    Object? isLast = freezed,
-    Object? isLastF = freezed,
+    Object? isLoading = null,
+    Object? isLoadingF = null,
+    Object? loadFailureOrSuccessOption = null,
+    Object? loadFFailureOrSuccessOption = null,
+    Object? feeds = null,
+    Object? feedsF = null,
+    Object? isLast = null,
+    Object? isLastF = null,
     Object? cursor = freezed,
     Object? cursorF = freezed,
   }) {
     return _then(_$_ExploreState(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLoadingF: isLoadingF == freezed
+      isLoadingF: null == isLoadingF
           ? _value.isLoadingF
           : isLoadingF // ignore: cast_nullable_to_non_nullable
               as bool,
-      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
           ? _value.loadFailureOrSuccessOption
           : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ExploreFailure, Page>>,
-      loadFFailureOrSuccessOption: loadFFailureOrSuccessOption == freezed
+      loadFFailureOrSuccessOption: null == loadFFailureOrSuccessOption
           ? _value.loadFFailureOrSuccessOption
           : loadFFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ExploreFailure, Page>>,
-      feeds: feeds == freezed
+      feeds: null == feeds
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<Post>,
-      feedsF: feedsF == freezed
+      feedsF: null == feedsF
           ? _value._feedsF
           : feedsF // ignore: cast_nullable_to_non_nullable
               as List<Post>,
-      isLast: isLast == freezed
+      isLast: null == isLast
           ? _value.isLast
           : isLast // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLastF: isLastF == freezed
+      isLastF: null == isLastF
           ? _value.isLastF
           : isLastF // ignore: cast_nullable_to_non_nullable
               as bool,
-      cursor: cursor == freezed
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      cursorF: cursorF == freezed
+      cursorF: freezed == cursorF
           ? _value.cursorF
           : cursorF // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -773,6 +1159,7 @@ class _$_ExploreState implements _ExploreState {
   final List<Post> _feeds;
   @override
   List<Post> get feeds {
+    if (_feeds is EqualUnmodifiableListView) return _feeds;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_feeds);
   }
@@ -780,6 +1167,7 @@ class _$_ExploreState implements _ExploreState {
   final List<Post> _feedsF;
   @override
   List<Post> get feedsF {
+    if (_feedsF is EqualUnmodifiableListView) return _feedsF;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_feedsF);
   }
@@ -803,38 +1191,43 @@ class _$_ExploreState implements _ExploreState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ExploreState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.isLoadingF, isLoadingF) &&
-            const DeepCollectionEquality().equals(
-                other.loadFailureOrSuccessOption, loadFailureOrSuccessOption) &&
-            const DeepCollectionEquality().equals(
-                other.loadFFailureOrSuccessOption,
-                loadFFailureOrSuccessOption) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isLoadingF, isLoadingF) ||
+                other.isLoadingF == isLoadingF) &&
+            (identical(other.loadFailureOrSuccessOption,
+                    loadFailureOrSuccessOption) ||
+                other.loadFailureOrSuccessOption ==
+                    loadFailureOrSuccessOption) &&
+            (identical(other.loadFFailureOrSuccessOption,
+                    loadFFailureOrSuccessOption) ||
+                other.loadFFailureOrSuccessOption ==
+                    loadFFailureOrSuccessOption) &&
             const DeepCollectionEquality().equals(other._feeds, _feeds) &&
             const DeepCollectionEquality().equals(other._feedsF, _feedsF) &&
-            const DeepCollectionEquality().equals(other.isLast, isLast) &&
-            const DeepCollectionEquality().equals(other.isLastF, isLastF) &&
-            const DeepCollectionEquality().equals(other.cursor, cursor) &&
-            const DeepCollectionEquality().equals(other.cursorF, cursorF));
+            (identical(other.isLast, isLast) || other.isLast == isLast) &&
+            (identical(other.isLastF, isLastF) || other.isLastF == isLastF) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.cursorF, cursorF) || other.cursorF == cursorF));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isLoadingF),
-      const DeepCollectionEquality().hash(loadFailureOrSuccessOption),
-      const DeepCollectionEquality().hash(loadFFailureOrSuccessOption),
+      isLoading,
+      isLoadingF,
+      loadFailureOrSuccessOption,
+      loadFFailureOrSuccessOption,
       const DeepCollectionEquality().hash(_feeds),
       const DeepCollectionEquality().hash(_feedsF),
-      const DeepCollectionEquality().hash(isLast),
-      const DeepCollectionEquality().hash(isLastF),
-      const DeepCollectionEquality().hash(cursor),
-      const DeepCollectionEquality().hash(cursorF));
+      isLast,
+      isLastF,
+      cursor,
+      cursorF);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ExploreStateCopyWith<_$_ExploreState> get copyWith =>
       __$$_ExploreStateCopyWithImpl<_$_ExploreState>(this, _$identity);
 }

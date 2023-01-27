@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'post_failure.dart';
 
@@ -23,19 +23,21 @@ mixin _$PostFailure {
     required TResult Function() blankedTitle,
     required TResult Function() unauthorized,
     required TResult Function() noSuchPlaylistExists,
+    required TResult Function() notSupportingVendor,
     required TResult Function() invalidUrl,
     required TResult Function() exceedingMaxContentLength,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? duplicateTitle,
-    TResult Function()? serverError,
-    TResult Function()? blankedTitle,
-    TResult Function()? unauthorized,
-    TResult Function()? noSuchPlaylistExists,
-    TResult Function()? invalidUrl,
-    TResult Function()? exceedingMaxContentLength,
+    TResult? Function()? duplicateTitle,
+    TResult? Function()? serverError,
+    TResult? Function()? blankedTitle,
+    TResult? Function()? unauthorized,
+    TResult? Function()? noSuchPlaylistExists,
+    TResult? Function()? notSupportingVendor,
+    TResult? Function()? invalidUrl,
+    TResult? Function()? exceedingMaxContentLength,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +47,7 @@ mixin _$PostFailure {
     TResult Function()? blankedTitle,
     TResult Function()? unauthorized,
     TResult Function()? noSuchPlaylistExists,
+    TResult Function()? notSupportingVendor,
     TResult Function()? invalidUrl,
     TResult Function()? exceedingMaxContentLength,
     required TResult orElse(),
@@ -57,6 +60,7 @@ mixin _$PostFailure {
     required TResult Function(_BlankedTitle value) blankedTitle,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_NoSuchPlaylistExists value) noSuchPlaylistExists,
+    required TResult Function(_NotSupportingVendor value) notSupportingVendor,
     required TResult Function(_InvalidUrl value) invalidUrl,
     required TResult Function(_ExceedingMaxContentLength value)
         exceedingMaxContentLength,
@@ -64,13 +68,14 @@ mixin _$PostFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DuplicateTitle value)? duplicateTitle,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_BlankedTitle value)? blankedTitle,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
-    TResult Function(_InvalidUrl value)? invalidUrl,
-    TResult Function(_ExceedingMaxContentLength value)?
+    TResult? Function(_DuplicateTitle value)? duplicateTitle,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_BlankedTitle value)? blankedTitle,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult? Function(_NotSupportingVendor value)? notSupportingVendor,
+    TResult? Function(_InvalidUrl value)? invalidUrl,
+    TResult? Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
   }) =>
       throw _privateConstructorUsedError;
@@ -81,6 +86,7 @@ mixin _$PostFailure {
     TResult Function(_BlankedTitle value)? blankedTitle,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult Function(_NotSupportingVendor value)? notSupportingVendor,
     TResult Function(_InvalidUrl value)? invalidUrl,
     TResult Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
@@ -93,16 +99,18 @@ mixin _$PostFailure {
 abstract class $PostFailureCopyWith<$Res> {
   factory $PostFailureCopyWith(
           PostFailure value, $Res Function(PostFailure) then) =
-      _$PostFailureCopyWithImpl<$Res>;
+      _$PostFailureCopyWithImpl<$Res, PostFailure>;
 }
 
 /// @nodoc
-class _$PostFailureCopyWithImpl<$Res> implements $PostFailureCopyWith<$Res> {
+class _$PostFailureCopyWithImpl<$Res, $Val extends PostFailure>
+    implements $PostFailureCopyWith<$Res> {
   _$PostFailureCopyWithImpl(this._value, this._then);
 
-  final PostFailure _value;
   // ignore: unused_field
-  final $Res Function(PostFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -114,14 +122,11 @@ abstract class _$$_DuplicateTitleCopyWith<$Res> {
 
 /// @nodoc
 class __$$_DuplicateTitleCopyWithImpl<$Res>
-    extends _$PostFailureCopyWithImpl<$Res>
+    extends _$PostFailureCopyWithImpl<$Res, _$_DuplicateTitle>
     implements _$$_DuplicateTitleCopyWith<$Res> {
   __$$_DuplicateTitleCopyWithImpl(
       _$_DuplicateTitle _value, $Res Function(_$_DuplicateTitle) _then)
-      : super(_value, (v) => _then(v as _$_DuplicateTitle));
-
-  @override
-  _$_DuplicateTitle get _value => super._value as _$_DuplicateTitle;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -151,6 +156,7 @@ class _$_DuplicateTitle implements _DuplicateTitle {
     required TResult Function() blankedTitle,
     required TResult Function() unauthorized,
     required TResult Function() noSuchPlaylistExists,
+    required TResult Function() notSupportingVendor,
     required TResult Function() invalidUrl,
     required TResult Function() exceedingMaxContentLength,
   }) {
@@ -160,13 +166,14 @@ class _$_DuplicateTitle implements _DuplicateTitle {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? duplicateTitle,
-    TResult Function()? serverError,
-    TResult Function()? blankedTitle,
-    TResult Function()? unauthorized,
-    TResult Function()? noSuchPlaylistExists,
-    TResult Function()? invalidUrl,
-    TResult Function()? exceedingMaxContentLength,
+    TResult? Function()? duplicateTitle,
+    TResult? Function()? serverError,
+    TResult? Function()? blankedTitle,
+    TResult? Function()? unauthorized,
+    TResult? Function()? noSuchPlaylistExists,
+    TResult? Function()? notSupportingVendor,
+    TResult? Function()? invalidUrl,
+    TResult? Function()? exceedingMaxContentLength,
   }) {
     return duplicateTitle?.call();
   }
@@ -179,6 +186,7 @@ class _$_DuplicateTitle implements _DuplicateTitle {
     TResult Function()? blankedTitle,
     TResult Function()? unauthorized,
     TResult Function()? noSuchPlaylistExists,
+    TResult Function()? notSupportingVendor,
     TResult Function()? invalidUrl,
     TResult Function()? exceedingMaxContentLength,
     required TResult orElse(),
@@ -197,6 +205,7 @@ class _$_DuplicateTitle implements _DuplicateTitle {
     required TResult Function(_BlankedTitle value) blankedTitle,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_NoSuchPlaylistExists value) noSuchPlaylistExists,
+    required TResult Function(_NotSupportingVendor value) notSupportingVendor,
     required TResult Function(_InvalidUrl value) invalidUrl,
     required TResult Function(_ExceedingMaxContentLength value)
         exceedingMaxContentLength,
@@ -207,13 +216,14 @@ class _$_DuplicateTitle implements _DuplicateTitle {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DuplicateTitle value)? duplicateTitle,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_BlankedTitle value)? blankedTitle,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
-    TResult Function(_InvalidUrl value)? invalidUrl,
-    TResult Function(_ExceedingMaxContentLength value)?
+    TResult? Function(_DuplicateTitle value)? duplicateTitle,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_BlankedTitle value)? blankedTitle,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult? Function(_NotSupportingVendor value)? notSupportingVendor,
+    TResult? Function(_InvalidUrl value)? invalidUrl,
+    TResult? Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
   }) {
     return duplicateTitle?.call(this);
@@ -227,6 +237,7 @@ class _$_DuplicateTitle implements _DuplicateTitle {
     TResult Function(_BlankedTitle value)? blankedTitle,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult Function(_NotSupportingVendor value)? notSupportingVendor,
     TResult Function(_InvalidUrl value)? invalidUrl,
     TResult Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
@@ -251,14 +262,12 @@ abstract class _$$_ServerErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ServerErrorCopyWithImpl<$Res> extends _$PostFailureCopyWithImpl<$Res>
+class __$$_ServerErrorCopyWithImpl<$Res>
+    extends _$PostFailureCopyWithImpl<$Res, _$_ServerError>
     implements _$$_ServerErrorCopyWith<$Res> {
   __$$_ServerErrorCopyWithImpl(
       _$_ServerError _value, $Res Function(_$_ServerError) _then)
-      : super(_value, (v) => _then(v as _$_ServerError));
-
-  @override
-  _$_ServerError get _value => super._value as _$_ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -288,6 +297,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function() blankedTitle,
     required TResult Function() unauthorized,
     required TResult Function() noSuchPlaylistExists,
+    required TResult Function() notSupportingVendor,
     required TResult Function() invalidUrl,
     required TResult Function() exceedingMaxContentLength,
   }) {
@@ -297,13 +307,14 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? duplicateTitle,
-    TResult Function()? serverError,
-    TResult Function()? blankedTitle,
-    TResult Function()? unauthorized,
-    TResult Function()? noSuchPlaylistExists,
-    TResult Function()? invalidUrl,
-    TResult Function()? exceedingMaxContentLength,
+    TResult? Function()? duplicateTitle,
+    TResult? Function()? serverError,
+    TResult? Function()? blankedTitle,
+    TResult? Function()? unauthorized,
+    TResult? Function()? noSuchPlaylistExists,
+    TResult? Function()? notSupportingVendor,
+    TResult? Function()? invalidUrl,
+    TResult? Function()? exceedingMaxContentLength,
   }) {
     return serverError?.call();
   }
@@ -316,6 +327,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? blankedTitle,
     TResult Function()? unauthorized,
     TResult Function()? noSuchPlaylistExists,
+    TResult Function()? notSupportingVendor,
     TResult Function()? invalidUrl,
     TResult Function()? exceedingMaxContentLength,
     required TResult orElse(),
@@ -334,6 +346,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(_BlankedTitle value) blankedTitle,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_NoSuchPlaylistExists value) noSuchPlaylistExists,
+    required TResult Function(_NotSupportingVendor value) notSupportingVendor,
     required TResult Function(_InvalidUrl value) invalidUrl,
     required TResult Function(_ExceedingMaxContentLength value)
         exceedingMaxContentLength,
@@ -344,13 +357,14 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DuplicateTitle value)? duplicateTitle,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_BlankedTitle value)? blankedTitle,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
-    TResult Function(_InvalidUrl value)? invalidUrl,
-    TResult Function(_ExceedingMaxContentLength value)?
+    TResult? Function(_DuplicateTitle value)? duplicateTitle,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_BlankedTitle value)? blankedTitle,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult? Function(_NotSupportingVendor value)? notSupportingVendor,
+    TResult? Function(_InvalidUrl value)? invalidUrl,
+    TResult? Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
   }) {
     return serverError?.call(this);
@@ -364,6 +378,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_BlankedTitle value)? blankedTitle,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult Function(_NotSupportingVendor value)? notSupportingVendor,
     TResult Function(_InvalidUrl value)? invalidUrl,
     TResult Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
@@ -389,14 +404,11 @@ abstract class _$$_BlankedTitleCopyWith<$Res> {
 
 /// @nodoc
 class __$$_BlankedTitleCopyWithImpl<$Res>
-    extends _$PostFailureCopyWithImpl<$Res>
+    extends _$PostFailureCopyWithImpl<$Res, _$_BlankedTitle>
     implements _$$_BlankedTitleCopyWith<$Res> {
   __$$_BlankedTitleCopyWithImpl(
       _$_BlankedTitle _value, $Res Function(_$_BlankedTitle) _then)
-      : super(_value, (v) => _then(v as _$_BlankedTitle));
-
-  @override
-  _$_BlankedTitle get _value => super._value as _$_BlankedTitle;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -426,6 +438,7 @@ class _$_BlankedTitle implements _BlankedTitle {
     required TResult Function() blankedTitle,
     required TResult Function() unauthorized,
     required TResult Function() noSuchPlaylistExists,
+    required TResult Function() notSupportingVendor,
     required TResult Function() invalidUrl,
     required TResult Function() exceedingMaxContentLength,
   }) {
@@ -435,13 +448,14 @@ class _$_BlankedTitle implements _BlankedTitle {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? duplicateTitle,
-    TResult Function()? serverError,
-    TResult Function()? blankedTitle,
-    TResult Function()? unauthorized,
-    TResult Function()? noSuchPlaylistExists,
-    TResult Function()? invalidUrl,
-    TResult Function()? exceedingMaxContentLength,
+    TResult? Function()? duplicateTitle,
+    TResult? Function()? serverError,
+    TResult? Function()? blankedTitle,
+    TResult? Function()? unauthorized,
+    TResult? Function()? noSuchPlaylistExists,
+    TResult? Function()? notSupportingVendor,
+    TResult? Function()? invalidUrl,
+    TResult? Function()? exceedingMaxContentLength,
   }) {
     return blankedTitle?.call();
   }
@@ -454,6 +468,7 @@ class _$_BlankedTitle implements _BlankedTitle {
     TResult Function()? blankedTitle,
     TResult Function()? unauthorized,
     TResult Function()? noSuchPlaylistExists,
+    TResult Function()? notSupportingVendor,
     TResult Function()? invalidUrl,
     TResult Function()? exceedingMaxContentLength,
     required TResult orElse(),
@@ -472,6 +487,7 @@ class _$_BlankedTitle implements _BlankedTitle {
     required TResult Function(_BlankedTitle value) blankedTitle,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_NoSuchPlaylistExists value) noSuchPlaylistExists,
+    required TResult Function(_NotSupportingVendor value) notSupportingVendor,
     required TResult Function(_InvalidUrl value) invalidUrl,
     required TResult Function(_ExceedingMaxContentLength value)
         exceedingMaxContentLength,
@@ -482,13 +498,14 @@ class _$_BlankedTitle implements _BlankedTitle {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DuplicateTitle value)? duplicateTitle,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_BlankedTitle value)? blankedTitle,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
-    TResult Function(_InvalidUrl value)? invalidUrl,
-    TResult Function(_ExceedingMaxContentLength value)?
+    TResult? Function(_DuplicateTitle value)? duplicateTitle,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_BlankedTitle value)? blankedTitle,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult? Function(_NotSupportingVendor value)? notSupportingVendor,
+    TResult? Function(_InvalidUrl value)? invalidUrl,
+    TResult? Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
   }) {
     return blankedTitle?.call(this);
@@ -502,6 +519,7 @@ class _$_BlankedTitle implements _BlankedTitle {
     TResult Function(_BlankedTitle value)? blankedTitle,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult Function(_NotSupportingVendor value)? notSupportingVendor,
     TResult Function(_InvalidUrl value)? invalidUrl,
     TResult Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
@@ -527,14 +545,11 @@ abstract class _$$_UnauthorizedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnauthorizedCopyWithImpl<$Res>
-    extends _$PostFailureCopyWithImpl<$Res>
+    extends _$PostFailureCopyWithImpl<$Res, _$_Unauthorized>
     implements _$$_UnauthorizedCopyWith<$Res> {
   __$$_UnauthorizedCopyWithImpl(
       _$_Unauthorized _value, $Res Function(_$_Unauthorized) _then)
-      : super(_value, (v) => _then(v as _$_Unauthorized));
-
-  @override
-  _$_Unauthorized get _value => super._value as _$_Unauthorized;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -564,6 +579,7 @@ class _$_Unauthorized implements _Unauthorized {
     required TResult Function() blankedTitle,
     required TResult Function() unauthorized,
     required TResult Function() noSuchPlaylistExists,
+    required TResult Function() notSupportingVendor,
     required TResult Function() invalidUrl,
     required TResult Function() exceedingMaxContentLength,
   }) {
@@ -573,13 +589,14 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? duplicateTitle,
-    TResult Function()? serverError,
-    TResult Function()? blankedTitle,
-    TResult Function()? unauthorized,
-    TResult Function()? noSuchPlaylistExists,
-    TResult Function()? invalidUrl,
-    TResult Function()? exceedingMaxContentLength,
+    TResult? Function()? duplicateTitle,
+    TResult? Function()? serverError,
+    TResult? Function()? blankedTitle,
+    TResult? Function()? unauthorized,
+    TResult? Function()? noSuchPlaylistExists,
+    TResult? Function()? notSupportingVendor,
+    TResult? Function()? invalidUrl,
+    TResult? Function()? exceedingMaxContentLength,
   }) {
     return unauthorized?.call();
   }
@@ -592,6 +609,7 @@ class _$_Unauthorized implements _Unauthorized {
     TResult Function()? blankedTitle,
     TResult Function()? unauthorized,
     TResult Function()? noSuchPlaylistExists,
+    TResult Function()? notSupportingVendor,
     TResult Function()? invalidUrl,
     TResult Function()? exceedingMaxContentLength,
     required TResult orElse(),
@@ -610,6 +628,7 @@ class _$_Unauthorized implements _Unauthorized {
     required TResult Function(_BlankedTitle value) blankedTitle,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_NoSuchPlaylistExists value) noSuchPlaylistExists,
+    required TResult Function(_NotSupportingVendor value) notSupportingVendor,
     required TResult Function(_InvalidUrl value) invalidUrl,
     required TResult Function(_ExceedingMaxContentLength value)
         exceedingMaxContentLength,
@@ -620,13 +639,14 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DuplicateTitle value)? duplicateTitle,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_BlankedTitle value)? blankedTitle,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
-    TResult Function(_InvalidUrl value)? invalidUrl,
-    TResult Function(_ExceedingMaxContentLength value)?
+    TResult? Function(_DuplicateTitle value)? duplicateTitle,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_BlankedTitle value)? blankedTitle,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult? Function(_NotSupportingVendor value)? notSupportingVendor,
+    TResult? Function(_InvalidUrl value)? invalidUrl,
+    TResult? Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
   }) {
     return unauthorized?.call(this);
@@ -640,6 +660,7 @@ class _$_Unauthorized implements _Unauthorized {
     TResult Function(_BlankedTitle value)? blankedTitle,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult Function(_NotSupportingVendor value)? notSupportingVendor,
     TResult Function(_InvalidUrl value)? invalidUrl,
     TResult Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
@@ -665,14 +686,11 @@ abstract class _$$_NoSuchPlaylistExistsCopyWith<$Res> {
 
 /// @nodoc
 class __$$_NoSuchPlaylistExistsCopyWithImpl<$Res>
-    extends _$PostFailureCopyWithImpl<$Res>
+    extends _$PostFailureCopyWithImpl<$Res, _$_NoSuchPlaylistExists>
     implements _$$_NoSuchPlaylistExistsCopyWith<$Res> {
   __$$_NoSuchPlaylistExistsCopyWithImpl(_$_NoSuchPlaylistExists _value,
       $Res Function(_$_NoSuchPlaylistExists) _then)
-      : super(_value, (v) => _then(v as _$_NoSuchPlaylistExists));
-
-  @override
-  _$_NoSuchPlaylistExists get _value => super._value as _$_NoSuchPlaylistExists;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -702,6 +720,7 @@ class _$_NoSuchPlaylistExists implements _NoSuchPlaylistExists {
     required TResult Function() blankedTitle,
     required TResult Function() unauthorized,
     required TResult Function() noSuchPlaylistExists,
+    required TResult Function() notSupportingVendor,
     required TResult Function() invalidUrl,
     required TResult Function() exceedingMaxContentLength,
   }) {
@@ -711,13 +730,14 @@ class _$_NoSuchPlaylistExists implements _NoSuchPlaylistExists {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? duplicateTitle,
-    TResult Function()? serverError,
-    TResult Function()? blankedTitle,
-    TResult Function()? unauthorized,
-    TResult Function()? noSuchPlaylistExists,
-    TResult Function()? invalidUrl,
-    TResult Function()? exceedingMaxContentLength,
+    TResult? Function()? duplicateTitle,
+    TResult? Function()? serverError,
+    TResult? Function()? blankedTitle,
+    TResult? Function()? unauthorized,
+    TResult? Function()? noSuchPlaylistExists,
+    TResult? Function()? notSupportingVendor,
+    TResult? Function()? invalidUrl,
+    TResult? Function()? exceedingMaxContentLength,
   }) {
     return noSuchPlaylistExists?.call();
   }
@@ -730,6 +750,7 @@ class _$_NoSuchPlaylistExists implements _NoSuchPlaylistExists {
     TResult Function()? blankedTitle,
     TResult Function()? unauthorized,
     TResult Function()? noSuchPlaylistExists,
+    TResult Function()? notSupportingVendor,
     TResult Function()? invalidUrl,
     TResult Function()? exceedingMaxContentLength,
     required TResult orElse(),
@@ -748,6 +769,7 @@ class _$_NoSuchPlaylistExists implements _NoSuchPlaylistExists {
     required TResult Function(_BlankedTitle value) blankedTitle,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_NoSuchPlaylistExists value) noSuchPlaylistExists,
+    required TResult Function(_NotSupportingVendor value) notSupportingVendor,
     required TResult Function(_InvalidUrl value) invalidUrl,
     required TResult Function(_ExceedingMaxContentLength value)
         exceedingMaxContentLength,
@@ -758,13 +780,14 @@ class _$_NoSuchPlaylistExists implements _NoSuchPlaylistExists {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DuplicateTitle value)? duplicateTitle,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_BlankedTitle value)? blankedTitle,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
-    TResult Function(_InvalidUrl value)? invalidUrl,
-    TResult Function(_ExceedingMaxContentLength value)?
+    TResult? Function(_DuplicateTitle value)? duplicateTitle,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_BlankedTitle value)? blankedTitle,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult? Function(_NotSupportingVendor value)? notSupportingVendor,
+    TResult? Function(_InvalidUrl value)? invalidUrl,
+    TResult? Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
   }) {
     return noSuchPlaylistExists?.call(this);
@@ -778,6 +801,7 @@ class _$_NoSuchPlaylistExists implements _NoSuchPlaylistExists {
     TResult Function(_BlankedTitle value)? blankedTitle,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult Function(_NotSupportingVendor value)? notSupportingVendor,
     TResult Function(_InvalidUrl value)? invalidUrl,
     TResult Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
@@ -795,6 +819,147 @@ abstract class _NoSuchPlaylistExists implements PostFailure {
 }
 
 /// @nodoc
+abstract class _$$_NotSupportingVendorCopyWith<$Res> {
+  factory _$$_NotSupportingVendorCopyWith(_$_NotSupportingVendor value,
+          $Res Function(_$_NotSupportingVendor) then) =
+      __$$_NotSupportingVendorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_NotSupportingVendorCopyWithImpl<$Res>
+    extends _$PostFailureCopyWithImpl<$Res, _$_NotSupportingVendor>
+    implements _$$_NotSupportingVendorCopyWith<$Res> {
+  __$$_NotSupportingVendorCopyWithImpl(_$_NotSupportingVendor _value,
+      $Res Function(_$_NotSupportingVendor) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_NotSupportingVendor implements _NotSupportingVendor {
+  const _$_NotSupportingVendor();
+
+  @override
+  String toString() {
+    return 'PostFailure.notSupportingVendor()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_NotSupportingVendor);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() duplicateTitle,
+    required TResult Function() serverError,
+    required TResult Function() blankedTitle,
+    required TResult Function() unauthorized,
+    required TResult Function() noSuchPlaylistExists,
+    required TResult Function() notSupportingVendor,
+    required TResult Function() invalidUrl,
+    required TResult Function() exceedingMaxContentLength,
+  }) {
+    return notSupportingVendor();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? duplicateTitle,
+    TResult? Function()? serverError,
+    TResult? Function()? blankedTitle,
+    TResult? Function()? unauthorized,
+    TResult? Function()? noSuchPlaylistExists,
+    TResult? Function()? notSupportingVendor,
+    TResult? Function()? invalidUrl,
+    TResult? Function()? exceedingMaxContentLength,
+  }) {
+    return notSupportingVendor?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? duplicateTitle,
+    TResult Function()? serverError,
+    TResult Function()? blankedTitle,
+    TResult Function()? unauthorized,
+    TResult Function()? noSuchPlaylistExists,
+    TResult Function()? notSupportingVendor,
+    TResult Function()? invalidUrl,
+    TResult Function()? exceedingMaxContentLength,
+    required TResult orElse(),
+  }) {
+    if (notSupportingVendor != null) {
+      return notSupportingVendor();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DuplicateTitle value) duplicateTitle,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_BlankedTitle value) blankedTitle,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_NoSuchPlaylistExists value) noSuchPlaylistExists,
+    required TResult Function(_NotSupportingVendor value) notSupportingVendor,
+    required TResult Function(_InvalidUrl value) invalidUrl,
+    required TResult Function(_ExceedingMaxContentLength value)
+        exceedingMaxContentLength,
+  }) {
+    return notSupportingVendor(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DuplicateTitle value)? duplicateTitle,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_BlankedTitle value)? blankedTitle,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult? Function(_NotSupportingVendor value)? notSupportingVendor,
+    TResult? Function(_InvalidUrl value)? invalidUrl,
+    TResult? Function(_ExceedingMaxContentLength value)?
+        exceedingMaxContentLength,
+  }) {
+    return notSupportingVendor?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DuplicateTitle value)? duplicateTitle,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_BlankedTitle value)? blankedTitle,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult Function(_NotSupportingVendor value)? notSupportingVendor,
+    TResult Function(_InvalidUrl value)? invalidUrl,
+    TResult Function(_ExceedingMaxContentLength value)?
+        exceedingMaxContentLength,
+    required TResult orElse(),
+  }) {
+    if (notSupportingVendor != null) {
+      return notSupportingVendor(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NotSupportingVendor implements PostFailure {
+  const factory _NotSupportingVendor() = _$_NotSupportingVendor;
+}
+
+/// @nodoc
 abstract class _$$_InvalidUrlCopyWith<$Res> {
   factory _$$_InvalidUrlCopyWith(
           _$_InvalidUrl value, $Res Function(_$_InvalidUrl) then) =
@@ -802,14 +967,12 @@ abstract class _$$_InvalidUrlCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InvalidUrlCopyWithImpl<$Res> extends _$PostFailureCopyWithImpl<$Res>
+class __$$_InvalidUrlCopyWithImpl<$Res>
+    extends _$PostFailureCopyWithImpl<$Res, _$_InvalidUrl>
     implements _$$_InvalidUrlCopyWith<$Res> {
   __$$_InvalidUrlCopyWithImpl(
       _$_InvalidUrl _value, $Res Function(_$_InvalidUrl) _then)
-      : super(_value, (v) => _then(v as _$_InvalidUrl));
-
-  @override
-  _$_InvalidUrl get _value => super._value as _$_InvalidUrl;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -839,6 +1002,7 @@ class _$_InvalidUrl implements _InvalidUrl {
     required TResult Function() blankedTitle,
     required TResult Function() unauthorized,
     required TResult Function() noSuchPlaylistExists,
+    required TResult Function() notSupportingVendor,
     required TResult Function() invalidUrl,
     required TResult Function() exceedingMaxContentLength,
   }) {
@@ -848,13 +1012,14 @@ class _$_InvalidUrl implements _InvalidUrl {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? duplicateTitle,
-    TResult Function()? serverError,
-    TResult Function()? blankedTitle,
-    TResult Function()? unauthorized,
-    TResult Function()? noSuchPlaylistExists,
-    TResult Function()? invalidUrl,
-    TResult Function()? exceedingMaxContentLength,
+    TResult? Function()? duplicateTitle,
+    TResult? Function()? serverError,
+    TResult? Function()? blankedTitle,
+    TResult? Function()? unauthorized,
+    TResult? Function()? noSuchPlaylistExists,
+    TResult? Function()? notSupportingVendor,
+    TResult? Function()? invalidUrl,
+    TResult? Function()? exceedingMaxContentLength,
   }) {
     return invalidUrl?.call();
   }
@@ -867,6 +1032,7 @@ class _$_InvalidUrl implements _InvalidUrl {
     TResult Function()? blankedTitle,
     TResult Function()? unauthorized,
     TResult Function()? noSuchPlaylistExists,
+    TResult Function()? notSupportingVendor,
     TResult Function()? invalidUrl,
     TResult Function()? exceedingMaxContentLength,
     required TResult orElse(),
@@ -885,6 +1051,7 @@ class _$_InvalidUrl implements _InvalidUrl {
     required TResult Function(_BlankedTitle value) blankedTitle,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_NoSuchPlaylistExists value) noSuchPlaylistExists,
+    required TResult Function(_NotSupportingVendor value) notSupportingVendor,
     required TResult Function(_InvalidUrl value) invalidUrl,
     required TResult Function(_ExceedingMaxContentLength value)
         exceedingMaxContentLength,
@@ -895,13 +1062,14 @@ class _$_InvalidUrl implements _InvalidUrl {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DuplicateTitle value)? duplicateTitle,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_BlankedTitle value)? blankedTitle,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
-    TResult Function(_InvalidUrl value)? invalidUrl,
-    TResult Function(_ExceedingMaxContentLength value)?
+    TResult? Function(_DuplicateTitle value)? duplicateTitle,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_BlankedTitle value)? blankedTitle,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult? Function(_NotSupportingVendor value)? notSupportingVendor,
+    TResult? Function(_InvalidUrl value)? invalidUrl,
+    TResult? Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
   }) {
     return invalidUrl?.call(this);
@@ -915,6 +1083,7 @@ class _$_InvalidUrl implements _InvalidUrl {
     TResult Function(_BlankedTitle value)? blankedTitle,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult Function(_NotSupportingVendor value)? notSupportingVendor,
     TResult Function(_InvalidUrl value)? invalidUrl,
     TResult Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
@@ -941,16 +1110,12 @@ abstract class _$$_ExceedingMaxContentLengthCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ExceedingMaxContentLengthCopyWithImpl<$Res>
-    extends _$PostFailureCopyWithImpl<$Res>
+    extends _$PostFailureCopyWithImpl<$Res, _$_ExceedingMaxContentLength>
     implements _$$_ExceedingMaxContentLengthCopyWith<$Res> {
   __$$_ExceedingMaxContentLengthCopyWithImpl(
       _$_ExceedingMaxContentLength _value,
       $Res Function(_$_ExceedingMaxContentLength) _then)
-      : super(_value, (v) => _then(v as _$_ExceedingMaxContentLength));
-
-  @override
-  _$_ExceedingMaxContentLength get _value =>
-      super._value as _$_ExceedingMaxContentLength;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -981,6 +1146,7 @@ class _$_ExceedingMaxContentLength implements _ExceedingMaxContentLength {
     required TResult Function() blankedTitle,
     required TResult Function() unauthorized,
     required TResult Function() noSuchPlaylistExists,
+    required TResult Function() notSupportingVendor,
     required TResult Function() invalidUrl,
     required TResult Function() exceedingMaxContentLength,
   }) {
@@ -990,13 +1156,14 @@ class _$_ExceedingMaxContentLength implements _ExceedingMaxContentLength {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? duplicateTitle,
-    TResult Function()? serverError,
-    TResult Function()? blankedTitle,
-    TResult Function()? unauthorized,
-    TResult Function()? noSuchPlaylistExists,
-    TResult Function()? invalidUrl,
-    TResult Function()? exceedingMaxContentLength,
+    TResult? Function()? duplicateTitle,
+    TResult? Function()? serverError,
+    TResult? Function()? blankedTitle,
+    TResult? Function()? unauthorized,
+    TResult? Function()? noSuchPlaylistExists,
+    TResult? Function()? notSupportingVendor,
+    TResult? Function()? invalidUrl,
+    TResult? Function()? exceedingMaxContentLength,
   }) {
     return exceedingMaxContentLength?.call();
   }
@@ -1009,6 +1176,7 @@ class _$_ExceedingMaxContentLength implements _ExceedingMaxContentLength {
     TResult Function()? blankedTitle,
     TResult Function()? unauthorized,
     TResult Function()? noSuchPlaylistExists,
+    TResult Function()? notSupportingVendor,
     TResult Function()? invalidUrl,
     TResult Function()? exceedingMaxContentLength,
     required TResult orElse(),
@@ -1027,6 +1195,7 @@ class _$_ExceedingMaxContentLength implements _ExceedingMaxContentLength {
     required TResult Function(_BlankedTitle value) blankedTitle,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_NoSuchPlaylistExists value) noSuchPlaylistExists,
+    required TResult Function(_NotSupportingVendor value) notSupportingVendor,
     required TResult Function(_InvalidUrl value) invalidUrl,
     required TResult Function(_ExceedingMaxContentLength value)
         exceedingMaxContentLength,
@@ -1037,13 +1206,14 @@ class _$_ExceedingMaxContentLength implements _ExceedingMaxContentLength {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_DuplicateTitle value)? duplicateTitle,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_BlankedTitle value)? blankedTitle,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
-    TResult Function(_InvalidUrl value)? invalidUrl,
-    TResult Function(_ExceedingMaxContentLength value)?
+    TResult? Function(_DuplicateTitle value)? duplicateTitle,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_BlankedTitle value)? blankedTitle,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult? Function(_NotSupportingVendor value)? notSupportingVendor,
+    TResult? Function(_InvalidUrl value)? invalidUrl,
+    TResult? Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,
   }) {
     return exceedingMaxContentLength?.call(this);
@@ -1057,6 +1227,7 @@ class _$_ExceedingMaxContentLength implements _ExceedingMaxContentLength {
     TResult Function(_BlankedTitle value)? blankedTitle,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_NoSuchPlaylistExists value)? noSuchPlaylistExists,
+    TResult Function(_NotSupportingVendor value)? notSupportingVendor,
     TResult Function(_InvalidUrl value)? invalidUrl,
     TResult Function(_ExceedingMaxContentLength value)?
         exceedingMaxContentLength,

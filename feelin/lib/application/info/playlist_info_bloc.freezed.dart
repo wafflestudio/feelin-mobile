@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'playlist_info_bloc.dart';
 
@@ -18,26 +18,29 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PlaylistInfoEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int postId) loadRequest,
-    required TResult Function(int postId) deleteRequest,
+    required TResult Function(String postId) loadRequest,
+    required TResult Function(String postId) deleteRequest,
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
+    required TResult Function(String vendorId) saveRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
-    TResult Function(int postId)? deleteRequest,
-    TResult Function()? likeRequest,
-    TResult Function()? unlikeRequest,
+    TResult? Function(String postId)? loadRequest,
+    TResult? Function(String postId)? deleteRequest,
+    TResult? Function()? likeRequest,
+    TResult? Function()? unlikeRequest,
+    TResult? Function(String vendorId)? saveRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
-    TResult Function(int postId)? deleteRequest,
+    TResult Function(String postId)? loadRequest,
+    TResult Function(String postId)? deleteRequest,
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
+    TResult Function(String vendorId)? saveRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,14 +50,16 @@ mixin _$PlaylistInfoEvent {
     required TResult Function(_DeleteRequest value) deleteRequest,
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
+    required TResult Function(_SaveRequest value) saveRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadRequest value)? loadRequest,
-    TResult Function(_DeleteRequest value)? deleteRequest,
-    TResult Function(_LikeRequest value)? likeRequest,
-    TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_DeleteRequest value)? deleteRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_SaveRequest value)? saveRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$PlaylistInfoEvent {
     TResult Function(_DeleteRequest value)? deleteRequest,
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult Function(_SaveRequest value)? saveRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,17 +78,18 @@ mixin _$PlaylistInfoEvent {
 abstract class $PlaylistInfoEventCopyWith<$Res> {
   factory $PlaylistInfoEventCopyWith(
           PlaylistInfoEvent value, $Res Function(PlaylistInfoEvent) then) =
-      _$PlaylistInfoEventCopyWithImpl<$Res>;
+      _$PlaylistInfoEventCopyWithImpl<$Res, PlaylistInfoEvent>;
 }
 
 /// @nodoc
-class _$PlaylistInfoEventCopyWithImpl<$Res>
+class _$PlaylistInfoEventCopyWithImpl<$Res, $Val extends PlaylistInfoEvent>
     implements $PlaylistInfoEventCopyWith<$Res> {
   _$PlaylistInfoEventCopyWithImpl(this._value, this._then);
 
-  final PlaylistInfoEvent _value;
   // ignore: unused_field
-  final $Res Function(PlaylistInfoEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -90,29 +97,28 @@ abstract class _$$_LoadRequestCopyWith<$Res> {
   factory _$$_LoadRequestCopyWith(
           _$_LoadRequest value, $Res Function(_$_LoadRequest) then) =
       __$$_LoadRequestCopyWithImpl<$Res>;
-  $Res call({int postId});
+  @useResult
+  $Res call({String postId});
 }
 
 /// @nodoc
 class __$$_LoadRequestCopyWithImpl<$Res>
-    extends _$PlaylistInfoEventCopyWithImpl<$Res>
+    extends _$PlaylistInfoEventCopyWithImpl<$Res, _$_LoadRequest>
     implements _$$_LoadRequestCopyWith<$Res> {
   __$$_LoadRequestCopyWithImpl(
       _$_LoadRequest _value, $Res Function(_$_LoadRequest) _then)
-      : super(_value, (v) => _then(v as _$_LoadRequest));
+      : super(_value, _then);
 
-  @override
-  _$_LoadRequest get _value => super._value as _$_LoadRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postId = freezed,
+    Object? postId = null,
   }) {
     return _then(_$_LoadRequest(
-      postId == freezed
+      null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -123,7 +129,7 @@ class _$_LoadRequest implements _LoadRequest {
   const _$_LoadRequest(this.postId);
 
   @override
-  final int postId;
+  final String postId;
 
   @override
   String toString() {
@@ -135,25 +141,26 @@ class _$_LoadRequest implements _LoadRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadRequest &&
-            const DeepCollectionEquality().equals(other.postId, postId));
+            (identical(other.postId, postId) || other.postId == postId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(postId));
+  int get hashCode => Object.hash(runtimeType, postId);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadRequestCopyWith<_$_LoadRequest> get copyWith =>
       __$$_LoadRequestCopyWithImpl<_$_LoadRequest>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int postId) loadRequest,
-    required TResult Function(int postId) deleteRequest,
+    required TResult Function(String postId) loadRequest,
+    required TResult Function(String postId) deleteRequest,
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
+    required TResult Function(String vendorId) saveRequest,
   }) {
     return loadRequest(postId);
   }
@@ -161,10 +168,11 @@ class _$_LoadRequest implements _LoadRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
-    TResult Function(int postId)? deleteRequest,
-    TResult Function()? likeRequest,
-    TResult Function()? unlikeRequest,
+    TResult? Function(String postId)? loadRequest,
+    TResult? Function(String postId)? deleteRequest,
+    TResult? Function()? likeRequest,
+    TResult? Function()? unlikeRequest,
+    TResult? Function(String vendorId)? saveRequest,
   }) {
     return loadRequest?.call(postId);
   }
@@ -172,10 +180,11 @@ class _$_LoadRequest implements _LoadRequest {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
-    TResult Function(int postId)? deleteRequest,
+    TResult Function(String postId)? loadRequest,
+    TResult Function(String postId)? deleteRequest,
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
+    TResult Function(String vendorId)? saveRequest,
     required TResult orElse(),
   }) {
     if (loadRequest != null) {
@@ -191,6 +200,7 @@ class _$_LoadRequest implements _LoadRequest {
     required TResult Function(_DeleteRequest value) deleteRequest,
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
+    required TResult Function(_SaveRequest value) saveRequest,
   }) {
     return loadRequest(this);
   }
@@ -198,10 +208,11 @@ class _$_LoadRequest implements _LoadRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadRequest value)? loadRequest,
-    TResult Function(_DeleteRequest value)? deleteRequest,
-    TResult Function(_LikeRequest value)? likeRequest,
-    TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_DeleteRequest value)? deleteRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_SaveRequest value)? saveRequest,
   }) {
     return loadRequest?.call(this);
   }
@@ -213,6 +224,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult Function(_DeleteRequest value)? deleteRequest,
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult Function(_SaveRequest value)? saveRequest,
     required TResult orElse(),
   }) {
     if (loadRequest != null) {
@@ -223,9 +235,9 @@ class _$_LoadRequest implements _LoadRequest {
 }
 
 abstract class _LoadRequest implements PlaylistInfoEvent {
-  const factory _LoadRequest(final int postId) = _$_LoadRequest;
+  const factory _LoadRequest(final String postId) = _$_LoadRequest;
 
-  int get postId;
+  String get postId;
   @JsonKey(ignore: true)
   _$$_LoadRequestCopyWith<_$_LoadRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -236,29 +248,28 @@ abstract class _$$_DeleteRequestCopyWith<$Res> {
   factory _$$_DeleteRequestCopyWith(
           _$_DeleteRequest value, $Res Function(_$_DeleteRequest) then) =
       __$$_DeleteRequestCopyWithImpl<$Res>;
-  $Res call({int postId});
+  @useResult
+  $Res call({String postId});
 }
 
 /// @nodoc
 class __$$_DeleteRequestCopyWithImpl<$Res>
-    extends _$PlaylistInfoEventCopyWithImpl<$Res>
+    extends _$PlaylistInfoEventCopyWithImpl<$Res, _$_DeleteRequest>
     implements _$$_DeleteRequestCopyWith<$Res> {
   __$$_DeleteRequestCopyWithImpl(
       _$_DeleteRequest _value, $Res Function(_$_DeleteRequest) _then)
-      : super(_value, (v) => _then(v as _$_DeleteRequest));
+      : super(_value, _then);
 
-  @override
-  _$_DeleteRequest get _value => super._value as _$_DeleteRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postId = freezed,
+    Object? postId = null,
   }) {
     return _then(_$_DeleteRequest(
-      postId == freezed
+      null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -269,7 +280,7 @@ class _$_DeleteRequest implements _DeleteRequest {
   const _$_DeleteRequest(this.postId);
 
   @override
-  final int postId;
+  final String postId;
 
   @override
   String toString() {
@@ -281,25 +292,26 @@ class _$_DeleteRequest implements _DeleteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeleteRequest &&
-            const DeepCollectionEquality().equals(other.postId, postId));
+            (identical(other.postId, postId) || other.postId == postId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(postId));
+  int get hashCode => Object.hash(runtimeType, postId);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DeleteRequestCopyWith<_$_DeleteRequest> get copyWith =>
       __$$_DeleteRequestCopyWithImpl<_$_DeleteRequest>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int postId) loadRequest,
-    required TResult Function(int postId) deleteRequest,
+    required TResult Function(String postId) loadRequest,
+    required TResult Function(String postId) deleteRequest,
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
+    required TResult Function(String vendorId) saveRequest,
   }) {
     return deleteRequest(postId);
   }
@@ -307,10 +319,11 @@ class _$_DeleteRequest implements _DeleteRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
-    TResult Function(int postId)? deleteRequest,
-    TResult Function()? likeRequest,
-    TResult Function()? unlikeRequest,
+    TResult? Function(String postId)? loadRequest,
+    TResult? Function(String postId)? deleteRequest,
+    TResult? Function()? likeRequest,
+    TResult? Function()? unlikeRequest,
+    TResult? Function(String vendorId)? saveRequest,
   }) {
     return deleteRequest?.call(postId);
   }
@@ -318,10 +331,11 @@ class _$_DeleteRequest implements _DeleteRequest {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
-    TResult Function(int postId)? deleteRequest,
+    TResult Function(String postId)? loadRequest,
+    TResult Function(String postId)? deleteRequest,
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
+    TResult Function(String vendorId)? saveRequest,
     required TResult orElse(),
   }) {
     if (deleteRequest != null) {
@@ -337,6 +351,7 @@ class _$_DeleteRequest implements _DeleteRequest {
     required TResult Function(_DeleteRequest value) deleteRequest,
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
+    required TResult Function(_SaveRequest value) saveRequest,
   }) {
     return deleteRequest(this);
   }
@@ -344,10 +359,11 @@ class _$_DeleteRequest implements _DeleteRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadRequest value)? loadRequest,
-    TResult Function(_DeleteRequest value)? deleteRequest,
-    TResult Function(_LikeRequest value)? likeRequest,
-    TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_DeleteRequest value)? deleteRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_SaveRequest value)? saveRequest,
   }) {
     return deleteRequest?.call(this);
   }
@@ -359,6 +375,7 @@ class _$_DeleteRequest implements _DeleteRequest {
     TResult Function(_DeleteRequest value)? deleteRequest,
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult Function(_SaveRequest value)? saveRequest,
     required TResult orElse(),
   }) {
     if (deleteRequest != null) {
@@ -369,9 +386,9 @@ class _$_DeleteRequest implements _DeleteRequest {
 }
 
 abstract class _DeleteRequest implements PlaylistInfoEvent {
-  const factory _DeleteRequest(final int postId) = _$_DeleteRequest;
+  const factory _DeleteRequest(final String postId) = _$_DeleteRequest;
 
-  int get postId;
+  String get postId;
   @JsonKey(ignore: true)
   _$$_DeleteRequestCopyWith<_$_DeleteRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -386,14 +403,11 @@ abstract class _$$_LikeRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LikeRequestCopyWithImpl<$Res>
-    extends _$PlaylistInfoEventCopyWithImpl<$Res>
+    extends _$PlaylistInfoEventCopyWithImpl<$Res, _$_LikeRequest>
     implements _$$_LikeRequestCopyWith<$Res> {
   __$$_LikeRequestCopyWithImpl(
       _$_LikeRequest _value, $Res Function(_$_LikeRequest) _then)
-      : super(_value, (v) => _then(v as _$_LikeRequest));
-
-  @override
-  _$_LikeRequest get _value => super._value as _$_LikeRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -418,10 +432,11 @@ class _$_LikeRequest implements _LikeRequest {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int postId) loadRequest,
-    required TResult Function(int postId) deleteRequest,
+    required TResult Function(String postId) loadRequest,
+    required TResult Function(String postId) deleteRequest,
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
+    required TResult Function(String vendorId) saveRequest,
   }) {
     return likeRequest();
   }
@@ -429,10 +444,11 @@ class _$_LikeRequest implements _LikeRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
-    TResult Function(int postId)? deleteRequest,
-    TResult Function()? likeRequest,
-    TResult Function()? unlikeRequest,
+    TResult? Function(String postId)? loadRequest,
+    TResult? Function(String postId)? deleteRequest,
+    TResult? Function()? likeRequest,
+    TResult? Function()? unlikeRequest,
+    TResult? Function(String vendorId)? saveRequest,
   }) {
     return likeRequest?.call();
   }
@@ -440,10 +456,11 @@ class _$_LikeRequest implements _LikeRequest {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
-    TResult Function(int postId)? deleteRequest,
+    TResult Function(String postId)? loadRequest,
+    TResult Function(String postId)? deleteRequest,
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
+    TResult Function(String vendorId)? saveRequest,
     required TResult orElse(),
   }) {
     if (likeRequest != null) {
@@ -459,6 +476,7 @@ class _$_LikeRequest implements _LikeRequest {
     required TResult Function(_DeleteRequest value) deleteRequest,
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
+    required TResult Function(_SaveRequest value) saveRequest,
   }) {
     return likeRequest(this);
   }
@@ -466,10 +484,11 @@ class _$_LikeRequest implements _LikeRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadRequest value)? loadRequest,
-    TResult Function(_DeleteRequest value)? deleteRequest,
-    TResult Function(_LikeRequest value)? likeRequest,
-    TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_DeleteRequest value)? deleteRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_SaveRequest value)? saveRequest,
   }) {
     return likeRequest?.call(this);
   }
@@ -481,6 +500,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult Function(_DeleteRequest value)? deleteRequest,
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult Function(_SaveRequest value)? saveRequest,
     required TResult orElse(),
   }) {
     if (likeRequest != null) {
@@ -503,14 +523,11 @@ abstract class _$$_UnlikeRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnlikeRequestCopyWithImpl<$Res>
-    extends _$PlaylistInfoEventCopyWithImpl<$Res>
+    extends _$PlaylistInfoEventCopyWithImpl<$Res, _$_UnlikeRequest>
     implements _$$_UnlikeRequestCopyWith<$Res> {
   __$$_UnlikeRequestCopyWithImpl(
       _$_UnlikeRequest _value, $Res Function(_$_UnlikeRequest) _then)
-      : super(_value, (v) => _then(v as _$_UnlikeRequest));
-
-  @override
-  _$_UnlikeRequest get _value => super._value as _$_UnlikeRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -535,10 +552,11 @@ class _$_UnlikeRequest implements _UnlikeRequest {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int postId) loadRequest,
-    required TResult Function(int postId) deleteRequest,
+    required TResult Function(String postId) loadRequest,
+    required TResult Function(String postId) deleteRequest,
     required TResult Function() likeRequest,
     required TResult Function() unlikeRequest,
+    required TResult Function(String vendorId) saveRequest,
   }) {
     return unlikeRequest();
   }
@@ -546,10 +564,11 @@ class _$_UnlikeRequest implements _UnlikeRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
-    TResult Function(int postId)? deleteRequest,
-    TResult Function()? likeRequest,
-    TResult Function()? unlikeRequest,
+    TResult? Function(String postId)? loadRequest,
+    TResult? Function(String postId)? deleteRequest,
+    TResult? Function()? likeRequest,
+    TResult? Function()? unlikeRequest,
+    TResult? Function(String vendorId)? saveRequest,
   }) {
     return unlikeRequest?.call();
   }
@@ -557,10 +576,11 @@ class _$_UnlikeRequest implements _UnlikeRequest {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int postId)? loadRequest,
-    TResult Function(int postId)? deleteRequest,
+    TResult Function(String postId)? loadRequest,
+    TResult Function(String postId)? deleteRequest,
     TResult Function()? likeRequest,
     TResult Function()? unlikeRequest,
+    TResult Function(String vendorId)? saveRequest,
     required TResult orElse(),
   }) {
     if (unlikeRequest != null) {
@@ -576,6 +596,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     required TResult Function(_DeleteRequest value) deleteRequest,
     required TResult Function(_LikeRequest value) likeRequest,
     required TResult Function(_UnlikeRequest value) unlikeRequest,
+    required TResult Function(_SaveRequest value) saveRequest,
   }) {
     return unlikeRequest(this);
   }
@@ -583,10 +604,11 @@ class _$_UnlikeRequest implements _UnlikeRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadRequest value)? loadRequest,
-    TResult Function(_DeleteRequest value)? deleteRequest,
-    TResult Function(_LikeRequest value)? likeRequest,
-    TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_DeleteRequest value)? deleteRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_SaveRequest value)? saveRequest,
   }) {
     return unlikeRequest?.call(this);
   }
@@ -598,6 +620,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult Function(_DeleteRequest value)? deleteRequest,
     TResult Function(_LikeRequest value)? likeRequest,
     TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult Function(_SaveRequest value)? saveRequest,
     required TResult orElse(),
   }) {
     if (unlikeRequest != null) {
@@ -612,13 +635,168 @@ abstract class _UnlikeRequest implements PlaylistInfoEvent {
 }
 
 /// @nodoc
+abstract class _$$_SaveRequestCopyWith<$Res> {
+  factory _$$_SaveRequestCopyWith(
+          _$_SaveRequest value, $Res Function(_$_SaveRequest) then) =
+      __$$_SaveRequestCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String vendorId});
+}
+
+/// @nodoc
+class __$$_SaveRequestCopyWithImpl<$Res>
+    extends _$PlaylistInfoEventCopyWithImpl<$Res, _$_SaveRequest>
+    implements _$$_SaveRequestCopyWith<$Res> {
+  __$$_SaveRequestCopyWithImpl(
+      _$_SaveRequest _value, $Res Function(_$_SaveRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? vendorId = null,
+  }) {
+    return _then(_$_SaveRequest(
+      null == vendorId
+          ? _value.vendorId
+          : vendorId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SaveRequest implements _SaveRequest {
+  const _$_SaveRequest(this.vendorId);
+
+  @override
+  final String vendorId;
+
+  @override
+  String toString() {
+    return 'PlaylistInfoEvent.saveRequest(vendorId: $vendorId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SaveRequest &&
+            (identical(other.vendorId, vendorId) ||
+                other.vendorId == vendorId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, vendorId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SaveRequestCopyWith<_$_SaveRequest> get copyWith =>
+      __$$_SaveRequestCopyWithImpl<_$_SaveRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String postId) loadRequest,
+    required TResult Function(String postId) deleteRequest,
+    required TResult Function() likeRequest,
+    required TResult Function() unlikeRequest,
+    required TResult Function(String vendorId) saveRequest,
+  }) {
+    return saveRequest(vendorId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String postId)? loadRequest,
+    TResult? Function(String postId)? deleteRequest,
+    TResult? Function()? likeRequest,
+    TResult? Function()? unlikeRequest,
+    TResult? Function(String vendorId)? saveRequest,
+  }) {
+    return saveRequest?.call(vendorId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String postId)? loadRequest,
+    TResult Function(String postId)? deleteRequest,
+    TResult Function()? likeRequest,
+    TResult Function()? unlikeRequest,
+    TResult Function(String vendorId)? saveRequest,
+    required TResult orElse(),
+  }) {
+    if (saveRequest != null) {
+      return saveRequest(vendorId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRequest value) loadRequest,
+    required TResult Function(_DeleteRequest value) deleteRequest,
+    required TResult Function(_LikeRequest value) likeRequest,
+    required TResult Function(_UnlikeRequest value) unlikeRequest,
+    required TResult Function(_SaveRequest value) saveRequest,
+  }) {
+    return saveRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_DeleteRequest value)? deleteRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_SaveRequest value)? saveRequest,
+  }) {
+    return saveRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_DeleteRequest value)? deleteRequest,
+    TResult Function(_LikeRequest value)? likeRequest,
+    TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult Function(_SaveRequest value)? saveRequest,
+    required TResult orElse(),
+  }) {
+    if (saveRequest != null) {
+      return saveRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveRequest implements PlaylistInfoEvent {
+  const factory _SaveRequest(final String vendorId) = _$_SaveRequest;
+
+  String get vendorId;
+  @JsonKey(ignore: true)
+  _$$_SaveRequestCopyWith<_$_SaveRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$PlaylistInfoState {
   Option<Either<ExplorePostFailure, Post>> get loadFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   Option<Either<ExplorePostFailure, Unit>> get deleteFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
+  Option<Either<ExplorePostFailure, RedirectUrl>>
+      get saveFailureOrSuccessOption => throw _privateConstructorUsedError;
   Post get post => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isSaving => throw _privateConstructorUsedError;
   bool get isLiked => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -630,54 +808,70 @@ mixin _$PlaylistInfoState {
 abstract class $PlaylistInfoStateCopyWith<$Res> {
   factory $PlaylistInfoStateCopyWith(
           PlaylistInfoState value, $Res Function(PlaylistInfoState) then) =
-      _$PlaylistInfoStateCopyWithImpl<$Res>;
+      _$PlaylistInfoStateCopyWithImpl<$Res, PlaylistInfoState>;
+  @useResult
   $Res call(
       {Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
       Option<Either<ExplorePostFailure, Unit>> deleteFailureOrSuccessOption,
+      Option<Either<ExplorePostFailure, RedirectUrl>>
+          saveFailureOrSuccessOption,
       Post post,
       bool isLoading,
+      bool isSaving,
       bool isLiked});
 }
 
 /// @nodoc
-class _$PlaylistInfoStateCopyWithImpl<$Res>
+class _$PlaylistInfoStateCopyWithImpl<$Res, $Val extends PlaylistInfoState>
     implements $PlaylistInfoStateCopyWith<$Res> {
   _$PlaylistInfoStateCopyWithImpl(this._value, this._then);
 
-  final PlaylistInfoState _value;
   // ignore: unused_field
-  final $Res Function(PlaylistInfoState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? loadFailureOrSuccessOption = freezed,
-    Object? deleteFailureOrSuccessOption = freezed,
-    Object? post = freezed,
-    Object? isLoading = freezed,
-    Object? isLiked = freezed,
+    Object? loadFailureOrSuccessOption = null,
+    Object? deleteFailureOrSuccessOption = null,
+    Object? saveFailureOrSuccessOption = null,
+    Object? post = null,
+    Object? isLoading = null,
+    Object? isSaving = null,
+    Object? isLiked = null,
   }) {
     return _then(_value.copyWith(
-      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
           ? _value.loadFailureOrSuccessOption
           : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ExplorePostFailure, Post>>,
-      deleteFailureOrSuccessOption: deleteFailureOrSuccessOption == freezed
+      deleteFailureOrSuccessOption: null == deleteFailureOrSuccessOption
           ? _value.deleteFailureOrSuccessOption
           : deleteFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ExplorePostFailure, Unit>>,
-      post: post == freezed
+      saveFailureOrSuccessOption: null == saveFailureOrSuccessOption
+          ? _value.saveFailureOrSuccessOption
+          : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ExplorePostFailure, RedirectUrl>>,
+      post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
               as Post,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLiked: isLiked == freezed
+      isSaving: null == isSaving
+          ? _value.isSaving
+          : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLiked: null == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -688,51 +882,63 @@ abstract class _$$_PlaylistInfoStateCopyWith<$Res>
           $Res Function(_$_PlaylistInfoState) then) =
       __$$_PlaylistInfoStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
       Option<Either<ExplorePostFailure, Unit>> deleteFailureOrSuccessOption,
+      Option<Either<ExplorePostFailure, RedirectUrl>>
+          saveFailureOrSuccessOption,
       Post post,
       bool isLoading,
+      bool isSaving,
       bool isLiked});
 }
 
 /// @nodoc
 class __$$_PlaylistInfoStateCopyWithImpl<$Res>
-    extends _$PlaylistInfoStateCopyWithImpl<$Res>
+    extends _$PlaylistInfoStateCopyWithImpl<$Res, _$_PlaylistInfoState>
     implements _$$_PlaylistInfoStateCopyWith<$Res> {
   __$$_PlaylistInfoStateCopyWithImpl(
       _$_PlaylistInfoState _value, $Res Function(_$_PlaylistInfoState) _then)
-      : super(_value, (v) => _then(v as _$_PlaylistInfoState));
+      : super(_value, _then);
 
-  @override
-  _$_PlaylistInfoState get _value => super._value as _$_PlaylistInfoState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? loadFailureOrSuccessOption = freezed,
-    Object? deleteFailureOrSuccessOption = freezed,
-    Object? post = freezed,
-    Object? isLoading = freezed,
-    Object? isLiked = freezed,
+    Object? loadFailureOrSuccessOption = null,
+    Object? deleteFailureOrSuccessOption = null,
+    Object? saveFailureOrSuccessOption = null,
+    Object? post = null,
+    Object? isLoading = null,
+    Object? isSaving = null,
+    Object? isLiked = null,
   }) {
     return _then(_$_PlaylistInfoState(
-      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
           ? _value.loadFailureOrSuccessOption
           : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ExplorePostFailure, Post>>,
-      deleteFailureOrSuccessOption: deleteFailureOrSuccessOption == freezed
+      deleteFailureOrSuccessOption: null == deleteFailureOrSuccessOption
           ? _value.deleteFailureOrSuccessOption
           : deleteFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ExplorePostFailure, Unit>>,
-      post: post == freezed
+      saveFailureOrSuccessOption: null == saveFailureOrSuccessOption
+          ? _value.saveFailureOrSuccessOption
+          : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ExplorePostFailure, RedirectUrl>>,
+      post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
               as Post,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLiked: isLiked == freezed
+      isSaving: null == isSaving
+          ? _value.isSaving
+          : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLiked: null == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -746,8 +952,10 @@ class _$_PlaylistInfoState implements _PlaylistInfoState {
   const _$_PlaylistInfoState(
       {required this.loadFailureOrSuccessOption,
       required this.deleteFailureOrSuccessOption,
+      required this.saveFailureOrSuccessOption,
       required this.post,
       required this.isLoading,
+      required this.isSaving,
       required this.isLiked});
 
   @override
@@ -755,15 +963,20 @@ class _$_PlaylistInfoState implements _PlaylistInfoState {
   @override
   final Option<Either<ExplorePostFailure, Unit>> deleteFailureOrSuccessOption;
   @override
+  final Option<Either<ExplorePostFailure, RedirectUrl>>
+      saveFailureOrSuccessOption;
+  @override
   final Post post;
   @override
   final bool isLoading;
+  @override
+  final bool isSaving;
   @override
   final bool isLiked;
 
   @override
   String toString() {
-    return 'PlaylistInfoState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, deleteFailureOrSuccessOption: $deleteFailureOrSuccessOption, post: $post, isLoading: $isLoading, isLiked: $isLiked)';
+    return 'PlaylistInfoState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, deleteFailureOrSuccessOption: $deleteFailureOrSuccessOption, saveFailureOrSuccessOption: $saveFailureOrSuccessOption, post: $post, isLoading: $isLoading, isSaving: $isSaving, isLiked: $isLiked)';
   }
 
   @override
@@ -771,27 +984,40 @@ class _$_PlaylistInfoState implements _PlaylistInfoState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PlaylistInfoState &&
-            const DeepCollectionEquality().equals(
-                other.loadFailureOrSuccessOption, loadFailureOrSuccessOption) &&
-            const DeepCollectionEquality().equals(
-                other.deleteFailureOrSuccessOption,
-                deleteFailureOrSuccessOption) &&
-            const DeepCollectionEquality().equals(other.post, post) &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.isLiked, isLiked));
+            (identical(other.loadFailureOrSuccessOption,
+                    loadFailureOrSuccessOption) ||
+                other.loadFailureOrSuccessOption ==
+                    loadFailureOrSuccessOption) &&
+            (identical(other.deleteFailureOrSuccessOption,
+                    deleteFailureOrSuccessOption) ||
+                other.deleteFailureOrSuccessOption ==
+                    deleteFailureOrSuccessOption) &&
+            (identical(other.saveFailureOrSuccessOption,
+                    saveFailureOrSuccessOption) ||
+                other.saveFailureOrSuccessOption ==
+                    saveFailureOrSuccessOption) &&
+            (identical(other.post, post) || other.post == post) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isSaving, isSaving) ||
+                other.isSaving == isSaving) &&
+            (identical(other.isLiked, isLiked) || other.isLiked == isLiked));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(loadFailureOrSuccessOption),
-      const DeepCollectionEquality().hash(deleteFailureOrSuccessOption),
-      const DeepCollectionEquality().hash(post),
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isLiked));
+      loadFailureOrSuccessOption,
+      deleteFailureOrSuccessOption,
+      saveFailureOrSuccessOption,
+      post,
+      isLoading,
+      isSaving,
+      isLiked);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PlaylistInfoStateCopyWith<_$_PlaylistInfoState> get copyWith =>
       __$$_PlaylistInfoStateCopyWithImpl<_$_PlaylistInfoState>(
           this, _$identity);
@@ -803,8 +1029,11 @@ abstract class _PlaylistInfoState implements PlaylistInfoState {
           loadFailureOrSuccessOption,
       required final Option<Either<ExplorePostFailure, Unit>>
           deleteFailureOrSuccessOption,
+      required final Option<Either<ExplorePostFailure, RedirectUrl>>
+          saveFailureOrSuccessOption,
       required final Post post,
       required final bool isLoading,
+      required final bool isSaving,
       required final bool isLiked}) = _$_PlaylistInfoState;
 
   @override
@@ -812,9 +1041,14 @@ abstract class _PlaylistInfoState implements PlaylistInfoState {
   @override
   Option<Either<ExplorePostFailure, Unit>> get deleteFailureOrSuccessOption;
   @override
+  Option<Either<ExplorePostFailure, RedirectUrl>>
+      get saveFailureOrSuccessOption;
+  @override
   Post get post;
   @override
   bool get isLoading;
+  @override
+  bool get isSaving;
   @override
   bool get isLiked;
   @override

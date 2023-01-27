@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'follow_bloc.dart';
 
@@ -18,22 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FollowEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) loadFollowingsRequest,
-    required TResult Function(int id) loadFollowersRequest,
+    required TResult Function(String id) loadFollowingsRequest,
+    required TResult Function(String id) loadFollowersRequest,
     required TResult Function() resetRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int id)? loadFollowingsRequest,
-    TResult Function(int id)? loadFollowersRequest,
-    TResult Function()? resetRequest,
+    TResult? Function(String id)? loadFollowingsRequest,
+    TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function()? resetRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? loadFollowingsRequest,
-    TResult Function(int id)? loadFollowersRequest,
+    TResult Function(String id)? loadFollowingsRequest,
+    TResult Function(String id)? loadFollowersRequest,
     TResult Function()? resetRequest,
     required TResult orElse(),
   }) =>
@@ -48,9 +48,9 @@ mixin _$FollowEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
-    TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
+    TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,16 +67,18 @@ mixin _$FollowEvent {
 abstract class $FollowEventCopyWith<$Res> {
   factory $FollowEventCopyWith(
           FollowEvent value, $Res Function(FollowEvent) then) =
-      _$FollowEventCopyWithImpl<$Res>;
+      _$FollowEventCopyWithImpl<$Res, FollowEvent>;
 }
 
 /// @nodoc
-class _$FollowEventCopyWithImpl<$Res> implements $FollowEventCopyWith<$Res> {
+class _$FollowEventCopyWithImpl<$Res, $Val extends FollowEvent>
+    implements $FollowEventCopyWith<$Res> {
   _$FollowEventCopyWithImpl(this._value, this._then);
 
-  final FollowEvent _value;
   // ignore: unused_field
-  final $Res Function(FollowEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -84,30 +86,28 @@ abstract class _$$_LoadFollowingsRequestCopyWith<$Res> {
   factory _$$_LoadFollowingsRequestCopyWith(_$_LoadFollowingsRequest value,
           $Res Function(_$_LoadFollowingsRequest) then) =
       __$$_LoadFollowingsRequestCopyWithImpl<$Res>;
-  $Res call({int id});
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
 class __$$_LoadFollowingsRequestCopyWithImpl<$Res>
-    extends _$FollowEventCopyWithImpl<$Res>
+    extends _$FollowEventCopyWithImpl<$Res, _$_LoadFollowingsRequest>
     implements _$$_LoadFollowingsRequestCopyWith<$Res> {
   __$$_LoadFollowingsRequestCopyWithImpl(_$_LoadFollowingsRequest _value,
       $Res Function(_$_LoadFollowingsRequest) _then)
-      : super(_value, (v) => _then(v as _$_LoadFollowingsRequest));
+      : super(_value, _then);
 
-  @override
-  _$_LoadFollowingsRequest get _value =>
-      super._value as _$_LoadFollowingsRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_$_LoadFollowingsRequest(
-      id == freezed
+      null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -118,7 +118,7 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
   const _$_LoadFollowingsRequest(this.id);
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -130,15 +130,15 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadFollowingsRequest &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadFollowingsRequestCopyWith<_$_LoadFollowingsRequest> get copyWith =>
       __$$_LoadFollowingsRequestCopyWithImpl<_$_LoadFollowingsRequest>(
           this, _$identity);
@@ -146,8 +146,8 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) loadFollowingsRequest,
-    required TResult Function(int id) loadFollowersRequest,
+    required TResult Function(String id) loadFollowingsRequest,
+    required TResult Function(String id) loadFollowersRequest,
     required TResult Function() resetRequest,
   }) {
     return loadFollowingsRequest(id);
@@ -156,9 +156,9 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int id)? loadFollowingsRequest,
-    TResult Function(int id)? loadFollowersRequest,
-    TResult Function()? resetRequest,
+    TResult? Function(String id)? loadFollowingsRequest,
+    TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function()? resetRequest,
   }) {
     return loadFollowingsRequest?.call(id);
   }
@@ -166,8 +166,8 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? loadFollowingsRequest,
-    TResult Function(int id)? loadFollowersRequest,
+    TResult Function(String id)? loadFollowingsRequest,
+    TResult Function(String id)? loadFollowersRequest,
     TResult Function()? resetRequest,
     required TResult orElse(),
   }) {
@@ -191,9 +191,9 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
-    TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
+    TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return loadFollowingsRequest?.call(this);
   }
@@ -214,9 +214,10 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
 }
 
 abstract class _LoadFollowingsRequest implements FollowEvent {
-  const factory _LoadFollowingsRequest(final int id) = _$_LoadFollowingsRequest;
+  const factory _LoadFollowingsRequest(final String id) =
+      _$_LoadFollowingsRequest;
 
-  int get id;
+  String get id;
   @JsonKey(ignore: true)
   _$$_LoadFollowingsRequestCopyWith<_$_LoadFollowingsRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -227,29 +228,28 @@ abstract class _$$_LoadFollowersRequestCopyWith<$Res> {
   factory _$$_LoadFollowersRequestCopyWith(_$_LoadFollowersRequest value,
           $Res Function(_$_LoadFollowersRequest) then) =
       __$$_LoadFollowersRequestCopyWithImpl<$Res>;
-  $Res call({int id});
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
 class __$$_LoadFollowersRequestCopyWithImpl<$Res>
-    extends _$FollowEventCopyWithImpl<$Res>
+    extends _$FollowEventCopyWithImpl<$Res, _$_LoadFollowersRequest>
     implements _$$_LoadFollowersRequestCopyWith<$Res> {
   __$$_LoadFollowersRequestCopyWithImpl(_$_LoadFollowersRequest _value,
       $Res Function(_$_LoadFollowersRequest) _then)
-      : super(_value, (v) => _then(v as _$_LoadFollowersRequest));
+      : super(_value, _then);
 
-  @override
-  _$_LoadFollowersRequest get _value => super._value as _$_LoadFollowersRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_$_LoadFollowersRequest(
-      id == freezed
+      null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -260,7 +260,7 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
   const _$_LoadFollowersRequest(this.id);
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -272,15 +272,15 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadFollowersRequest &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadFollowersRequestCopyWith<_$_LoadFollowersRequest> get copyWith =>
       __$$_LoadFollowersRequestCopyWithImpl<_$_LoadFollowersRequest>(
           this, _$identity);
@@ -288,8 +288,8 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) loadFollowingsRequest,
-    required TResult Function(int id) loadFollowersRequest,
+    required TResult Function(String id) loadFollowingsRequest,
+    required TResult Function(String id) loadFollowersRequest,
     required TResult Function() resetRequest,
   }) {
     return loadFollowersRequest(id);
@@ -298,9 +298,9 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int id)? loadFollowingsRequest,
-    TResult Function(int id)? loadFollowersRequest,
-    TResult Function()? resetRequest,
+    TResult? Function(String id)? loadFollowingsRequest,
+    TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function()? resetRequest,
   }) {
     return loadFollowersRequest?.call(id);
   }
@@ -308,8 +308,8 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? loadFollowingsRequest,
-    TResult Function(int id)? loadFollowersRequest,
+    TResult Function(String id)? loadFollowingsRequest,
+    TResult Function(String id)? loadFollowersRequest,
     TResult Function()? resetRequest,
     required TResult orElse(),
   }) {
@@ -333,9 +333,9 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
-    TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
+    TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return loadFollowersRequest?.call(this);
   }
@@ -356,9 +356,10 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
 }
 
 abstract class _LoadFollowersRequest implements FollowEvent {
-  const factory _LoadFollowersRequest(final int id) = _$_LoadFollowersRequest;
+  const factory _LoadFollowersRequest(final String id) =
+      _$_LoadFollowersRequest;
 
-  int get id;
+  String get id;
   @JsonKey(ignore: true)
   _$$_LoadFollowersRequestCopyWith<_$_LoadFollowersRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -373,14 +374,11 @@ abstract class _$$_ResetRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ResetRequestCopyWithImpl<$Res>
-    extends _$FollowEventCopyWithImpl<$Res>
+    extends _$FollowEventCopyWithImpl<$Res, _$_ResetRequest>
     implements _$$_ResetRequestCopyWith<$Res> {
   __$$_ResetRequestCopyWithImpl(
       _$_ResetRequest _value, $Res Function(_$_ResetRequest) _then)
-      : super(_value, (v) => _then(v as _$_ResetRequest));
-
-  @override
-  _$_ResetRequest get _value => super._value as _$_ResetRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -405,8 +403,8 @@ class _$_ResetRequest implements _ResetRequest {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) loadFollowingsRequest,
-    required TResult Function(int id) loadFollowersRequest,
+    required TResult Function(String id) loadFollowingsRequest,
+    required TResult Function(String id) loadFollowersRequest,
     required TResult Function() resetRequest,
   }) {
     return resetRequest();
@@ -415,9 +413,9 @@ class _$_ResetRequest implements _ResetRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int id)? loadFollowingsRequest,
-    TResult Function(int id)? loadFollowersRequest,
-    TResult Function()? resetRequest,
+    TResult? Function(String id)? loadFollowingsRequest,
+    TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function()? resetRequest,
   }) {
     return resetRequest?.call();
   }
@@ -425,8 +423,8 @@ class _$_ResetRequest implements _ResetRequest {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? loadFollowingsRequest,
-    TResult Function(int id)? loadFollowersRequest,
+    TResult Function(String id)? loadFollowingsRequest,
+    TResult Function(String id)? loadFollowersRequest,
     TResult Function()? resetRequest,
     required TResult orElse(),
   }) {
@@ -450,9 +448,9 @@ class _$_ResetRequest implements _ResetRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
-    TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
+    TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return resetRequest?.call(this);
   }
@@ -494,7 +492,8 @@ mixin _$FollowState {
 abstract class $FollowStateCopyWith<$Res> {
   factory $FollowStateCopyWith(
           FollowState value, $Res Function(FollowState) then) =
-      _$FollowStateCopyWithImpl<$Res>;
+      _$FollowStateCopyWithImpl<$Res, FollowState>;
+  @useResult
   $Res call(
       {bool isLoading,
       Option<Either<ProfileFailure, PageUser>> loadFailureOrSuccessOption,
@@ -504,43 +503,46 @@ abstract class $FollowStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FollowStateCopyWithImpl<$Res> implements $FollowStateCopyWith<$Res> {
+class _$FollowStateCopyWithImpl<$Res, $Val extends FollowState>
+    implements $FollowStateCopyWith<$Res> {
   _$FollowStateCopyWithImpl(this._value, this._then);
 
-  final FollowState _value;
   // ignore: unused_field
-  final $Res Function(FollowState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? loadFailureOrSuccessOption = freezed,
-    Object? users = freezed,
-    Object? isLast = freezed,
+    Object? isLoading = null,
+    Object? loadFailureOrSuccessOption = null,
+    Object? users = null,
+    Object? isLast = null,
     Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
           ? _value.loadFailureOrSuccessOption
           : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ProfileFailure, PageUser>>,
-      users: users == freezed
+      users: null == users
           ? _value.users
           : users // ignore: cast_nullable_to_non_nullable
               as List<Profile>,
-      isLast: isLast == freezed
+      isLast: null == isLast
           ? _value.isLast
           : isLast // ignore: cast_nullable_to_non_nullable
               as bool,
-      cursor: cursor == freezed
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -551,6 +553,7 @@ abstract class _$$_FollowStateCopyWith<$Res>
           _$_FollowState value, $Res Function(_$_FollowState) then) =
       __$$_FollowStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool isLoading,
       Option<Either<ProfileFailure, PageUser>> loadFailureOrSuccessOption,
@@ -560,41 +563,40 @@ abstract class _$$_FollowStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FollowStateCopyWithImpl<$Res> extends _$FollowStateCopyWithImpl<$Res>
+class __$$_FollowStateCopyWithImpl<$Res>
+    extends _$FollowStateCopyWithImpl<$Res, _$_FollowState>
     implements _$$_FollowStateCopyWith<$Res> {
   __$$_FollowStateCopyWithImpl(
       _$_FollowState _value, $Res Function(_$_FollowState) _then)
-      : super(_value, (v) => _then(v as _$_FollowState));
+      : super(_value, _then);
 
-  @override
-  _$_FollowState get _value => super._value as _$_FollowState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? loadFailureOrSuccessOption = freezed,
-    Object? users = freezed,
-    Object? isLast = freezed,
+    Object? isLoading = null,
+    Object? loadFailureOrSuccessOption = null,
+    Object? users = null,
+    Object? isLast = null,
     Object? cursor = freezed,
   }) {
     return _then(_$_FollowState(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
           ? _value.loadFailureOrSuccessOption
           : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ProfileFailure, PageUser>>,
-      users: users == freezed
+      users: null == users
           ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
               as List<Profile>,
-      isLast: isLast == freezed
+      isLast: null == isLast
           ? _value.isLast
           : isLast // ignore: cast_nullable_to_non_nullable
               as bool,
-      cursor: cursor == freezed
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -620,6 +622,7 @@ class _$_FollowState implements _FollowState {
   final List<Profile> _users;
   @override
   List<Profile> get users {
+    if (_users is EqualUnmodifiableListView) return _users;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_users);
   }
@@ -639,25 +642,29 @@ class _$_FollowState implements _FollowState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FollowState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(
-                other.loadFailureOrSuccessOption, loadFailureOrSuccessOption) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.loadFailureOrSuccessOption,
+                    loadFailureOrSuccessOption) ||
+                other.loadFailureOrSuccessOption ==
+                    loadFailureOrSuccessOption) &&
             const DeepCollectionEquality().equals(other._users, _users) &&
-            const DeepCollectionEquality().equals(other.isLast, isLast) &&
-            const DeepCollectionEquality().equals(other.cursor, cursor));
+            (identical(other.isLast, isLast) || other.isLast == isLast) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(loadFailureOrSuccessOption),
+      isLoading,
+      loadFailureOrSuccessOption,
       const DeepCollectionEquality().hash(_users),
-      const DeepCollectionEquality().hash(isLast),
-      const DeepCollectionEquality().hash(cursor));
+      isLast,
+      cursor);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FollowStateCopyWith<_$_FollowState> get copyWith =>
       __$$_FollowStateCopyWithImpl<_$_FollowState>(this, _$identity);
 }

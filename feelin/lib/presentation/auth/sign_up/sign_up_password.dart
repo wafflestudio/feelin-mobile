@@ -1,15 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/auth/auth/auth_bloc.dart';
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
+import '../../../application/streaming/connect/connect_streaming_bloc.dart';
+import '../../../injection.dart';
 import '../../common/next_button.dart';
+import '../../streaming/connect_streaming_page.dart';
 import 'common_description.dart';
 import 'common_title.dart';
 
 class SignUpPassword extends StatefulWidget{
-  final Map<String, String> input;
   final Function goToNext;
-  const SignUpPassword({Key? key, required this.input, required this.goToNext}) : super(key: key);
+  const SignUpPassword({Key? key, required this.goToNext,}) : super(key: key);
 
   @override
   State<SignUpPassword> createState() => _SignUpNameState();
@@ -33,12 +37,25 @@ class _SignUpNameState extends State<SignUpPassword>{
       listener: (context, state){
         state.authFailureOrSuccessOption.fold(
                 () => null,
-                (failOrSuccess) => failOrSuccess.fold((f) => null, (_) => widget.goToNext()));
+                (failOrSuccess) => failOrSuccess.fold((f) => null, (_) {
+                    context.read<AuthBloc>()
+                        .add(const AuthEvent.submitted());
+                    Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(
+                      builder: (context){
+                        return BlocProvider(
+                            create: (context) => getIt<ConnectStreamingBloc>(),
+                            child: const ConnectStreamingPage());
+                      },
+                    ),
+                        (route) => route.isFirst
+                );
+                },
+                ));
       },
       child: Align(
         alignment: Alignment.topCenter,
         child: Container(
-          constraints: const BoxConstraints(maxHeight: 505),
+          constraints: const BoxConstraints(maxHeight: 475),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
@@ -66,21 +83,6 @@ class _SignUpNameState extends State<SignUpPassword>{
                 padding: const EdgeInsets.only(bottom: 20),
                 child: NextButton(disabled: password.length < 8,
                   function: (){
-                    setState(() {
-                      widget.input['password'] = password;
-                    });
-                    print(context
-                        .read<SignUpFormBloc>().state.password.getOrCrash());
-                    print(context
-                        .read<SignUpFormBloc>().state.username.getOrCrash());
-                    print(context
-                        .read<SignUpFormBloc>().state.birthday.getOrCrash());
-                    print(context
-                        .read<SignUpFormBloc>().state.name.getOrCrash());
-                    print(context
-                        .read<SignUpFormBloc>().state.emailAddress.getOrCrash());
-                    print(context
-                        .read<SignUpFormBloc>().state.canUseName);
                     context
                         .read<SignUpFormBloc>()
                         .add(const SignUpFormEvent.submitted());
@@ -108,12 +110,9 @@ class _SignUpNameState extends State<SignUpPassword>{
               textInputAction: TextInputAction.done,
               onFieldSubmitted: (_){
                 if(password.length >= 8){
-                  setState(() {
-                    widget.input['password'] = password;
-                  });
-                  context
-                      .read<SignUpFormBloc>()
-                      .add(const SignUpFormEvent.submitted());
+                  // context
+                  //     .read<SignUpFormBloc>()
+                  //     .add(const SignUpFormEvent.submitted());
                 }
               },
               decoration: InputDecoration(

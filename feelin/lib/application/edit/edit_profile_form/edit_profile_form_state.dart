@@ -5,6 +5,7 @@ class EditProfileFormState with _$EditProfileFormState {
   const factory EditProfileFormState({
     required Option<Either<ProfileFailure, Unit>> editFailureOrSuccessOption,
     required bool isSubmitting,
+    required NotEmptyString name,
     required Username username,
     required bool canUseName,
     required Introduction introduction,
@@ -12,6 +13,7 @@ class EditProfileFormState with _$EditProfileFormState {
   factory EditProfileFormState.initial() => EditProfileFormState(
     editFailureOrSuccessOption: none(),
     isSubmitting: false,
+    name: NotEmptyString(''),
     username: Username(''),
     canUseName: false,
     introduction: Introduction(''),

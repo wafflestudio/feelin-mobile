@@ -12,12 +12,15 @@ class ExploreList extends StatefulWidget {
   final List<Post> feeds;
   final bool isLoading;
   final ScrollController scrollController;
+  final bool isFollowing;
 
   const ExploreList({Key? key,
     required this.isLast,
     required this.feeds,
     required this.isLoading,
-    required this.scrollController}) : super(key: key);
+    required this.scrollController,
+    required this.isFollowing,
+  }) : super(key: key);
 
   @override
   State<ExploreList> createState() => _PostListState();
@@ -29,7 +32,7 @@ class _PostListState extends State<ExploreList> {
     return BlocBuilder<ExploreBloc, ExploreState>(
       builder: (context, state) {
         return widget.feeds.isEmpty ?
-            const Center(child: Text('No Post.')) :
+            Flexible(child: const Center(child: Text('No Post.'))) :
           ScrollConfiguration(
             behavior: const ScrollBehavior().copyWith(overscroll: false),
             child: ListView.builder(
@@ -57,8 +60,8 @@ class _PostListState extends State<ExploreList> {
                   }
                 } else {
                   return Padding(
-                    padding: const EdgeInsets.only(bottom: 5.0, left: 8, right: 8),
-                    child: FeedPreview(index: index, post: widget.feeds[index]),
+                    padding: const EdgeInsets.only(bottom: 12.0, left: 8, right: 8),
+                    child: FeedPreview(index: index, post: widget.feeds[index], isFollowing: widget.isFollowing),
                   );
                 }
               }),

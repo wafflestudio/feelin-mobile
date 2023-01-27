@@ -50,7 +50,7 @@ class BottomNavigation extends StatelessWidget {
               return const PostApp();
             },
           ),
-          ).then((value) { if(value != null) onSelectTab(TabItem.profile); profileKey.currentState?.onRefresh();});
+          ).then((value) { if(value != null) {profileKey.currentState?.onRefresh();}});
         }
 
       },

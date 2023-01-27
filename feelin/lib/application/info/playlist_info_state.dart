@@ -5,15 +5,19 @@ class PlaylistInfoState with _$PlaylistInfoState {
   const factory PlaylistInfoState({
     required Option<Either<ExplorePostFailure, Post>> loadFailureOrSuccessOption,
     required Option<Either<ExplorePostFailure, Unit>> deleteFailureOrSuccessOption,
+    required Option<Either<ExplorePostFailure, RedirectUrl>> saveFailureOrSuccessOption,
     required Post post,
     required bool isLoading,
+    required bool isSaving,
     required bool isLiked,
   }) = _PlaylistInfoState;
   factory PlaylistInfoState.initial() => PlaylistInfoState(
     loadFailureOrSuccessOption: none(),
     deleteFailureOrSuccessOption: none(),
-    post: Post(id: -1, writer: Profile(id: 0, username: '', image: ''),title: '', content: '', playlist: Playlist(title: '', tracks: [])),
+    saveFailureOrSuccessOption: none(),
+    post: Post(id: '', writer: Profile(id: '', username: '', profileImage: ''),title: '', content: '', playlist: Playlist(title: '', tracks: [])),
     isLoading: false,
+    isSaving: false,
     isLiked: false,
   );
 }

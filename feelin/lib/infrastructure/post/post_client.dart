@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:music_sns/domain/play/post.dart';
 import 'package:music_sns/domain/post/create_post_request.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -9,8 +10,8 @@ abstract class PostClient{
   factory PostClient(Dio dio, {String baseUrl}) = _PostClient;
 
   @POST('/posts')
-  Future<HttpResponse<void>> createPost(@Body() CreatePostRequest createPostRequest);
+  Future<HttpResponse<Post>> createPost(@Body() CreatePostRequest createPostRequest);
 
   @PUT('/posts/{post_id}')
-  Future<HttpResponse<void>> editPost(@Body() CreatePostRequest createPostRequest, @Path('post_id') int id);
+  Future<HttpResponse<void>> editPost(@Body() CreatePostRequest createPostRequest, @Path('post_id') String id);
 }

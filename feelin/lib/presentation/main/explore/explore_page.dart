@@ -21,21 +21,16 @@ class _ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClient
   @override
   bool get wantKeepAlive => true;
 
-  void _firstLoad() async {
+  void _firstLoad() {
     setState((){
       _isFirstLoadRunning = true;
     });
-    try {
-      if(widget.isFollowing){
-        context.read<ExploreBloc>().add(const ExploreEvent.resetFRequest());
-        context.read<ExploreBloc>().add(const ExploreEvent.loadFRequest());
-      }else{
-        context.read<ExploreBloc>().add(const ExploreEvent.resetRequest());
-        context.read<ExploreBloc>().add(const ExploreEvent.loadRequest());
-      }
-
-    } catch (err) {
-      print('알 수 없는 오류가 발생했습니다.');
+    if(widget.isFollowing){
+      context.read<ExploreBloc>().add(const ExploreEvent.resetFRequest());
+      context.read<ExploreBloc>().add(const ExploreEvent.loadFRequest());
+    }else{
+      context.read<ExploreBloc>().add(const ExploreEvent.resetRequest());
+      context.read<ExploreBloc>().add(const ExploreEvent.loadRequest());
     }
     setState(() => _isFirstLoadRunning = false);
   }
@@ -46,10 +41,11 @@ class _ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClient
         widget.scrollController.position.extentAfter < 300) {
       setState(() => _isLoadMoreRunning = true);
       try {
+        print('lo');
         if(widget.isFollowing){
           context.read<ExploreBloc>().add(const ExploreEvent.loadFRequest());
         }else{
-          context.read<ExploreBloc>().add(const ExploreEvent.loadFRequest());
+          context.read<ExploreBloc>().add(const ExploreEvent.loadRequest());
         }
       } catch (err) {
         print('알 수 없는 오류가 발생했습니다.');
@@ -84,8 +80,8 @@ class _ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClient
             onRefresh: () async => _firstLoad(),
             color: FeelinColorFamily.red500,
             child: widget.isFollowing
-                ? ExploreList(isLast: state.isLastF, feeds: state.feedsF, isLoading: state.isLoadingF, scrollController: widget.scrollController)
-                : ExploreList(isLast: state.isLast, feeds: state.feeds, isLoading: state.isLoading, scrollController: widget.scrollController)
+                ? ExploreList(isLast: state.isLastF, feeds: state.feedsF, isLoading: state.isLoadingF, scrollController: widget.scrollController, isFollowing: widget.isFollowing,)
+                : ExploreList(isLast: state.isLast, feeds: state.feeds, isLoading: state.isLoading, scrollController: widget.scrollController, isFollowing: widget.isFollowing,)
           ,
         );
       }

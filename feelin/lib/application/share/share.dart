@@ -78,13 +78,13 @@ class Share{
       builder: (context){
         return BlocProvider(
             create: (context) => getIt<PlaylistInfoBloc>(),
-            child: PlaylistInfoPage(post: null, postId: int.parse(postId), heroNumber: 0, width: MediaQuery.of(context).size.width,));
+            child: PlaylistInfoPage(post: null, postId: postId, heroNumber: 0, width: MediaQuery.of(context).size.width,));
       },
     ),
     );
   }
 
-  Future<String> _getShortLink(int id, String postTitle, String thumbnail) async {
+  Future<String> _getShortLink(String id, String postTitle, String thumbnail) async {
     String dynamicLinkPrefix = 'https://feelinsns.page.link';
     final dynamicLinkParams = DynamicLinkParameters(
       uriPrefix: dynamicLinkPrefix,
@@ -112,7 +112,7 @@ class Share{
     return unguessableDynamicLink.shortUrl.toString();
   }
 
-  void share(int id, String postTitle, String thumbnail) async{
+  void share(String id, String postTitle, String thumbnail) async{
     if(!isLoading){
       isLoading = true;
       share_plus.Share.share(

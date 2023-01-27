@@ -6,6 +6,7 @@ import '../../../../application/explore/explore_bloc.dart';
 import '../../../../application/share/share.dart';
 import '../../../../injection.dart';
 import 'explore_app_bar.dart';
+import 'explore_app_bar_bottom.dart';
 
 class ExploreApp extends StatelessWidget {
   final int? userId;
@@ -49,7 +50,6 @@ class _ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProv
         //backgroundColor: Colors.white,
         extendBodyBehindAppBar: true,
         appBar: ExploreAppBar(
-          tabController: _tabController,
           function: (){
           if(!_tabController.indexIsChanging && _tabController.index == 0){
             _scrollControllerF.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
@@ -57,13 +57,17 @@ class _ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProv
             _scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
           }
         },),
-        body: TabBarView(
-          controller: _tabController,
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            ExplorePage(scrollController: _scrollControllerF, isFollowing: true,),
-            ExplorePage(scrollController: _scrollController, isFollowing: false,),
-          ],
+        body: Scaffold(
+          appBar: ExploreAppBarBottom(tabController: _tabController),
+          extendBodyBehindAppBar: false,
+          body: TabBarView(
+            controller: _tabController,
+            physics: const NeverScrollableScrollPhysics(),
+            children: [
+              ExplorePage(scrollController: _scrollControllerF, isFollowing: true,),
+              ExplorePage(scrollController: _scrollController, isFollowing: false,),
+            ],
+          ),
         ),
       ),
     );

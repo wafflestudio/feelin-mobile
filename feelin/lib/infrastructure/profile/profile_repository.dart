@@ -26,11 +26,11 @@ class ProfileRepository{
 
   ProfileRepository._internal();
 
-  Future<Either<ProfileFailure, Page>> getPostsById({required int id}) async{
+  Future<Either<ProfileFailure, Tuple2<Page, String?>>> getPostsById({required String id, required String? cursor}) async{
     try{
-      HttpResponse<Page> httpResponse = await profileClient.getPostsById(id);
+      HttpResponse<Page> httpResponse = await profileClient.getPostsById(id, cursor);
       switch(httpResponse.response.statusCode){
-        case 200 : return Right(httpResponse.data);
+        case 200 : return Right(Tuple2(httpResponse.data, httpResponse.response.headers['cursor'] == null ? null : httpResponse.response.headers['cursor']![0]));
         case 401 : return const Left(ProfileFailure.unauthorized());
         default : return const Left(ProfileFailure.serverError());
       }
@@ -42,11 +42,11 @@ class ProfileRepository{
     }
   }
 
-  Future<Either<ProfileFailure, Page>> getMyPosts() async{
+  Future<Either<ProfileFailure, Tuple2<Page, String?>>> getMyPosts({String? cursor}) async{
     try{
-      HttpResponse<Page> httpResponse = await profileClient.getMyPosts();
+      HttpResponse<Page> httpResponse = await profileClient.getMyPosts(cursor);
       switch(httpResponse.response.statusCode){
-        case 200 : return Right(httpResponse.data);
+        case 200 : return Right(Tuple2(httpResponse.data, httpResponse.response.headers['cursor'] == null ? null : httpResponse.response.headers['cursor']![0]));
         case 401 : return const Left(ProfileFailure.unauthorized());
         default : return const Left(ProfileFailure.serverError());
       }
@@ -87,7 +87,7 @@ class ProfileRepository{
     }
   }
 
-  Future<Either<ProfileFailure, Profile>> getProfileById({required int id}) async{
+  Future<Either<ProfileFailure, Profile>> getProfileById({required String id}) async{
     try{
       HttpResponse<Profile> httpResponse = await profileClient.getProfileById(id);
       switch(httpResponse.response.statusCode){
@@ -104,10 +104,10 @@ class ProfileRepository{
   }
 
   Future<Either<ProfileFailure, Profile>> editMyProfile
-      ({required Username username, required String image, required Introduction introduction}) async{
+      ({required NotEmptyString name, required Username username, required String? image, required Introduction introduction}) async{
     try{
       HttpResponse<Profile> httpResponse =
-      await profileClient.editMyProfile(EditMyProfileRequest(username: username.getOrCrash(), image: image, introduction: introduction.getOrCrash()));
+      await profileClient.editMyProfile(EditMyProfileRequest(name: name.getOrCrash(), username: username.getOrCrash(), profileImageUrl: image, introduction: introduction.getOrCrash()));
       switch(httpResponse.response.statusCode){
         case 200 : return Right(httpResponse.data);
         case 401 : return const Left(ProfileFailure.unauthorized());
@@ -115,6 +115,7 @@ class ProfileRepository{
         default : return const Left(ProfileFailure.serverError());
       }
     }on DioError catch(e){
+      print(e);
       switch(e.response?.statusCode){
         case 401 : return const Left(ProfileFailure.unauthorized());
         case 403 : return const Left(ProfileFailure.usernameAlreadyInUse());
@@ -124,7 +125,7 @@ class ProfileRepository{
   }
 
   Future<Either<ProfileFailure, Unit>> follow
-      ({required int id,}) async{
+      ({required String id,}) async{
     try{
       HttpResponse<void> httpResponse = await profileClient.follow(id);
       switch(httpResponse.response.statusCode){
@@ -145,7 +146,7 @@ class ProfileRepository{
   }
 
   Future<Either<ProfileFailure, Unit>> unFollow
-      ({required int id,}) async{
+      ({required String id,}) async{
     try{
       HttpResponse<void> httpResponse = await profileClient.unFollow(id);
       switch(httpResponse.response.statusCode){

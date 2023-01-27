@@ -10,14 +10,16 @@ class ProfileState with _$ProfileState {
     required bool isLast,
     required bool isLoaded,
     required bool isFollowed,
+    required String? cursor,
   }) = _ProfileState;
   factory ProfileState.initial() => ProfileState(
     loadFailureOrSuccessOption: none(),
     posts: [],
-    profile: Profile(id: -1, username: '', image: ''),
+    profile: Profile(id: '', username: '', profileImage: ''),
     isLoading: true,
     isLast: false,
     isLoaded: false,
     isFollowed: false,
+    cursor: null,
   );
 }

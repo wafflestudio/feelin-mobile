@@ -29,3 +29,16 @@ class Introduction extends ValueObject<String> {
 
   const Introduction._(this.value);
 }
+
+class NotEmptyString extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory NotEmptyString(String input) {
+    return NotEmptyString._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const NotEmptyString._(this.value);
+}

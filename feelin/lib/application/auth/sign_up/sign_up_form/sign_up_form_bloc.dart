@@ -3,9 +3,9 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/auth/auth_failure.dart';
-import 'package:music_sns/domain/auth/i_auth_repository.dart';
 import 'package:music_sns/domain/auth/value_objects.dart';
 import 'package:rxdart/rxdart.dart';
+import '../../../../infrastructure/auth/auth_repository.dart';
 
 part 'sign_up_form_bloc.freezed.dart';
 part 'sign_up_form_event.dart';
@@ -13,7 +13,7 @@ part 'sign_up_form_state.dart';
 
 @injectable
 class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
-  final IAuthRepository _authRepository;
+  final AuthRepository _authRepository;
 
   SignUpFormBloc(this._authRepository) : super(SignUpFormState.initial()) {
     on<_EmailAddressChanged>((event, emit) {
@@ -23,7 +23,7 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
     });
     on<_CodeChanged>((event, emit) {
       emit(state.copyWith(
-        code: EmailAuthCode(event.codeStr),
+        code: AuthCode(event.codeStr),
       ));
     });
     on<_PasswordChanged>((event, emit) {
@@ -79,6 +79,11 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
         birthday: NotEmptyString(event.birthdayStr),
       ));
     });
+    on<_CountryCodeChanged>((event, emit) {
+      emit(state.copyWith(
+        countryCode: NotEmptyString(event.countryCodeStr),
+      ));
+    });
     on<_EmailSubmitted>((event, emit) async {
       emit(state.copyWith(
         isSubmitting: true,
@@ -100,19 +105,62 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
         },
       );
     });
-    on<_Requested>((event, emit) async{
+    on<_EmailRequested>((event, emit) async{
+      emit(state.copyWith(
+          isEmailSubmitting: true
+      ));
       final failureOrSuccess = await _authRepository.tryEmailVerification(
           emailAddress: state.emailAddress);
       failureOrSuccess.fold(
             (f) {
           emit(state.copyWith(
-              isRequested: false
+              isEmailSubmitting: false,
+              requestFailureOrSuccessOption: some(left(f)),
           ));
         },
             (_) {
           emit(state.copyWith(
             //isSubmitting: false,
-              isRequested: true
+              isEmailSubmitting: false,
+              requestFailureOrSuccessOption: some(right(_)),
+          ));
+        },
+      );
+    });
+
+    on<_PhoneSubmitted>((event, emit) async {
+      emit(state.copyWith(
+        isSubmitting: true,
+      ));
+      final failureOrSuccess = await _authRepository.verifyPhone(
+          phoneNumber: state.phoneNumber,countryCode: state.countryCode, code: state.code);
+      failureOrSuccess.fold(
+            (f) {
+          emit(state.copyWith(
+            isSubmitting: false,
+            verifyFailureOrSuccessOption: some(left(f)),
+          ));
+        },
+            (_) {
+          emit(state.copyWith(
+            isSubmitting: false,
+            verifyFailureOrSuccessOption: some(right(unit)),
+          ));
+        },
+      );
+    });
+    on<_PhoneRequested>((event, emit) async{
+      final failureOrSuccess = await _authRepository.tryPhoneVerification(
+          phoneNumber: state.phoneNumber, countryCode: state.countryCode);
+      failureOrSuccess.fold(
+            (f) {
+          emit(state.copyWith(
+            requestFailureOrSuccessOption: some(left(f)),
+          ));
+        },
+            (_) {
+          emit(state.copyWith(
+            requestFailureOrSuccessOption: some(right(_)),
           ));
         },
       );
@@ -131,7 +179,6 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
     });
 
     on<_Submitted>((event, emit) async {
-      print('kkkkkkk');
       emit(state.copyWith(
         isSubmitting: true,
       ));
@@ -157,7 +204,24 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
             },
           );
         }else{
-
+          final failureOrSuccess = await _authRepository.signUpWithPhone(
+            phoneNumber: state.phoneNumber, countryCode: state.countryCode, password: state.password, name: state.name,
+            username: state.username, birthday: state.birthday,
+          );
+          failureOrSuccess.fold(
+                (f) {
+              emit(state.copyWith(
+                isSubmitting: false,
+                authFailureOrSuccessOption: some(left(f)),
+              ));
+            },
+                (_) {
+              emit(state.copyWith(
+                isSubmitting: false,
+                authFailureOrSuccessOption: some(right(unit)),
+              ));
+            },
+          );
         }
 
       }

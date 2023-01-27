@@ -13,7 +13,9 @@ class SignUpFormEvent with _$SignUpFormEvent {
   const factory SignUpFormEvent.codeChanged(String codeStr) =
   _CodeChanged;
   const factory SignUpFormEvent.emailSubmitted() = _EmailSubmitted;
-  const factory SignUpFormEvent.requested() = _Requested;
+  const factory SignUpFormEvent.emailRequested() = _EmailRequested;
+  const factory SignUpFormEvent.phoneSubmitted() = _PhoneSubmitted;
+  const factory SignUpFormEvent.phoneRequested() = _PhoneRequested;
   const factory SignUpFormEvent.nameChanged(String nameStr) =
   _NameChanged;
   const factory SignUpFormEvent.usernameChanged(String usernameStr) =
@@ -22,6 +24,8 @@ class SignUpFormEvent with _$SignUpFormEvent {
   _ResetCanUseName;
   const factory SignUpFormEvent.phoneNumberChanged(String phoneNumberStr) =
   _PhoneNumberChanged;
+  const factory SignUpFormEvent.countryCodeChanged(String countryCodeStr) =
+  _CountryCodeChanged;
   const factory SignUpFormEvent.birthdayChanged(String birthdayStr) =
   _BirthdayChanged;
   const factory SignUpFormEvent.setEmail() =

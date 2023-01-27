@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/presentation/setting/setting_page.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
+import '../../application/streaming/streaming_bloc.dart';
 import '../../injection.dart';
 import 'setting_app_bar.dart';
 
@@ -27,6 +29,12 @@ class SettingAppScaffold extends StatefulWidget {
 }
 
 class SettingAppScaffoldState extends State<SettingAppScaffold> {
+
+  @override
+  void initState(){
+    super.initState();
+    context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+  }
 
   @override
   Widget build(BuildContext context) {

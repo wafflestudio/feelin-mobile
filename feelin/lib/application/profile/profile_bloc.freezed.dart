@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'profile_bloc.dart';
 
@@ -19,10 +19,10 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
-    required TResult Function(int id) profileRequest,
+    required TResult Function(String id) profileRequest,
     required TResult Function(Profile profile) profileChanged,
-    required TResult Function(int page) myPageRequest,
-    required TResult Function(int page, int id) pageRequest,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
@@ -30,23 +30,23 @@ mixin _$ProfileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
-    TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
-    TResult Function()? followRequest,
-    TResult Function()? unFollowRequest,
-    TResult Function()? resetRequest,
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
+    TResult Function(String id)? profileRequest,
     TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
@@ -67,14 +67,14 @@ mixin _$ProfileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_MyProfileRequest value)? myProfileRequest,
-    TResult Function(_ProfileRequest value)? profileRequest,
-    TResult Function(_ProfileChanged value)? profileChanged,
-    TResult Function(_MyPageRequest value)? myPageRequest,
-    TResult Function(_PageRequest value)? pageRequest,
-    TResult Function(_FollowRequest value)? followRequest,
-    TResult Function(_UnFollowRequest value)? unFollowRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,16 +96,18 @@ mixin _$ProfileEvent {
 abstract class $ProfileEventCopyWith<$Res> {
   factory $ProfileEventCopyWith(
           ProfileEvent value, $Res Function(ProfileEvent) then) =
-      _$ProfileEventCopyWithImpl<$Res>;
+      _$ProfileEventCopyWithImpl<$Res, ProfileEvent>;
 }
 
 /// @nodoc
-class _$ProfileEventCopyWithImpl<$Res> implements $ProfileEventCopyWith<$Res> {
+class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
+    implements $ProfileEventCopyWith<$Res> {
   _$ProfileEventCopyWithImpl(this._value, this._then);
 
-  final ProfileEvent _value;
   // ignore: unused_field
-  final $Res Function(ProfileEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -117,14 +119,11 @@ abstract class _$$_MyProfileRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_MyProfileRequestCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_MyProfileRequest>
     implements _$$_MyProfileRequestCopyWith<$Res> {
   __$$_MyProfileRequestCopyWithImpl(
       _$_MyProfileRequest _value, $Res Function(_$_MyProfileRequest) _then)
-      : super(_value, (v) => _then(v as _$_MyProfileRequest));
-
-  @override
-  _$_MyProfileRequest get _value => super._value as _$_MyProfileRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -150,10 +149,10 @@ class _$_MyProfileRequest implements _MyProfileRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
-    required TResult Function(int id) profileRequest,
+    required TResult Function(String id) profileRequest,
     required TResult Function(Profile profile) profileChanged,
-    required TResult Function(int page) myPageRequest,
-    required TResult Function(int page, int id) pageRequest,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
@@ -164,14 +163,14 @@ class _$_MyProfileRequest implements _MyProfileRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
-    TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
-    TResult Function()? followRequest,
-    TResult Function()? unFollowRequest,
-    TResult Function()? resetRequest,
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
   }) {
     return myProfileRequest?.call();
   }
@@ -180,10 +179,10 @@ class _$_MyProfileRequest implements _MyProfileRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
+    TResult Function(String id)? profileRequest,
     TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
@@ -213,14 +212,14 @@ class _$_MyProfileRequest implements _MyProfileRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_MyProfileRequest value)? myProfileRequest,
-    TResult Function(_ProfileRequest value)? profileRequest,
-    TResult Function(_ProfileChanged value)? profileChanged,
-    TResult Function(_MyPageRequest value)? myPageRequest,
-    TResult Function(_PageRequest value)? pageRequest,
-    TResult Function(_FollowRequest value)? followRequest,
-    TResult Function(_UnFollowRequest value)? unFollowRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return myProfileRequest?.call(this);
   }
@@ -254,29 +253,28 @@ abstract class _$$_ProfileRequestCopyWith<$Res> {
   factory _$$_ProfileRequestCopyWith(
           _$_ProfileRequest value, $Res Function(_$_ProfileRequest) then) =
       __$$_ProfileRequestCopyWithImpl<$Res>;
-  $Res call({int id});
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
 class __$$_ProfileRequestCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_ProfileRequest>
     implements _$$_ProfileRequestCopyWith<$Res> {
   __$$_ProfileRequestCopyWithImpl(
       _$_ProfileRequest _value, $Res Function(_$_ProfileRequest) _then)
-      : super(_value, (v) => _then(v as _$_ProfileRequest));
+      : super(_value, _then);
 
-  @override
-  _$_ProfileRequest get _value => super._value as _$_ProfileRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_$_ProfileRequest(
-      id == freezed
+      null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -287,7 +285,7 @@ class _$_ProfileRequest implements _ProfileRequest {
   const _$_ProfileRequest(this.id);
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -299,15 +297,15 @@ class _$_ProfileRequest implements _ProfileRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProfileRequest &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProfileRequestCopyWith<_$_ProfileRequest> get copyWith =>
       __$$_ProfileRequestCopyWithImpl<_$_ProfileRequest>(this, _$identity);
 
@@ -315,10 +313,10 @@ class _$_ProfileRequest implements _ProfileRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
-    required TResult Function(int id) profileRequest,
+    required TResult Function(String id) profileRequest,
     required TResult Function(Profile profile) profileChanged,
-    required TResult Function(int page) myPageRequest,
-    required TResult Function(int page, int id) pageRequest,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
@@ -329,14 +327,14 @@ class _$_ProfileRequest implements _ProfileRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
-    TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
-    TResult Function()? followRequest,
-    TResult Function()? unFollowRequest,
-    TResult Function()? resetRequest,
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
   }) {
     return profileRequest?.call(id);
   }
@@ -345,10 +343,10 @@ class _$_ProfileRequest implements _ProfileRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
+    TResult Function(String id)? profileRequest,
     TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
@@ -378,14 +376,14 @@ class _$_ProfileRequest implements _ProfileRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_MyProfileRequest value)? myProfileRequest,
-    TResult Function(_ProfileRequest value)? profileRequest,
-    TResult Function(_ProfileChanged value)? profileChanged,
-    TResult Function(_MyPageRequest value)? myPageRequest,
-    TResult Function(_PageRequest value)? pageRequest,
-    TResult Function(_FollowRequest value)? followRequest,
-    TResult Function(_UnFollowRequest value)? unFollowRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return profileRequest?.call(this);
   }
@@ -411,9 +409,9 @@ class _$_ProfileRequest implements _ProfileRequest {
 }
 
 abstract class _ProfileRequest implements ProfileEvent {
-  const factory _ProfileRequest(final int id) = _$_ProfileRequest;
+  const factory _ProfileRequest(final String id) = _$_ProfileRequest;
 
-  int get id;
+  String get id;
   @JsonKey(ignore: true)
   _$$_ProfileRequestCopyWith<_$_ProfileRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -424,26 +422,25 @@ abstract class _$$_ProfileChangedCopyWith<$Res> {
   factory _$$_ProfileChangedCopyWith(
           _$_ProfileChanged value, $Res Function(_$_ProfileChanged) then) =
       __$$_ProfileChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({Profile profile});
 }
 
 /// @nodoc
 class __$$_ProfileChangedCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_ProfileChanged>
     implements _$$_ProfileChangedCopyWith<$Res> {
   __$$_ProfileChangedCopyWithImpl(
       _$_ProfileChanged _value, $Res Function(_$_ProfileChanged) _then)
-      : super(_value, (v) => _then(v as _$_ProfileChanged));
+      : super(_value, _then);
 
-  @override
-  _$_ProfileChanged get _value => super._value as _$_ProfileChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profile = freezed,
+    Object? profile = null,
   }) {
     return _then(_$_ProfileChanged(
-      profile == freezed
+      null == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
               as Profile,
@@ -469,15 +466,15 @@ class _$_ProfileChanged implements _ProfileChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProfileChanged &&
-            const DeepCollectionEquality().equals(other.profile, profile));
+            (identical(other.profile, profile) || other.profile == profile));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(profile));
+  int get hashCode => Object.hash(runtimeType, profile);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProfileChangedCopyWith<_$_ProfileChanged> get copyWith =>
       __$$_ProfileChangedCopyWithImpl<_$_ProfileChanged>(this, _$identity);
 
@@ -485,10 +482,10 @@ class _$_ProfileChanged implements _ProfileChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
-    required TResult Function(int id) profileRequest,
+    required TResult Function(String id) profileRequest,
     required TResult Function(Profile profile) profileChanged,
-    required TResult Function(int page) myPageRequest,
-    required TResult Function(int page, int id) pageRequest,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
@@ -499,14 +496,14 @@ class _$_ProfileChanged implements _ProfileChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
-    TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
-    TResult Function()? followRequest,
-    TResult Function()? unFollowRequest,
-    TResult Function()? resetRequest,
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
   }) {
     return profileChanged?.call(profile);
   }
@@ -515,10 +512,10 @@ class _$_ProfileChanged implements _ProfileChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
+    TResult Function(String id)? profileRequest,
     TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
@@ -548,14 +545,14 @@ class _$_ProfileChanged implements _ProfileChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_MyProfileRequest value)? myProfileRequest,
-    TResult Function(_ProfileRequest value)? profileRequest,
-    TResult Function(_ProfileChanged value)? profileChanged,
-    TResult Function(_MyPageRequest value)? myPageRequest,
-    TResult Function(_PageRequest value)? pageRequest,
-    TResult Function(_FollowRequest value)? followRequest,
-    TResult Function(_UnFollowRequest value)? unFollowRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return profileChanged?.call(this);
   }
@@ -594,108 +591,81 @@ abstract class _$$_MyPageRequestCopyWith<$Res> {
   factory _$$_MyPageRequestCopyWith(
           _$_MyPageRequest value, $Res Function(_$_MyPageRequest) then) =
       __$$_MyPageRequestCopyWithImpl<$Res>;
-  $Res call({int page});
 }
 
 /// @nodoc
 class __$$_MyPageRequestCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_MyPageRequest>
     implements _$$_MyPageRequestCopyWith<$Res> {
   __$$_MyPageRequestCopyWithImpl(
       _$_MyPageRequest _value, $Res Function(_$_MyPageRequest) _then)
-      : super(_value, (v) => _then(v as _$_MyPageRequest));
-
-  @override
-  _$_MyPageRequest get _value => super._value as _$_MyPageRequest;
-
-  @override
-  $Res call({
-    Object? page = freezed,
-  }) {
-    return _then(_$_MyPageRequest(
-      page == freezed
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
+      : super(_value, _then);
 }
 
 /// @nodoc
 
 class _$_MyPageRequest implements _MyPageRequest {
-  const _$_MyPageRequest(this.page);
-
-  @override
-  final int page;
+  const _$_MyPageRequest();
 
   @override
   String toString() {
-    return 'ProfileEvent.myPageRequest(page: $page)';
+    return 'ProfileEvent.myPageRequest()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MyPageRequest &&
-            const DeepCollectionEquality().equals(other.page, page));
+        (other.runtimeType == runtimeType && other is _$_MyPageRequest);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(page));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_MyPageRequestCopyWith<_$_MyPageRequest> get copyWith =>
-      __$$_MyPageRequestCopyWithImpl<_$_MyPageRequest>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
-    required TResult Function(int id) profileRequest,
+    required TResult Function(String id) profileRequest,
     required TResult Function(Profile profile) profileChanged,
-    required TResult Function(int page) myPageRequest,
-    required TResult Function(int page, int id) pageRequest,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
   }) {
-    return myPageRequest(page);
+    return myPageRequest();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
-    TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
-    TResult Function()? followRequest,
-    TResult Function()? unFollowRequest,
-    TResult Function()? resetRequest,
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
   }) {
-    return myPageRequest?.call(page);
+    return myPageRequest?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
+    TResult Function(String id)? profileRequest,
     TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     required TResult orElse(),
   }) {
     if (myPageRequest != null) {
-      return myPageRequest(page);
+      return myPageRequest();
     }
     return orElse();
   }
@@ -718,14 +688,14 @@ class _$_MyPageRequest implements _MyPageRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_MyProfileRequest value)? myProfileRequest,
-    TResult Function(_ProfileRequest value)? profileRequest,
-    TResult Function(_ProfileChanged value)? profileChanged,
-    TResult Function(_MyPageRequest value)? myPageRequest,
-    TResult Function(_PageRequest value)? pageRequest,
-    TResult Function(_FollowRequest value)? followRequest,
-    TResult Function(_UnFollowRequest value)? unFollowRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return myPageRequest?.call(this);
   }
@@ -751,12 +721,7 @@ class _$_MyPageRequest implements _MyPageRequest {
 }
 
 abstract class _MyPageRequest implements ProfileEvent {
-  const factory _MyPageRequest(final int page) = _$_MyPageRequest;
-
-  int get page;
-  @JsonKey(ignore: true)
-  _$$_MyPageRequestCopyWith<_$_MyPageRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _MyPageRequest() = _$_MyPageRequest;
 }
 
 /// @nodoc
@@ -764,34 +729,28 @@ abstract class _$$_PageRequestCopyWith<$Res> {
   factory _$$_PageRequestCopyWith(
           _$_PageRequest value, $Res Function(_$_PageRequest) then) =
       __$$_PageRequestCopyWithImpl<$Res>;
-  $Res call({int page, int id});
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
 class __$$_PageRequestCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_PageRequest>
     implements _$$_PageRequestCopyWith<$Res> {
   __$$_PageRequestCopyWithImpl(
       _$_PageRequest _value, $Res Function(_$_PageRequest) _then)
-      : super(_value, (v) => _then(v as _$_PageRequest));
+      : super(_value, _then);
 
-  @override
-  _$_PageRequest get _value => super._value as _$_PageRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? page = freezed,
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_$_PageRequest(
-      page == freezed
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
-      id == freezed
+      null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -799,16 +758,14 @@ class __$$_PageRequestCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PageRequest implements _PageRequest {
-  const _$_PageRequest(this.page, this.id);
+  const _$_PageRequest(this.id);
 
   @override
-  final int page;
-  @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
-    return 'ProfileEvent.pageRequest(page: $page, id: $id)';
+    return 'ProfileEvent.pageRequest(id: $id)';
   }
 
   @override
@@ -816,18 +773,15 @@ class _$_PageRequest implements _PageRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PageRequest &&
-            const DeepCollectionEquality().equals(other.page, page) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(page),
-      const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PageRequestCopyWith<_$_PageRequest> get copyWith =>
       __$$_PageRequestCopyWithImpl<_$_PageRequest>(this, _$identity);
 
@@ -835,47 +789,47 @@ class _$_PageRequest implements _PageRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
-    required TResult Function(int id) profileRequest,
+    required TResult Function(String id) profileRequest,
     required TResult Function(Profile profile) profileChanged,
-    required TResult Function(int page) myPageRequest,
-    required TResult Function(int page, int id) pageRequest,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
   }) {
-    return pageRequest(page, id);
+    return pageRequest(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
-    TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
-    TResult Function()? followRequest,
-    TResult Function()? unFollowRequest,
-    TResult Function()? resetRequest,
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
   }) {
-    return pageRequest?.call(page, id);
+    return pageRequest?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
+    TResult Function(String id)? profileRequest,
     TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     required TResult orElse(),
   }) {
     if (pageRequest != null) {
-      return pageRequest(page, id);
+      return pageRequest(id);
     }
     return orElse();
   }
@@ -898,14 +852,14 @@ class _$_PageRequest implements _PageRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_MyProfileRequest value)? myProfileRequest,
-    TResult Function(_ProfileRequest value)? profileRequest,
-    TResult Function(_ProfileChanged value)? profileChanged,
-    TResult Function(_MyPageRequest value)? myPageRequest,
-    TResult Function(_PageRequest value)? pageRequest,
-    TResult Function(_FollowRequest value)? followRequest,
-    TResult Function(_UnFollowRequest value)? unFollowRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return pageRequest?.call(this);
   }
@@ -931,10 +885,9 @@ class _$_PageRequest implements _PageRequest {
 }
 
 abstract class _PageRequest implements ProfileEvent {
-  const factory _PageRequest(final int page, final int id) = _$_PageRequest;
+  const factory _PageRequest(final String id) = _$_PageRequest;
 
-  int get page;
-  int get id;
+  String get id;
   @JsonKey(ignore: true)
   _$$_PageRequestCopyWith<_$_PageRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -949,14 +902,11 @@ abstract class _$$_FollowRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_FollowRequestCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_FollowRequest>
     implements _$$_FollowRequestCopyWith<$Res> {
   __$$_FollowRequestCopyWithImpl(
       _$_FollowRequest _value, $Res Function(_$_FollowRequest) _then)
-      : super(_value, (v) => _then(v as _$_FollowRequest));
-
-  @override
-  _$_FollowRequest get _value => super._value as _$_FollowRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -982,10 +932,10 @@ class _$_FollowRequest implements _FollowRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
-    required TResult Function(int id) profileRequest,
+    required TResult Function(String id) profileRequest,
     required TResult Function(Profile profile) profileChanged,
-    required TResult Function(int page) myPageRequest,
-    required TResult Function(int page, int id) pageRequest,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
@@ -996,14 +946,14 @@ class _$_FollowRequest implements _FollowRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
-    TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
-    TResult Function()? followRequest,
-    TResult Function()? unFollowRequest,
-    TResult Function()? resetRequest,
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
   }) {
     return followRequest?.call();
   }
@@ -1012,10 +962,10 @@ class _$_FollowRequest implements _FollowRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
+    TResult Function(String id)? profileRequest,
     TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
@@ -1045,14 +995,14 @@ class _$_FollowRequest implements _FollowRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_MyProfileRequest value)? myProfileRequest,
-    TResult Function(_ProfileRequest value)? profileRequest,
-    TResult Function(_ProfileChanged value)? profileChanged,
-    TResult Function(_MyPageRequest value)? myPageRequest,
-    TResult Function(_PageRequest value)? pageRequest,
-    TResult Function(_FollowRequest value)? followRequest,
-    TResult Function(_UnFollowRequest value)? unFollowRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return followRequest?.call(this);
   }
@@ -1090,14 +1040,11 @@ abstract class _$$_UnFollowRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnFollowRequestCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_UnFollowRequest>
     implements _$$_UnFollowRequestCopyWith<$Res> {
   __$$_UnFollowRequestCopyWithImpl(
       _$_UnFollowRequest _value, $Res Function(_$_UnFollowRequest) _then)
-      : super(_value, (v) => _then(v as _$_UnFollowRequest));
-
-  @override
-  _$_UnFollowRequest get _value => super._value as _$_UnFollowRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1123,10 +1070,10 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
-    required TResult Function(int id) profileRequest,
+    required TResult Function(String id) profileRequest,
     required TResult Function(Profile profile) profileChanged,
-    required TResult Function(int page) myPageRequest,
-    required TResult Function(int page, int id) pageRequest,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
@@ -1137,14 +1084,14 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
-    TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
-    TResult Function()? followRequest,
-    TResult Function()? unFollowRequest,
-    TResult Function()? resetRequest,
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
   }) {
     return unFollowRequest?.call();
   }
@@ -1153,10 +1100,10 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
+    TResult Function(String id)? profileRequest,
     TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
@@ -1186,14 +1133,14 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_MyProfileRequest value)? myProfileRequest,
-    TResult Function(_ProfileRequest value)? profileRequest,
-    TResult Function(_ProfileChanged value)? profileChanged,
-    TResult Function(_MyPageRequest value)? myPageRequest,
-    TResult Function(_PageRequest value)? pageRequest,
-    TResult Function(_FollowRequest value)? followRequest,
-    TResult Function(_UnFollowRequest value)? unFollowRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return unFollowRequest?.call(this);
   }
@@ -1231,14 +1178,11 @@ abstract class _$$_ResetRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ResetRequestCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_ResetRequest>
     implements _$$_ResetRequestCopyWith<$Res> {
   __$$_ResetRequestCopyWithImpl(
       _$_ResetRequest _value, $Res Function(_$_ResetRequest) _then)
-      : super(_value, (v) => _then(v as _$_ResetRequest));
-
-  @override
-  _$_ResetRequest get _value => super._value as _$_ResetRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1264,10 +1208,10 @@ class _$_ResetRequest implements _ResetRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
-    required TResult Function(int id) profileRequest,
+    required TResult Function(String id) profileRequest,
     required TResult Function(Profile profile) profileChanged,
-    required TResult Function(int page) myPageRequest,
-    required TResult Function(int page, int id) pageRequest,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
@@ -1278,14 +1222,14 @@ class _$_ResetRequest implements _ResetRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
-    TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
-    TResult Function()? followRequest,
-    TResult Function()? unFollowRequest,
-    TResult Function()? resetRequest,
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
   }) {
     return resetRequest?.call();
   }
@@ -1294,10 +1238,10 @@ class _$_ResetRequest implements _ResetRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
-    TResult Function(int id)? profileRequest,
+    TResult Function(String id)? profileRequest,
     TResult Function(Profile profile)? profileChanged,
-    TResult Function(int page)? myPageRequest,
-    TResult Function(int page, int id)? pageRequest,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
@@ -1327,14 +1271,14 @@ class _$_ResetRequest implements _ResetRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_MyProfileRequest value)? myProfileRequest,
-    TResult Function(_ProfileRequest value)? profileRequest,
-    TResult Function(_ProfileChanged value)? profileChanged,
-    TResult Function(_MyPageRequest value)? myPageRequest,
-    TResult Function(_PageRequest value)? pageRequest,
-    TResult Function(_FollowRequest value)? followRequest,
-    TResult Function(_UnFollowRequest value)? unFollowRequest,
-    TResult Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
   }) {
     return resetRequest?.call(this);
   }
@@ -1373,6 +1317,7 @@ mixin _$ProfileState {
   bool get isLast => throw _privateConstructorUsedError;
   bool get isLoaded => throw _privateConstructorUsedError;
   bool get isFollowed => throw _privateConstructorUsedError;
+  String? get cursor => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -1383,7 +1328,8 @@ mixin _$ProfileState {
 abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
           ProfileState value, $Res Function(ProfileState) then) =
-      _$ProfileStateCopyWithImpl<$Res>;
+      _$ProfileStateCopyWithImpl<$Res, ProfileState>;
+  @useResult
   $Res call(
       {Option<Either<ProfileFailure, Page>> loadFailureOrSuccessOption,
       List<Post> posts,
@@ -1391,57 +1337,66 @@ abstract class $ProfileStateCopyWith<$Res> {
       bool isLoading,
       bool isLast,
       bool isLoaded,
-      bool isFollowed});
+      bool isFollowed,
+      String? cursor});
 }
 
 /// @nodoc
-class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
+class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
+    implements $ProfileStateCopyWith<$Res> {
   _$ProfileStateCopyWithImpl(this._value, this._then);
 
-  final ProfileState _value;
   // ignore: unused_field
-  final $Res Function(ProfileState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? loadFailureOrSuccessOption = freezed,
-    Object? posts = freezed,
-    Object? profile = freezed,
-    Object? isLoading = freezed,
-    Object? isLast = freezed,
-    Object? isLoaded = freezed,
-    Object? isFollowed = freezed,
+    Object? loadFailureOrSuccessOption = null,
+    Object? posts = null,
+    Object? profile = null,
+    Object? isLoading = null,
+    Object? isLast = null,
+    Object? isLoaded = null,
+    Object? isFollowed = null,
+    Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
-      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
           ? _value.loadFailureOrSuccessOption
           : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ProfileFailure, Page>>,
-      posts: posts == freezed
+      posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<Post>,
-      profile: profile == freezed
+      profile: null == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
               as Profile,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLast: isLast == freezed
+      isLast: null == isLast
           ? _value.isLast
           : isLast // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLoaded: isLoaded == freezed
+      isLoaded: null == isLoaded
           ? _value.isLoaded
           : isLoaded // ignore: cast_nullable_to_non_nullable
               as bool,
-      isFollowed: isFollowed == freezed
+      isFollowed: null == isFollowed
           ? _value.isFollowed
           : isFollowed // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+      cursor: freezed == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
@@ -1452,6 +1407,7 @@ abstract class _$$_ProfileStateCopyWith<$Res>
           _$_ProfileState value, $Res Function(_$_ProfileState) then) =
       __$$_ProfileStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Option<Either<ProfileFailure, Page>> loadFailureOrSuccessOption,
       List<Post> posts,
@@ -1459,59 +1415,63 @@ abstract class _$$_ProfileStateCopyWith<$Res>
       bool isLoading,
       bool isLast,
       bool isLoaded,
-      bool isFollowed});
+      bool isFollowed,
+      String? cursor});
 }
 
 /// @nodoc
 class __$$_ProfileStateCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$_ProfileState>
     implements _$$_ProfileStateCopyWith<$Res> {
   __$$_ProfileStateCopyWithImpl(
       _$_ProfileState _value, $Res Function(_$_ProfileState) _then)
-      : super(_value, (v) => _then(v as _$_ProfileState));
+      : super(_value, _then);
 
-  @override
-  _$_ProfileState get _value => super._value as _$_ProfileState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? loadFailureOrSuccessOption = freezed,
-    Object? posts = freezed,
-    Object? profile = freezed,
-    Object? isLoading = freezed,
-    Object? isLast = freezed,
-    Object? isLoaded = freezed,
-    Object? isFollowed = freezed,
+    Object? loadFailureOrSuccessOption = null,
+    Object? posts = null,
+    Object? profile = null,
+    Object? isLoading = null,
+    Object? isLast = null,
+    Object? isLoaded = null,
+    Object? isFollowed = null,
+    Object? cursor = freezed,
   }) {
     return _then(_$_ProfileState(
-      loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
           ? _value.loadFailureOrSuccessOption
           : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ProfileFailure, Page>>,
-      posts: posts == freezed
+      posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<Post>,
-      profile: profile == freezed
+      profile: null == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
               as Profile,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLast: isLast == freezed
+      isLast: null == isLast
           ? _value.isLast
           : isLast // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLoaded: isLoaded == freezed
+      isLoaded: null == isLoaded
           ? _value.isLoaded
           : isLoaded // ignore: cast_nullable_to_non_nullable
               as bool,
-      isFollowed: isFollowed == freezed
+      isFollowed: null == isFollowed
           ? _value.isFollowed
           : isFollowed // ignore: cast_nullable_to_non_nullable
               as bool,
+      cursor: freezed == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1526,7 +1486,8 @@ class _$_ProfileState implements _ProfileState {
       required this.isLoading,
       required this.isLast,
       required this.isLoaded,
-      required this.isFollowed})
+      required this.isFollowed,
+      required this.cursor})
       : _posts = posts;
 
   @override
@@ -1534,6 +1495,7 @@ class _$_ProfileState implements _ProfileState {
   final List<Post> _posts;
   @override
   List<Post> get posts {
+    if (_posts is EqualUnmodifiableListView) return _posts;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_posts);
   }
@@ -1548,10 +1510,12 @@ class _$_ProfileState implements _ProfileState {
   final bool isLoaded;
   @override
   final bool isFollowed;
+  @override
+  final String? cursor;
 
   @override
   String toString() {
-    return 'ProfileState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, posts: $posts, profile: $profile, isLoading: $isLoading, isLast: $isLast, isLoaded: $isLoaded, isFollowed: $isFollowed)';
+    return 'ProfileState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, posts: $posts, profile: $profile, isLoading: $isLoading, isLast: $isLast, isLoaded: $isLoaded, isFollowed: $isFollowed, cursor: $cursor)';
   }
 
   @override
@@ -1559,30 +1523,37 @@ class _$_ProfileState implements _ProfileState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProfileState &&
-            const DeepCollectionEquality().equals(
-                other.loadFailureOrSuccessOption, loadFailureOrSuccessOption) &&
+            (identical(other.loadFailureOrSuccessOption,
+                    loadFailureOrSuccessOption) ||
+                other.loadFailureOrSuccessOption ==
+                    loadFailureOrSuccessOption) &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
-            const DeepCollectionEquality().equals(other.profile, profile) &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.isLast, isLast) &&
-            const DeepCollectionEquality().equals(other.isLoaded, isLoaded) &&
-            const DeepCollectionEquality()
-                .equals(other.isFollowed, isFollowed));
+            (identical(other.profile, profile) || other.profile == profile) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isLast, isLast) || other.isLast == isLast) &&
+            (identical(other.isLoaded, isLoaded) ||
+                other.isLoaded == isLoaded) &&
+            (identical(other.isFollowed, isFollowed) ||
+                other.isFollowed == isFollowed) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(loadFailureOrSuccessOption),
+      loadFailureOrSuccessOption,
       const DeepCollectionEquality().hash(_posts),
-      const DeepCollectionEquality().hash(profile),
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isLast),
-      const DeepCollectionEquality().hash(isLoaded),
-      const DeepCollectionEquality().hash(isFollowed));
+      profile,
+      isLoading,
+      isLast,
+      isLoaded,
+      isFollowed,
+      cursor);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>
       __$$_ProfileStateCopyWithImpl<_$_ProfileState>(this, _$identity);
 }
@@ -1596,7 +1567,8 @@ abstract class _ProfileState implements ProfileState {
       required final bool isLoading,
       required final bool isLast,
       required final bool isLoaded,
-      required final bool isFollowed}) = _$_ProfileState;
+      required final bool isFollowed,
+      required final String? cursor}) = _$_ProfileState;
 
   @override
   Option<Either<ProfileFailure, Page>> get loadFailureOrSuccessOption;
@@ -1612,6 +1584,8 @@ abstract class _ProfileState implements ProfileState {
   bool get isLoaded;
   @override
   bool get isFollowed;
+  @override
+  String? get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>

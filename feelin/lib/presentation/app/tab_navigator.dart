@@ -18,8 +18,7 @@ class TabNavigator extends StatelessWidget {
 
   Map<String, WidgetBuilder> _routeBuilders(BuildContext context) {
     switch(tabItem){
-      // TODO: Page -> App
-      case TabItem.explore: return {TabNavigatorRoutes.root: (context) => const ExploreApp()};
+      case TabItem.home: return {TabNavigatorRoutes.root: (context) => const ExploreApp()};
       case TabItem.post: return {TabNavigatorRoutes.root: (context) => const PostApp()};
       case TabItem.profile: return {TabNavigatorRoutes.root: (context) => ProfileApp(profileKey: profileKey)};
       default: return {TabNavigatorRoutes.root: (context) => const ExploreApp()};

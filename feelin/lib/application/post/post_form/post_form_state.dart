@@ -11,7 +11,7 @@ class PostFormState with _$PostFormState {
     required ContentString content,
     required PlaylistPreview playlistPreview,
     required Playlist playlist,
-    required Option<Either<PostFailure, Unit>> postFailureOrSuccessOption,
+    required Option<Either<PostFailure, Post>> postFailureOrSuccessOption,
     required bool isSubmitting,
   }) = _PostFormState;
   factory PostFormState.initial() => PostFormState(

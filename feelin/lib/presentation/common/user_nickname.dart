@@ -6,33 +6,33 @@ import '../main/profile/app/profile_app.dart';
 
 class UserNickname extends StatelessWidget{
 
-  final Profile writer;
+  final Profile profile;
   final bool isBig;
 
-  const UserNickname({Key? key, required this.writer, this.isBig = false}) : super(key: key);
+  const UserNickname({Key? key, required this.profile, this.isBig = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: isBig ? null : (){
         Navigator.of(context,).push(
-            MaterialPageRoute(builder: (_) => ProfileApp(userId: writer.id)));
+            MaterialPageRoute(builder: (_) => ProfileApp(userId: profile.id)));
       },
       child: Row(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(isBig ? 16 : 12),
             child: Image(
-              image: CachedNetworkImageProvider(writer.image ?? 'https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/guest/image/caTw7KNdDMeoe833RVMZ4Y11ErQ.JPG'),
+              image: profile.profileImage == null ? AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(profile.profileImage!),
               width: isBig ? 32 : 24,
               height: isBig ? 32 : 24,
               fit: BoxFit.cover,
-            ),
+            )
           ),
           const SizedBox(
             width: 8,
           ),
-          Text(writer.username,
+          Text(profile.username,
             style: const TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 14,

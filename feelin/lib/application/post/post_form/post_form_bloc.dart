@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/play/playlist.dart';
 import 'package:music_sns/domain/play/playlist_preview.dart';
+import 'package:music_sns/domain/play/post.dart';
 import 'package:music_sns/infrastructure/post/playlist_repository.dart';
 
 import '../../../domain/post/post_failure.dart';
@@ -96,10 +97,10 @@ class PostFormBloc extends Bloc<PostFormEvent, PostFormState>{
               postFailureOrSuccessOption: some(left(f)),
             ));
           },
-              (_) {
+              (post) {
             emit(state.copyWith(
               isSubmitting: false,
-              postFailureOrSuccessOption: some(right(_)),
+              postFailureOrSuccessOption: some(right(post)),
             ));
           },
         );

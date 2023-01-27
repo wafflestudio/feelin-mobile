@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 
 import '../../application/share/share.dart';
 import '../main/profile/app/profile_app.dart';
@@ -12,9 +13,9 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App>{
-  var _currentTab = TabItem.profile;
+  var _currentTab = TabItem.home;
   final _navigatorKeys = {
-    TabItem.explore: GlobalKey<NavigatorState>(),
+    TabItem.home: GlobalKey<NavigatorState>(),
     TabItem.post: GlobalKey<NavigatorState>(),
     TabItem.profile: GlobalKey<NavigatorState>(),
   };
@@ -38,7 +39,7 @@ class AppState extends State<App>{
     super.initState();
     Share(context: context).addListener((){
       setState(() {
-        _currentTab = TabItem.explore;
+        _currentTab = TabItem.home;
       });
     });
   }
@@ -50,9 +51,9 @@ class AppState extends State<App>{
         final isFirstRouteInCurrentTab = !_navigatorKeys[_currentTab]!.currentState!.canPop();
         if (isFirstRouteInCurrentTab) {
           // if not on the 'main' tab
-          if (_currentTab != TabItem.profile) {
+          if (_currentTab != TabItem.home) {
             // select 'main' tab
-            _selectTab(TabItem.profile);
+            _selectTab(TabItem.home);
             // back button handled by app
             return false;
           }
@@ -64,14 +65,21 @@ class AppState extends State<App>{
       },
       child: Scaffold(
         body: Stack(children: <Widget>[
-          _buildOffstageNavigator(TabItem.explore),
+          _buildOffstageNavigator(TabItem.home),
           _buildOffstageNavigator(TabItem.post),
           _buildOffstageNavigator(TabItem.profile),
         ]),
-        bottomNavigationBar: BottomNavigation(
-          currentTab: _currentTab,
-          onSelectTab: _selectTab,
-          profileKey: _profileKey,
+        bottomNavigationBar: AnimatedContainer(
+          height: (false) ? 0.0 : kToolbarHeight,
+          curve: Curves.ease,
+          duration: const Duration(milliseconds: 30),
+          child: SingleChildScrollView(
+            child: BottomNavigation(
+              currentTab: _currentTab,
+              onSelectTab: _selectTab,
+              profileKey: _profileKey,
+            ),
+          ),
         ),
       ),
     );

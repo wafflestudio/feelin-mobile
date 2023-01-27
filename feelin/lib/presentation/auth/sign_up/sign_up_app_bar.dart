@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SignUpAppBar extends StatelessWidget with PreferredSizeWidget{
-  final Function goToBack;
   const SignUpAppBar({Key? key, required this.goToBack}) : super(key: key);
+  final Function goToBack;
 
   @override
   Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);

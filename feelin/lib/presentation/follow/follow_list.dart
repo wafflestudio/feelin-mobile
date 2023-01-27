@@ -52,7 +52,7 @@ class _PostListState extends State<FollowList> {
           } else {
             return Padding(
               padding: const EdgeInsets.only(bottom: 5.0, left: 8, right: 8),
-              child: FollowUserItem(index: index, user: widget.users[index]),
+              child: FollowUserItem(index: index, profile: widget.users[index]),
             );
           }
         });

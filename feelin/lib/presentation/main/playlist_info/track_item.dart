@@ -19,7 +19,6 @@ class TrackItem extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        showPopup(context, post.playlist.tracks!, index);
       },
       child: Container(
         padding: const EdgeInsets.only(bottom: 8),

@@ -8,12 +8,14 @@ import 'package:retrofit/retrofit.dart';
 
 import '../../domain/post/post_playlist_request.dart';
 import '../../domain/post/value_objects.dart';
+import '../auth/get_auth_dio.dart';
 import 'playlist_client.dart';
 
 @LazySingleton()
 class PlaylistRepository{
   static final PlaylistRepository _singletonPlaylistRepository = PlaylistRepository._internal();
-  final playlistClient = PlaylistClient(Dio());
+  final dio = getAuthDio();
+  late PlaylistClient playlistClient = PlaylistClient(dio);
 
   factory PlaylistRepository() {
     return _singletonPlaylistRepository;
@@ -30,7 +32,10 @@ class PlaylistRepository{
         return const Left(PostFailure.noSuchPlaylistExists());
       }
     } on DioError catch(e){
-      if(e.response?.statusCode == 404){
+      print(e);
+      if(e.response?.statusCode == 400){
+        return const Left(PostFailure.notSupportingVendor());
+      } else if(e.response?.statusCode == 404){
         return const Left(PostFailure.noSuchPlaylistExists());
       }
       return const Left(PostFailure.serverError());

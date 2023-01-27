@@ -7,7 +7,7 @@ part of 'post.dart';
 // **************************************************************************
 
 Post _$PostFromJson(Map<String, dynamic> json) => Post(
-      id: json['id'] as int,
+      id: json['id'] as String,
       writer: json['user'] == null
           ? null
           : Profile.fromJson(json['user'] as Map<String, dynamic>),
@@ -16,7 +16,10 @@ Post _$PostFromJson(Map<String, dynamic> json) => Post(
       playlist: Playlist.fromJson(json['playlist'] as Map<String, dynamic>),
       isLiked: json['doesLike'] as bool?,
       likeCount: json['likes'] as int? ?? 0,
-    );
+      tempThumbnail: json['thumbnail'] as String?,
+    )..trackPreview = (json['trackPreview'] as List<dynamic>?)
+        ?.map((e) => Track.fromJson(e as Map<String, dynamic>))
+        .toList();
 
 Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
       'id': instance.id,
@@ -26,4 +29,6 @@ Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
       'playlist': instance.playlist,
       'doesLike': instance.isLiked,
       'likes': instance.likeCount,
+      'thumbnail': instance.tempThumbnail,
+      'trackPreview': instance.trackPreview,
     };

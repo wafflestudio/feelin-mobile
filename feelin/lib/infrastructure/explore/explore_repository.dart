@@ -55,4 +55,42 @@ class ExploreRepository{
       }
     }
   }
+
+  Future<Either<ExploreFailure, Unit>> like({required String id,}) async{
+    try{
+      HttpResponse<void> httpResponse = await exploreClient.like(id);
+      switch(httpResponse.response.statusCode){
+        case 200 : return const Right(unit);
+        case 201 : return const Right(unit);
+        case 403 : return const Left(ExploreFailure.forbidden());
+        case 404 : return const Left(ExploreFailure.notFound());
+        default : return const Left(ExploreFailure.serverError());
+      }
+    }on DioError catch(e){
+      switch(e.response?.statusCode){
+        case 403 : return const Left(ExploreFailure.forbidden());
+        case 404 : return const Left(ExploreFailure.notFound());
+        default : return const Left(ExploreFailure.serverError());
+      }
+    }
+  }
+
+  Future<Either<ExploreFailure, Unit>> unlike({required String id,}) async{
+    try{
+      HttpResponse<void> httpResponse = await exploreClient.unlike(id);
+      switch(httpResponse.response.statusCode){
+        case 200 : return const Right(unit);
+        case 201 : return const Right(unit);
+        case 403 : return const Left(ExploreFailure.forbidden());
+        case 404 : return const Left(ExploreFailure.notFound());
+        default : return const Left(ExploreFailure.serverError());
+      }
+    }on DioError catch(e){
+      switch(e.response?.statusCode){
+        case 403 : return const Left(ExploreFailure.forbidden());
+        case 404 : return const Left(ExploreFailure.notFound());
+        default : return const Left(ExploreFailure.serverError());
+      }
+    }
+  }
 }

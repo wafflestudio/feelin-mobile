@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'sign_up_request.g.dart';
+part 'sign_up_with_email_request.g.dart';
 
 @JsonSerializable()
-class SignUpRequest{
+class SignUpWithEmailRequest{
   @JsonKey(name: "email")
   String email;
   @JsonKey(name: "password")
@@ -14,12 +14,8 @@ class SignUpRequest{
   String username;
   @JsonKey(name: "birthDate")
   String birthday;
-  // @JsonKey(name: "countryCode")
-  // String countryCode = '+82';
-  // @JsonKey(name: "phoneNumber")
-  // String phoneNumber = '010-0000-1111';
 
-  SignUpRequest({
+  SignUpWithEmailRequest({
     required this.email,
     required this.password,
     required this.name,
@@ -27,7 +23,7 @@ class SignUpRequest{
     required this.birthday,
   });
 
-  factory SignUpRequest.fromJson(Map<String, dynamic> json) => _$SignUpRequestFromJson(json);
+  factory SignUpWithEmailRequest.fromJson(Map<String, dynamic> json) => _$SignUpWithEmailRequestFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SignUpRequestToJson(this);
+  Map<String, dynamic> toJson() => _$SignUpWithEmailRequestToJson(this);
 }

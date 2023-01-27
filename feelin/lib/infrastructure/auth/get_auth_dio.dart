@@ -22,8 +22,8 @@ Dio getAuthDio() {
     final token = await storage.read(key: 'token');
 
     // 매 요청마다 헤더에 AccessToken을 포함
-    options.headers['Authentication'] = token;
     options.headers['Authorization'] = token;
+    options.headers['Authentication'] = token;
     return handler.next(options);
   }, onError: (error, handler) async {
 
@@ -45,7 +45,7 @@ Dio getAuthDio() {
           .add(InterceptorsWrapper(onError: (error, handler) async {
 
         // 다시 인증 오류가 발생했을 경우: RefreshToken의 만료
-        if (error.response?.statusCode == 401 || error.response?.statusCode == 403 || error.response?.statusCode == 404) {
+        if (error.response?.statusCode == 401 || error.response?.statusCode == 403 || error.response?.statusCode == 404 || error.response?.statusCode == 400) {
 
           // 기기의 자동 로그인 정보 삭제
           await storage.deleteAll();
@@ -66,8 +66,8 @@ Dio getAuthDio() {
       }));
 
       // 토큰 갱신 API 요청 시 AccessToken(만료), RefreshToken 포함
+      refreshDio.options.headers['Authorization'] = refreshToken;
       refreshDio.options.headers['Authentication'] = refreshToken;
-      //refreshDio.options.headers['Refresh'] = refreshToken;
 
       // 토큰 갱신 API 요청
       final refreshResponse = await refreshDio.post('/auth/refresh');
@@ -81,6 +81,7 @@ Dio getAuthDio() {
       await storage.write(key: 'refresh', value: newRefreshToken);
 
       // AccessToken의 만료로 수행하지 못했던 API 요청에 담겼던 AccessToken 갱신
+      error.requestOptions.headers['Authorization'] = newAccessToken;
       error.requestOptions.headers['Authentication'] = newAccessToken;
 
       // 수행하지 못했던 API 요청 복사본 생성

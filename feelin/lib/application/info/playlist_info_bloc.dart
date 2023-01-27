@@ -8,6 +8,8 @@ import 'package:music_sns/domain/play/post.dart';
 import 'package:music_sns/domain/profile/profile.dart';
 import 'package:music_sns/infrastructure/explore/explore_post_repository.dart';
 
+import '../../domain/streaming/redirect_url.dart';
+
 part 'playlist_info_bloc.freezed.dart';
 part 'playlist_info_event.dart';
 part 'playlist_info_state.dart';
@@ -56,14 +58,14 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
     });
 
     on<_LikeRequest>((event, emit) async {
-
       if(!state.isLiked){
         final failureOrSuccess = await _explorePostRepository.like(id: state.post.id);
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
-              isLiked: false,
+              isLiked: true,
             ));
+            state.post.likeCount = state.post.likeCount! + 1;
           },
               (posts) {
             emit(state.copyWith(
@@ -76,20 +78,47 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
     });
 
     on<_UnlikeRequest>((event, emit) async {
-
       if(state.isLiked){
         final failureOrSuccess = await _explorePostRepository.unlike(id: state.post.id);
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
-              isLiked: true,
+              isLiked: false,
             ));
+            state.post.likeCount = state.post.likeCount! - 1;
           },
               (posts) {
             emit(state.copyWith(
               isLiked: false,
             ));
             state.post.likeCount = state.post.likeCount! - 1;
+          },
+        );
+      }else{
+        emit(state.copyWith(
+          isLiked: false,
+        ));
+      }
+    });
+
+    on<_SaveRequest>((event, emit) async {
+      if(!state.isSaving){
+        emit(state.copyWith(
+          isSaving: true,
+        ));
+        final failureOrSuccess = await _explorePostRepository.save(playlistId: state.post.playlist.id, vendorId: event.vendorId, title: state.post.title, content: state.post.content);
+        failureOrSuccess.fold(
+              (f) {
+            emit(state.copyWith(
+              isSaving: false,
+              saveFailureOrSuccessOption: some(left(f)),
+            ));
+          },
+              (url) {
+            emit(state.copyWith(
+              isSaving: false,
+              saveFailureOrSuccessOption: some(right(RedirectUrl(url: url))),
+            ));
           },
         );
       }

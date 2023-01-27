@@ -53,14 +53,11 @@ class _PostDetailPageState extends State<PostTrackPage> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    context.read<PostFormBloc>().state.playlistPreview.thumbnail,
-                    fit: BoxFit.cover,
-                    width: 72,
-                    height: 72,),
-                ),
+                Image.network(
+                  context.read<PostFormBloc>().state.playlistPreview.thumbnail,
+                  fit: BoxFit.cover,
+                  width: 72,
+                  height: 72,),
                 const SizedBox(width: 10,),
                 Container(
                   width: size.width - 122,
@@ -94,15 +91,12 @@ class _PostDetailPageState extends State<PostTrackPage> {
                         padding: const EdgeInsets.all(5),
                         child: Row(
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(4),
-                              child: Image(
-                                image: CachedNetworkImageProvider(
-                                    playlist.tracks![index].album.thumbnail),
-                                fit: BoxFit.cover,
-                                width: 56,
-                                height: 56,),
-                            ),
+                            Image(
+                              image: CachedNetworkImageProvider(
+                                  playlist.tracks![index].album.thumbnail),
+                              fit: BoxFit.cover,
+                              width: 56,
+                              height: 56,),
                             _itemText(context, index),
                           ],
                         ),

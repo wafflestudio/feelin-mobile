@@ -33,7 +33,7 @@ class _EditPostPageState extends State<EditPostPage> {
     context.read<EditPostFormBloc>().add(EditPostFormEvent.titleChanged(widget.post.title));
     context.read<EditPostFormBloc>().add(EditPostFormEvent.contentChanged(widget.post.content));
     PlaylistPreview playlistPreview = context.read<EditPostFormBloc>().state.playlistPreview;
-    playlistPreview.thumbnail = widget.post.playlist.tracks![0].album.thumbnail;
+    playlistPreview.thumbnail = widget.post.playlist.thumbnail!;
     playlistPreview.order = List.generate(widget.post.playlist.tracks!.length, (index) => index+1).join(' ');
     context.read<EditPostFormBloc>().add(EditPostFormEvent.previewChanged(playlistPreview));
     _titleTextController.text = widget.post.title;
@@ -84,7 +84,7 @@ class _EditPostPageState extends State<EditPostPage> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image(
-                image: CachedNetworkImageProvider(widget.post.playlist.tracks![0].album.thumbnail),
+                image: CachedNetworkImageProvider(widget.post.playlist.thumbnail!),
                 width: 200,
                 height: 200,
                 fit: BoxFit.cover,

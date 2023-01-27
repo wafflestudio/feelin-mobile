@@ -58,7 +58,6 @@ class ConnectStreamingBloc extends Bloc<ConnectStreamingEvent, ConnectStreamingS
           ));
         },
       );
-
     });
   }
 }

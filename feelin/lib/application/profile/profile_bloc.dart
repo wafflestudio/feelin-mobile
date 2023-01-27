@@ -23,7 +23,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
       ));
 
       if(!state.isLast){
-        final failureOrSuccess = await _profileRepository.getMyPosts();
+        final failureOrSuccess = await _profileRepository.getMyPosts(cursor: state.cursor);
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
@@ -31,12 +31,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
               loadFailureOrSuccessOption: some(left(f)),
             ));
           },
-              (posts) {
+              (tuple) {
             emit(state.copyWith(
               isLoading: false,
-              loadFailureOrSuccessOption: some(right(posts)),
-              posts: posts.content,
-              isLast: true,
+              loadFailureOrSuccessOption: some(right(tuple.value1)),
+              posts: state.posts + tuple.value1.content,
+              isLast: tuple.value1.last,
+              cursor: tuple.value2,
             ));
           },
         );
@@ -52,7 +53,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
       ));
 
       if(!state.isLast){
-        final failureOrSuccess = await _profileRepository.getPostsById(id: event.id);
+        final failureOrSuccess = await _profileRepository.getPostsById(id: event.id, cursor: state.cursor);
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
@@ -60,13 +61,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
               loadFailureOrSuccessOption: some(left(f)),
             ));
           },
-              (posts) {
-            emit(state.copyWith(
-              isLoading: false,
-              loadFailureOrSuccessOption: some(right(posts)),
-              posts: posts.content,
-              isLast: true,
-            ));
+              (tuple) {
+                emit(state.copyWith(
+                  isLoading: false,
+                  loadFailureOrSuccessOption: some(right(tuple.value1)),
+                  posts: state.posts + tuple.value1.content,
+                  isLast: tuple.value1.last,
+                  cursor: tuple.value2,
+                ));
           },
         );
       }else{
@@ -79,6 +81,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
       emit(state.copyWith(
         posts: [],
         isLast: false,
+        cursor: null,
       ));
     });
     on<_MyProfileRequest>((event, emit) async {

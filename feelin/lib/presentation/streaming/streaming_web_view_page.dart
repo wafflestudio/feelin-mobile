@@ -4,9 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:music_sns/application/streaming/connect_streaming_bloc.dart';
+import 'package:music_sns/application/streaming/connect/connect_streaming_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../../application/streaming/streaming_bloc.dart';
 import '../style/colors.dart';
 
 class StreamingWebViewPage extends StatefulWidget{
@@ -66,7 +67,7 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
                     }
                     //_controller.runJavascript('sendToFlutter()');
                   },
-                  color: Colors.grey,
+                  color: Colors.black,
                   icon: const Icon(Icons.arrow_back_ios_new),
                 );
               }
@@ -86,7 +87,9 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
                     backgroundColor: FeelinColorFamily.redPrimary,
                     content: const Text('Successfully connected.'),
                     ));
-                    Navigator.pop(context);
+                    Navigator.pop(context, true);
+                    Navigator.pop(context, true);
+                    context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
                 },
               ),
             );
@@ -101,6 +104,7 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
                     WebView(
                       initialUrl: widget.url,
                       javascriptMode: JavascriptMode.unrestricted,
+                      userAgent: 'random',
                       onWebViewCreated: (WebViewController webViewController){
                         _completer.future.then((value) => _controller = value);
                         _completer.complete(webViewController);
@@ -125,13 +129,15 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
                         //_controller.reload();
                       },
                       navigationDelegate: (request){
-                        print(request);
+                        print(request.url);
                         if(request.url.startsWith('https://feelin-api-dev.wafflestudio.com')){
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             backgroundColor: FeelinColorFamily.redPrimary,
                             content: const Text('Successfully connected.'),
                           ));
-                          Navigator.pop(context);
+                          Navigator.pop(context, true);
+                          Navigator.pop(context, true);
+                          context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
                         }
                         return NavigationDecision.navigate;
                       },

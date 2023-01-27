@@ -100,6 +100,9 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
             leading: IconButton(
               onPressed: () {
                 if(widget.isEdited){
+                  if(widget.post != null){
+                    widget.post!.isLiked = state.post.isLiked;
+                  }
                   Navigator.pop(context, widget.post);
                 }else{
                   Navigator.pop(context);
@@ -160,9 +163,9 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 ),
-                builder: (BuildContext context) {
+                builder: (BuildContext context2) {
                   return SizedBox(
-                    height: (state.post.writer!.id == int.parse(id!)) ? 200 : 80,
+                    height: (state.post.writer!.id == id!) ? 200 : 80,
                     child: Column(
                       children: <Widget>[
                         const SizedBox(
@@ -173,12 +176,14 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                           height: 60,
                           child: TextButton(onPressed: (){
                             share.share(widget.post.id, widget.post.title, widget.post.playlist.thumbnail ?? state.post.playlist.tracks![0].album.thumbnail);
+                            Navigator.pop(context2);
                           }, child: const Text('Share', textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),)),
                         ),
-                        if(state.post.writer!.id == int.parse(id!)) SizedBox(
+                        if(state.post.writer!.id == id!) SizedBox(
                             width: double.infinity,
                             height: 60,
                             child: TextButton(onPressed: (){
+                              Navigator.pop(context2);
                               Navigator.push(context,
                                   CupertinoPageRoute(
                                       builder: (context) => BlocProvider(create: (context) => getIt<EditPostFormBloc>(),
@@ -191,7 +196,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                                 }
                               });
                             }, child: const Text('Edit', style: TextStyle(color: Colors.black, fontSize: 16),))),
-                        if(state.post.writer!.id == int.parse(id!)) SizedBox(
+                        if(state.post.writer!.id == id!) SizedBox(
                             width: double.infinity,
                             height: 60,
                             child: TextButton(onPressed: ()=>showModalBottomSheet<void>(
@@ -245,7 +250,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                                         child: TextButton(
                                           onPressed: (){
                                             bloc.add(PlaylistInfoEvent.deleteRequest(widget.post.id));
-                                            Navigator.pop(context);
+                                            Navigator.pop(context2);
                                             Navigator.pop(context);
                                           },
                                           child: Text(
@@ -327,31 +332,47 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          widget.post.title,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
-                          style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: -0.41,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5),
-                          child: Text(
-                            widget.post.content,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 13,
-                              color: FeelinColorFamily.gray600,
-                              letterSpacing: -0.41,
+                        GestureDetector(
+                          onTap: (){
+                            showDetail();
+                          },
+                          child: AbsorbPointer(
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width-32,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    widget.post.title,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
+                                    style: const TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: -0.41,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 5),
+                                    child: Text(
+                                      widget.post.content,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 13,
+                                        color: FeelinColorFamily.gray600,
+                                        letterSpacing: -0.41,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                        if(!state.isLoading)UserNickname(writer: state.post.writer!),
+
+                        if(!state.isLoading)UserNickname(profile: state.post.writer!),
                         if(!state.isLoading)Row(
                           children: [
                             Text(
@@ -379,6 +400,66 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
           ),
         );
       }
+    );
+  }
+
+  void showDetail(){
+    final state = context.read<PlaylistInfoBloc>().state;
+    showModalBottomSheet<void>(
+      context: context,
+      useRootNavigator: false,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: MediaQuery.of(context).size.height - 345,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Container(
+                      height: 4,
+                      width: 100,
+                      margin: EdgeInsets.symmetric(vertical: 12),
+                      decoration: BoxDecoration(
+                        color: FeelinColorFamily.gray600,
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                  ),
+                  UserNickname(profile: state.post.writer!),
+                  const SizedBox(height: 5,),
+                  Text(
+                    widget.post.title,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: -0.41,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: Text(
+                      widget.post.content,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 13,
+                        color: FeelinColorFamily.gray900,
+                        letterSpacing: -0.41,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

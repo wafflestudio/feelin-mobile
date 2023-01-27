@@ -1,14 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_up/common_title.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_birthday.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';
 
 class SignUpName extends StatefulWidget{
-  final Map<String, String> input;
   final Function goToNext;
-  const SignUpName({Key? key, required this.input, required this.goToNext}) : super(key: key);
+  const SignUpName({Key? key, required this.goToNext,}) : super(key: key);
 
   @override
   State<SignUpName> createState() => _SignUpNameState();
@@ -35,14 +36,14 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
     return Align(
       alignment: Alignment.topCenter,
       child: Container(
-        constraints: BoxConstraints(maxHeight: 475),
+        constraints: const BoxConstraints(maxHeight: 475),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
-              margin: EdgeInsets.only(top: 30),
-              constraints: BoxConstraints(maxHeight: 210),
+              margin: const EdgeInsets.only(top: 30),
+              constraints: const BoxConstraints(maxHeight: 210),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,9 +57,6 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
               padding: const EdgeInsets.only(bottom: 20),
               child: NextButton(disabled: name.isEmpty,
                 function: (){
-                  setState(() {
-                    widget.input['name'] = name;
-                  });
                   widget.goToNext();
                 },),
             ),
@@ -81,20 +79,17 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
               textAlign: TextAlign.center,
               textInputAction: TextInputAction.next,
               onFieldSubmitted: (_){
-                if(!name.isEmpty){
-                  setState(() {
-                    widget.input['name'] = name;
-                  });
+                if(name.isNotEmpty){
                   widget.goToNext();
                 }
               },
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
                 color: Colors.black,
                 letterSpacing: -0.41,
               ),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Name',
                 isDense: true,
                 ),

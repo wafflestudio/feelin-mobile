@@ -8,7 +8,7 @@ import 'follow_list.dart';
 class FollowPage extends StatefulWidget {
 
   final bool isFollowerPage;
-  final int id;
+  final String id;
 
   const FollowPage({Key? key, required this.id, required this.isFollowerPage}) : super(key: key);
 

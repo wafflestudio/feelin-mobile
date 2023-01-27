@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,22 +14,28 @@ import '../../../injection.dart';
 
 
 class ProfilePage extends StatefulWidget{
-  final int? userId;
-  const ProfilePage({Key? key, this.userId}) : super(key: key);
+  final String? userId;
+  final ScrollController scrollController;
+  const ProfilePage({Key? key, this.userId, required this.scrollController}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage>{
+class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClientMixin<ProfilePage>{
   final storage = const FlutterSecureStorage();
   String? token;
   String? id;
 
+  GlobalKey globalKey = GlobalKey();
+
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   void initState(){
     super.initState();
-
+    print('ffffff'+widget.userId.toString());
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _async();
     });
@@ -38,6 +45,7 @@ class _ProfilePageState extends State<ProfilePage>{
   _async() async{
     token = await storage.read(key: "token");
     id = await storage.read(key: 'id');
+    print('ffffff'+id.toString());
   }
 
   @override
@@ -49,7 +57,6 @@ class _ProfilePageState extends State<ProfilePage>{
     );
   }
 
-  final ScrollController scrollController = ScrollController();
 
   Widget gridView(){
     return BlocBuilder<ProfileBloc, ProfileState>(
@@ -59,10 +66,10 @@ class _ProfilePageState extends State<ProfilePage>{
               return ScrollConfiguration(
                 behavior: const ScrollBehavior().copyWith(overscroll: false),
                 child: CustomScrollView(
-                  controller: scrollController,
+                  controller: widget.scrollController,
                   physics: const ClampingScrollPhysics(),
                   slivers: [
-                    DynamicSliverAppBar(maxHeight: 600,child: _profileView(context),),
+                    DynamicSliverAppBar(key: globalKey, maxHeight: 600,child: _profileView(context),),
                     SliverList(
                         delegate: SliverChildBuilderDelegate(
                                 (BuildContext context, int index) {
@@ -100,9 +107,8 @@ class _ProfilePageState extends State<ProfilePage>{
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(50),
-                      child: Image.network(
-                        'https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/guest/image/caTw7KNdDMeoe833RVMZ4Y11ErQ.JPG',
-                        //image: CachedNetworkImageProvider(state.profile.image ?? 'https://blog.kakaocdn.net/dn/XsNHt/btrb3m0cuQb/62QmvGg1bUVrI5uZfcWEi1/img.png'),
+                      child: Image(
+                        image: state.profile.profileImage == null ? AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(state.profile.profileImage!),
                         width: 100,
                         height: 100,
                         fit: BoxFit.cover,
@@ -202,7 +208,7 @@ class _ProfilePageState extends State<ProfilePage>{
                     ),
                   ),
               ),
-              if(widget.userId != null && widget.userId != int.parse(id!))
+              if(widget.userId != null && widget.userId != id!)
                 Padding(
                 padding: const EdgeInsets.only(top: 30),
                 child: FollowButton(isFollowed: state.isFollowed, function: (){

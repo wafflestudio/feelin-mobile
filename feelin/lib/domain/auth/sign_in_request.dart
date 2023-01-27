@@ -8,10 +8,13 @@ class SignInRequest{
   String account;
   @JsonKey(name: "password")
   String password;
+  @JsonKey(name: "type")
+  String type;
 
   SignInRequest({
     required this.account,
     required this.password,
+    required this.type,
 });
 
   factory SignInRequest.fromJson(Map<String, dynamic> json) => _$SignInRequestFromJson(json);

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'post_form_bloc.dart';
 
@@ -30,13 +30,13 @@ mixin _$PostFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String urlStr)? urlChanged,
-    TResult Function()? resetFetch,
-    TResult Function()? submitted,
-    TResult Function()? fetchRequested,
-    TResult Function(String titleStr)? titleChanged,
-    TResult Function(String contentStr)? contentChanged,
-    TResult Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function()? resetFetch,
+    TResult? Function()? submitted,
+    TResult? Function()? fetchRequested,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String contentStr)? contentChanged,
+    TResult? Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,13 +65,13 @@ mixin _$PostFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_UrlChanged value)? urlChanged,
-    TResult Function(_ResetFetch value)? resetFetch,
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_FetchRequested value)? fetchRequested,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_ContentChanged value)? contentChanged,
-    TResult Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_ResetFetch value)? resetFetch,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_FetchRequested value)? fetchRequested,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_ContentChanged value)? contentChanged,
+    TResult? Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,17 +92,18 @@ mixin _$PostFormEvent {
 abstract class $PostFormEventCopyWith<$Res> {
   factory $PostFormEventCopyWith(
           PostFormEvent value, $Res Function(PostFormEvent) then) =
-      _$PostFormEventCopyWithImpl<$Res>;
+      _$PostFormEventCopyWithImpl<$Res, PostFormEvent>;
 }
 
 /// @nodoc
-class _$PostFormEventCopyWithImpl<$Res>
+class _$PostFormEventCopyWithImpl<$Res, $Val extends PostFormEvent>
     implements $PostFormEventCopyWith<$Res> {
   _$PostFormEventCopyWithImpl(this._value, this._then);
 
-  final PostFormEvent _value;
   // ignore: unused_field
-  final $Res Function(PostFormEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -110,26 +111,25 @@ abstract class _$$_UrlChangedCopyWith<$Res> {
   factory _$$_UrlChangedCopyWith(
           _$_UrlChanged value, $Res Function(_$_UrlChanged) then) =
       __$$_UrlChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String urlStr});
 }
 
 /// @nodoc
 class __$$_UrlChangedCopyWithImpl<$Res>
-    extends _$PostFormEventCopyWithImpl<$Res>
+    extends _$PostFormEventCopyWithImpl<$Res, _$_UrlChanged>
     implements _$$_UrlChangedCopyWith<$Res> {
   __$$_UrlChangedCopyWithImpl(
       _$_UrlChanged _value, $Res Function(_$_UrlChanged) _then)
-      : super(_value, (v) => _then(v as _$_UrlChanged));
+      : super(_value, _then);
 
-  @override
-  _$_UrlChanged get _value => super._value as _$_UrlChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? urlStr = freezed,
+    Object? urlStr = null,
   }) {
     return _then(_$_UrlChanged(
-      urlStr == freezed
+      null == urlStr
           ? _value.urlStr
           : urlStr // ignore: cast_nullable_to_non_nullable
               as String,
@@ -155,15 +155,15 @@ class _$_UrlChanged implements _UrlChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UrlChanged &&
-            const DeepCollectionEquality().equals(other.urlStr, urlStr));
+            (identical(other.urlStr, urlStr) || other.urlStr == urlStr));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(urlStr));
+  int get hashCode => Object.hash(runtimeType, urlStr);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UrlChangedCopyWith<_$_UrlChanged> get copyWith =>
       __$$_UrlChangedCopyWithImpl<_$_UrlChanged>(this, _$identity);
 
@@ -185,13 +185,13 @@ class _$_UrlChanged implements _UrlChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String urlStr)? urlChanged,
-    TResult Function()? resetFetch,
-    TResult Function()? submitted,
-    TResult Function()? fetchRequested,
-    TResult Function(String titleStr)? titleChanged,
-    TResult Function(String contentStr)? contentChanged,
-    TResult Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function()? resetFetch,
+    TResult? Function()? submitted,
+    TResult? Function()? fetchRequested,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String contentStr)? contentChanged,
+    TResult? Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
   }) {
     return urlChanged?.call(urlStr);
   }
@@ -232,13 +232,13 @@ class _$_UrlChanged implements _UrlChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_UrlChanged value)? urlChanged,
-    TResult Function(_ResetFetch value)? resetFetch,
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_FetchRequested value)? fetchRequested,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_ContentChanged value)? contentChanged,
-    TResult Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_ResetFetch value)? resetFetch,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_FetchRequested value)? fetchRequested,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_ContentChanged value)? contentChanged,
+    TResult? Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
   }) {
     return urlChanged?.call(this);
   }
@@ -280,14 +280,11 @@ abstract class _$$_ResetFetchCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ResetFetchCopyWithImpl<$Res>
-    extends _$PostFormEventCopyWithImpl<$Res>
+    extends _$PostFormEventCopyWithImpl<$Res, _$_ResetFetch>
     implements _$$_ResetFetchCopyWith<$Res> {
   __$$_ResetFetchCopyWithImpl(
       _$_ResetFetch _value, $Res Function(_$_ResetFetch) _then)
-      : super(_value, (v) => _then(v as _$_ResetFetch));
-
-  @override
-  _$_ResetFetch get _value => super._value as _$_ResetFetch;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -327,13 +324,13 @@ class _$_ResetFetch implements _ResetFetch {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String urlStr)? urlChanged,
-    TResult Function()? resetFetch,
-    TResult Function()? submitted,
-    TResult Function()? fetchRequested,
-    TResult Function(String titleStr)? titleChanged,
-    TResult Function(String contentStr)? contentChanged,
-    TResult Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function()? resetFetch,
+    TResult? Function()? submitted,
+    TResult? Function()? fetchRequested,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String contentStr)? contentChanged,
+    TResult? Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
   }) {
     return resetFetch?.call();
   }
@@ -374,13 +371,13 @@ class _$_ResetFetch implements _ResetFetch {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_UrlChanged value)? urlChanged,
-    TResult Function(_ResetFetch value)? resetFetch,
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_FetchRequested value)? fetchRequested,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_ContentChanged value)? contentChanged,
-    TResult Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_ResetFetch value)? resetFetch,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_FetchRequested value)? fetchRequested,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_ContentChanged value)? contentChanged,
+    TResult? Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
   }) {
     return resetFetch?.call(this);
   }
@@ -416,14 +413,12 @@ abstract class _$$_SubmittedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SubmittedCopyWithImpl<$Res> extends _$PostFormEventCopyWithImpl<$Res>
+class __$$_SubmittedCopyWithImpl<$Res>
+    extends _$PostFormEventCopyWithImpl<$Res, _$_Submitted>
     implements _$$_SubmittedCopyWith<$Res> {
   __$$_SubmittedCopyWithImpl(
       _$_Submitted _value, $Res Function(_$_Submitted) _then)
-      : super(_value, (v) => _then(v as _$_Submitted));
-
-  @override
-  _$_Submitted get _value => super._value as _$_Submitted;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -463,13 +458,13 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String urlStr)? urlChanged,
-    TResult Function()? resetFetch,
-    TResult Function()? submitted,
-    TResult Function()? fetchRequested,
-    TResult Function(String titleStr)? titleChanged,
-    TResult Function(String contentStr)? contentChanged,
-    TResult Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function()? resetFetch,
+    TResult? Function()? submitted,
+    TResult? Function()? fetchRequested,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String contentStr)? contentChanged,
+    TResult? Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
   }) {
     return submitted?.call();
   }
@@ -510,13 +505,13 @@ class _$_Submitted implements _Submitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_UrlChanged value)? urlChanged,
-    TResult Function(_ResetFetch value)? resetFetch,
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_FetchRequested value)? fetchRequested,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_ContentChanged value)? contentChanged,
-    TResult Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_ResetFetch value)? resetFetch,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_FetchRequested value)? fetchRequested,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_ContentChanged value)? contentChanged,
+    TResult? Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
   }) {
     return submitted?.call(this);
   }
@@ -553,14 +548,11 @@ abstract class _$$_FetchRequestedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_FetchRequestedCopyWithImpl<$Res>
-    extends _$PostFormEventCopyWithImpl<$Res>
+    extends _$PostFormEventCopyWithImpl<$Res, _$_FetchRequested>
     implements _$$_FetchRequestedCopyWith<$Res> {
   __$$_FetchRequestedCopyWithImpl(
       _$_FetchRequested _value, $Res Function(_$_FetchRequested) _then)
-      : super(_value, (v) => _then(v as _$_FetchRequested));
-
-  @override
-  _$_FetchRequested get _value => super._value as _$_FetchRequested;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -600,13 +592,13 @@ class _$_FetchRequested implements _FetchRequested {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String urlStr)? urlChanged,
-    TResult Function()? resetFetch,
-    TResult Function()? submitted,
-    TResult Function()? fetchRequested,
-    TResult Function(String titleStr)? titleChanged,
-    TResult Function(String contentStr)? contentChanged,
-    TResult Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function()? resetFetch,
+    TResult? Function()? submitted,
+    TResult? Function()? fetchRequested,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String contentStr)? contentChanged,
+    TResult? Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
   }) {
     return fetchRequested?.call();
   }
@@ -647,13 +639,13 @@ class _$_FetchRequested implements _FetchRequested {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_UrlChanged value)? urlChanged,
-    TResult Function(_ResetFetch value)? resetFetch,
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_FetchRequested value)? fetchRequested,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_ContentChanged value)? contentChanged,
-    TResult Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_ResetFetch value)? resetFetch,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_FetchRequested value)? fetchRequested,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_ContentChanged value)? contentChanged,
+    TResult? Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
   }) {
     return fetchRequested?.call(this);
   }
@@ -686,26 +678,25 @@ abstract class _$$_TitleChangedCopyWith<$Res> {
   factory _$$_TitleChangedCopyWith(
           _$_TitleChanged value, $Res Function(_$_TitleChanged) then) =
       __$$_TitleChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String titleStr});
 }
 
 /// @nodoc
 class __$$_TitleChangedCopyWithImpl<$Res>
-    extends _$PostFormEventCopyWithImpl<$Res>
+    extends _$PostFormEventCopyWithImpl<$Res, _$_TitleChanged>
     implements _$$_TitleChangedCopyWith<$Res> {
   __$$_TitleChangedCopyWithImpl(
       _$_TitleChanged _value, $Res Function(_$_TitleChanged) _then)
-      : super(_value, (v) => _then(v as _$_TitleChanged));
+      : super(_value, _then);
 
-  @override
-  _$_TitleChanged get _value => super._value as _$_TitleChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? titleStr = freezed,
+    Object? titleStr = null,
   }) {
     return _then(_$_TitleChanged(
-      titleStr == freezed
+      null == titleStr
           ? _value.titleStr
           : titleStr // ignore: cast_nullable_to_non_nullable
               as String,
@@ -731,15 +722,16 @@ class _$_TitleChanged implements _TitleChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TitleChanged &&
-            const DeepCollectionEquality().equals(other.titleStr, titleStr));
+            (identical(other.titleStr, titleStr) ||
+                other.titleStr == titleStr));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(titleStr));
+  int get hashCode => Object.hash(runtimeType, titleStr);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TitleChangedCopyWith<_$_TitleChanged> get copyWith =>
       __$$_TitleChangedCopyWithImpl<_$_TitleChanged>(this, _$identity);
 
@@ -761,13 +753,13 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String urlStr)? urlChanged,
-    TResult Function()? resetFetch,
-    TResult Function()? submitted,
-    TResult Function()? fetchRequested,
-    TResult Function(String titleStr)? titleChanged,
-    TResult Function(String contentStr)? contentChanged,
-    TResult Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function()? resetFetch,
+    TResult? Function()? submitted,
+    TResult? Function()? fetchRequested,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String contentStr)? contentChanged,
+    TResult? Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
   }) {
     return titleChanged?.call(titleStr);
   }
@@ -808,13 +800,13 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_UrlChanged value)? urlChanged,
-    TResult Function(_ResetFetch value)? resetFetch,
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_FetchRequested value)? fetchRequested,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_ContentChanged value)? contentChanged,
-    TResult Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_ResetFetch value)? resetFetch,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_FetchRequested value)? fetchRequested,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_ContentChanged value)? contentChanged,
+    TResult? Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
   }) {
     return titleChanged?.call(this);
   }
@@ -852,26 +844,25 @@ abstract class _$$_ContentChangedCopyWith<$Res> {
   factory _$$_ContentChangedCopyWith(
           _$_ContentChanged value, $Res Function(_$_ContentChanged) then) =
       __$$_ContentChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String contentStr});
 }
 
 /// @nodoc
 class __$$_ContentChangedCopyWithImpl<$Res>
-    extends _$PostFormEventCopyWithImpl<$Res>
+    extends _$PostFormEventCopyWithImpl<$Res, _$_ContentChanged>
     implements _$$_ContentChangedCopyWith<$Res> {
   __$$_ContentChangedCopyWithImpl(
       _$_ContentChanged _value, $Res Function(_$_ContentChanged) _then)
-      : super(_value, (v) => _then(v as _$_ContentChanged));
+      : super(_value, _then);
 
-  @override
-  _$_ContentChanged get _value => super._value as _$_ContentChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? contentStr = freezed,
+    Object? contentStr = null,
   }) {
     return _then(_$_ContentChanged(
-      contentStr == freezed
+      null == contentStr
           ? _value.contentStr
           : contentStr // ignore: cast_nullable_to_non_nullable
               as String,
@@ -897,16 +888,16 @@ class _$_ContentChanged implements _ContentChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ContentChanged &&
-            const DeepCollectionEquality()
-                .equals(other.contentStr, contentStr));
+            (identical(other.contentStr, contentStr) ||
+                other.contentStr == contentStr));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(contentStr));
+  int get hashCode => Object.hash(runtimeType, contentStr);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContentChangedCopyWith<_$_ContentChanged> get copyWith =>
       __$$_ContentChangedCopyWithImpl<_$_ContentChanged>(this, _$identity);
 
@@ -928,13 +919,13 @@ class _$_ContentChanged implements _ContentChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String urlStr)? urlChanged,
-    TResult Function()? resetFetch,
-    TResult Function()? submitted,
-    TResult Function()? fetchRequested,
-    TResult Function(String titleStr)? titleChanged,
-    TResult Function(String contentStr)? contentChanged,
-    TResult Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function()? resetFetch,
+    TResult? Function()? submitted,
+    TResult? Function()? fetchRequested,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String contentStr)? contentChanged,
+    TResult? Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
   }) {
     return contentChanged?.call(contentStr);
   }
@@ -975,13 +966,13 @@ class _$_ContentChanged implements _ContentChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_UrlChanged value)? urlChanged,
-    TResult Function(_ResetFetch value)? resetFetch,
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_FetchRequested value)? fetchRequested,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_ContentChanged value)? contentChanged,
-    TResult Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_ResetFetch value)? resetFetch,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_FetchRequested value)? fetchRequested,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_ContentChanged value)? contentChanged,
+    TResult? Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
   }) {
     return contentChanged?.call(this);
   }
@@ -1019,27 +1010,25 @@ abstract class _$$_PlaylistPreviewChangedCopyWith<$Res> {
   factory _$$_PlaylistPreviewChangedCopyWith(_$_PlaylistPreviewChanged value,
           $Res Function(_$_PlaylistPreviewChanged) then) =
       __$$_PlaylistPreviewChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({PlaylistPreview playlistPreview});
 }
 
 /// @nodoc
 class __$$_PlaylistPreviewChangedCopyWithImpl<$Res>
-    extends _$PostFormEventCopyWithImpl<$Res>
+    extends _$PostFormEventCopyWithImpl<$Res, _$_PlaylistPreviewChanged>
     implements _$$_PlaylistPreviewChangedCopyWith<$Res> {
   __$$_PlaylistPreviewChangedCopyWithImpl(_$_PlaylistPreviewChanged _value,
       $Res Function(_$_PlaylistPreviewChanged) _then)
-      : super(_value, (v) => _then(v as _$_PlaylistPreviewChanged));
+      : super(_value, _then);
 
-  @override
-  _$_PlaylistPreviewChanged get _value =>
-      super._value as _$_PlaylistPreviewChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? playlistPreview = freezed,
+    Object? playlistPreview = null,
   }) {
     return _then(_$_PlaylistPreviewChanged(
-      playlistPreview == freezed
+      null == playlistPreview
           ? _value.playlistPreview
           : playlistPreview // ignore: cast_nullable_to_non_nullable
               as PlaylistPreview,
@@ -1065,16 +1054,16 @@ class _$_PlaylistPreviewChanged implements _PlaylistPreviewChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PlaylistPreviewChanged &&
-            const DeepCollectionEquality()
-                .equals(other.playlistPreview, playlistPreview));
+            (identical(other.playlistPreview, playlistPreview) ||
+                other.playlistPreview == playlistPreview));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(playlistPreview));
+  int get hashCode => Object.hash(runtimeType, playlistPreview);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PlaylistPreviewChangedCopyWith<_$_PlaylistPreviewChanged> get copyWith =>
       __$$_PlaylistPreviewChangedCopyWithImpl<_$_PlaylistPreviewChanged>(
           this, _$identity);
@@ -1097,13 +1086,13 @@ class _$_PlaylistPreviewChanged implements _PlaylistPreviewChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String urlStr)? urlChanged,
-    TResult Function()? resetFetch,
-    TResult Function()? submitted,
-    TResult Function()? fetchRequested,
-    TResult Function(String titleStr)? titleChanged,
-    TResult Function(String contentStr)? contentChanged,
-    TResult Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function()? resetFetch,
+    TResult? Function()? submitted,
+    TResult? Function()? fetchRequested,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String contentStr)? contentChanged,
+    TResult? Function(PlaylistPreview playlistPreview)? playlistPreviewChanged,
   }) {
     return playlistPreviewChanged?.call(playlistPreview);
   }
@@ -1144,13 +1133,13 @@ class _$_PlaylistPreviewChanged implements _PlaylistPreviewChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_UrlChanged value)? urlChanged,
-    TResult Function(_ResetFetch value)? resetFetch,
-    TResult Function(_Submitted value)? submitted,
-    TResult Function(_FetchRequested value)? fetchRequested,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_ContentChanged value)? contentChanged,
-    TResult Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_ResetFetch value)? resetFetch,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_FetchRequested value)? fetchRequested,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_ContentChanged value)? contentChanged,
+    TResult? Function(_PlaylistPreviewChanged value)? playlistPreviewChanged,
   }) {
     return playlistPreviewChanged?.call(this);
   }
@@ -1195,7 +1184,7 @@ mixin _$PostFormState {
   ContentString get content => throw _privateConstructorUsedError;
   PlaylistPreview get playlistPreview => throw _privateConstructorUsedError;
   Playlist get playlist => throw _privateConstructorUsedError;
-  Option<Either<PostFailure, Unit>> get postFailureOrSuccessOption =>
+  Option<Either<PostFailure, Post>> get postFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
 
@@ -1208,7 +1197,8 @@ mixin _$PostFormState {
 abstract class $PostFormStateCopyWith<$Res> {
   factory $PostFormStateCopyWith(
           PostFormState value, $Res Function(PostFormState) then) =
-      _$PostFormStateCopyWithImpl<$Res>;
+      _$PostFormStateCopyWithImpl<$Res, PostFormState>;
+  @useResult
   $Res call(
       {PlaylistUrl playlistUrl,
       Option<Either<PostFailure, Playlist>> fetchFailureOrSuccessOption,
@@ -1218,74 +1208,76 @@ abstract class $PostFormStateCopyWith<$Res> {
       ContentString content,
       PlaylistPreview playlistPreview,
       Playlist playlist,
-      Option<Either<PostFailure, Unit>> postFailureOrSuccessOption,
+      Option<Either<PostFailure, Post>> postFailureOrSuccessOption,
       bool isSubmitting});
 }
 
 /// @nodoc
-class _$PostFormStateCopyWithImpl<$Res>
+class _$PostFormStateCopyWithImpl<$Res, $Val extends PostFormState>
     implements $PostFormStateCopyWith<$Res> {
   _$PostFormStateCopyWithImpl(this._value, this._then);
 
-  final PostFormState _value;
   // ignore: unused_field
-  final $Res Function(PostFormState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? playlistUrl = freezed,
-    Object? fetchFailureOrSuccessOption = freezed,
-    Object? isFetching = freezed,
-    Object? isSuccessfulFetch = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? playlistPreview = freezed,
-    Object? playlist = freezed,
-    Object? postFailureOrSuccessOption = freezed,
-    Object? isSubmitting = freezed,
+    Object? playlistUrl = null,
+    Object? fetchFailureOrSuccessOption = null,
+    Object? isFetching = null,
+    Object? isSuccessfulFetch = null,
+    Object? title = null,
+    Object? content = null,
+    Object? playlistPreview = null,
+    Object? playlist = null,
+    Object? postFailureOrSuccessOption = null,
+    Object? isSubmitting = null,
   }) {
     return _then(_value.copyWith(
-      playlistUrl: playlistUrl == freezed
+      playlistUrl: null == playlistUrl
           ? _value.playlistUrl
           : playlistUrl // ignore: cast_nullable_to_non_nullable
               as PlaylistUrl,
-      fetchFailureOrSuccessOption: fetchFailureOrSuccessOption == freezed
+      fetchFailureOrSuccessOption: null == fetchFailureOrSuccessOption
           ? _value.fetchFailureOrSuccessOption
           : fetchFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<PostFailure, Playlist>>,
-      isFetching: isFetching == freezed
+      isFetching: null == isFetching
           ? _value.isFetching
           : isFetching // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSuccessfulFetch: isSuccessfulFetch == freezed
+      isSuccessfulFetch: null == isSuccessfulFetch
           ? _value.isSuccessfulFetch
           : isSuccessfulFetch // ignore: cast_nullable_to_non_nullable
               as bool,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as NotEmptyString,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as ContentString,
-      playlistPreview: playlistPreview == freezed
+      playlistPreview: null == playlistPreview
           ? _value.playlistPreview
           : playlistPreview // ignore: cast_nullable_to_non_nullable
               as PlaylistPreview,
-      playlist: playlist == freezed
+      playlist: null == playlist
           ? _value.playlist
           : playlist // ignore: cast_nullable_to_non_nullable
               as Playlist,
-      postFailureOrSuccessOption: postFailureOrSuccessOption == freezed
+      postFailureOrSuccessOption: null == postFailureOrSuccessOption
           ? _value.postFailureOrSuccessOption
           : postFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<PostFailure, Unit>>,
-      isSubmitting: isSubmitting == freezed
+              as Option<Either<PostFailure, Post>>,
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -1296,6 +1288,7 @@ abstract class _$$_PostFormStateCopyWith<$Res>
           _$_PostFormState value, $Res Function(_$_PostFormState) then) =
       __$$_PostFormStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {PlaylistUrl playlistUrl,
       Option<Either<PostFailure, Playlist>> fetchFailureOrSuccessOption,
@@ -1305,72 +1298,70 @@ abstract class _$$_PostFormStateCopyWith<$Res>
       ContentString content,
       PlaylistPreview playlistPreview,
       Playlist playlist,
-      Option<Either<PostFailure, Unit>> postFailureOrSuccessOption,
+      Option<Either<PostFailure, Post>> postFailureOrSuccessOption,
       bool isSubmitting});
 }
 
 /// @nodoc
 class __$$_PostFormStateCopyWithImpl<$Res>
-    extends _$PostFormStateCopyWithImpl<$Res>
+    extends _$PostFormStateCopyWithImpl<$Res, _$_PostFormState>
     implements _$$_PostFormStateCopyWith<$Res> {
   __$$_PostFormStateCopyWithImpl(
       _$_PostFormState _value, $Res Function(_$_PostFormState) _then)
-      : super(_value, (v) => _then(v as _$_PostFormState));
+      : super(_value, _then);
 
-  @override
-  _$_PostFormState get _value => super._value as _$_PostFormState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? playlistUrl = freezed,
-    Object? fetchFailureOrSuccessOption = freezed,
-    Object? isFetching = freezed,
-    Object? isSuccessfulFetch = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? playlistPreview = freezed,
-    Object? playlist = freezed,
-    Object? postFailureOrSuccessOption = freezed,
-    Object? isSubmitting = freezed,
+    Object? playlistUrl = null,
+    Object? fetchFailureOrSuccessOption = null,
+    Object? isFetching = null,
+    Object? isSuccessfulFetch = null,
+    Object? title = null,
+    Object? content = null,
+    Object? playlistPreview = null,
+    Object? playlist = null,
+    Object? postFailureOrSuccessOption = null,
+    Object? isSubmitting = null,
   }) {
     return _then(_$_PostFormState(
-      playlistUrl: playlistUrl == freezed
+      playlistUrl: null == playlistUrl
           ? _value.playlistUrl
           : playlistUrl // ignore: cast_nullable_to_non_nullable
               as PlaylistUrl,
-      fetchFailureOrSuccessOption: fetchFailureOrSuccessOption == freezed
+      fetchFailureOrSuccessOption: null == fetchFailureOrSuccessOption
           ? _value.fetchFailureOrSuccessOption
           : fetchFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<PostFailure, Playlist>>,
-      isFetching: isFetching == freezed
+      isFetching: null == isFetching
           ? _value.isFetching
           : isFetching // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSuccessfulFetch: isSuccessfulFetch == freezed
+      isSuccessfulFetch: null == isSuccessfulFetch
           ? _value.isSuccessfulFetch
           : isSuccessfulFetch // ignore: cast_nullable_to_non_nullable
               as bool,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as NotEmptyString,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as ContentString,
-      playlistPreview: playlistPreview == freezed
+      playlistPreview: null == playlistPreview
           ? _value.playlistPreview
           : playlistPreview // ignore: cast_nullable_to_non_nullable
               as PlaylistPreview,
-      playlist: playlist == freezed
+      playlist: null == playlist
           ? _value.playlist
           : playlist // ignore: cast_nullable_to_non_nullable
               as Playlist,
-      postFailureOrSuccessOption: postFailureOrSuccessOption == freezed
+      postFailureOrSuccessOption: null == postFailureOrSuccessOption
           ? _value.postFailureOrSuccessOption
           : postFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<PostFailure, Unit>>,
-      isSubmitting: isSubmitting == freezed
+              as Option<Either<PostFailure, Post>>,
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -1410,7 +1401,7 @@ class _$_PostFormState implements _PostFormState {
   @override
   final Playlist playlist;
   @override
-  final Option<Either<PostFailure, Unit>> postFailureOrSuccessOption;
+  final Option<Either<PostFailure, Post>> postFailureOrSuccessOption;
   @override
   final bool isSubmitting;
 
@@ -1424,42 +1415,47 @@ class _$_PostFormState implements _PostFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PostFormState &&
-            const DeepCollectionEquality()
-                .equals(other.playlistUrl, playlistUrl) &&
-            const DeepCollectionEquality().equals(
-                other.fetchFailureOrSuccessOption,
-                fetchFailureOrSuccessOption) &&
-            const DeepCollectionEquality()
-                .equals(other.isFetching, isFetching) &&
-            const DeepCollectionEquality()
-                .equals(other.isSuccessfulFetch, isSuccessfulFetch) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.content, content) &&
-            const DeepCollectionEquality()
-                .equals(other.playlistPreview, playlistPreview) &&
-            const DeepCollectionEquality().equals(other.playlist, playlist) &&
-            const DeepCollectionEquality().equals(
-                other.postFailureOrSuccessOption, postFailureOrSuccessOption) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting));
+            (identical(other.playlistUrl, playlistUrl) ||
+                other.playlistUrl == playlistUrl) &&
+            (identical(other.fetchFailureOrSuccessOption,
+                    fetchFailureOrSuccessOption) ||
+                other.fetchFailureOrSuccessOption ==
+                    fetchFailureOrSuccessOption) &&
+            (identical(other.isFetching, isFetching) ||
+                other.isFetching == isFetching) &&
+            (identical(other.isSuccessfulFetch, isSuccessfulFetch) ||
+                other.isSuccessfulFetch == isSuccessfulFetch) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.playlistPreview, playlistPreview) ||
+                other.playlistPreview == playlistPreview) &&
+            (identical(other.playlist, playlist) ||
+                other.playlist == playlist) &&
+            (identical(other.postFailureOrSuccessOption,
+                    postFailureOrSuccessOption) ||
+                other.postFailureOrSuccessOption ==
+                    postFailureOrSuccessOption) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(playlistUrl),
-      const DeepCollectionEquality().hash(fetchFailureOrSuccessOption),
-      const DeepCollectionEquality().hash(isFetching),
-      const DeepCollectionEquality().hash(isSuccessfulFetch),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(content),
-      const DeepCollectionEquality().hash(playlistPreview),
-      const DeepCollectionEquality().hash(playlist),
-      const DeepCollectionEquality().hash(postFailureOrSuccessOption),
-      const DeepCollectionEquality().hash(isSubmitting));
+      playlistUrl,
+      fetchFailureOrSuccessOption,
+      isFetching,
+      isSuccessfulFetch,
+      title,
+      content,
+      playlistPreview,
+      playlist,
+      postFailureOrSuccessOption,
+      isSubmitting);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PostFormStateCopyWith<_$_PostFormState> get copyWith =>
       __$$_PostFormStateCopyWithImpl<_$_PostFormState>(this, _$identity);
 }
@@ -1475,7 +1471,7 @@ abstract class _PostFormState implements PostFormState {
       required final ContentString content,
       required final PlaylistPreview playlistPreview,
       required final Playlist playlist,
-      required final Option<Either<PostFailure, Unit>>
+      required final Option<Either<PostFailure, Post>>
           postFailureOrSuccessOption,
       required final bool isSubmitting}) = _$_PostFormState;
 
@@ -1496,7 +1492,7 @@ abstract class _PostFormState implements PostFormState {
   @override
   Playlist get playlist;
   @override
-  Option<Either<PostFailure, Unit>> get postFailureOrSuccessOption;
+  Option<Either<PostFailure, Post>> get postFailureOrSuccessOption;
   @override
   bool get isSubmitting;
   @override

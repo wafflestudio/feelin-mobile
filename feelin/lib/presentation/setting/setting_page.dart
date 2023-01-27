@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:music_sns/application/streaming/streaming_bloc.dart';
+import 'package:music_sns/domain/streaming/vendor.dart';
+import 'package:music_sns/presentation/setting/our_email_page.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../application/auth/auth/auth_bloc.dart';
-import '../../application/streaming/connect_streaming_bloc.dart';
+import '../../application/streaming/connect/connect_streaming_bloc.dart';
 import '../../injection.dart';
 import '../streaming/connect_streaming_page.dart';
 
@@ -15,6 +18,10 @@ class SettingPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
+    final streamingBloc = context.watch<StreamingBloc>();
+    if(!context.watch<StreamingBloc>().state.isConnected){
+      context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+    }
     return Container(
       color: Colors.white,
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -38,11 +45,16 @@ class SettingPage extends StatelessWidget{
             );
           }),
           button(string: 'Contact Us', function: (){
-
+            Navigator.push(context, CupertinoPageRoute(
+              builder: (context){
+                return const OurEmailPage();
+              },
+            ),
+            );
           }),
           const SizedBox(height: 20,),
           text('Logins'),
-          button(string: 'Connect Streaming account', function: (){
+          if(!context.watch<StreamingBloc>().state.isConnected) button(string: 'Connect Streaming account', function: (){
             Navigator.push(context, CupertinoPageRoute(
               builder: (context){
                 return BlocProvider(
@@ -50,6 +62,87 @@ class SettingPage extends StatelessWidget{
                     child: ConnectStreamingPage());
               },
             ),
+            ).then((value) {
+              if(value != null){
+                context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+              }
+            });;
+          }),
+          if(context.watch<StreamingBloc>().state.isConnected) button(string: 'Disconnect Streaming account', function: (){
+            showModalBottomSheet<void>(
+              context: context,
+              useRootNavigator: true,
+              backgroundColor: Colors.white,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
+              builder: (context) => SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.only(left: 24, top: 24, right: 18, bottom: 14),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Disconnect',
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
+                          ),
+                          TextButton(
+                            child: Text(
+                              'Cancel',
+                              style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
+                              ),
+                            ),
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              minimumSize: const Size(30, 26),
+                              alignment: Alignment.centerRight,
+                            ),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20),
+                        child: Center(
+                          child: Text(
+                            'You are connected to ${vendorName[streamingBloc.state.vendor]}.\nWould you like to disconnect?',
+                            style: TextStyle(fontSize: 14, ),
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: TextButton(
+                          onPressed: (){
+                            Navigator.pop(context);
+                            context.read<StreamingBloc>().add(const StreamingEvent.disconnectMyAccount());
+                          },
+                          child: Container(
+                            //color: FeelinColorFamily.gray50,
+                            decoration: BoxDecoration(
+                                color: FeelinColorFamily.gray50,
+                                borderRadius: BorderRadius.circular(8)
+                            ),
+                            width: 100,
+                            height: 40,
+                            child: Center(
+                              child: Text(
+                                'Disconnect',
+                                style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             );
           }),
           button(string: 'Logout', function: (){

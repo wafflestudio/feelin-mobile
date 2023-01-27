@@ -9,14 +9,14 @@ abstract class FollowClient{
   factory FollowClient(Dio dio, {String baseUrl}) = _FollowClient;
 
   @GET('/follows/followings/{user_id}')
-  Future<HttpResponse<PageUser>> getFollowingsById(@Path('user_id') int id);
+  Future<HttpResponse<PageUser>> getFollowingsById(@Path('user_id') String id);
 
   @GET('/follows/followers/{user_id}')
-  Future<HttpResponse<PageUser>> getFollowersById(@Path('user_id') int id);
+  Future<HttpResponse<PageUser>> getFollowersById(@Path('user_id') String id);
 
   @POST('/follows/{user_id}')
-  Future<HttpResponse<void>> follow(@Path('user_id')int id);
+  Future<HttpResponse<void>> follow(@Path('user_id')String id);
 
   @DELETE('/follows/{user_id}')
-  Future<HttpResponse<void>> unFollow(@Path('user_id')int id);
+  Future<HttpResponse<void>> unFollow(@Path('user_id')String id);
 }

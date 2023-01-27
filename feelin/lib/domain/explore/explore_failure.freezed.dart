@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'explore_failure.dart';
 
@@ -26,10 +26,10 @@ mixin _$ExploreFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? forbidden,
-    TResult Function()? notFound,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$ExploreFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_NotFound value)? notFound,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,17 +72,18 @@ mixin _$ExploreFailure {
 abstract class $ExploreFailureCopyWith<$Res> {
   factory $ExploreFailureCopyWith(
           ExploreFailure value, $Res Function(ExploreFailure) then) =
-      _$ExploreFailureCopyWithImpl<$Res>;
+      _$ExploreFailureCopyWithImpl<$Res, ExploreFailure>;
 }
 
 /// @nodoc
-class _$ExploreFailureCopyWithImpl<$Res>
+class _$ExploreFailureCopyWithImpl<$Res, $Val extends ExploreFailure>
     implements $ExploreFailureCopyWith<$Res> {
   _$ExploreFailureCopyWithImpl(this._value, this._then);
 
-  final ExploreFailure _value;
   // ignore: unused_field
-  final $Res Function(ExploreFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -94,14 +95,11 @@ abstract class _$$_ServerErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ServerErrorCopyWithImpl<$Res>
-    extends _$ExploreFailureCopyWithImpl<$Res>
+    extends _$ExploreFailureCopyWithImpl<$Res, _$_ServerError>
     implements _$$_ServerErrorCopyWith<$Res> {
   __$$_ServerErrorCopyWithImpl(
       _$_ServerError _value, $Res Function(_$_ServerError) _then)
-      : super(_value, (v) => _then(v as _$_ServerError));
-
-  @override
-  _$_ServerError get _value => super._value as _$_ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -137,10 +135,10 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? forbidden,
-    TResult Function()? notFound,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
   }) {
     return serverError?.call();
   }
@@ -174,10 +172,10 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_NotFound value)? notFound,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
   }) {
     return serverError?.call(this);
   }
@@ -211,14 +209,11 @@ abstract class _$$_UnauthorizedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnauthorizedCopyWithImpl<$Res>
-    extends _$ExploreFailureCopyWithImpl<$Res>
+    extends _$ExploreFailureCopyWithImpl<$Res, _$_Unauthorized>
     implements _$$_UnauthorizedCopyWith<$Res> {
   __$$_UnauthorizedCopyWithImpl(
       _$_Unauthorized _value, $Res Function(_$_Unauthorized) _then)
-      : super(_value, (v) => _then(v as _$_Unauthorized));
-
-  @override
-  _$_Unauthorized get _value => super._value as _$_Unauthorized;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -254,10 +249,10 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? forbidden,
-    TResult Function()? notFound,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
   }) {
     return unauthorized?.call();
   }
@@ -291,10 +286,10 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_NotFound value)? notFound,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
   }) {
     return unauthorized?.call(this);
   }
@@ -328,14 +323,11 @@ abstract class _$$_ForbiddenCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ForbiddenCopyWithImpl<$Res>
-    extends _$ExploreFailureCopyWithImpl<$Res>
+    extends _$ExploreFailureCopyWithImpl<$Res, _$_Forbidden>
     implements _$$_ForbiddenCopyWith<$Res> {
   __$$_ForbiddenCopyWithImpl(
       _$_Forbidden _value, $Res Function(_$_Forbidden) _then)
-      : super(_value, (v) => _then(v as _$_Forbidden));
-
-  @override
-  _$_Forbidden get _value => super._value as _$_Forbidden;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -371,10 +363,10 @@ class _$_Forbidden implements _Forbidden {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? forbidden,
-    TResult Function()? notFound,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
   }) {
     return forbidden?.call();
   }
@@ -408,10 +400,10 @@ class _$_Forbidden implements _Forbidden {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_NotFound value)? notFound,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
   }) {
     return forbidden?.call(this);
   }
@@ -444,14 +436,12 @@ abstract class _$$_NotFoundCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NotFoundCopyWithImpl<$Res> extends _$ExploreFailureCopyWithImpl<$Res>
+class __$$_NotFoundCopyWithImpl<$Res>
+    extends _$ExploreFailureCopyWithImpl<$Res, _$_NotFound>
     implements _$$_NotFoundCopyWith<$Res> {
   __$$_NotFoundCopyWithImpl(
       _$_NotFound _value, $Res Function(_$_NotFound) _then)
-      : super(_value, (v) => _then(v as _$_NotFound));
-
-  @override
-  _$_NotFound get _value => super._value as _$_NotFound;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -487,10 +477,10 @@ class _$_NotFound implements _NotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? unauthorized,
-    TResult Function()? forbidden,
-    TResult Function()? notFound,
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
   }) {
     return notFound?.call();
   }
@@ -524,10 +514,10 @@ class _$_NotFound implements _NotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_NotFound value)? notFound,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
   }) {
     return notFound?.call(this);
   }

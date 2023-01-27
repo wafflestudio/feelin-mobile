@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/auth/auth/auth_bloc.dart';
-import 'package:music_sns/presentation/auth/sign_in/sign_in_page.dart';
+import 'package:music_sns/application/streaming/streaming_bloc.dart';
+import 'package:music_sns/presentation/auth/sign_in/sign_in.dart';
 
 import '../app/app.dart';
 
@@ -18,6 +19,7 @@ class _AuthState extends State<Auth> {
   void initState(){
     super.initState();
     context.read<AuthBloc>().add(const AuthEvent.submitted());
+    context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
   }
 
   @override
@@ -28,7 +30,7 @@ class _AuthState extends State<Auth> {
               ? const Scaffold(body: Center(child: CupertinoActivityIndicator(radius: 20,)))
               : state.authenticated
               ? App()
-              : const SignInPage();
+              : const SignIn();
         });
   }
 }

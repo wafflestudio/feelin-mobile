@@ -13,7 +13,7 @@ part 'post.g.dart';
 @JsonSerializable()
 class Post{
   @JsonKey(name:"id")
-  int id;
+  String id;
 
   @JsonKey(name:"user")
   Profile? writer;
@@ -33,7 +33,10 @@ class Post{
   @JsonKey(name:"likes")
   int? likeCount;
 
-  @JsonKey(name:"trackPreview")
+  @JsonKey(name:"thumbnail")
+  String? tempThumbnail;
+
+  //@JsonKey(name:"trackPreview")
   List<Track>? trackPreview = [
     Track(id: '', title: 'I Still Love You', artists: [Artist(id: '', name: '나얼')], album: Album(id: '', title: '', thumbnail: 'https://image.bugsm.co.kr/album/images/1000/40830/4083027.jpg')),
     Track(id: '', title: 'My Sunny Day', artists: [Artist(id: '', name: 'Ted Fresco'),Artist(id: '', name: 'Lyn Lapid')], album: Album(id: '', title: '', thumbnail: 'https://image.bugsm.co.kr/album/images/1000/164792/16479261.jpg')),
@@ -48,6 +51,7 @@ class Post{
     required this.playlist,
     this.isLiked,
     this.likeCount = 0,
+    this.tempThumbnail,
     //this.trackPreview,
   });
 

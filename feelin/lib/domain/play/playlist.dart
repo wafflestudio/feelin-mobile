@@ -7,6 +7,9 @@ part 'playlist.g.dart';
 @JsonSerializable()
 class Playlist{
 
+  @JsonKey(name: 'id')
+  String id;
+
   @JsonKey(name: "title")
   String title;
 
@@ -20,6 +23,7 @@ class Playlist{
   String? thumbnail;
 
   Playlist({
+    this.id = '',
     this.title = '',
     this.tracks,
     this.playlistPreview,

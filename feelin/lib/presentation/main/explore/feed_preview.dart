@@ -12,18 +12,27 @@ import 'package:music_sns/presentation/style/colors.dart';
 import '../../../application/info/playlist_info_bloc.dart';
 import '../../../domain/play/post.dart';
 import '../../../injection.dart';
+import '../../common/bouncing_widget.dart';
 
 class FeedPreview extends StatefulWidget {
   final int index;
   final Post post;
+  final bool isFollowing;
 
-  const FeedPreview({Key? key, required this.index, required this.post}) : super(key: key);
+  const FeedPreview({Key? key, required this.index, required this.post, required this.isFollowing}) : super(key: key);
 
   @override
   State<FeedPreview> createState() => _FeedPreviewState();
 }
 
 class _FeedPreviewState extends State<FeedPreview> {
+  bool isLiked = false;
+
+  @override
+  void initState(){
+    super.initState();
+    isLiked = widget.post.isLiked!;
+  }
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ExploreBloc, ExploreState>(
@@ -42,6 +51,8 @@ class _FeedPreviewState extends State<FeedPreview> {
                 setState(() {
                   widget.post.title = value.title;
                   widget.post.content = value.content;
+                  isLiked = value.isLiked;
+                  widget.post.likeCount = value.likeCount;
                 });
             }});
           },
@@ -50,20 +61,20 @@ class _FeedPreviewState extends State<FeedPreview> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 12),
-                child: UserNickname(writer: widget.post.writer!, isBig: true,),
+                child: UserNickname(profile: widget.post.writer!, isBig: true,),
               ),
               const SizedBox(height: 5,),
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: FeelinColorFamily.gray50,
+                    color: FeelinColorFamily.gray100,
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                    ClipRRect(
+                      borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
                       child: AspectRatio(
                         aspectRatio: 1.0,
                         child: Hero(
@@ -76,22 +87,28 @@ class _FeedPreviewState extends State<FeedPreview> {
                         ),
                       ),
                     ),
-                    if(widget.post.trackPreview!.isNotEmpty)SizedBox(
-                      height: 36,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: widget.post.trackPreview!.length,
-                          itemBuilder: (context, index){
-                            if(index == 0){
+                    if(widget.post.trackPreview!.isNotEmpty)ClipRRect(
+                      //borderRadius: const BorderRadius.vertical(bottom: Radius.circular(20)),
+                      child: Container(
+                        padding: EdgeInsets.only(top: 6),
+                        height: 60,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: widget.post.trackPreview!.length,
+                            itemBuilder: (context, index){
+                              if(index == 0){
+                                return Padding(
+                                    padding: const EdgeInsets.only(left: 6, right: 6),
+                                    child: TrackPreview(index: index, track: widget.post.trackPreview![index]));
+                              }
                               return Padding(
-                                padding: const EdgeInsets.only(left: 20),
+                                  padding: const EdgeInsets.only(right: 6),
                                   child: TrackPreview(index: index, track: widget.post.trackPreview![index]));
-                            }
-                            return TrackPreview(index: index, track: widget.post.trackPreview![index]);
-                          }),
+                            }),
+                      ),
                     ),
                     Container(
-                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                      padding: const EdgeInsets.fromLTRB(13, 10, 0, 10),
                       constraints: const BoxConstraints(minHeight: 60, minWidth: double.infinity),
                       child: Stack(
                         children: [
@@ -128,24 +145,36 @@ class _FeedPreviewState extends State<FeedPreview> {
                             ),
                           ),
                           Positioned(
-                            bottom: 10,
+                            bottom: -10,
                             right: 0,
                             child: SizedBox(
-                              width: 24,
+                              width: 52,
                               child: GestureDetector(
                                 onTap: (){
-                                  // if(!state.isLiked){
-                                  //   context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.likeRequest());
-                                  // }else{
-                                  //   context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.unlikeRequest());
-                                  // }
+                                  if(!isLiked){
+                                    context.read<ExploreBloc>().add(ExploreEvent.likeRequest(widget.index, widget.isFollowing));
+                                    setState(() {
+                                      isLiked = true;
+                                    });
+                                  }else{
+                                    context.read<ExploreBloc>().add(ExploreEvent.unlikeRequest(widget.index, widget.isFollowing));
+                                    setState(() {
+                                      isLiked = false;
+                                    });
+                                  }
                                 },
-                                child: SvgPicture.asset(
-                                  true ? 'assets/icons/heart_filled.svg'
-                                      : 'assets/icons/heart.svg',
-                                  color: true ? FeelinColorFamily.redPrimary : Colors.white,
-                                  width: 24,
-                                  height: 24,
+                                child: Padding(
+                                  padding: const EdgeInsets.fromLTRB(8, 8, 20, 20),
+                                  child: BouncingWidget(
+                                    disabled: false,
+                                    child: SvgPicture.asset(
+                                      isLiked ? 'assets/icons/heart_filled.svg'
+                                          : 'assets/icons/heart.svg',
+                                      color: isLiked ? FeelinColorFamily.redPrimary : Colors.black,
+                                      width: 24,
+                                      height: 24,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),

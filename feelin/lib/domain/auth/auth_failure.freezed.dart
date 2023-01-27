@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'auth_failure.dart';
 
@@ -22,7 +22,7 @@ mixin _$AuthFailure {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
@@ -32,16 +32,16 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,7 +50,7 @@ mixin _$AuthFailure {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -66,7 +66,7 @@ mixin _$AuthFailure {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
@@ -76,17 +76,17 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,7 +96,7 @@ mixin _$AuthFailure {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
@@ -111,16 +111,18 @@ mixin _$AuthFailure {
 abstract class $AuthFailureCopyWith<$Res> {
   factory $AuthFailureCopyWith(
           AuthFailure value, $Res Function(AuthFailure) then) =
-      _$AuthFailureCopyWithImpl<$Res>;
+      _$AuthFailureCopyWithImpl<$Res, AuthFailure>;
 }
 
 /// @nodoc
-class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
+class _$AuthFailureCopyWithImpl<$Res, $Val extends AuthFailure>
+    implements $AuthFailureCopyWith<$Res> {
   _$AuthFailureCopyWithImpl(this._value, this._then);
 
-  final AuthFailure _value;
   // ignore: unused_field
-  final $Res Function(AuthFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -132,14 +134,11 @@ abstract class _$$_UnauthorizedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnauthorizedCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_Unauthorized>
     implements _$$_UnauthorizedCopyWith<$Res> {
   __$$_UnauthorizedCopyWithImpl(
       _$_Unauthorized _value, $Res Function(_$_Unauthorized) _then)
-      : super(_value, (v) => _then(v as _$_Unauthorized));
-
-  @override
-  _$_Unauthorized get _value => super._value as _$_Unauthorized;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -168,7 +167,7 @@ class _$_Unauthorized implements _Unauthorized {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
@@ -181,16 +180,16 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) {
     return unauthorized?.call();
   }
@@ -202,7 +201,7 @@ class _$_Unauthorized implements _Unauthorized {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -224,7 +223,7 @@ class _$_Unauthorized implements _Unauthorized {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
@@ -237,17 +236,17 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return unauthorized?.call(this);
   }
@@ -260,7 +259,7 @@ class _$_Unauthorized implements _Unauthorized {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
@@ -288,14 +287,11 @@ abstract class _$$_CancelledByUserCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CancelledByUserCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_CancelledByUser>
     implements _$$_CancelledByUserCopyWith<$Res> {
   __$$_CancelledByUserCopyWithImpl(
       _$_CancelledByUser _value, $Res Function(_$_CancelledByUser) _then)
-      : super(_value, (v) => _then(v as _$_CancelledByUser));
-
-  @override
-  _$_CancelledByUser get _value => super._value as _$_CancelledByUser;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -324,7 +320,7 @@ class _$_CancelledByUser implements _CancelledByUser {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
@@ -337,16 +333,16 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) {
     return cancelledByUser?.call();
   }
@@ -358,7 +354,7 @@ class _$_CancelledByUser implements _CancelledByUser {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -380,7 +376,7 @@ class _$_CancelledByUser implements _CancelledByUser {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
@@ -393,17 +389,17 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -416,7 +412,7 @@ class _$_CancelledByUser implements _CancelledByUser {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
@@ -443,14 +439,12 @@ abstract class _$$_ServerErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+class __$$_ServerErrorCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_ServerError>
     implements _$$_ServerErrorCopyWith<$Res> {
   __$$_ServerErrorCopyWithImpl(
       _$_ServerError _value, $Res Function(_$_ServerError) _then)
-      : super(_value, (v) => _then(v as _$_ServerError));
-
-  @override
-  _$_ServerError get _value => super._value as _$_ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -479,7 +473,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
@@ -492,16 +486,16 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) {
     return serverError?.call();
   }
@@ -513,7 +507,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -535,7 +529,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
@@ -548,17 +542,17 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return serverError?.call(this);
   }
@@ -571,7 +565,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
@@ -599,14 +593,11 @@ abstract class _$$_EmailAlreadyInUseCopyWith<$Res> {
 
 /// @nodoc
 class __$$_EmailAlreadyInUseCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_EmailAlreadyInUse>
     implements _$$_EmailAlreadyInUseCopyWith<$Res> {
   __$$_EmailAlreadyInUseCopyWithImpl(
       _$_EmailAlreadyInUse _value, $Res Function(_$_EmailAlreadyInUse) _then)
-      : super(_value, (v) => _then(v as _$_EmailAlreadyInUse));
-
-  @override
-  _$_EmailAlreadyInUse get _value => super._value as _$_EmailAlreadyInUse;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -635,7 +626,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
@@ -648,16 +639,16 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -669,7 +660,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -691,7 +682,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
@@ -704,17 +695,17 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -727,7 +718,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
@@ -756,16 +747,13 @@ abstract class _$$_InvalidEmailAndPasswordCombinationCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InvalidEmailAndPasswordCombinationCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res,
+        _$_InvalidEmailAndPasswordCombination>
     implements _$$_InvalidEmailAndPasswordCombinationCopyWith<$Res> {
   __$$_InvalidEmailAndPasswordCombinationCopyWithImpl(
       _$_InvalidEmailAndPasswordCombination _value,
       $Res Function(_$_InvalidEmailAndPasswordCombination) _then)
-      : super(_value, (v) => _then(v as _$_InvalidEmailAndPasswordCombination));
-
-  @override
-  _$_InvalidEmailAndPasswordCombination get _value =>
-      super._value as _$_InvalidEmailAndPasswordCombination;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -776,7 +764,7 @@ class _$_InvalidEmailAndPasswordCombination
 
   @override
   String toString() {
-    return 'AuthFailure.invalidEmailAndPasswordCombination()';
+    return 'AuthFailure.invalidAccountAndPasswordCombination()';
   }
 
   @override
@@ -796,31 +784,31 @@ class _$_InvalidEmailAndPasswordCombination
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
     required TResult Function() tokenNotFound,
     required TResult Function() usernameAlreadyInUse,
   }) {
-    return invalidEmailAndPasswordCombination();
+    return invalidAccountAndPasswordCombination();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) {
-    return invalidEmailAndPasswordCombination?.call();
+    return invalidAccountAndPasswordCombination?.call();
   }
 
   @override
@@ -830,7 +818,7 @@ class _$_InvalidEmailAndPasswordCombination
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -838,8 +826,8 @@ class _$_InvalidEmailAndPasswordCombination
     TResult Function()? usernameAlreadyInUse,
     required TResult orElse(),
   }) {
-    if (invalidEmailAndPasswordCombination != null) {
-      return invalidEmailAndPasswordCombination();
+    if (invalidAccountAndPasswordCombination != null) {
+      return invalidAccountAndPasswordCombination();
     }
     return orElse();
   }
@@ -852,32 +840,32 @@ class _$_InvalidEmailAndPasswordCombination
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
     required TResult Function(_TokenNotFound value) tokenNotFound,
     required TResult Function(_UsernameAlreadyInUse value) usernameAlreadyInUse,
   }) {
-    return invalidEmailAndPasswordCombination(this);
+    return invalidAccountAndPasswordCombination(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
-    return invalidEmailAndPasswordCombination?.call(this);
+    return invalidAccountAndPasswordCombination?.call(this);
   }
 
   @override
@@ -888,7 +876,7 @@ class _$_InvalidEmailAndPasswordCombination
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
@@ -896,8 +884,8 @@ class _$_InvalidEmailAndPasswordCombination
     TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
     required TResult orElse(),
   }) {
-    if (invalidEmailAndPasswordCombination != null) {
-      return invalidEmailAndPasswordCombination(this);
+    if (invalidAccountAndPasswordCombination != null) {
+      return invalidAccountAndPasswordCombination(this);
     }
     return orElse();
   }
@@ -917,14 +905,11 @@ abstract class _$$_InvalidAuthCodeCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InvalidAuthCodeCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_InvalidAuthCode>
     implements _$$_InvalidAuthCodeCopyWith<$Res> {
   __$$_InvalidAuthCodeCopyWithImpl(
       _$_InvalidAuthCode _value, $Res Function(_$_InvalidAuthCode) _then)
-      : super(_value, (v) => _then(v as _$_InvalidAuthCode));
-
-  @override
-  _$_InvalidAuthCode get _value => super._value as _$_InvalidAuthCode;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -953,7 +938,7 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
@@ -966,16 +951,16 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) {
     return invalidAuthCode?.call();
   }
@@ -987,7 +972,7 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -1009,7 +994,7 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
@@ -1022,17 +1007,17 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return invalidAuthCode?.call(this);
   }
@@ -1045,7 +1030,7 @@ class _$_InvalidAuthCode implements _InvalidAuthCode {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
@@ -1073,14 +1058,11 @@ abstract class _$$_InvalidBirthdayFormCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InvalidBirthdayFormCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_InvalidBirthdayForm>
     implements _$$_InvalidBirthdayFormCopyWith<$Res> {
   __$$_InvalidBirthdayFormCopyWithImpl(_$_InvalidBirthdayForm _value,
       $Res Function(_$_InvalidBirthdayForm) _then)
-      : super(_value, (v) => _then(v as _$_InvalidBirthdayForm));
-
-  @override
-  _$_InvalidBirthdayForm get _value => super._value as _$_InvalidBirthdayForm;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1109,7 +1091,7 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
@@ -1122,16 +1104,16 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) {
     return invalidBirthdayForm?.call();
   }
@@ -1143,7 +1125,7 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -1165,7 +1147,7 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
@@ -1178,17 +1160,17 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return invalidBirthdayForm?.call(this);
   }
@@ -1201,7 +1183,7 @@ class _$_InvalidBirthdayForm implements _InvalidBirthdayForm {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
@@ -1229,14 +1211,11 @@ abstract class _$$_UnauthorizedEmailCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnauthorizedEmailCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_UnauthorizedEmail>
     implements _$$_UnauthorizedEmailCopyWith<$Res> {
   __$$_UnauthorizedEmailCopyWithImpl(
       _$_UnauthorizedEmail _value, $Res Function(_$_UnauthorizedEmail) _then)
-      : super(_value, (v) => _then(v as _$_UnauthorizedEmail));
-
-  @override
-  _$_UnauthorizedEmail get _value => super._value as _$_UnauthorizedEmail;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1265,7 +1244,7 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
@@ -1278,16 +1257,16 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) {
     return unauthorizedEmail?.call();
   }
@@ -1299,7 +1278,7 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -1321,7 +1300,7 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
@@ -1334,17 +1313,17 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return unauthorizedEmail?.call(this);
   }
@@ -1357,7 +1336,7 @@ class _$_UnauthorizedEmail implements _UnauthorizedEmail {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
@@ -1385,14 +1364,11 @@ abstract class _$$_TokenNotFoundCopyWith<$Res> {
 
 /// @nodoc
 class __$$_TokenNotFoundCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_TokenNotFound>
     implements _$$_TokenNotFoundCopyWith<$Res> {
   __$$_TokenNotFoundCopyWithImpl(
       _$_TokenNotFound _value, $Res Function(_$_TokenNotFound) _then)
-      : super(_value, (v) => _then(v as _$_TokenNotFound));
-
-  @override
-  _$_TokenNotFound get _value => super._value as _$_TokenNotFound;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1421,7 +1397,7 @@ class _$_TokenNotFound implements _TokenNotFound {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
@@ -1434,16 +1410,16 @@ class _$_TokenNotFound implements _TokenNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) {
     return tokenNotFound?.call();
   }
@@ -1455,7 +1431,7 @@ class _$_TokenNotFound implements _TokenNotFound {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -1477,7 +1453,7 @@ class _$_TokenNotFound implements _TokenNotFound {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
@@ -1490,17 +1466,17 @@ class _$_TokenNotFound implements _TokenNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return tokenNotFound?.call(this);
   }
@@ -1513,7 +1489,7 @@ class _$_TokenNotFound implements _TokenNotFound {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
@@ -1541,14 +1517,11 @@ abstract class _$$_UsernameAlreadyInUseCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UsernameAlreadyInUseCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_UsernameAlreadyInUse>
     implements _$$_UsernameAlreadyInUseCopyWith<$Res> {
   __$$_UsernameAlreadyInUseCopyWithImpl(_$_UsernameAlreadyInUse _value,
       $Res Function(_$_UsernameAlreadyInUse) _then)
-      : super(_value, (v) => _then(v as _$_UsernameAlreadyInUse));
-
-  @override
-  _$_UsernameAlreadyInUse get _value => super._value as _$_UsernameAlreadyInUse;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1577,7 +1550,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidAccountAndPasswordCombination,
     required TResult Function() invalidAuthCode,
     required TResult Function() invalidBirthdayForm,
     required TResult Function() unauthorizedEmail,
@@ -1590,16 +1563,16 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthorized,
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? invalidAuthCode,
-    TResult Function()? invalidBirthdayForm,
-    TResult Function()? unauthorizedEmail,
-    TResult Function()? tokenNotFound,
-    TResult Function()? usernameAlreadyInUse,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidAccountAndPasswordCombination,
+    TResult? Function()? invalidAuthCode,
+    TResult? Function()? invalidBirthdayForm,
+    TResult? Function()? unauthorizedEmail,
+    TResult? Function()? tokenNotFound,
+    TResult? Function()? usernameAlreadyInUse,
   }) {
     return usernameAlreadyInUse?.call();
   }
@@ -1611,7 +1584,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidAccountAndPasswordCombination,
     TResult Function()? invalidAuthCode,
     TResult Function()? invalidBirthdayForm,
     TResult Function()? unauthorizedEmail,
@@ -1633,7 +1606,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     required TResult Function(_InvalidAuthCode value) invalidAuthCode,
     required TResult Function(_InvalidBirthdayForm value) invalidBirthdayForm,
     required TResult Function(_UnauthorizedEmail value) unauthorizedEmail,
@@ -1646,17 +1619,17 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unauthorized value)? unauthorized,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
-    TResult Function(_InvalidAuthCode value)? invalidAuthCode,
-    TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
-    TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,
-    TResult Function(_TokenNotFound value)? tokenNotFound,
-    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
+        invalidAccountAndPasswordCombination,
+    TResult? Function(_InvalidAuthCode value)? invalidAuthCode,
+    TResult? Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
+    TResult? Function(_UnauthorizedEmail value)? unauthorizedEmail,
+    TResult? Function(_TokenNotFound value)? tokenNotFound,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
   }) {
     return usernameAlreadyInUse?.call(this);
   }
@@ -1669,7 +1642,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+        invalidAccountAndPasswordCombination,
     TResult Function(_InvalidAuthCode value)? invalidAuthCode,
     TResult Function(_InvalidBirthdayForm value)? invalidBirthdayForm,
     TResult Function(_UnauthorizedEmail value)? unauthorizedEmail,

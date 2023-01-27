@@ -21,7 +21,7 @@ class FollowRepository{
 
   FollowRepository._internal();
 
-  Future<Either<ProfileFailure, Tuple2<PageUser, String?>>> getFollowingsById({required int id}) async{
+  Future<Either<ProfileFailure, Tuple2<PageUser, String?>>> getFollowingsById({required String id}) async{
     try{
       HttpResponse<PageUser> httpResponse = await followClient.getFollowingsById(id);
       switch(httpResponse.response.statusCode){
@@ -37,7 +37,7 @@ class FollowRepository{
     }
   }
 
-  Future<Either<ProfileFailure, Tuple2<PageUser, String?>>> getFollowersById({required int id}) async{
+  Future<Either<ProfileFailure, Tuple2<PageUser, String?>>> getFollowersById({required String id}) async{
     try{
       HttpResponse<PageUser> httpResponse = await followClient.getFollowersById(id);
       switch(httpResponse.response.statusCode){
@@ -54,7 +54,7 @@ class FollowRepository{
   }
 
   Future<Either<ProfileFailure, Unit>> follow
-      ({required int id,}) async{
+      ({required String id,}) async{
     try{
       HttpResponse<void> httpResponse = await followClient.follow(id);
       switch(httpResponse.response.statusCode){
@@ -75,7 +75,7 @@ class FollowRepository{
   }
 
   Future<Either<ProfileFailure, Unit>> unFollow
-      ({required int id,}) async{
+      ({required String id,}) async{
     try{
       HttpResponse<void> httpResponse = await followClient.unFollow(id);
       switch(httpResponse.response.statusCode){
