@@ -17,9 +17,7 @@ Post _$PostFromJson(Map<String, dynamic> json) => Post(
       isLiked: json['doesLike'] as bool?,
       likeCount: json['likes'] as int? ?? 0,
       tempThumbnail: json['thumbnail'] as String?,
-    )..trackPreview = (json['trackPreview'] as List<dynamic>?)
-        ?.map((e) => Track.fromJson(e as Map<String, dynamic>))
-        .toList();
+    );
 
 Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
       'id': instance.id,
@@ -30,5 +28,4 @@ Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
       'doesLike': instance.isLiked,
       'likes': instance.likeCount,
       'thumbnail': instance.tempThumbnail,
-      'trackPreview': instance.trackPreview,
     };

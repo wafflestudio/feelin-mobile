@@ -1,12 +1,16 @@
 
+import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:music_sns/presentation/streaming/platform_button.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../application/post/post_form/post_form_bloc.dart';
+import '../../common/custom_tab_indicator.dart';
 import '../../common/next_button.dart';
 import '../../style/colors.dart';
 import 'webview_page.dart';
@@ -195,26 +199,99 @@ class _PostPageState extends State<PostPage>{
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (BuildContext context) {
-        return SizedBox(
-          height: MediaQuery.of(context).size.height - 200,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  WebViewPage(url: 'https://feelin-dev.wafflestudio.com/guide/applemusic/'),
-
-                ],
-              ),
+        return DefaultTabController(
+          length: 2,
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height - 70,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  child: TabBar(
+                      overlayColor: MaterialStateProperty.all(Colors.transparent),
+                      isScrollable: true,
+                      physics: const BouncingScrollPhysics(),
+                      labelColor: Colors.black,
+                      labelStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                      unselectedLabelColor: FeelinColorFamily.gray500,
+                      indicatorColor: Colors.black,
+                      indicator: const CustomTabIndicator(),
+                      indicatorWeight: 2,
+                  tabs: [
+                    Tab(
+                      child: SvgPicture.asset('assets/icons/spotify_icon.svg',
+                        width: 32,
+                        height: 32,
+                      ),
+                    ),
+                    Tab(
+                      child: Image.asset('assets/icons/apple_music_icon.png',
+                        width: 32,
+                        height: 32,
+                      ),
+                    ),
+                  ]),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height - 120,
+                  width: 400,
+                  child: TabBarView(
+                    physics: NeverScrollableScrollPhysics(),
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 300,
+                              height: 610,
+                              child: WebViewPage(url: 'https://feelin-dev.wafflestudio.com/guide/spotify'),
+                          ),
+                          const SizedBox(height: 10,),
+                          PlatformButton(function: (){
+                            LaunchApp.openApp(
+                              androidPackageName: 'com.spotify.music',
+                              iosUrlScheme: 'spotify://',
+                              appStoreLink: 'https://apps.apple.com/kr/app/spotify-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4/id324684580',
+                              openStore: true,
+                            );
+                          }, label: 'Open Spotify', icon: SvgPicture.asset('assets/icons/spotify_icon.svg',
+                            width: 32,
+                            height: 32,
+                          ), isBlack : true)
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 300,
+                            height: 610,
+                            child: WebViewPage(url: 'https://feelin-dev.wafflestudio.com/guide/applemusic'),
+                          ),
+                          const SizedBox(height: 10,),
+                          PlatformButton(function: (){
+                            LaunchApp.openApp(
+                              androidPackageName: 'com.apple.android.music',
+                              iosUrlScheme: 'music://',
+                              appStoreLink: 'https://apps.apple.com/kr/app/apple-music/id1108187390',
+                              openStore: true,
+                            );
+                          }, label: 'Open Apple Music', icon: Image.asset('assets/icons/apple_music_icon.png',
+                            width: 32,
+                            height: 32,
+                          ), isBlack : true)
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         );
       },
     );
-  }
-
-  Widget openAppButton(){
-    return Container();
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:music_sns/application/explore/explore_bloc.dart';
 import 'package:music_sns/presentation/common/user_nickname.dart';
 import 'package:music_sns/presentation/main/explore/track_preview.dart';
@@ -155,25 +156,39 @@ class _FeedPreviewState extends State<FeedPreview> {
                                     context.read<ExploreBloc>().add(ExploreEvent.likeRequest(widget.index, widget.isFollowing));
                                     setState(() {
                                       isLiked = true;
+                                      widget.post.likeCount = widget.post.likeCount! + 1;
                                     });
                                   }else{
                                     context.read<ExploreBloc>().add(ExploreEvent.unlikeRequest(widget.index, widget.isFollowing));
                                     setState(() {
                                       isLiked = false;
+                                      widget.post.likeCount = widget.post.likeCount! - 1;
                                     });
                                   }
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(8, 8, 20, 20),
-                                  child: BouncingWidget(
-                                    disabled: false,
-                                    child: SvgPicture.asset(
-                                      isLiked ? 'assets/icons/heart_filled.svg'
-                                          : 'assets/icons/heart.svg',
-                                      color: isLiked ? FeelinColorFamily.redPrimary : Colors.black,
-                                      width: 24,
-                                      height: 24,
-                                    ),
+                                  padding: const EdgeInsets.fromLTRB(8, 8, 20, 10),
+                                  child: Column(
+                                    children: [
+                                      BouncingWidget(
+                                        disabled: false,
+                                        child: SvgPicture.asset(
+                                          isLiked ? 'assets/icons/heart_filled.svg'
+                                              : 'assets/icons/heart.svg',
+                                          color: isLiked ? FeelinColorFamily.redPrimary : Colors.black,
+                                          width: 24,
+                                          height: 24,
+                                        ),
+                                      ),
+                                      Text(NumberFormat.compact().format(widget.post.likeCount),
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600,
+                                          letterSpacing: -0.41,
+                                          color: Colors.black,
+                                        ),
+                                      )
+                                    ],
                                   ),
                                 ),
                               ),

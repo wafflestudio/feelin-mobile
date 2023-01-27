@@ -30,42 +30,39 @@ class _WebViewState extends State<WebViewPage>{
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 700,
-      width: 300,
-      child: Container(
-        child: Stack(
-          children: [
-            WebView(
-              initialUrl: widget.url,
-              javascriptMode: JavascriptMode.unrestricted,
-              onWebViewCreated: (WebViewController webViewController){
-                _completer.future.then((value) => _controller = value);
-                _completer.complete(webViewController);
-              },
-              onPageStarted: (url) {
-                setState(() {
-                  loadingPercentage = 0;
-                });
-              },
-              onProgress: (progress) {
-                setState(() {
-                  loadingPercentage = progress;
-                });
-              },
-              onPageFinished: (url) {
-                setState(() {
-                  loadingPercentage = 100;
-                });
-                //_controller.reload();
-              },
-              gestureNavigationEnabled: false,
+      child: Stack(
+        children: [
+          WebView(
+            initialUrl: widget.url,
+            javascriptMode: JavascriptMode.unrestricted,
+            onWebViewCreated: (WebViewController webViewController){
+              _completer.future.then((value) => _controller = value);
+              _completer.complete(webViewController);
+            },
+            onPageStarted: (url) {
+              setState(() {
+                loadingPercentage = 0;
+              });
+            },
+            onProgress: (progress) {
+              setState(() {
+                loadingPercentage = progress;
+              });
+            },
+            onPageFinished: (url) {
+              setState(() {
+                loadingPercentage = 100;
+              });
+              //_controller.reload();
+            },
+            gestureNavigationEnabled: false,
+          ),
+          if (loadingPercentage < 100)
+            LinearProgressIndicator(
+              value: loadingPercentage / 100.0,
             ),
-            if (loadingPercentage < 100)
-              LinearProgressIndicator(
-                value: loadingPercentage / 100.0,
-              ),
-          ],
-        ),
-      ),);
+        ],
+      ),
+    );
   }
 }

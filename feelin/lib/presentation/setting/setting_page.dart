@@ -66,7 +66,7 @@ class SettingPage extends StatelessWidget{
               if(value != null){
                 context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
               }
-            });;
+            });
           }),
           if(context.watch<StreamingBloc>().state.isConnected) button(string: 'Disconnect Streaming account', function: (){
             showModalBottomSheet<void>(

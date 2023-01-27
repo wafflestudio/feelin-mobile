@@ -184,6 +184,7 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
             width: 80,
             child: TextFormField(
               controller: monthEditingController,
+              focusNode: monthFocusNode,
               maxLength: 2,
               style: const TextStyle(
                 color: Colors.black,
@@ -198,7 +199,7 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
               textInputAction: TextInputAction.next,
               autofillHints: [AutofillHints.birthdayMonth],
               onEditingComplete: (){
-                dayFocusNode.requestFocus();
+                dayFocusNode.requestFocus(dayFocusNode);
               },
               onChanged: (value) {
                 setState(() {
@@ -223,6 +224,7 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
             width: 80,
             child: TextFormField(
               controller: dayEditingController,
+              focusNode: dayFocusNode,
               maxLength: 2,
               style: const TextStyle(
                 color: Colors.black,

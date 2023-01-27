@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -10,7 +11,10 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/safe_area_values.dart';
 
+import '../../../application/streaming/connect/connect_streaming_bloc.dart';
+import '../../../injection.dart';
 import '../../common/bouncing_widget.dart';
+import '../../streaming/connect_streaming_page.dart';
 
 class SaveToAccountButton extends StatefulWidget{
   const SaveToAccountButton({Key? key,}) : super(key: key);
@@ -88,9 +92,19 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                     print(state.vendor);
                     print(state.vendorId);
                   }else{
-
+                    Navigator.push(context, CupertinoPageRoute(
+                      builder: (context){
+                        return BlocProvider(
+                            create: (context) => getIt<ConnectStreamingBloc>(),
+                            child: ConnectStreamingPage());
+                      },
+                    ),
+                    ).then((value) {
+                      if(value != null){
+                        context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                      }
+                    });
                   }
-
                 },
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
                 backgroundColor: Colors.black,

@@ -2,6 +2,17 @@
     package="com.wafflestudio.feelin">
 <!--    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />-->
 
+    <queries>
+        <package android:name="skplanet.musicmate" />
+        <package android:name="com.spotify.music" />
+        <package android:name="com.naver.vibe" />
+        <package android:name="com.google.android.apps.youtube.music" />
+        <package android:name="com.iloen.melon" />
+        <package android:name="com.ktmusic.geniemusic" />
+        <package android:name="com.neowiz.android.bugs" />
+        <package android:name="com.apple.android.music" />
+    </queries>
+
    <application
         android:label="Feelin'"
         android:name="${applicationName}"

@@ -6,15 +6,16 @@ class PlatformButton extends StatelessWidget{
   final Widget icon;
   final String label;
   final Function function;
-  const PlatformButton({Key? key, required this.function, required this.label, required this.icon}) : super(key: key);
+  final bool isBlack;
+  const PlatformButton({Key? key, required this.function, required this.label, required this.icon, this.isBlack = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(28),
-          border: Border.all(color: FeelinColorFamily.gray800, ),
-          color: FeelinColorFamily.gray50,
+          border: Border.all(color: isBlack ? FeelinColorFamily.gray900 : FeelinColorFamily.gray800, ),
+          color: isBlack ? FeelinColorFamily.gray900 : FeelinColorFamily.gray50,
         ),
         width: MediaQuery.of(context).size.width-26,
         height: 56,
@@ -28,6 +29,7 @@ class PlatformButton extends StatelessWidget{
             label: Text(
                 label,
               style: TextStyle(
+                color: isBlack ? Colors.white : Colors.black,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
                 letterSpacing: -0.41,
