@@ -162,14 +162,6 @@ class _PostPageState extends State<PostPage>{
                       ),
                     ],
                   ),
-                  BlocBuilder<PostFormBloc, PostFormState>(builder: (context, state){
-                    if(state.isFetching) {
-                      return const CupertinoActivityIndicator(radius: 18,);
-                    }
-                    else {
-                      return const Offstage();
-                    }
-                  }),
                 ],
               ),
             ),
@@ -177,7 +169,9 @@ class _PostPageState extends State<PostPage>{
                 bottom: 10,
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: NextButton(disabled: link.isEmpty, function: (){
+                  child: NextButton(disabled: link.isEmpty,
+                    isLoading: context.watch<PostFormBloc>().state.isFetching,
+                    function: (){
               onSubmitted();
               FocusScope.of(context).unfocus();
             },),

@@ -47,7 +47,7 @@ Dio getAuthDio() {
           .add(InterceptorsWrapper(onError: (error, handler) async {
 
         // 다시 인증 오류가 발생했을 경우: RefreshToken의 만료
-        if (error.response?.statusCode == 401 || error.response?.statusCode == 404) {
+        if (error.response?.statusCode == 401 || error.response?.statusCode == 404 || error.response?.statusCode == 403) {
 
           // 기기의 자동 로그인 정보 삭제
           await storage.deleteAll();
@@ -58,13 +58,11 @@ Dio getAuthDio() {
           BuildContext context = NavigationService.navigatorKey.currentContext!;
           if (context.mounted) {
             context.read<AuthBloc>().add(const AuthEvent.submitted());
-            showTopSnackBar(
-                Overlay.of(context),
-                CustomSnackBar.error(
-                    backgroundColor: FeelinColorFamily.errorPrimary,
-                    message: "The Access Token has expired. Please log in again.",
-                )
-            );
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              backgroundColor: FeelinColorFamily.errorPrimary,
+              content: const Text("The Access Token has expired. Please log in again."),
+            ));
+            Navigator.of(context).popUntil((route) => route.isFirst);
           }
         }
         return handler.next(error);
