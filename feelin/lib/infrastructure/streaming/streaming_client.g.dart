@@ -13,7 +13,7 @@ class _StreamingClient implements StreamingClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://feelin-api-dev.wafflestudio.com/api/v1';
+    baseUrl ??= 'https://feelin-api.wafflestudio.com/api/v1';
   }
 
   final Dio _dio;

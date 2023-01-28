@@ -32,7 +32,7 @@ class PlaylistRepository{
         return const Left(PostFailure.noSuchPlaylistExists());
       }
     } on DioError catch(e){
-      print(e);
+      //print(e);
       if(e.response?.statusCode == 400){
         return const Left(PostFailure.notSupportingVendor());
       } else if(e.response?.statusCode == 404){

@@ -3,11 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/domain/play/post.dart';
-import 'package:music_sns/presentation/app/app.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../application/info/playlist_info_bloc.dart';
-import '../../../application/profile/profile_bloc.dart';
 import '../../../injection.dart';
 import '../playlist_info/playlist_info_page.dart';
 
@@ -64,7 +62,7 @@ class _PostPreviewState extends State<PostPreview> {
             const SizedBox(width: 15,),
             Container(
               height: 120,
-              padding: EdgeInsets.symmetric(vertical: 7),
+              padding: const EdgeInsets.symmetric(vertical: 7),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,

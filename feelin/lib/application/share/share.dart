@@ -1,6 +1,5 @@
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/injection.dart';
 import 'package:share_plus/share_plus.dart' as share_plus;
@@ -35,7 +34,7 @@ class Share{
     FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
       function();
     }).onError((e) {
-      print(e);
+      //print(e);
     });
   }
 
@@ -43,7 +42,7 @@ class Share{
     FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
       _navigatePage(dynamicLinkData.link.path);
     }).onError((e) {
-      print(e);
+      //print(e);
     });
   }
 

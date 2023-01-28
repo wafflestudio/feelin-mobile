@@ -1,14 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../../../../application/auth/auth/auth_bloc.dart';
 import '../../../../application/edit/edit_profile_form/edit_profile_form_bloc.dart';
 import '../../../../application/profile/profile_bloc.dart';
 import '../../../../application/streaming/connect/connect_streaming_bloc.dart';
 import '../../../../application/streaming/streaming_bloc.dart';
-import '../../../../domain/profile/profile.dart';
 import '../../../../domain/streaming/vendor.dart';
 import '../../../../injection.dart';
 import '../../../edit/profile/edit_profile_page.dart';
@@ -22,11 +20,12 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
   final bool isRoot;
   final Function function;
   final Function onRefresh;
+  final Function onBack;
 
   @override
   Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
 
-  const ProfileAppBar({Key? key, required this.isRoot, required this.function, required this.onRefresh}) : super(key: key);
+  const ProfileAppBar({Key? key, required this.isRoot, required this.function, required this.onRefresh, required this.onBack}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +33,20 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
         builder: (context, state) {
         return AppBar(
           elevation: 0.0,
-          automaticallyImplyLeading: true,
+          automaticallyImplyLeading: false,
+          leading: isRoot ? null : IconButton(
+            onPressed: () {
+              onBack();
+            },
+            color: Colors.black,
+            icon: const Icon(Icons.arrow_back_ios_new),
+          ),
           backgroundColor: Colors.transparent,
           title: GestureDetector(
             onTap: (){
               function();
             },
-            child: Container(
+            child: SizedBox(
               width: 240,
               height: preferredSize.height,
               child: Center(
@@ -62,8 +68,8 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
               ),
               builder: (BuildContext context2) {
-                context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
-                return Container(
+                context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
+                return SizedBox(
                   height: 220,
                   child: Column(
                     children: <Widget>[
@@ -79,19 +85,19 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                               builder: (context){
                                 return BlocProvider(
                                     create: (context) => getIt<ConnectStreamingBloc>(),
-                                    child: ConnectStreamingPage());
+                                    child: const ConnectStreamingPage());
                               },
                             ),
                             ).then((value) {
                               if(value != null){
                                 Future.delayed(const Duration(milliseconds: 150), () {
-                                  context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                                  context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
                                 });
                                 Future.delayed(const Duration(milliseconds: 300), () {
-                                  context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                                  context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
                                 });
                                 Future.delayed(const Duration(milliseconds: 500), () {
-                                  context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                                  context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
                                 });
                               }
                             });
@@ -127,26 +133,26 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
                                         ),
                                         TextButton(
-                                          child: Text(
-                                            'Cancel',
-                                            style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
-                                            ),
-                                          ),
                                           style: TextButton.styleFrom(
                                             padding: EdgeInsets.zero,
                                             minimumSize: const Size(30, 26),
                                             alignment: Alignment.centerRight,
                                           ),
                                           onPressed: () => Navigator.of(context).pop(),
+                                          child: Text(
+                                            'Cancel',
+                                            style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.symmetric(vertical: 20),
+                                      padding: const EdgeInsets.symmetric(vertical: 20),
                                       child: Center(
                                         child: Text(
                                           'You are connected to ${vendorName[context.watch<StreamingBloc>().state.vendor]}.\nWould you like to disconnect?',
-                                          style: TextStyle(fontSize: 14, ),
+                                          style: const TextStyle(fontSize: 14, ),
                                         ),
                                       ),
                                     ),
@@ -229,8 +235,8 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                     ),
                     builder: (BuildContext context2) {
-                      context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
-                      return Container(
+                      context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
+                      return SizedBox(
                         height: 100,
                         child: Column(
                             children: [
@@ -256,7 +262,7 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                                       builder: (context2) {
                                         return BlocProvider.value(
                                             value: context.read<ProfileBloc>(),
-                                            child: ReportBottomModal());
+                                            child: const ReportBottomModal());
                                       },
                                     );
                                   }

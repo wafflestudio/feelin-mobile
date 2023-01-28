@@ -93,7 +93,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                 (f) => null,
                 (_) => showTopSnackBar(
                   Overlay.of(context),
-                  CustomSnackBar.success(message: 'Thanks for letting us know.')
+                  const CustomSnackBar.success(message: 'Thanks for letting us know.')
                 ),
           ),
         );
@@ -108,7 +108,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
               onPressed: () {
                 if(widget.isEdited){
                   if(widget.post != null){
-                    widget.post!.isLiked = state.post.isLiked;
+                    widget.post.isLiked = state.post.isLiked;
                   }
                   Navigator.pop(context, widget.post);
                 }else{
@@ -259,7 +259,6 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                                             bloc.add(PlaylistInfoEvent.deleteRequest(widget.post.id));
                                             if(widget.deleteItem != null){
                                               widget.deleteItem!();
-                                              print('ffffffffffffffff');
                                             }
                                             Navigator.pop(context2);
                                             Navigator.pop(context);
@@ -295,7 +294,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                               builder: (context2) {
                                 return BlocProvider.value(
                                     value: context.read<PlaylistInfoBloc>(),
-                                    child: ReportBottomModal());
+                                    child: const ReportBottomModal());
                                 },
                             );
                               }
@@ -460,7 +459,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                     child: Container(
                       height: 4,
                       width: 100,
-                      margin: EdgeInsets.symmetric(vertical: 12),
+                      margin: const EdgeInsets.symmetric(vertical: 12),
                       decoration: BoxDecoration(
                         color: FeelinColorFamily.gray600,
                         borderRadius: BorderRadius.circular(2),

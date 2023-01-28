@@ -21,6 +21,8 @@ mixin _$FollowEvent {
     required TResult Function(String id) loadFollowingsRequest,
     required TResult Function(String id) loadFollowersRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) followRequest,
+    required TResult Function(int index) unfollowRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$FollowEvent {
     TResult? Function(String id)? loadFollowingsRequest,
     TResult? Function(String id)? loadFollowersRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? followRequest,
+    TResult? Function(int index)? unfollowRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$FollowEvent {
     TResult Function(String id)? loadFollowingsRequest,
     TResult Function(String id)? loadFollowersRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? followRequest,
+    TResult Function(int index)? unfollowRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +50,8 @@ mixin _$FollowEvent {
         loadFollowingsRequest,
     required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unfollowRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +59,8 @@ mixin _$FollowEvent {
     TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unfollowRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +68,8 @@ mixin _$FollowEvent {
     TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unfollowRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +161,8 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
     required TResult Function(String id) loadFollowingsRequest,
     required TResult Function(String id) loadFollowersRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) followRequest,
+    required TResult Function(int index) unfollowRequest,
   }) {
     return loadFollowingsRequest(id);
   }
@@ -159,6 +173,8 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
     TResult? Function(String id)? loadFollowingsRequest,
     TResult? Function(String id)? loadFollowersRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? followRequest,
+    TResult? Function(int index)? unfollowRequest,
   }) {
     return loadFollowingsRequest?.call(id);
   }
@@ -169,6 +185,8 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
     TResult Function(String id)? loadFollowingsRequest,
     TResult Function(String id)? loadFollowersRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? followRequest,
+    TResult Function(int index)? unfollowRequest,
     required TResult orElse(),
   }) {
     if (loadFollowingsRequest != null) {
@@ -184,6 +202,8 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
         loadFollowingsRequest,
     required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unfollowRequest,
   }) {
     return loadFollowingsRequest(this);
   }
@@ -194,6 +214,8 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
     TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unfollowRequest,
   }) {
     return loadFollowingsRequest?.call(this);
   }
@@ -204,6 +226,8 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
     TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unfollowRequest,
     required TResult orElse(),
   }) {
     if (loadFollowingsRequest != null) {
@@ -291,6 +315,8 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
     required TResult Function(String id) loadFollowingsRequest,
     required TResult Function(String id) loadFollowersRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) followRequest,
+    required TResult Function(int index) unfollowRequest,
   }) {
     return loadFollowersRequest(id);
   }
@@ -301,6 +327,8 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
     TResult? Function(String id)? loadFollowingsRequest,
     TResult? Function(String id)? loadFollowersRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? followRequest,
+    TResult? Function(int index)? unfollowRequest,
   }) {
     return loadFollowersRequest?.call(id);
   }
@@ -311,6 +339,8 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
     TResult Function(String id)? loadFollowingsRequest,
     TResult Function(String id)? loadFollowersRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? followRequest,
+    TResult Function(int index)? unfollowRequest,
     required TResult orElse(),
   }) {
     if (loadFollowersRequest != null) {
@@ -326,6 +356,8 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
         loadFollowingsRequest,
     required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unfollowRequest,
   }) {
     return loadFollowersRequest(this);
   }
@@ -336,6 +368,8 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
     TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unfollowRequest,
   }) {
     return loadFollowersRequest?.call(this);
   }
@@ -346,6 +380,8 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
     TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unfollowRequest,
     required TResult orElse(),
   }) {
     if (loadFollowersRequest != null) {
@@ -406,6 +442,8 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function(String id) loadFollowingsRequest,
     required TResult Function(String id) loadFollowersRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) followRequest,
+    required TResult Function(int index) unfollowRequest,
   }) {
     return resetRequest();
   }
@@ -416,6 +454,8 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function(String id)? loadFollowingsRequest,
     TResult? Function(String id)? loadFollowersRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? followRequest,
+    TResult? Function(int index)? unfollowRequest,
   }) {
     return resetRequest?.call();
   }
@@ -426,6 +466,8 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function(String id)? loadFollowingsRequest,
     TResult Function(String id)? loadFollowersRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? followRequest,
+    TResult Function(int index)? unfollowRequest,
     required TResult orElse(),
   }) {
     if (resetRequest != null) {
@@ -441,6 +483,8 @@ class _$_ResetRequest implements _ResetRequest {
         loadFollowingsRequest,
     required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unfollowRequest,
   }) {
     return resetRequest(this);
   }
@@ -451,6 +495,8 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unfollowRequest,
   }) {
     return resetRequest?.call(this);
   }
@@ -461,6 +507,8 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unfollowRequest,
     required TResult orElse(),
   }) {
     if (resetRequest != null) {
@@ -472,6 +520,310 @@ class _$_ResetRequest implements _ResetRequest {
 
 abstract class _ResetRequest implements FollowEvent {
   const factory _ResetRequest() = _$_ResetRequest;
+}
+
+/// @nodoc
+abstract class _$$_FollowRequestCopyWith<$Res> {
+  factory _$$_FollowRequestCopyWith(
+          _$_FollowRequest value, $Res Function(_$_FollowRequest) then) =
+      __$$_FollowRequestCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$_FollowRequestCopyWithImpl<$Res>
+    extends _$FollowEventCopyWithImpl<$Res, _$_FollowRequest>
+    implements _$$_FollowRequestCopyWith<$Res> {
+  __$$_FollowRequestCopyWithImpl(
+      _$_FollowRequest _value, $Res Function(_$_FollowRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$_FollowRequest(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FollowRequest implements _FollowRequest {
+  const _$_FollowRequest(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'FollowEvent.followRequest(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FollowRequest &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FollowRequestCopyWith<_$_FollowRequest> get copyWith =>
+      __$$_FollowRequestCopyWithImpl<_$_FollowRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) loadFollowingsRequest,
+    required TResult Function(String id) loadFollowersRequest,
+    required TResult Function() resetRequest,
+    required TResult Function(int index) followRequest,
+    required TResult Function(int index) unfollowRequest,
+  }) {
+    return followRequest(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? loadFollowingsRequest,
+    TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function(int index)? followRequest,
+    TResult? Function(int index)? unfollowRequest,
+  }) {
+    return followRequest?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? loadFollowingsRequest,
+    TResult Function(String id)? loadFollowersRequest,
+    TResult Function()? resetRequest,
+    TResult Function(int index)? followRequest,
+    TResult Function(int index)? unfollowRequest,
+    required TResult orElse(),
+  }) {
+    if (followRequest != null) {
+      return followRequest(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadFollowingsRequest value)
+        loadFollowingsRequest,
+    required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unfollowRequest,
+  }) {
+    return followRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
+    TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unfollowRequest,
+  }) {
+    return followRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
+    TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unfollowRequest,
+    required TResult orElse(),
+  }) {
+    if (followRequest != null) {
+      return followRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FollowRequest implements FollowEvent {
+  const factory _FollowRequest(final int index) = _$_FollowRequest;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_FollowRequestCopyWith<_$_FollowRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UnFollowRequestCopyWith<$Res> {
+  factory _$$_UnFollowRequestCopyWith(
+          _$_UnFollowRequest value, $Res Function(_$_UnFollowRequest) then) =
+      __$$_UnFollowRequestCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$_UnFollowRequestCopyWithImpl<$Res>
+    extends _$FollowEventCopyWithImpl<$Res, _$_UnFollowRequest>
+    implements _$$_UnFollowRequestCopyWith<$Res> {
+  __$$_UnFollowRequestCopyWithImpl(
+      _$_UnFollowRequest _value, $Res Function(_$_UnFollowRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$_UnFollowRequest(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UnFollowRequest implements _UnFollowRequest {
+  const _$_UnFollowRequest(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'FollowEvent.unfollowRequest(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UnFollowRequest &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UnFollowRequestCopyWith<_$_UnFollowRequest> get copyWith =>
+      __$$_UnFollowRequestCopyWithImpl<_$_UnFollowRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) loadFollowingsRequest,
+    required TResult Function(String id) loadFollowersRequest,
+    required TResult Function() resetRequest,
+    required TResult Function(int index) followRequest,
+    required TResult Function(int index) unfollowRequest,
+  }) {
+    return unfollowRequest(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? loadFollowingsRequest,
+    TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function(int index)? followRequest,
+    TResult? Function(int index)? unfollowRequest,
+  }) {
+    return unfollowRequest?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? loadFollowingsRequest,
+    TResult Function(String id)? loadFollowersRequest,
+    TResult Function()? resetRequest,
+    TResult Function(int index)? followRequest,
+    TResult Function(int index)? unfollowRequest,
+    required TResult orElse(),
+  }) {
+    if (unfollowRequest != null) {
+      return unfollowRequest(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadFollowingsRequest value)
+        loadFollowingsRequest,
+    required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unfollowRequest,
+  }) {
+    return unfollowRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
+    TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unfollowRequest,
+  }) {
+    return unfollowRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
+    TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unfollowRequest,
+    required TResult orElse(),
+  }) {
+    if (unfollowRequest != null) {
+      return unfollowRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnFollowRequest implements FollowEvent {
+  const factory _UnFollowRequest(final int index) = _$_UnFollowRequest;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_UnFollowRequestCopyWith<_$_UnFollowRequest> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

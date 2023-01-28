@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 
 import '../../application/share/share.dart';
 import '../main/profile/app/profile_app.dart';
@@ -8,6 +7,8 @@ import 'tab_item.dart';
 import 'tab_navigator.dart';
 
 class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => AppState();
 }

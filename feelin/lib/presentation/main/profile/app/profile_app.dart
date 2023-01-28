@@ -109,15 +109,30 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> with AutomaticKe
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: ProfileAppBar(isRoot: (widget.userId == null), function: (){
-        scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-      }, onRefresh: onRefresh,),
-      body: RefreshIndicator(
-        color: FeelinColorFamily.redPrimary,
-        backgroundColor: FeelinColorFamily.redSecondary,
-        onRefresh: () async => onRefresh(),
-          child: ProfilePage(userId: widget.userId, scrollController: scrollController,)),
+    super.build(context);
+    return BlocBuilder<ProfileBloc, ProfileState>(
+      builder: (context, state) {
+        return WillPopScope(
+          onWillPop: ()async{
+            Navigator.pop(context, state.isFollowed);
+            return false;
+          },
+          child: Scaffold(
+            appBar: ProfileAppBar(isRoot: (widget.userId == null), function: (){
+              scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+            }, onRefresh: onRefresh,
+              onBack: (){
+                Navigator.pop(context, state.isFollowed);
+              },
+            ),
+            body: RefreshIndicator(
+              color: FeelinColorFamily.redPrimary,
+              backgroundColor: FeelinColorFamily.redSecondary,
+              onRefresh: () async => onRefresh(),
+                child: ProfilePage(userId: widget.userId, scrollController: scrollController,)),
+          ),
+        );
+      }
     );
   }
 }

@@ -6,7 +6,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'streaming_client.g.dart';
 
-@RestApi(baseUrl: "https://feelin-api-dev.wafflestudio.com/api/v1")
+@RestApi(baseUrl: "https://feelin-api.wafflestudio.com/api/v1")
 abstract class StreamingClient{
   factory StreamingClient(Dio dio, {String baseUrl}) = _StreamingClient;
 

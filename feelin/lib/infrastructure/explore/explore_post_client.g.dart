@@ -13,7 +13,7 @@ class _ExplorePostClient implements ExplorePostClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://feelin-social-api-dev.wafflestudio.com/api/v1';
+    baseUrl ??= 'https://feelin-social-api.wafflestudio.com/api/v1';
   }
 
   final Dio _dio;
@@ -157,7 +157,7 @@ class _ExplorePostClient implements ExplorePostClient {
     )
             .compose(
               _dio.options,
-              'https://feelin-api-dev.wafflestudio.com/api/v1/playlists/${playlistId}/save',
+              'https://feelin-api.wafflestudio.com/api/v1/playlists/${playlistId}/save',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -188,7 +188,7 @@ class _ExplorePostClient2 implements ExplorePostClient2 {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://feelin-api-dev.wafflestudio.com/api/v1';
+    baseUrl ??= 'https://feelin-api.wafflestudio.com/api/v1';
   }
 
   final Dio _dio;

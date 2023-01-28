@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_sns/presentation/auth/sign_up/sign_up_password.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';
@@ -33,14 +31,14 @@ class _SignUpNameState extends State<SignUpUsername>{
     return Align(
       alignment: Alignment.topCenter,
       child: Container(
-        constraints: BoxConstraints(maxHeight: 475),
+        constraints: const BoxConstraints(maxHeight: 475),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
-              margin: EdgeInsets.only(top: 30),
-              constraints: BoxConstraints(maxHeight: 210),
+              margin: const EdgeInsets.only(top: 30),
+              constraints: const BoxConstraints(maxHeight: 210),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,7 +77,7 @@ class _SignUpNameState extends State<SignUpUsername>{
             child: TextFormField(
               controller: _nameTextController,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
                 letterSpacing: -0.41,

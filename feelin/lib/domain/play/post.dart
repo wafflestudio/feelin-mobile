@@ -1,12 +1,9 @@
 import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:music_sns/domain/play/album.dart';
-import 'package:music_sns/domain/play/artist.dart';
 import 'package:music_sns/domain/play/playlist.dart';
 
 import '../profile/profile.dart';
-import 'track.dart';
 
 part 'post.g.dart';
 

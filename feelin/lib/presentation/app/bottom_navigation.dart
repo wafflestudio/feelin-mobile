@@ -7,7 +7,7 @@ import '../main/profile/app/profile_app.dart';
 import 'tab_item.dart';
 
 class BottomNavigation extends StatelessWidget {
-  BottomNavigation({required this.currentTab, required this.onSelectTab, required this.profileKey});
+  const BottomNavigation({Key? key, required this.currentTab, required this.onSelectTab, required this.profileKey}) : super(key: key);
 
   final TabItem currentTab;
   final ValueChanged<TabItem> onSelectTab;

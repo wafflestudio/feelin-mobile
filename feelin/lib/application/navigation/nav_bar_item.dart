@@ -1,1 +1,0 @@
-enum NavbarItem { explore, post, profile }

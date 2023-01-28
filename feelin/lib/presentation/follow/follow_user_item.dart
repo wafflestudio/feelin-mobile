@@ -1,10 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/presentation/main/profile/follow_button.dart';
 
+import '../../application/follow/follow_bloc.dart';
 import '../../domain/profile/profile.dart';
 import '../main/profile/app/profile_app.dart';
 
-class FollowUserItem extends StatelessWidget{
+class FollowUserItem extends StatefulWidget{
 
   final int index;
   final Profile profile;
@@ -12,33 +15,70 @@ class FollowUserItem extends StatelessWidget{
   const FollowUserItem({Key? key, required this.index, required this.profile,}) : super(key: key);
 
   @override
+  State<FollowUserItem> createState() => _FollowUserItemState();
+}
+
+class _FollowUserItemState extends State<FollowUserItem> {
+  bool isFollowed = false;
+
+  @override
+  void initState(){
+    super.initState();
+    isFollowed = widget.profile.isFollowed!;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: (){
         Navigator.of(context,).push(
-            MaterialPageRoute(builder: (_) => ProfileApp(userId: profile.id)));
+            MaterialPageRoute(builder: (_) => ProfileApp(userId: widget.profile.id),
+            ),
+        ).then((value){
+          if(value != null){
+            setState(() {
+              isFollowed = value;
+            });
+          }
+        });
       },
       child: AbsorbPointer(
+        absorbing: false,
         child: Row(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(20),
               child: Image(
-                image: profile.profileImage == null ? AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(profile.profileImage!),
-                width: 48,
-                height: 48,
+                image: widget.profile.profileImage == null ? const AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(widget.profile.profileImage!),
+                width: 40,
+                height: 40,
                 fit: BoxFit.cover,
               ),
             ),
             const SizedBox(
               width: 8,
             ),
-            Text(profile.username,
-              style: TextStyle(
-                  fontWeight: FontWeight.w700,
+            Text(widget.profile.username,
+              style: const TextStyle(
+                  fontWeight: FontWeight.w600,
                   fontSize: 18,
               ),
             ),
+            const Spacer(),
+            FollowButton(isFollowed: isFollowed, function: (){
+              if(!isFollowed){
+                context.read<FollowBloc>().add(FollowEvent.followRequest(widget.index,));
+                setState(() {
+                  isFollowed = true;
+                });
+              }else{
+                context.read<FollowBloc>().add(FollowEvent.unfollowRequest(widget.index,));
+                setState(() {
+                  isFollowed = false;
+                });
+              }
+            }, isSmall: true)
           ],
         ),
       ),

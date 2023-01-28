@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:music_sns/presentation/app/tab_navigator.dart';
 
 import '../../style/colors.dart';
 
 class FollowButton extends StatefulWidget{
   final bool isFollowed;
   final Function function;
-  const FollowButton({Key? key, required this.isFollowed, required this.function}) : super(key: key);
+  final bool isSmall;
+  const FollowButton({Key? key, required this.isFollowed, required this.function, this.isSmall = false}) : super(key: key);
 
   @override
   State<FollowButton> createState() => _FollowButtonState();
@@ -16,16 +16,16 @@ class _FollowButtonState extends State<FollowButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 40,
+    return SizedBox(
+      width: widget.isSmall ? 150 : double.infinity,
+      height: widget.isSmall ? 36 : 36,
       child: ElevatedButton(
           onPressed: (){
             widget.function();
             },
           style: ButtonStyle(
               shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(28)
+                  borderRadius: BorderRadius.circular(18)
               )),
               backgroundColor: widget.isFollowed ? MaterialStateProperty.all(FeelinColorFamily.gray500):MaterialStateProperty.all(Colors.black)
           ),

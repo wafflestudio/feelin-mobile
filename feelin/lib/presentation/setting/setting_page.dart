@@ -21,7 +21,7 @@ class SettingPage extends StatelessWidget{
   Widget build(BuildContext context){
     final streamingBloc = context.watch<StreamingBloc>();
     if(!context.watch<StreamingBloc>().state.isConnected){
-      context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+      context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
     }
     return Container(
       color: Colors.white,
@@ -66,12 +66,12 @@ class SettingPage extends StatelessWidget{
               builder: (context){
                 return BlocProvider(
                     create: (context) => getIt<ConnectStreamingBloc>(),
-                    child: ConnectStreamingPage());
+                    child: const ConnectStreamingPage());
               },
             ),
             ).then((value) {
               if(value != null){
-                context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
               }
             });
           }),
@@ -100,26 +100,26 @@ class SettingPage extends StatelessWidget{
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
                           ),
                           TextButton(
-                            child: Text(
-                              'Cancel',
-                              style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
-                              ),
-                            ),
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                               minimumSize: const Size(30, 26),
                               alignment: Alignment.centerRight,
                             ),
                             onPressed: () => Navigator.of(context).pop(),
+                            child: Text(
+                              'Cancel',
+                              style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
+                              ),
+                            ),
                           ),
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20),
+                        padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Center(
                           child: Text(
                             'You are connected to ${vendorName[streamingBloc.state.vendor]}.\nWould you like to disconnect?',
-                            style: TextStyle(fontSize: 14, ),
+                            style: const TextStyle(fontSize: 14, ),
                           ),
                         ),
                       ),
@@ -177,17 +177,17 @@ class SettingPage extends StatelessWidget{
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
                           ),
                           TextButton(
-                            child: Text(
-                              'Cancel',
-                              style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
-                              ),
-                            ),
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                               minimumSize: const Size(30, 26),
                               alignment: Alignment.centerRight,
                             ),
                             onPressed: () => Navigator.of(context).pop(),
+                            child: Text(
+                              'Cancel',
+                              style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -255,17 +255,17 @@ class SettingPage extends StatelessWidget{
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
                           ),
                           TextButton(
-                            child: Text(
-                              'Cancel',
-                              style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
-                              ),
-                            ),
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                               minimumSize: const Size(30, 26),
                               alignment: Alignment.centerRight,
                             ),
                             onPressed: () => Navigator.of(context).pop(),
+                            child: Text(
+                              'Cancel',
+                              style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
+                              ),
+                            ),
                           ),
                         ],
                       ),

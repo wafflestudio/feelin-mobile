@@ -8,7 +8,7 @@ import '../../domain/streaming/save_to_account_request.dart';
 
 part 'explore_post_client.g.dart';
 
-@RestApi(baseUrl: "https://feelin-social-api-dev.wafflestudio.com/api/v1")
+@RestApi(baseUrl: "https://feelin-social-api.wafflestudio.com/api/v1")
 abstract class ExplorePostClient{
   factory ExplorePostClient(Dio dio, {String baseUrl}) = _ExplorePostClient;
 
@@ -27,11 +27,11 @@ abstract class ExplorePostClient{
   @POST('/posts/report')
   Future<HttpResponse<void>> report(@Body() ReportPostRequest reportPostRequest);
 
-  @POST('https://feelin-api-dev.wafflestudio.com/api/v1/playlists/{playlist_id}/save')
+  @POST('https://feelin-api.wafflestudio.com/api/v1/playlists/{playlist_id}/save')
   Future<HttpResponse<RedirectUrl>> save(@Path('playlist_id') String playlistId, @Header('Vendor-Authorization') String vendorId, @Body() SaveToAccountRequest saveToAccountRequest);
 }
 
-@RestApi(baseUrl: "https://feelin-api-dev.wafflestudio.com/api/v1")
+@RestApi(baseUrl: "https://feelin-api.wafflestudio.com/api/v1")
 abstract class ExplorePostClient2{
   factory ExplorePostClient2(Dio dio, {String baseUrl}) = _ExplorePostClient2;
 

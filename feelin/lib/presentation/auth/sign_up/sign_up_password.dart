@@ -106,7 +106,7 @@ class _SignUpNameState extends State<SignUpPassword>{
             child: TextFormField(
               controller: _passwordTextController,
               keyboardType: TextInputType.visiblePassword,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, letterSpacing: -0.41),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500, letterSpacing: -0.41),
               textInputAction: TextInputAction.done,
               onFieldSubmitted: (_){
                 if(password.length >= 8){

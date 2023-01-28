@@ -16,7 +16,7 @@ import '../../domain/auth/verify_phone_request.dart';
 
 part 'auth_client.g.dart';
 
-@RestApi(baseUrl: "https://feelin-social-api-dev.wafflestudio.com/api/v1")
+@RestApi(baseUrl: "https://feelin-social-api.wafflestudio.com/api/v1")
 abstract class AuthClient{
   factory AuthClient(Dio dio, {String baseUrl}) = _AuthClient;
 

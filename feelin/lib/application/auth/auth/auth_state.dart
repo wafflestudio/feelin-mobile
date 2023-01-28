@@ -7,7 +7,7 @@ class AuthState with _$AuthState {
     required bool authenticated,
     required String id,
   }) = _AuthState;
-  factory AuthState.initial() => AuthState(
+  factory AuthState.initial() => const AuthState(
     initialLoading: true,
     authenticated: false,
     id: '',

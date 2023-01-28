@@ -15,7 +15,7 @@ class _AppBarTextButtonState extends State<AppBarTextButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 67,
       //height: 48,
       child: TextButton(

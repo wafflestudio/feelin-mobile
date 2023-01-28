@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_code.dart';
-import 'package:music_sns/presentation/auth/sign_in/sign_in_email.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_name.dart';
 
-import '../../../injection.dart';
 import 'sign_up_app_bar.dart';
 import 'sign_up_birthday.dart';
 import 'sign_up_password.dart';
-import '../sign_in/sign_in_phone.dart';
 import 'sign_up_username.dart';
 
 class SignUp extends StatefulWidget{

@@ -6,7 +6,7 @@ import '../../style/colors.dart';
 
 class ReportBottomModalDescription extends StatefulWidget{
   final String reportType;
-  ReportBottomModalDescription({Key? key, required this.reportType}) : super(key: key);
+  const ReportBottomModalDescription({Key? key, required this.reportType}) : super(key: key);
 
   @override
   State<ReportBottomModalDescription> createState() => _ReportBottomModalDescriptionState();
@@ -58,7 +58,7 @@ class _ReportBottomModalDescriptionState extends State<ReportBottomModalDescript
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20),
+                        padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Center(
                           child: TextField(
                             controller: textEditingController,

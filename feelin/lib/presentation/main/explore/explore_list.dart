@@ -33,16 +33,20 @@ class _PostListState extends State<ExploreList> {
     return BlocBuilder<ExploreBloc, ExploreState>(
       builder: (context, state) {
         return widget.feeds.isEmpty ?
-            Flexible(child: Center(
-                child: Text(
-                  widget.isFollowing ? 'Find new users in the Discover tab and follow them\n to see what they are listening to':'',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: FeelinColorFamily.gray600,
-                  ),
-            ))) :
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Center(
+                  child: Text(
+                    widget.isFollowing ? 'Find new users in the Discover tab and follow them\n to see what they are listening to':'',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: FeelinColorFamily.gray600,
+                    ),
+              )),
+            ) :
           ScrollConfiguration(
             behavior: const ScrollBehavior().copyWith(overscroll: false),
             child: ListView.builder(

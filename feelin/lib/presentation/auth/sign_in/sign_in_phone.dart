@@ -140,8 +140,6 @@ class _SignInPhoneState extends State<SignInPhone> with TickerProviderStateMixin
           setState(() {
             number = value;
           });
-          print(value.parseNumber());
-          print(value.dialCode ?? '');
           context.read<SignInFormBloc>().add(SignInFormEvent.phoneNumberChanged(value.parseNumber() ?? ''));
           context.read<SignInFormBloc>().add(SignInFormEvent.countryCodeChanged(value.dialCode ?? ''));
         },

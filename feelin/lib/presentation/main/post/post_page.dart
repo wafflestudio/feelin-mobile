@@ -25,7 +25,6 @@ class PostPage extends StatefulWidget{
 }
 class _PostPageState extends State<PostPage>{
   final _formKey = GlobalKey<FormState>();
-  final GlobalKey<TooltipState> _tooltipKey = GlobalKey<TooltipState>();
   final storage = const FlutterSecureStorage();
   String link = '';
   bool navigated = true;
@@ -73,19 +72,19 @@ class _PostPageState extends State<PostPage>{
                 (f) => f.maybeMap(
                     noSuchPlaylistExists: (_) =>showTopSnackBar(
                         Overlay.of(context),
-                        CustomSnackBar.error(message: 'playlist does not exist.')
+                        const CustomSnackBar.error(message: 'playlist does not exist.')
                     ),
                     invalidUrl: (_) => showTopSnackBar(
                         Overlay.of(context),
-                        CustomSnackBar.error(message: 'Please enter the valid Playlist URL.')
+                        const CustomSnackBar.error(message: 'Please enter the valid Playlist URL.')
                     ),
                     notSupportingVendor: (_)=>showTopSnackBar(
                         Overlay.of(context),
-                        CustomSnackBar.error(message: 'This streaming platform is not yet supported.')
+                        const CustomSnackBar.error(message: 'This streaming platform is not yet supported.')
                     ),
                     orElse: ()=>showTopSnackBar(
                         Overlay.of(context),
-                        CustomSnackBar.error(message: 'server error')
+                        const CustomSnackBar.error(message: 'server error')
                     )),
                 (playlist) {
                   if(!navigated) {
@@ -101,7 +100,7 @@ class _PostPageState extends State<PostPage>{
         child: Stack(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 200),
+              margin: const EdgeInsets.only(top: 200),
               padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 5),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -238,17 +237,20 @@ class _PostPageState extends State<PostPage>{
                   height: MediaQuery.of(context).size.height - 120,
                   width: 400,
                   child: TabBarView(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
-                            width: 300,
-                              height: 575,
-                              child: WebViewPage(url: 'https://feelin.wafflestudio.com/guide/spotify'),
+                              height: MediaQuery.of(context).size.height - 210,
+                              child: const AspectRatio(
+                                  aspectRatio: 0.6,
+                                  child: WebViewPage(url: 'https://feelin.wafflestudio.com/guide/spotify'),
+                              ),
                           ),
-                          const SizedBox(height: 10,),
+                          const Spacer(),
                           PlatformButton(function: (){
                             LaunchApp.openApp(
                               androidPackageName: 'com.spotify.music',
@@ -259,7 +261,8 @@ class _PostPageState extends State<PostPage>{
                           }, label: 'Open Spotify', icon: SvgPicture.asset('assets/icons/spotify_icon.svg',
                             width: 32,
                             height: 32,
-                          ), isBlack : true)
+                          ), isBlack : true),
+                          const SizedBox(height: 30,),
                         ],
                       ),
                       Column(
@@ -267,11 +270,12 @@ class _PostPageState extends State<PostPage>{
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(
-                            width: 300,
-                            height: 575,
-                            child: WebViewPage(url: 'https://feelin.wafflestudio.com/guide/applemusic'),
+                            height: MediaQuery.of(context).size.height - 210,
+                            child: const AspectRatio(
+                                aspectRatio: 0.6,
+                                child: WebViewPage(url: 'https://feelin.wafflestudio.com/guide/applemusic')),
                           ),
-                          const SizedBox(height: 10,),
+                          const Spacer(),
                           PlatformButton(function: (){
                             LaunchApp.openApp(
                               androidPackageName: 'com.apple.android.music',
@@ -283,6 +287,7 @@ class _PostPageState extends State<PostPage>{
                             width: 32,
                             height: 32,
                           ), isBlack : true),
+                          const SizedBox(height: 30,),
                         ],
                       ),
                     ],

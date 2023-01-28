@@ -33,7 +33,7 @@ class StreamingRepository{
         return const Left(ConnectFailure.serverError());
       }
     } on DioError catch(e){
-      print(e.error.toString());
+      //print(e);
       if(e.response?.statusCode == 400){
         return const Left(ConnectFailure.alreadyConnected());
       }
@@ -50,7 +50,7 @@ class StreamingRepository{
         return const Left(ConnectFailure.serverError());
       }
     } on DioError catch(e){
-      print(e.error.toString());
+      //print(e.error.toString());
       return const Left(ConnectFailure.serverError());
     }
   }
@@ -71,7 +71,7 @@ class StreamingRepository{
         return const Left(ConnectFailure.serverError());
       }
     } on DioError catch(e){
-      print(e);
+      //print(e);
       return const Left(ConnectFailure.serverError());
     }
   }
@@ -87,7 +87,7 @@ class StreamingRepository{
         return const Left(ConnectFailure.serverError());
       }
     } on DioError catch(e){
-      print(e);
+      //print(e);
       return const Left(ConnectFailure.serverError());
     }
   }

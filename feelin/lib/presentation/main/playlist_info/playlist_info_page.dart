@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
-import 'package:music_sns/presentation/app/app.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_app_bar.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_list.dart';
 
@@ -59,7 +58,6 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
     )..layout(minWidth: 0, maxWidth: textWidth);
 
     final countLines = (textPainter.size.width / textWidth).ceil();
-    final height = countLines * textPainter.size.height;
     return textPainter.size.height;
   }
 
@@ -129,20 +127,6 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
             },
           ),
         );
-
-        // state.saveFailureOrSuccessOption.fold(
-        //       () => null,
-        //       (failureOrSuccess) => failureOrSuccess.fold(
-        //         (f) => print('ffffffffffff'),
-        //         (url) => {
-        //       print('dddddddddddddd'),
-        //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        //         backgroundColor: FeelinColorFamily.redPrimary,
-        //         content: Text("Save"),
-        //       )),
-        //     },
-        //   ),
-        // );
       },
       child: BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
         builder: (context, state) {

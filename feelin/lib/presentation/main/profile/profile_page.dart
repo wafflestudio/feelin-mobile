@@ -32,6 +32,7 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
 
   @override
   Widget build(BuildContext context){
+    super.build(context);
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
         return (state.isLoading) ? const Center(child: CupertinoActivityIndicator(radius: 20,)) : gridView();
@@ -92,7 +93,7 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
                     ClipRRect(
                       borderRadius: BorderRadius.circular(50),
                       child: Image(
-                        image: state.profile.profileImage == null ? AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(state.profile.profileImage!),
+                        image: state.profile.profileImage == null ? const AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(state.profile.profileImage!),
                         width: 100,
                         height: 100,
                         fit: BoxFit.cover,

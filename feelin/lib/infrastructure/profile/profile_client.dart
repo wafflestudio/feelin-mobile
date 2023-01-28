@@ -10,7 +10,7 @@ import '../../domain/profile/report_user_request.dart';
 
 part 'profile_client.g.dart';
 
-@RestApi(baseUrl: "https://feelin-social-api-dev.wafflestudio.com/api/v1")
+@RestApi(baseUrl: "https://feelin-social-api.wafflestudio.com/api/v1")
 abstract class ProfileClient{
   factory ProfileClient(Dio dio, {String baseUrl}) = _ProfileClient;
 

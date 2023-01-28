@@ -4,7 +4,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'follow_client.g.dart';
 
-@RestApi(baseUrl: "https://feelin-social-api-dev.wafflestudio.com/api/v1")
+@RestApi(baseUrl: "https://feelin-social-api.wafflestudio.com/api/v1")
 abstract class FollowClient{
   factory FollowClient(Dio dio, {String baseUrl}) = _FollowClient;
 

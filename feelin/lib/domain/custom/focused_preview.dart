@@ -161,7 +161,7 @@ class FocusedMenuDetails extends StatelessWidget {
     final listHeight = 28 + post.playlist.tracks!.length * (itemExtent ?? 53.0);
 
     final maxMenuWidth = menuWidth??(size.width * 0.50);
-    final menuHeight = 100.0;
+    const menuHeight = 100.0;
     final playlistHeight = listHeight < maxMenuHeight ? listHeight : maxMenuHeight;
     final leftOffset = (childOffset.dx+ childSize!.width ) < size.width ? childOffset.dx: (childOffset.dx-childSize!.width+childSize!.width);
     final topOffsetOfChild = (childOffset.dy + childSize!.height) < size.height - bottomOffsetHeight! ? childOffset.dy : (size.height - childSize!.height) * 0.5;

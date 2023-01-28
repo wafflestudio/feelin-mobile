@@ -5,16 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:music_sns/presentation/auth/sign_up/sign_up_username.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-import 'package:validators/validators.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';
 import '../../style/colors.dart';
-import 'common_description.dart';
 import 'common_title.dart';
 
 class SignUpBirthday extends StatefulWidget{
@@ -56,8 +53,6 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
   bool validateBirthday(){
     if(year.isNotEmpty && month.isNotEmpty && day.isNotEmpty){
       final date = DateTime(int.parse(year), int.parse(month), int.parse(day));
-      print(date);
-      print('${year.toString().padLeft(4, '0')}-${month.toString().padLeft(2, '0')}-${day.toString().padLeft(2, '0')}');
       if(isValidDate('${year.toString().padLeft(4, '0')}-${month.toString().padLeft(2, '0')}-${day.toString().padLeft(2, '0')}')){
         DateTime today = DateTime.now();
         DateTime maxDate = DateTime(
@@ -76,7 +71,6 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
       final DateTime d = DateFormat('yyyy-MM-dd').parseStrict(input);
       return true;
     } catch (e) {
-      print(e);
       return false;
     }
   }
@@ -169,7 +163,7 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
                   isBirthdayValid = validateBirthday();
                 });
               },
-              autofillHints: [AutofillHints.birthdayYear],
+              autofillHints: const [AutofillHints.birthdayYear],
               decoration: InputDecoration(
                 hintText: 'YYYY',
                 counterText: '',
@@ -200,7 +194,7 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
               ],
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
-              autofillHints: [AutofillHints.birthdayMonth],
+              autofillHints: const [AutofillHints.birthdayMonth],
               onEditingComplete: (){
                 FocusScope.of(context).requestFocus(dayFocusNode);
               },
@@ -255,7 +249,7 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
                   isBirthdayValid = validateBirthday();
                 });
               },
-              autofillHints: [AutofillHints.birthdayDay],
+              autofillHints: const [AutofillHints.birthdayDay],
               decoration: InputDecoration(
                 hintText: 'DD',
                 counterText: '',

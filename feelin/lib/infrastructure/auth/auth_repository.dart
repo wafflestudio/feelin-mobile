@@ -55,11 +55,10 @@ class AuthRepository{
         storage.deleteAll();
         return const Right(unit);
       }else{
-        print(httpResponse.response.statusCode);
         return const Left(AuthFailure.unauthorized());
       }
     } on DioError catch(e){
-      print(e);
+      //print(e);
       return const Left(AuthFailure.serverError());
     }
   }
@@ -69,7 +68,6 @@ class AuthRepository{
     try{
       HttpResponse<User> httpResponse = await authClient.signIn(SignInRequest(account: emailAddress.getOrCrash(), password: password.getOrCrash(), type: 'EMAIL'));
       if(httpResponse.response.statusCode == 200 || httpResponse.response.statusCode == 201){
-        print( httpResponse.response.headers['Access-Token']![0]);
         storage.write(key: 'token', value: httpResponse.response.headers['Access-Token']![0]);
         storage.write(key: 'refresh', value: httpResponse.response.headers['Refresh-Token']![0]);
         storage.write(key: 'id', value: httpResponse.data.id.toString());
@@ -79,7 +77,7 @@ class AuthRepository{
       }
     } on DioError catch(e){
       print(e);
-      if(e.response?.statusCode == 401){
+      if(e.response?.statusCode == 400){
         return const Left(AuthFailure.invalidAccountAndPasswordCombination());
       }
       return const Left(AuthFailure.serverError());
@@ -91,7 +89,6 @@ class AuthRepository{
     try{
       HttpResponse<User> httpResponse = await authClient.signIn(SignInRequest(account: phoneNumber.getOrCrash()+countryCode.getOrCrash(), password: password.getOrCrash(), type: 'PHONE'));
       if(httpResponse.response.statusCode == 200 || httpResponse.response.statusCode == 201){
-        print( httpResponse.response.headers['Access-Token']![0]);
         storage.write(key: 'token', value: httpResponse.response.headers['Access-Token']![0]);
         storage.write(key: 'refresh', value: httpResponse.response.headers['Refresh-Token']![0]);
         storage.write(key: 'id', value: httpResponse.data.id.toString());
@@ -100,7 +97,7 @@ class AuthRepository{
         return const Left(AuthFailure.invalidAccountAndPasswordCombination());
       }
     } on DioError catch(e){
-      print(e);
+      //print(e);
       if(e.response?.statusCode == 401){
         return const Left(AuthFailure.invalidAccountAndPasswordCombination());
       }
@@ -141,7 +138,7 @@ class AuthRepository{
         default : return const Left(AuthFailure.serverError());
       }
     }on DioError catch(e){
-      print(e);
+      //print(e);
       switch(e.response?.statusCode){
         case 400 : return const Left(AuthFailure.invalidBirthdayForm());
         case 403 : return const Left(AuthFailure.unauthorizedEmail());
@@ -158,8 +155,6 @@ class AuthRepository{
       HttpResponse<User> httpResponse = await authClient.signUpWithPhone(
           SignUpWithPhoneRequest(countryCode: countryCode.getOrCrash(), phoneNumber: phoneNumber.getOrCrash(), password: password.getOrCrash(),
               name: name.getOrCrash(), username: username.getOrCrash(), birthday: birthday.getOrCrash()));
-      print(httpResponse.response.statusCode);
-      log(httpResponse.response.statusCode.toString());
       switch(httpResponse.response.statusCode){
 
         case 201 : {
@@ -175,7 +170,7 @@ class AuthRepository{
         default : return const Left(AuthFailure.serverError());
       }
     }on DioError catch(e){
-      print(e);
+      //print(e);
       switch(e.response?.statusCode){
         case 400 : return const Left(AuthFailure.invalidBirthdayForm());
         case 403 : return const Left(AuthFailure.unauthorizedEmail());
@@ -221,7 +216,7 @@ class AuthRepository{
         return const Left(AuthFailure.invalidAuthCode());
       }
     }catch(e){
-      print(e);
+      //print(e);
       return const Left(AuthFailure.invalidAuthCode());
     }
   }
@@ -261,7 +256,7 @@ class AuthRepository{
         return const Left(AuthFailure.invalidAuthCode());
       }
     }catch(e){
-      print(e);
+      //print(e);
       return const Left(AuthFailure.invalidAuthCode());
     }
   }

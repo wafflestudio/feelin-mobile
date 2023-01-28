@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/streaming/connect/connect_streaming_bloc.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../application/streaming/streaming_bloc.dart';
@@ -35,7 +37,6 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
     if(widget.isApple){
       id = Uri.parse(widget.url).queryParameters['id']??'';
-      print(Uri.parse(widget.url).queryParameters['id']??'');
     }
   }
 
@@ -85,27 +86,32 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
             state.requestFailureOrSuccessOption.fold(
                   () => null,
                   (failureOrSuccess) => failureOrSuccess.fold(
-                    (f) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      backgroundColor: FeelinColorFamily.errorPrimary,
-                      content: const Text('Connection failed.'),
-                    )),
+                    (f) => showTopSnackBar(
+                        Overlay.of(context),
+                        CustomSnackBar.error(
+                          icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                          backgroundColor: FeelinColorFamily.errorPrimary,
+                            message: 'Connection failed.')
+                    ),
                     (_) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    backgroundColor: FeelinColorFamily.redPrimary,
-                    content: const Text('Successfully connected.'),
-                    ));
+                      showTopSnackBar(
+                          Overlay.of(context),
+                          CustomSnackBar.success(
+                              icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                              backgroundColor: FeelinColorFamily.redPrimary,
+                              message: 'Successfully connected.')
+                      );
                     Navigator.pop(context, true);
                     Navigator.pop(context, true);
-                    context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                    context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
                 },
               ),
             );
           },
           child: LayoutBuilder(
             builder: (context, constrains) {
-              return Container(
+              return SizedBox(
                 height: constrains.maxHeight,
-                child: Container(
                 child: Stack(
                   children: [
                     WebView(
@@ -136,15 +142,17 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
                         //_controller.reload();
                       },
                       navigationDelegate: (request){
-                        print(request.url);
-                        if(request.url.startsWith('https://feelin-api-dev.wafflestudio.com')){
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            backgroundColor: FeelinColorFamily.redPrimary,
-                            content: const Text('Successfully connected.'),
-                          ));
+                        if(request.url.startsWith('https://feelin-api.wafflestudio.com') || request.url.startsWith('https://feelin-api-dev.wafflestudio.com')){
+                          showTopSnackBar(
+                              Overlay.of(context),
+                              CustomSnackBar.success(
+                                  icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                                  backgroundColor: FeelinColorFamily.redPrimary,
+                                  message: 'Successfully connected.')
+                          );
                           Navigator.pop(context, true);
                           Navigator.pop(context, true);
-                          context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                          context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
                         }
                         return NavigationDecision.navigate;
                       },
@@ -155,8 +163,7 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
                         value: loadingPercentage / 100.0,
                       ),
                   ],
-                ),
-              ),);
+                ),);
             }
           ),
         ),
@@ -168,15 +175,8 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
     return JavascriptChannel(
         name: "flutterChannel",
         onMessageReceived: (JavascriptMessage message){
-          print(message.message);
           context.read<ConnectStreamingBloc>().add(ConnectStreamingEvent.appleMusicLogin(message.message, id));
           Navigator.pop(context);
-          // ScaffoldMessenger.of(context)
-          //     .showSnackBar(SnackBar(content: Text(message.message)));
-          // storage.write(key: "token", value: message.message);
-          // Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context){
-          //   return const RootPage();
-          // }),(route) => false);
         });
   }
 

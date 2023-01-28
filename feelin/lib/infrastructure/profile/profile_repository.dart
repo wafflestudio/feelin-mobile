@@ -116,7 +116,7 @@ class ProfileRepository{
         default : return const Left(ProfileFailure.serverError());
       }
     }on DioError catch(e){
-      print(e);
+      //print(e);
       switch(e.response?.statusCode){
         case 401 : return const Left(ProfileFailure.unauthorized());
         case 403 : return const Left(ProfileFailure.usernameAlreadyInUse());
@@ -176,7 +176,7 @@ class ProfileRepository{
         default : return const Left(ProfileFailure.serverError());
       }
     }on DioError catch(e){
-      print(e);
+      //print(e);
       return const Left(ProfileFailure.serverError());
     }
   }

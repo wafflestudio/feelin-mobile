@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:music_sns/presentation/style/colors.dart';
 
 class ExploreAppBar extends StatefulWidget with PreferredSizeWidget {
   final Function function;

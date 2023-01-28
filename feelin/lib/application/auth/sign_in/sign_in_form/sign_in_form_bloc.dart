@@ -122,7 +122,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           }else{
             emit(state.copyWith(
               isSubmitting: false,
-              authFailureOrSuccessOption: some(left(AuthFailure.invalidAccountAndPasswordCombination())),
+              authFailureOrSuccessOption: some(left(const AuthFailure.invalidAccountAndPasswordCombination())),
             ));
           }
         }else{
@@ -146,7 +146,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           }else{
             emit(state.copyWith(
               isSubmitting: false,
-              authFailureOrSuccessOption: some(left(AuthFailure.invalidAccountAndPasswordCombination())),
+              authFailureOrSuccessOption: some(left(const AuthFailure.invalidAccountAndPasswordCombination())),
             ));
           }
         }

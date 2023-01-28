@@ -6,7 +6,7 @@ import '../../domain/post/post_playlist_request.dart';
 
 part 'playlist_client.g.dart';
 
-@RestApi(baseUrl: "https://feelin-api-dev.wafflestudio.com/api/v1")
+@RestApi(baseUrl: "https://feelin-api.wafflestudio.com/api/v1")
 abstract class PlaylistClient{
   factory PlaylistClient(Dio dio, {String baseUrl}) = _PlaylistClient;
 

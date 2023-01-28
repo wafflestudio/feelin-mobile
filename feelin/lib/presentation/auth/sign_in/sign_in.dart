@@ -1,14 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/application/auth/sign_in/sign_in_form/sign_in_form_bloc.dart';
 import 'package:music_sns/injection.dart';
 import 'package:music_sns/presentation/auth/sign_in/sign_in_email.dart';
 import 'package:music_sns/presentation/auth/sign_in/sign_in_phone.dart';
 
-import '../../style/colors.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);

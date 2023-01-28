@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
-import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 
 import '../../style/colors.dart';
 import 'report_bottom_modal_description.dart';
@@ -38,7 +37,7 @@ class _ReportBottomModalState extends State<ReportBottomModal> {
           },
         );
         //Navigator.pop(context);
-      }, child: Align(alignment: Alignment.centerLeft, child: Text(text, textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),))),
+      }, child: Align(alignment: Alignment.centerLeft, child: Text(text, textAlign: TextAlign.left, style: const TextStyle(color: Colors.black, fontSize: 16),))),
     );
   }
 
@@ -74,7 +73,7 @@ class _ReportBottomModalState extends State<ReportBottomModal> {
                       ),
                     ],
                   ),
-                  Center(
+                  const Center(
                     child: Text(
                       'Why are you reporting this post?',
                       style: TextStyle(fontSize: 14, ),

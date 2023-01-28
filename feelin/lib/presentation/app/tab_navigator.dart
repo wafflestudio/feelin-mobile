@@ -16,7 +16,7 @@ class MyKeyStore{
 }
 
 class TabNavigator extends StatelessWidget {
-  TabNavigator({required this.navigatorKey, required this.tabItem,});
+  const TabNavigator({required this.navigatorKey, required this.tabItem,});
   final GlobalKey<NavigatorState>? navigatorKey;
   final TabItem tabItem;
   //https://stackoverflow.com/questions/51029655/call-method-in-one-stateful-widget-from-another-stateful-widget-flutter

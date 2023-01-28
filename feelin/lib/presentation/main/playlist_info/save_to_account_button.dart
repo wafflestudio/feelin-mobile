@@ -9,8 +9,6 @@ import 'package:music_sns/domain/streaming/vendor.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import 'package:top_snackbar_flutter/safe_area_values.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../application/streaming/connect/connect_streaming_bloc.dart';
 import '../../../injection.dart';
@@ -40,14 +38,12 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
   _async() async{
     token = await storage.read(key: "token");
     id = await storage.read(key: 'vendor');
-    print('ffffff'+id.toString());
-    print('ddddd'+token.toString());
   }
 
   @override
   Widget build(BuildContext context) {
     if(!context.watch<StreamingBloc>().state.isConnected){
-      context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+      context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
     }
     return BlocListener<PlaylistInfoBloc, PlaylistInfoState>(
       listener: (context, state){
@@ -58,22 +54,21 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                   Overlay.of(context),
                   CustomSnackBar.error(
                     backgroundColor: FeelinColorFamily.errorPrimary,
-                    icon: Icon(Icons.music_note_rounded, color: Colors.transparent,),
+                    icon: const Icon(Icons.music_note_rounded, color: Colors.transparent,),
                     message:
                     'Server error',
                   ),
                 ),
                 (url1) async {
-                  final url = Uri.parse(url1.url);
-                  print(url1.url);
-                  if (await canLaunchUrl(url)) {
-                    launchUrl(url, mode: LaunchMode.externalApplication);
-                  }
+                  // final url = Uri.parse(url1.url);
+                  // if (await canLaunchUrl(url)) {
+                  //   launchUrl(url, mode: LaunchMode.externalApplication);
+                  // }
                   showTopSnackBar(
-                    Overlay.of(context)!,
+                    Overlay.of(context),
                     CustomSnackBar.success(
                       backgroundColor: FeelinColorFamily.redPrimary,
-                      icon: Icon(Icons.music_note_rounded, color: Colors.transparent,),
+                      icon: const Icon(Icons.music_note_rounded, color: Colors.transparent,),
                       message:
                       'The playlist has been saved successfully.',
                     ),
@@ -93,21 +88,17 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                 onPressed: (){
                   if(state.isConnected){
                     context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.saveRequest(state.vendorId));
-                    print('ffffff'+id.toString());
-                    print('ddddd'+token.toString());
-                    print(state.vendor);
-                    print(state.vendorId);
                   }else{
                     Navigator.push(context, CupertinoPageRoute(
                       builder: (context){
                         return BlocProvider(
                             create: (context) => getIt<ConnectStreamingBloc>(),
-                            child: ConnectStreamingPage());
+                            child: const ConnectStreamingPage());
                       },
                     ),
                     ).then((value) {
                       if(value != null){
-                        context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                        context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
                       }
                     });
                   }

@@ -36,7 +36,6 @@ class PostRepository{
         default : return const Left(PostFailure.serverError());
       }
     }on DioError catch(e){
-      print(e);
       switch(e.response?.statusCode){
         case 400 : return const Left(PostFailure.blankedTitle());
         case 401 : return const Left(PostFailure.unauthorized());
@@ -59,7 +58,6 @@ class PostRepository{
         default : return const Left(PostFailure.serverError());
       }
     }on DioError catch(e){
-      print(e);
       switch(e.response?.statusCode){
         case 400 : return const Left(PostFailure.blankedTitle());
         case 401 : return const Left(PostFailure.unauthorized());

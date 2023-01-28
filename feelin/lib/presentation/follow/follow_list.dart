@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:music_sns/domain/profile/profile.dart';
 
 import 'follow_user_item.dart';

@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:music_sns/domain/play/track.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../domain/play/main_track.dart';
@@ -20,7 +19,7 @@ class TrackPreview extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(6)
       ),
-      padding: EdgeInsets.all(6),
+      padding: const EdgeInsets.all(6),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

@@ -7,6 +7,7 @@ import 'package:music_sns/infrastructure/follow/follow_repository.dart';
 import '../../domain/follow/page_user.dart';
 import '../../domain/profile/profile.dart';
 import '../../domain/profile/profile_failure.dart';
+import '../../presentation/app/tab_navigator.dart';
 
 part 'follow_bloc.freezed.dart';
 part 'follow_event.dart';
@@ -76,6 +77,38 @@ class FollowBloc extends Bloc<FollowEvent, FollowState>{
         isLast: false,
         cursor: null,
       ));
+    });
+
+    on<_FollowRequest>((event, emit) async {
+      if(!state.users[event.index].isFollowed!){
+        final failureOrSuccess = await _followRepository.follow(id: state.users[event.index].id);
+        failureOrSuccess.fold(
+              (f) {
+            state.users[event.index].isFollowed = false;
+          },
+              (posts) {
+            state.users[event.index].isFollowed = true;
+            MyKeyStore.profileKey.currentState?.onRefresh();
+            MyKeyStore.exploreKey.currentState?.firstLoad();
+          },
+        );
+      }
+    });
+
+    on<_UnFollowRequest>((event, emit) async {
+      if(state.users[event.index].isFollowed!){
+        final failureOrSuccess = await _followRepository.unFollow(id: state.users[event.index].id);
+        failureOrSuccess.fold(
+              (f) {
+                state.users[event.index].isFollowed = true;
+          },
+              (posts) {
+                state.users[event.index].isFollowed = false;
+                MyKeyStore.profileKey.currentState?.onRefresh();
+                MyKeyStore.exploreKey.currentState?.firstLoad();
+          },
+        );
+      }
     });
   }
 }

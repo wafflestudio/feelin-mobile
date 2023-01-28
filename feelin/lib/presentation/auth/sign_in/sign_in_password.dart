@@ -19,6 +19,7 @@ class _SignInPasswordState extends State<SignInPassword> with TickerProviderStat
 
   final TextEditingController _passwordTextController = TextEditingController();
   bool _passwordVisible = false;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -38,21 +39,21 @@ class _SignInPasswordState extends State<SignInPassword> with TickerProviderStat
       body: Align(
         alignment: Alignment.topCenter,
         child: Container(
-          constraints: BoxConstraints(maxHeight: 475),
+          constraints: const BoxConstraints(maxHeight: 475),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 30),
-                constraints: BoxConstraints(maxHeight: 210),
+                margin: const EdgeInsets.only(top: 30),
+                constraints: const BoxConstraints(maxHeight: 210),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
-                      children: [
-                        const CommonTitle(title: 'You already \nhave an account'),
+                      children: const [
+                        CommonTitle(title: 'You already \nhave an account'),
                         CommonDescription(description: 'Enter your password to login')
                       ],
                     ),
@@ -87,7 +88,7 @@ class _SignInPasswordState extends State<SignInPassword> with TickerProviderStat
         state.authFailureOrSuccessOption.fold(
               () => null,
               (failureOrSuccess) => failureOrSuccess.fold(
-                  (f) => print(f),
+                  (f) => null,
                   (_){
                     context.read<AuthBloc>()
                         .add(const AuthEvent.submitted());
@@ -99,6 +100,7 @@ class _SignInPasswordState extends State<SignInPassword> with TickerProviderStat
       child: BlocBuilder<SignInFormBloc, SignInFormState>(
           builder: (context, state) {
             return TextFormField(
+              key: _formKey,
               controller: _passwordTextController,
               onFieldSubmitted: (_){
                 if(_passwordTextController.text.isNotEmpty){
@@ -112,6 +114,7 @@ class _SignInPasswordState extends State<SignInPassword> with TickerProviderStat
               obscureText: !_passwordVisible,
               obscuringCharacter: '*',
               keyboardType: TextInputType.visiblePassword,
+              autovalidateMode: AutovalidateMode.always,
               decoration: InputDecoration(
                 hintText: 'Password',
                 isDense: true,

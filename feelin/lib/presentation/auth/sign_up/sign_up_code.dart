@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/presentation/style/colors.dart';
@@ -11,7 +10,6 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import 'common_description.dart';
 import 'common_title.dart';
-import 'sign_up_name.dart';
 
 class SignUpCode extends StatefulWidget{
   final Function goToNext;
@@ -65,7 +63,7 @@ class _SignUpCodeState extends State<SignUpCode>{
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const CommonDescription(description: 'Enter it to verify  ',),
-                          CommonDescription(description: '${state.emailAddress.value.getOrElse(() => '')}', isRed: true,),
+                          CommonDescription(description: state.emailAddress.value.getOrElse(() => ''), isRed: true,),
                         ],
                       );
                     }
@@ -172,7 +170,6 @@ class _SignUpCodeState extends State<SignUpCode>{
               //   print("Pressed");
               // },
               onChanged: (value) {
-                debugPrint(value);
                 context
                     .read<SignUpFormBloc>()
                     .add(SignUpFormEvent.codeChanged(value));

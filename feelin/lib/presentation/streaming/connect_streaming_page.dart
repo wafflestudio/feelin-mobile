@@ -131,12 +131,12 @@ class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
                   (f) => f.maybeMap(
                       serverError: (_)=>showTopSnackBar(
                           Overlay.of(context),
-                          CustomSnackBar.error(message: 'Server Error')
+                          const CustomSnackBar.error(message: 'Server Error')
                       ),
                       alreadyConnected: (_){
                         showTopSnackBar(
                             Overlay.of(context),
-                            CustomSnackBar.error(message: 'Your account is already connected.')
+                            const CustomSnackBar.error(message: 'Your account is already connected.')
                         );
                         Navigator.pop(context);
                         },
@@ -159,7 +159,7 @@ class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
                         ),
                       ).then((value) {
                         if(value != null){
-                          context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                          context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
                         }
                       });
                     }

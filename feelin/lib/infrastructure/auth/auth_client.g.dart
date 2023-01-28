@@ -13,7 +13,7 @@ class _AuthClient implements AuthClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://feelin-social-api-dev.wafflestudio.com/api/v1';
+    baseUrl ??= 'https://feelin-social-api.wafflestudio.com/api/v1';
   }
 
   final Dio _dio;

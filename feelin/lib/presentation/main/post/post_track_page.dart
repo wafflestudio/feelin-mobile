@@ -59,7 +59,7 @@ class _PostDetailPageState extends State<PostTrackPage> {
                   width: 72,
                   height: 72,),
                 const SizedBox(width: 10,),
-                Container(
+                SizedBox(
                   width: size.width - 122,
                   child: Text(
                       playlist.title,

@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_up/common_title.dart';
-import 'package:music_sns/presentation/auth/sign_up/sign_up_birthday.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -60,13 +58,13 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
               mainAxisSize: MainAxisSize.min,
               children: [
                 RichText(textAlign: TextAlign.center,text: TextSpan(
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 13,
                     letterSpacing: -0.41,
                   ),
                   children: [
-                    TextSpan(
+                    const TextSpan(
                         text: 'By tapping Next, you acknowledged that you have read \nthe ',
                       style: TextStyle(
                         color: Colors.black,
@@ -84,7 +82,7 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
                           }
                         }
                     ),
-                    TextSpan(
+                    const TextSpan(
                         text: ' and agree to the ',
                       style: TextStyle(
                         color: Colors.black

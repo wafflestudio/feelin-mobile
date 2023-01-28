@@ -110,7 +110,7 @@ class ExplorePostRepository{
         default : return const Left(ExplorePostFailure.serverError());
       }
     }on DioError catch(e){
-      print(e);
+      //print(e);
       switch(e.response?.statusCode){
         case 403 : return const Left(ExplorePostFailure.forbidden());
         case 404 : return const Left(ExplorePostFailure.notFound());
@@ -122,7 +122,6 @@ class ExplorePostRepository{
   Future<Either<ExplorePostFailure, String>> save({required String playlistId, required String vendorId, required String title, required String content}) async{
     try{
       HttpResponse<String> httpResponse = await explorePostClient2.save(playlistId, vendorId, SaveToAccountRequest(title: title, content: content));
-      print(httpResponse.response.data+'ddd');
       switch(httpResponse.response.statusCode){
         case 200 : return Right(httpResponse.data);
         case 201 : return Right(httpResponse.data);
@@ -131,7 +130,7 @@ class ExplorePostRepository{
         default : return const Left(ExplorePostFailure.serverError());
       }
     }on DioError catch(e){
-      print(e);
+      //print(e);
       switch(e.response?.statusCode){
         case 403 : return const Left(ExplorePostFailure.forbidden());
         case 404 : return const Left(ExplorePostFailure.notFound());

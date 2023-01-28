@@ -23,7 +23,7 @@ class UserNickname extends StatelessWidget{
           ClipRRect(
             borderRadius: BorderRadius.circular(isBig ? 16 : 12),
             child: Image(
-              image: profile.profileImage == null ? AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(profile.profileImage!),
+              image: profile.profileImage == null ? const AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(profile.profileImage!),
               width: isBig ? 32 : 24,
               height: isBig ? 32 : 24,
               fit: BoxFit.cover,
