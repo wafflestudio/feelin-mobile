@@ -10,6 +10,7 @@ import 'package:music_sns/presentation/style/colors.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/safe_area_values.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../application/streaming/connect/connect_streaming_bloc.dart';
 import '../../../injection.dart';
@@ -62,7 +63,12 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                     'Server error',
                   ),
                 ),
-                (url) => {
+                (url1) async {
+                  final url = Uri.parse(url1.url);
+                  print(url1.url);
+                  if (await canLaunchUrl(url)) {
+                    launchUrl(url, mode: LaunchMode.externalApplication);
+                  }
                   showTopSnackBar(
                     Overlay.of(context)!,
                     CustomSnackBar.success(
@@ -71,7 +77,7 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                       message:
                       'The playlist has been saved successfully.',
                     ),
-                  ),
+                  );
             },
           ),
         );

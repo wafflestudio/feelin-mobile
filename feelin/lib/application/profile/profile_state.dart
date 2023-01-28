@@ -4,6 +4,7 @@ part of 'profile_bloc.dart';
 class ProfileState with _$ProfileState {
   const factory ProfileState({
     required Option<Either<ProfileFailure, Page>> loadFailureOrSuccessOption,
+    required Option<Either<ProfileFailure, Unit>> reportFailureOrSuccessOption,
     required List<Post> posts,
     required Profile profile,
     required bool isLoading,
@@ -14,6 +15,7 @@ class ProfileState with _$ProfileState {
   }) = _ProfileState;
   factory ProfileState.initial() => ProfileState(
     loadFailureOrSuccessOption: none(),
+    reportFailureOrSuccessOption: none(),
     posts: [],
     profile: Profile(id: '', username: '', profileImage: ''),
     isLoading: true,

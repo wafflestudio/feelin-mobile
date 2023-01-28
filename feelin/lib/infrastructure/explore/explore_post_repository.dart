@@ -122,9 +122,7 @@ class ExplorePostRepository{
   Future<Either<ExplorePostFailure, String>> save({required String playlistId, required String vendorId, required String title, required String content}) async{
     try{
       HttpResponse<String> httpResponse = await explorePostClient2.save(playlistId, vendorId, SaveToAccountRequest(title: title, content: content));
-      print(httpResponse.response);
-      if(httpResponse.response.statusCode! / 100 == 3) return Right(httpResponse.data);
-      print(httpResponse.response.statusCode);
+      print(httpResponse.response.data+'ddd');
       switch(httpResponse.response.statusCode){
         case 200 : return Right(httpResponse.data);
         case 201 : return Right(httpResponse.data);

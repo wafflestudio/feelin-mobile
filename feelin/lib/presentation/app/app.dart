@@ -21,7 +21,7 @@ class AppState extends State<App>{
   };
 
   //https://stackoverflow.com/questions/51029655/call-method-in-one-stateful-widget-from-another-stateful-widget-flutter
-  final GlobalKey<ProfileAppScaffoldState> _profileKey = GlobalKey();
+  final GlobalKey<ProfileAppScaffoldState> _profileKey = MyKeyStore.profileKey;
 
   void _selectTab(TabItem tabItem) {
     if (tabItem == _currentTab) {
@@ -86,7 +86,6 @@ class AppState extends State<App>{
       child: TabNavigator(
         navigatorKey: _navigatorKeys[tabItem],
         tabItem: tabItem,
-        profileKey: _profileKey,
       ),
     );
   }

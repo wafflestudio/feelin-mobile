@@ -11,6 +11,7 @@ import 'package:retrofit/retrofit.dart';
 import '../../domain/auth/check_username_request.dart';
 import '../../domain/auth/exists_username.dart';
 import '../../domain/profile/edit_my_profile_request.dart';
+import '../../domain/profile/report_user_request.dart';
 import '../../domain/profile/value_objects.dart';
 
 @LazySingleton()
@@ -163,6 +164,20 @@ class ProfileRepository{
         case 409 : return const Left(ProfileFailure.alreadyFollowed());
         default : return const Left(ProfileFailure.serverError());
       }
+    }
+  }
+
+  Future<Either<ProfileFailure, Unit>> report({required String reportType, required String username, required String description,}) async{
+    try{
+      HttpResponse<void> httpResponse = await profileClient.report(ReportUserRequest(reportType: reportType, username: username, description: description,));
+      switch(httpResponse.response.statusCode){
+        case 200 : return const Right(unit);
+        case 201 : return const Right(unit);
+        default : return const Left(ProfileFailure.serverError());
+      }
+    }on DioError catch(e){
+      print(e);
+      return const Left(ProfileFailure.serverError());
     }
   }
 

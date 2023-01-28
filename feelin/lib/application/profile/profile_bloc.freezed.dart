@@ -27,6 +27,8 @@ mixin _$ProfileEvent {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +42,7 @@ mixin _$ProfileEvent {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +56,7 @@ mixin _$ProfileEvent {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +71,7 @@ mixin _$ProfileEvent {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +85,7 @@ mixin _$ProfileEvent {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +99,7 @@ mixin _$ProfileEvent {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,6 +170,8 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return myProfileRequest();
   }
@@ -179,6 +188,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return myProfileRequest?.call();
   }
@@ -195,6 +205,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (myProfileRequest != null) {
@@ -215,6 +226,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return myProfileRequest(this);
   }
@@ -231,6 +243,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return myProfileRequest?.call(this);
   }
@@ -247,6 +260,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (myProfileRequest != null) {
@@ -333,6 +347,8 @@ class _$_ProfileRequest implements _ProfileRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return profileRequest(id);
   }
@@ -349,6 +365,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return profileRequest?.call(id);
   }
@@ -365,6 +382,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (profileRequest != null) {
@@ -385,6 +403,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return profileRequest(this);
   }
@@ -401,6 +420,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return profileRequest?.call(this);
   }
@@ -417,6 +437,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (profileRequest != null) {
@@ -508,6 +529,8 @@ class _$_ProfileChanged implements _ProfileChanged {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return profileChanged(profile);
   }
@@ -524,6 +547,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return profileChanged?.call(profile);
   }
@@ -540,6 +564,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (profileChanged != null) {
@@ -560,6 +585,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return profileChanged(this);
   }
@@ -576,6 +602,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return profileChanged?.call(this);
   }
@@ -592,6 +619,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (profileChanged != null) {
@@ -657,6 +685,8 @@ class _$_MyPageRequest implements _MyPageRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return myPageRequest();
   }
@@ -673,6 +703,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return myPageRequest?.call();
   }
@@ -689,6 +720,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (myPageRequest != null) {
@@ -709,6 +741,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return myPageRequest(this);
   }
@@ -725,6 +758,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return myPageRequest?.call(this);
   }
@@ -741,6 +775,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (myPageRequest != null) {
@@ -827,6 +862,8 @@ class _$_PageRequest implements _PageRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return pageRequest(id);
   }
@@ -843,6 +880,7 @@ class _$_PageRequest implements _PageRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return pageRequest?.call(id);
   }
@@ -859,6 +897,7 @@ class _$_PageRequest implements _PageRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (pageRequest != null) {
@@ -879,6 +918,7 @@ class _$_PageRequest implements _PageRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return pageRequest(this);
   }
@@ -895,6 +935,7 @@ class _$_PageRequest implements _PageRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return pageRequest?.call(this);
   }
@@ -911,6 +952,7 @@ class _$_PageRequest implements _PageRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (pageRequest != null) {
@@ -976,6 +1018,8 @@ class _$_FollowRequest implements _FollowRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return followRequest();
   }
@@ -992,6 +1036,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return followRequest?.call();
   }
@@ -1008,6 +1053,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (followRequest != null) {
@@ -1028,6 +1074,7 @@ class _$_FollowRequest implements _FollowRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return followRequest(this);
   }
@@ -1044,6 +1091,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return followRequest?.call(this);
   }
@@ -1060,6 +1108,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (followRequest != null) {
@@ -1120,6 +1169,8 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return unFollowRequest();
   }
@@ -1136,6 +1187,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return unFollowRequest?.call();
   }
@@ -1152,6 +1204,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (unFollowRequest != null) {
@@ -1172,6 +1225,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return unFollowRequest(this);
   }
@@ -1188,6 +1242,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return unFollowRequest?.call(this);
   }
@@ -1204,6 +1259,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (unFollowRequest != null) {
@@ -1264,6 +1320,8 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return resetRequest();
   }
@@ -1280,6 +1338,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return resetRequest?.call();
   }
@@ -1296,6 +1355,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (resetRequest != null) {
@@ -1316,6 +1376,7 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return resetRequest(this);
   }
@@ -1332,6 +1393,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return resetRequest?.call(this);
   }
@@ -1348,6 +1410,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (resetRequest != null) {
@@ -1434,6 +1497,8 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
   }) {
     return removeItem(index);
   }
@@ -1450,6 +1515,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
   }) {
     return removeItem?.call(index);
   }
@@ -1466,6 +1532,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
     required TResult orElse(),
   }) {
     if (removeItem != null) {
@@ -1486,6 +1553,7 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
   }) {
     return removeItem(this);
   }
@@ -1502,6 +1570,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
   }) {
     return removeItem?.call(this);
   }
@@ -1518,6 +1587,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
     required TResult orElse(),
   }) {
     if (removeItem != null) {
@@ -1537,8 +1607,202 @@ abstract class _RemoveItem implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$_ReportRequestCopyWith<$Res> {
+  factory _$$_ReportRequestCopyWith(
+          _$_ReportRequest value, $Res Function(_$_ReportRequest) then) =
+      __$$_ReportRequestCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String reportType, dynamic description});
+}
+
+/// @nodoc
+class __$$_ReportRequestCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_ReportRequest>
+    implements _$$_ReportRequestCopyWith<$Res> {
+  __$$_ReportRequestCopyWithImpl(
+      _$_ReportRequest _value, $Res Function(_$_ReportRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? reportType = null,
+    Object? description = freezed,
+  }) {
+    return _then(_$_ReportRequest(
+      null == reportType
+          ? _value.reportType
+          : reportType // ignore: cast_nullable_to_non_nullable
+              as String,
+      freezed == description ? _value.description! : description,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ReportRequest implements _ReportRequest {
+  const _$_ReportRequest(this.reportType, this.description);
+
+  @override
+  final String reportType;
+  @override
+  final dynamic description;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.reportRequest(reportType: $reportType, description: $description)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ReportRequest &&
+            (identical(other.reportType, reportType) ||
+                other.reportType == reportType) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, reportType,
+      const DeepCollectionEquality().hash(description));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ReportRequestCopyWith<_$_ReportRequest> get copyWith =>
+      __$$_ReportRequestCopyWithImpl<_$_ReportRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() myProfileRequest,
+    required TResult Function(String id) profileRequest,
+    required TResult Function(Profile profile) profileChanged,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
+    required TResult Function() followRequest,
+    required TResult Function() unFollowRequest,
+    required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
+  }) {
+    return reportRequest(reportType, description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
+  }) {
+    return reportRequest?.call(reportType, description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? myProfileRequest,
+    TResult Function(String id)? profileRequest,
+    TResult Function(Profile profile)? profileChanged,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
+    TResult Function()? followRequest,
+    TResult Function()? unFollowRequest,
+    TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
+    required TResult orElse(),
+  }) {
+    if (reportRequest != null) {
+      return reportRequest(reportType, description);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ProfileChanged value) profileChanged,
+    required TResult Function(_MyPageRequest value) myPageRequest,
+    required TResult Function(_PageRequest value) pageRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unFollowRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
+  }) {
+    return reportRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
+  }) {
+    return reportRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ProfileChanged value)? profileChanged,
+    TResult Function(_MyPageRequest value)? myPageRequest,
+    TResult Function(_PageRequest value)? pageRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unFollowRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
+    required TResult orElse(),
+  }) {
+    if (reportRequest != null) {
+      return reportRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReportRequest implements ProfileEvent {
+  const factory _ReportRequest(
+      final String reportType, final dynamic description) = _$_ReportRequest;
+
+  String get reportType;
+  dynamic get description;
+  @JsonKey(ignore: true)
+  _$$_ReportRequestCopyWith<_$_ReportRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   Option<Either<ProfileFailure, Page>> get loadFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  Option<Either<ProfileFailure, Unit>> get reportFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   List<Post> get posts => throw _privateConstructorUsedError;
   Profile get profile => throw _privateConstructorUsedError;
@@ -1561,6 +1825,7 @@ abstract class $ProfileStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Option<Either<ProfileFailure, Page>> loadFailureOrSuccessOption,
+      Option<Either<ProfileFailure, Unit>> reportFailureOrSuccessOption,
       List<Post> posts,
       Profile profile,
       bool isLoading,
@@ -1584,6 +1849,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   @override
   $Res call({
     Object? loadFailureOrSuccessOption = null,
+    Object? reportFailureOrSuccessOption = null,
     Object? posts = null,
     Object? profile = null,
     Object? isLoading = null,
@@ -1597,6 +1863,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.loadFailureOrSuccessOption
           : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ProfileFailure, Page>>,
+      reportFailureOrSuccessOption: null == reportFailureOrSuccessOption
+          ? _value.reportFailureOrSuccessOption
+          : reportFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ProfileFailure, Unit>>,
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -1639,6 +1909,7 @@ abstract class _$$_ProfileStateCopyWith<$Res>
   @useResult
   $Res call(
       {Option<Either<ProfileFailure, Page>> loadFailureOrSuccessOption,
+      Option<Either<ProfileFailure, Unit>> reportFailureOrSuccessOption,
       List<Post> posts,
       Profile profile,
       bool isLoading,
@@ -1660,6 +1931,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? loadFailureOrSuccessOption = null,
+    Object? reportFailureOrSuccessOption = null,
     Object? posts = null,
     Object? profile = null,
     Object? isLoading = null,
@@ -1673,6 +1945,10 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.loadFailureOrSuccessOption
           : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ProfileFailure, Page>>,
+      reportFailureOrSuccessOption: null == reportFailureOrSuccessOption
+          ? _value.reportFailureOrSuccessOption
+          : reportFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ProfileFailure, Unit>>,
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -1710,6 +1986,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
 class _$_ProfileState implements _ProfileState {
   const _$_ProfileState(
       {required this.loadFailureOrSuccessOption,
+      required this.reportFailureOrSuccessOption,
       required final List<Post> posts,
       required this.profile,
       required this.isLoading,
@@ -1721,6 +1998,8 @@ class _$_ProfileState implements _ProfileState {
 
   @override
   final Option<Either<ProfileFailure, Page>> loadFailureOrSuccessOption;
+  @override
+  final Option<Either<ProfileFailure, Unit>> reportFailureOrSuccessOption;
   final List<Post> _posts;
   @override
   List<Post> get posts {
@@ -1744,7 +2023,7 @@ class _$_ProfileState implements _ProfileState {
 
   @override
   String toString() {
-    return 'ProfileState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, posts: $posts, profile: $profile, isLoading: $isLoading, isLast: $isLast, isLoaded: $isLoaded, isFollowed: $isFollowed, cursor: $cursor)';
+    return 'ProfileState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, reportFailureOrSuccessOption: $reportFailureOrSuccessOption, posts: $posts, profile: $profile, isLoading: $isLoading, isLast: $isLast, isLoaded: $isLoaded, isFollowed: $isFollowed, cursor: $cursor)';
   }
 
   @override
@@ -1756,6 +2035,10 @@ class _$_ProfileState implements _ProfileState {
                     loadFailureOrSuccessOption) ||
                 other.loadFailureOrSuccessOption ==
                     loadFailureOrSuccessOption) &&
+            (identical(other.reportFailureOrSuccessOption,
+                    reportFailureOrSuccessOption) ||
+                other.reportFailureOrSuccessOption ==
+                    reportFailureOrSuccessOption) &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.profile, profile) || other.profile == profile) &&
             (identical(other.isLoading, isLoading) ||
@@ -1772,6 +2055,7 @@ class _$_ProfileState implements _ProfileState {
   int get hashCode => Object.hash(
       runtimeType,
       loadFailureOrSuccessOption,
+      reportFailureOrSuccessOption,
       const DeepCollectionEquality().hash(_posts),
       profile,
       isLoading,
@@ -1791,6 +2075,8 @@ abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
       {required final Option<Either<ProfileFailure, Page>>
           loadFailureOrSuccessOption,
+      required final Option<Either<ProfileFailure, Unit>>
+          reportFailureOrSuccessOption,
       required final List<Post> posts,
       required final Profile profile,
       required final bool isLoading,
@@ -1801,6 +2087,8 @@ abstract class _ProfileState implements ProfileState {
 
   @override
   Option<Either<ProfileFailure, Page>> get loadFailureOrSuccessOption;
+  @override
+  Option<Either<ProfileFailure, Unit>> get reportFailureOrSuccessOption;
   @override
   List<Post> get posts;
   @override

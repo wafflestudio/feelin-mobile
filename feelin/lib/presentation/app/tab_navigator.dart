@@ -12,20 +12,20 @@ class TabNavigatorRoutes {
 
 class MyKeyStore{
   static GlobalKey<ExplorePageState> exploreKey = GlobalKey();
+  static GlobalKey<ProfileAppScaffoldState> profileKey = GlobalKey();
 }
 
 class TabNavigator extends StatelessWidget {
-  TabNavigator({required this.navigatorKey, required this.tabItem, required this.profileKey});
+  TabNavigator({required this.navigatorKey, required this.tabItem,});
   final GlobalKey<NavigatorState>? navigatorKey;
   final TabItem tabItem;
   //https://stackoverflow.com/questions/51029655/call-method-in-one-stateful-widget-from-another-stateful-widget-flutter
-  final GlobalKey<ProfileAppScaffoldState> profileKey;
 
   Map<String, WidgetBuilder> _routeBuilders(BuildContext context) {
     switch(tabItem){
       case TabItem.home: return {TabNavigatorRoutes.root: (context) => const ExploreApp()};
       case TabItem.post: return {TabNavigatorRoutes.root: (context) => const PostApp()};
-      case TabItem.profile: return {TabNavigatorRoutes.root: (context) => ProfileApp(profileKey: profileKey)};
+      case TabItem.profile: return {TabNavigatorRoutes.root: (context) => ProfileApp(profileKey: MyKeyStore.profileKey)};
       default: return {TabNavigatorRoutes.root: (context) => const ExploreApp()};
     }
   }

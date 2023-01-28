@@ -8,6 +8,7 @@ import 'package:music_sns/domain/profile/profile_failure.dart';
 import 'package:music_sns/infrastructure/profile/profile_repository.dart';
 
 import '../../domain/play/post.dart';
+import '../../presentation/app/tab_navigator.dart';
 
 part 'profile_bloc.freezed.dart';
 part 'profile_event.dart';
@@ -129,6 +130,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
               isFollowed: true,
             ));
             state.profile.followerCount = state.profile.followerCount! + 1;
+            MyKeyStore.profileKey.currentState?.onRefresh();
+            MyKeyStore.exploreKey.currentState?.firstLoad();
           },
         );
       }
@@ -149,9 +152,27 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
               isFollowed: false,
             ));
             state.profile.followerCount = state.profile.followerCount! - 1;
+            MyKeyStore.profileKey.currentState?.onRefresh();
+            MyKeyStore.exploreKey.currentState?.firstLoad();
           },
         );
       }
+    });
+
+    on<_ReportRequest>((event, emit) async {
+      final failureOrSuccess = await _profileRepository.report(reportType: event.reportType, username: state.profile.username, description: event.description,);
+      failureOrSuccess.fold(
+            (f) {
+          emit(state.copyWith(
+            reportFailureOrSuccessOption: some(left(f)),
+          ));
+        },
+            (post) {
+          emit(state.copyWith(
+            reportFailureOrSuccessOption: some(right(unit)),
+          ));
+        },
+      );
     });
 
     on<_RemoveItem>((event, emit) async {

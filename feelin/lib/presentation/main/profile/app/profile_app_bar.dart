@@ -15,6 +15,7 @@ import '../../../edit/profile/edit_profile_page.dart';
 import '../../../setting/setting_app.dart';
 import '../../../streaming/connect_streaming_page.dart';
 import '../../../style/colors.dart';
+import '../report_bottom_modal.dart';
 
 class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
 
@@ -53,8 +54,8 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
             ),
           ),
           centerTitle: true,
-          actions: isRoot ? [IconButton(onPressed: () async{
-            final isConnected = await showModalBottomSheet<bool?>(
+          actions: [if(isRoot) IconButton(onPressed: () async{
+            await showModalBottomSheet<bool?>(
               context: context,
               useRootNavigator: true,
               shape: const RoundedRectangleBorder(
@@ -63,7 +64,7 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
               builder: (BuildContext context2) {
                 context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
                 return Container(
-                  height: 200,
+                  height: 220,
                   child: Column(
                     children: <Widget>[
                       const SizedBox(
@@ -83,7 +84,6 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                             ),
                             ).then((value) {
                               if(value != null){
-                                print('dffffffffffffffff');
                                 Future.delayed(const Duration(milliseconds: 150), () {
                                   context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
                                 });
@@ -218,17 +218,57 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                   ),
                 );
               },
-            ).then((value) {
-              if(value != null) {
-                print('dffffffffffffffff');
-                context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
-              }
-            });
-            if(isConnected != null){
-              print('dffffffffffffffff');
-              context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
-            }
-          }, icon: const Icon(Icons.table_rows))] : [],
+            );
+          }, icon: const Icon(Icons.table_rows)),
+            if(state.profile.id != context.watch<AuthBloc>().state.id)
+              IconButton(onPressed: () async{
+                await showModalBottomSheet<bool?>(
+                    context: context,
+                    useRootNavigator: true,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                    ),
+                    builder: (BuildContext context2) {
+                      context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                      return Container(
+                        height: 100,
+                        child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              SizedBox(
+                                  width: double.infinity,
+                                  height: 60,
+                                  child: TextButton(onPressed: (){
+                                    Navigator.pop(context2);
+                                    showModalBottomSheet<void>(
+                                      context: context,
+                                      useRootNavigator: true,
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.white,
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          topRight: Radius.circular(20),
+                                        ),
+                                      ),
+                                      builder: (context2) {
+                                        return BlocProvider.value(
+                                            value: context.read<ProfileBloc>(),
+                                            child: ReportBottomModal());
+                                      },
+                                    );
+                                  }
+                                      , child: Text('Report', style: TextStyle(color: FeelinColorFamily.errorDark, fontSize: 16),))),
+                            ]
+                        ),
+                      );
+                    }
+                );
+              }, icon: const Icon(Icons.more_vert)
+              ),
+          ],
         );
       }
     );

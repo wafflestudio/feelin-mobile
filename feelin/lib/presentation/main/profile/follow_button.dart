@@ -22,7 +22,6 @@ class _FollowButtonState extends State<FollowButton> {
       child: ElevatedButton(
           onPressed: (){
             widget.function();
-            MyKeyStore.exploreKey.currentState?.firstLoad();
             },
           style: ButtonStyle(
               shape: MaterialStateProperty.all(RoundedRectangleBorder(

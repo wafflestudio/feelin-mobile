@@ -6,6 +6,7 @@ import 'package:retrofit/retrofit.dart';
 import '../../domain/auth/check_username_request.dart';
 import '../../domain/auth/exists_username.dart';
 import '../../domain/profile/edit_my_profile_request.dart';
+import '../../domain/profile/report_user_request.dart';
 
 part 'profile_client.g.dart';
 
@@ -36,4 +37,7 @@ abstract class ProfileClient{
 
   @DELETE('/follows/{user_id}')
   Future<HttpResponse<void>> unFollow(@Path('user_id')String id);
+
+  @POST('/user/report')
+  Future<HttpResponse<void>> report(@Body() ReportUserRequest reportPostRequest);
 }
