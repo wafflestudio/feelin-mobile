@@ -1,0 +1,49 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+BUNDLE_IDENTIFIER = "com.wafflestudio.feelin"
+XCODEPROJ_NAME = "Runner.xcodeproj"
+TEAM_ID = "K9883YB4VR"
+SCHEME_NAME = "Runner"
+
+default_platform(:ios)
+
+platform :ios do
+  desc "🛠️ Update xcodeproj file"
+  private_lane :update_xcodeproj do |options|
+    code_sign_identity = options[:type] == 'appstore' ? 'iPhone Distribution' : 'iPhone Developer'
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      path: XCODEPROJ_NAME,
+      team_id: TEAM_ID,
+      targets: SCHEME_NAME,
+      bundle_identifier: BUNDLE_IDENTIFIER,
+      code_sign_identity:  code_sign_identity,
+      profile_name: ENV["sigh_#{BUNDLE_IDENTIFIER}_#{options[:type]}_profile-name"],
+      )
+  end
+
+  desc "🔐 Configure certificates and provisioning profiles for development"
+  lane :certificates_development do
+    match(type: "development", app_identifier: [BUNDLE_IDENTIFIER], readonly: true)
+    update_xcodeproj(type: "development")
+  end
+
+  desc "🔐 Configure certificates and provisioning profiles for distribution"
+  lane :certificates_distribution do
+    match(type: "appstore", app_identifier: [BUNDLE_IDENTIFIER], readonly: true)
+    update_xcodeproj(type: "appstore")
+  end
+end
