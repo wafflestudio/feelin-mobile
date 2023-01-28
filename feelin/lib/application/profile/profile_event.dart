@@ -10,4 +10,5 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.followRequest() = _FollowRequest;
   const factory ProfileEvent.unFollowRequest() = _UnFollowRequest;
   const factory ProfileEvent.resetRequest() = _ResetRequest;
+  const factory ProfileEvent.removeItem(int index) = _RemoveItem;
 }

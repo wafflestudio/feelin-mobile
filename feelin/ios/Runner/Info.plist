@@ -92,5 +92,10 @@
             <string>https</string>
             <string>http</string>
         </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>spotify</string>
+      <string>music</string>
+    </array>
 </dict>
 </plist>

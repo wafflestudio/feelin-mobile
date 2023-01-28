@@ -26,6 +26,7 @@ mixin _$ProfileEvent {
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +39,7 @@ mixin _$ProfileEvent {
     TResult? Function()? followRequest,
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +52,7 @@ mixin _$ProfileEvent {
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,6 +66,7 @@ mixin _$ProfileEvent {
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +79,7 @@ mixin _$ProfileEvent {
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +92,7 @@ mixin _$ProfileEvent {
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +162,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
   }) {
     return myProfileRequest();
   }
@@ -171,6 +178,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult? Function()? followRequest,
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
   }) {
     return myProfileRequest?.call();
   }
@@ -186,6 +194,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
     required TResult orElse(),
   }) {
     if (myProfileRequest != null) {
@@ -205,6 +214,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
   }) {
     return myProfileRequest(this);
   }
@@ -220,6 +230,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
   }) {
     return myProfileRequest?.call(this);
   }
@@ -235,6 +246,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
     required TResult orElse(),
   }) {
     if (myProfileRequest != null) {
@@ -320,6 +332,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
   }) {
     return profileRequest(id);
   }
@@ -335,6 +348,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult? Function()? followRequest,
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
   }) {
     return profileRequest?.call(id);
   }
@@ -350,6 +364,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
     required TResult orElse(),
   }) {
     if (profileRequest != null) {
@@ -369,6 +384,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
   }) {
     return profileRequest(this);
   }
@@ -384,6 +400,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
   }) {
     return profileRequest?.call(this);
   }
@@ -399,6 +416,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
     required TResult orElse(),
   }) {
     if (profileRequest != null) {
@@ -489,6 +507,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
   }) {
     return profileChanged(profile);
   }
@@ -504,6 +523,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult? Function()? followRequest,
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
   }) {
     return profileChanged?.call(profile);
   }
@@ -519,6 +539,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
     required TResult orElse(),
   }) {
     if (profileChanged != null) {
@@ -538,6 +559,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
   }) {
     return profileChanged(this);
   }
@@ -553,6 +575,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
   }) {
     return profileChanged?.call(this);
   }
@@ -568,6 +591,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
     required TResult orElse(),
   }) {
     if (profileChanged != null) {
@@ -632,6 +656,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
   }) {
     return myPageRequest();
   }
@@ -647,6 +672,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult? Function()? followRequest,
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
   }) {
     return myPageRequest?.call();
   }
@@ -662,6 +688,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
     required TResult orElse(),
   }) {
     if (myPageRequest != null) {
@@ -681,6 +708,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
   }) {
     return myPageRequest(this);
   }
@@ -696,6 +724,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
   }) {
     return myPageRequest?.call(this);
   }
@@ -711,6 +740,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
     required TResult orElse(),
   }) {
     if (myPageRequest != null) {
@@ -796,6 +826,7 @@ class _$_PageRequest implements _PageRequest {
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
   }) {
     return pageRequest(id);
   }
@@ -811,6 +842,7 @@ class _$_PageRequest implements _PageRequest {
     TResult? Function()? followRequest,
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
   }) {
     return pageRequest?.call(id);
   }
@@ -826,6 +858,7 @@ class _$_PageRequest implements _PageRequest {
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
     required TResult orElse(),
   }) {
     if (pageRequest != null) {
@@ -845,6 +878,7 @@ class _$_PageRequest implements _PageRequest {
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
   }) {
     return pageRequest(this);
   }
@@ -860,6 +894,7 @@ class _$_PageRequest implements _PageRequest {
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
   }) {
     return pageRequest?.call(this);
   }
@@ -875,6 +910,7 @@ class _$_PageRequest implements _PageRequest {
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
     required TResult orElse(),
   }) {
     if (pageRequest != null) {
@@ -939,6 +975,7 @@ class _$_FollowRequest implements _FollowRequest {
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
   }) {
     return followRequest();
   }
@@ -954,6 +991,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult? Function()? followRequest,
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
   }) {
     return followRequest?.call();
   }
@@ -969,6 +1007,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
     required TResult orElse(),
   }) {
     if (followRequest != null) {
@@ -988,6 +1027,7 @@ class _$_FollowRequest implements _FollowRequest {
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
   }) {
     return followRequest(this);
   }
@@ -1003,6 +1043,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
   }) {
     return followRequest?.call(this);
   }
@@ -1018,6 +1059,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
     required TResult orElse(),
   }) {
     if (followRequest != null) {
@@ -1077,6 +1119,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
   }) {
     return unFollowRequest();
   }
@@ -1092,6 +1135,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult? Function()? followRequest,
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
   }) {
     return unFollowRequest?.call();
   }
@@ -1107,6 +1151,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
     required TResult orElse(),
   }) {
     if (unFollowRequest != null) {
@@ -1126,6 +1171,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
   }) {
     return unFollowRequest(this);
   }
@@ -1141,6 +1187,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
   }) {
     return unFollowRequest?.call(this);
   }
@@ -1156,6 +1203,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
     required TResult orElse(),
   }) {
     if (unFollowRequest != null) {
@@ -1215,6 +1263,7 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function() followRequest,
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
   }) {
     return resetRequest();
   }
@@ -1230,6 +1279,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function()? followRequest,
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
   }) {
     return resetRequest?.call();
   }
@@ -1245,6 +1295,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function()? followRequest,
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
     required TResult orElse(),
   }) {
     if (resetRequest != null) {
@@ -1264,6 +1315,7 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
   }) {
     return resetRequest(this);
   }
@@ -1279,6 +1331,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
   }) {
     return resetRequest?.call(this);
   }
@@ -1294,6 +1347,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
     required TResult orElse(),
   }) {
     if (resetRequest != null) {
@@ -1305,6 +1359,181 @@ class _$_ResetRequest implements _ResetRequest {
 
 abstract class _ResetRequest implements ProfileEvent {
   const factory _ResetRequest() = _$_ResetRequest;
+}
+
+/// @nodoc
+abstract class _$$_RemoveItemCopyWith<$Res> {
+  factory _$$_RemoveItemCopyWith(
+          _$_RemoveItem value, $Res Function(_$_RemoveItem) then) =
+      __$$_RemoveItemCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$_RemoveItemCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_RemoveItem>
+    implements _$$_RemoveItemCopyWith<$Res> {
+  __$$_RemoveItemCopyWithImpl(
+      _$_RemoveItem _value, $Res Function(_$_RemoveItem) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$_RemoveItem(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RemoveItem implements _RemoveItem {
+  const _$_RemoveItem(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.removeItem(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RemoveItem &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RemoveItemCopyWith<_$_RemoveItem> get copyWith =>
+      __$$_RemoveItemCopyWithImpl<_$_RemoveItem>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() myProfileRequest,
+    required TResult Function(String id) profileRequest,
+    required TResult Function(Profile profile) profileChanged,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
+    required TResult Function() followRequest,
+    required TResult Function() unFollowRequest,
+    required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
+  }) {
+    return removeItem(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? myProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
+  }) {
+    return removeItem?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? myProfileRequest,
+    TResult Function(String id)? profileRequest,
+    TResult Function(Profile profile)? profileChanged,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
+    TResult Function()? followRequest,
+    TResult Function()? unFollowRequest,
+    TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
+    required TResult orElse(),
+  }) {
+    if (removeItem != null) {
+      return removeItem(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ProfileChanged value) profileChanged,
+    required TResult Function(_MyPageRequest value) myPageRequest,
+    required TResult Function(_PageRequest value) pageRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unFollowRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
+  }) {
+    return removeItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
+  }) {
+    return removeItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ProfileChanged value)? profileChanged,
+    TResult Function(_MyPageRequest value)? myPageRequest,
+    TResult Function(_PageRequest value)? pageRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unFollowRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
+    required TResult orElse(),
+  }) {
+    if (removeItem != null) {
+      return removeItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveItem implements ProfileEvent {
+  const factory _RemoveItem(final int index) = _$_RemoveItem;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_RemoveItemCopyWith<_$_RemoveItem> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

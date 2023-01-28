@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/explore/explore_bloc.dart';
 import 'package:music_sns/domain/play/post.dart';
+import 'package:music_sns/presentation/style/colors.dart';
 
 import 'feed_preview.dart';
 
@@ -32,7 +33,16 @@ class _PostListState extends State<ExploreList> {
     return BlocBuilder<ExploreBloc, ExploreState>(
       builder: (context, state) {
         return widget.feeds.isEmpty ?
-            Flexible(child: const Center(child: Text('No Post.'))) :
+            Flexible(child: Center(
+                child: Text(
+                  widget.isFollowing ? 'Find new users in the Discover tab and follow them\n to see what they are listening to':'',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: FeelinColorFamily.gray600,
+                  ),
+            ))) :
           ScrollConfiguration(
             behavior: const ScrollBehavior().copyWith(overscroll: false),
             child: ListView.builder(
@@ -61,7 +71,13 @@ class _PostListState extends State<ExploreList> {
                 } else {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 12.0, left: 8, right: 8),
-                    child: FeedPreview(index: index, post: widget.feeds[index], isFollowing: widget.isFollowing),
+                    child: FeedPreview(index: index, post: widget.feeds[index], isFollowing: widget.isFollowing,
+                      deleteItem: (){
+                        if(!widget.isFollowing){
+                          context.read<ExploreBloc>().add(ExploreEvent.removeItem(index));
+                        }
+                      },
+                    ),
                   );
                 }
               }),

@@ -30,10 +30,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 authenticated: false,
               ));
             },
-                (_) {
+                (user) {
               emit(state.copyWith(
                 initialLoading: false,
                 authenticated: true,
+                id: user.id,
               ));
             },
           );

@@ -49,7 +49,6 @@ class Share{
 
   void _navigatePage(String dynamicLink) {
     String postId = dynamicLink.split('/').last;
-
     Navigator.push(context, CupertinoPageRoute(
       builder: (context){
         return BlocProvider(
@@ -67,6 +66,7 @@ class Share{
       link: Uri.parse('https://feelin.wafflestudio.com/posts/$id'),
       androidParameters: const AndroidParameters(
         packageName: 'com.wafflestudio.feelin',
+        minimumVersion: 1,
       ),
       // TODO: ios parameter
       iosParameters: const IOSParameters(

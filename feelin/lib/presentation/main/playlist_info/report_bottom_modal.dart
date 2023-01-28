@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/application/info/playlist_info_bloc.dart';
+import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
 
 import '../../style/colors.dart';
+import 'report_bottom_modal_description.dart';
 
 class ReportBottomModal extends StatefulWidget{
   const ReportBottomModal({Key? key,}) : super(key: key);
@@ -9,7 +13,6 @@ class ReportBottomModal extends StatefulWidget{
   State<ReportBottomModal> createState() => _ReportBottomModalState();
 }
 class _ReportBottomModalState extends State<ReportBottomModal> {
-  int currPage = 1;
   String reportType = 'NONE';
 
   Widget button(String text, String type){
@@ -17,11 +20,24 @@ class _ReportBottomModalState extends State<ReportBottomModal> {
       width: double.infinity,
       height: 40,
       child: TextButton(onPressed: (){
-        setState((){
-          reportType = type;
-          currPage = 2;
-        });
-
+        showModalBottomSheet<void>(
+          context: context,
+          useRootNavigator: false,
+          isScrollControlled: true,
+          backgroundColor: Colors.white,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          builder: (context2) {
+            return BlocProvider.value(
+                value: context.read<PlaylistInfoBloc>(),
+                child: ReportBottomModalDescription(reportType: type,));
+          },
+        );
+        //Navigator.pop(context);
       }, child: Align(alignment: Alignment.centerLeft, child: Text(text, textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),))),
     );
   }
@@ -33,60 +49,52 @@ class _ReportBottomModalState extends State<ReportBottomModal> {
         padding: const EdgeInsets.only(left: 24, top: 24, right: 18, bottom: 14),
         child: Builder(
             builder: (context) {
-              if(currPage == 1) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Report Post',
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
-                        ),
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                            minimumSize: const Size(30, 26),
-                            alignment: Alignment.centerRight,
-                          ),
-                          onPressed: () => Navigator.of(context).pop(),
-                          child: Text(
-                            'Cancel',
-                            style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Center(
-                      child: Text(
-                        'Are you sure you want to delete the post?',
-                        style: TextStyle(fontSize: 14, ),
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Report Post',
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
                       ),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          minimumSize: const Size(30, 26),
+                          alignment: Alignment.centerRight,
+                        ),
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: Text(
+                          'Cancel',
+                          style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Center(
+                    child: Text(
+                      'Why are you reporting this post?',
+                      style: TextStyle(fontSize: 14, ),
                     ),
-                    button('Pretending to be someone else', 'PRETENDER'),
-                    button('Spam', 'SPAM'),
-                    button('Dislike', 'DISLIKE'),
-                    button('Suicidal', 'SUICIDAL'),
-                    button('Violent', 'VIOLENT'),
-                    button('Illegal', 'ILLEGAL'),
-                    button('Sexual', 'SEXUAL'),
-                    button('False Information', 'FALSE_INFO'),
-                    button('Hate speech or symbols', 'HATE'),
-                    button('Bullying or harassment', 'BULLYING'),
-                    button('Scam', 'SCAM'),
-                    button('Intellectual property violation', 'INTELLECTUAL_PROPERTY_VIOLATION'),
-                    button('Other', 'NONE'),
-                  ],
-                );
-              }else{
-                return Column(
-                  children: [
-
-                  ],
-                );
-              }
+                  ),
+                  button('Pretending to be someone else', 'PRETENDER'),
+                  button('Spam', 'SPAM'),
+                  button('Dislike', 'DISLIKE'),
+                  button('Suicidal', 'SUICIDAL'),
+                  button('Violent', 'VIOLENT'),
+                  button('Illegal', 'ILLEGAL'),
+                  button('Sexual', 'SEXUAL'),
+                  button('False Information', 'FALSE_INFO'),
+                  button('Hate speech or symbols', 'HATE'),
+                  button('Bullying or harassment', 'BULLYING'),
+                  button('Scam', 'SCAM'),
+                  button('Intellectual property violation', 'INTELLECTUAL_PROPERTY_VIOLATION'),
+                  button('Something else', 'NONE'),
+                ],
+              );
             }
         ),
       ),

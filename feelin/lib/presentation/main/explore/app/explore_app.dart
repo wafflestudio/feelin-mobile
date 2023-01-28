@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/presentation/app/tab_navigator.dart';
 import 'package:music_sns/presentation/main/explore/explore_page.dart';
 
 import '../../../../application/explore/explore_bloc.dart';
@@ -24,7 +25,7 @@ class ExploreApp extends StatelessWidget {
 
 class ExploreAppScaffold extends StatefulWidget {
 
-  const ExploreAppScaffold({Key? key}) : super(key: key);
+  const ExploreAppScaffold({Key? key,}) : super(key: key);
 
   @override
   State<ExploreAppScaffold> createState() => _ExploreAppScaffoldState();
@@ -64,7 +65,7 @@ class _ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProv
             controller: _tabController,
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              ExplorePage(scrollController: _scrollControllerF, isFollowing: true,),
+              ExplorePage(scrollController: _scrollControllerF, isFollowing: true, key: MyKeyStore.exploreKey,),
               ExplorePage(scrollController: _scrollController, isFollowing: false,),
             ],
           ),

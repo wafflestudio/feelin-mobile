@@ -292,14 +292,14 @@ class _AuthClient implements AuthClient {
   }
 
   @override
-  Future<HttpResponse<void>> getSignedInUser(token) async {
+  Future<HttpResponse<User>> getSignedInUser(token) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result =
-        await _dio.fetch<void>(_setStreamType<HttpResponse<void>>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<HttpResponse<User>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -311,7 +311,8 @@ class _AuthClient implements AuthClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final httpResponse = HttpResponse(null, _result);
+    final value = User.fromJson(_result.data!);
+    final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }
 

@@ -195,6 +195,7 @@ class _PostPageState extends State<PostPage>{
       useRootNavigator: true,
       isScrollControlled: true,
       enableDrag: false,
+      backgroundColor: Colors.white,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -244,7 +245,7 @@ class _PostPageState extends State<PostPage>{
                         children: [
                           SizedBox(
                             width: 300,
-                              height: 610,
+                              height: 575,
                               child: WebViewPage(url: 'https://feelin.wafflestudio.com/guide/spotify'),
                           ),
                           const SizedBox(height: 10,),
@@ -252,7 +253,7 @@ class _PostPageState extends State<PostPage>{
                             LaunchApp.openApp(
                               androidPackageName: 'com.spotify.music',
                               iosUrlScheme: 'spotify://',
-                              appStoreLink: 'https://apps.apple.com/kr/app/spotify-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4/id324684580',
+                              appStoreLink: 'https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580',
                               openStore: true,
                             );
                           }, label: 'Open Spotify', icon: SvgPicture.asset('assets/icons/spotify_icon.svg',
@@ -267,7 +268,7 @@ class _PostPageState extends State<PostPage>{
                         children: [
                           SizedBox(
                             width: 300,
-                            height: 610,
+                            height: 575,
                             child: WebViewPage(url: 'https://feelin.wafflestudio.com/guide/applemusic'),
                           ),
                           const SizedBox(height: 10,),
@@ -275,13 +276,13 @@ class _PostPageState extends State<PostPage>{
                             LaunchApp.openApp(
                               androidPackageName: 'com.apple.android.music',
                               iosUrlScheme: 'music://',
-                              appStoreLink: 'https://apps.apple.com/kr/app/apple-music/id1108187390',
+                              appStoreLink: 'https://apps.apple.com/us/app/apple-music/id1108187390',
                               openStore: true,
                             );
                           }, label: 'Open Apple Music', icon: Image.asset('assets/icons/apple_music_icon.png',
                             width: 32,
                             height: 32,
-                          ), isBlack : true)
+                          ), isBlack : true),
                         ],
                       ),
                     ],

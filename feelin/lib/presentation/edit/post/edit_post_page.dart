@@ -41,6 +41,13 @@ class _EditPostPageState extends State<EditPostPage> {
   }
 
   @override
+  void dispose() {
+    _titleTextController.dispose();
+    _contentTextController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     MediaQueryData deviceData = MediaQuery.of(context);
     Size screenSize = deviceData.size;

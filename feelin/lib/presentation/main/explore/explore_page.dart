@@ -9,19 +9,23 @@ import 'explore_list.dart';
 class ExplorePage extends StatefulWidget{
   final ScrollController scrollController;
   final bool isFollowing;
-  const ExplorePage({Key? key, required this.scrollController, required this.isFollowing}) : super(key: key);
+  const ExplorePage({Key? key, required this.scrollController, required this.isFollowing,}) : super(key: key);
 
   @override
-  State<ExplorePage> createState() => _ExplorePageState();
+  State<ExplorePage> createState() => ExplorePageState();
 }
-class _ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClientMixin<ExplorePage>{
+class ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClientMixin<ExplorePage>{
   bool _isFirstLoadRunning = false;
   bool _isLoadMoreRunning = false;
 
-  @override
-  bool get wantKeepAlive => true;
+  bool isEmpty = false;
 
-  void _firstLoad() {
+  @override
+  bool get wantKeepAlive {
+    return true;
+  }
+
+  void firstLoad() {
     setState((){
       _isFirstLoadRunning = true;
     });
@@ -40,15 +44,10 @@ class _ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClient
         _isLoadMoreRunning == false &&
         widget.scrollController.position.extentAfter < 300) {
       setState(() => _isLoadMoreRunning = true);
-      try {
-        print('lo');
-        if(widget.isFollowing){
-          context.read<ExploreBloc>().add(const ExploreEvent.loadFRequest());
-        }else{
-          context.read<ExploreBloc>().add(const ExploreEvent.loadRequest());
-        }
-      } catch (err) {
-        print('알 수 없는 오류가 발생했습니다.');
+      if(widget.isFollowing){
+        context.read<ExploreBloc>().add(const ExploreEvent.loadFRequest());
+      }else{
+        context.read<ExploreBloc>().add(const ExploreEvent.loadRequest());
       }
       setState(() => _isLoadMoreRunning = false);
     }
@@ -56,9 +55,9 @@ class _ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClient
 
   @override
   void initState() {
-    _firstLoad();
-    widget.scrollController.addListener(_loadMore);
     super.initState();
+    firstLoad();
+    widget.scrollController.addListener(_loadMore);
   }
 
   @override
@@ -70,6 +69,7 @@ class _ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClient
   @override
   Widget build(BuildContext context){
     super.build(context);
+    isEmpty = context.watch<ExploreBloc>().state.feedsF.isEmpty;
     return _isFirstLoadRunning
       ? const Center(
         child: CupertinoActivityIndicator(radius: 18,)
@@ -77,7 +77,7 @@ class _ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClient
     : BlocBuilder<ExploreBloc, ExploreState>(
       builder: (context, state) {
         return RefreshIndicator(
-            onRefresh: () async => _firstLoad(),
+            onRefresh: () async => firstLoad(),
             color: FeelinColorFamily.red500,
             child: widget.isFollowing
                 ? ExploreList(isLast: state.isLastF, feeds: state.feedsF, isLoading: state.isLoadingF, scrollController: widget.scrollController, isFollowing: widget.isFollowing,)

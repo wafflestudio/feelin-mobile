@@ -19,8 +19,9 @@ class FeedPreview extends StatefulWidget {
   final int index;
   final Post post;
   final bool isFollowing;
+  final Function? deleteItem;
 
-  const FeedPreview({Key? key, required this.index, required this.post, required this.isFollowing}) : super(key: key);
+  const FeedPreview({Key? key, required this.index, required this.post, required this.isFollowing, this.deleteItem}) : super(key: key);
 
   @override
   State<FeedPreview> createState() => _FeedPreviewState();
@@ -44,13 +45,16 @@ class _FeedPreviewState extends State<FeedPreview> {
               builder: (context){
                 return BlocProvider(
                     create: (context) => getIt<PlaylistInfoBloc>(),
-                    child: PlaylistInfoPage(post: widget.post, postId: widget.post.id, heroNumber: widget.index, width: MediaQuery.of(context).size.width,));
+                    child: PlaylistInfoPage(post: widget.post, postId: widget.post.id,
+                      heroNumber: widget.index,
+                      width: MediaQuery.of(context).size.width,
+                      deleteItem: widget.deleteItem,));
               },
             ),
             ).then((value){
               if(value != null){
                 setState(() {
-                  widget.post.title = value.reportType;
+                  widget.post.title = value.title;
                   widget.post.content = value.content;
                   isLiked = value.isLiked;
                   widget.post.likeCount = value.likeCount;
@@ -88,23 +92,23 @@ class _FeedPreviewState extends State<FeedPreview> {
                         ),
                       ),
                     ),
-                    if(widget.post.trackPreview!.isNotEmpty)ClipRRect(
+                    if(widget.post.playlist.mainTracks!.isNotEmpty)ClipRRect(
                       //borderRadius: const BorderRadius.vertical(bottom: Radius.circular(20)),
                       child: Container(
-                        padding: EdgeInsets.only(top: 6),
+                        padding: const EdgeInsets.only(top: 6),
                         height: 60,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: widget.post.trackPreview!.length,
+                            itemCount: widget.post.playlist.mainTracks!.length,
                             itemBuilder: (context, index){
                               if(index == 0){
                                 return Padding(
                                     padding: const EdgeInsets.only(left: 6, right: 6),
-                                    child: TrackPreview(index: index, track: widget.post.trackPreview![index]));
+                                    child: TrackPreview(index: index, track: widget.post.playlist.mainTracks![index]));
                               }
                               return Padding(
                                   padding: const EdgeInsets.only(right: 6),
-                                  child: TrackPreview(index: index, track: widget.post.trackPreview![index]));
+                                  child: TrackPreview(index: index, track: widget.post.playlist.mainTracks![index]));
                             }),
                       ),
                     ),
@@ -181,7 +185,7 @@ class _FeedPreviewState extends State<FeedPreview> {
                                         ),
                                       ),
                                       Text(NumberFormat.compact().format(widget.post.likeCount),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w600,
                                           letterSpacing: -0.41,

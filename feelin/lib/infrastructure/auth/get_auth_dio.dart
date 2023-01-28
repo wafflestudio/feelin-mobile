@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/presentation/style/colors.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import 'navigation_service.dart';
 
@@ -56,10 +58,13 @@ Dio getAuthDio() {
           BuildContext context = NavigationService.navigatorKey.currentContext!;
           if (context.mounted) {
             context.read<AuthBloc>().add(const AuthEvent.submitted());
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              backgroundColor: FeelinColorFamily.errorPrimary,
-              content: Text("The Access Token has expired. Please log in again."),
-            ));
+            showTopSnackBar(
+                Overlay.of(context),
+                CustomSnackBar.error(
+                    backgroundColor: FeelinColorFamily.errorPrimary,
+                    message: "The Access Token has expired. Please log in again.",
+                )
+            );
           }
         }
         return handler.next(error);

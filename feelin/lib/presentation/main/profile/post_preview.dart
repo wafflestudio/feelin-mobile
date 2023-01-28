@@ -7,14 +7,16 @@ import 'package:music_sns/presentation/app/app.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../application/info/playlist_info_bloc.dart';
+import '../../../application/profile/profile_bloc.dart';
 import '../../../injection.dart';
 import '../playlist_info/playlist_info_page.dart';
 
 class PostPreview extends StatefulWidget {
   final int index;
   final Post post;
+  final Function? deleteItem;
 
-  const PostPreview({Key? key, required this.index, required this.post}) : super(key: key);
+  const PostPreview({Key? key, required this.index, required this.post, this.deleteItem}) : super(key: key);
 
   @override
   State<PostPreview> createState() => _PostPreviewState();
@@ -30,13 +32,15 @@ class _PostPreviewState extends State<PostPreview> {
           builder: (context){
             return BlocProvider(
                 create: (context) => getIt<PlaylistInfoBloc>(),
-                child: PlaylistInfoPage(post: widget.post, postId: widget.post.id, heroNumber: widget.index, width: MediaQuery.of(context).size.width,));
+                child: PlaylistInfoPage(post: widget.post, postId: widget.post.id, heroNumber: widget.index, width: MediaQuery.of(context).size.width,
+                deleteItem: widget.deleteItem,
+                ));
           },
         ),
         ).then((value) {
           if(value != null){
             setState(() {
-              widget.post.title = value.reportType;
+              widget.post.title = value.title;
               widget.post.content = value.content;
             });
         }});

@@ -281,6 +281,7 @@ abstract class _DeleteAccount implements AuthEvent {
 mixin _$AuthState {
   bool get initialLoading => throw _privateConstructorUsedError;
   bool get authenticated => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -292,7 +293,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({bool initialLoading, bool authenticated});
+  $Res call({bool initialLoading, bool authenticated, String id});
 }
 
 /// @nodoc
@@ -310,6 +311,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   $Res call({
     Object? initialLoading = null,
     Object? authenticated = null,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
       initialLoading: null == initialLoading
@@ -320,6 +322,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.authenticated
           : authenticated // ignore: cast_nullable_to_non_nullable
               as bool,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -331,7 +337,7 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       __$$_AuthStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool initialLoading, bool authenticated});
+  $Res call({bool initialLoading, bool authenticated, String id});
 }
 
 /// @nodoc
@@ -347,6 +353,7 @@ class __$$_AuthStateCopyWithImpl<$Res>
   $Res call({
     Object? initialLoading = null,
     Object? authenticated = null,
+    Object? id = null,
   }) {
     return _then(_$_AuthState(
       initialLoading: null == initialLoading
@@ -357,6 +364,10 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.authenticated
           : authenticated // ignore: cast_nullable_to_non_nullable
               as bool,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -365,16 +376,20 @@ class __$$_AuthStateCopyWithImpl<$Res>
 
 class _$_AuthState implements _AuthState {
   const _$_AuthState(
-      {required this.initialLoading, required this.authenticated});
+      {required this.initialLoading,
+      required this.authenticated,
+      required this.id});
 
   @override
   final bool initialLoading;
   @override
   final bool authenticated;
+  @override
+  final String id;
 
   @override
   String toString() {
-    return 'AuthState(initialLoading: $initialLoading, authenticated: $authenticated)';
+    return 'AuthState(initialLoading: $initialLoading, authenticated: $authenticated, id: $id)';
   }
 
   @override
@@ -385,11 +400,13 @@ class _$_AuthState implements _AuthState {
             (identical(other.initialLoading, initialLoading) ||
                 other.initialLoading == initialLoading) &&
             (identical(other.authenticated, authenticated) ||
-                other.authenticated == authenticated));
+                other.authenticated == authenticated) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, initialLoading, authenticated);
+  int get hashCode =>
+      Object.hash(runtimeType, initialLoading, authenticated, id);
 
   @JsonKey(ignore: true)
   @override
@@ -401,12 +418,15 @@ class _$_AuthState implements _AuthState {
 abstract class _AuthState implements AuthState {
   const factory _AuthState(
       {required final bool initialLoading,
-      required final bool authenticated}) = _$_AuthState;
+      required final bool authenticated,
+      required final String id}) = _$_AuthState;
 
   @override
   bool get initialLoading;
   @override
   bool get authenticated;
+  @override
+  String get id;
   @override
   @JsonKey(ignore: true)
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>

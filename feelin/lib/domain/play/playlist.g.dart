@@ -16,6 +16,9 @@ Playlist _$PlaylistFromJson(Map<String, dynamic> json) => Playlist(
           ? null
           : PlaylistPreview.fromJson(json['preview'] as Map<String, dynamic>),
       thumbnail: json['thumbnail'] as String?,
+      mainTracks: (json['mainTracks'] as List<dynamic>?)
+          ?.map((e) => MainTrack.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$PlaylistToJson(Playlist instance) => <String, dynamic>{
@@ -24,4 +27,5 @@ Map<String, dynamic> _$PlaylistToJson(Playlist instance) => <String, dynamic>{
       'tracks': instance.tracks,
       'preview': instance.playlistPreview,
       'thumbnail': instance.thumbnail,
+      'mainTracks': instance.mainTracks,
     };

@@ -35,11 +35,11 @@ class AuthRepository{
 
   AuthRepository._internal();
 
-  Future<Either<AuthFailure, Unit>> getSignedInUser({required Token token}) async{
+  Future<Either<AuthFailure, User>> getSignedInUser({required Token token}) async{
     try{
-      HttpResponse<void> httpResponse = await authClient.getSignedInUser(token.token);
+      HttpResponse<User> httpResponse = await authClient.getSignedInUser(token.token);
       if(httpResponse.response.statusCode == 200){
-        return const Right(unit);
+        return Right(httpResponse.data);
       }else{
         return const Left(AuthFailure.unauthorized());
       }

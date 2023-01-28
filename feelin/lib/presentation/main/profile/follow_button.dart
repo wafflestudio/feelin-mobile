@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_sns/presentation/app/tab_navigator.dart';
 
 import '../../style/colors.dart';
 
@@ -19,7 +20,10 @@ class _FollowButtonState extends State<FollowButton> {
       width: double.infinity,
       height: 40,
       child: ElevatedButton(
-          onPressed: ()=>widget.function(),
+          onPressed: (){
+            widget.function();
+            MyKeyStore.exploreKey.currentState?.firstLoad();
+            },
           style: ButtonStyle(
               shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(28)

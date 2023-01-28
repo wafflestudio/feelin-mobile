@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:music_sns/domain/play/track.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
+import '../../../domain/play/main_track.dart';
+
 class TrackPreview extends StatelessWidget {
   final int index;
-  final Track track;
+  final MainTrack track;
 
   const TrackPreview({Key? key, required this.index, required this.track}) : super(key: key);
 
@@ -27,7 +29,7 @@ class TrackPreview extends StatelessWidget {
             height: 36,
             child: Image(
               image: CachedNetworkImageProvider(
-                  track.album.thumbnail),
+                  track.thumbnail),
               fit: BoxFit.cover,
             ),
           ),
@@ -50,7 +52,7 @@ class TrackPreview extends StatelessWidget {
                   ),
                 ),
                 Text(
-                    List.generate(track.artists.length, (index) => track.artists[index].name).join(', '),
+                    track.artists,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

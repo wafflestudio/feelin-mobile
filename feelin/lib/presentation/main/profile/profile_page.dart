@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/application/follow/follow_bloc.dart';
 import 'package:music_sns/application/profile/profile_bloc.dart';
 import 'package:music_sns/presentation/follow/follow_page.dart';
@@ -24,29 +25,10 @@ class ProfilePage extends StatefulWidget{
 
 class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClientMixin<ProfilePage>{
   final storage = const FlutterSecureStorage();
-  String? token;
-  String? id;
-
   GlobalKey globalKey = GlobalKey();
 
   @override
   bool get wantKeepAlive => true;
-
-  @override
-  void initState(){
-    super.initState();
-    print('ffffff'+widget.userId.toString());
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _async();
-    });
-
-  }
-
-  _async() async{
-    token = await storage.read(key: "token");
-    id = await storage.read(key: 'id');
-    print('ffffff'+id.toString());
-  }
 
   @override
   Widget build(BuildContext context){
@@ -69,13 +51,15 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
                   controller: widget.scrollController,
                   physics: const ClampingScrollPhysics(),
                   slivers: [
-                    DynamicSliverAppBar(key: globalKey, maxHeight: 600,child: _profileView(context),),
+                    DynamicSliverAppBar(key: globalKey, maxHeight: 700,child: _profileView(context),),
                     SliverList(
                         delegate: SliverChildBuilderDelegate(
                                 (BuildContext context, int index) {
                                   return Padding(
                                     padding: const EdgeInsets.only(bottom: 4),
-                                    child: PostPreview(index: index, post: state.posts[index]),
+                                    child: PostPreview(index: index, post: state.posts[index], deleteItem: (){
+                                      context.read<ProfileBloc>().add(ProfileEvent.removeItem(index));
+                                    },),
                                   );
                             }, childCount: state.posts.length,
                         ),
@@ -197,7 +181,7 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
                   ],
                 ),
               ),
-              if(state.profile.introduction != null && state.profile.introduction!.isNotEmpty)Container(
+              Container(
                   margin: const EdgeInsets.only(top: 4, bottom: 0),
                   child: Text(state.profile.introduction ?? '',
                     textAlign: TextAlign.center,
@@ -208,9 +192,9 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
                     ),
                   ),
               ),
-              if(widget.userId != null && widget.userId != id!)
+              if(widget.userId != null && widget.userId != context.watch<AuthBloc>().state.id)
                 Padding(
-                padding: const EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.only(top: 20),
                 child: FollowButton(isFollowed: state.isFollowed, function: (){
                   if(!state.isFollowed){
                     context.read<ProfileBloc>().add(const ProfileEvent.followRequest());
@@ -219,7 +203,7 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
                   }
                 }),
               ),
-              const SizedBox(height: 30,),
+              const SizedBox(height: 20,),
             ],
           ),
         );

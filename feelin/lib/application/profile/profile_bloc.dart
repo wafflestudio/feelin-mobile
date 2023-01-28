@@ -18,22 +18,16 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
   final ProfileRepository _profileRepository;
   ProfileBloc(this._profileRepository) : super(ProfileState.initial()){
     on<_MyPageRequest>((event, emit) async {
-      emit(state.copyWith(
-        isLoading: true,
-      ));
-
       if(!state.isLast){
         final failureOrSuccess = await _profileRepository.getMyPosts(cursor: state.cursor);
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
-              isLoading: false,
               loadFailureOrSuccessOption: some(left(f)),
             ));
           },
               (tuple) {
             emit(state.copyWith(
-              isLoading: false,
               loadFailureOrSuccessOption: some(right(tuple.value1)),
               posts: state.posts + tuple.value1.content,
               isLast: tuple.value1.last,
@@ -41,29 +35,19 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
             ));
           },
         );
-      }else{
-        emit(state.copyWith(
-          isLoading: false,
-        ));
       }
     });
     on<_PageRequest>((event, emit) async {
-      emit(state.copyWith(
-        isLoading: true,
-      ));
-
       if(!state.isLast){
         final failureOrSuccess = await _profileRepository.getPostsById(id: event.id, cursor: state.cursor);
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
-              isLoading: false,
               loadFailureOrSuccessOption: some(left(f)),
             ));
           },
               (tuple) {
                 emit(state.copyWith(
-                  isLoading: false,
                   loadFailureOrSuccessOption: some(right(tuple.value1)),
                   posts: state.posts + tuple.value1.content,
                   isLast: tuple.value1.last,
@@ -71,10 +55,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
                 ));
           },
         );
-      }else{
-        emit(state.copyWith(
-          isLoading: false,
-        ));
       }
     });
     on<_ResetRequest>((event, emit) async {
@@ -85,15 +65,20 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
       ));
     });
     on<_MyProfileRequest>((event, emit) async {
+      emit(state.copyWith(
+        isLoading: true,
+      ));
       final failureOrSuccess = await _profileRepository.getMyProfile();
       failureOrSuccess.fold(
             (f) {
           emit(state.copyWith(
+            isLoading: false,
             loadFailureOrSuccessOption: some(left(f)),
           ));
         },
             (profile) {
           emit(state.copyWith(
+            isLoading: false,
             isLoaded: true,
             profile: profile,
           ));
@@ -101,15 +86,20 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
       );
     });
     on<_ProfileRequest>((event, emit) async {
+      emit(state.copyWith(
+        isLoading: true,
+      ));
       final failureOrSuccess = await _profileRepository.getProfileById(id: event.id);
       failureOrSuccess.fold(
             (f) {
           emit(state.copyWith(
+            isLoading: false,
             loadFailureOrSuccessOption: some(left(f)),
           ));
         },
             (profile) {
           emit(state.copyWith(
+            isLoading: false,
             isLoaded: true,
             profile: profile,
             isFollowed: profile.isFollowed ?? false,
@@ -163,7 +153,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
         );
       }
     });
+
+    on<_RemoveItem>((event, emit) async {
+      emit(state.copyWith(
+        posts: List.from(state.posts)..removeAt(event.index),
+      ));
+    });
   }
-
-
 }

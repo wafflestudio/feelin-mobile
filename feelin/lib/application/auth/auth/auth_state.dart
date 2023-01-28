@@ -5,9 +5,11 @@ class AuthState with _$AuthState {
   const factory AuthState({
     required bool initialLoading,
     required bool authenticated,
+    required String id,
   }) = _AuthState;
   factory AuthState.initial() => AuthState(
     initialLoading: true,
     authenticated: false,
+    id: '',
   );
 }

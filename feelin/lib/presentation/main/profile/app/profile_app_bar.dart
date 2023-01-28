@@ -18,7 +18,6 @@ import '../../../style/colors.dart';
 
 class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
 
-  final storage = const FlutterSecureStorage();
   final bool isRoot;
   final Function function;
   final Function onRefresh;
@@ -55,16 +54,14 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
           ),
           centerTitle: true,
           actions: isRoot ? [IconButton(onPressed: () async{
-            final newProfile = await showModalBottomSheet<Profile>(
+            final isConnected = await showModalBottomSheet<bool?>(
               context: context,
               useRootNavigator: true,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
               ),
               builder: (BuildContext context2) {
-                if(!context.watch<StreamingBloc>().state.isConnected){
-                  context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
-                }
+                context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
                 return Container(
                   height: 200,
                   child: Column(
@@ -84,7 +81,20 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                                     child: ConnectStreamingPage());
                               },
                             ),
-                            );
+                            ).then((value) {
+                              if(value != null){
+                                print('dffffffffffffffff');
+                                Future.delayed(const Duration(milliseconds: 150), () {
+                                  context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                                });
+                                Future.delayed(const Duration(milliseconds: 300), () {
+                                  context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                                });
+                                Future.delayed(const Duration(milliseconds: 500), () {
+                                  context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+                                });
+                              }
+                            });
                           }, child: const Text('Connect to streaming service', style: TextStyle(color: Colors.black, fontSize: 16),),
                           ),
                       ),
@@ -208,7 +218,16 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget{
                   ),
                 );
               },
-            );
+            ).then((value) {
+              if(value != null) {
+                print('dffffffffffffffff');
+                context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+              }
+            });
+            if(isConnected != null){
+              print('dffffffffffffffff');
+              context.read<StreamingBloc>().add(StreamingEvent.getMyAccount());
+            }
           }, icon: const Icon(Icons.table_rows))] : [],
         );
       }

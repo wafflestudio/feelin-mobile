@@ -112,5 +112,11 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState>{
         );
       }
     });
+
+    on<_RemoveItem>((event, emit) async {
+      emit(state.copyWith(
+        feeds: List.from(state.feeds)..removeAt(event.index),
+      ));
+    });
   }
 }

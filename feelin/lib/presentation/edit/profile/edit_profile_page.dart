@@ -197,7 +197,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             keyboardType: TextInputType.multiline,
             controller: _introductionTextController,
             inputFormatters: [
-              MaxLinesInputFormatters(2),
+              MaxLinesInputFormatters(3),
             ],
             decoration: InputDecoration(
               hintText: 'Add a bio',

@@ -11,12 +11,13 @@ import '../../style/colors.dart';
 import 'save_to_account_button.dart';
 
 class PlaylistInfoPage extends StatefulWidget{
-  const PlaylistInfoPage({Key? key, this.post, required this.postId, required this.heroNumber, required this.width}) : super(key: key);
+  const PlaylistInfoPage({Key? key, this.post, required this.postId, required this.heroNumber, required this.width, this.deleteItem}) : super(key: key);
 
   final Post? post;
   final String postId;
   final int heroNumber;
   final double width;
+  final Function? deleteItem;
 
   @override
   State<PlaylistInfoPage> createState() => _PlaylistInfoPageState();
@@ -179,6 +180,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                                       });
                                     },
                                     isEdited: isEdited,
+                                    deleteItem: widget.deleteItem,
                                   ),
                                   const PlaylistInfoList()
                                 ],

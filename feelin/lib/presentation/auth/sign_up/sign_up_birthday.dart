@@ -137,11 +137,11 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
 
   Widget _dateField(){
     return SizedBox(
-      width: MediaQuery.of(context).size.width - 94,
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            width: 120,
+            width: 125,
             child: TextFormField(
               controller: yearEditingController,
               maxLength: 4,
@@ -149,7 +149,7 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
               style: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
-                fontSize: 24,
+                fontSize: 22,
                 letterSpacing: 10,
               ),
               inputFormatters: [
@@ -158,9 +158,12 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
               onEditingComplete: (){
-                monthFocusNode.requestFocus();
+                FocusScope.of(context).requestFocus(monthFocusNode);
               },
               onChanged: (value) {
+                if(value.length == 4){
+                  FocusScope.of(context).requestFocus(monthFocusNode);
+                }
                 setState(() {
                   year = value;
                   isBirthdayValid = validateBirthday();
@@ -199,9 +202,12 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
               textInputAction: TextInputAction.next,
               autofillHints: [AutofillHints.birthdayMonth],
               onEditingComplete: (){
-                dayFocusNode.requestFocus(dayFocusNode);
+                FocusScope.of(context).requestFocus(dayFocusNode);
               },
               onChanged: (value) {
+                if(value.length == 2){
+                  FocusScope.of(context).requestFocus(dayFocusNode);
+                }
                 setState(() {
                   month = value;
                   isBirthdayValid = validateBirthday();
@@ -242,6 +248,9 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
               },
               onChanged: (value) {
                 setState(() {
+                  if(value.length == 2){
+                    FocusScope.of(context).unfocus();
+                  }
                   day = value;
                   isBirthdayValid = validateBirthday();
                 });

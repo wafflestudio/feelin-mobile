@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/presentation/common/user_nickname.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 import 'package:palette_generator/palette_generator.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../application/edit/edit_post_form/edit_post_form_bloc.dart';
 import '../../../application/share/share.dart';
@@ -24,9 +27,10 @@ class PlaylistInfoAppBar extends StatefulWidget with PreferredSizeWidget {
   final double expandedHeight;
   final Function edit;
   final bool isEdited;
+  final Function? deleteItem;
 
   const PlaylistInfoAppBar(
-      {Key? key, required this.isShrink, required this.post, required this.heroNumber, required this.goToTop, required this.expandedHeight, required this.edit, required this.isEdited}) : super(key: key);
+      {Key? key, required this.isShrink, required this.post, required this.heroNumber, required this.goToTop, required this.expandedHeight, required this.edit, required this.isEdited, this.deleteItem}) : super(key: key);
 
   @override
   State<PlaylistInfoAppBar> createState() => _PlaylistInfoAppBarState();
@@ -43,19 +47,11 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
   late PaletteGenerator paletteGenerator;
   Color imageColor = Colors.white;
 
-  String? id;
-
-  _async() async{
-    id = await storage.read(key: 'id');
-  }
 
   @override
   void initState() {
     super.initState();
     _updatePaletteGenerator();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _async();
-    });
   }
 
   Future<void> _updatePaletteGenerator() async {
@@ -89,6 +85,16 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
               widget.post.title = post.title;
               widget.post.content = post.content;
             },
+          ),
+        );
+        state.reportFailureOrSuccessOption.fold(
+              () => null,
+              (failureOrSuccess) => failureOrSuccess.fold(
+                (f) => null,
+                (_) => showTopSnackBar(
+                  Overlay.of(context),
+                  CustomSnackBar.success(message: 'Thanks for letting us know.')
+                ),
           ),
         );
       },
@@ -166,7 +172,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                 ),
                 builder: (BuildContext context2) {
                   return SizedBox(
-                    height: (state.post.writer!.id == id!) ? 220 : 160,
+                    height: (state.post.writer!.id == context.watch<AuthBloc>().state.id) ? 220 : 160,
                     child: Column(
                       children: <Widget>[
                         const SizedBox(
@@ -180,7 +186,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                             Navigator.pop(context2);
                           }, child: const Text('Share', textAlign: TextAlign.left, style: TextStyle(color: Colors.black, fontSize: 16),)),
                         ),
-                        if(state.post.writer!.id == id!) SizedBox(
+                        if(state.post.writer!.id == context.watch<AuthBloc>().state.id) SizedBox(
                             width: double.infinity,
                             height: 60,
                             child: TextButton(onPressed: (){
@@ -197,7 +203,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                                 }
                               });
                             }, child: const Text('Edit', style: TextStyle(color: Colors.black, fontSize: 16),))),
-                        if(state.post.writer!.id == id!) SizedBox(
+                        if(state.post.writer!.id == context.watch<AuthBloc>().state.id) SizedBox(
                             width: double.infinity,
                             height: 60,
                             child: TextButton(onPressed: ()=>showModalBottomSheet<void>(
@@ -251,6 +257,10 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                                         child: TextButton(
                                           onPressed: (){
                                             bloc.add(PlaylistInfoEvent.deleteRequest(widget.post.id));
+                                            if(widget.deleteItem != null){
+                                              widget.deleteItem!();
+                                              print('ffffffffffffffff');
+                                            }
                                             Navigator.pop(context2);
                                             Navigator.pop(context);
                                           },
@@ -266,7 +276,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                               ),
                             )
                                 , child: Text('Delete', style: TextStyle(color: FeelinColorFamily.errorDark, fontSize: 16),))),
-                        if(state.post.writer!.id != id!) SizedBox(
+                        if(state.post.writer!.id != context.watch<AuthBloc>().state.id) SizedBox(
                             width: double.infinity,
                             height: 60,
                             child: TextButton(onPressed: (){
@@ -274,6 +284,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                               showModalBottomSheet<void>(
                               context: context,
                               useRootNavigator: true,
+                              isScrollControlled: true,
                               backgroundColor: Colors.white,
                               shape: const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.only(
@@ -281,8 +292,10 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                                   topRight: Radius.circular(20),
                                 ),
                               ),
-                              builder: (context) {
-                                return ReportBottomModal();
+                              builder: (context2) {
+                                return BlocProvider.value(
+                                    value: context.read<PlaylistInfoBloc>(),
+                                    child: ReportBottomModal());
                                 },
                             );
                               }
