@@ -24,6 +24,7 @@ mixin _$ProfileFailure {
     required TResult Function() cannotFollowYourself,
     required TResult Function() userNotFound,
     required TResult Function() alreadyFollowed,
+    required TResult Function() restricted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$ProfileFailure {
     TResult? Function()? cannotFollowYourself,
     TResult? Function()? userNotFound,
     TResult? Function()? alreadyFollowed,
+    TResult? Function()? restricted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$ProfileFailure {
     TResult Function()? cannotFollowYourself,
     TResult Function()? userNotFound,
     TResult Function()? alreadyFollowed,
+    TResult Function()? restricted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$ProfileFailure {
     required TResult Function(_CannotFollowYourself value) cannotFollowYourself,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_AlreadyFollowed value) alreadyFollowed,
+    required TResult Function(_Restricted value) restricted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$ProfileFailure {
     TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult? Function(_UserNotFound value)? userNotFound,
     TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_Restricted value)? restricted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$ProfileFailure {
     TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult Function(_Restricted value)? restricted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +148,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function() cannotFollowYourself,
     required TResult Function() userNotFound,
     required TResult Function() alreadyFollowed,
+    required TResult Function() restricted,
   }) {
     return serverError();
   }
@@ -155,6 +162,7 @@ class _$_ServerError implements _ServerError {
     TResult? Function()? cannotFollowYourself,
     TResult? Function()? userNotFound,
     TResult? Function()? alreadyFollowed,
+    TResult? Function()? restricted,
   }) {
     return serverError?.call();
   }
@@ -168,6 +176,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? cannotFollowYourself,
     TResult Function()? userNotFound,
     TResult Function()? alreadyFollowed,
+    TResult Function()? restricted,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -185,6 +194,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(_CannotFollowYourself value) cannotFollowYourself,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_AlreadyFollowed value) alreadyFollowed,
+    required TResult Function(_Restricted value) restricted,
   }) {
     return serverError(this);
   }
@@ -198,6 +208,7 @@ class _$_ServerError implements _ServerError {
     TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult? Function(_UserNotFound value)? userNotFound,
     TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_Restricted value)? restricted,
   }) {
     return serverError?.call(this);
   }
@@ -211,6 +222,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult Function(_Restricted value)? restricted,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -268,6 +280,7 @@ class _$_Unauthorized implements _Unauthorized {
     required TResult Function() cannotFollowYourself,
     required TResult Function() userNotFound,
     required TResult Function() alreadyFollowed,
+    required TResult Function() restricted,
   }) {
     return unauthorized();
   }
@@ -281,6 +294,7 @@ class _$_Unauthorized implements _Unauthorized {
     TResult? Function()? cannotFollowYourself,
     TResult? Function()? userNotFound,
     TResult? Function()? alreadyFollowed,
+    TResult? Function()? restricted,
   }) {
     return unauthorized?.call();
   }
@@ -294,6 +308,7 @@ class _$_Unauthorized implements _Unauthorized {
     TResult Function()? cannotFollowYourself,
     TResult Function()? userNotFound,
     TResult Function()? alreadyFollowed,
+    TResult Function()? restricted,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -311,6 +326,7 @@ class _$_Unauthorized implements _Unauthorized {
     required TResult Function(_CannotFollowYourself value) cannotFollowYourself,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_AlreadyFollowed value) alreadyFollowed,
+    required TResult Function(_Restricted value) restricted,
   }) {
     return unauthorized(this);
   }
@@ -324,6 +340,7 @@ class _$_Unauthorized implements _Unauthorized {
     TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult? Function(_UserNotFound value)? userNotFound,
     TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_Restricted value)? restricted,
   }) {
     return unauthorized?.call(this);
   }
@@ -337,6 +354,7 @@ class _$_Unauthorized implements _Unauthorized {
     TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult Function(_Restricted value)? restricted,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -394,6 +412,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
     required TResult Function() cannotFollowYourself,
     required TResult Function() userNotFound,
     required TResult Function() alreadyFollowed,
+    required TResult Function() restricted,
   }) {
     return usernameAlreadyInUse();
   }
@@ -407,6 +426,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
     TResult? Function()? cannotFollowYourself,
     TResult? Function()? userNotFound,
     TResult? Function()? alreadyFollowed,
+    TResult? Function()? restricted,
   }) {
     return usernameAlreadyInUse?.call();
   }
@@ -420,6 +440,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
     TResult Function()? cannotFollowYourself,
     TResult Function()? userNotFound,
     TResult Function()? alreadyFollowed,
+    TResult Function()? restricted,
     required TResult orElse(),
   }) {
     if (usernameAlreadyInUse != null) {
@@ -437,6 +458,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
     required TResult Function(_CannotFollowYourself value) cannotFollowYourself,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_AlreadyFollowed value) alreadyFollowed,
+    required TResult Function(_Restricted value) restricted,
   }) {
     return usernameAlreadyInUse(this);
   }
@@ -450,6 +472,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
     TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult? Function(_UserNotFound value)? userNotFound,
     TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_Restricted value)? restricted,
   }) {
     return usernameAlreadyInUse?.call(this);
   }
@@ -463,6 +486,7 @@ class _$_UsernameAlreadyInUse implements _UsernameAlreadyInUse {
     TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult Function(_Restricted value)? restricted,
     required TResult orElse(),
   }) {
     if (usernameAlreadyInUse != null) {
@@ -520,6 +544,7 @@ class _$_CannotFollowYourself implements _CannotFollowYourself {
     required TResult Function() cannotFollowYourself,
     required TResult Function() userNotFound,
     required TResult Function() alreadyFollowed,
+    required TResult Function() restricted,
   }) {
     return cannotFollowYourself();
   }
@@ -533,6 +558,7 @@ class _$_CannotFollowYourself implements _CannotFollowYourself {
     TResult? Function()? cannotFollowYourself,
     TResult? Function()? userNotFound,
     TResult? Function()? alreadyFollowed,
+    TResult? Function()? restricted,
   }) {
     return cannotFollowYourself?.call();
   }
@@ -546,6 +572,7 @@ class _$_CannotFollowYourself implements _CannotFollowYourself {
     TResult Function()? cannotFollowYourself,
     TResult Function()? userNotFound,
     TResult Function()? alreadyFollowed,
+    TResult Function()? restricted,
     required TResult orElse(),
   }) {
     if (cannotFollowYourself != null) {
@@ -563,6 +590,7 @@ class _$_CannotFollowYourself implements _CannotFollowYourself {
     required TResult Function(_CannotFollowYourself value) cannotFollowYourself,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_AlreadyFollowed value) alreadyFollowed,
+    required TResult Function(_Restricted value) restricted,
   }) {
     return cannotFollowYourself(this);
   }
@@ -576,6 +604,7 @@ class _$_CannotFollowYourself implements _CannotFollowYourself {
     TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult? Function(_UserNotFound value)? userNotFound,
     TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_Restricted value)? restricted,
   }) {
     return cannotFollowYourself?.call(this);
   }
@@ -589,6 +618,7 @@ class _$_CannotFollowYourself implements _CannotFollowYourself {
     TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult Function(_Restricted value)? restricted,
     required TResult orElse(),
   }) {
     if (cannotFollowYourself != null) {
@@ -646,6 +676,7 @@ class _$_UserNotFound implements _UserNotFound {
     required TResult Function() cannotFollowYourself,
     required TResult Function() userNotFound,
     required TResult Function() alreadyFollowed,
+    required TResult Function() restricted,
   }) {
     return userNotFound();
   }
@@ -659,6 +690,7 @@ class _$_UserNotFound implements _UserNotFound {
     TResult? Function()? cannotFollowYourself,
     TResult? Function()? userNotFound,
     TResult? Function()? alreadyFollowed,
+    TResult? Function()? restricted,
   }) {
     return userNotFound?.call();
   }
@@ -672,6 +704,7 @@ class _$_UserNotFound implements _UserNotFound {
     TResult Function()? cannotFollowYourself,
     TResult Function()? userNotFound,
     TResult Function()? alreadyFollowed,
+    TResult Function()? restricted,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -689,6 +722,7 @@ class _$_UserNotFound implements _UserNotFound {
     required TResult Function(_CannotFollowYourself value) cannotFollowYourself,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_AlreadyFollowed value) alreadyFollowed,
+    required TResult Function(_Restricted value) restricted,
   }) {
     return userNotFound(this);
   }
@@ -702,6 +736,7 @@ class _$_UserNotFound implements _UserNotFound {
     TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult? Function(_UserNotFound value)? userNotFound,
     TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_Restricted value)? restricted,
   }) {
     return userNotFound?.call(this);
   }
@@ -715,6 +750,7 @@ class _$_UserNotFound implements _UserNotFound {
     TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult Function(_Restricted value)? restricted,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -772,6 +808,7 @@ class _$_AlreadyFollowed implements _AlreadyFollowed {
     required TResult Function() cannotFollowYourself,
     required TResult Function() userNotFound,
     required TResult Function() alreadyFollowed,
+    required TResult Function() restricted,
   }) {
     return alreadyFollowed();
   }
@@ -785,6 +822,7 @@ class _$_AlreadyFollowed implements _AlreadyFollowed {
     TResult? Function()? cannotFollowYourself,
     TResult? Function()? userNotFound,
     TResult? Function()? alreadyFollowed,
+    TResult? Function()? restricted,
   }) {
     return alreadyFollowed?.call();
   }
@@ -798,6 +836,7 @@ class _$_AlreadyFollowed implements _AlreadyFollowed {
     TResult Function()? cannotFollowYourself,
     TResult Function()? userNotFound,
     TResult Function()? alreadyFollowed,
+    TResult Function()? restricted,
     required TResult orElse(),
   }) {
     if (alreadyFollowed != null) {
@@ -815,6 +854,7 @@ class _$_AlreadyFollowed implements _AlreadyFollowed {
     required TResult Function(_CannotFollowYourself value) cannotFollowYourself,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_AlreadyFollowed value) alreadyFollowed,
+    required TResult Function(_Restricted value) restricted,
   }) {
     return alreadyFollowed(this);
   }
@@ -828,6 +868,7 @@ class _$_AlreadyFollowed implements _AlreadyFollowed {
     TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult? Function(_UserNotFound value)? userNotFound,
     TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_Restricted value)? restricted,
   }) {
     return alreadyFollowed?.call(this);
   }
@@ -841,6 +882,7 @@ class _$_AlreadyFollowed implements _AlreadyFollowed {
     TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult Function(_Restricted value)? restricted,
     required TResult orElse(),
   }) {
     if (alreadyFollowed != null) {
@@ -852,4 +894,136 @@ class _$_AlreadyFollowed implements _AlreadyFollowed {
 
 abstract class _AlreadyFollowed implements ProfileFailure {
   const factory _AlreadyFollowed() = _$_AlreadyFollowed;
+}
+
+/// @nodoc
+abstract class _$$_RestrictedCopyWith<$Res> {
+  factory _$$_RestrictedCopyWith(
+          _$_Restricted value, $Res Function(_$_Restricted) then) =
+      __$$_RestrictedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RestrictedCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res, _$_Restricted>
+    implements _$$_RestrictedCopyWith<$Res> {
+  __$$_RestrictedCopyWithImpl(
+      _$_Restricted _value, $Res Function(_$_Restricted) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Restricted implements _Restricted {
+  const _$_Restricted();
+
+  @override
+  String toString() {
+    return 'ProfileFailure.restricted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Restricted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() unauthorized,
+    required TResult Function() usernameAlreadyInUse,
+    required TResult Function() cannotFollowYourself,
+    required TResult Function() userNotFound,
+    required TResult Function() alreadyFollowed,
+    required TResult Function() restricted,
+  }) {
+    return restricted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? serverError,
+    TResult? Function()? unauthorized,
+    TResult? Function()? usernameAlreadyInUse,
+    TResult? Function()? cannotFollowYourself,
+    TResult? Function()? userNotFound,
+    TResult? Function()? alreadyFollowed,
+    TResult? Function()? restricted,
+  }) {
+    return restricted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? unauthorized,
+    TResult Function()? usernameAlreadyInUse,
+    TResult Function()? cannotFollowYourself,
+    TResult Function()? userNotFound,
+    TResult Function()? alreadyFollowed,
+    TResult Function()? restricted,
+    required TResult orElse(),
+  }) {
+    if (restricted != null) {
+      return restricted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_UsernameAlreadyInUse value) usernameAlreadyInUse,
+    required TResult Function(_CannotFollowYourself value) cannotFollowYourself,
+    required TResult Function(_UserNotFound value) userNotFound,
+    required TResult Function(_AlreadyFollowed value) alreadyFollowed,
+    required TResult Function(_Restricted value) restricted,
+  }) {
+    return restricted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult? Function(_CannotFollowYourself value)? cannotFollowYourself,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult? Function(_Restricted value)? restricted,
+  }) {
+    return restricted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_UsernameAlreadyInUse value)? usernameAlreadyInUse,
+    TResult Function(_CannotFollowYourself value)? cannotFollowYourself,
+    TResult Function(_UserNotFound value)? userNotFound,
+    TResult Function(_AlreadyFollowed value)? alreadyFollowed,
+    TResult Function(_Restricted value)? restricted,
+    required TResult orElse(),
+  }) {
+    if (restricted != null) {
+      return restricted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Restricted implements ProfileFailure {
+  const factory _Restricted() = _$_Restricted;
 }

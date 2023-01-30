@@ -32,6 +32,9 @@ class _SignUpState extends State<SignUp>{
     if(_currPage <= 2){
       Navigator.pop(context);
     }else{
+      if(_currPage == 4 || _currPage == 5){
+        context.read<SignUpFormBloc>().add(const SignUpFormEvent.resetCanUseName());
+      }
       setState(() {
         _currPage --;
       });
@@ -64,13 +67,15 @@ class _SignUpState extends State<SignUp>{
       },
       child: WillPopScope(
         onWillPop: (){
-          if(_currPage == 1){
+          if(_currPage <= 2){
             return Future.value(true);
           }else{
+            if(_currPage == 4 || _currPage == 5){
+              context.read<SignUpFormBloc>().add(const SignUpFormEvent.resetCanUseName());
+            }
             setState(() {
               _currPage --;
             });
-
             return Future.value(false);
           }
         },

@@ -17,8 +17,8 @@ class _FollowButtonState extends State<FollowButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: widget.isSmall ? 150 : double.infinity,
-      height: widget.isSmall ? 36 : 36,
+      width: widget.isSmall ? 110 : double.infinity,
+      height: widget.isSmall ? 30 : 36,
       child: ElevatedButton(
           onPressed: (){
             widget.function();
@@ -27,7 +27,7 @@ class _FollowButtonState extends State<FollowButton> {
               shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18)
               )),
-              backgroundColor: widget.isFollowed ? MaterialStateProperty.all(FeelinColorFamily.gray500):MaterialStateProperty.all(Colors.black)
+              backgroundColor: widget.isFollowed ? MaterialStateProperty.all(FeelinColorFamily.gray400):MaterialStateProperty.all(Colors.black)
           ),
           child: Center(
             child: Text(

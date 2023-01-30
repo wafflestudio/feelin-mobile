@@ -89,7 +89,7 @@ class FollowBloc extends Bloc<FollowEvent, FollowState>{
               (posts) {
             state.users[event.index].isFollowed = true;
             MyKeyStore.profileKey.currentState?.onRefresh();
-            MyKeyStore.exploreKey.currentState?.firstLoad();
+            MyKeyStore.explorePageKey.currentState?.firstLoad();
           },
         );
       }
@@ -105,7 +105,7 @@ class FollowBloc extends Bloc<FollowEvent, FollowState>{
               (posts) {
                 state.users[event.index].isFollowed = false;
                 MyKeyStore.profileKey.currentState?.onRefresh();
-                MyKeyStore.exploreKey.currentState?.firstLoad();
+                MyKeyStore.explorePageKey.currentState?.firstLoad();
           },
         );
       }

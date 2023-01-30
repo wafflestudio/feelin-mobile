@@ -23,6 +23,12 @@ class _PostListState extends State<PlaylistInfoList> {
               behavior: const ScrollBehavior().copyWith(overscroll: false),
               child: SliverList(delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
+                      if(index == state.post.playlist.tracks!.length-1){
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 66),
+                          child: TrackItem(index: index, post: state.post),
+                        );
+                      }
                       return TrackItem(index: index, post: state.post);
                 }, childCount: state.post.playlist.tracks!.length,
               ),)

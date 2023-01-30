@@ -163,7 +163,8 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
                         value: loadingPercentage / 100.0,
                       ),
                   ],
-                ),);
+                ),
+              );
             }
           ),
         ),

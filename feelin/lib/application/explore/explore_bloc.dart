@@ -118,5 +118,12 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState>{
         feeds: List.from(state.feeds)..removeAt(event.index),
       ));
     });
+
+    on<_RemoveItemsByUserId>((event, emit) async {
+      emit(state.copyWith(
+        feeds: List.from(state.feeds)..removeWhere((post) => post.writer!.id == event.id),
+        feedsF: List.from(state.feedsF)..removeWhere((post) => post.writer!.id == event.id),
+      ));
+    });
   }
 }

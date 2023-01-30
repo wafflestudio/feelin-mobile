@@ -12,6 +12,4 @@ abstract class PlaylistClient{
 
   @POST('/playlists')
   Future<HttpResponse<Playlist>> postPlaylist(@Body() PostPlaylistRequest postPlaylistRequest);
-
-
 }

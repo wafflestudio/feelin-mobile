@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/profile/page.dart';
 import 'package:music_sns/domain/profile/profile.dart';
 import 'package:music_sns/domain/profile/profile_failure.dart';
+import 'package:music_sns/env.dart';
 import 'package:music_sns/infrastructure/auth/get_auth_dio.dart';
 import 'package:music_sns/infrastructure/profile/profile_client.dart';
 import 'package:retrofit/retrofit.dart';
@@ -17,9 +18,9 @@ import '../../domain/profile/value_objects.dart';
 @LazySingleton()
 class ProfileRepository{
   static final ProfileRepository _singletonProfileRepository = ProfileRepository._internal();
-  final dio = getAuthDio();
+  final dio = getAuthDio(baseUrl: env.socialBaseUrl);
 
-  late ProfileClient profileClient = ProfileClient(dio);
+  late ProfileClient profileClient = ProfileClient(dio, baseUrl: env.socialBaseUrl);
 
   factory ProfileRepository() {
     return _singletonProfileRepository;
@@ -38,6 +39,7 @@ class ProfileRepository{
     }on DioError catch(e){
       switch(e.response?.statusCode){
         case 401 : return const Left(ProfileFailure.unauthorized());
+        case 403 : return const Left(ProfileFailure.restricted());
         default : return const Left(ProfileFailure.serverError());
       }
     }
@@ -99,6 +101,7 @@ class ProfileRepository{
     }on DioError catch(e){
       switch(e.response?.statusCode){
         case 401 : return const Left(ProfileFailure.unauthorized());
+        case 403 : return const Left(ProfileFailure.restricted());
         default : return const Left(ProfileFailure.serverError());
       }
     }

@@ -44,16 +44,10 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
           children: [
             Container(
               margin: const EdgeInsets.only(top: 30),
-              constraints: const BoxConstraints(maxHeight: 210),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const CommonTitle(title: 'What\'s your name?'),
-                  _nameField(),
-                ],
-              ),
+              child: const CommonTitle(title: 'What\'s your name?'),
             ),
+            _nameField(),
+
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -103,7 +97,7 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
                   ]
                 )),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 20, top: 10),
+                  padding: const EdgeInsets.only(bottom: 8, top: 10),
                   child: NextButton(disabled: name.isEmpty,
                     function: (){
                       widget.goToNext();
@@ -122,7 +116,7 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
     return BlocBuilder<SignUpFormBloc, SignUpFormState>(
         builder: (context, state) {
           return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 28),
             width: double.infinity,
             height: 48,
             child: TextFormField(

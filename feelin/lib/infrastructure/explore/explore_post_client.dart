@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:music_sns/domain/play/post.dart';
-import 'package:music_sns/domain/streaming/redirect_url.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../domain/post/report_post_request.dart';
@@ -26,9 +25,6 @@ abstract class ExplorePostClient{
 
   @POST('/posts/report')
   Future<HttpResponse<void>> report(@Body() ReportPostRequest reportPostRequest);
-
-  @POST('https://feelin-api.wafflestudio.com/api/v1/playlists/{playlist_id}/save')
-  Future<HttpResponse<RedirectUrl>> save(@Path('playlist_id') String playlistId, @Header('Vendor-Authorization') String vendorId, @Body() SaveToAccountRequest saveToAccountRequest);
 }
 
 @RestApi(baseUrl: "https://feelin-api.wafflestudio.com/api/v1")

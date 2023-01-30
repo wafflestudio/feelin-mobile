@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/presentation/app/tab_navigator.dart';
 
 import '../../../application/info/playlist_info_bloc.dart';
 import '../../../application/share/share.dart';
@@ -12,7 +13,8 @@ import '../playlist_info/playlist_info_page.dart';
 
 class PostCompletePage extends StatelessWidget{
   final Post post;
-  const PostCompletePage({Key? key, required this.post}) : super(key: key);
+  final int globalContext;
+  const PostCompletePage({Key? key, required this.post, required this.globalContext}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +66,7 @@ class PostCompletePage extends StatelessWidget{
             }, 'Share Playlist'),
             const SizedBox(height: 10,),
             button(screenSize, FeelinColorFamily.gray50, Colors.black, (){
-              Navigator.pushReplacement(context, CupertinoPageRoute(
+              Navigator.push(globalContext == 0 ? MyKeyStore.exploreKey.currentContext! : MyKeyStore.profileKey.currentContext!, CupertinoPageRoute(
                 builder: (context){
                   return BlocProvider(
                       create: (context) => getIt<PlaylistInfoBloc>(),
@@ -72,6 +74,7 @@ class PostCompletePage extends StatelessWidget{
                 },
               ),
               );
+              Navigator.pop(context);
             }, 'Go to Post'),
             const SizedBox(height: 40,),
           ],

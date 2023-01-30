@@ -150,6 +150,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               hintText: 'Username',
               labelText: 'Username',
               counterText: '',
+              contentPadding: const EdgeInsets.fromLTRB(10, 10, -38, 10),
               floatingLabelBehavior: FloatingLabelBehavior.always,
               floatingLabelStyle: const TextStyle(
                 fontWeight: FontWeight.w600,
@@ -166,7 +167,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   state.canUseName) ? const Icon(Icons.check_circle_outline, color: Colors.green,) : Icon(Icons.cancel_outlined, color: FeelinColorFamily.redPrimary,),
             ),
             inputFormatters: [
-              FilteringTextInputFormatter.allow(RegExp('[a-z A-Z 0-9 . _]')),
+              FilteringTextInputFormatter.allow(RegExp('[a-z 0-9 . _]')),
               FilteringTextInputFormatter.deny(RegExp(r'\s')),
             ],
             //validator: (_) =>

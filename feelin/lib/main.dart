@@ -6,8 +6,10 @@ import 'package:injectable/injectable.dart';
 import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/application/streaming/streaming_bloc.dart';
 import 'package:music_sns/injection.dart';
+import 'package:music_sns/presentation/app/tab_navigator.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
+import 'env.dart';
 import 'firebase_options.dart';
 import 'infrastructure/auth/navigation_service.dart';
 import 'presentation/auth/auth.dart';
@@ -25,6 +27,22 @@ void main() async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  // for prod environment
+  BuildEnvironment.init(
+      flavor: BuildFlavor.production,
+    socialBaseUrl: 'https://feelin-social-api.wafflestudio.com/api/v1',
+    coreBaseUrl: 'https://feelin-api.wafflestudio.com/api/v1',
+  );
+  assert(env != null);
+
+  // for dev environment
+  // BuildEnvironment.init(
+  //   flavor: BuildFlavor.development,
+  //   socialBaseUrl: 'https://feelin-social-api-dev.wafflestudio.com/api/v1',
+  //   coreBaseUrl: 'https://feelin-api-dev.wafflestudio.com/api/v1',
+  // );
+  // assert(env != null);
+
   runApp(const MyApp());
   configureInjection(Environment.prod);
 }
@@ -40,6 +58,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<StreamingBloc>()),
       ],
       child: MaterialApp(
+        navigatorObservers: [
+          MyObservers.routeObserver
+        ],
         navigatorKey: NavigationService.navigatorKey,
         title: 'Feelin\'',
         theme: ThemeData(

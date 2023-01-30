@@ -7,4 +7,5 @@ class ExplorePostFailure with _$ExplorePostFailure {
   const factory ExplorePostFailure.unauthorized() = _Unauthorized;
   const factory ExplorePostFailure.forbidden() = _Forbidden;
   const factory ExplorePostFailure.notFound() = _NotFound;
+  const factory ExplorePostFailure.restricted() = _Restricted;
 }

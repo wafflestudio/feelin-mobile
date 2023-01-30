@@ -12,9 +12,7 @@ class _AuthClient implements AuthClient {
   _AuthClient(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://feelin-social-api.wafflestudio.com/api/v1';
-  }
+  });
 
   final Dio _dio;
 
@@ -292,11 +290,10 @@ class _AuthClient implements AuthClient {
   }
 
   @override
-  Future<HttpResponse<User>> getSignedInUser(token) async {
+  Future<HttpResponse<User>> getSignedInUser() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<HttpResponse<User>>(Options(

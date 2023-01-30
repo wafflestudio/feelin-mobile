@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import
+
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
@@ -107,22 +109,25 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
                 ],
               ),
             ),
-            NextButton(disabled: !isBirthdayValid,
-              function: (){
-                final date = DateTime(int.parse(year), int.parse(month), int.parse(day));
-                if(isOver14(date)){
-                  context
-                      .read<SignUpFormBloc>()
-                      .add(SignUpFormEvent.birthdayChanged(DateFormat('yyyy-MM-dd').format(date)));
-                  widget.goToNext();
-                }else{
-                  showTopSnackBar(
-                    Overlay.of(context)!,
-                    const CustomSnackBar.error(message: 'You must be 14+ to use Feelin\'.')
-                  );
-                }
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: NextButton(disabled: !isBirthdayValid,
+                function: (){
+                  final date = DateTime(int.parse(year), int.parse(month), int.parse(day));
+                  if(isOver14(date)){
+                    context
+                        .read<SignUpFormBloc>()
+                        .add(SignUpFormEvent.birthdayChanged(DateFormat('yyyy-MM-dd').format(date)));
+                    widget.goToNext();
+                  }else{
+                    showTopSnackBar(
+                      Overlay.of(context)!,
+                      const CustomSnackBar.error(message: 'You must be 14+ to use Feelin\'.')
+                    );
+                  }
 
-              },)
+                },),
+            )
           ],
         ),
       ),
@@ -263,24 +268,6 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _datePicker() {
-    return SizedBox(
-      height: 300,
-      child: CupertinoDatePicker(
-          minimumYear: 1900,
-          maximumYear: DateTime.now().year - 14,
-          maximumDate: DateTime(DateTime.now().year-14,DateTime.now().month, DateTime.now().day),
-          initialDateTime: DateTime(DateTime.now().year-14,DateTime.now().month, DateTime.now().day),
-          onDateTimeChanged: (date){
-            context
-                .read<SignUpFormBloc>()
-                .add(SignUpFormEvent.birthdayChanged(DateFormat('yyyy-MM-dd').format(date)));
-          },
-          mode: CupertinoDatePickerMode.date,
       ),
     );
   }

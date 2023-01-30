@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/follow/page_user.dart';
+import 'package:music_sns/env.dart';
 import 'package:music_sns/infrastructure/follow/follow_client.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -11,9 +12,9 @@ import '../auth/get_auth_dio.dart';
 @LazySingleton()
 class FollowRepository{
   static final FollowRepository _singletonProfileRepository = FollowRepository._internal();
-  final dio = getAuthDio();
+  final dio = getAuthDio(baseUrl: env.socialBaseUrl);
 
-  late FollowClient followClient = FollowClient(dio);
+  late FollowClient followClient = FollowClient(dio, baseUrl: env.socialBaseUrl);
 
   factory FollowRepository() {
     return _singletonProfileRepository;

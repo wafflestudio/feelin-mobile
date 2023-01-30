@@ -16,7 +16,7 @@ import '../../domain/auth/verify_phone_request.dart';
 
 part 'auth_client.g.dart';
 
-@RestApi(baseUrl: "https://feelin-social-api.wafflestudio.com/api/v1")
+@RestApi(baseUrl: "")
 abstract class AuthClient{
   factory AuthClient(Dio dio, {String baseUrl}) = _AuthClient;
 
@@ -54,7 +54,7 @@ abstract class AuthClient{
   Future<HttpResponse<void>> signOut(@Header("Authorization") String token);
 
   @GET('/user/me')
-  Future<HttpResponse<User>> getSignedInUser(@Header("Authorization") String token);
+  Future<HttpResponse<User>> getSignedInUser();
 
   @DELETE('/auth')
   Future<HttpResponse<void>> deleteAccount(@Header("Authorization") String token);

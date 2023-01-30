@@ -69,7 +69,7 @@ class _ReportBottomModalDescriptionState extends State<ReportBottomModalDescript
                       Center(
                         child: TextButton(
                           onPressed: (){
-                            context.read<ProfileBloc>().add(ProfileEvent.reportRequest(widget.reportType, textEditingController.text.isEmpty ? ' ' : textEditingController.text));
+                            context.read<ProfileBloc>().add(ProfileEvent.reportRequest(widget.reportType, '${textEditingController.text}.'));
                             Navigator.pop(context);
                             Navigator.pop(context);
                           },

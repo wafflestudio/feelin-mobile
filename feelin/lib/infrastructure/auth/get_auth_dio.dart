@@ -3,20 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/auth/auth/auth_bloc.dart';
+import 'package:music_sns/env.dart';
 import 'package:music_sns/presentation/style/colors.dart';
-import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import 'navigation_service.dart';
 
-Dio getAuthDio() {
+Dio getAuthDio({required String baseUrl}) {
   var dio = Dio();
 
   const storage = FlutterSecureStorage();
 
   dio.interceptors.clear();
 
-  dio.options.baseUrl = 'https://feelin-social-api.wafflestudio.com/api/v1';
+  dio.options.baseUrl = baseUrl;
 
   dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) async {
 
@@ -30,7 +29,7 @@ Dio getAuthDio() {
   }, onError: (error, handler) async {
 
     // 인증 오류가 발생했을 경우: AccessToken의 만료
-    if (error.response?.statusCode == 401 ) {
+    if (error.response?.statusCode == 401) {
 
       // 기기에 저장된 AccessToken과 RefreshToken 로드
       final accessToken = await storage.read(key: 'token');
@@ -41,16 +40,17 @@ Dio getAuthDio() {
 
       refreshDio.interceptors.clear();
 
-      refreshDio.options.baseUrl = 'https://feelin-social-api.wafflestudio.com/api/v1';
+      refreshDio.options.baseUrl = env.socialBaseUrl;
 
       refreshDio.interceptors
           .add(InterceptorsWrapper(onError: (error, handler) async {
 
         // 다시 인증 오류가 발생했을 경우: RefreshToken의 만료
-        if (error.response?.statusCode == 401 || error.response?.statusCode == 404 || error.response?.statusCode == 403) {
+        if (error.response?.statusCode == 400 || error.response?.statusCode == 401 || error.response?.statusCode == 404 || error.response?.statusCode == 403) {
 
           // 기기의 자동 로그인 정보 삭제
           await storage.deleteAll();
+          //print(error);
 
           // . . .
           // 로그인 만료 dialog 발생 후 로그인 페이지로 이동

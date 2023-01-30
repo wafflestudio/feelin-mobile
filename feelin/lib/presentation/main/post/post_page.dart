@@ -1,6 +1,5 @@
 
 import 'package:external_app_launcher/external_app_launcher.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -100,82 +99,87 @@ class _PostPageState extends State<PostPage>{
         child: Stack(
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 200),
-              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 5),
+              constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.8),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      const SizedBox(height: 12,),
-                      BlocBuilder<PostFormBloc, PostFormState>(
-                        builder: (context, state) {
-                          return TextFormField(
-                            controller: _linkTextController,
-                            onFieldSubmitted: (_){if(link.isNotEmpty){
-                              onSubmitted();
-                              FocusScope.of(context).unfocus();
-                            }},
-                            textInputAction: TextInputAction.next,
-                            decoration: const InputDecoration(
-                              hintText: 'Playlist URL',
-                              isDense: true,
+                  Container(
+                    constraints: const BoxConstraints(maxHeight: 260),
+                    padding: const EdgeInsets.symmetric(horizontal: 28,),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        const SizedBox(height: 12,),
+                        BlocBuilder<PostFormBloc, PostFormState>(
+                          builder: (context, state) {
+                            return TextFormField(
+                              controller: _linkTextController,
+                              onFieldSubmitted: (_){if(link.isNotEmpty){
+                                onSubmitted();
+                                FocusScope.of(context).unfocus();
+                              }},
+                              textInputAction: TextInputAction.next,
+                              decoration: const InputDecoration(
+                                hintText: 'Playlist URL',
+                                isDense: true,
+                              ),
+                              validator: (_) => state.fetchFailureOrSuccessOption.fold(
+                                          () => null,
+                                          (failureOrSuccess) => failureOrSuccess.fold(
+                                              (f) => f.maybeMap(
+                                            noSuchPlaylistExists: (_) =>'playlist does not exist.',
+                                            invalidUrl: (_) => 'Please enter the valid Playlist URL.',
+                                            orElse: () => 'server error',),
+                                              (playlist) => null
+                                      )
+                                  ),
+                              onChanged: (value) {
+                                context
+                                  .read<PostFormBloc>()
+                                  .add(PostFormEvent.urlChanged(value));
+                                setState(() {
+                                  link = value;
+                                });
+                                },
+                            );
+                          }
+                        ),
+                        const SizedBox(height: 12,),
+                        GestureDetector(
+                          onTap: (){
+                            showGuide();
+                          },
+                          child: Text(
+                            'How can I get the playlist URL?',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 13,
+                              color: FeelinColorFamily.red500,
                             ),
-                            validator: (_) => state.fetchFailureOrSuccessOption.fold(
-                                        () => null,
-                                        (failureOrSuccess) => failureOrSuccess.fold(
-                                            (f) => f.maybeMap(
-                                          noSuchPlaylistExists: (_) =>'playlist does not exist.',
-                                          invalidUrl: (_) => 'Please enter the valid Playlist URL.',
-                                          orElse: () => 'server error',),
-                                            (playlist) => null
-                                    )
-                                ),
-                            onChanged: (value) {
-                              context
-                                .read<PostFormBloc>()
-                                .add(PostFormEvent.urlChanged(value));
-                              setState(() {
-                                link = value;
-                              });
-                              },
-                          );
-                        }
-                      ),
-                      const SizedBox(height: 12,),
-                      GestureDetector(
-                        onTap: (){
-                          showGuide();
-                        },
-                        child: Text(
-                          'How can I get the playlist URL?',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13,
-                            color: FeelinColorFamily.red500,
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
             Positioned(
-                bottom: 10,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: NextButton(disabled: link.isEmpty,
-                    isLoading: context.watch<PostFormBloc>().state.isFetching,
-                    function: (){
-              onSubmitted();
-              FocusScope.of(context).unfocus();
-            },),
-                ))
+              bottom: 8,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: NextButton(disabled: link.isEmpty,
+                  isLoading: context.watch<PostFormBloc>().state.isFetching,
+                  function: (){
+                    onSubmitted();
+                    FocusScope.of(context).unfocus();
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -202,9 +206,10 @@ class _PostPageState extends State<PostPage>{
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
+                  width: MediaQuery.of(context).size.width*0.8,
                   child: TabBar(
                       overlayColor: MaterialStateProperty.all(Colors.transparent),
-                      isScrollable: true,
+                      isScrollable: false,
                       physics: const BouncingScrollPhysics(),
                       labelColor: Colors.black,
                       labelStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),

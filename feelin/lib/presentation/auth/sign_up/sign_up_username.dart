@@ -43,14 +43,13 @@ class _SignUpNameState extends State<SignUpUsername>{
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
                   const CommonTitle(title: 'Choose your username'),
                   _usernameField(),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 20),
+              padding: const EdgeInsets.only(bottom: 8),
               child: BlocBuilder<SignUpFormBloc, SignUpFormState>(
                   builder: (context, state) {
                     return NextButton(disabled: !state.canUseName,
@@ -71,7 +70,7 @@ class _SignUpNameState extends State<SignUpUsername>{
     return BlocBuilder<SignUpFormBloc, SignUpFormState>(
         builder: (context, state) {
           return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 28),
             width: double.infinity,
             height: 48,
             child: TextFormField(
@@ -88,12 +87,14 @@ class _SignUpNameState extends State<SignUpUsername>{
                 widget.goToNext();
               },
               inputFormatters: [
-                FilteringTextInputFormatter.allow(RegExp('[a-z A-Z 0-9 . _]')),
+                FilteringTextInputFormatter.allow(RegExp('[a-z 0-9 . _]')),
                 FilteringTextInputFormatter.deny(RegExp(r'\s')),
               ],
               decoration: InputDecoration(
                 hintText: 'Username',
                 isDense: true,
+                counterText: '',
+                contentPadding: const EdgeInsets.fromLTRB(10, 10, -38, 10),
                 suffixIcon: (state.canUseName) ? const Icon(Icons.check_circle_outline, color: Colors.green,) : const SizedBox.shrink(),
               ),
               validator: (_) => null,

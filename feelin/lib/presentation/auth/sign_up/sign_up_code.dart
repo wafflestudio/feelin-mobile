@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -19,7 +21,7 @@ class SignUpCode extends StatefulWidget{
   State<SignUpCode> createState() => _SignUpCodeState();
 
 }
-class _SignUpCodeState extends State<SignUpCode>{
+class _SignUpCodeState extends State<SignUpCode> with CodeAutoFill{
 
   TextEditingController textEditingController = TextEditingController();
   StreamController<ErrorAnimationType>? errorController;
@@ -31,12 +33,30 @@ class _SignUpCodeState extends State<SignUpCode>{
   void initState() {
     errorController = StreamController<ErrorAnimationType>();
     super.initState();
+    _listenSmsCode();
+    SmsAutoFill().getAppSignature.then((signature) {
+      setState(() {
+        // appSignature = signature;
+      });
+    });
+  }
+
+  _listenSmsCode() async {
+    await SmsAutoFill().listenForCode();
+  }
+
+  @override
+  void codeUpdated() {
+    setState(() {
+      textEditingController.text = code!;
+    });
   }
 
   @override
   void dispose() {
     errorController!.close();
-
+    cancel();
+    unregisterListener();
     super.dispose();
   }
 
@@ -79,7 +99,7 @@ class _SignUpCodeState extends State<SignUpCode>{
               ],
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 28),
                 child: _codeField()
             ),
           ],
@@ -128,10 +148,6 @@ class _SignUpCodeState extends State<SignUpCode>{
               backgroundColor: Colors.transparent,
               blinkWhenObscuring: true,
               animationType: AnimationType.fade,
-              validator: (v) {
-                if(hasError) return '';
-                return null;
-              },
               pinTheme: PinTheme(
                 shape: PinCodeFieldShape.underline,
                 borderWidth: 2,
@@ -152,7 +168,9 @@ class _SignUpCodeState extends State<SignUpCode>{
               errorAnimationController: errorController,
               controller: textEditingController,
               keyboardType: TextInputType.number,
-
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
               onCompleted: (v) {
                 // 코드 인증 요청
                 if(state.signUpWithEmail){
@@ -188,6 +206,4 @@ class _SignUpCodeState extends State<SignUpCode>{
     )
     );
   }
-
-
 }

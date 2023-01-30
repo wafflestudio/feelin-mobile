@@ -9,23 +9,22 @@ import '../post_track_page.dart';
 import 'post_app_bar.dart';
 
 class PostApp extends StatelessWidget {
-  final int? userId;
+  final int globalContext;
 
-  const PostApp({Key? key, this.userId}) : super(key: key);
+  const PostApp({Key? key, required this.globalContext}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
 
     return BlocProvider(create: (context) => getIt<PostFormBloc>(),
-      child: PostAppScaffold(userId),
+      child: PostAppScaffold(globalContext: globalContext,),
     );
   }
 }
 
 class PostAppScaffold extends StatefulWidget {
-  final int? userId;
-
-  const PostAppScaffold(this.userId, {Key? key}) : super(key: key);
+  final int globalContext;
+  const PostAppScaffold({Key? key, required this.globalContext}) : super(key: key);
 
   @override
   State<PostAppScaffold> createState() => _PostAppScaffoldState();
@@ -72,7 +71,7 @@ class _PostAppScaffoldState extends State<PostAppScaffold> {
         body: Builder(builder: (BuildContext context){
           if(_currPage == 1) return PostPage(goToNext: goToNext);
           if(_currPage == 2) return PostTrackPage(goToNext: goToNext);
-          if(_currPage == 3) return const PostDetailPage();
+          if(_currPage == 3) return PostDetailPage(globalContext: widget.globalContext,);
           return Container();
         }),
       ),

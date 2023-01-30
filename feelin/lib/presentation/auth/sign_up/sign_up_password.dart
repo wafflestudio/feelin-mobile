@@ -80,7 +80,7 @@ class _SignUpNameState extends State<SignUpPassword>{
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 20),
+                padding: const EdgeInsets.only(bottom: 8),
                 child: NextButton(disabled: password.length < 8,
                   function: (){
                     context
@@ -100,7 +100,7 @@ class _SignUpNameState extends State<SignUpPassword>{
     return BlocBuilder<SignUpFormBloc, SignUpFormState>(
         builder: (context, state) {
           return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 28),
             width: double.infinity,
             height: 48,
             child: TextFormField(

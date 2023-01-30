@@ -53,6 +53,10 @@ class ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClientM
     }
   }
 
+  void removeItemsByUserId(String id) {
+    context.read<ExploreBloc>().add(ExploreEvent.removeItemsByUserId(id));
+  }
+
   @override
   void initState() {
     super.initState();

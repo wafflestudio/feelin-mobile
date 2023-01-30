@@ -49,7 +49,7 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
       listener: (context, state){
         state.saveFailureOrSuccessOption.fold(
               () => null,
-              (failureOrSuccess) => failureOrSuccess.fold(
+              (failureOrSuccess) {failureOrSuccess.fold(
                 (f) => showTopSnackBar(
                   Overlay.of(context),
                   CustomSnackBar.error(
@@ -74,7 +74,9 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                     ),
                   );
             },
-          ),
+          );
+              context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.resetStateRequest());
+                },
         );
       },
       child: BlocBuilder<StreamingBloc, StreamingState>(

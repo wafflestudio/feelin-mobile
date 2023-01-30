@@ -12,9 +12,7 @@ class _ProfileClient implements ProfileClient {
   _ProfileClient(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://feelin-social-api.wafflestudio.com/api/v1';
-  }
+  });
 
   final Dio _dio;
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:music_sns/presentation/main/explore/app/explore_app.dart';
-import 'package:music_sns/presentation/main/post/app/post_app.dart';
 
 import '../main/explore/explore_page.dart';
 import '../main/profile/app/profile_app.dart';
@@ -11,8 +10,13 @@ class TabNavigatorRoutes {
 }
 
 class MyKeyStore{
-  static GlobalKey<ExplorePageState> exploreKey = GlobalKey();
+  static GlobalKey<ExploreAppScaffoldState> exploreKey = GlobalKey();
+  static GlobalKey<ExplorePageState> explorePageKey = GlobalKey();
   static GlobalKey<ProfileAppScaffoldState> profileKey = GlobalKey();
+}
+
+class MyObservers{
+  static RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 }
 
 class TabNavigator extends StatelessWidget {
@@ -24,7 +28,7 @@ class TabNavigator extends StatelessWidget {
   Map<String, WidgetBuilder> _routeBuilders(BuildContext context) {
     switch(tabItem){
       case TabItem.home: return {TabNavigatorRoutes.root: (context) => const ExploreApp()};
-      case TabItem.post: return {TabNavigatorRoutes.root: (context) => const PostApp()};
+      case TabItem.post: return {TabNavigatorRoutes.root: (context) => const SizedBox()};
       case TabItem.profile: return {TabNavigatorRoutes.root: (context) => ProfileApp(profileKey: MyKeyStore.profileKey)};
       default: return {TabNavigatorRoutes.root: (context) => const ExploreApp()};
     }
