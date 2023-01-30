@@ -57,7 +57,7 @@ class _SignInPhoneState extends State<SignInPhone> with TickerProviderStateMixin
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
-                  CommonTitle(title: 'What\’s your \nphone number?'),
+                  CommonTitle(title: 'What’s your \nphone number?'),
                   SizedBox(height: 10,),
                   CommonDescription(description: 'Your phone number is used for signup and login'),
                 ],
@@ -69,7 +69,7 @@ class _SignInPhoneState extends State<SignInPhone> with TickerProviderStateMixin
             ),
             insteadButton(),
             Padding(
-              padding: const EdgeInsets.only(bottom: 20),
+              padding: const EdgeInsets.only(bottom: 8),
               child: NextButton(disabled: !isPhoneValid,
                 isLoading: context.watch<SignInFormBloc>().state.isRequesting,
                 function: (){
@@ -151,7 +151,8 @@ class _SignInPhoneState extends State<SignInPhone> with TickerProviderStateMixin
         initialValue: initialNumber,
         textFieldController: _phoneTextController,
         formatInput: false,
-        keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
+        keyboardType: TextInputType.number,
+        autofillHints: const [AutofillHints.telephoneNumber],
         inputDecoration: InputDecoration(
           hintText: 'Phone number',
           isDense: true,

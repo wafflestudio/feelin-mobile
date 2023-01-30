@@ -19,7 +19,9 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -29,12 +31,16 @@ mixin _$ProfileEvent {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -43,12 +49,16 @@ mixin _$ProfileEvent {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -57,13 +67,17 @@ mixin _$ProfileEvent {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -72,12 +86,16 @@ mixin _$ProfileEvent {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -86,12 +104,16 @@ mixin _$ProfileEvent {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -100,6 +122,8 @@ mixin _$ProfileEvent {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -162,7 +186,9 @@ class _$_MyProfileRequest implements _MyProfileRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -172,6 +198,8 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) {
     return myProfileRequest();
   }
@@ -180,7 +208,9 @@ class _$_MyProfileRequest implements _MyProfileRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -189,6 +219,8 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) {
     return myProfileRequest?.call();
   }
@@ -197,7 +229,9 @@ class _$_MyProfileRequest implements _MyProfileRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -206,6 +240,8 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) {
     if (myProfileRequest != null) {
@@ -218,7 +254,9 @@ class _$_MyProfileRequest implements _MyProfileRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -227,6 +265,8 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) {
     return myProfileRequest(this);
   }
@@ -235,7 +275,9 @@ class _$_MyProfileRequest implements _MyProfileRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -244,6 +286,8 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) {
     return myProfileRequest?.call(this);
   }
@@ -252,7 +296,9 @@ class _$_MyProfileRequest implements _MyProfileRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -261,6 +307,8 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) {
     if (myProfileRequest != null) {
@@ -272,6 +320,181 @@ class _$_MyProfileRequest implements _MyProfileRequest {
 
 abstract class _MyProfileRequest implements ProfileEvent {
   const factory _MyProfileRequest() = _$_MyProfileRequest;
+}
+
+/// @nodoc
+abstract class _$$_ReMyProfileRequestCopyWith<$Res> {
+  factory _$$_ReMyProfileRequestCopyWith(_$_ReMyProfileRequest value,
+          $Res Function(_$_ReMyProfileRequest) then) =
+      __$$_ReMyProfileRequestCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ReMyProfileRequestCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_ReMyProfileRequest>
+    implements _$$_ReMyProfileRequestCopyWith<$Res> {
+  __$$_ReMyProfileRequestCopyWithImpl(
+      _$_ReMyProfileRequest _value, $Res Function(_$_ReMyProfileRequest) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ReMyProfileRequest implements _ReMyProfileRequest {
+  const _$_ReMyProfileRequest();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.reMyProfileRequest()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ReMyProfileRequest);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
+    required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
+    required TResult Function(Profile profile) profileChanged,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
+    required TResult Function() followRequest,
+    required TResult Function() unFollowRequest,
+    required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
+  }) {
+    return reMyProfileRequest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
+  }) {
+    return reMyProfileRequest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
+    TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
+    TResult Function(Profile profile)? profileChanged,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
+    TResult Function()? followRequest,
+    TResult Function()? unFollowRequest,
+    TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
+    required TResult orElse(),
+  }) {
+    if (reMyProfileRequest != null) {
+      return reMyProfileRequest();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
+    required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
+    required TResult Function(_ProfileChanged value) profileChanged,
+    required TResult Function(_MyPageRequest value) myPageRequest,
+    required TResult Function(_PageRequest value) pageRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unFollowRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
+  }) {
+    return reMyProfileRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
+  }) {
+    return reMyProfileRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
+    TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
+    TResult Function(_ProfileChanged value)? profileChanged,
+    TResult Function(_MyPageRequest value)? myPageRequest,
+    TResult Function(_PageRequest value)? pageRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unFollowRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
+    required TResult orElse(),
+  }) {
+    if (reMyProfileRequest != null) {
+      return reMyProfileRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReMyProfileRequest implements ProfileEvent {
+  const factory _ReMyProfileRequest() = _$_ReMyProfileRequest;
 }
 
 /// @nodoc
@@ -339,7 +562,9 @@ class _$_ProfileRequest implements _ProfileRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -349,6 +574,8 @@ class _$_ProfileRequest implements _ProfileRequest {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) {
     return profileRequest(id);
   }
@@ -357,7 +584,9 @@ class _$_ProfileRequest implements _ProfileRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -366,6 +595,8 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) {
     return profileRequest?.call(id);
   }
@@ -374,7 +605,9 @@ class _$_ProfileRequest implements _ProfileRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -383,6 +616,8 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) {
     if (profileRequest != null) {
@@ -395,7 +630,9 @@ class _$_ProfileRequest implements _ProfileRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -404,6 +641,8 @@ class _$_ProfileRequest implements _ProfileRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) {
     return profileRequest(this);
   }
@@ -412,7 +651,9 @@ class _$_ProfileRequest implements _ProfileRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -421,6 +662,8 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) {
     return profileRequest?.call(this);
   }
@@ -429,7 +672,9 @@ class _$_ProfileRequest implements _ProfileRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -438,6 +683,8 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) {
     if (profileRequest != null) {
@@ -453,6 +700,212 @@ abstract class _ProfileRequest implements ProfileEvent {
   String get id;
   @JsonKey(ignore: true)
   _$$_ProfileRequestCopyWith<_$_ProfileRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ReProfileRequestCopyWith<$Res> {
+  factory _$$_ReProfileRequestCopyWith(
+          _$_ReProfileRequest value, $Res Function(_$_ReProfileRequest) then) =
+      __$$_ReProfileRequestCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_ReProfileRequestCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_ReProfileRequest>
+    implements _$$_ReProfileRequestCopyWith<$Res> {
+  __$$_ReProfileRequestCopyWithImpl(
+      _$_ReProfileRequest _value, $Res Function(_$_ReProfileRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_ReProfileRequest(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ReProfileRequest implements _ReProfileRequest {
+  const _$_ReProfileRequest(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.reProfileRequest(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ReProfileRequest &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ReProfileRequestCopyWith<_$_ReProfileRequest> get copyWith =>
+      __$$_ReProfileRequestCopyWithImpl<_$_ReProfileRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
+    required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
+    required TResult Function(Profile profile) profileChanged,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
+    required TResult Function() followRequest,
+    required TResult Function() unFollowRequest,
+    required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
+  }) {
+    return reProfileRequest(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
+  }) {
+    return reProfileRequest?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
+    TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
+    TResult Function(Profile profile)? profileChanged,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
+    TResult Function()? followRequest,
+    TResult Function()? unFollowRequest,
+    TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
+    required TResult orElse(),
+  }) {
+    if (reProfileRequest != null) {
+      return reProfileRequest(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
+    required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
+    required TResult Function(_ProfileChanged value) profileChanged,
+    required TResult Function(_MyPageRequest value) myPageRequest,
+    required TResult Function(_PageRequest value) pageRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unFollowRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
+  }) {
+    return reProfileRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
+  }) {
+    return reProfileRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
+    TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
+    TResult Function(_ProfileChanged value)? profileChanged,
+    TResult Function(_MyPageRequest value)? myPageRequest,
+    TResult Function(_PageRequest value)? pageRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unFollowRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
+    required TResult orElse(),
+  }) {
+    if (reProfileRequest != null) {
+      return reProfileRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReProfileRequest implements ProfileEvent {
+  const factory _ReProfileRequest(final String id) = _$_ReProfileRequest;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_ReProfileRequestCopyWith<_$_ReProfileRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -521,7 +974,9 @@ class _$_ProfileChanged implements _ProfileChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -531,6 +986,8 @@ class _$_ProfileChanged implements _ProfileChanged {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) {
     return profileChanged(profile);
   }
@@ -539,7 +996,9 @@ class _$_ProfileChanged implements _ProfileChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -548,6 +1007,8 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) {
     return profileChanged?.call(profile);
   }
@@ -556,7 +1017,9 @@ class _$_ProfileChanged implements _ProfileChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -565,6 +1028,8 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) {
     if (profileChanged != null) {
@@ -577,7 +1042,9 @@ class _$_ProfileChanged implements _ProfileChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -586,6 +1053,8 @@ class _$_ProfileChanged implements _ProfileChanged {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) {
     return profileChanged(this);
   }
@@ -594,7 +1063,9 @@ class _$_ProfileChanged implements _ProfileChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -603,6 +1074,8 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) {
     return profileChanged?.call(this);
   }
@@ -611,7 +1084,9 @@ class _$_ProfileChanged implements _ProfileChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -620,6 +1095,8 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) {
     if (profileChanged != null) {
@@ -677,7 +1154,9 @@ class _$_MyPageRequest implements _MyPageRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -687,6 +1166,8 @@ class _$_MyPageRequest implements _MyPageRequest {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) {
     return myPageRequest();
   }
@@ -695,7 +1176,9 @@ class _$_MyPageRequest implements _MyPageRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -704,6 +1187,8 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) {
     return myPageRequest?.call();
   }
@@ -712,7 +1197,9 @@ class _$_MyPageRequest implements _MyPageRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -721,6 +1208,8 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) {
     if (myPageRequest != null) {
@@ -733,7 +1222,9 @@ class _$_MyPageRequest implements _MyPageRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -742,6 +1233,8 @@ class _$_MyPageRequest implements _MyPageRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) {
     return myPageRequest(this);
   }
@@ -750,7 +1243,9 @@ class _$_MyPageRequest implements _MyPageRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -759,6 +1254,8 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) {
     return myPageRequest?.call(this);
   }
@@ -767,7 +1264,9 @@ class _$_MyPageRequest implements _MyPageRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -776,6 +1275,8 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) {
     if (myPageRequest != null) {
@@ -854,7 +1355,9 @@ class _$_PageRequest implements _PageRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -864,6 +1367,8 @@ class _$_PageRequest implements _PageRequest {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) {
     return pageRequest(id);
   }
@@ -872,7 +1377,9 @@ class _$_PageRequest implements _PageRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -881,6 +1388,8 @@ class _$_PageRequest implements _PageRequest {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) {
     return pageRequest?.call(id);
   }
@@ -889,7 +1398,9 @@ class _$_PageRequest implements _PageRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -898,6 +1409,8 @@ class _$_PageRequest implements _PageRequest {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) {
     if (pageRequest != null) {
@@ -910,7 +1423,9 @@ class _$_PageRequest implements _PageRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -919,6 +1434,8 @@ class _$_PageRequest implements _PageRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) {
     return pageRequest(this);
   }
@@ -927,7 +1444,9 @@ class _$_PageRequest implements _PageRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -936,6 +1455,8 @@ class _$_PageRequest implements _PageRequest {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) {
     return pageRequest?.call(this);
   }
@@ -944,7 +1465,9 @@ class _$_PageRequest implements _PageRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -953,6 +1476,8 @@ class _$_PageRequest implements _PageRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) {
     if (pageRequest != null) {
@@ -1010,7 +1535,9 @@ class _$_FollowRequest implements _FollowRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -1020,6 +1547,8 @@ class _$_FollowRequest implements _FollowRequest {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) {
     return followRequest();
   }
@@ -1028,7 +1557,9 @@ class _$_FollowRequest implements _FollowRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -1037,6 +1568,8 @@ class _$_FollowRequest implements _FollowRequest {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) {
     return followRequest?.call();
   }
@@ -1045,7 +1578,9 @@ class _$_FollowRequest implements _FollowRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -1054,6 +1589,8 @@ class _$_FollowRequest implements _FollowRequest {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) {
     if (followRequest != null) {
@@ -1066,7 +1603,9 @@ class _$_FollowRequest implements _FollowRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -1075,6 +1614,8 @@ class _$_FollowRequest implements _FollowRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) {
     return followRequest(this);
   }
@@ -1083,7 +1624,9 @@ class _$_FollowRequest implements _FollowRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -1092,6 +1635,8 @@ class _$_FollowRequest implements _FollowRequest {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) {
     return followRequest?.call(this);
   }
@@ -1100,7 +1645,9 @@ class _$_FollowRequest implements _FollowRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -1109,6 +1656,8 @@ class _$_FollowRequest implements _FollowRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) {
     if (followRequest != null) {
@@ -1161,7 +1710,9 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -1171,6 +1722,8 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) {
     return unFollowRequest();
   }
@@ -1179,7 +1732,9 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -1188,6 +1743,8 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) {
     return unFollowRequest?.call();
   }
@@ -1196,7 +1753,9 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -1205,6 +1764,8 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) {
     if (unFollowRequest != null) {
@@ -1217,7 +1778,9 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -1226,6 +1789,8 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) {
     return unFollowRequest(this);
   }
@@ -1234,7 +1799,9 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -1243,6 +1810,8 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) {
     return unFollowRequest?.call(this);
   }
@@ -1251,7 +1820,9 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -1260,6 +1831,8 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) {
     if (unFollowRequest != null) {
@@ -1312,7 +1885,9 @@ class _$_ResetRequest implements _ResetRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -1322,6 +1897,8 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) {
     return resetRequest();
   }
@@ -1330,7 +1907,9 @@ class _$_ResetRequest implements _ResetRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -1339,6 +1918,8 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) {
     return resetRequest?.call();
   }
@@ -1347,7 +1928,9 @@ class _$_ResetRequest implements _ResetRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -1356,6 +1939,8 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) {
     if (resetRequest != null) {
@@ -1368,7 +1953,9 @@ class _$_ResetRequest implements _ResetRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -1377,6 +1964,8 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) {
     return resetRequest(this);
   }
@@ -1385,7 +1974,9 @@ class _$_ResetRequest implements _ResetRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -1394,6 +1985,8 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) {
     return resetRequest?.call(this);
   }
@@ -1402,7 +1995,9 @@ class _$_ResetRequest implements _ResetRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -1411,6 +2006,8 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) {
     if (resetRequest != null) {
@@ -1489,7 +2086,9 @@ class _$_RemoveItem implements _RemoveItem {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -1499,6 +2098,8 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) {
     return removeItem(index);
   }
@@ -1507,7 +2108,9 @@ class _$_RemoveItem implements _RemoveItem {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -1516,6 +2119,8 @@ class _$_RemoveItem implements _RemoveItem {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) {
     return removeItem?.call(index);
   }
@@ -1524,7 +2129,9 @@ class _$_RemoveItem implements _RemoveItem {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -1533,6 +2140,8 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) {
     if (removeItem != null) {
@@ -1545,7 +2154,9 @@ class _$_RemoveItem implements _RemoveItem {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -1554,6 +2165,8 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) {
     return removeItem(this);
   }
@@ -1562,7 +2175,9 @@ class _$_RemoveItem implements _RemoveItem {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -1571,6 +2186,8 @@ class _$_RemoveItem implements _RemoveItem {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) {
     return removeItem?.call(this);
   }
@@ -1579,7 +2196,9 @@ class _$_RemoveItem implements _RemoveItem {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -1588,6 +2207,8 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) {
     if (removeItem != null) {
@@ -1679,7 +2300,9 @@ class _$_ReportRequest implements _ReportRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
     required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
     required TResult Function(Profile profile) profileChanged,
     required TResult Function() myPageRequest,
     required TResult Function(String id) pageRequest,
@@ -1689,6 +2312,8 @@ class _$_ReportRequest implements _ReportRequest {
     required TResult Function(int index) removeItem,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
   }) {
     return reportRequest(reportType, description);
   }
@@ -1697,7 +2322,9 @@ class _$_ReportRequest implements _ReportRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
     TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
     TResult? Function(Profile profile)? profileChanged,
     TResult? Function()? myPageRequest,
     TResult? Function(String id)? pageRequest,
@@ -1706,6 +2333,8 @@ class _$_ReportRequest implements _ReportRequest {
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
     TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
   }) {
     return reportRequest?.call(reportType, description);
   }
@@ -1714,7 +2343,9 @@ class _$_ReportRequest implements _ReportRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
     TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
     TResult Function(Profile profile)? profileChanged,
     TResult Function()? myPageRequest,
     TResult Function(String id)? pageRequest,
@@ -1723,6 +2354,8 @@ class _$_ReportRequest implements _ReportRequest {
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
     TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
     required TResult orElse(),
   }) {
     if (reportRequest != null) {
@@ -1735,7 +2368,9 @@ class _$_ReportRequest implements _ReportRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
     required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
     required TResult Function(_ProfileChanged value) profileChanged,
     required TResult Function(_MyPageRequest value) myPageRequest,
     required TResult Function(_PageRequest value) pageRequest,
@@ -1744,6 +2379,8 @@ class _$_ReportRequest implements _ReportRequest {
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
   }) {
     return reportRequest(this);
   }
@@ -1752,7 +2389,9 @@ class _$_ReportRequest implements _ReportRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
     TResult? Function(_ProfileChanged value)? profileChanged,
     TResult? Function(_MyPageRequest value)? myPageRequest,
     TResult? Function(_PageRequest value)? pageRequest,
@@ -1761,6 +2400,8 @@ class _$_ReportRequest implements _ReportRequest {
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
   }) {
     return reportRequest?.call(this);
   }
@@ -1769,7 +2410,9 @@ class _$_ReportRequest implements _ReportRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
     TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
     TResult Function(_ProfileChanged value)? profileChanged,
     TResult Function(_MyPageRequest value)? myPageRequest,
     TResult Function(_PageRequest value)? pageRequest,
@@ -1778,6 +2421,8 @@ class _$_ReportRequest implements _ReportRequest {
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
     required TResult orElse(),
   }) {
     if (reportRequest != null) {
@@ -1799,10 +2444,362 @@ abstract class _ReportRequest implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$_BlockRequestCopyWith<$Res> {
+  factory _$$_BlockRequestCopyWith(
+          _$_BlockRequest value, $Res Function(_$_BlockRequest) then) =
+      __$$_BlockRequestCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_BlockRequestCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_BlockRequest>
+    implements _$$_BlockRequestCopyWith<$Res> {
+  __$$_BlockRequestCopyWithImpl(
+      _$_BlockRequest _value, $Res Function(_$_BlockRequest) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_BlockRequest implements _BlockRequest {
+  const _$_BlockRequest();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.blockRequest()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_BlockRequest);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
+    required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
+    required TResult Function(Profile profile) profileChanged,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
+    required TResult Function() followRequest,
+    required TResult Function() unFollowRequest,
+    required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
+  }) {
+    return blockRequest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
+  }) {
+    return blockRequest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
+    TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
+    TResult Function(Profile profile)? profileChanged,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
+    TResult Function()? followRequest,
+    TResult Function()? unFollowRequest,
+    TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
+    required TResult orElse(),
+  }) {
+    if (blockRequest != null) {
+      return blockRequest();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
+    required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
+    required TResult Function(_ProfileChanged value) profileChanged,
+    required TResult Function(_MyPageRequest value) myPageRequest,
+    required TResult Function(_PageRequest value) pageRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unFollowRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
+  }) {
+    return blockRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
+  }) {
+    return blockRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
+    TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
+    TResult Function(_ProfileChanged value)? profileChanged,
+    TResult Function(_MyPageRequest value)? myPageRequest,
+    TResult Function(_PageRequest value)? pageRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unFollowRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
+    required TResult orElse(),
+  }) {
+    if (blockRequest != null) {
+      return blockRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BlockRequest implements ProfileEvent {
+  const factory _BlockRequest() = _$_BlockRequest;
+}
+
+/// @nodoc
+abstract class _$$_ResetStateRequestCopyWith<$Res> {
+  factory _$$_ResetStateRequestCopyWith(_$_ResetStateRequest value,
+          $Res Function(_$_ResetStateRequest) then) =
+      __$$_ResetStateRequestCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetStateRequestCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_ResetStateRequest>
+    implements _$$_ResetStateRequestCopyWith<$Res> {
+  __$$_ResetStateRequestCopyWithImpl(
+      _$_ResetStateRequest _value, $Res Function(_$_ResetStateRequest) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ResetStateRequest implements _ResetStateRequest {
+  const _$_ResetStateRequest();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.resetStateRequest()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetStateRequest);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
+    required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
+    required TResult Function(Profile profile) profileChanged,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
+    required TResult Function() followRequest,
+    required TResult Function() unFollowRequest,
+    required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
+  }) {
+    return resetStateRequest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
+  }) {
+    return resetStateRequest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
+    TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
+    TResult Function(Profile profile)? profileChanged,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
+    TResult Function()? followRequest,
+    TResult Function()? unFollowRequest,
+    TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
+    TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
+    required TResult orElse(),
+  }) {
+    if (resetStateRequest != null) {
+      return resetStateRequest();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
+    required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
+    required TResult Function(_ProfileChanged value) profileChanged,
+    required TResult Function(_MyPageRequest value) myPageRequest,
+    required TResult Function(_PageRequest value) pageRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unFollowRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
+  }) {
+    return resetStateRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
+  }) {
+    return resetStateRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
+    TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
+    TResult Function(_ProfileChanged value)? profileChanged,
+    TResult Function(_MyPageRequest value)? myPageRequest,
+    TResult Function(_PageRequest value)? pageRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unFollowRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
+    required TResult orElse(),
+  }) {
+    if (resetStateRequest != null) {
+      return resetStateRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetStateRequest implements ProfileEvent {
+  const factory _ResetStateRequest() = _$_ResetStateRequest;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   Option<Either<ProfileFailure, Page>> get loadFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   Option<Either<ProfileFailure, Unit>> get reportFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  Option<Either<BlockFailure, Unit>> get blockFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   List<Post> get posts => throw _privateConstructorUsedError;
   Profile get profile => throw _privateConstructorUsedError;
@@ -1811,6 +2808,7 @@ mixin _$ProfileState {
   bool get isLoaded => throw _privateConstructorUsedError;
   bool get isFollowed => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
+  bool get isRestricted => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -1826,13 +2824,15 @@ abstract class $ProfileStateCopyWith<$Res> {
   $Res call(
       {Option<Either<ProfileFailure, Page>> loadFailureOrSuccessOption,
       Option<Either<ProfileFailure, Unit>> reportFailureOrSuccessOption,
+      Option<Either<BlockFailure, Unit>> blockFailureOrSuccessOption,
       List<Post> posts,
       Profile profile,
       bool isLoading,
       bool isLast,
       bool isLoaded,
       bool isFollowed,
-      String? cursor});
+      String? cursor,
+      bool isRestricted});
 }
 
 /// @nodoc
@@ -1850,6 +2850,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   $Res call({
     Object? loadFailureOrSuccessOption = null,
     Object? reportFailureOrSuccessOption = null,
+    Object? blockFailureOrSuccessOption = null,
     Object? posts = null,
     Object? profile = null,
     Object? isLoading = null,
@@ -1857,6 +2858,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? isLoaded = null,
     Object? isFollowed = null,
     Object? cursor = freezed,
+    Object? isRestricted = null,
   }) {
     return _then(_value.copyWith(
       loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
@@ -1867,6 +2869,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.reportFailureOrSuccessOption
           : reportFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ProfileFailure, Unit>>,
+      blockFailureOrSuccessOption: null == blockFailureOrSuccessOption
+          ? _value.blockFailureOrSuccessOption
+          : blockFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<BlockFailure, Unit>>,
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -1895,6 +2901,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      isRestricted: null == isRestricted
+          ? _value.isRestricted
+          : isRestricted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -1910,13 +2920,15 @@ abstract class _$$_ProfileStateCopyWith<$Res>
   $Res call(
       {Option<Either<ProfileFailure, Page>> loadFailureOrSuccessOption,
       Option<Either<ProfileFailure, Unit>> reportFailureOrSuccessOption,
+      Option<Either<BlockFailure, Unit>> blockFailureOrSuccessOption,
       List<Post> posts,
       Profile profile,
       bool isLoading,
       bool isLast,
       bool isLoaded,
       bool isFollowed,
-      String? cursor});
+      String? cursor,
+      bool isRestricted});
 }
 
 /// @nodoc
@@ -1932,6 +2944,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
   $Res call({
     Object? loadFailureOrSuccessOption = null,
     Object? reportFailureOrSuccessOption = null,
+    Object? blockFailureOrSuccessOption = null,
     Object? posts = null,
     Object? profile = null,
     Object? isLoading = null,
@@ -1939,6 +2952,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? isLoaded = null,
     Object? isFollowed = null,
     Object? cursor = freezed,
+    Object? isRestricted = null,
   }) {
     return _then(_$_ProfileState(
       loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
@@ -1949,6 +2963,10 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.reportFailureOrSuccessOption
           : reportFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ProfileFailure, Unit>>,
+      blockFailureOrSuccessOption: null == blockFailureOrSuccessOption
+          ? _value.blockFailureOrSuccessOption
+          : blockFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<BlockFailure, Unit>>,
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -1977,6 +2995,10 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      isRestricted: null == isRestricted
+          ? _value.isRestricted
+          : isRestricted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1987,19 +3009,23 @@ class _$_ProfileState implements _ProfileState {
   const _$_ProfileState(
       {required this.loadFailureOrSuccessOption,
       required this.reportFailureOrSuccessOption,
+      required this.blockFailureOrSuccessOption,
       required final List<Post> posts,
       required this.profile,
       required this.isLoading,
       required this.isLast,
       required this.isLoaded,
       required this.isFollowed,
-      required this.cursor})
+      required this.cursor,
+      required this.isRestricted})
       : _posts = posts;
 
   @override
   final Option<Either<ProfileFailure, Page>> loadFailureOrSuccessOption;
   @override
   final Option<Either<ProfileFailure, Unit>> reportFailureOrSuccessOption;
+  @override
+  final Option<Either<BlockFailure, Unit>> blockFailureOrSuccessOption;
   final List<Post> _posts;
   @override
   List<Post> get posts {
@@ -2020,10 +3046,12 @@ class _$_ProfileState implements _ProfileState {
   final bool isFollowed;
   @override
   final String? cursor;
+  @override
+  final bool isRestricted;
 
   @override
   String toString() {
-    return 'ProfileState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, reportFailureOrSuccessOption: $reportFailureOrSuccessOption, posts: $posts, profile: $profile, isLoading: $isLoading, isLast: $isLast, isLoaded: $isLoaded, isFollowed: $isFollowed, cursor: $cursor)';
+    return 'ProfileState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, reportFailureOrSuccessOption: $reportFailureOrSuccessOption, blockFailureOrSuccessOption: $blockFailureOrSuccessOption, posts: $posts, profile: $profile, isLoading: $isLoading, isLast: $isLast, isLoaded: $isLoaded, isFollowed: $isFollowed, cursor: $cursor, isRestricted: $isRestricted)';
   }
 
   @override
@@ -2039,6 +3067,10 @@ class _$_ProfileState implements _ProfileState {
                     reportFailureOrSuccessOption) ||
                 other.reportFailureOrSuccessOption ==
                     reportFailureOrSuccessOption) &&
+            (identical(other.blockFailureOrSuccessOption,
+                    blockFailureOrSuccessOption) ||
+                other.blockFailureOrSuccessOption ==
+                    blockFailureOrSuccessOption) &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.profile, profile) || other.profile == profile) &&
             (identical(other.isLoading, isLoading) ||
@@ -2048,7 +3080,9 @@ class _$_ProfileState implements _ProfileState {
                 other.isLoaded == isLoaded) &&
             (identical(other.isFollowed, isFollowed) ||
                 other.isFollowed == isFollowed) &&
-            (identical(other.cursor, cursor) || other.cursor == cursor));
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.isRestricted, isRestricted) ||
+                other.isRestricted == isRestricted));
   }
 
   @override
@@ -2056,13 +3090,15 @@ class _$_ProfileState implements _ProfileState {
       runtimeType,
       loadFailureOrSuccessOption,
       reportFailureOrSuccessOption,
+      blockFailureOrSuccessOption,
       const DeepCollectionEquality().hash(_posts),
       profile,
       isLoading,
       isLast,
       isLoaded,
       isFollowed,
-      cursor);
+      cursor,
+      isRestricted);
 
   @JsonKey(ignore: true)
   @override
@@ -2077,18 +3113,23 @@ abstract class _ProfileState implements ProfileState {
           loadFailureOrSuccessOption,
       required final Option<Either<ProfileFailure, Unit>>
           reportFailureOrSuccessOption,
+      required final Option<Either<BlockFailure, Unit>>
+          blockFailureOrSuccessOption,
       required final List<Post> posts,
       required final Profile profile,
       required final bool isLoading,
       required final bool isLast,
       required final bool isLoaded,
       required final bool isFollowed,
-      required final String? cursor}) = _$_ProfileState;
+      required final String? cursor,
+      required final bool isRestricted}) = _$_ProfileState;
 
   @override
   Option<Either<ProfileFailure, Page>> get loadFailureOrSuccessOption;
   @override
   Option<Either<ProfileFailure, Unit>> get reportFailureOrSuccessOption;
+  @override
+  Option<Either<BlockFailure, Unit>> get blockFailureOrSuccessOption;
   @override
   List<Post> get posts;
   @override
@@ -2103,6 +3144,8 @@ abstract class _ProfileState implements ProfileState {
   bool get isFollowed;
   @override
   String? get cursor;
+  @override
+  bool get isRestricted;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>

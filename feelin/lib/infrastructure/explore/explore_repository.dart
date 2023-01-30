@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/profile/page.dart';
+import 'package:music_sns/env.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../domain/explore/explore_failure.dart';
@@ -11,8 +12,8 @@ import 'explore_client.dart';
 @LazySingleton()
 class ExploreRepository{
   static final ExploreRepository _singletonExploreRepository = ExploreRepository._internal();
-  final dio = getAuthDio();
-  late ExploreClient exploreClient = ExploreClient(dio);
+  final dio = getAuthDio(baseUrl: env.socialBaseUrl);
+  late ExploreClient exploreClient = ExploreClient(dio, baseUrl: env.socialBaseUrl);
 
   factory ExploreRepository() {
     return _singletonExploreRepository;
@@ -48,6 +49,7 @@ class ExploreRepository{
         default : return const Left(ExploreFailure.serverError());
       }
     }on DioError catch(e){
+      //print(e);
       switch(e.response?.statusCode){
         case 401 : return const Left(ExploreFailure.unauthorized());
         case 404 : return const Left(ExploreFailure.notFound());

@@ -2,8 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:music_sns/application/block/blocked_user_bloc.dart';
 import 'package:music_sns/application/streaming/streaming_bloc.dart';
 import 'package:music_sns/domain/streaming/vendor.dart';
+import 'package:music_sns/presentation/setting/blocked_user_page.dart';
+import 'package:music_sns/presentation/setting/manage_account_page.dart';
 import 'package:music_sns/presentation/setting/our_email_page.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -60,8 +63,21 @@ class SettingPage extends StatelessWidget{
             );
           }),
           const SizedBox(height: 20,),
+          text('Privacy'),
+          button(string: 'Blocked Users', function: (){
+            Navigator.push(context,
+              CupertinoPageRoute(
+                builder: (context){
+                  return BlocProvider(
+                      create: (context) => getIt<BlockedUserBloc>(),
+                      child: const BlockedUserPage());
+                },
+              ),
+            );
+          }),
+          const SizedBox(height: 20,),
           text('Logins'),
-          if(!context.watch<StreamingBloc>().state.isConnected) button(string: 'Connect Streaming account', function: (){
+          if(!context.watch<StreamingBloc>().state.isConnected) button(string: 'Connect to streaming account', function: (){
             Navigator.push(context, CupertinoPageRoute(
               builder: (context){
                 return BlocProvider(
@@ -152,6 +168,14 @@ class SettingPage extends StatelessWidget{
               ),
             );
           }),
+          button(string: 'Manage Account', function: (){
+            Navigator.push(context, CupertinoPageRoute(
+              builder: (context){
+                return const ManageAccountPage();
+              },
+            ),
+            );
+          }),
           button(string: 'Logout', function: (){
             showModalBottomSheet<void>(
               context: context,
@@ -218,83 +242,6 @@ class SettingPage extends StatelessWidget{
                             child: Center(
                               child: Text(
                                 'Logout',
-                                style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
-          }, color: FeelinColorFamily.redPrimary),
-          button(string: 'Delete Account', function: (){
-            showModalBottomSheet<void>(
-              context: context,
-              useRootNavigator: true,
-              backgroundColor: Colors.white,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
-              ),
-              builder: (context) => SingleChildScrollView(
-                child: Container(
-                  padding: const EdgeInsets.only(left: 24, top: 24, right: 18, bottom: 14),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Delete Account',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
-                          ),
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              minimumSize: const Size(30, 26),
-                              alignment: Alignment.centerRight,
-                            ),
-                            onPressed: () => Navigator.of(context).pop(),
-                            child: Text(
-                              'Cancel',
-                              style: TextStyle(fontSize: 16, color: FeelinColorFamily.gray600,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        child: Center(
-                          child: Text(
-                            'If you delete the account, you cannot recover it again. Are you sure you want to delete it?',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 14, ),
-                          ),
-                        ),
-                      ),
-                      Center(
-                        child: TextButton(
-                          onPressed: (){
-                            context.read<AuthBloc>().add(const AuthEvent.deleteAccount());
-                            Navigator.of(context).popUntil((route) => route.isFirst);
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: FeelinColorFamily.gray50,
-                                borderRadius: BorderRadius.circular(8)
-                            ),
-                            width: 180,
-                            height: 40,
-                            child: Center(
-                              child: Text(
-                                'Delete Account',
                                 style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary),
                               ),
                             ),

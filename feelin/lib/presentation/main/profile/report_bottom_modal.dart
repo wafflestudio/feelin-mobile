@@ -55,7 +55,7 @@ class _ReportBottomModalState extends State<ReportBottomModal> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Report Post',
+                        'Report User',
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
                       ),
                       TextButton(

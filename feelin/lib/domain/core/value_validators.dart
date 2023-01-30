@@ -68,7 +68,7 @@ Either<ValueFailure<String>, String> validatePhoneNumber(String input) {
 }
 
 Either<ValueFailure<String>, String> validateUserName(String input) {
-  if (input.length >= 2 && input.length <= 12) {
+  if (input.length >= 2 && input.length <= 20) {
     return right(input);
   } else {
     return left(ValueFailure.invalidUserName(failedValue: input));

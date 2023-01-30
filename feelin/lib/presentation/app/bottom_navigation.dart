@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/presentation/main/post/app/post_app.dart';
-import 'package:music_sns/presentation/style/colors.dart';
 
 import '../main/profile/app/profile_app.dart';
 import 'tab_item.dart';
 
-class BottomNavigation extends StatelessWidget {
+class BottomNavigation extends StatefulWidget {
   const BottomNavigation({Key? key, required this.currentTab, required this.onSelectTab, required this.profileKey}) : super(key: key);
 
   final TabItem currentTab;
@@ -15,42 +15,53 @@ class BottomNavigation extends StatelessWidget {
   final GlobalKey<ProfileAppScaffoldState> profileKey;
 
   @override
+  State<BottomNavigation> createState() => _BottomNavigationState();
+}
+
+class _BottomNavigationState extends State<BottomNavigation> {
+
+  int previousIndex = 0;
+
+  @override
   Widget build(BuildContext context) {
 
     return BottomNavigationBar(
-      items: const [
+      items: [
         BottomNavigationBarItem(
-            icon: Icon(Icons.explore),
+            icon: widget.currentTab.index == 0 ? SvgPicture.asset('assets/icons/home_filled.svg', color: Colors.black,) : SvgPicture.asset('assets/icons/home.svg', color: Colors.black,),
             label: ''
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.add),
+            icon: SvgPicture.asset('assets/icons/plus.svg', color: Colors.black,),
             label: ''
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: widget.currentTab.index == 0 ? SvgPicture.asset('assets/icons/profile_filled.svg', color: Colors.black,) : SvgPicture.asset('assets/icons/profile.svg', color: Colors.black,),
             label: ''
         ),
       ],
       selectedFontSize: 10,
       unselectedFontSize: 10,
-      currentIndex: currentTab.index,
+      currentIndex: widget.currentTab.index,
       showUnselectedLabels: false,
       showSelectedLabels: false,
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.black,
       backgroundColor: Colors.white,
-      unselectedItemColor: FeelinColorFamily.grayscaleGray2,
+      unselectedItemColor: Colors.black,
       onTap: (index) {
         if(index != 1){
-          onSelectTab(TabItem.values[index]);
+          widget.onSelectTab(TabItem.values[index]);
+          setState(() {
+            previousIndex = index;
+          });
         }else{
           Navigator.push(context, CupertinoPageRoute(
             builder: (context){
-              return const PostApp();
+              return PostApp(globalContext: previousIndex,);
             },
           ),
-          ).then((value) { if(value != null) {profileKey.currentState?.onRefresh();}});
+          ).then((value) { if(value != null) {widget.profileKey.currentState?.onRefresh();}});
         }
 
       },

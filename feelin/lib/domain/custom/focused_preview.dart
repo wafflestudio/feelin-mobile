@@ -383,12 +383,12 @@ class FocusedMenuDetails extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(top: topOffsetOfChild, left: childOffset.dx, child: AbsorbPointer(absorbing: true, child: Container(
+          Positioned(top: topOffsetOfChild, left: childOffset.dx, child: AbsorbPointer(absorbing: true, child: SizedBox(
               width: childSize!.width,
               height: childSize!.height,
               child: child))),
           //Positioned(child: Visibility(child: secondChild, visible: false,)),
-          Positioned(top: topOffsetOfChild, left: childOffset.dx, child: AbsorbPointer(absorbing: true, child: Container(
+          Positioned(top: topOffsetOfChild, left: childOffset.dx, child: AbsorbPointer(absorbing: true, child: SizedBox(
               width: childSize!.width,
               height: childSize!.height,
               child: Visibility(visible: false,child: secondChild,)))),

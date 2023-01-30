@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/share/share.dart';
+import '../../application/streaming/streaming_bloc.dart';
 import '../main/profile/app/profile_app.dart';
 import 'bottom_navigation.dart';
 import 'tab_item.dart';
@@ -43,6 +45,7 @@ class AppState extends State<App>{
         _currentTab = TabItem.home;
       });
     });
+    context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
   }
 
   @override

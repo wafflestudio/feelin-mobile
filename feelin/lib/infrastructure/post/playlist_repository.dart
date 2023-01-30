@@ -8,14 +8,15 @@ import 'package:retrofit/retrofit.dart';
 
 import '../../domain/post/post_playlist_request.dart';
 import '../../domain/post/value_objects.dart';
+import '../../env.dart';
 import '../auth/get_auth_dio.dart';
 import 'playlist_client.dart';
 
 @LazySingleton()
 class PlaylistRepository{
   static final PlaylistRepository _singletonPlaylistRepository = PlaylistRepository._internal();
-  final dio = getAuthDio();
-  late PlaylistClient playlistClient = PlaylistClient(dio);
+  final dio = getAuthDio(baseUrl : env.coreBaseUrl);
+  late PlaylistClient playlistClient = PlaylistClient(dio, baseUrl : env.coreBaseUrl);
 
   factory PlaylistRepository() {
     return _singletonPlaylistRepository;

@@ -1,5 +1,4 @@
 
-import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -16,7 +15,9 @@ import 'package:music_sns/domain/auth/try_email_verification_request.dart';
 import 'package:music_sns/domain/auth/user.dart';
 import 'package:music_sns/domain/auth/value_objects.dart';
 import 'package:music_sns/domain/auth/verify_email_request.dart';
+import 'package:music_sns/env.dart';
 import 'package:music_sns/infrastructure/auth/auth_client.dart';
+import 'package:music_sns/infrastructure/auth/get_auth_dio.dart';
 import 'package:retrofit/dio.dart';
 
 import '../../domain/auth/sign_up_with_phone_request.dart';
@@ -26,7 +27,8 @@ import '../../domain/auth/verify_phone_request.dart';
 @LazySingleton()
 class AuthRepository{
   static final AuthRepository _singletonAuthRepository = AuthRepository._internal();
-  final authClient = AuthClient(Dio());
+  final dio = getAuthDio(baseUrl: env.socialBaseUrl);
+  late AuthClient authClient = AuthClient(dio, baseUrl:env.socialBaseUrl);
   final storage = const FlutterSecureStorage();
 
   factory AuthRepository() {
@@ -37,13 +39,14 @@ class AuthRepository{
 
   Future<Either<AuthFailure, User>> getSignedInUser({required Token token}) async{
     try{
-      HttpResponse<User> httpResponse = await authClient.getSignedInUser(token.token);
+      HttpResponse<User> httpResponse = await authClient.getSignedInUser();
       if(httpResponse.response.statusCode == 200){
         return Right(httpResponse.data);
       }else{
         return const Left(AuthFailure.unauthorized());
       }
     } on DioError catch(e){
+      //print(e);
       return const Left(AuthFailure.serverError());
     }
   }
@@ -76,7 +79,7 @@ class AuthRepository{
         return const Left(AuthFailure.invalidAccountAndPasswordCombination());
       }
     } on DioError catch(e){
-      print(e);
+      //print(e);
       if(e.response?.statusCode == 400){
         return const Left(AuthFailure.invalidAccountAndPasswordCombination());
       }

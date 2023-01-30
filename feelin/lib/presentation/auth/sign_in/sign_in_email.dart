@@ -72,7 +72,7 @@ class _SignInEmailState extends State<SignInEmail> with TickerProviderStateMixin
             ),
             insteadButton(),
             Padding(
-              padding: const EdgeInsets.only(bottom: 20),
+              padding: const EdgeInsets.only(bottom: 8),
               child: NextButton(disabled: !isEmailValid,
                 isLoading: context.watch<SignInFormBloc>().state.isRequesting,
                 function: (){
@@ -80,7 +80,8 @@ class _SignInEmailState extends State<SignInEmail> with TickerProviderStateMixin
                   context
                       .read<SignInFormBloc>()
                       .add(const SignInFormEvent.emailRequested());
-                },),
+                },
+              ),
             )
           ],
         ),
@@ -123,6 +124,7 @@ class _SignInEmailState extends State<SignInEmail> with TickerProviderStateMixin
               controller: _emailTextController,
               textInputAction: TextInputAction.next,
               keyboardType: TextInputType.emailAddress,
+              autofillHints: const [AutofillHints.email],
               onFieldSubmitted: (_){
                 if(isEmailValid){
                   navigated = false;

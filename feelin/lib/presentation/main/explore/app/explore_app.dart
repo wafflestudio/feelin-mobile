@@ -18,7 +18,7 @@ class ExploreApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return BlocProvider(create: (context) => getIt<ExploreBloc>(),
-      child: const ExploreAppScaffold(),
+      child: ExploreAppScaffold(key: MyKeyStore.exploreKey,),
     );
   }
 }
@@ -28,10 +28,10 @@ class ExploreAppScaffold extends StatefulWidget {
   const ExploreAppScaffold({Key? key,}) : super(key: key);
 
   @override
-  State<ExploreAppScaffold> createState() => _ExploreAppScaffoldState();
+  State<ExploreAppScaffold> createState() => ExploreAppScaffoldState();
 }
 
-class _ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProviderStateMixin {
+class ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProviderStateMixin {
 
   final ScrollController _scrollController = ScrollController();
   final ScrollController _scrollControllerF = ScrollController();
@@ -65,7 +65,7 @@ class _ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProv
             controller: _tabController,
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              ExplorePage(scrollController: _scrollControllerF, isFollowing: true, key: MyKeyStore.exploreKey,),
+              ExplorePage(scrollController: _scrollControllerF, isFollowing: true, key: MyKeyStore.explorePageKey,),
               ExplorePage(scrollController: _scrollController, isFollowing: false,),
             ],
           ),

@@ -4,6 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/streaming/connect_music_request.dart';
 import 'package:music_sns/domain/streaming/vendor_accounts.dart';
+import 'package:music_sns/env.dart';
 import 'package:music_sns/infrastructure/streaming/streaming_client.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -14,8 +15,8 @@ import '../auth/get_auth_dio.dart';
 @LazySingleton()
 class StreamingRepository{
   static final StreamingRepository _singletonPlaylistRepository = StreamingRepository._internal();
-  final dio = getAuthDio();
-  late StreamingClient streamingClient = StreamingClient(dio);
+  final dio = getAuthDio(baseUrl: env.coreBaseUrl);
+  late StreamingClient streamingClient = StreamingClient(dio, baseUrl: env.coreBaseUrl);
   final storage = const FlutterSecureStorage();
 
   factory StreamingRepository() {

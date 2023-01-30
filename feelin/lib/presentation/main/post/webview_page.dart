@@ -12,13 +12,15 @@ class WebViewPage extends StatefulWidget{
   State<WebViewPage> createState() => _WebViewState();
 }
 
-class _WebViewState extends State<WebViewPage>{
-
+class _WebViewState extends State<WebViewPage> with AutomaticKeepAliveClientMixin{
   late WebViewController _controller;
   final Completer<WebViewController> _completer = Completer<WebViewController>();
   var loadingPercentage = 0;
 
   late String id;
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -29,6 +31,7 @@ class _WebViewState extends State<WebViewPage>{
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Stack(
       children: [
         WebView(

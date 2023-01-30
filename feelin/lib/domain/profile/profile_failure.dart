@@ -9,5 +9,5 @@ class ProfileFailure with _$ProfileFailure {
   const factory ProfileFailure.cannotFollowYourself() = _CannotFollowYourself;
   const factory ProfileFailure.userNotFound() = _UserNotFound;
   const factory ProfileFailure.alreadyFollowed() = _AlreadyFollowed;
-
+  const factory ProfileFailure.restricted() = _Restricted;
 }

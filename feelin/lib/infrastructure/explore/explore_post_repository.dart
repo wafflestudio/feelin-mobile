@@ -3,20 +3,21 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:music_sns/domain/explore/explore_post_failure.dart';
 import 'package:music_sns/domain/play/post.dart';
-import 'package:music_sns/domain/streaming/redirect_url.dart';
 import 'package:music_sns/infrastructure/explore/explore_post_client.dart';
 import 'package:retrofit/dio.dart';
 
 import '../../domain/post/report_post_request.dart';
 import '../../domain/streaming/save_to_account_request.dart';
+import '../../env.dart';
 import '../auth/get_auth_dio.dart';
 
 @LazySingleton()
 class ExplorePostRepository{
   static final ExplorePostRepository _singletonPostRepository = ExplorePostRepository._internal();
-  final dio = getAuthDio();
-  late ExplorePostClient explorePostClient = ExplorePostClient(dio);
-  late ExplorePostClient2 explorePostClient2 = ExplorePostClient2(dio);
+  final dio = getAuthDio(baseUrl: env.socialBaseUrl);
+  final dio2 = getAuthDio(baseUrl: env.coreBaseUrl);
+  late ExplorePostClient explorePostClient = ExplorePostClient(dio, baseUrl: env.socialBaseUrl);
+  late ExplorePostClient2 explorePostClient2 = ExplorePostClient2(dio2, baseUrl: env.coreBaseUrl);
 
   factory ExplorePostRepository() {
     return _singletonPostRepository;
@@ -36,6 +37,7 @@ class ExplorePostRepository{
     }on DioError catch(e){
       switch(e.response?.statusCode){
         case 401 : return const Left(ExplorePostFailure.unauthorized());
+        case 403 : return const Left(ExplorePostFailure.restricted());
         case 404 : return const Left(ExplorePostFailure.notFound());
         default : return const Left(ExplorePostFailure.serverError());
       }

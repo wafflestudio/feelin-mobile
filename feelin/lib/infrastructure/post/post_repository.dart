@@ -9,13 +9,14 @@ import 'package:music_sns/infrastructure/post/post_client.dart';
 import 'package:retrofit/dio.dart';
 
 import '../../domain/play/post.dart';
+import '../../env.dart';
 import '../auth/get_auth_dio.dart';
 
 @LazySingleton()
 class PostRepository{
   static final PostRepository _singletonPostRepository = PostRepository._internal();
-  final dio = getAuthDio();
-  late PostClient postClient = PostClient(dio);
+  final dio = getAuthDio(baseUrl: env.socialBaseUrl);
+  late PostClient postClient = PostClient(dio, baseUrl: env.socialBaseUrl);
 
   factory PostRepository() {
     return _singletonPostRepository;
@@ -36,6 +37,7 @@ class PostRepository{
         default : return const Left(PostFailure.serverError());
       }
     }on DioError catch(e){
+      //print(e);
       switch(e.response?.statusCode){
         case 400 : return const Left(PostFailure.blankedTitle());
         case 401 : return const Left(PostFailure.unauthorized());

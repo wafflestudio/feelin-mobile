@@ -11,7 +11,8 @@ import '../../../domain/play/playlist.dart';
 import '../../../domain/post/max_lines_input_formatters.dart';
 
 class PostDetailPage extends StatefulWidget{
-  const PostDetailPage({Key? key,}) : super(key: key);
+  final int globalContext;
+  const PostDetailPage({Key? key, required this.globalContext}) : super(key: key);
 
   @override
   State<PostDetailPage> createState() => _PostDetailPageState();
@@ -61,7 +62,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                   Navigator.pop(context, true),
                   Navigator.push(context, CupertinoPageRoute(
                     builder: (context){
-                      return PostCompletePage(post: post);
+                      return PostCompletePage(post: post, globalContext: widget.globalContext,);
                     },
                   ),
                   ),

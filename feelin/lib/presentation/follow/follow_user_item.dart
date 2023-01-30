@@ -1,8 +1,10 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/presentation/main/profile/follow_button.dart';
 
+import '../../application/auth/auth/auth_bloc.dart';
 import '../../application/follow/follow_bloc.dart';
 import '../../domain/profile/profile.dart';
 import '../main/profile/app/profile_app.dart';
@@ -43,30 +45,36 @@ class _FollowUserItemState extends State<FollowUserItem> {
           }
         });
       },
-      child: AbsorbPointer(
-        absorbing: false,
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
         child: Row(
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image(
                 image: widget.profile.profileImage == null ? const AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(widget.profile.profileImage!),
-                width: 40,
-                height: 40,
+                width: 48,
+                height: 48,
                 fit: BoxFit.cover,
               ),
             ),
             const SizedBox(
               width: 8,
             ),
-            Text(widget.profile.username,
-              style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18,
+            SizedBox(
+              width: MediaQuery.of(context).size.width-192,
+              child: AutoSizeText(widget.profile.username,
+                minFontSize: 11,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                ),
               ),
             ),
             const Spacer(),
-            FollowButton(isFollowed: isFollowed, function: (){
+            if(widget.profile.id != context.watch<AuthBloc>().state.id) FollowButton(isFollowed: isFollowed, function: (){
               if(!isFollowed){
                 context.read<FollowBloc>().add(FollowEvent.followRequest(widget.index,));
                 setState(() {

@@ -17,6 +17,7 @@ import '../../../application/share/share.dart';
 import '../../../domain/play/post.dart';
 import '../../../injection.dart';
 import '../../edit/post/edit_post_page.dart';
+import '../profile/report_result_modal.dart';
 import 'report_bottom_modal.dart';
 
 class PlaylistInfoAppBar extends StatefulWidget with PreferredSizeWidget {
@@ -84,18 +85,53 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                 (post) {
               widget.post.title = post.title;
               widget.post.content = post.content;
+              context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.resetStateRequest());
             },
           ),
         );
         state.reportFailureOrSuccessOption.fold(
+                () => null,
+                (failureOrSuccess) {failureOrSuccess.fold(
+                  (f) => null,
+                  (_) {showModalBottomSheet<void>(
+                  context: context,
+                  useRootNavigator: true,
+                  backgroundColor: Colors.white,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                  ),
+                  builder: (context) => ReportResultBottomModal(username: state.post.writer!.username, function: (){
+                    showBlockModal(context);
+                  })
+              );
+              },
+            );
+            context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.resetStateRequest());
+            }
+        );
+        state.blockFailureOrSuccessOption.fold(
               () => null,
-              (failureOrSuccess) => failureOrSuccess.fold(
-                (f) => null,
+              (failureOrSuccess) { failureOrSuccess.fold(
+                (f) => f.maybeMap(
+              alreadyBlocked: (_)=>showTopSnackBar(
+                Overlay.of(context),
+                const CustomSnackBar.error(message: 'You have already blocked this user.'),
+              ),
+              orElse: ()=>showTopSnackBar(
+                Overlay.of(context),
+                const CustomSnackBar.error(message: 'Server error'),
+              ),
+            ),
                 (_) => showTopSnackBar(
-                  Overlay.of(context),
-                  const CustomSnackBar.success(message: 'Thanks for letting us know.')
-                ),
-          ),
+              Overlay.of(context),
+              CustomSnackBar.success(message: '${state.post.writer!.username} has been blocked. You can unblock this user in the settings.'),
+            ),
+          );
+          context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.resetStateRequest());
+          },
         );
       },
       child: BlocBuilder<PlaylistInfoBloc, PlaylistInfoState>(
@@ -494,6 +530,73 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
           ),
         );
       },
+    );
+  }
+
+  void showBlockModal(context2){
+    showModalBottomSheet<void>(
+      context: context2,
+      useRootNavigator: true,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      builder: (context2) => SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.only(left: 24, top: 24, right: 18, bottom: 14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Block User',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: FeelinColorFamily.gray900),
+                  ),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: const Size(30, 26),
+                      alignment: Alignment.centerRight,
+                    ),
+                    onPressed: () => Navigator.of(context2).pop(),
+                    child: Text(
+                      'Cancel',
+                      style: TextStyle(fontSize: 16, color: FeelinColorFamily.redPrimary,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: Center(
+                  child: Text(
+                    'Are you sure you want to block the user?',
+                    style: TextStyle(fontSize: 14, ),
+                  ),
+                ),
+              ),
+              Center(
+                child: TextButton(
+                  onPressed: (){
+                    context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.blockRequest());
+                    Navigator.pop(context2);
+                  },
+                  child: Text(
+                    'Block',
+                    style: TextStyle(fontSize: 16, color: FeelinColorFamily.errorDark),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

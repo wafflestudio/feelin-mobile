@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:focus_detector/focus_detector.dart';
 import 'package:music_sns/presentation/main/profile/app/profile_app_bar.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../../application/profile/profile_bloc.dart';
 import '../../../../injection.dart';
+import '../../../common/restricted_page.dart';
 import '../profile_page.dart';
 
 class ProfileApp extends StatelessWidget {
@@ -107,32 +109,47 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> with AutomaticKe
     super.dispose();
   }
 
+  bool firstLoaded = false;
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return BlocBuilder<ProfileBloc, ProfileState>(
-      builder: (context, state) {
-        return WillPopScope(
-          onWillPop: ()async{
-            Navigator.pop(context, state.isFollowed);
-            return false;
-          },
-          child: Scaffold(
-            appBar: ProfileAppBar(isRoot: (widget.userId == null), function: (){
-              scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-            }, onRefresh: onRefresh,
-              onBack: (){
-                Navigator.pop(context, state.isFollowed);
-              },
+    return FocusDetector(
+      onFocusGained: (){
+        if(firstLoaded){
+          if(widget.userId == null){
+            context.read<ProfileBloc>().add(const ProfileEvent.reMyProfileRequest());
+          }else{
+            context.read<ProfileBloc>().add(ProfileEvent.reProfileRequest(widget.userId!));
+          }
+        }else{
+          firstLoaded = true;
+        }
+      },
+      child: BlocBuilder<ProfileBloc, ProfileState>(
+        builder: (context, state) {
+          return state.isRestricted ? const RestrictedPage() : WillPopScope(
+            onWillPop: ()async{
+              Navigator.pop(context, state.isFollowed);
+              return false;
+            },
+            child: Scaffold(
+              appBar: ProfileAppBar(isRoot: (widget.userId == null), function: (){
+                scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+              }, onRefresh: onRefresh,
+                onBack: (){
+                  Navigator.pop(context, state.isFollowed);
+                },
+              ),
+              body: RefreshIndicator(
+                color: FeelinColorFamily.redPrimary,
+                backgroundColor: FeelinColorFamily.redSecondary,
+                onRefresh: () async => onRefresh(),
+                  child: ProfilePage(userId: widget.userId, scrollController: scrollController,)),
             ),
-            body: RefreshIndicator(
-              color: FeelinColorFamily.redPrimary,
-              backgroundColor: FeelinColorFamily.redSecondary,
-              onRefresh: () async => onRefresh(),
-                child: ProfilePage(userId: widget.userId, scrollController: scrollController,)),
-          ),
-        );
-      }
+          );
+        }
+      ),
     );
   }
 }
