@@ -98,7 +98,6 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
                           Overlay.of(context),
                           CustomSnackBar.success(
                               icon: const Icon(Icons.music_note, color: Colors.transparent,),
-                              backgroundColor: FeelinColorFamily.redPrimary,
                               message: 'Successfully connected.')
                       );
                     Navigator.pop(context, true);

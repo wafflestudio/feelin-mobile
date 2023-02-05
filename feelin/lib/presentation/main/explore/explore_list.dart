@@ -13,6 +13,8 @@ class ExploreList extends StatefulWidget {
   final bool isLoading;
   final ScrollController scrollController;
   final bool isFollowing;
+  final Function showTabBar;
+  final Function hideTabBar;
 
   const ExploreList({Key? key,
     required this.isLast,
@@ -20,6 +22,8 @@ class ExploreList extends StatefulWidget {
     required this.isLoading,
     required this.scrollController,
     required this.isFollowing,
+    required this.showTabBar,
+    required this.hideTabBar,
   }) : super(key: key);
 
   @override
@@ -46,45 +50,42 @@ class _PostListState extends State<ExploreList> {
                     ),
               )),
             ) :
-          ScrollConfiguration(
-            behavior: const ScrollBehavior().copyWith(overscroll: false),
-            child: ListView.builder(
-              controller: widget.scrollController,
-              physics: const ClampingScrollPhysics(),
-              itemCount: (widget.isLoading && !widget.isLast)
-                  ? widget.feeds.length + 1 : widget.feeds.length,
-              itemBuilder: (context, index){
-                if(index == widget.feeds.length){
-                  if(widget.isLoading) {
-                    return const Padding(
-                    padding: EdgeInsets.only(top: 10, bottom: 40),
-                    child: CupertinoActivityIndicator(radius: 18,),
-                  );
-                  } else {
-                    return Container(
-                    padding: const EdgeInsets.only(top: 10, bottom: 10),
-                    child: const Center(child: Text(
-                      '모든 게시글을 불러왔습니다!',
-                      style: TextStyle(
-                        fontSize: 13,
-                      ),
-                    )),
-                  );
-                  }
+          ListView.builder(
+            controller: widget.scrollController,
+              physics: const BouncingScrollPhysics(),
+            itemCount: (widget.isLoading && !widget.isLast)
+                ? widget.feeds.length + 1 : widget.feeds.length,
+            itemBuilder: (context, index){
+              if(index == widget.feeds.length){
+                if(widget.isLoading) {
+                  return const Padding(
+                  padding: EdgeInsets.only(top: 10, bottom: 40),
+                  child: CupertinoActivityIndicator(radius: 18,),
+                );
                 } else {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 12.0, left: 8, right: 8),
-                    child: FeedPreview(index: index, post: widget.feeds[index], isFollowing: widget.isFollowing,
-                      deleteItem: (){
-                        if(!widget.isFollowing){
-                          context.read<ExploreBloc>().add(ExploreEvent.removeItem(index));
-                        }
-                      },
+                  return Container(
+                  padding: const EdgeInsets.only(top: 10, bottom: 10),
+                  child: const Center(child: Text(
+                    '모든 게시글을 불러왔습니다!',
+                    style: TextStyle(
+                      fontSize: 13,
                     ),
-                  );
+                  )),
+                );
                 }
-              }),
-          );
+              } else {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 18.0, left: 8, right: 8),
+                  child: FeedPreview(index: index, post: widget.feeds[index], isFollowing: widget.isFollowing,
+                    deleteItem: (){
+                      if(!widget.isFollowing){
+                        context.read<ExploreBloc>().add(ExploreEvent.removeItem(index));
+                      }
+                    },
+                  ),
+                );
+              }
+            });
       }
     );
   }

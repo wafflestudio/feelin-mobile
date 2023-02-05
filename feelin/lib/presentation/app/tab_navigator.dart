@@ -1,26 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:music_sns/presentation/main/explore/app/explore_app.dart';
 
-import '../main/explore/explore_page.dart';
+import '../main/post/app/post_app.dart';
 import '../main/profile/app/profile_app.dart';
+import 'my_key_store.dart';
 import 'tab_item.dart';
 
 class TabNavigatorRoutes {
   static const String root = '/';
 }
 
-class MyKeyStore{
-  static GlobalKey<ExploreAppScaffoldState> exploreKey = GlobalKey();
-  static GlobalKey<ExplorePageState> explorePageKey = GlobalKey();
-  static GlobalKey<ProfileAppScaffoldState> profileKey = GlobalKey();
-}
-
-class MyObservers{
-  static RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
-}
-
 class TabNavigator extends StatelessWidget {
-  const TabNavigator({required this.navigatorKey, required this.tabItem,});
+  const TabNavigator({Key? key, required this.navigatorKey, required this.tabItem,}) : super(key: key);
   final GlobalKey<NavigatorState>? navigatorKey;
   final TabItem tabItem;
   //https://stackoverflow.com/questions/51029655/call-method-in-one-stateful-widget-from-another-stateful-widget-flutter

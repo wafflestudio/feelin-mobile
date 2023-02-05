@@ -20,6 +20,7 @@ mixin _$FollowEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadFollowingsRequest,
     required TResult Function(String id) loadFollowersRequest,
+    required TResult Function(String id) loadLikesRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) followRequest,
     required TResult Function(int index) unfollowRequest,
@@ -29,6 +30,7 @@ mixin _$FollowEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadFollowingsRequest,
     TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function(String id)? loadLikesRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? followRequest,
     TResult? Function(int index)? unfollowRequest,
@@ -38,6 +40,7 @@ mixin _$FollowEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadFollowingsRequest,
     TResult Function(String id)? loadFollowersRequest,
+    TResult Function(String id)? loadLikesRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? followRequest,
     TResult Function(int index)? unfollowRequest,
@@ -49,6 +52,7 @@ mixin _$FollowEvent {
     required TResult Function(_LoadFollowingsRequest value)
         loadFollowingsRequest,
     required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
+    required TResult Function(_LoadLikesRequest value) loadLikesRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unfollowRequest,
@@ -58,6 +62,7 @@ mixin _$FollowEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unfollowRequest,
@@ -67,6 +72,7 @@ mixin _$FollowEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unfollowRequest,
@@ -160,6 +166,7 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadFollowingsRequest,
     required TResult Function(String id) loadFollowersRequest,
+    required TResult Function(String id) loadLikesRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) followRequest,
     required TResult Function(int index) unfollowRequest,
@@ -172,6 +179,7 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadFollowingsRequest,
     TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function(String id)? loadLikesRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? followRequest,
     TResult? Function(int index)? unfollowRequest,
@@ -184,6 +192,7 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadFollowingsRequest,
     TResult Function(String id)? loadFollowersRequest,
+    TResult Function(String id)? loadLikesRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? followRequest,
     TResult Function(int index)? unfollowRequest,
@@ -201,6 +210,7 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
     required TResult Function(_LoadFollowingsRequest value)
         loadFollowingsRequest,
     required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
+    required TResult Function(_LoadLikesRequest value) loadLikesRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unfollowRequest,
@@ -213,6 +223,7 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unfollowRequest,
@@ -225,6 +236,7 @@ class _$_LoadFollowingsRequest implements _LoadFollowingsRequest {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unfollowRequest,
@@ -314,6 +326,7 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadFollowingsRequest,
     required TResult Function(String id) loadFollowersRequest,
+    required TResult Function(String id) loadLikesRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) followRequest,
     required TResult Function(int index) unfollowRequest,
@@ -326,6 +339,7 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadFollowingsRequest,
     TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function(String id)? loadLikesRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? followRequest,
     TResult? Function(int index)? unfollowRequest,
@@ -338,6 +352,7 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadFollowingsRequest,
     TResult Function(String id)? loadFollowersRequest,
+    TResult Function(String id)? loadLikesRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? followRequest,
     TResult Function(int index)? unfollowRequest,
@@ -355,6 +370,7 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
     required TResult Function(_LoadFollowingsRequest value)
         loadFollowingsRequest,
     required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
+    required TResult Function(_LoadLikesRequest value) loadLikesRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unfollowRequest,
@@ -367,6 +383,7 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unfollowRequest,
@@ -379,6 +396,7 @@ class _$_LoadFollowersRequest implements _LoadFollowersRequest {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unfollowRequest,
@@ -398,6 +416,164 @@ abstract class _LoadFollowersRequest implements FollowEvent {
   String get id;
   @JsonKey(ignore: true)
   _$$_LoadFollowersRequestCopyWith<_$_LoadFollowersRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadLikesRequestCopyWith<$Res> {
+  factory _$$_LoadLikesRequestCopyWith(
+          _$_LoadLikesRequest value, $Res Function(_$_LoadLikesRequest) then) =
+      __$$_LoadLikesRequestCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_LoadLikesRequestCopyWithImpl<$Res>
+    extends _$FollowEventCopyWithImpl<$Res, _$_LoadLikesRequest>
+    implements _$$_LoadLikesRequestCopyWith<$Res> {
+  __$$_LoadLikesRequestCopyWithImpl(
+      _$_LoadLikesRequest _value, $Res Function(_$_LoadLikesRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_LoadLikesRequest(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LoadLikesRequest implements _LoadLikesRequest {
+  const _$_LoadLikesRequest(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'FollowEvent.loadLikesRequest(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadLikesRequest &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadLikesRequestCopyWith<_$_LoadLikesRequest> get copyWith =>
+      __$$_LoadLikesRequestCopyWithImpl<_$_LoadLikesRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) loadFollowingsRequest,
+    required TResult Function(String id) loadFollowersRequest,
+    required TResult Function(String id) loadLikesRequest,
+    required TResult Function() resetRequest,
+    required TResult Function(int index) followRequest,
+    required TResult Function(int index) unfollowRequest,
+  }) {
+    return loadLikesRequest(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? loadFollowingsRequest,
+    TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function(String id)? loadLikesRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function(int index)? followRequest,
+    TResult? Function(int index)? unfollowRequest,
+  }) {
+    return loadLikesRequest?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? loadFollowingsRequest,
+    TResult Function(String id)? loadFollowersRequest,
+    TResult Function(String id)? loadLikesRequest,
+    TResult Function()? resetRequest,
+    TResult Function(int index)? followRequest,
+    TResult Function(int index)? unfollowRequest,
+    required TResult orElse(),
+  }) {
+    if (loadLikesRequest != null) {
+      return loadLikesRequest(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadFollowingsRequest value)
+        loadFollowingsRequest,
+    required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
+    required TResult Function(_LoadLikesRequest value) loadLikesRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unfollowRequest,
+  }) {
+    return loadLikesRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
+    TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_LoadLikesRequest value)? loadLikesRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unfollowRequest,
+  }) {
+    return loadLikesRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
+    TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult Function(_LoadLikesRequest value)? loadLikesRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unfollowRequest,
+    required TResult orElse(),
+  }) {
+    if (loadLikesRequest != null) {
+      return loadLikesRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadLikesRequest implements FollowEvent {
+  const factory _LoadLikesRequest(final String id) = _$_LoadLikesRequest;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_LoadLikesRequestCopyWith<_$_LoadLikesRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -441,6 +617,7 @@ class _$_ResetRequest implements _ResetRequest {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadFollowingsRequest,
     required TResult Function(String id) loadFollowersRequest,
+    required TResult Function(String id) loadLikesRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) followRequest,
     required TResult Function(int index) unfollowRequest,
@@ -453,6 +630,7 @@ class _$_ResetRequest implements _ResetRequest {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadFollowingsRequest,
     TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function(String id)? loadLikesRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? followRequest,
     TResult? Function(int index)? unfollowRequest,
@@ -465,6 +643,7 @@ class _$_ResetRequest implements _ResetRequest {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadFollowingsRequest,
     TResult Function(String id)? loadFollowersRequest,
+    TResult Function(String id)? loadLikesRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? followRequest,
     TResult Function(int index)? unfollowRequest,
@@ -482,6 +661,7 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function(_LoadFollowingsRequest value)
         loadFollowingsRequest,
     required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
+    required TResult Function(_LoadLikesRequest value) loadLikesRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unfollowRequest,
@@ -494,6 +674,7 @@ class _$_ResetRequest implements _ResetRequest {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unfollowRequest,
@@ -506,6 +687,7 @@ class _$_ResetRequest implements _ResetRequest {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unfollowRequest,
@@ -588,6 +770,7 @@ class _$_FollowRequest implements _FollowRequest {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadFollowingsRequest,
     required TResult Function(String id) loadFollowersRequest,
+    required TResult Function(String id) loadLikesRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) followRequest,
     required TResult Function(int index) unfollowRequest,
@@ -600,6 +783,7 @@ class _$_FollowRequest implements _FollowRequest {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadFollowingsRequest,
     TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function(String id)? loadLikesRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? followRequest,
     TResult? Function(int index)? unfollowRequest,
@@ -612,6 +796,7 @@ class _$_FollowRequest implements _FollowRequest {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadFollowingsRequest,
     TResult Function(String id)? loadFollowersRequest,
+    TResult Function(String id)? loadLikesRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? followRequest,
     TResult Function(int index)? unfollowRequest,
@@ -629,6 +814,7 @@ class _$_FollowRequest implements _FollowRequest {
     required TResult Function(_LoadFollowingsRequest value)
         loadFollowingsRequest,
     required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
+    required TResult Function(_LoadLikesRequest value) loadLikesRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unfollowRequest,
@@ -641,6 +827,7 @@ class _$_FollowRequest implements _FollowRequest {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unfollowRequest,
@@ -653,6 +840,7 @@ class _$_FollowRequest implements _FollowRequest {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unfollowRequest,
@@ -740,6 +928,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) loadFollowingsRequest,
     required TResult Function(String id) loadFollowersRequest,
+    required TResult Function(String id) loadLikesRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) followRequest,
     required TResult Function(int index) unfollowRequest,
@@ -752,6 +941,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? loadFollowingsRequest,
     TResult? Function(String id)? loadFollowersRequest,
+    TResult? Function(String id)? loadLikesRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? followRequest,
     TResult? Function(int index)? unfollowRequest,
@@ -764,6 +954,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? loadFollowingsRequest,
     TResult Function(String id)? loadFollowersRequest,
+    TResult Function(String id)? loadLikesRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? followRequest,
     TResult Function(int index)? unfollowRequest,
@@ -781,6 +972,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     required TResult Function(_LoadFollowingsRequest value)
         loadFollowingsRequest,
     required TResult Function(_LoadFollowersRequest value) loadFollowersRequest,
+    required TResult Function(_LoadLikesRequest value) loadLikesRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_FollowRequest value) followRequest,
     required TResult Function(_UnFollowRequest value) unfollowRequest,
@@ -793,6 +985,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult? Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult? Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_FollowRequest value)? followRequest,
     TResult? Function(_UnFollowRequest value)? unfollowRequest,
@@ -805,6 +998,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadFollowingsRequest value)? loadFollowingsRequest,
     TResult Function(_LoadFollowersRequest value)? loadFollowersRequest,
+    TResult Function(_LoadLikesRequest value)? loadLikesRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_FollowRequest value)? followRequest,
     TResult Function(_UnFollowRequest value)? unfollowRequest,

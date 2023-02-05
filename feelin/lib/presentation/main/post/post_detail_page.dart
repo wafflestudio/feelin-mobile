@@ -59,12 +59,11 @@ class _PostDetailPageState extends State<PostDetailPage> {
                 //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.playlist.tracks[0].id.toString()))),
                 // context.read<ProfileBloc>().add(const ProfileEvent.myProfileRequest()),
                 //   context.read<ProfileBloc>().add(const ProfileEvent.myPageRequest(0)),
-                  Navigator.pop(context, true),
-                  Navigator.push(context, CupertinoPageRoute(
+                  Navigator.pushReplacement(context, CupertinoPageRoute(
                     builder: (context){
                       return PostCompletePage(post: post, globalContext: widget.globalContext,);
                     },
-                  ),
+                  ), result: true
                   ),
             },
           ),

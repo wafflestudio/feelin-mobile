@@ -8,9 +8,10 @@ import 'follow_list.dart';
 class FollowPage extends StatefulWidget {
 
   final bool isFollowerPage;
+  final bool isLikesPage;
   final String id;
 
-  const FollowPage({Key? key, required this.id, required this.isFollowerPage}) : super(key: key);
+  const FollowPage({Key? key, required this.id, required this.isFollowerPage, this.isLikesPage = false}) : super(key: key);
 
   @override
   State<FollowPage> createState() => _FollowPageState();
@@ -23,10 +24,14 @@ class _FollowPageState extends State<FollowPage>{
   @override
   void initState(){
     super.initState();
-    if(widget.isFollowerPage){
-      context.read<FollowBloc>().add(FollowEvent.loadFollowersRequest(widget.id));
+    if(widget.isLikesPage){
+      context.read<FollowBloc>().add(FollowEvent.loadLikesRequest(widget.id));
     }else{
-      context.read<FollowBloc>().add(FollowEvent.loadFollowingsRequest(widget.id));
+      if(widget.isFollowerPage){
+        context.read<FollowBloc>().add(FollowEvent.loadFollowersRequest(widget.id));
+      }else{
+        context.read<FollowBloc>().add(FollowEvent.loadFollowingsRequest(widget.id));
+      }
     }
   }
 
@@ -35,7 +40,7 @@ class _FollowPageState extends State<FollowPage>{
     return BlocBuilder<FollowBloc, FollowState>(
       builder: (context, state) {
         return Scaffold(
-          appBar: FollowAppBar(isFollowerPage: widget.isFollowerPage),
+          appBar: FollowAppBar(isFollowerPage: widget.isFollowerPage, isLikesPage: widget.isLikesPage,),
           body: FollowList(isLast: state.isLast, users: state.users, isLoading: state.isLoading, scrollController: _scrollController),
         );
       }

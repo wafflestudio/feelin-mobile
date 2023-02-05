@@ -2804,6 +2804,7 @@ mixin _$ProfileState {
   List<Post> get posts => throw _privateConstructorUsedError;
   Profile get profile => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoadingPage => throw _privateConstructorUsedError;
   bool get isLast => throw _privateConstructorUsedError;
   bool get isLoaded => throw _privateConstructorUsedError;
   bool get isFollowed => throw _privateConstructorUsedError;
@@ -2828,6 +2829,7 @@ abstract class $ProfileStateCopyWith<$Res> {
       List<Post> posts,
       Profile profile,
       bool isLoading,
+      bool isLoadingPage,
       bool isLast,
       bool isLoaded,
       bool isFollowed,
@@ -2854,6 +2856,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? posts = null,
     Object? profile = null,
     Object? isLoading = null,
+    Object? isLoadingPage = null,
     Object? isLast = null,
     Object? isLoaded = null,
     Object? isFollowed = null,
@@ -2884,6 +2887,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoadingPage: null == isLoadingPage
+          ? _value.isLoadingPage
+          : isLoadingPage // ignore: cast_nullable_to_non_nullable
               as bool,
       isLast: null == isLast
           ? _value.isLast
@@ -2924,6 +2931,7 @@ abstract class _$$_ProfileStateCopyWith<$Res>
       List<Post> posts,
       Profile profile,
       bool isLoading,
+      bool isLoadingPage,
       bool isLast,
       bool isLoaded,
       bool isFollowed,
@@ -2948,6 +2956,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? posts = null,
     Object? profile = null,
     Object? isLoading = null,
+    Object? isLoadingPage = null,
     Object? isLast = null,
     Object? isLoaded = null,
     Object? isFollowed = null,
@@ -2978,6 +2987,10 @@ class __$$_ProfileStateCopyWithImpl<$Res>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoadingPage: null == isLoadingPage
+          ? _value.isLoadingPage
+          : isLoadingPage // ignore: cast_nullable_to_non_nullable
               as bool,
       isLast: null == isLast
           ? _value.isLast
@@ -3013,6 +3026,7 @@ class _$_ProfileState implements _ProfileState {
       required final List<Post> posts,
       required this.profile,
       required this.isLoading,
+      required this.isLoadingPage,
       required this.isLast,
       required this.isLoaded,
       required this.isFollowed,
@@ -3039,6 +3053,8 @@ class _$_ProfileState implements _ProfileState {
   @override
   final bool isLoading;
   @override
+  final bool isLoadingPage;
+  @override
   final bool isLast;
   @override
   final bool isLoaded;
@@ -3051,7 +3067,7 @@ class _$_ProfileState implements _ProfileState {
 
   @override
   String toString() {
-    return 'ProfileState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, reportFailureOrSuccessOption: $reportFailureOrSuccessOption, blockFailureOrSuccessOption: $blockFailureOrSuccessOption, posts: $posts, profile: $profile, isLoading: $isLoading, isLast: $isLast, isLoaded: $isLoaded, isFollowed: $isFollowed, cursor: $cursor, isRestricted: $isRestricted)';
+    return 'ProfileState(loadFailureOrSuccessOption: $loadFailureOrSuccessOption, reportFailureOrSuccessOption: $reportFailureOrSuccessOption, blockFailureOrSuccessOption: $blockFailureOrSuccessOption, posts: $posts, profile: $profile, isLoading: $isLoading, isLoadingPage: $isLoadingPage, isLast: $isLast, isLoaded: $isLoaded, isFollowed: $isFollowed, cursor: $cursor, isRestricted: $isRestricted)';
   }
 
   @override
@@ -3075,6 +3091,8 @@ class _$_ProfileState implements _ProfileState {
             (identical(other.profile, profile) || other.profile == profile) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.isLoadingPage, isLoadingPage) ||
+                other.isLoadingPage == isLoadingPage) &&
             (identical(other.isLast, isLast) || other.isLast == isLast) &&
             (identical(other.isLoaded, isLoaded) ||
                 other.isLoaded == isLoaded) &&
@@ -3094,6 +3112,7 @@ class _$_ProfileState implements _ProfileState {
       const DeepCollectionEquality().hash(_posts),
       profile,
       isLoading,
+      isLoadingPage,
       isLast,
       isLoaded,
       isFollowed,
@@ -3118,6 +3137,7 @@ abstract class _ProfileState implements ProfileState {
       required final List<Post> posts,
       required final Profile profile,
       required final bool isLoading,
+      required final bool isLoadingPage,
       required final bool isLast,
       required final bool isLoaded,
       required final bool isFollowed,
@@ -3136,6 +3156,8 @@ abstract class _ProfileState implements ProfileState {
   Profile get profile;
   @override
   bool get isLoading;
+  @override
+  bool get isLoadingPage;
   @override
   bool get isLast;
   @override

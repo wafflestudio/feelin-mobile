@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +15,12 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../application/edit/edit_post_form/edit_post_form_bloc.dart';
+import '../../../application/follow/follow_bloc.dart';
 import '../../../application/share/share.dart';
 import '../../../domain/play/post.dart';
 import '../../../injection.dart';
 import '../../edit/post/edit_post_page.dart';
+import '../../follow/follow_page.dart';
 import '../profile/report_result_modal.dart';
 import 'report_bottom_modal.dart';
 
@@ -57,7 +61,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
 
   Future<void> _updatePaletteGenerator() async {
     paletteGenerator = await PaletteGenerator.fromImageProvider(
-      NetworkImage(widget.post.playlist.thumbnail ?? context.read<PlaylistInfoBloc>().state.post.playlist.thumbnail!),
+      NetworkImage(widget.post.playlist.thumbnail ?? context.watch<PlaylistInfoBloc>().state.post.playlist.thumbnail!),
     );
 
     setState(() {
@@ -122,7 +126,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
               ),
               orElse: ()=>showTopSnackBar(
                 Overlay.of(context),
-                const CustomSnackBar.error(message: 'Server error'),
+                const CustomSnackBar.error(message: 'Server Error'),
               ),
             ),
                 (_) => showTopSnackBar(
@@ -175,7 +179,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                 ),
                 if(!widget.isShrink)Positioned(
                   right: 15,
-                    bottom: 0,
+                    bottom: 16,
                     child: FloatingActionButton(
                       onPressed: (){
                         if(!state.isLiked){
@@ -208,7 +212,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                 ),
                 builder: (BuildContext context2) {
                   return SizedBox(
-                    height: (state.post.writer!.id == context.watch<AuthBloc>().state.id) ? 220 : 160,
+                    height: (state.post.writer!.id == context.watch<AuthBloc>().state.id) ? (Platform.isIOS ? 260 : 230) : (Platform.isIOS ? 200 : 170),
                     child: Column(
                       children: <Widget>[
                         const SizedBox(
@@ -446,12 +450,33 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                         if(!state.isLoading)Row(
                           children: [
                             Text(
-                              "${state.post.playlist.tracks!.length} tracks | ${state.post.likeCount!} likes |",
+                              "${state.post.playlist.tracks!.length} tracks | ",
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500,
                                 color: FeelinColorFamily.gray700,
                                 letterSpacing: -0.41,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.push(context, CupertinoPageRoute(
+                                  builder: (context){
+                                    return BlocProvider(
+                                        create: (context) => getIt<FollowBloc>(),
+                                        child: FollowPage(id: state.post.id, isFollowerPage: true, isLikesPage: true));
+                                  },
+                                ),
+                                );
+                              },
+                              child: Text(
+                                "${state.post.likeCount!} likes |",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: FeelinColorFamily.gray700,
+                                  letterSpacing: -0.41,
+                                ),
                               ),
                             ),
                             IconButton(
