@@ -56,7 +56,7 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                     backgroundColor: FeelinColorFamily.errorPrimary,
                     icon: const Icon(Icons.music_note_rounded, color: Colors.transparent,),
                     message:
-                    'Server error',
+                    'Server Error',
                   ),
                 ),
                 (url1) async {
@@ -66,9 +66,8 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                   // }
                   showTopSnackBar(
                     Overlay.of(context),
-                    CustomSnackBar.success(
-                      backgroundColor: FeelinColorFamily.redPrimary,
-                      icon: const Icon(Icons.music_note_rounded, color: Colors.transparent,),
+                    const CustomSnackBar.success(
+                      icon: Icon(Icons.music_note_rounded, color: Colors.transparent,),
                       message:
                       'The playlist has been saved successfully.',
                     ),
@@ -82,7 +81,7 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
       child: BlocBuilder<StreamingBloc, StreamingState>(
         builder: (context, state) {
           return BouncingWidget(
-            disabled: false,
+            disabled: false || (context.watch<PlaylistInfoBloc>().state.isSaving),
             child: SizedBox(
               width: MediaQuery.of(context).size.width - 24,
               height: 56,
@@ -109,7 +108,7 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                 backgroundColor: Colors.black,
                 foregroundColor: Colors.white,
                 hoverColor: Colors.transparent,
-                icon: !state.isConnected ? null :
+                icon: (!state.isConnected || context.watch<PlaylistInfoBloc>().state.isSaving) ? null :
                 state.vendor == Vendor.spotify ? SvgPicture.asset('assets/icons/spotify_icon.svg',
                   width: 32,
                   height: 32,
@@ -124,7 +123,12 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                 focusElevation: 4,
                 disabledElevation: 4,
                 //shape: RoundedRectangleBorder(side: BorderSide(),borderRadius: BorderRadius.circular(28)),
-                label: const Text('Save to account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),),),
+                label: (context.watch<PlaylistInfoBloc>().state.isSaving) ?
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: CircularProgressIndicator(color: Colors.white,),
+                )
+                    :const Text('Save to account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),),),
             ),
           );
         }

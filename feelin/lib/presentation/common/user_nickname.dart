@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../domain/profile/profile.dart';
 import '../main/profile/app/profile_app.dart';
@@ -14,9 +14,9 @@ class UserNickname extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: isBig ? null : (){
+      onTap:  (){
         Navigator.of(context,).push(
-            MaterialPageRoute(builder: (_) => ProfileApp(userId: profile.id)));
+            CupertinoPageRoute(builder: (_) => ProfileApp(userId: profile.id)));
       },
       child: Row(
         children: [
@@ -24,8 +24,8 @@ class UserNickname extends StatelessWidget{
             borderRadius: BorderRadius.circular(isBig ? 16 : 12),
             child: Image(
               image: profile.profileImage == null ? const AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(profile.profileImage!),
-              width: isBig ? 32 : 24,
-              height: isBig ? 32 : 24,
+              width: isBig ? 36 : 24,
+              height: isBig ? 36 : 24,
               fit: BoxFit.cover,
             )
           ),

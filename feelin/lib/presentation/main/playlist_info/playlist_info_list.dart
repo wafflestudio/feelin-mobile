@@ -19,26 +19,17 @@ class _PostListState extends State<PlaylistInfoList> {
         builder: (context, state) {
           return SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            sliver: ScrollConfiguration(
-              behavior: const ScrollBehavior().copyWith(overscroll: false),
-              child: SliverList(delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      if(index == state.post.playlist.tracks!.length-1){
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 66),
-                          child: TrackItem(index: index, post: state.post),
-                        );
-                      }
-                      return TrackItem(index: index, post: state.post);
-                }, childCount: state.post.playlist.tracks!.length,
-              ),)
-              // ListView.builder(
-              //     physics: const ClampingScrollPhysics(),
-              //     itemCount: state.post.playlist.tracks!.length,
-              //     itemBuilder: (context, index){
-              //       return TrackItem(index: index, post: state.post);
-              //     }),
-            ),
+            sliver: SliverList(delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    if(index == state.post.playlist.tracks!.length-1){
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 66),
+                        child: TrackItem(index: index, post: state.post),
+                      );
+                    }
+                    return TrackItem(index: index, post: state.post);
+              }, childCount: state.post.playlist.tracks!.length,
+            ),),
           );
         }
     );

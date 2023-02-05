@@ -5,6 +5,7 @@ import '../../application/share/share.dart';
 import '../../application/streaming/streaming_bloc.dart';
 import '../main/profile/app/profile_app.dart';
 import 'bottom_navigation.dart';
+import 'my_key_store.dart';
 import 'tab_item.dart';
 import 'tab_navigator.dart';
 
@@ -28,6 +29,13 @@ class AppState extends State<App>{
 
   void _selectTab(TabItem tabItem) {
     if (tabItem == _currentTab) {
+      if(!_navigatorKeys[tabItem]!.currentState!.canPop()){
+        if(tabItem == TabItem.profile){
+          MyKeyStore.profileKey.currentState?.goToTop();
+        }else if(tabItem == TabItem.home){
+          MyKeyStore.exploreKey.currentState?.goToTop();
+        }
+      }
       // 현재 탭 버튼 두 번 누르면 해당 탭의 처음 루트로 복귀
       _navigatorKeys[tabItem]!.currentState!.popUntil((route) => route.isFirst);
     } else {
@@ -46,6 +54,20 @@ class AppState extends State<App>{
       });
     });
     context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
+  }
+
+  bool isVisibleBottom = true;
+
+  void showBottomNavi(){
+    setState(() {
+      isVisibleBottom = true;
+    });
+  }
+
+  void hideBottomNavi(){
+    setState(() {
+      isVisibleBottom = false;
+    });
   }
 
   @override
@@ -74,10 +96,17 @@ class AppState extends State<App>{
           _buildOffstageNavigator(TabItem.profile),
         ]),
         bottomNavigationBar: SingleChildScrollView(
-          child: BottomNavigation(
-            currentTab: _currentTab,
-            onSelectTab: _selectTab,
-            profileKey: _profileKey,
+          child: AnimatedSize(
+            duration: const Duration(milliseconds: 1),
+            child: Container(
+              height: isVisibleBottom ? null : 0.0,
+              child: BottomNavigation(
+                currentTab: _currentTab,
+                onSelectTab: _selectTab,
+                profileKey: _profileKey,
+                navigatorKeys: _navigatorKeys,
+              ),
+            ) ,
           ),
         ),
       ),

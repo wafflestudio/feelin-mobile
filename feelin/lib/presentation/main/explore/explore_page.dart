@@ -9,7 +9,9 @@ import 'explore_list.dart';
 class ExplorePage extends StatefulWidget{
   final ScrollController scrollController;
   final bool isFollowing;
-  const ExplorePage({Key? key, required this.scrollController, required this.isFollowing,}) : super(key: key);
+  final Function showTabBar;
+  final Function hideTabBar;
+  const ExplorePage({Key? key, required this.scrollController, required this.isFollowing, required this.showTabBar, required this.hideTabBar}) : super(key: key);
 
   @override
   State<ExplorePage> createState() => ExplorePageState();
@@ -80,13 +82,33 @@ class ExplorePageState extends State<ExplorePage> with AutomaticKeepAliveClientM
     )
     : BlocBuilder<ExploreBloc, ExploreState>(
       builder: (context, state) {
-        return RefreshIndicator(
-            onRefresh: () async => firstLoad(),
-            color: FeelinColorFamily.red500,
-            child: widget.isFollowing
-                ? ExploreList(isLast: state.isLastF, feeds: state.feedsF, isLoading: state.isLoadingF, scrollController: widget.scrollController, isFollowing: widget.isFollowing,)
-                : ExploreList(isLast: state.isLast, feeds: state.feeds, isLoading: state.isLoading, scrollController: widget.scrollController, isFollowing: widget.isFollowing,)
-          ,
+        return NotificationListener<ScrollNotification>(
+          onNotification: (scrollNotification) {
+            if (scrollNotification is ScrollStartNotification) {
+              widget.hideTabBar();
+            } else if (scrollNotification is ScrollUpdateNotification) {
+              if(widget.scrollController.position.outOfRange || !widget.scrollController.position.activity!.isScrolling || widget.scrollController.position.activity!.velocity < 100 && widget.scrollController.position.activity!.velocity > -100){
+                widget.showTabBar();
+              }else{
+                widget.hideTabBar();
+              }
+            } else if (scrollNotification is ScrollEndNotification) {
+              widget.showTabBar();
+            }
+
+            return true;
+          },
+          child: RefreshIndicator(
+              onRefresh: () {
+                firstLoad();
+                return Future.delayed(const Duration(milliseconds: 400), ()=>Future<void>.value());
+                },
+              color: FeelinColorFamily.red500,
+              child: widget.isFollowing
+                  ? ExploreList(isLast: state.isLastF, feeds: state.feedsF, isLoading: state.isLoadingF, scrollController: widget.scrollController, isFollowing: widget.isFollowing, showTabBar: widget.showTabBar, hideTabBar: widget.hideTabBar,)
+                  : ExploreList(isLast: state.isLast, feeds: state.feeds, isLoading: state.isLoading, scrollController: widget.scrollController, isFollowing: widget.isFollowing, showTabBar: widget.showTabBar, hideTabBar: widget.hideTabBar,)
+            ,
+          ),
         );
       }
     )

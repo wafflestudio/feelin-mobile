@@ -17,30 +17,35 @@ class BlockedUserBloc extends Bloc<BlockedUserEvent, BlockedUserState>{
   final BlockRepository _blockRepository;
   BlockedUserBloc(this._blockRepository) : super(BlockedUserState.initial()){
     on<_LoadRequest>((event, emit) async {
-      emit(state.copyWith(
-        isLoading: true,
-      ));
-
-      if(!state.isLast){
-        final failureOrSuccess = await _blockRepository.getBlockedUsers(cursor: state.cursor);
-        failureOrSuccess.fold(
-              (f) {
-            emit(state.copyWith(
-              isLoading: false,
-              loadFailureOrSuccessOption: some(left(f)),
-            ));
-          },
-              (tuple) {
-            emit(state.copyWith(
-              isLoading: false,
-              loadFailureOrSuccessOption: some(right(tuple.value1)),
-              users: state.users + tuple.value1.content,
-              // For the test
-              isLast: tuple.value1.last,
-              cursor: tuple.value2,
-            ));
-          },
-        );
+      if(!state.isLoading){
+        emit(state.copyWith(
+          isLoading: true,
+        ));
+        if(!state.isLast){
+          final failureOrSuccess = await _blockRepository.getBlockedUsers(cursor: state.cursor);
+          failureOrSuccess.fold(
+                (f) {
+              emit(state.copyWith(
+                isLoading: false,
+                loadFailureOrSuccessOption: some(left(f)),
+              ));
+            },
+                (tuple) {
+              emit(state.copyWith(
+                isLoading: false,
+                loadFailureOrSuccessOption: some(right(tuple.value1)),
+                users: state.users + tuple.value1.content,
+                // For the test
+                isLast: tuple.value1.last,
+                cursor: tuple.value2,
+              ));
+            },
+          );
+        }else{
+          emit(state.copyWith(
+            isLoading: false,
+          ));
+        }
       }
     });
 

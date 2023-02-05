@@ -5,6 +5,7 @@ import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_in/sign_in.dart';
 
 import '../app/app.dart';
+import '../app/my_key_store.dart';
 
 class Auth extends StatefulWidget {
   const Auth({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _AuthState extends State<Auth> {
           return state.initialLoading
               ? const Scaffold(body: Center(child: CupertinoActivityIndicator(radius: 20,)))
               : state.authenticated
-              ? const App()
+              ? App(key: MyKeyStore.appKey,)
               : const SignIn();
         });
   }

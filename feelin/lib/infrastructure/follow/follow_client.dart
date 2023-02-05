@@ -14,6 +14,9 @@ abstract class FollowClient{
   @GET('/follows/followers/{user_id}')
   Future<HttpResponse<PageUser>> getFollowersById(@Path('user_id') String id, @Query('cursor') String? cursor,);
 
+  @GET('/likes/posts/{post_id}')
+  Future<HttpResponse<PageUser>> getLikesById(@Path('post_id') String id, @Query('cursor') String? cursor,);
+
   @POST('/follows/{user_id}')
   Future<HttpResponse<void>> follow(@Path('user_id')String id);
 

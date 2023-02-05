@@ -4,15 +4,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/presentation/main/post/app/post_app.dart';
 
 import '../main/profile/app/profile_app.dart';
+import 'my_key_store.dart';
 import 'tab_item.dart';
 
 class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({Key? key, required this.currentTab, required this.onSelectTab, required this.profileKey}) : super(key: key);
+  const BottomNavigation({Key? key, required this.currentTab, required this.onSelectTab, required this.profileKey, required this.navigatorKeys}) : super(key: key);
 
   final TabItem currentTab;
   final ValueChanged<TabItem> onSelectTab;
   //https://stackoverflow.com/questions/51029655/call-method-in-one-stateful-widget-from-another-stateful-widget-flutter
   final GlobalKey<ProfileAppScaffoldState> profileKey;
+  final Map<TabItem, GlobalKey<NavigatorState>> navigatorKeys;
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
@@ -56,14 +58,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
             previousIndex = index;
           });
         }else{
-          Navigator.push(context, CupertinoPageRoute(
+          MyKeyStore.appKey.currentState?.hideBottomNavi();
+          Navigator.push(previousIndex == 0 ? widget.navigatorKeys[TabItem.home]!.currentContext! : widget.navigatorKeys[TabItem.profile]!.currentContext!, CupertinoPageRoute(
             builder: (context){
               return PostApp(globalContext: previousIndex,);
             },
           ),
           ).then((value) { if(value != null) {widget.profileKey.currentState?.onRefresh();}});
         }
-
       },
     );
   }

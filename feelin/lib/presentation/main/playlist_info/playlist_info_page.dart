@@ -76,7 +76,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
           + _textSize(widget.post == null ? '': widget.post!.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, letterSpacing: -0.41,
               fontFamily: 'Pretendard'
           )).height;
-      height = expandedHeight - 30;
+      height = expandedHeight - 16;
     });
   }
 
@@ -123,7 +123,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                           + _textSize(state.post.content, const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, letterSpacing: -0.41,
                               fontFamily: 'Pretendard'
                           ), scaleFactor: true).height;
-                      height = expandedHeight - 30;
+                      height = expandedHeight - 16 - (AppBar().preferredSize.height - 28);
                     }),
               },
             ),
@@ -158,10 +158,10 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                   child: Scaffold(
                               extendBodyBehindAppBar: true,
                               body: ScrollConfiguration(
-                                behavior: const ScrollBehavior().copyWith(overscroll: false),
+                                behavior: const ScrollBehavior().copyWith(),
                                 child: CustomScrollView(
                                     controller: _scrollController,
-                                    physics: const ClampingScrollPhysics(),
+                                    physics: const BouncingScrollPhysics(),
                                   slivers: [
                                     if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
                                       goToTop: (){
@@ -185,7 +185,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                             ),
                 ),
                 if(_isShrink)Positioned(
-                    top: kToolbarHeight,
+                    top: MediaQuery.of(context).padding.top + kToolbarHeight - 28,
                     right: 15,
                     child: FloatingActionButton(
                       onPressed: (){

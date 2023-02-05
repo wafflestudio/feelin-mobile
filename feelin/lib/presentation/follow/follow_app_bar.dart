@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class FollowAppBar extends StatelessWidget with PreferredSizeWidget{
 final bool isFollowerPage;
-const FollowAppBar({Key? key, required this.isFollowerPage}) : super(key: key);
+final bool isLikesPage;
+const FollowAppBar({Key? key, required this.isFollowerPage, this.isLikesPage = false}) : super(key: key);
 
 @override
 Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
@@ -14,7 +15,7 @@ Widget build(BuildContext context) {
     backgroundColor: Colors.transparent,
     automaticallyImplyLeading: false,
     leading: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back_ios_new),),
-    title: Text(isFollowerPage ? 'Followers':'Following',
+    title: Text(isLikesPage ? 'Likes' : isFollowerPage ? 'Followers':'Following',
       style: const TextStyle(
         fontWeight: FontWeight.w700,
         fontSize: 20,

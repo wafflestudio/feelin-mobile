@@ -58,9 +58,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<StreamingBloc>()),
       ],
       child: MaterialApp(
-        navigatorObservers: [
-          MyObservers.routeObserver
-        ],
         navigatorKey: NavigationService.navigatorKey,
         title: 'Feelin\'',
         theme: ThemeData(

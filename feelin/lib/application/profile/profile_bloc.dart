@@ -10,7 +10,7 @@ import 'package:music_sns/infrastructure/profile/profile_repository.dart';
 import '../../domain/block/block_failure.dart';
 import '../../domain/play/post.dart';
 import '../../infrastructure/block/block_repository.dart';
-import '../../presentation/app/tab_navigator.dart';
+import '../../presentation/app/my_key_store.dart';
 
 part 'profile_bloc.freezed.dart';
 part 'profile_event.dart';
@@ -22,44 +22,68 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
   final BlockRepository _blockRepository;
   ProfileBloc(this._profileRepository, this._blockRepository) : super(ProfileState.initial()){
     on<_MyPageRequest>((event, emit) async {
-      if(!state.isLast){
-        final failureOrSuccess = await _profileRepository.getMyPosts(cursor: state.cursor);
-        failureOrSuccess.fold(
-              (f) {
-            emit(state.copyWith(
-              loadFailureOrSuccessOption: some(left(f)),
-            ));
-          },
-              (tuple) {
-            emit(state.copyWith(
-              loadFailureOrSuccessOption: some(right(tuple.value1)),
-              posts: state.posts + tuple.value1.content,
-              isLast: tuple.value1.last,
-              cursor: tuple.value2,
-            ));
-          },
-        );
+      if(!state.isLoadingPage){
+        emit(state.copyWith(
+          isLoadingPage: true,
+        ));
+        if(!state.isLast){
+          final failureOrSuccess = await _profileRepository.getMyPosts(cursor: state.cursor);
+          failureOrSuccess.fold(
+                (f) {
+              emit(state.copyWith(
+                loadFailureOrSuccessOption: some(left(f)),
+                isLoadingPage: false,
+              ));
+            },
+                (tuple) {
+              emit(state.copyWith(
+                loadFailureOrSuccessOption: some(right(tuple.value1)),
+                isLoadingPage: false,
+                posts: state.posts + tuple.value1.content,
+                isLast: tuple.value1.last,
+                cursor: tuple.value2,
+              ));
+            },
+          );
+        }else{
+          emit(state.copyWith(
+            isLoadingPage: false,
+          ));
+        }
       }
+
     });
     on<_PageRequest>((event, emit) async {
-      if(!state.isLast){
-        final failureOrSuccess = await _profileRepository.getPostsById(id: event.id, cursor: state.cursor);
-        failureOrSuccess.fold(
-              (f) {
-            emit(state.copyWith(
-              loadFailureOrSuccessOption: some(left(f)),
-            ));
-          },
-              (tuple) {
-                emit(state.copyWith(
-                  loadFailureOrSuccessOption: some(right(tuple.value1)),
-                  posts: state.posts + tuple.value1.content,
-                  isLast: tuple.value1.last,
-                  cursor: tuple.value2,
-                ));
-          },
-        );
+      if(!state.isLoadingPage){
+        emit(state.copyWith(
+          isLoadingPage: true,
+        ));
+        if(!state.isLast){
+          final failureOrSuccess = await _profileRepository.getPostsById(id: event.id, cursor: state.cursor);
+          failureOrSuccess.fold(
+                (f) {
+              emit(state.copyWith(
+                loadFailureOrSuccessOption: some(left(f)),
+                isLoadingPage: false,
+              ));
+            },
+                (tuple) {
+              emit(state.copyWith(
+                loadFailureOrSuccessOption: some(right(tuple.value1)),
+                isLoadingPage: false,
+                posts: state.posts + tuple.value1.content,
+                isLast: tuple.value1.last,
+                cursor: tuple.value2,
+              ));
+            },
+          );
+        }else{
+          emit(state.copyWith(
+            isLoadingPage: false,
+          ));
+        }
       }
+
     });
     on<_ResetRequest>((event, emit) async {
       emit(state.copyWith(
@@ -173,7 +197,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
-              isFollowed: false,
+              isFollowed: true,
             ));
           },
               (posts) {
@@ -195,7 +219,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
-              isFollowed: true,
+              isFollowed: false,
             ));
           },
               (posts) {

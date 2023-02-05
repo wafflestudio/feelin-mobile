@@ -121,7 +121,7 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
                     widget.goToNext();
                   }else{
                     showTopSnackBar(
-                      Overlay.of(context)!,
+                      Overlay.of(context),
                       const CustomSnackBar.error(message: 'You must be 14+ to use Feelin\'.')
                     );
                   }

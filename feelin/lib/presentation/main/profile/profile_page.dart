@@ -35,38 +35,35 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
     super.build(context);
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
-        return (state.isLoading) ? const Center(child: CupertinoActivityIndicator(radius: 20,)) : gridView();
+        return (state.isLoading) ? const Center(child: CupertinoActivityIndicator(radius: 20,)) : listView();
       }
     );
   }
 
 
-  Widget gridView(){
+  Widget listView(){
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
         return LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-              return ScrollConfiguration(
-                behavior: const ScrollBehavior().copyWith(overscroll: false),
-                child: CustomScrollView(
-                  controller: widget.scrollController,
-                  physics: const ClampingScrollPhysics(),
-                  slivers: [
-                    DynamicSliverAppBar(key: globalKey, maxHeight: 700,child: _profileView(context),),
-                    SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                                (BuildContext context, int index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(bottom: 4),
-                                    child: PostPreview(index: index, post: state.posts[index], deleteItem: (){
-                                      context.read<ProfileBloc>().add(ProfileEvent.removeItem(index));
-                                    },),
-                                  );
-                            }, childCount: state.posts.length,
-                        ),
-                    )
-                  ],
-                ),
+              return CustomScrollView(
+                controller: widget.scrollController,
+                physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                slivers: [
+                  DynamicSliverAppBar(key: globalKey, maxHeight: 700,child: _profileView(context),),
+                  SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(bottom: 4),
+                                  child: PostPreview(index: index, post: state.posts[index], deleteItem: (){
+                                    context.read<ProfileBloc>().add(ProfileEvent.removeItem(index));
+                                  },),
+                                );
+                          }, childCount: state.posts.length,
+                      ),
+                  )
+                ],
               );
             });
       }

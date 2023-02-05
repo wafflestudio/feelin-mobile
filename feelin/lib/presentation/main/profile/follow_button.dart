@@ -25,15 +25,17 @@ class _FollowButtonState extends State<FollowButton> {
             },
           style: ButtonStyle(
               shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18)
+                  borderRadius: BorderRadius.circular(18),
               )),
-              backgroundColor: widget.isFollowed ? MaterialStateProperty.all(FeelinColorFamily.gray400):MaterialStateProperty.all(Colors.black)
+              side: widget.isFollowed ? MaterialStateProperty.all(BorderSide(width: 1, color: FeelinColorFamily.gray800)) : null,
+              backgroundColor: widget.isFollowed ? MaterialStateProperty.all(FeelinColorFamily.gray50):MaterialStateProperty.all(Colors.black),
+              overlayColor: MaterialStateProperty.all(Colors.transparent)
           ),
           child: Center(
             child: Text(
               widget.isFollowed ? 'Unfollow':'Follow',
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: widget.isFollowed ? Colors.black : Colors.white,
                 fontSize: 15,
               ),
             ),

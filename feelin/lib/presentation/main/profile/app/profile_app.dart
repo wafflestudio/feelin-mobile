@@ -89,6 +89,10 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> with AutomaticKe
     }
   }
 
+  void goToTop(){
+    scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+  }
+
   @override
   bool get wantKeepAlive => true;
 
@@ -134,17 +138,17 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> with AutomaticKe
               return false;
             },
             child: Scaffold(
-              appBar: ProfileAppBar(isRoot: (widget.userId == null), function: (){
-                scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-              }, onRefresh: onRefresh,
+              appBar: ProfileAppBar(isRoot: (widget.userId == null), function: goToTop, onRefresh: onRefresh,
                 onBack: (){
                   Navigator.pop(context, state.isFollowed);
                 },
               ),
               body: RefreshIndicator(
                 color: FeelinColorFamily.redPrimary,
-                backgroundColor: FeelinColorFamily.redSecondary,
-                onRefresh: () async => onRefresh(),
+                onRefresh: () {
+                  onRefresh();
+                  return Future.delayed(const Duration(milliseconds: 400), ()=>Future<void>.value());
+                  },
                   child: ProfilePage(userId: widget.userId, scrollController: scrollController,)),
             ),
           );

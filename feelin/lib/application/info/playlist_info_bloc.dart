@@ -11,7 +11,7 @@ import 'package:music_sns/infrastructure/block/block_repository.dart';
 import 'package:music_sns/infrastructure/explore/explore_post_repository.dart';
 
 import '../../domain/streaming/redirect_url.dart';
-import '../../presentation/app/tab_navigator.dart';
+import '../../presentation/app/my_key_store.dart';
 
 part 'playlist_info_bloc.freezed.dart';
 part 'playlist_info_event.dart';
@@ -26,7 +26,6 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
       emit(state.copyWith(
         isLoading: true,
       ));
-
       final failureOrSuccess = await _explorePostRepository.getPost(id: event.postId);
       failureOrSuccess.fold(
             (f) {
@@ -103,12 +102,14 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
               isLiked: true,
             ));
             state.post.likeCount = state.post.likeCount! + 1;
+            MyKeyStore.exploreKey.currentState?.syncLike(state.post.id);
           },
               (posts) {
             emit(state.copyWith(
               isLiked: true,
             ));
             state.post.likeCount = state.post.likeCount! + 1;
+            MyKeyStore.exploreKey.currentState?.syncLike(state.post.id);
           },
         );
       }
@@ -123,12 +124,14 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
               isLiked: false,
             ));
             state.post.likeCount = state.post.likeCount! - 1;
+            MyKeyStore.exploreKey.currentState?.syncUnlike(state.post.id);
           },
               (posts) {
             emit(state.copyWith(
               isLiked: false,
             ));
             state.post.likeCount = state.post.likeCount! - 1;
+            MyKeyStore.exploreKey.currentState?.syncUnlike(state.post.id);
           },
         );
       }else{

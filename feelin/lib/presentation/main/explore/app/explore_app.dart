@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_sns/presentation/app/tab_navigator.dart';
 import 'package:music_sns/presentation/main/explore/explore_page.dart';
 
 import '../../../../application/explore/explore_bloc.dart';
 import '../../../../application/share/share.dart';
 import '../../../../injection.dart';
+import '../../../app/my_key_store.dart';
 import 'explore_app_bar.dart';
 import 'explore_app_bar_bottom.dart';
 
@@ -44,29 +44,56 @@ class ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProvi
     _tabController = TabController(length: 2, vsync: this);
   }
 
+  void goToTop(){
+    if(!_tabController.indexIsChanging && _tabController.index == 0){
+      _scrollControllerF.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+    }else if(!_tabController.indexIsChanging && _tabController.index == 1){
+      _scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+    }
+  }
+
+  void syncLike(String id){
+    context.read<ExploreBloc>().add(ExploreEvent.likeSyncRequest(id));
+  }
+
+  void syncUnlike(String id){
+    context.read<ExploreBloc>().add(ExploreEvent.unlikeSyncRequest(id));
+  }
+
+  double tabBarVisible = 1.0;
+
+  void showTabBar(){
+    setState(() {
+      tabBarVisible = 1.0;
+    });
+  }
+
+  void hideTabBar(){
+    setState(() {
+      tabBarVisible = 0.3;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        //backgroundColor: Colors.white,
-        extendBodyBehindAppBar: true,
+        backgroundColor: Colors.transparent,
+        extendBodyBehindAppBar: false,
         appBar: ExploreAppBar(
-          function: (){
-          if(!_tabController.indexIsChanging && _tabController.index == 0){
-            _scrollControllerF.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-          }else if(!_tabController.indexIsChanging && _tabController.index == 1){
-            _scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-          }
-        },),
+          function: goToTop,),
         body: Scaffold(
-          appBar: ExploreAppBarBottom(tabController: _tabController),
-          extendBodyBehindAppBar: false,
+          appBar: PreferredSize(preferredSize: AppBar().preferredSize * 0.8,
+          child: AnimatedOpacity(opacity: tabBarVisible,
+          duration: const Duration(milliseconds: 200),
+          child: ExploreAppBarBottom(tabController: _tabController))),
+          extendBodyBehindAppBar: true,
           body: TabBarView(
             controller: _tabController,
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              ExplorePage(scrollController: _scrollControllerF, isFollowing: true, key: MyKeyStore.explorePageKey,),
-              ExplorePage(scrollController: _scrollController, isFollowing: false,),
+              ExplorePage(scrollController: _scrollControllerF, isFollowing: true, key: MyKeyStore.explorePageKey, showTabBar: showTabBar, hideTabBar: hideTabBar,),
+              ExplorePage(scrollController: _scrollController, isFollowing: false, showTabBar: showTabBar, hideTabBar: hideTabBar,),
             ],
           ),
         ),

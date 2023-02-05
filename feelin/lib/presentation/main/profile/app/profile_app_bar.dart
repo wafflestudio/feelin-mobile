@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +74,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
               ),
               orElse: ()=>showTopSnackBar(
                 Overlay.of(context),
-                const CustomSnackBar.error(message: 'Server error'),
+                const CustomSnackBar.error(message: 'Server Error'),
               ),
             ),
                 (_) => showTopSnackBar(
@@ -127,7 +129,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                 builder: (BuildContext context2) {
                   context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
                   return SizedBox(
-                    height: 220,
+                    height: Platform.isIOS ? 260 : 230,
                     child: Column(
                       children: <Widget>[
                         const SizedBox(
@@ -294,7 +296,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                       builder: (BuildContext context2) {
                         context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
                         return SizedBox(
-                          height: 160,
+                          height: Platform.isIOS ? 200 : 170,
                           child: Column(
                               children: [
                                 const SizedBox(

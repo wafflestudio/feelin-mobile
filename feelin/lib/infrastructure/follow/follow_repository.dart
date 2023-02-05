@@ -54,6 +54,22 @@ class FollowRepository{
     }
   }
 
+  Future<Either<ProfileFailure, Tuple2<PageUser, String?>>> getLikesById({required String id, required String? cursor}) async{
+    try{
+      HttpResponse<PageUser> httpResponse = await followClient.getLikesById(id, cursor);
+      switch(httpResponse.response.statusCode){
+        case 200 : return Right(Tuple2(httpResponse.data, httpResponse.response.headers['cursor'] == null ? null : httpResponse.response.headers['cursor']![0]));
+        case 401 : return const Left(ProfileFailure.unauthorized());
+        default : return const Left(ProfileFailure.serverError());
+      }
+    }on DioError catch(e){
+      switch(e.response?.statusCode){
+        case 401 : return const Left(ProfileFailure.unauthorized());
+        default : return const Left(ProfileFailure.serverError());
+      }
+    }
+  }
+
   Future<Either<ProfileFailure, Unit>> follow
       ({required String id,}) async{
     try{

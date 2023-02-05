@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_sns/presentation/style/colors.dart';
 
 class ExploreAppBar extends StatefulWidget with PreferredSizeWidget {
   final Function function;
@@ -6,7 +7,7 @@ class ExploreAppBar extends StatefulWidget with PreferredSizeWidget {
   const ExploreAppBar({Key? key, required this.function,}) : super(key: key);
 
   @override
-  Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
+  Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height*0.9);
 
   @override
   State<ExploreAppBar> createState() => _ExploreAppBarState();
@@ -19,7 +20,7 @@ class _ExploreAppBarState extends State<ExploreAppBar> {
       preferredSize: const Size.fromHeight(100),
       child: AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
         title: GestureDetector(
           onTap: (){
@@ -27,13 +28,26 @@ class _ExploreAppBarState extends State<ExploreAppBar> {
           },
           child: Container(
             width: double.infinity,
-            height: 100,
-            color: Colors.white,
-            child: const Center(
-              child: Text('Feelin\'',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 20,
+            color: Colors.transparent,
+            child: Center(
+              child: RichText(
+                text: TextSpan(
+                  style:  TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 24,
+                  ),
+                  children: [
+                    TextSpan(text: 'Feelin',
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    TextSpan(text: '’',
+                      style: TextStyle(
+                        color: FeelinColorFamily.redPrimary,
+                      ),
+                    ),
+                  ]
                 ),
               ),
             ),

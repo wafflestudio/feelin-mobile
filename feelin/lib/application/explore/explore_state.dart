@@ -11,6 +11,8 @@ class ExploreState with _$ExploreState {
     required List<Post> feedsF,
     required bool isLast,
     required bool isLastF,
+    required bool reset,
+    required bool resetF,
     required String? cursor,
     required String? cursorF,
   }) = _ExploreState;
@@ -23,9 +25,9 @@ class ExploreState with _$ExploreState {
     feedsF: [],
     isLast: false,
     isLastF: false,
+    reset: false,
+    resetF: false,
     cursor: null,
     cursorF: null,
   );
-  // const factory ExploreState.loading() = Loading;
-  // const factory ExploreState.loaded() = Loaded;
 }
