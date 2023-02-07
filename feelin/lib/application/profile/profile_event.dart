@@ -13,6 +13,7 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.unFollowRequest() = _UnFollowRequest;
   const factory ProfileEvent.resetRequest() = _ResetRequest;
   const factory ProfileEvent.removeItem(int index) = _RemoveItem;
+  const factory ProfileEvent.removeItemByPostId(String id) = _RemoveItemByPostId;
   const factory ProfileEvent.reportRequest(String reportType, description) = _ReportRequest;
   const factory ProfileEvent.blockRequest() = _BlockRequest;
   const factory ProfileEvent.resetStateRequest() = _ResetStateRequest;

@@ -277,6 +277,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>{
       ));
     });
 
+    on<_RemoveItemByPostId>((event, emit) async {
+      emit(state.copyWith(
+        posts: List.from(state.posts)..removeWhere((post) => post.id == event.id),
+      ));
+    });
+
     on<_ResetStateRequest>((event, emit) async {
       emit(state.copyWith(
         reportFailureOrSuccessOption: none(),

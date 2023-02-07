@@ -26,6 +26,7 @@ mixin _$ExploreEvent {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) =>
@@ -40,6 +41,7 @@ mixin _$ExploreEvent {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) =>
@@ -54,6 +56,7 @@ mixin _$ExploreEvent {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -69,6 +72,7 @@ mixin _$ExploreEvent {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) =>
@@ -83,6 +87,7 @@ mixin _$ExploreEvent {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) =>
@@ -97,6 +102,7 @@ mixin _$ExploreEvent {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),
@@ -168,6 +174,7 @@ class _$_LoadRequest implements _LoadRequest {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
@@ -185,6 +192,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
@@ -202,6 +210,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -223,6 +232,7 @@ class _$_LoadRequest implements _LoadRequest {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) {
@@ -240,6 +250,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) {
@@ -257,6 +268,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),
@@ -318,6 +330,7 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
@@ -335,6 +348,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
@@ -352,6 +366,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -373,6 +388,7 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) {
@@ -390,6 +406,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) {
@@ -407,6 +424,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),
@@ -468,6 +486,7 @@ class _$_ResetFRequest implements _ResetFRequest {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
@@ -485,6 +504,7 @@ class _$_ResetFRequest implements _ResetFRequest {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
@@ -502,6 +522,7 @@ class _$_ResetFRequest implements _ResetFRequest {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -523,6 +544,7 @@ class _$_ResetFRequest implements _ResetFRequest {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) {
@@ -540,6 +562,7 @@ class _$_ResetFRequest implements _ResetFRequest {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) {
@@ -557,6 +580,7 @@ class _$_ResetFRequest implements _ResetFRequest {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),
@@ -618,6 +642,7 @@ class _$_LoadFRequest implements _LoadFRequest {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
@@ -635,6 +660,7 @@ class _$_LoadFRequest implements _LoadFRequest {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
@@ -652,6 +678,7 @@ class _$_LoadFRequest implements _LoadFRequest {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -673,6 +700,7 @@ class _$_LoadFRequest implements _LoadFRequest {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) {
@@ -690,6 +718,7 @@ class _$_LoadFRequest implements _LoadFRequest {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) {
@@ -707,6 +736,7 @@ class _$_LoadFRequest implements _LoadFRequest {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),
@@ -802,6 +832,7 @@ class _$_LikeRequest implements _LikeRequest {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
@@ -819,6 +850,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
@@ -836,6 +868,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -857,6 +890,7 @@ class _$_LikeRequest implements _LikeRequest {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) {
@@ -874,6 +908,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) {
@@ -891,6 +926,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),
@@ -992,6 +1028,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
@@ -1009,6 +1046,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
@@ -1026,6 +1064,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -1047,6 +1086,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) {
@@ -1064,6 +1104,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) {
@@ -1081,6 +1122,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),
@@ -1183,6 +1225,7 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
@@ -1200,6 +1243,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
@@ -1217,6 +1261,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -1238,6 +1283,7 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) {
@@ -1255,6 +1301,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) {
@@ -1272,6 +1319,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),
@@ -1366,6 +1414,7 @@ class _$_RemoveItemsByUserId implements _RemoveItemsByUserId {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
@@ -1383,6 +1432,7 @@ class _$_RemoveItemsByUserId implements _RemoveItemsByUserId {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
@@ -1400,6 +1450,7 @@ class _$_RemoveItemsByUserId implements _RemoveItemsByUserId {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -1421,6 +1472,7 @@ class _$_RemoveItemsByUserId implements _RemoveItemsByUserId {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) {
@@ -1438,6 +1490,7 @@ class _$_RemoveItemsByUserId implements _RemoveItemsByUserId {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) {
@@ -1455,6 +1508,7 @@ class _$_RemoveItemsByUserId implements _RemoveItemsByUserId {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),
@@ -1472,6 +1526,194 @@ abstract class _RemoveItemsByUserId implements ExploreEvent {
   String get id;
   @JsonKey(ignore: true)
   _$$_RemoveItemsByUserIdCopyWith<_$_RemoveItemsByUserId> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RemoveItemByPostIdCopyWith<$Res> {
+  factory _$$_RemoveItemByPostIdCopyWith(_$_RemoveItemByPostId value,
+          $Res Function(_$_RemoveItemByPostId) then) =
+      __$$_RemoveItemByPostIdCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_RemoveItemByPostIdCopyWithImpl<$Res>
+    extends _$ExploreEventCopyWithImpl<$Res, _$_RemoveItemByPostId>
+    implements _$$_RemoveItemByPostIdCopyWith<$Res> {
+  __$$_RemoveItemByPostIdCopyWithImpl(
+      _$_RemoveItemByPostId _value, $Res Function(_$_RemoveItemByPostId) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_RemoveItemByPostId(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RemoveItemByPostId implements _RemoveItemByPostId {
+  const _$_RemoveItemByPostId(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ExploreEvent.removeItemByPostId(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RemoveItemByPostId &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RemoveItemByPostIdCopyWith<_$_RemoveItemByPostId> get copyWith =>
+      __$$_RemoveItemByPostIdCopyWithImpl<_$_RemoveItemByPostId>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadRequest,
+    required TResult Function() resetRequest,
+    required TResult Function() resetFRequest,
+    required TResult Function() loadFRequest,
+    required TResult Function(int index, bool F) likeRequest,
+    required TResult Function(int index, bool F) unlikeRequest,
+    required TResult Function(int index, bool F) removeItem,
+    required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
+    required TResult Function(String id) likeSyncRequest,
+    required TResult Function(String id) unlikeSyncRequest,
+  }) {
+    return removeItemByPostId(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function()? resetFRequest,
+    TResult? Function()? loadFRequest,
+    TResult? Function(int index, bool F)? likeRequest,
+    TResult? Function(int index, bool F)? unlikeRequest,
+    TResult? Function(int index, bool F)? removeItem,
+    TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
+    TResult? Function(String id)? likeSyncRequest,
+    TResult? Function(String id)? unlikeSyncRequest,
+  }) {
+    return removeItemByPostId?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadRequest,
+    TResult Function()? resetRequest,
+    TResult Function()? resetFRequest,
+    TResult Function()? loadFRequest,
+    TResult Function(int index, bool F)? likeRequest,
+    TResult Function(int index, bool F)? unlikeRequest,
+    TResult Function(int index, bool F)? removeItem,
+    TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
+    TResult Function(String id)? likeSyncRequest,
+    TResult Function(String id)? unlikeSyncRequest,
+    required TResult orElse(),
+  }) {
+    if (removeItemByPostId != null) {
+      return removeItemByPostId(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRequest value) loadRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_ResetFRequest value) resetFRequest,
+    required TResult Function(_LoadFRequest value) loadFRequest,
+    required TResult Function(_LikeRequest value) likeRequest,
+    required TResult Function(_UnlikeRequest value) unlikeRequest,
+    required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
+    required TResult Function(_LikeSyncRequest value) likeSyncRequest,
+    required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
+  }) {
+    return removeItemByPostId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadRequest value)? loadRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_ResetFRequest value)? resetFRequest,
+    TResult? Function(_LoadFRequest value)? loadFRequest,
+    TResult? Function(_LikeRequest value)? likeRequest,
+    TResult? Function(_UnlikeRequest value)? unlikeRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
+    TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
+    TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
+  }) {
+    return removeItemByPostId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRequest value)? loadRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_ResetFRequest value)? resetFRequest,
+    TResult Function(_LoadFRequest value)? loadFRequest,
+    TResult Function(_LikeRequest value)? likeRequest,
+    TResult Function(_UnlikeRequest value)? unlikeRequest,
+    TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
+    TResult Function(_LikeSyncRequest value)? likeSyncRequest,
+    TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
+    required TResult orElse(),
+  }) {
+    if (removeItemByPostId != null) {
+      return removeItemByPostId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveItemByPostId implements ExploreEvent {
+  const factory _RemoveItemByPostId(final String id) = _$_RemoveItemByPostId;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_RemoveItemByPostIdCopyWith<_$_RemoveItemByPostId> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1547,6 +1789,7 @@ class _$_LikeSyncRequest implements _LikeSyncRequest {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
@@ -1564,6 +1807,7 @@ class _$_LikeSyncRequest implements _LikeSyncRequest {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
@@ -1581,6 +1825,7 @@ class _$_LikeSyncRequest implements _LikeSyncRequest {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -1602,6 +1847,7 @@ class _$_LikeSyncRequest implements _LikeSyncRequest {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) {
@@ -1619,6 +1865,7 @@ class _$_LikeSyncRequest implements _LikeSyncRequest {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) {
@@ -1636,6 +1883,7 @@ class _$_LikeSyncRequest implements _LikeSyncRequest {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),
@@ -1729,6 +1977,7 @@ class _$_UnlikeSyncRequest implements _UnlikeSyncRequest {
     required TResult Function(int index, bool F) unlikeRequest,
     required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
@@ -1746,6 +1995,7 @@ class _$_UnlikeSyncRequest implements _UnlikeSyncRequest {
     TResult? Function(int index, bool F)? unlikeRequest,
     TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
@@ -1763,6 +2013,7 @@ class _$_UnlikeSyncRequest implements _UnlikeSyncRequest {
     TResult Function(int index, bool F)? unlikeRequest,
     TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
@@ -1784,6 +2035,7 @@ class _$_UnlikeSyncRequest implements _UnlikeSyncRequest {
     required TResult Function(_UnlikeRequest value) unlikeRequest,
     required TResult Function(_RemoveItem value) removeItem,
     required TResult Function(_RemoveItemsByUserId value) removeItemsByUserId,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_LikeSyncRequest value) likeSyncRequest,
     required TResult Function(_UnlikeSyncRequest value) unlikeSyncRequest,
   }) {
@@ -1801,6 +2053,7 @@ class _$_UnlikeSyncRequest implements _UnlikeSyncRequest {
     TResult? Function(_UnlikeRequest value)? unlikeRequest,
     TResult? Function(_RemoveItem value)? removeItem,
     TResult? Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult? Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
   }) {
@@ -1818,6 +2071,7 @@ class _$_UnlikeSyncRequest implements _UnlikeSyncRequest {
     TResult Function(_UnlikeRequest value)? unlikeRequest,
     TResult Function(_RemoveItem value)? removeItem,
     TResult Function(_RemoveItemsByUserId value)? removeItemsByUserId,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_LikeSyncRequest value)? likeSyncRequest,
     TResult Function(_UnlikeSyncRequest value)? unlikeSyncRequest,
     required TResult orElse(),

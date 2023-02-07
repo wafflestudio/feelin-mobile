@@ -76,10 +76,6 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> with AutomaticKe
     }
   }
 
-  _async() async{
-    token = await storage.read(key: "token");
-  }
-
   void onRefresh() {
     context.read<ProfileBloc>().add(const ProfileEvent.resetRequest());
     if(widget.userId == null){
@@ -95,16 +91,16 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> with AutomaticKe
     scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
   }
 
+  void removeItemByPostId(String id){
+    context.read<ProfileBloc>().add(ProfileEvent.removeItemByPostId(id));
+  }
+
   @override
   bool get wantKeepAlive => true;
 
   @override
   void initState(){
     super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _async();
-    });
     _firstLoad();
     scrollController.addListener(_loadMore);
   }

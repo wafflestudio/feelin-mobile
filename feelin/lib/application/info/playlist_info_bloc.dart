@@ -89,6 +89,8 @@ class PlaylistInfoBloc extends Bloc<PlaylistInfoEvent, PlaylistInfoState>{
           emit(state.copyWith(
             deleteFailureOrSuccessOption: some(right(unit)),
           ));
+          MyKeyStore.exploreKey.currentState?.removeItemByPostId(event.postId);
+          MyKeyStore.profileKey.currentState?.removeItemByPostId(event.postId);
         },
       );
     });

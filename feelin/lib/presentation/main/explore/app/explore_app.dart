@@ -60,6 +60,10 @@ class ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProvi
     context.read<ExploreBloc>().add(ExploreEvent.unlikeSyncRequest(id));
   }
 
+  void removeItemByPostId(String id){
+    context.read<ExploreBloc>().add(ExploreEvent.removeItemByPostId(id));
+  }
+
   double tabBarVisible = 1.0;
 
   void showTabBar(){
