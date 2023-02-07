@@ -5,9 +5,6 @@ import 'package:music_sns/presentation/auth/sign_up/sign_up_code.dart';
 import 'package:music_sns/presentation/auth/sign_up/sign_up_name.dart';
 
 import 'sign_up_app_bar.dart';
-import 'sign_up_birthday.dart';
-import 'sign_up_password.dart';
-import 'sign_up_username.dart';
 
 class SignUp extends StatefulWidget{
   final bool withEmail;
@@ -65,37 +62,19 @@ class _SignUpState extends State<SignUp>{
       onTap: (){
         FocusScope.of(context).unfocus();
       },
-      child: WillPopScope(
-        onWillPop: (){
-          if(_currPage <= 2){
-            return Future.value(true);
-          }else{
-            if(_currPage == 4 || _currPage == 5){
-              context.read<SignUpFormBloc>().add(const SignUpFormEvent.resetCanUseName());
-            }
-            setState(() {
-              _currPage --;
-            });
-            return Future.value(false);
-          }
-        },
-        child: Scaffold(
-          appBar: SignUpAppBar(goToBack: goToPrevious),
-          body: SafeArea(
-            child: SizedBox(
-              width: screenSize.width,
-              height: screenSize.height,
-              child: Builder(
-                builder: (context) {
-                  if(_currPage == 1) return SignUpCode(goToNext: goToNext,);
-                  if(_currPage == 2) return SignUpName(goToNext: goToNext,);
-                  if(_currPage == 3) return SignUpBirthday(goToNext: goToNext,);
-                  if(_currPage == 4) return SignUpUsername(goToNext: goToNext,);
-                  if(_currPage == 5) return SignUpPassword(goToNext: goToNext,);
-                  return Container();
-                }
-              )
-            ),
+      child: Scaffold(
+        appBar: const SignUpAppBar(),
+        body: SafeArea(
+          child: SizedBox(
+            width: screenSize.width,
+            height: screenSize.height,
+            child: Builder(
+              builder: (context) {
+                if(_currPage == 1) return SignUpCode(goToNext: goToNext,);
+                if(_currPage == 2) return const SignUpName();
+                return Container();
+              }
+            )
           ),
         ),
       ),

@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/presentation/main/post/app/post_app.dart';
 
 import '../main/profile/app/profile_app.dart';
-import 'my_key_store.dart';
 import 'tab_item.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -58,8 +57,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
             previousIndex = index;
           });
         }else{
-          MyKeyStore.appKey.currentState?.hideBottomNavi();
-          Navigator.push(previousIndex == 0 ? widget.navigatorKeys[TabItem.home]!.currentContext! : widget.navigatorKeys[TabItem.profile]!.currentContext!, CupertinoPageRoute(
+          Navigator.push(context, CupertinoPageRoute(
             builder: (context){
               return PostApp(globalContext: previousIndex,);
             },

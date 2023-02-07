@@ -9,6 +9,7 @@ class EditProfileFormState with _$EditProfileFormState {
     required Username username,
     required bool canUseName,
     required Introduction introduction,
+    required String? imageUrl,
   }) = _EditProfileFormState;
   factory EditProfileFormState.initial() => EditProfileFormState(
     editFailureOrSuccessOption: none(),
@@ -17,5 +18,6 @@ class EditProfileFormState with _$EditProfileFormState {
     username: Username(''),
     canUseName: false,
     introduction: Introduction(''),
+    imageUrl: null
   );
 }

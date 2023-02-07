@@ -90,7 +90,7 @@ class AuthRepository{
   Future<Either<AuthFailure, Unit>> signInWithPhone(
       {required PhoneNumber phoneNumber, required NotEmptyString countryCode, required Password password}) async {
     try{
-      HttpResponse<User> httpResponse = await authClient.signIn(SignInRequest(account: phoneNumber.getOrCrash()+countryCode.getOrCrash(), password: password.getOrCrash(), type: 'PHONE'));
+      HttpResponse<User> httpResponse = await authClient.signIn(SignInRequest(account: countryCode.getOrCrash()+phoneNumber.getOrCrash(), password: password.getOrCrash(), type: 'PHONE'));
       if(httpResponse.response.statusCode == 200 || httpResponse.response.statusCode == 201){
         storage.write(key: 'token', value: httpResponse.response.headers['Access-Token']![0]);
         storage.write(key: 'refresh', value: httpResponse.response.headers['Refresh-Token']![0]);
@@ -101,7 +101,7 @@ class AuthRepository{
       }
     } on DioError catch(e){
       //print(e);
-      if(e.response?.statusCode == 401){
+      if(e.response?.statusCode == 400){
         return const Left(AuthFailure.invalidAccountAndPasswordCombination());
       }
       return const Left(AuthFailure.serverError());
@@ -141,7 +141,7 @@ class AuthRepository{
         default : return const Left(AuthFailure.serverError());
       }
     }on DioError catch(e){
-      //print(e);
+      //print(e.response);
       switch(e.response?.statusCode){
         case 400 : return const Left(AuthFailure.invalidBirthdayForm());
         case 403 : return const Left(AuthFailure.unauthorizedEmail());

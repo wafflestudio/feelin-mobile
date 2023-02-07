@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/presentation/style/colors.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../application/edit/edit_post_form/edit_post_form_bloc.dart';
 import '../../../domain/custom/marquee.dart';
@@ -72,7 +75,13 @@ class _EditPostPageState extends State<EditPostPage> {
         state.editFailureOrSuccessOption.fold(
               () => null,
               (failureOrSuccess) => failureOrSuccess.fold(
-                (f) => _showSnackBar(context, f.toString()),
+                (f) => showTopSnackBar(
+                    Overlay.of(context),
+                    CustomSnackBar.error(
+                        backgroundColor: FeelinColorFamily.errorPrimary,
+                        icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                        message: f.toString())
+                ),
                 (_) => {
               //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.playlist.tracks[0].id.toString()))),
               Navigator.pop(context, true),
@@ -224,10 +233,4 @@ class _EditPostPageState extends State<EditPostPage> {
       ),
     );
   }
-}
-
-void _showSnackBar(BuildContext context, String message) {
-  final snackBar = SnackBar(content: Text(message));
-  ScaffoldMessenger.of(context).hideCurrentSnackBar();
-  ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }

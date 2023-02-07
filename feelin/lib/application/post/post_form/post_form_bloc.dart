@@ -64,11 +64,13 @@ class PostFormBloc extends Bloc<PostFormEvent, PostFormState>{
     on<_TitleChanged>((event, emit){
       emit(state.copyWith(
         title : NotEmptyString(event.titleStr),
+        postFailureOrSuccessOption: none(),
       ));
     });
     on<_ContentChanged>((event, emit){
       emit(state.copyWith(
         content : ContentString(event.contentStr),
+        postFailureOrSuccessOption: none(),
       ));
     });
     on<_PlaylistPreviewChanged>((event, emit){

@@ -6,29 +6,31 @@ import 'package:music_sns/presentation/main/profile/app/profile_app_bar.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../../application/profile/profile_bloc.dart';
+import '../../../../domain/profile/profile.dart';
 import '../../../../injection.dart';
 import '../../../common/restricted_page.dart';
 import '../profile_page.dart';
 
 class ProfileApp extends StatelessWidget {
   final String? userId;
+  final Profile? sink;
   final GlobalKey<ProfileAppScaffoldState>? profileKey;
 
-  const ProfileApp({Key? key, this.userId, this.profileKey}) : super(key: key);
+  const ProfileApp({Key? key, this.userId, this.profileKey, this.sink}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
 
     return BlocProvider(create: (context) => getIt<ProfileBloc>(),
-      child: ProfileAppScaffold(userId, key: profileKey,),
+      child: ProfileAppScaffold(userId, key: profileKey, sink: sink),
     );
   }
 }
 
 class ProfileAppScaffold extends StatefulWidget{
   final String? userId;
-
-  const ProfileAppScaffold(this.userId, {Key? key}) : super(key: key);
+  final Profile? sink;
+  const ProfileAppScaffold(this.userId, {Key? key, this.sink}) : super(key: key);
 
   @override
   State<ProfileAppScaffold> createState() => ProfileAppScaffoldState();
@@ -115,6 +117,8 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> with AutomaticKe
 
   bool firstLoaded = false;
 
+  bool temp = true;
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -132,25 +136,19 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> with AutomaticKe
       },
       child: BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, state) {
-          return state.isRestricted ? const RestrictedPage() : WillPopScope(
-            onWillPop: ()async{
-              Navigator.pop(context, state.isFollowed);
-              return false;
-            },
-            child: Scaffold(
-              appBar: ProfileAppBar(isRoot: (widget.userId == null), function: goToTop, onRefresh: onRefresh,
-                onBack: (){
-                  Navigator.pop(context, state.isFollowed);
-                },
-              ),
-              body: RefreshIndicator(
-                color: FeelinColorFamily.redPrimary,
-                onRefresh: () {
-                  onRefresh();
-                  return Future.delayed(const Duration(milliseconds: 400), ()=>Future<void>.value());
-                  },
-                  child: ProfilePage(userId: widget.userId, scrollController: scrollController,)),
+          return state.isRestricted ? const RestrictedPage() : Scaffold(
+            appBar: ProfileAppBar(isRoot: (widget.userId == null), function: goToTop, onRefresh: onRefresh,
+              onBack: (){
+                Navigator.pop(context, state.isFollowed);
+              },
             ),
+            body: RefreshIndicator(
+              color: FeelinColorFamily.redPrimary,
+              onRefresh: () {
+                onRefresh();
+                return Future.delayed(const Duration(milliseconds: 400), ()=>Future<void>.value());
+                },
+                child: ProfilePage(userId: widget.userId, scrollController: scrollController, sink: widget.sink,)),
           );
         }
       ),

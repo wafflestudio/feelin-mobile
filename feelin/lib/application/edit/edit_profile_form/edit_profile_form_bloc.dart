@@ -57,13 +57,19 @@ class EditProfileFormBloc extends Bloc<EditProfileFormEvent, EditProfileFormStat
       ));
     });
 
+    on<_ImageUrlChanged>((event, emit) {
+      emit(state.copyWith(
+        imageUrl: event.imageUrlStr,
+      ));
+    });
+
     on<_Submitted>((event, emit) async {
       emit(state.copyWith(
         isSubmitting: true,
       ));
       if(state.introduction.isValid() && state.username.isValid() && state.name.isValid()){
         final failureOrSuccess = await _profileRepository.editMyProfile(
-          name: state.name, username: state.username, introduction: state.introduction, image: null,
+          name: state.name, username: state.username, introduction: state.introduction, image: state.imageUrl,
         );
         failureOrSuccess.fold(
               (f) {

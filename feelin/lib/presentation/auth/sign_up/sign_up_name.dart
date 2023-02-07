@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_up/common_title.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_birthday.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -9,8 +11,7 @@ import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';
 
 class SignUpName extends StatefulWidget{
-  final Function goToNext;
-  const SignUpName({Key? key, required this.goToNext,}) : super(key: key);
+  const SignUpName({Key? key,}) : super(key: key);
 
   @override
   State<SignUpName> createState() => _SignUpNameState();
@@ -100,7 +101,14 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
                   padding: const EdgeInsets.only(bottom: 8, top: 10),
                   child: NextButton(disabled: name.isEmpty,
                     function: (){
-                      widget.goToNext();
+                      Navigator.push(context, CupertinoPageRoute(
+                        builder: (context2){
+                          return BlocProvider.value(
+                              value: context.read<SignUpFormBloc>(),
+                              child: const SignUpBirthday());
+                        },
+                      ),
+                      );
                     },),
                 ),
               ],
@@ -125,7 +133,14 @@ class _SignUpNameState extends State<SignUpName> with AutomaticKeepAliveClientMi
               textInputAction: TextInputAction.next,
               onFieldSubmitted: (_){
                 if(name.isNotEmpty){
-                  widget.goToNext();
+                  Navigator.push(context, CupertinoPageRoute(
+                    builder: (context2){
+                      return BlocProvider.value(
+                          value: context.read<SignUpFormBloc>(),
+                          child: const SignUpBirthday());
+                    },
+                  ),
+                  );
                 }
               },
               style: const TextStyle(

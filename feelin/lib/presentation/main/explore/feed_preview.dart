@@ -51,22 +51,16 @@ class _FeedPreviewState extends State<FeedPreview> {
               Navigator.push(context, CupertinoPageRoute(
                 builder: (context){
                   return BlocProvider(
-                      create: (context) => getIt<PlaylistInfoBloc>(),
+                      create: (context) => getIt<PlaylistInfoBloc>()..add(PlaylistInfoEvent.loadRequest(widget.post.id)),
                       child: PlaylistInfoPage(post: widget.post, postId: widget.post.id,
                         heroNumber: widget.index,
                         width: MediaQuery.of(context).size.width,
                         deleteItem: widget.deleteItem,));
                 },
               ),
-              ).then((value){
-                if(value != null){
-                  setState(() {
-                    widget.post.title = value.title;
-                    widget.post.content = value.content;
-                    isLiked = value.isLiked;
-                    widget.post.likeCount = value.likeCount;
-                  });
-              }});
+              ).whenComplete(() => setState((){
+                isLiked = widget.post.isLiked!;
+              }));
             },
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -121,7 +115,7 @@ class _FeedPreviewState extends State<FeedPreview> {
                         ),
                       ),
                       Container(
-                        padding: const EdgeInsets.fromLTRB(13, 10, 0, 10),
+                        padding: const EdgeInsets.fromLTRB(15, 12, 0, 10),
                         constraints: const BoxConstraints(minHeight: 70, minWidth: double.infinity),
                         child: Stack(
                           children: [

@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:focus_detector/focus_detector.dart';
 import 'package:music_sns/application/post/post_form/post_form_bloc.dart';
-import 'package:music_sns/presentation/app/my_key_store.dart';
-import 'package:music_sns/presentation/main/post/post_detail_page.dart';
 import 'package:music_sns/presentation/main/post/post_page.dart';
 
 import '../../../../injection.dart';
-import '../post_track_page.dart';
 import 'post_app_bar.dart';
 
 class PostApp extends StatelessWidget {
@@ -34,22 +30,6 @@ class PostAppScaffold extends StatefulWidget {
 
 class _PostAppScaffoldState extends State<PostAppScaffold> {
 
-  int _currPage = 1;
-
-  void goToNext() => setState(() {
-    _currPage++;
-  });
-
-  void goToPrevious() => setState(() {
-    if(_currPage > 1){
-      _currPage--;
-    }else{
-      // pop
-      MyKeyStore.appKey.currentState?.showBottomNavi();
-      Navigator.pop(context);
-    }
-  });
-
   @override
   void initState() {
     super.initState();
@@ -57,36 +37,9 @@ class _PostAppScaffoldState extends State<PostAppScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return FocusDetector(
-      onFocusGained: (){
-        MyKeyStore.appKey.currentState?.hideBottomNavi();
-      },
-      onFocusLost: (){
-        MyKeyStore.appKey.currentState?.showBottomNavi();
-      },
-      child: WillPopScope(
-        onWillPop: (){
-          if(_currPage == 1){
-            MyKeyStore.appKey.currentState?.showBottomNavi();
-            return Future.value(true);
-          }else{
-            setState(() {
-              _currPage --;
-            });
-            return Future.value(false);
-          }
-        },
-        child: Scaffold(
-          //backgroundColor: Colors.white,
-          appBar: PostAppBar(goToBack: goToPrevious, goToNext: goToNext, currPage: _currPage,),
-          body: Builder(builder: (BuildContext context){
-            if(_currPage == 1) return PostPage(goToNext: goToNext);
-            if(_currPage == 2) return PostTrackPage(goToNext: goToNext);
-            if(_currPage == 3) return PostDetailPage(globalContext: widget.globalContext,);
-            return Container();
-          }),
-        ),
-      ),
+    return Scaffold(
+      appBar: PostAppBar(currPage: 1, goToNext: (){},),
+      body: PostPage(globalContext: widget.globalContext),
     );
   }
 }

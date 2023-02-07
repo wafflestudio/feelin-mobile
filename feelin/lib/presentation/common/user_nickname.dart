@@ -24,8 +24,8 @@ class UserNickname extends StatelessWidget{
             borderRadius: BorderRadius.circular(isBig ? 16 : 12),
             child: Image(
               image: profile.profileImage == null ? const AssetImage('assets/images/user_default.png') as ImageProvider : CachedNetworkImageProvider(profile.profileImage!),
-              width: isBig ? 36 : 24,
-              height: isBig ? 36 : 24,
+              width: isBig ? 32 : 24,
+              height: isBig ? 32 : 24,
               fit: BoxFit.cover,
             )
           ),

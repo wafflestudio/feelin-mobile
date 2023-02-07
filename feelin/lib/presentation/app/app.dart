@@ -18,7 +18,7 @@ class App extends StatefulWidget {
 
 class AppState extends State<App>{
   var _currentTab = TabItem.home;
-  final _navigatorKeys = {
+  final navigatorKeys = {
     TabItem.home: GlobalKey<NavigatorState>(),
     TabItem.post: GlobalKey<NavigatorState>(),
     TabItem.profile: GlobalKey<NavigatorState>(),
@@ -29,7 +29,7 @@ class AppState extends State<App>{
 
   void _selectTab(TabItem tabItem) {
     if (tabItem == _currentTab) {
-      if(!_navigatorKeys[tabItem]!.currentState!.canPop()){
+      if(!navigatorKeys[tabItem]!.currentState!.canPop()){
         if(tabItem == TabItem.profile){
           MyKeyStore.profileKey.currentState?.goToTop();
         }else if(tabItem == TabItem.home){
@@ -37,7 +37,7 @@ class AppState extends State<App>{
         }
       }
       // 현재 탭 버튼 두 번 누르면 해당 탭의 처음 루트로 복귀
-      _navigatorKeys[tabItem]!.currentState!.popUntil((route) => route.isFirst);
+      navigatorKeys[tabItem]!.currentState!.popUntil((route) => route.isFirst);
     } else {
       setState(() {
         _currentTab = tabItem;
@@ -74,7 +74,7 @@ class AppState extends State<App>{
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        final isFirstRouteInCurrentTab = !_navigatorKeys[_currentTab]!.currentState!.canPop();
+        final isFirstRouteInCurrentTab = !navigatorKeys[_currentTab]!.currentState!.canPop();
         if (isFirstRouteInCurrentTab) {
           // if not on the 'main' tab
           if (_currentTab != TabItem.home) {
@@ -85,7 +85,7 @@ class AppState extends State<App>{
           }
           return true;
         }else {
-          _navigatorKeys[_currentTab]!.currentState!.maybePop();
+          navigatorKeys[_currentTab]!.currentState!.maybePop();
           return false;
         }
       },
@@ -98,13 +98,13 @@ class AppState extends State<App>{
         bottomNavigationBar: SingleChildScrollView(
           child: AnimatedSize(
             duration: const Duration(milliseconds: 1),
-            child: Container(
+            child: SizedBox(
               height: isVisibleBottom ? null : 0.0,
               child: BottomNavigation(
                 currentTab: _currentTab,
                 onSelectTab: _selectTab,
                 profileKey: _profileKey,
-                navigatorKeys: _navigatorKeys,
+                navigatorKeys: navigatorKeys,
               ),
             ) ,
           ),
@@ -117,7 +117,7 @@ class AppState extends State<App>{
     return Offstage(
       offstage: _currentTab != tabItem,
       child: TabNavigator(
-        navigatorKey: _navigatorKeys[tabItem],
+        navigatorKey: navigatorKeys[tabItem],
         tabItem: tabItem,
       ),
     );

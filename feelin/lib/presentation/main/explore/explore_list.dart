@@ -78,9 +78,7 @@ class _PostListState extends State<ExploreList> {
                   padding: const EdgeInsets.only(bottom: 18.0, left: 8, right: 8),
                   child: FeedPreview(index: index, post: widget.feeds[index], isFollowing: widget.isFollowing,
                     deleteItem: (){
-                      if(!widget.isFollowing){
-                        context.read<ExploreBloc>().add(ExploreEvent.removeItem(index));
-                      }
+                      context.read<ExploreBloc>().add(ExploreEvent.removeItem(index, widget.isFollowing));
                     },
                   ),
                 );

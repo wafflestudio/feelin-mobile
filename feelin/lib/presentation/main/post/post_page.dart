@@ -1,9 +1,10 @@
 
 import 'package:external_app_launcher/external_app_launcher.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:music_sns/presentation/main/post/post_track_page.dart';
 import 'package:music_sns/presentation/streaming/platform_button.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -15,16 +16,15 @@ import '../../style/colors.dart';
 import 'webview_page.dart';
 
 class PostPage extends StatefulWidget{
-  final Function goToNext;
+  final int globalContext;
 
-  const PostPage({Key? key, required this.goToNext, }) : super(key: key);
+  const PostPage({Key? key, required this.globalContext}) : super(key: key);
 
   @override
   State<PostPage> createState() => _PostPageState();
 }
 class _PostPageState extends State<PostPage>{
   final _formKey = GlobalKey<FormState>();
-  final storage = const FlutterSecureStorage();
   String link = '';
   bool navigated = true;
 
@@ -39,7 +39,6 @@ class _PostPageState extends State<PostPage>{
   @override
   void initState(){
     super.initState();
-    storage.write(key: 'MusicPlatform', value: 'Flo');
   }
 
   void onSubmitted(){
@@ -71,24 +70,46 @@ class _PostPageState extends State<PostPage>{
                 (f) => f.maybeMap(
                     noSuchPlaylistExists: (_) =>showTopSnackBar(
                         Overlay.of(context),
-                        const CustomSnackBar.error(message: 'playlist does not exist.')
+                        CustomSnackBar.error(
+                            backgroundColor: FeelinColorFamily.errorPrimary,
+                            icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                            message: 'playlist does not exist.')
                     ),
                     invalidUrl: (_) => showTopSnackBar(
                         Overlay.of(context),
-                        const CustomSnackBar.error(message: 'Please enter the valid Playlist URL.')
+                        CustomSnackBar.error(
+                            backgroundColor: FeelinColorFamily.errorPrimary,
+                            icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                            message: 'Please enter the valid Playlist URL.')
                     ),
                     notSupportingVendor: (_)=>showTopSnackBar(
                         Overlay.of(context),
-                        const CustomSnackBar.error(message: 'This streaming platform is not yet supported.')
+                        CustomSnackBar.error(
+                            backgroundColor: FeelinColorFamily.errorPrimary,
+                            icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                            message: 'This streaming platform is not yet supported.')
                     ),
                     orElse: ()=>showTopSnackBar(
                         Overlay.of(context),
-                        const CustomSnackBar.error(message: 'server error')
+                        CustomSnackBar.error(
+                            backgroundColor: FeelinColorFamily.errorPrimary,
+                            icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                            message: 'server error')
                     )),
                 (playlist) {
                   if(!navigated) {
                     navigated = true;
-                    widget.goToNext();
+                    Navigator.push(context, CupertinoPageRoute(
+                      builder: (context2){
+                        return BlocProvider.value(
+                            value: context.read<PostFormBloc>(),
+                            child: PostTrackPage(globalContext: widget.globalContext,));
+                      },
+                    ),
+                    );
+                    context.read<PostFormBloc>().add(const PostFormEvent.urlChanged(''));
+                    _linkTextController.clear();
+                    link = '';
                   }
             },
           ),

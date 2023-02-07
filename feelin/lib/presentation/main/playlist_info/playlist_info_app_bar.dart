@@ -122,11 +122,17 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                 (f) => f.maybeMap(
               alreadyBlocked: (_)=>showTopSnackBar(
                 Overlay.of(context),
-                const CustomSnackBar.error(message: 'You have already blocked this user.'),
+                CustomSnackBar.error(
+                    backgroundColor: FeelinColorFamily.errorPrimary,
+                    icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                    message: 'You have already blocked this user.'),
               ),
               orElse: ()=>showTopSnackBar(
                 Overlay.of(context),
-                const CustomSnackBar.error(message: 'Server Error'),
+                CustomSnackBar.error(
+                    backgroundColor: FeelinColorFamily.errorPrimary,
+                    icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                    message: 'Server Error'),
               ),
             ),
                 (_) => showTopSnackBar(
@@ -201,7 +207,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                 )
               ],
             ),
-            actions: widget.isShrink
+            actions: (widget.isShrink || state.isLoading)
                 ? null : [IconButton(onPressed: (){
                   PlaylistInfoBloc bloc = context.read<PlaylistInfoBloc>();
               showModalBottomSheet<void>(

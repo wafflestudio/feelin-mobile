@@ -32,7 +32,7 @@ Dio getAuthDio({required String baseUrl}) {
     if (error.response?.statusCode == 401) {
 
       // 기기에 저장된 AccessToken과 RefreshToken 로드
-      final accessToken = await storage.read(key: 'token');
+      //final accessToken = await storage.read(key: 'token');
       final refreshToken = await storage.read(key: 'refresh');
 
       // 토큰 갱신 요청을 담당할 dio 객체 구현 후 그에 따른 interceptor 정의

@@ -27,9 +27,9 @@ class _PostPreviewState extends State<PostPreview> {
     return GestureDetector(
       onTap: (){
         Navigator.push(context, CupertinoPageRoute(
-          builder: (context){
+          builder: (context,){
             return BlocProvider(
-                create: (context) => getIt<PlaylistInfoBloc>(),
+                create: (context) => getIt<PlaylistInfoBloc>()..add(PlaylistInfoEvent.loadRequest(widget.post.id)),
                 child: PlaylistInfoPage(post: widget.post, postId: widget.post.id, heroNumber: widget.index, width: MediaQuery.of(context).size.width,
                 deleteItem: widget.deleteItem,
                 ));

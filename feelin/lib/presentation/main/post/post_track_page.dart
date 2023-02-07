@@ -1,15 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/post/post_form/post_form_bloc.dart';
 import 'package:music_sns/domain/play/playlist.dart';
+import 'package:music_sns/presentation/main/post/app/post_app_bar.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../domain/custom/marquee.dart';
+import 'post_detail_page.dart';
 
 class PostTrackPage extends StatefulWidget{
-  final Function goToNext;
-  const PostTrackPage({Key? key, required this.goToNext}) : super(key: key);
+  final int globalContext;
+  const PostTrackPage({Key? key, required this.globalContext}) : super(key: key);
 
   @override
   State<PostTrackPage> createState() => _PostDetailPageState();
@@ -35,8 +38,18 @@ class _PostDetailPageState extends State<PostTrackPage> {
     MediaQueryData deviceData = MediaQuery.of(context);
     Size screenSize = deviceData.size;
 
-    return Container(
-      child: _postDetailForm(screenSize),
+    return Scaffold(
+      appBar: PostAppBar(currPage: 2, goToNext: (){
+        Navigator.push(context, CupertinoPageRoute(
+          builder: (context2){
+            return BlocProvider.value(
+                value: context.read<PostFormBloc>(),
+                child: PostDetailPage(globalContext: widget.globalContext));
+          },
+        ),
+        );
+      },),
+      body: _postDetailForm(screenSize),
     );
   }
 

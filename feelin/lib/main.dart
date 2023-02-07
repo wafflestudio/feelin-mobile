@@ -6,7 +6,6 @@ import 'package:injectable/injectable.dart';
 import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/application/streaming/streaming_bloc.dart';
 import 'package:music_sns/injection.dart';
-import 'package:music_sns/presentation/app/tab_navigator.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import 'env.dart';
@@ -68,6 +67,12 @@ class MyApp extends StatelessWidget {
             style: ButtonStyle(
               elevation: MaterialStateProperty.all(0),
             )
+          ),
+          pageTransitionsTheme: const PageTransitionsTheme(
+              builders: {
+                TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+                TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+              }
           ),
           textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
