@@ -17,7 +17,7 @@ class Marquee extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _MarqueeState createState() => _MarqueeState();
+  State<Marquee> createState() => _MarqueeState();
 }
 
 class _MarqueeState extends State<Marquee> {

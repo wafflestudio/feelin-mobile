@@ -172,9 +172,15 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState>{
     });
 
     on<_RemoveItem>((event, emit) async {
-      emit(state.copyWith(
-        feeds: List.from(state.feeds)..removeAt(event.index),
-      ));
+      if(event.F){
+        emit(state.copyWith(
+          feedsF: List.from(state.feedsF)..removeAt(event.index),
+        ));
+      }else{
+        emit(state.copyWith(
+          feeds: List.from(state.feeds)..removeAt(event.index),
+        ));
+      }
     });
 
     on<_RemoveItemsByUserId>((event, emit) async {

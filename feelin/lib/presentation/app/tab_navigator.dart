@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_sns/presentation/main/explore/app/explore_app.dart';
 
-import '../main/post/app/post_app.dart';
 import '../main/profile/app/profile_app.dart';
 import 'my_key_store.dart';
 import 'tab_item.dart';

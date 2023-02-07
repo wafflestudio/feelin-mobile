@@ -24,7 +24,7 @@ mixin _$ExploreEvent {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
@@ -38,7 +38,7 @@ mixin _$ExploreEvent {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
@@ -52,7 +52,7 @@ mixin _$ExploreEvent {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
@@ -166,7 +166,7 @@ class _$_LoadRequest implements _LoadRequest {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
@@ -183,7 +183,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
@@ -200,7 +200,7 @@ class _$_LoadRequest implements _LoadRequest {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
@@ -316,7 +316,7 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
@@ -333,7 +333,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
@@ -350,7 +350,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
@@ -466,7 +466,7 @@ class _$_ResetFRequest implements _ResetFRequest {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
@@ -483,7 +483,7 @@ class _$_ResetFRequest implements _ResetFRequest {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
@@ -500,7 +500,7 @@ class _$_ResetFRequest implements _ResetFRequest {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
@@ -616,7 +616,7 @@ class _$_LoadFRequest implements _LoadFRequest {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
@@ -633,7 +633,7 @@ class _$_LoadFRequest implements _LoadFRequest {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
@@ -650,7 +650,7 @@ class _$_LoadFRequest implements _LoadFRequest {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
@@ -800,7 +800,7 @@ class _$_LikeRequest implements _LikeRequest {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
@@ -817,7 +817,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
@@ -834,7 +834,7 @@ class _$_LikeRequest implements _LikeRequest {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
@@ -990,7 +990,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
@@ -1007,7 +1007,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
@@ -1024,7 +1024,7 @@ class _$_UnlikeRequest implements _UnlikeRequest {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
@@ -1109,7 +1109,7 @@ abstract class _$$_RemoveItemCopyWith<$Res> {
           _$_RemoveItem value, $Res Function(_$_RemoveItem) then) =
       __$$_RemoveItemCopyWithImpl<$Res>;
   @useResult
-  $Res call({int index});
+  $Res call({int index, bool F});
 }
 
 /// @nodoc
@@ -1124,12 +1124,17 @@ class __$$_RemoveItemCopyWithImpl<$Res>
   @override
   $Res call({
     Object? index = null,
+    Object? F = null,
   }) {
     return _then(_$_RemoveItem(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
+      null == F
+          ? _value.F
+          : F // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1137,14 +1142,16 @@ class __$$_RemoveItemCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_RemoveItem implements _RemoveItem {
-  const _$_RemoveItem(this.index);
+  const _$_RemoveItem(this.index, this.F);
 
   @override
   final int index;
+  @override
+  final bool F;
 
   @override
   String toString() {
-    return 'ExploreEvent.removeItem(index: $index)';
+    return 'ExploreEvent.removeItem(index: $index, F: $F)';
   }
 
   @override
@@ -1152,11 +1159,12 @@ class _$_RemoveItem implements _RemoveItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RemoveItem &&
-            (identical(other.index, index) || other.index == index));
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.F, F) || other.F == F));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index);
+  int get hashCode => Object.hash(runtimeType, index, F);
 
   @JsonKey(ignore: true)
   @override
@@ -1173,12 +1181,12 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
   }) {
-    return removeItem(index);
+    return removeItem(index, F);
   }
 
   @override
@@ -1190,12 +1198,12 @@ class _$_RemoveItem implements _RemoveItem {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
   }) {
-    return removeItem?.call(index);
+    return removeItem?.call(index, F);
   }
 
   @override
@@ -1207,14 +1215,14 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
     required TResult orElse(),
   }) {
     if (removeItem != null) {
-      return removeItem(index);
+      return removeItem(index, F);
     }
     return orElse();
   }
@@ -1276,9 +1284,10 @@ class _$_RemoveItem implements _RemoveItem {
 }
 
 abstract class _RemoveItem implements ExploreEvent {
-  const factory _RemoveItem(final int index) = _$_RemoveItem;
+  const factory _RemoveItem(final int index, final bool F) = _$_RemoveItem;
 
   int get index;
+  bool get F;
   @JsonKey(ignore: true)
   _$$_RemoveItemCopyWith<_$_RemoveItem> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1355,7 +1364,7 @@ class _$_RemoveItemsByUserId implements _RemoveItemsByUserId {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
@@ -1372,7 +1381,7 @@ class _$_RemoveItemsByUserId implements _RemoveItemsByUserId {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
@@ -1389,7 +1398,7 @@ class _$_RemoveItemsByUserId implements _RemoveItemsByUserId {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
@@ -1536,7 +1545,7 @@ class _$_LikeSyncRequest implements _LikeSyncRequest {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
@@ -1553,7 +1562,7 @@ class _$_LikeSyncRequest implements _LikeSyncRequest {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
@@ -1570,7 +1579,7 @@ class _$_LikeSyncRequest implements _LikeSyncRequest {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,
@@ -1718,7 +1727,7 @@ class _$_UnlikeSyncRequest implements _UnlikeSyncRequest {
     required TResult Function() loadFRequest,
     required TResult Function(int index, bool F) likeRequest,
     required TResult Function(int index, bool F) unlikeRequest,
-    required TResult Function(int index) removeItem,
+    required TResult Function(int index, bool F) removeItem,
     required TResult Function(String id) removeItemsByUserId,
     required TResult Function(String id) likeSyncRequest,
     required TResult Function(String id) unlikeSyncRequest,
@@ -1735,7 +1744,7 @@ class _$_UnlikeSyncRequest implements _UnlikeSyncRequest {
     TResult? Function()? loadFRequest,
     TResult? Function(int index, bool F)? likeRequest,
     TResult? Function(int index, bool F)? unlikeRequest,
-    TResult? Function(int index)? removeItem,
+    TResult? Function(int index, bool F)? removeItem,
     TResult? Function(String id)? removeItemsByUserId,
     TResult? Function(String id)? likeSyncRequest,
     TResult? Function(String id)? unlikeSyncRequest,
@@ -1752,7 +1761,7 @@ class _$_UnlikeSyncRequest implements _UnlikeSyncRequest {
     TResult Function()? loadFRequest,
     TResult Function(int index, bool F)? likeRequest,
     TResult Function(int index, bool F)? unlikeRequest,
-    TResult Function(int index)? removeItem,
+    TResult Function(int index, bool F)? removeItem,
     TResult Function(String id)? removeItemsByUserId,
     TResult Function(String id)? likeSyncRequest,
     TResult Function(String id)? unlikeSyncRequest,

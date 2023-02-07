@@ -32,12 +32,12 @@ class _ExploreAppBarState extends State<ExploreAppBar> {
             child: Center(
               child: RichText(
                 text: TextSpan(
-                  style:  TextStyle(
+                  style:  const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 24,
                   ),
                   children: [
-                    TextSpan(text: 'Feelin',
+                    const TextSpan(text: 'Feelin',
                       style: TextStyle(
                         color: Colors.black,
                       ),

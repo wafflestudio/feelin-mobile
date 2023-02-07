@@ -21,6 +21,7 @@ mixin _$EditProfileFormEvent {
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String? imageUrlStr) imageUrlChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) =>
@@ -30,6 +31,7 @@ mixin _$EditProfileFormEvent {
     TResult? Function()? submitted,
     TResult? Function(String usernameStr)? usernameChanged,
     TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String? imageUrlStr)? imageUrlChanged,
     TResult? Function()? resetCanUseName,
     TResult? Function(String introductionStr)? introductionChanged,
   }) =>
@@ -39,6 +41,7 @@ mixin _$EditProfileFormEvent {
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String nameStr)? nameChanged,
+    TResult Function(String? imageUrlStr)? imageUrlChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -49,6 +52,7 @@ mixin _$EditProfileFormEvent {
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_ImageUrlChanged value) imageUrlChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) =>
@@ -58,6 +62,7 @@ mixin _$EditProfileFormEvent {
     TResult? Function(_Submitted value)? submitted,
     TResult? Function(_UsernameChanged value)? usernameChanged,
     TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) =>
@@ -67,6 +72,7 @@ mixin _$EditProfileFormEvent {
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -134,6 +140,7 @@ class _$_Submitted implements _Submitted {
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String? imageUrlStr) imageUrlChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) {
@@ -146,6 +153,7 @@ class _$_Submitted implements _Submitted {
     TResult? Function()? submitted,
     TResult? Function(String usernameStr)? usernameChanged,
     TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String? imageUrlStr)? imageUrlChanged,
     TResult? Function()? resetCanUseName,
     TResult? Function(String introductionStr)? introductionChanged,
   }) {
@@ -158,6 +166,7 @@ class _$_Submitted implements _Submitted {
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String nameStr)? nameChanged,
+    TResult Function(String? imageUrlStr)? imageUrlChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -174,6 +183,7 @@ class _$_Submitted implements _Submitted {
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_ImageUrlChanged value) imageUrlChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) {
@@ -186,6 +196,7 @@ class _$_Submitted implements _Submitted {
     TResult? Function(_Submitted value)? submitted,
     TResult? Function(_UsernameChanged value)? usernameChanged,
     TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) {
@@ -198,6 +209,7 @@ class _$_Submitted implements _Submitted {
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -281,6 +293,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String? imageUrlStr) imageUrlChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) {
@@ -293,6 +306,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult? Function()? submitted,
     TResult? Function(String usernameStr)? usernameChanged,
     TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String? imageUrlStr)? imageUrlChanged,
     TResult? Function()? resetCanUseName,
     TResult? Function(String introductionStr)? introductionChanged,
   }) {
@@ -305,6 +319,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String nameStr)? nameChanged,
+    TResult Function(String? imageUrlStr)? imageUrlChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -321,6 +336,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_ImageUrlChanged value) imageUrlChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) {
@@ -333,6 +349,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult? Function(_Submitted value)? submitted,
     TResult? Function(_UsernameChanged value)? usernameChanged,
     TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) {
@@ -345,6 +362,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -432,6 +450,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String? imageUrlStr) imageUrlChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) {
@@ -444,6 +463,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function()? submitted,
     TResult? Function(String usernameStr)? usernameChanged,
     TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String? imageUrlStr)? imageUrlChanged,
     TResult? Function()? resetCanUseName,
     TResult? Function(String introductionStr)? introductionChanged,
   }) {
@@ -456,6 +476,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String nameStr)? nameChanged,
+    TResult Function(String? imageUrlStr)? imageUrlChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -472,6 +493,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_ImageUrlChanged value) imageUrlChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) {
@@ -484,6 +506,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(_Submitted value)? submitted,
     TResult? Function(_UsernameChanged value)? usernameChanged,
     TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) {
@@ -496,6 +519,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -513,6 +537,165 @@ abstract class _NameChanged implements EditProfileFormEvent {
   String get nameStr;
   @JsonKey(ignore: true)
   _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ImageUrlChangedCopyWith<$Res> {
+  factory _$$_ImageUrlChangedCopyWith(
+          _$_ImageUrlChanged value, $Res Function(_$_ImageUrlChanged) then) =
+      __$$_ImageUrlChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? imageUrlStr});
+}
+
+/// @nodoc
+class __$$_ImageUrlChangedCopyWithImpl<$Res>
+    extends _$EditProfileFormEventCopyWithImpl<$Res, _$_ImageUrlChanged>
+    implements _$$_ImageUrlChangedCopyWith<$Res> {
+  __$$_ImageUrlChangedCopyWithImpl(
+      _$_ImageUrlChanged _value, $Res Function(_$_ImageUrlChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imageUrlStr = freezed,
+  }) {
+    return _then(_$_ImageUrlChanged(
+      freezed == imageUrlStr
+          ? _value.imageUrlStr
+          : imageUrlStr // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ImageUrlChanged implements _ImageUrlChanged {
+  const _$_ImageUrlChanged(this.imageUrlStr);
+
+  @override
+  final String? imageUrlStr;
+
+  @override
+  String toString() {
+    return 'EditProfileFormEvent.imageUrlChanged(imageUrlStr: $imageUrlStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ImageUrlChanged &&
+            (identical(other.imageUrlStr, imageUrlStr) ||
+                other.imageUrlStr == imageUrlStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, imageUrlStr);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ImageUrlChangedCopyWith<_$_ImageUrlChanged> get copyWith =>
+      __$$_ImageUrlChangedCopyWithImpl<_$_ImageUrlChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() submitted,
+    required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String? imageUrlStr) imageUrlChanged,
+    required TResult Function() resetCanUseName,
+    required TResult Function(String introductionStr) introductionChanged,
+  }) {
+    return imageUrlChanged(imageUrlStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? submitted,
+    TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String? imageUrlStr)? imageUrlChanged,
+    TResult? Function()? resetCanUseName,
+    TResult? Function(String introductionStr)? introductionChanged,
+  }) {
+    return imageUrlChanged?.call(imageUrlStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? submitted,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String? imageUrlStr)? imageUrlChanged,
+    TResult Function()? resetCanUseName,
+    TResult Function(String introductionStr)? introductionChanged,
+    required TResult orElse(),
+  }) {
+    if (imageUrlChanged != null) {
+      return imageUrlChanged(imageUrlStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_ImageUrlChanged value) imageUrlChanged,
+    required TResult Function(_ResetCanUseName value) resetCanUseName,
+    required TResult Function(_IntroductionChanged value) introductionChanged,
+  }) {
+    return imageUrlChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ImageUrlChanged value)? imageUrlChanged,
+    TResult? Function(_ResetCanUseName value)? resetCanUseName,
+    TResult? Function(_IntroductionChanged value)? introductionChanged,
+  }) {
+    return imageUrlChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ImageUrlChanged value)? imageUrlChanged,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_IntroductionChanged value)? introductionChanged,
+    required TResult orElse(),
+  }) {
+    if (imageUrlChanged != null) {
+      return imageUrlChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ImageUrlChanged implements EditProfileFormEvent {
+  const factory _ImageUrlChanged(final String? imageUrlStr) =
+      _$_ImageUrlChanged;
+
+  String? get imageUrlStr;
+  @JsonKey(ignore: true)
+  _$$_ImageUrlChangedCopyWith<_$_ImageUrlChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -557,6 +740,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String? imageUrlStr) imageUrlChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) {
@@ -569,6 +753,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult? Function()? submitted,
     TResult? Function(String usernameStr)? usernameChanged,
     TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String? imageUrlStr)? imageUrlChanged,
     TResult? Function()? resetCanUseName,
     TResult? Function(String introductionStr)? introductionChanged,
   }) {
@@ -581,6 +766,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String nameStr)? nameChanged,
+    TResult Function(String? imageUrlStr)? imageUrlChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -597,6 +783,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_ImageUrlChanged value) imageUrlChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) {
@@ -609,6 +796,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult? Function(_Submitted value)? submitted,
     TResult? Function(_UsernameChanged value)? usernameChanged,
     TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) {
@@ -621,6 +809,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -705,6 +894,7 @@ class _$_IntroductionChanged implements _IntroductionChanged {
     required TResult Function() submitted,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String? imageUrlStr) imageUrlChanged,
     required TResult Function() resetCanUseName,
     required TResult Function(String introductionStr) introductionChanged,
   }) {
@@ -717,6 +907,7 @@ class _$_IntroductionChanged implements _IntroductionChanged {
     TResult? Function()? submitted,
     TResult? Function(String usernameStr)? usernameChanged,
     TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String? imageUrlStr)? imageUrlChanged,
     TResult? Function()? resetCanUseName,
     TResult? Function(String introductionStr)? introductionChanged,
   }) {
@@ -729,6 +920,7 @@ class _$_IntroductionChanged implements _IntroductionChanged {
     TResult Function()? submitted,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String nameStr)? nameChanged,
+    TResult Function(String? imageUrlStr)? imageUrlChanged,
     TResult Function()? resetCanUseName,
     TResult Function(String introductionStr)? introductionChanged,
     required TResult orElse(),
@@ -745,6 +937,7 @@ class _$_IntroductionChanged implements _IntroductionChanged {
     required TResult Function(_Submitted value) submitted,
     required TResult Function(_UsernameChanged value) usernameChanged,
     required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_ImageUrlChanged value) imageUrlChanged,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_IntroductionChanged value) introductionChanged,
   }) {
@@ -757,6 +950,7 @@ class _$_IntroductionChanged implements _IntroductionChanged {
     TResult? Function(_Submitted value)? submitted,
     TResult? Function(_UsernameChanged value)? usernameChanged,
     TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_IntroductionChanged value)? introductionChanged,
   }) {
@@ -769,6 +963,7 @@ class _$_IntroductionChanged implements _IntroductionChanged {
     TResult Function(_Submitted value)? submitted,
     TResult Function(_UsernameChanged value)? usernameChanged,
     TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ImageUrlChanged value)? imageUrlChanged,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_IntroductionChanged value)? introductionChanged,
     required TResult orElse(),
@@ -799,6 +994,7 @@ mixin _$EditProfileFormState {
   Username get username => throw _privateConstructorUsedError;
   bool get canUseName => throw _privateConstructorUsedError;
   Introduction get introduction => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EditProfileFormStateCopyWith<EditProfileFormState> get copyWith =>
@@ -817,7 +1013,8 @@ abstract class $EditProfileFormStateCopyWith<$Res> {
       NotEmptyString name,
       Username username,
       bool canUseName,
-      Introduction introduction});
+      Introduction introduction,
+      String? imageUrl});
 }
 
 /// @nodoc
@@ -840,6 +1037,7 @@ class _$EditProfileFormStateCopyWithImpl<$Res,
     Object? username = null,
     Object? canUseName = null,
     Object? introduction = null,
+    Object? imageUrl = freezed,
   }) {
     return _then(_value.copyWith(
       editFailureOrSuccessOption: null == editFailureOrSuccessOption
@@ -866,6 +1064,10 @@ class _$EditProfileFormStateCopyWithImpl<$Res,
           ? _value.introduction
           : introduction // ignore: cast_nullable_to_non_nullable
               as Introduction,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -884,7 +1086,8 @@ abstract class _$$_EditProfileFormStateCopyWith<$Res>
       NotEmptyString name,
       Username username,
       bool canUseName,
-      Introduction introduction});
+      Introduction introduction,
+      String? imageUrl});
 }
 
 /// @nodoc
@@ -904,6 +1107,7 @@ class __$$_EditProfileFormStateCopyWithImpl<$Res>
     Object? username = null,
     Object? canUseName = null,
     Object? introduction = null,
+    Object? imageUrl = freezed,
   }) {
     return _then(_$_EditProfileFormState(
       editFailureOrSuccessOption: null == editFailureOrSuccessOption
@@ -930,6 +1134,10 @@ class __$$_EditProfileFormStateCopyWithImpl<$Res>
           ? _value.introduction
           : introduction // ignore: cast_nullable_to_non_nullable
               as Introduction,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -943,7 +1151,8 @@ class _$_EditProfileFormState implements _EditProfileFormState {
       required this.name,
       required this.username,
       required this.canUseName,
-      required this.introduction});
+      required this.introduction,
+      required this.imageUrl});
 
   @override
   final Option<Either<ProfileFailure, Unit>> editFailureOrSuccessOption;
@@ -957,10 +1166,12 @@ class _$_EditProfileFormState implements _EditProfileFormState {
   final bool canUseName;
   @override
   final Introduction introduction;
+  @override
+  final String? imageUrl;
 
   @override
   String toString() {
-    return 'EditProfileFormState(editFailureOrSuccessOption: $editFailureOrSuccessOption, isSubmitting: $isSubmitting, name: $name, username: $username, canUseName: $canUseName, introduction: $introduction)';
+    return 'EditProfileFormState(editFailureOrSuccessOption: $editFailureOrSuccessOption, isSubmitting: $isSubmitting, name: $name, username: $username, canUseName: $canUseName, introduction: $introduction, imageUrl: $imageUrl)';
   }
 
   @override
@@ -980,12 +1191,14 @@ class _$_EditProfileFormState implements _EditProfileFormState {
             (identical(other.canUseName, canUseName) ||
                 other.canUseName == canUseName) &&
             (identical(other.introduction, introduction) ||
-                other.introduction == introduction));
+                other.introduction == introduction) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, editFailureOrSuccessOption,
-      isSubmitting, name, username, canUseName, introduction);
+      isSubmitting, name, username, canUseName, introduction, imageUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -1003,7 +1216,8 @@ abstract class _EditProfileFormState implements EditProfileFormState {
       required final NotEmptyString name,
       required final Username username,
       required final bool canUseName,
-      required final Introduction introduction}) = _$_EditProfileFormState;
+      required final Introduction introduction,
+      required final String? imageUrl}) = _$_EditProfileFormState;
 
   @override
   Option<Either<ProfileFailure, Unit>> get editFailureOrSuccessOption;
@@ -1017,6 +1231,8 @@ abstract class _EditProfileFormState implements EditProfileFormState {
   bool get canUseName;
   @override
   Introduction get introduction;
+  @override
+  String? get imageUrl;
   @override
   @JsonKey(ignore: true)
   _$$_EditProfileFormStateCopyWith<_$_EditProfileFormState> get copyWith =>

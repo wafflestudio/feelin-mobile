@@ -70,11 +70,17 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                 (f) => f.maybeMap(
               alreadyBlocked: (_)=>showTopSnackBar(
                 Overlay.of(context),
-                const CustomSnackBar.error(message: 'You have already blocked this user.'),
+                CustomSnackBar.error(
+                    backgroundColor: FeelinColorFamily.errorPrimary,
+                    icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                    message: 'You have already blocked this user.'),
               ),
               orElse: ()=>showTopSnackBar(
                 Overlay.of(context),
-                const CustomSnackBar.error(message: 'Server Error'),
+                CustomSnackBar.error(
+                    backgroundColor: FeelinColorFamily.errorPrimary,
+                    icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                    message: 'Server Error'),
               ),
             ),
                 (_) => showTopSnackBar(
@@ -104,11 +110,11 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                 widget.function();
               },
               child: SizedBox(
-                width: 250,
+                width: MediaQuery.of(context).size.width - 145,
                 height: widget.preferredSize.height,
                 child: Center(
                   child: AutoSizeText(state.profile.username,
-                    minFontSize: 14,
+                    minFontSize: 11,
                     maxLines: 1,
                     style: const TextStyle(
                       fontWeight: FontWeight.w700,

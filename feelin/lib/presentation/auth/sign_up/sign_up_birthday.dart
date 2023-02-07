@@ -6,7 +6,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:focus_detector/focus_detector.dart';
 import 'package:intl/intl.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_app_bar.dart';
+import 'package:music_sns/presentation/auth/sign_up/sign_up_username.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -17,8 +20,7 @@ import '../../style/colors.dart';
 import 'common_title.dart';
 
 class SignUpBirthday extends StatefulWidget{
-  final Function goToNext;
-  const SignUpBirthday({Key? key, required this.goToNext,}) : super(key: key);
+  const SignUpBirthday({Key? key,}) : super(key: key);
 
   @override
   State<SignUpBirthday> createState() => _SignUpBirthdayState();
@@ -63,7 +65,9 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
           date.day,
         );
         return today.isBefore(maxDate);
-      }else return false;
+      }else {
+        return false;
+      }
     }
     return false;
   }
@@ -89,46 +93,64 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topCenter,
-      child: Container(
-        constraints: const BoxConstraints(maxHeight: 475),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Container(
-              margin: const EdgeInsets.only(top: 30),
-              constraints: const BoxConstraints(maxHeight: 210),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const CommonTitle(title: 'When’s your birthday?'),
-                  _dateField(),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: NextButton(disabled: !isBirthdayValid,
-                function: (){
-                  final date = DateTime(int.parse(year), int.parse(month), int.parse(day));
-                  if(isOver14(date)){
-                    context
-                        .read<SignUpFormBloc>()
-                        .add(SignUpFormEvent.birthdayChanged(DateFormat('yyyy-MM-dd').format(date)));
-                    widget.goToNext();
-                  }else{
-                    showTopSnackBar(
-                      Overlay.of(context),
-                      const CustomSnackBar.error(message: 'You must be 14+ to use Feelin\'.')
-                    );
-                  }
+    return FocusDetector(
+      onFocusGained: (){
+        context.read<SignUpFormBloc>().add(const SignUpFormEvent.resetCanUseName());
+      },
+      child: Scaffold(
+        appBar: const SignUpAppBar(),
+        body: Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            constraints: const BoxConstraints(maxHeight: 475),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 30),
+                  constraints: const BoxConstraints(maxHeight: 210),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const CommonTitle(title: 'When’s your birthday?'),
+                      _dateField(),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: NextButton(disabled: !isBirthdayValid,
+                    function: (){
+                      final date = DateTime(int.parse(year), int.parse(month), int.parse(day));
+                      if(isOver14(date)){
+                        context
+                            .read<SignUpFormBloc>()
+                            .add(SignUpFormEvent.birthdayChanged(DateFormat('yyyy-MM-dd').format(date)));
+                        Navigator.push(context, CupertinoPageRoute(
+                          builder: (context2){
+                            return BlocProvider.value(
+                                value: context.read<SignUpFormBloc>(),
+                                child: const SignUpUsername());
+                          },
+                        ),
+                        );
+                      }else{
+                        showTopSnackBar(
+                          Overlay.of(context),
+                          CustomSnackBar.error(
+                              backgroundColor: FeelinColorFamily.errorPrimary,
+                              icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                              message: 'You must be 14+ to use Feelin\'.')
+                        );
+                      }
 
-                },),
-            )
-          ],
+                    },),
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );

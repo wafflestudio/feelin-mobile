@@ -125,7 +125,10 @@ class _SignUpCodeState extends State<SignUpCode> with CodeAutoFill{
             (failureOrSuccess) => failureOrSuccess.fold(
                 (f) {showTopSnackBar(
                     Overlay.of(context),
-                    const CustomSnackBar.error(message: 'Server Error.')
+                    CustomSnackBar.error(
+                        backgroundColor: FeelinColorFamily.errorPrimary,
+                        icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                        message: 'Server Error.')
                     );
                     Navigator.pop(context);
                     }, // 요청 실패

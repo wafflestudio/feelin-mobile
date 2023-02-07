@@ -5,6 +5,8 @@ import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:focus_detector/focus_detector.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_app_bar.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_list.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../domain/play/post.dart';
 import '../../common/restricted_page.dart';
@@ -52,22 +54,12 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
       ..layout(minWidth: 0, maxWidth: widget.width-32);
     return textPainter.size;
   }
-
-  double textHeight(String text, TextStyle style, double textWidth) {
-    final TextPainter textPainter = TextPainter(
-      text: TextSpan(text: text, style: style),
-      textDirection: TextDirection.ltr,
-    )..layout(minWidth: 0, maxWidth: textWidth);
-
-    final countLines = (textPainter.size.width / textWidth).ceil();
-    return textPainter.size.height;
-  }
   
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController()..addListener(_scrollListener);
-    context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.loadRequest(widget.postId));
+    //context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.loadRequest(widget.postId));
     setState((){
       expandedHeight = 350
           + _textSize(widget.post == null ? '': widget.post!.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
@@ -106,10 +98,16 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                 (failureOrSuccess) => failureOrSuccess.fold(
                   (f) => f.maybeMap(
                     notFound: (_) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        backgroundColor: FeelinColorFamily.errorPrimary,
-                        content: const Text("This post has been deleted."),
-                      ));
+                      showTopSnackBar(
+                          Overlay.of(context),
+                          CustomSnackBar.error(
+                              backgroundColor: FeelinColorFamily.errorPrimary,
+                              icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                              message: "This post has been deleted.")
+                      );
+                      if(widget.deleteItem != null){
+                        widget.deleteItem!();
+                      }
                       Navigator.pop(context);
                       }
                   ,orElse: () => null,
@@ -142,48 +140,34 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
           builder: (context, state) {
             return state.isRestricted ? const RestrictedPage() : Stack(
               children: [
-                WillPopScope(
-                  onWillPop: () async {
-                    if(isEdited && widget.post != null){
-                      setState(() {
-                        widget.post!.isLiked = state.isLiked;
-                        widget.post!.likeCount = state.post.likeCount;
-                      });
-                      Navigator.pop(context, widget.post);
-                      return false;
-                    }else{
-                      return true;
-                    }
-                  },
-                  child: Scaffold(
-                              extendBodyBehindAppBar: true,
-                              body: ScrollConfiguration(
-                                behavior: const ScrollBehavior().copyWith(),
-                                child: CustomScrollView(
-                                    controller: _scrollController,
-                                    physics: const BouncingScrollPhysics(),
-                                  slivers: [
-                                    if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
-                                      goToTop: (){
-                                        _scrollController!.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-                                      },
-                                      expandedHeight: expandedHeight,
-                                      edit: (){
-                                        setState(() {
-                                          isEdited = true;
-                                        });
-                                      },
-                                      isEdited: isEdited,
-                                      deleteItem: widget.deleteItem,
-                                    ),
-                                    const PlaylistInfoList()
-                                  ],
-                                ),
+                Scaffold(
+                            extendBodyBehindAppBar: true,
+                            body: ScrollConfiguration(
+                              behavior: const ScrollBehavior().copyWith(),
+                              child: CustomScrollView(
+                                  controller: _scrollController,
+                                  physics: const BouncingScrollPhysics(),
+                                slivers: [
+                                  if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
+                                    goToTop: (){
+                                      _scrollController!.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+                                    },
+                                    expandedHeight: expandedHeight,
+                                    edit: (){
+                                      setState(() {
+                                        isEdited = true;
+                                      });
+                                    },
+                                    isEdited: isEdited,
+                                    deleteItem: widget.deleteItem,
+                                  ),
+                                  const PlaylistInfoList()
+                                ],
                               ),
-                                floatingActionButton: const SaveToAccountButton(),
-                                floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
                             ),
-                ),
+                              floatingActionButton: const SaveToAccountButton(),
+                              floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+                          ),
                 if(_isShrink)Positioned(
                     top: MediaQuery.of(context).padding.top + kToolbarHeight - 28,
                     right: 15,
@@ -194,6 +178,10 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                         }else{
                           context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.unlikeRequest());
                         }
+                        setState(() {
+                          widget.post!.isLiked = state.isLiked;
+                          widget.post!.likeCount = state.post.likeCount;
+                        });
                       },
                       backgroundColor: Colors.black,
                       //foregroundColor: Colors.white,

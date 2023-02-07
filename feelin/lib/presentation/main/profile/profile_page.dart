@@ -11,13 +11,15 @@ import 'package:music_sns/presentation/main/profile/dynamic_sliver_app_bar.dart'
 import 'package:music_sns/presentation/main/profile/follow_button.dart';
 import 'package:music_sns/presentation/main/profile/post_preview.dart';
 
+import '../../../domain/profile/profile.dart';
 import '../../../injection.dart';
 
 
 class ProfilePage extends StatefulWidget{
   final String? userId;
   final ScrollController scrollController;
-  const ProfilePage({Key? key, this.userId, required this.scrollController}) : super(key: key);
+  final Profile? sink;
+  const ProfilePage({Key? key, this.userId, required this.scrollController, this.sink}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -71,10 +73,12 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
   }
 
   Widget _profileView(context) {
-    final ScrollController scrollController = ScrollController();
 
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
+        if(widget.sink != null) {
+          widget.sink!.isFollowed = state.isFollowed;
+        }
         return Container(
           margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           child: Column(
@@ -181,12 +185,15 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
               ),
               Container(
                   margin: const EdgeInsets.only(top: 4, bottom: 0),
-                  child: Text(state.profile.introduction ?? '',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: -0.41,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Text(state.profile.introduction ?? '',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: -0.41,
+                      ),
                     ),
                   ),
               ),
@@ -196,8 +203,14 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
                 child: FollowButton(isFollowed: state.isFollowed, function: (){
                   if(!state.isFollowed){
                     context.read<ProfileBloc>().add(const ProfileEvent.followRequest());
+                    if(widget.sink != null){
+                      widget.sink!.isFollowed = true;
+                    }
                   }else{
                     context.read<ProfileBloc>().add(const ProfileEvent.unFollowRequest());
+                    if(widget.sink != null){
+                      widget.sink!.isFollowed = false;
+                    }
                   }
                 }),
               ),

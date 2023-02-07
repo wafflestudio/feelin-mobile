@@ -1,14 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:focus_detector/focus_detector.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';
 import 'common_title.dart';
+import 'sign_up_app_bar.dart';
+import 'sign_up_password.dart';
 
 class SignUpUsername extends StatefulWidget{
-  final Function goToNext;
-  const SignUpUsername({Key? key, required this.goToNext,}) : super(key: key);
+  const SignUpUsername({Key? key,}) : super(key: key);
 
   @override
   State<SignUpUsername> createState() => _SignUpNameState();
@@ -28,38 +31,48 @@ class _SignUpNameState extends State<SignUpUsername>{
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topCenter,
-      child: Container(
-        constraints: const BoxConstraints(maxHeight: 475),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Container(
-              margin: const EdgeInsets.only(top: 30),
-              constraints: const BoxConstraints(maxHeight: 210),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const CommonTitle(title: 'Choose your username'),
-                  _usernameField(),
-                ],
+    return Scaffold(
+      appBar: const SignUpAppBar(reset: true,),
+      body: Align(
+        alignment: Alignment.topCenter,
+        child: Container(
+          constraints: const BoxConstraints(maxHeight: 475),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 30),
+                constraints: const BoxConstraints(maxHeight: 210),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const CommonTitle(title: 'Choose your username'),
+                    _usernameField(),
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: BlocBuilder<SignUpFormBloc, SignUpFormState>(
-                  builder: (context, state) {
-                    return NextButton(disabled: !state.canUseName,
-                      function: (){
-                        widget.goToNext();
-                      },);
-                  }
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: BlocBuilder<SignUpFormBloc, SignUpFormState>(
+                    builder: (context, state) {
+                      return NextButton(disabled: !state.canUseName,
+                        function: (){
+                          Navigator.push(context, CupertinoPageRoute(
+                            builder: (context2){
+                              return BlocProvider.value(
+                                  value: context.read<SignUpFormBloc>(),
+                                  child: const SignUpPassword());
+                            },
+                          ),
+                          );
+                        },);
+                    }
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -84,7 +97,14 @@ class _SignUpNameState extends State<SignUpUsername>{
               maxLength: 20,
               textInputAction: TextInputAction.next,
               onFieldSubmitted: (_){
-                widget.goToNext();
+                Navigator.push(context, CupertinoPageRoute(
+                  builder: (context2){
+                    return BlocProvider.value(
+                        value: context.read<SignUpFormBloc>(),
+                        child: const SignUpPassword());
+                  },
+                ),
+                );
               },
               inputFormatters: [
                 FilteringTextInputFormatter.allow(RegExp('[a-z 0-9 . _]')),

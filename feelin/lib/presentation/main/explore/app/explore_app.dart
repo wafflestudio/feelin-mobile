@@ -88,13 +88,16 @@ class ExploreAppScaffoldState extends State<ExploreAppScaffold> with TickerProvi
           duration: const Duration(milliseconds: 200),
           child: ExploreAppBarBottom(tabController: _tabController))),
           extendBodyBehindAppBar: true,
-          body: TabBarView(
-            controller: _tabController,
-            physics: const NeverScrollableScrollPhysics(),
-            children: [
-              ExplorePage(scrollController: _scrollControllerF, isFollowing: true, key: MyKeyStore.explorePageKey, showTabBar: showTabBar, hideTabBar: hideTabBar,),
-              ExplorePage(scrollController: _scrollController, isFollowing: false, showTabBar: showTabBar, hideTabBar: hideTabBar,),
-            ],
+          body: ScrollConfiguration(
+            behavior: const ScrollBehavior().copyWith(overscroll: false),
+            child: TabBarView(
+              controller: _tabController,
+              physics: const ClampingScrollPhysics(),
+              children: [
+                ExplorePage(scrollController: _scrollControllerF, isFollowing: true, key: MyKeyStore.explorePageKey, showTabBar: showTabBar, hideTabBar: hideTabBar,),
+                ExplorePage(scrollController: _scrollController, isFollowing: false, showTabBar: showTabBar, hideTabBar: hideTabBar,),
+              ],
+            ),
           ),
         ),
       ),

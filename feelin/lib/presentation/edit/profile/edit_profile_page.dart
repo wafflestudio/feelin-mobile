@@ -31,6 +31,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     context.read<EditProfileFormBloc>().add(EditProfileFormEvent.nameChanged(widget.profile.name!));
     context.read<EditProfileFormBloc>().add(EditProfileFormEvent.usernameChanged(widget.profile.username));
     context.read<EditProfileFormBloc>().add(EditProfileFormEvent.introductionChanged(widget.profile.introduction ?? ''));
+    context.read<EditProfileFormBloc>().add(EditProfileFormEvent.imageUrlChanged(widget.profile.profileImage));
     _nameTextController.text = widget.profile.name!;
     _usernameTextController.text = widget.profile.username;
     _introductionTextController.text = widget.profile.introduction ?? '';
@@ -58,7 +59,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   (failureOrSuccess) => failureOrSuccess.fold(
                           (f) => showTopSnackBar(
                             Overlay.of(context),
-                              CustomSnackBar.error(message: f.toString())
+                              CustomSnackBar.error(
+                                  backgroundColor: FeelinColorFamily.errorPrimary,
+                                  icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                                  message: f.toString())
                           ),
                           (profile) => {
                             Navigator.pop(context, true),

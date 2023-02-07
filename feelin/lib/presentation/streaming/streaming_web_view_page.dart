@@ -18,10 +18,10 @@ class StreamingWebViewPage extends StatefulWidget{
   const StreamingWebViewPage({Key? key, required this.url, this.isApple = false}) : super(key: key);
 
   @override
-  State<StreamingWebViewPage> createState() => _SignUpWebViewState();
+  State<StreamingWebViewPage> createState() => _StreamingWebViewState();
 }
 
-class _SignUpWebViewState extends State<StreamingWebViewPage>{
+class _StreamingWebViewState extends State<StreamingWebViewPage>{
 
   final storage = const FlutterSecureStorage();
   late WebViewController _controller;
@@ -29,6 +29,8 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
   var loadingPercentage = 0;
 
   late String id;
+  late int _frameCallbackId;
+  Timer? timer;
 
   @override
   void initState() {
@@ -38,133 +40,157 @@ class _SignUpWebViewState extends State<StreamingWebViewPage>{
     if(widget.isApple){
       id = Uri.parse(widget.url).queryParameters['id']??'';
     }
+    if(!widget.isApple){
+      timer = Timer.periodic(const Duration(milliseconds: 100), (Timer t) => _async());
+    }
   }
 
   @override
+  void dispose(){
+    timer?.cancel();
+    super.dispose();
+  }
+
+  Future<bool> _onWillPop() async {
+    if(await _controller.canGoBack()){
+    _controller.goBack();
+    return false;
+    }else{
+    return true;
+    }
+  }
+
+  Future<void> _async() async {
+    canGoBack = await _controller.canGoBack();
+    if(mounted) {
+      setState((){});
+    }
+  }
+
+  bool canGoBack = false;
+
+  @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async{
-        if(widget.isApple){
-          return true;
-        }else{
-          if(await _controller.canGoBack()){
-            _controller.goBack();
-            return false;
-          }else{
-            return true;
-          }
+    return GestureDetector(
+      onHorizontalDragUpdate: (widget.isApple || !canGoBack) ? null : (details) async {
+        int sensitivity = 9;
+        if (details.delta.dx > sensitivity) {
+          _controller.goBack();
         }
       },
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: Colors.transparent,
-          title: const Text(''),
-          leading: FutureBuilder<WebViewController>(
-              future: _completer.future,
-              builder: (context, AsyncSnapshot<WebViewController> controller) {
-                return IconButton(
-                  onPressed: () async{
-                    if(widget.isApple){
-                      Navigator.pop(context);
-                    }else{
-                      if(controller.hasData && await controller.data!.canGoBack()){
-                        await controller.data!.goBack();
-                      }else{
+      child: WillPopScope(
+        onWillPop: (widget.isApple || !canGoBack) ? null : _onWillPop,
+        child: Scaffold(
+          appBar: AppBar(
+            elevation: 0.0,
+            backgroundColor: Colors.transparent,
+            title: const Text(''),
+            leading: FutureBuilder<WebViewController>(
+                future: _completer.future,
+                builder: (context, AsyncSnapshot<WebViewController> controller) {
+                  return IconButton(
+                    onPressed: () async{
+                      if(widget.isApple){
                         Navigator.pop(context);
-                      }
-                    }
-                  },
-                  color: Colors.black,
-                  icon: const Icon(Icons.arrow_back_ios_new),
-                );
-              }
-          ),
-        ),
-        body: BlocListener<ConnectStreamingBloc, ConnectStreamingState>(
-          listener: (context, state){
-            state.requestFailureOrSuccessOption.fold(
-                  () => null,
-                  (failureOrSuccess) => failureOrSuccess.fold(
-                    (f) => showTopSnackBar(
-                        Overlay.of(context),
-                        CustomSnackBar.error(
-                          icon: const Icon(Icons.music_note, color: Colors.transparent,),
-                          backgroundColor: FeelinColorFamily.errorPrimary,
-                            message: 'Connection failed.')
-                    ),
-                    (_) {
-                      showTopSnackBar(
-                          Overlay.of(context),
-                          CustomSnackBar.success(
-                              icon: const Icon(Icons.music_note, color: Colors.transparent,),
-                              message: 'Successfully connected.')
-                      );
-                    Navigator.pop(context, true);
-                    Navigator.pop(context, true);
-                    context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
-                },
-              ),
-            );
-          },
-          child: LayoutBuilder(
-            builder: (context, constrains) {
-              return SizedBox(
-                height: constrains.maxHeight,
-                child: Stack(
-                  children: [
-                    WebView(
-                      initialUrl: widget.url,
-                      javascriptMode: JavascriptMode.unrestricted,
-                      userAgent: 'random',
-                      onWebViewCreated: (WebViewController webViewController){
-                        _completer.future.then((value) => _controller = value);
-                        _completer.complete(webViewController);
-                      },
-                      javascriptChannels: <JavascriptChannel>{
-                        _webToAppToken(context),
-                      },
-                      onPageStarted: (url) {
-                        setState(() {
-                          loadingPercentage = 0;
-                        });
-                      },
-                      onProgress: (progress) {
-                        setState(() {
-                          loadingPercentage = progress;
-                        });
-                      },
-                      onPageFinished: (url) {
-                        setState(() {
-                          loadingPercentage = 100;
-                        });
-                        //_controller.reload();
-                      },
-                      navigationDelegate: (request){
-                        if(request.url.startsWith('https://feelin-api.wafflestudio.com') || request.url.startsWith('https://feelin-api-dev.wafflestudio.com')){
-                          showTopSnackBar(
-                              Overlay.of(context),
-                              CustomSnackBar.success(
-                                  icon: const Icon(Icons.music_note, color: Colors.transparent,),
-                                  backgroundColor: FeelinColorFamily.redPrimary,
-                                  message: 'Successfully connected.')
-                          );
-                          Navigator.pop(context, true);
-                          Navigator.pop(context, true);
-                          context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
+                      }else{
+                        if(controller.hasData && await controller.data!.canGoBack()){
+                          await controller.data!.goBack();
+                        }else{
+                          Navigator.pop(context);
                         }
-                        return NavigationDecision.navigate;
-                      },
-                      gestureNavigationEnabled: true,
-                    ),
-                    if (loadingPercentage < 100)
-                      LinearProgressIndicator(
-                        value: loadingPercentage / 100.0,
+                      }
+                    },
+                    color: Colors.black,
+                    icon: const Icon(Icons.arrow_back_ios_new),
+                  );
+                }
+            ),
+          ),
+          body: BlocListener<ConnectStreamingBloc, ConnectStreamingState>(
+            listener: (context, state){
+              state.requestFailureOrSuccessOption.fold(
+                    () => null,
+                    (failureOrSuccess) => failureOrSuccess.fold(
+                      (f) => showTopSnackBar(
+                          Overlay.of(context),
+                          CustomSnackBar.error(
+                            icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                            backgroundColor: FeelinColorFamily.errorPrimary,
+                              message: 'Connection failed.')
                       ),
-                  ],
+                      (_) {
+                        showTopSnackBar(
+                            Overlay.of(context),
+                            const CustomSnackBar.success(
+                                icon: Icon(Icons.music_note, color: Colors.transparent,),
+                                message: 'Successfully connected.')
+                        );
+                      Navigator.pop(context, true);
+                      Navigator.pop(context, true);
+                      context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
+                  },
                 ),
               );
-            }
+            },
+            child: LayoutBuilder(
+              builder: (context, constrains) {
+                return SizedBox(
+                  height: constrains.maxHeight,
+                  child: Stack(
+                    children: [
+                      WebView(
+                        initialUrl: widget.url,
+                        javascriptMode: JavascriptMode.unrestricted,
+                        userAgent: 'random',
+                        onWebViewCreated: (WebViewController webViewController){
+                          _completer.future.then((value) => _controller = value);
+                          _completer.complete(webViewController);
+                        },
+                        javascriptChannels: <JavascriptChannel>{
+                          _webToAppToken(context),
+                        },
+                        onPageStarted: (url) {
+                          setState(() {
+                            loadingPercentage = 0;
+                          });
+                        },
+                        onProgress: (progress) {
+                          setState(() {
+                            loadingPercentage = progress;
+                          });
+                        },
+                        onPageFinished: (url) {
+                          setState(() {
+                            loadingPercentage = 100;
+                          });
+                          //_controller.reload();
+                        },
+                        navigationDelegate: (request){
+                          if(request.url.startsWith('https://feelin-api.wafflestudio.com') || request.url.startsWith('https://feelin-api-dev.wafflestudio.com')){
+                            showTopSnackBar(
+                                Overlay.of(context),
+                                CustomSnackBar.success(
+                                    icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                                    backgroundColor: FeelinColorFamily.redPrimary,
+                                    message: 'Successfully connected.')
+                            );
+                            Navigator.pop(context, true);
+                            Navigator.pop(context, true);
+                            context.read<StreamingBloc>().add(const StreamingEvent.getMyAccount());
+                          }
+                          return NavigationDecision.navigate;
+                        },
+                        gestureNavigationEnabled: true,
+                      ),
+                      if (loadingPercentage < 100)
+                        LinearProgressIndicator(
+                          value: loadingPercentage / 100.0,
+                        ),
+                    ],
+                  ),
+                );
+              }
+            ),
           ),
         ),
       ),

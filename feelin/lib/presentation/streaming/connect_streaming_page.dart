@@ -26,6 +26,7 @@ class ConnectStreamingPage extends StatefulWidget{
 class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
 
   bool navigated = false;
+  bool isApple = false;
 
   @override
   Widget build(BuildContext context) {
@@ -131,18 +132,27 @@ class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
                   (f) => f.maybeMap(
                       serverError: (_)=>showTopSnackBar(
                           Overlay.of(context),
-                          const CustomSnackBar.error(message: 'Server Error')
+                          CustomSnackBar.error(
+                              backgroundColor: FeelinColorFamily.errorPrimary,
+                              icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                              message: 'Server Error')
                       ),
                       alreadyConnected: (_){
                         showTopSnackBar(
                             Overlay.of(context),
-                            const CustomSnackBar.error(message: 'Your account is already connected.')
+                            CustomSnackBar.error(
+                                backgroundColor: FeelinColorFamily.errorPrimary,
+                                icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                                message: 'Your account is already connected.')
                         );
                         Navigator.pop(context);
                         },
                       orElse: ()=>showTopSnackBar(
                       Overlay.of(context),
-                      CustomSnackBar.error(message: f.toString())
+                      CustomSnackBar.error(
+                          backgroundColor: FeelinColorFamily.errorPrimary,
+                          icon: const Icon(Icons.music_note, color: Colors.transparent,),
+                          message: f.toString())
                   )),
                   (url){
                     if(!navigated){
@@ -153,7 +163,7 @@ class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
                           builder: (context){
                             return BlocProvider.value(
                                 value: bloc,
-                                child: StreamingWebViewPage(url: url.url, isApple: true,),
+                                child: StreamingWebViewPage(url: url.url, isApple: isApple,),
                             );
                           },
                         ),
@@ -163,11 +173,6 @@ class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
                         }
                       });
                     }
-
-                    // showCupertinoModalBottomSheet(
-                    //   context: context,
-                    //   builder: (context) => StreamingWebViewPage(url: url.url),
-                    // ), // 로그인 성공
               }
           ),
         );
@@ -198,6 +203,7 @@ class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
               PlatformButton(function: (){
                 if(!state.isSubmitting){
                   navigated = false;
+                  isApple = false;
                   context
                       .read<ConnectStreamingBloc>()
                       .add(const ConnectStreamingEvent.requestLogin('spotify'));
@@ -210,6 +216,7 @@ class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
               PlatformButton(function: (){
                 if(!state.isSubmitting){
                   navigated = false;
+                  isApple = true;
                   context
                       .read<ConnectStreamingBloc>()
                       .add(const ConnectStreamingEvent.requestLogin('applemusic'));
