@@ -29,6 +29,7 @@ mixin _$ProfileEvent {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -48,6 +49,7 @@ mixin _$ProfileEvent {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -66,6 +68,7 @@ mixin _$ProfileEvent {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -85,6 +88,7 @@ mixin _$ProfileEvent {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -103,6 +107,7 @@ mixin _$ProfileEvent {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -121,6 +126,7 @@ mixin _$ProfileEvent {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -196,6 +202,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -218,6 +225,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -239,6 +247,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -264,6 +273,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -285,6 +295,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -306,6 +317,7 @@ class _$_MyProfileRequest implements _MyProfileRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -371,6 +383,7 @@ class _$_ReMyProfileRequest implements _ReMyProfileRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -393,6 +406,7 @@ class _$_ReMyProfileRequest implements _ReMyProfileRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -414,6 +428,7 @@ class _$_ReMyProfileRequest implements _ReMyProfileRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -439,6 +454,7 @@ class _$_ReMyProfileRequest implements _ReMyProfileRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -460,6 +476,7 @@ class _$_ReMyProfileRequest implements _ReMyProfileRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -481,6 +498,7 @@ class _$_ReMyProfileRequest implements _ReMyProfileRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -572,6 +590,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -594,6 +613,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -615,6 +635,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -640,6 +661,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -661,6 +683,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -682,6 +705,7 @@ class _$_ProfileRequest implements _ProfileRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -778,6 +802,7 @@ class _$_ReProfileRequest implements _ReProfileRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -800,6 +825,7 @@ class _$_ReProfileRequest implements _ReProfileRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -821,6 +847,7 @@ class _$_ReProfileRequest implements _ReProfileRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -846,6 +873,7 @@ class _$_ReProfileRequest implements _ReProfileRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -867,6 +895,7 @@ class _$_ReProfileRequest implements _ReProfileRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -888,6 +917,7 @@ class _$_ReProfileRequest implements _ReProfileRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -984,6 +1014,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -1006,6 +1037,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -1027,6 +1059,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -1052,6 +1085,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -1073,6 +1107,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -1094,6 +1129,7 @@ class _$_ProfileChanged implements _ProfileChanged {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -1164,6 +1200,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -1186,6 +1223,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -1207,6 +1245,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -1232,6 +1271,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -1253,6 +1293,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -1274,6 +1315,7 @@ class _$_MyPageRequest implements _MyPageRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -1365,6 +1407,7 @@ class _$_PageRequest implements _PageRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -1387,6 +1430,7 @@ class _$_PageRequest implements _PageRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -1408,6 +1452,7 @@ class _$_PageRequest implements _PageRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -1433,6 +1478,7 @@ class _$_PageRequest implements _PageRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -1454,6 +1500,7 @@ class _$_PageRequest implements _PageRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -1475,6 +1522,7 @@ class _$_PageRequest implements _PageRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -1545,6 +1593,7 @@ class _$_FollowRequest implements _FollowRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -1567,6 +1616,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -1588,6 +1638,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -1613,6 +1664,7 @@ class _$_FollowRequest implements _FollowRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -1634,6 +1686,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -1655,6 +1708,7 @@ class _$_FollowRequest implements _FollowRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -1720,6 +1774,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -1742,6 +1797,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -1763,6 +1819,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -1788,6 +1845,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -1809,6 +1867,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -1830,6 +1889,7 @@ class _$_UnFollowRequest implements _UnFollowRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -1895,6 +1955,7 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -1917,6 +1978,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -1938,6 +2000,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -1963,6 +2026,7 @@ class _$_ResetRequest implements _ResetRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -1984,6 +2048,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -2005,6 +2070,7 @@ class _$_ResetRequest implements _ResetRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -2096,6 +2162,7 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -2118,6 +2185,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -2139,6 +2207,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -2164,6 +2233,7 @@ class _$_RemoveItem implements _RemoveItem {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -2185,6 +2255,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -2206,6 +2277,7 @@ class _$_RemoveItem implements _RemoveItem {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -2224,6 +2296,219 @@ abstract class _RemoveItem implements ProfileEvent {
   int get index;
   @JsonKey(ignore: true)
   _$$_RemoveItemCopyWith<_$_RemoveItem> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RemoveItemByPostIdCopyWith<$Res> {
+  factory _$$_RemoveItemByPostIdCopyWith(_$_RemoveItemByPostId value,
+          $Res Function(_$_RemoveItemByPostId) then) =
+      __$$_RemoveItemByPostIdCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_RemoveItemByPostIdCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_RemoveItemByPostId>
+    implements _$$_RemoveItemByPostIdCopyWith<$Res> {
+  __$$_RemoveItemByPostIdCopyWithImpl(
+      _$_RemoveItemByPostId _value, $Res Function(_$_RemoveItemByPostId) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_RemoveItemByPostId(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RemoveItemByPostId implements _RemoveItemByPostId {
+  const _$_RemoveItemByPostId(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.removeItemByPostId(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RemoveItemByPostId &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RemoveItemByPostIdCopyWith<_$_RemoveItemByPostId> get copyWith =>
+      __$$_RemoveItemByPostIdCopyWithImpl<_$_RemoveItemByPostId>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() myProfileRequest,
+    required TResult Function() reMyProfileRequest,
+    required TResult Function(String id) profileRequest,
+    required TResult Function(String id) reProfileRequest,
+    required TResult Function(Profile profile) profileChanged,
+    required TResult Function() myPageRequest,
+    required TResult Function(String id) pageRequest,
+    required TResult Function() followRequest,
+    required TResult Function() unFollowRequest,
+    required TResult Function() resetRequest,
+    required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
+    required TResult Function(String reportType, dynamic description)
+        reportRequest,
+    required TResult Function() blockRequest,
+    required TResult Function() resetStateRequest,
+  }) {
+    return removeItemByPostId(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? myProfileRequest,
+    TResult? Function()? reMyProfileRequest,
+    TResult? Function(String id)? profileRequest,
+    TResult? Function(String id)? reProfileRequest,
+    TResult? Function(Profile profile)? profileChanged,
+    TResult? Function()? myPageRequest,
+    TResult? Function(String id)? pageRequest,
+    TResult? Function()? followRequest,
+    TResult? Function()? unFollowRequest,
+    TResult? Function()? resetRequest,
+    TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
+    TResult? Function(String reportType, dynamic description)? reportRequest,
+    TResult? Function()? blockRequest,
+    TResult? Function()? resetStateRequest,
+  }) {
+    return removeItemByPostId?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? myProfileRequest,
+    TResult Function()? reMyProfileRequest,
+    TResult Function(String id)? profileRequest,
+    TResult Function(String id)? reProfileRequest,
+    TResult Function(Profile profile)? profileChanged,
+    TResult Function()? myPageRequest,
+    TResult Function(String id)? pageRequest,
+    TResult Function()? followRequest,
+    TResult Function()? unFollowRequest,
+    TResult Function()? resetRequest,
+    TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
+    TResult Function(String reportType, dynamic description)? reportRequest,
+    TResult Function()? blockRequest,
+    TResult Function()? resetStateRequest,
+    required TResult orElse(),
+  }) {
+    if (removeItemByPostId != null) {
+      return removeItemByPostId(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MyProfileRequest value) myProfileRequest,
+    required TResult Function(_ReMyProfileRequest value) reMyProfileRequest,
+    required TResult Function(_ProfileRequest value) profileRequest,
+    required TResult Function(_ReProfileRequest value) reProfileRequest,
+    required TResult Function(_ProfileChanged value) profileChanged,
+    required TResult Function(_MyPageRequest value) myPageRequest,
+    required TResult Function(_PageRequest value) pageRequest,
+    required TResult Function(_FollowRequest value) followRequest,
+    required TResult Function(_UnFollowRequest value) unFollowRequest,
+    required TResult Function(_ResetRequest value) resetRequest,
+    required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
+    required TResult Function(_ReportRequest value) reportRequest,
+    required TResult Function(_BlockRequest value) blockRequest,
+    required TResult Function(_ResetStateRequest value) resetStateRequest,
+  }) {
+    return removeItemByPostId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MyProfileRequest value)? myProfileRequest,
+    TResult? Function(_ReMyProfileRequest value)? reMyProfileRequest,
+    TResult? Function(_ProfileRequest value)? profileRequest,
+    TResult? Function(_ReProfileRequest value)? reProfileRequest,
+    TResult? Function(_ProfileChanged value)? profileChanged,
+    TResult? Function(_MyPageRequest value)? myPageRequest,
+    TResult? Function(_PageRequest value)? pageRequest,
+    TResult? Function(_FollowRequest value)? followRequest,
+    TResult? Function(_UnFollowRequest value)? unFollowRequest,
+    TResult? Function(_ResetRequest value)? resetRequest,
+    TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
+    TResult? Function(_ReportRequest value)? reportRequest,
+    TResult? Function(_BlockRequest value)? blockRequest,
+    TResult? Function(_ResetStateRequest value)? resetStateRequest,
+  }) {
+    return removeItemByPostId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MyProfileRequest value)? myProfileRequest,
+    TResult Function(_ReMyProfileRequest value)? reMyProfileRequest,
+    TResult Function(_ProfileRequest value)? profileRequest,
+    TResult Function(_ReProfileRequest value)? reProfileRequest,
+    TResult Function(_ProfileChanged value)? profileChanged,
+    TResult Function(_MyPageRequest value)? myPageRequest,
+    TResult Function(_PageRequest value)? pageRequest,
+    TResult Function(_FollowRequest value)? followRequest,
+    TResult Function(_UnFollowRequest value)? unFollowRequest,
+    TResult Function(_ResetRequest value)? resetRequest,
+    TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
+    TResult Function(_ReportRequest value)? reportRequest,
+    TResult Function(_BlockRequest value)? blockRequest,
+    TResult Function(_ResetStateRequest value)? resetStateRequest,
+    required TResult orElse(),
+  }) {
+    if (removeItemByPostId != null) {
+      return removeItemByPostId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveItemByPostId implements ProfileEvent {
+  const factory _RemoveItemByPostId(final String id) = _$_RemoveItemByPostId;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_RemoveItemByPostIdCopyWith<_$_RemoveItemByPostId> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2310,6 +2595,7 @@ class _$_ReportRequest implements _ReportRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -2332,6 +2618,7 @@ class _$_ReportRequest implements _ReportRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -2353,6 +2640,7 @@ class _$_ReportRequest implements _ReportRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -2378,6 +2666,7 @@ class _$_ReportRequest implements _ReportRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -2399,6 +2688,7 @@ class _$_ReportRequest implements _ReportRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -2420,6 +2710,7 @@ class _$_ReportRequest implements _ReportRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -2492,6 +2783,7 @@ class _$_BlockRequest implements _BlockRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -2514,6 +2806,7 @@ class _$_BlockRequest implements _BlockRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -2535,6 +2828,7 @@ class _$_BlockRequest implements _BlockRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -2560,6 +2854,7 @@ class _$_BlockRequest implements _BlockRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -2581,6 +2876,7 @@ class _$_BlockRequest implements _BlockRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -2602,6 +2898,7 @@ class _$_BlockRequest implements _BlockRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,
@@ -2667,6 +2964,7 @@ class _$_ResetStateRequest implements _ResetStateRequest {
     required TResult Function() unFollowRequest,
     required TResult Function() resetRequest,
     required TResult Function(int index) removeItem,
+    required TResult Function(String id) removeItemByPostId,
     required TResult Function(String reportType, dynamic description)
         reportRequest,
     required TResult Function() blockRequest,
@@ -2689,6 +2987,7 @@ class _$_ResetStateRequest implements _ResetStateRequest {
     TResult? Function()? unFollowRequest,
     TResult? Function()? resetRequest,
     TResult? Function(int index)? removeItem,
+    TResult? Function(String id)? removeItemByPostId,
     TResult? Function(String reportType, dynamic description)? reportRequest,
     TResult? Function()? blockRequest,
     TResult? Function()? resetStateRequest,
@@ -2710,6 +3009,7 @@ class _$_ResetStateRequest implements _ResetStateRequest {
     TResult Function()? unFollowRequest,
     TResult Function()? resetRequest,
     TResult Function(int index)? removeItem,
+    TResult Function(String id)? removeItemByPostId,
     TResult Function(String reportType, dynamic description)? reportRequest,
     TResult Function()? blockRequest,
     TResult Function()? resetStateRequest,
@@ -2735,6 +3035,7 @@ class _$_ResetStateRequest implements _ResetStateRequest {
     required TResult Function(_UnFollowRequest value) unFollowRequest,
     required TResult Function(_ResetRequest value) resetRequest,
     required TResult Function(_RemoveItem value) removeItem,
+    required TResult Function(_RemoveItemByPostId value) removeItemByPostId,
     required TResult Function(_ReportRequest value) reportRequest,
     required TResult Function(_BlockRequest value) blockRequest,
     required TResult Function(_ResetStateRequest value) resetStateRequest,
@@ -2756,6 +3057,7 @@ class _$_ResetStateRequest implements _ResetStateRequest {
     TResult? Function(_UnFollowRequest value)? unFollowRequest,
     TResult? Function(_ResetRequest value)? resetRequest,
     TResult? Function(_RemoveItem value)? removeItem,
+    TResult? Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult? Function(_ReportRequest value)? reportRequest,
     TResult? Function(_BlockRequest value)? blockRequest,
     TResult? Function(_ResetStateRequest value)? resetStateRequest,
@@ -2777,6 +3079,7 @@ class _$_ResetStateRequest implements _ResetStateRequest {
     TResult Function(_UnFollowRequest value)? unFollowRequest,
     TResult Function(_ResetRequest value)? resetRequest,
     TResult Function(_RemoveItem value)? removeItem,
+    TResult Function(_RemoveItemByPostId value)? removeItemByPostId,
     TResult Function(_ReportRequest value)? reportRequest,
     TResult Function(_BlockRequest value)? blockRequest,
     TResult Function(_ResetStateRequest value)? resetStateRequest,

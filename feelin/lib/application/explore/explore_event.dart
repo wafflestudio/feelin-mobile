@@ -10,6 +10,7 @@ class ExploreEvent with _$ExploreEvent {
   const factory ExploreEvent.unlikeRequest(int index, bool F) = _UnlikeRequest;
   const factory ExploreEvent.removeItem(int index, bool F) = _RemoveItem;
   const factory ExploreEvent.removeItemsByUserId(String id) = _RemoveItemsByUserId;
+  const factory ExploreEvent.removeItemByPostId(String id) = _RemoveItemByPostId;
   const factory ExploreEvent.likeSyncRequest(String id) = _LikeSyncRequest;
   const factory ExploreEvent.unlikeSyncRequest(String id) = _UnlikeSyncRequest;
 }

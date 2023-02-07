@@ -190,6 +190,13 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState>{
       ));
     });
 
+    on<_RemoveItemByPostId>((event, emit) async {
+      emit(state.copyWith(
+        feeds: List.from(state.feeds)..removeWhere((post) => post.id == event.id),
+        feedsF: List.from(state.feedsF)..removeWhere((post) => post.id == event.id),
+      ));
+    });
+
     on<_LikeSyncRequest>((event, emit) async {
       final Post? post = List.from(state.feeds).firstWhere((post) => post.id == event.id, orElse: ()=>null);
       if(post != null){
