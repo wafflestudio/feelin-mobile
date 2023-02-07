@@ -7,6 +7,7 @@ import '../../domain/explore/explore_failure.dart';
 import '../../domain/play/post.dart';
 import '../../domain/profile/page.dart';
 import '../../infrastructure/explore/explore_repository.dart';
+import '../../presentation/app/my_key_store.dart';
 
 part 'explore_bloc.freezed.dart';
 part 'explore_event.dart';
@@ -139,16 +140,27 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState>{
 
     on<_LikeRequest>((event, emit) async {
       final feeds = event.F ? state.feedsF : state.feeds;
+      final feeds2 = event.F ? state.feeds : state.feedsF;
       if(!feeds[event.index].isLiked!){
         final failureOrSuccess = await _exploreRepository.like(id: feeds[event.index].id);
         failureOrSuccess.fold(
               (f) {
             feeds[event.index].isLiked = true;
             //feeds[event.index].likeCount = feeds[event.index].likeCount! + 1;
+            final Post? post = List.from(feeds2).firstWhere((post) => post.id == feeds[event.index].id, orElse: ()=>null);
+            if(post != null){
+              post.isLiked = true;
+              post.likeCount = post.likeCount! + 1;
+            }
           },
               (posts) {
                 feeds[event.index].isLiked = true;
                 //feeds[event.index].likeCount = feeds[event.index].likeCount! + 1;
+                final Post? post = List.from(feeds2).firstWhere((post) => post.id == feeds[event.index].id, orElse: ()=>null);
+                if(post != null){
+                  post.isLiked = true;
+                  post.likeCount = post.likeCount! + 1;
+                }
           },
         );
       }
@@ -156,16 +168,27 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState>{
 
     on<_UnlikeRequest>((event, emit) async {
       final feeds = event.F ? state.feedsF : state.feeds;
+      final feeds2 = event.F ? state.feeds : state.feedsF;
       if(feeds[event.index].isLiked!){
         final failureOrSuccess = await _exploreRepository.unlike(id: feeds[event.index].id);
         failureOrSuccess.fold(
               (f) {
             feeds[event.index].isLiked = false;
             //feeds[event.index].likeCount = feeds[event.index].likeCount! - 1;
+            final Post? post = List.from(feeds2).firstWhere((post) => post.id == feeds[event.index].id, orElse: ()=>null);
+            if(post != null){
+              post.isLiked = false;
+              post.likeCount = post.likeCount! - 1;
+            }
           },
               (posts) {
             feeds[event.index].isLiked = false;
             //feeds[event.index].likeCount = feeds[event.index].likeCount! - 1;
+            final Post? post = List.from(feeds2).firstWhere((post) => post.id == feeds[event.index].id, orElse: ()=>null);
+            if(post != null){
+              post.isLiked = false;
+              post.likeCount = post.likeCount! - 1;
+            }
           },
         );
       }
