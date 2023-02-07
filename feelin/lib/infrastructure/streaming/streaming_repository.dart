@@ -8,8 +8,10 @@ import 'package:music_sns/env.dart';
 import 'package:music_sns/infrastructure/streaming/streaming_client.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../domain/explore/explore_post_failure.dart';
 import '../../domain/streaming/connect_failure.dart';
 import '../../domain/streaming/redirect_url.dart';
+import '../../domain/streaming/save_to_account_request.dart';
 import '../auth/get_auth_dio.dart';
 
 @LazySingleton()
@@ -90,6 +92,26 @@ class StreamingRepository{
     } on DioError catch(e){
       //print(e);
       return const Left(ConnectFailure.serverError());
+    }
+  }
+
+  Future<Either<ExplorePostFailure, String>> save({required String playlistId, required String vendorId, required String title, required String content}) async{
+    try{
+      HttpResponse<String> httpResponse = await streamingClient.save(playlistId, vendorId, SaveToAccountRequest(title: title, content: content));
+      switch(httpResponse.response.statusCode){
+        case 200 : return Right(httpResponse.data);
+        case 201 : return Right(httpResponse.data);
+        case 403 : return const Left(ExplorePostFailure.forbidden());
+        case 404 : return const Left(ExplorePostFailure.notFound());
+        default : return const Left(ExplorePostFailure.serverError());
+      }
+    }on DioError catch(e){
+      //print(e);
+      switch(e.response?.statusCode){
+        case 403 : return const Left(ExplorePostFailure.forbidden());
+        case 404 : return const Left(ExplorePostFailure.notFound());
+        default : return const Left(ExplorePostFailure.serverError());
+      }
     }
   }
 }

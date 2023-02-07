@@ -35,6 +35,8 @@ class ExplorePostRepository{
         default : return const Left(ExplorePostFailure.serverError());
       }
     }on DioError catch(e){
+      // print(e.response);
+      // print(e.message);
       switch(e.response?.statusCode){
         case 401 : return const Left(ExplorePostFailure.unauthorized());
         case 403 : return const Left(ExplorePostFailure.restricted());

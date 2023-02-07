@@ -17,6 +17,10 @@ Dio getAuthDio({required String baseUrl}) {
 
   dio.options.baseUrl = baseUrl;
 
+  dio.options.receiveTimeout = 60000;
+
+  dio.options.connectTimeout = 60000;
+
   dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) async {
 
     // 기기에 저장된 AccessToken 로드

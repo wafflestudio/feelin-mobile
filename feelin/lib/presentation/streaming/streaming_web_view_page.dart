@@ -29,7 +29,6 @@ class _StreamingWebViewState extends State<StreamingWebViewPage>{
   var loadingPercentage = 0;
 
   late String id;
-  late int _frameCallbackId;
   Timer? timer;
 
   @override

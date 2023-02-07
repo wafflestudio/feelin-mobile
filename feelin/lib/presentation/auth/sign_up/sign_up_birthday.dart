@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -161,133 +162,223 @@ class _SignUpBirthdayState extends State<SignUpBirthday>{
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
-            width: 125,
-            child: TextFormField(
-              controller: yearEditingController,
-              maxLength: 4,
-              //textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w600,
-                fontSize: 22,
-                letterSpacing: 10,
-              ),
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly,
-              ],
-              keyboardType: TextInputType.number,
-              textInputAction: TextInputAction.next,
-              onEditingComplete: (){
-                FocusScope.of(context).requestFocus(monthFocusNode);
-              },
-              onChanged: (value) {
-                if(value.length == 4){
-                  FocusScope.of(context).requestFocus(monthFocusNode);
-                }
-                setState(() {
-                  year = value;
-                  isBirthdayValid = validateBirthday();
-                });
-              },
-              autofillHints: const [AutofillHints.birthdayYear],
-              decoration: InputDecoration(
-                hintText: 'YYYY',
-                counterText: '',
-                hintStyle: TextStyle(
-                  color: FeelinColorFamily.gray400,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 24,
-                  letterSpacing: 10,
+          Stack(
+            children: [
+              SizedBox(
+                width: 125,
+                child: TextFormField(
+                  controller: yearEditingController,
+                  maxLength: 4,
+                  //textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 22,
+                    letterSpacing: 10,
+                  ),
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                  ],
+                  keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.next,
+                  onEditingComplete: (){
+                    FocusScope.of(context).requestFocus(monthFocusNode);
+                  },
+                  onChanged: (value) {
+                    if(value.length == 4){
+                      FocusScope.of(context).requestFocus(monthFocusNode);
+                    }
+                    setState(() {
+                      year = value;
+                      isBirthdayValid = validateBirthday();
+                    });
+                  },
+                  autofillHints: const [AutofillHints.birthdayYear],
+                  decoration: InputDecoration(
+                    hintText: '',
+                    counterText: '',
+                    hintStyle: TextStyle(
+                      color: FeelinColorFamily.gray400,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24,
+                      letterSpacing: 10,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              Positioned(
+                left: 10,
+                right: 0,
+                bottom: 10,
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 50),
+                  opacity: yearEditingController.text.isEmpty ? 1 : 0,
+                  child: IgnorePointer(
+                    child: SizedBox(width: 100,
+                      child: AutoSizeText(
+                        'YYYY',
+                        minFontSize: 10,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: FeelinColorFamily.gray400,
+                          letterSpacing: 10,
+                          fontSize: 24,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
           const SizedBox(width: 5,),
-          SizedBox(
-            width: 80,
-            child: TextFormField(
-              controller: monthEditingController,
-              focusNode: monthFocusNode,
-              maxLength: 2,
-              style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-                letterSpacing: 10,
-              ),
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly,
-              ],
-              keyboardType: TextInputType.number,
-              textInputAction: TextInputAction.next,
-              autofillHints: const [AutofillHints.birthdayMonth],
-              onEditingComplete: (){
-                FocusScope.of(context).requestFocus(dayFocusNode);
-              },
-              onChanged: (value) {
-                if(value.length == 2){
-                  FocusScope.of(context).requestFocus(dayFocusNode);
-                }
-                setState(() {
-                  month = value;
-                  isBirthdayValid = validateBirthday();
-                });
-              },
-              decoration: InputDecoration(
-                hintText: 'MM',
-                counterText: '',
-                hintStyle: TextStyle(
-                  color: FeelinColorFamily.gray400,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 24,
-                  letterSpacing: 8,
+          Stack(
+            children: [
+              SizedBox(
+                width: 80,
+                child: TextFormField(
+                  controller: monthEditingController,
+                  focusNode: monthFocusNode,
+                  maxLength: 2,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 24,
+                    letterSpacing: 10,
+                  ),
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                  ],
+                  keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.next,
+                  autofillHints: const [AutofillHints.birthdayMonth],
+                  onEditingComplete: (){
+                    FocusScope.of(context).requestFocus(dayFocusNode);
+                  },
+                  onChanged: (value) {
+                    if(value.length == 2){
+                      FocusScope.of(context).requestFocus(dayFocusNode);
+                    }
+                    setState(() {
+                      month = value;
+                      isBirthdayValid = validateBirthday();
+                    });
+                  },
+                  decoration: InputDecoration(
+                    hintText: '',
+                    counterText: '',
+                    hintStyle: TextStyle(
+                      color: FeelinColorFamily.gray400,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24,
+                      letterSpacing: 8,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              Positioned(
+                left: 10,
+                right: 0,
+                bottom: 10,
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 50),
+                  opacity: monthEditingController.text.isEmpty ? 1 : 0,
+                  child: IgnorePointer(
+                    child: SizedBox(width: 60,
+                      child: AutoSizeText(
+                        'MM',
+                        minFontSize: 10,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: FeelinColorFamily.gray400,
+                          letterSpacing: 10,
+                          fontSize: 24,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
           const SizedBox(width: 5,),
-          SizedBox(
-            width: 80,
-            child: TextFormField(
-              controller: dayEditingController,
-              focusNode: dayFocusNode,
-              maxLength: 2,
-              style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-                letterSpacing: 10,
-              ),
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly,
-              ],
-              keyboardType: TextInputType.number,
-              textInputAction: TextInputAction.next,
-              onEditingComplete: (){
-                FocusScope.of(context).unfocus();
-              },
-              onChanged: (value) {
-                setState(() {
-                  if(value.length == 2){
+          Stack(
+            children: [
+              SizedBox(
+                width: 80,
+                child: TextFormField(
+                  controller: dayEditingController,
+                  focusNode: dayFocusNode,
+                  maxLength: 2,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 24,
+                    letterSpacing: 10,
+                  ),
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                  ],
+                  keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.next,
+                  onEditingComplete: (){
                     FocusScope.of(context).unfocus();
-                  }
-                  day = value;
-                  isBirthdayValid = validateBirthday();
-                });
-              },
-              autofillHints: const [AutofillHints.birthdayDay],
-              decoration: InputDecoration(
-                hintText: 'DD',
-                counterText: '',
-                hintStyle: TextStyle(
-                  color: FeelinColorFamily.gray400,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 24,
-                  letterSpacing: 10,
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      if(value.length == 2){
+                        FocusScope.of(context).unfocus();
+                      }
+                      day = value;
+                      isBirthdayValid = validateBirthday();
+                    });
+                  },
+                  autofillHints: const [AutofillHints.birthdayDay],
+                  decoration: InputDecoration(
+                    hintText: '',
+                    counterText: '',
+                    hintStyle: TextStyle(
+                      color: FeelinColorFamily.gray400,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24,
+                      letterSpacing: 10,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              Positioned(
+                left: 10,
+                right: 0,
+                bottom: 10,
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 50),
+                  opacity: dayEditingController.text.isEmpty ? 1 : 0,
+                  child: IgnorePointer(
+                    child: SizedBox(width: 60,
+                      child: AutoSizeText(
+                        'DD',
+                        minFontSize: 10,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: FeelinColorFamily.gray400,
+                          letterSpacing: 10,
+                          fontSize: 24,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ],
       ),

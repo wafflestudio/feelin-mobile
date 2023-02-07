@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:focus_detector/focus_detector.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';

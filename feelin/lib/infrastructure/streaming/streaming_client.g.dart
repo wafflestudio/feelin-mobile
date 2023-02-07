@@ -115,6 +115,36 @@ class _StreamingClient implements StreamingClient {
     return httpResponse;
   }
 
+  @override
+  Future<HttpResponse<String>> save(
+    playlistId,
+    vendorId,
+    saveToAccountRequest,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Vendor-Authorization': vendorId};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(saveToAccountRequest.toJson());
+    final _result =
+        await _dio.fetch<String>(_setStreamType<HttpResponse<String>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/playlists/${playlistId}/save',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data!;
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

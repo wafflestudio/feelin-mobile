@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../application/share/share.dart';
 import '../../application/streaming/streaming_bloc.dart';
 import '../main/profile/app/profile_app.dart';
+import '../style/colors.dart';
 import 'bottom_navigation.dart';
 import 'my_key_store.dart';
 import 'tab_item.dart';
@@ -89,24 +92,54 @@ class AppState extends State<App>{
           return false;
         }
       },
-      child: Scaffold(
-        body: Stack(children: <Widget>[
-          _buildOffstageNavigator(TabItem.home),
-          _buildOffstageNavigator(TabItem.post),
-          _buildOffstageNavigator(TabItem.profile),
-        ]),
-        bottomNavigationBar: SingleChildScrollView(
-          child: AnimatedSize(
-            duration: const Duration(milliseconds: 1),
-            child: SizedBox(
-              height: isVisibleBottom ? null : 0.0,
-              child: BottomNavigation(
-                currentTab: _currentTab,
-                onSelectTab: _selectTab,
-                profileKey: _profileKey,
-                navigatorKeys: navigatorKeys,
+      child: BlocListener<StreamingBloc, StreamingState>(
+        listener: (context, state){
+          state.saveFailureOrSuccessOption.fold(
+                () => null,
+                (failureOrSuccess) {failureOrSuccess.fold(
+                  (f) => showTopSnackBar(
+                Overlay.of(context),
+                CustomSnackBar.error(
+                  backgroundColor: FeelinColorFamily.errorPrimary,
+                  icon: const Icon(Icons.music_note_rounded, color: Colors.transparent,),
+                  message:
+                  'Failed to save "$f". Please try again',
+                ),
               ),
-            ) ,
+                  (title) async {
+                showTopSnackBar(
+                  Overlay.of(context),
+                  CustomSnackBar.success(
+                    icon: const Icon(Icons.music_note_rounded, color: Colors.transparent,),
+                    message:
+                    'Saved “$title” to your account.',
+                  ),
+                );
+              },
+            );
+            context.read<StreamingBloc>().add(const StreamingEvent.resetState());
+            },
+          );
+        },
+        child: Scaffold(
+          body: Stack(children: <Widget>[
+            _buildOffstageNavigator(TabItem.home),
+            _buildOffstageNavigator(TabItem.post),
+            _buildOffstageNavigator(TabItem.profile),
+          ]),
+          bottomNavigationBar: SingleChildScrollView(
+            child: AnimatedSize(
+              duration: const Duration(milliseconds: 1),
+              child: SizedBox(
+                height: isVisibleBottom ? null : 0.0,
+                child: BottomNavigation(
+                  currentTab: _currentTab,
+                  onSelectTab: _selectTab,
+                  profileKey: _profileKey,
+                  navigatorKeys: navigatorKeys,
+                ),
+              ) ,
+            ),
           ),
         ),
       ),
