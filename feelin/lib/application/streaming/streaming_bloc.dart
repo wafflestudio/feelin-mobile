@@ -77,5 +77,34 @@ class StreamingBloc extends Bloc<StreamingEvent, StreamingState> {
         );
       }
     });
+
+    on<_SaveRequest>((event, emit) async {
+      if(true){
+        emit(state.copyWith(
+          isSaving: true,
+        ));
+        final failureOrSuccess = await _streamingRepository.save(playlistId: event.playlistId, vendorId: state.vendorId, title: event.title, content: event.content);
+        failureOrSuccess.fold(
+              (f) {
+            emit(state.copyWith(
+              isSaving: false,
+              saveFailureOrSuccessOption: some(left(event.title)),
+            ));
+          },
+              (url) {
+            emit(state.copyWith(
+              isSaving: false,
+              saveFailureOrSuccessOption: some(right(event.title)),
+            ));
+          },
+        );
+      }
+    });
+
+    on<_ResetState>((event, emit) async {
+      emit(state.copyWith(
+        saveFailureOrSuccessOption: none(),
+      ));
+    });
   }
 }

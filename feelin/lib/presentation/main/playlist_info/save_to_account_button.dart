@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,6 +40,8 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
     token = await storage.read(key: "token");
     id = await storage.read(key: 'vendor');
   }
+  
+  bool isSavingLong = false;
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +91,22 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
               child: FloatingActionButton.extended(
                 onPressed: (){
                   if(state.isConnected){
-                    context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.saveRequest(state.vendorId));
+                    final playlistInfoState = context.read<PlaylistInfoBloc>().state;
+                    if(playlistInfoState.post.playlist.tracks!.length < 50){
+                      context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.saveRequest(state.vendorId));
+                    }else{
+                      context.read<StreamingBloc>().add(StreamingEvent.saveRequest(playlistInfoState.post.playlist.id, playlistInfoState.post.title, playlistInfoState.post.content));
+                      showTopSnackBar(
+                        Overlay.of(context),
+                        const CustomSnackBar.success(
+                          icon: Icon(Icons.music_note_rounded, color: Colors.transparent,),
+                          message:
+                          'We are saving the playlist to your account. Hang tight!',
+                        ),
+                      );
+                      isSavingLong = true;
+                    }
+
                   }else{
                     Navigator.push(context, CupertinoPageRoute(
                       builder: (context){
@@ -108,7 +126,7 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                 backgroundColor: Colors.black,
                 foregroundColor: Colors.white,
                 hoverColor: Colors.transparent,
-                icon: (!state.isConnected || context.watch<PlaylistInfoBloc>().state.isSaving) ? null :
+                icon: (!state.isConnected || context.watch<PlaylistInfoBloc>().state.isSaving || (isSavingLong && context.watch<StreamingBloc>().state.isSaving)) ? null :
                 state.vendor == Vendor.spotify ? SvgPicture.asset('assets/icons/spotify_icon.svg',
                   width: 32,
                   height: 32,
@@ -123,12 +141,26 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                 focusElevation: 4,
                 disabledElevation: 4,
                 //shape: RoundedRectangleBorder(side: BorderSide(),borderRadius: BorderRadius.circular(28)),
-                label: (context.watch<PlaylistInfoBloc>().state.isSaving) ?
+                label: (isSavingLong && context.watch<StreamingBloc>().state.isSaving) ? 
+                Row(children: [
+                  const Text('Saving', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),),
+                  DefaultTextStyle(
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),
+                    child: AnimatedTextKit(
+                      repeatForever: true,
+                      pause: const Duration(milliseconds: 500),
+                      animatedTexts: [
+                        TyperAnimatedText('...', speed: const Duration(milliseconds: 500)),
+                      ],
+                    ),
+                  )
+                ],) 
+                    : (context.watch<PlaylistInfoBloc>().state.isSaving) ?
                 const Padding(
                   padding: EdgeInsets.all(10.0),
                   child: CircularProgressIndicator(color: Colors.white,),
                 )
-                    :const Text('Save to account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),),),
+                    : const Text('Save to account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),),),
             ),
           );
         }

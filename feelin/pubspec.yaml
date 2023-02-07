@@ -51,6 +51,7 @@ dependencies:
   url_launcher: ^6.1.8
   auto_size_text: ^3.0.0
   focus_detector: ^2.0.1
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:

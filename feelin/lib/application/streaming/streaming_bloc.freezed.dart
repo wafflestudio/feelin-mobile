@@ -20,18 +20,27 @@ mixin _$StreamingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() disconnectMyAccount,
     required TResult Function() getMyAccount,
+    required TResult Function(String playlistId, String title, String content)
+        saveRequest,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? disconnectMyAccount,
     TResult? Function()? getMyAccount,
+    TResult? Function(String playlistId, String title, String content)?
+        saveRequest,
+    TResult? Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? disconnectMyAccount,
     TResult Function()? getMyAccount,
+    TResult Function(String playlistId, String title, String content)?
+        saveRequest,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +48,24 @@ mixin _$StreamingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_DisconnectMyAccount value) disconnectMyAccount,
     required TResult Function(_GetMyAccount value) getMyAccount,
+    required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ResetState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DisconnectMyAccount value)? disconnectMyAccount,
     TResult? Function(_GetMyAccount value)? getMyAccount,
+    TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ResetState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DisconnectMyAccount value)? disconnectMyAccount,
     TResult Function(_GetMyAccount value)? getMyAccount,
+    TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +129,9 @@ class _$_DisconnectMyAccount implements _DisconnectMyAccount {
   TResult when<TResult extends Object?>({
     required TResult Function() disconnectMyAccount,
     required TResult Function() getMyAccount,
+    required TResult Function(String playlistId, String title, String content)
+        saveRequest,
+    required TResult Function() resetState,
   }) {
     return disconnectMyAccount();
   }
@@ -123,6 +141,9 @@ class _$_DisconnectMyAccount implements _DisconnectMyAccount {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? disconnectMyAccount,
     TResult? Function()? getMyAccount,
+    TResult? Function(String playlistId, String title, String content)?
+        saveRequest,
+    TResult? Function()? resetState,
   }) {
     return disconnectMyAccount?.call();
   }
@@ -132,6 +153,9 @@ class _$_DisconnectMyAccount implements _DisconnectMyAccount {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? disconnectMyAccount,
     TResult Function()? getMyAccount,
+    TResult Function(String playlistId, String title, String content)?
+        saveRequest,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (disconnectMyAccount != null) {
@@ -145,6 +169,8 @@ class _$_DisconnectMyAccount implements _DisconnectMyAccount {
   TResult map<TResult extends Object?>({
     required TResult Function(_DisconnectMyAccount value) disconnectMyAccount,
     required TResult Function(_GetMyAccount value) getMyAccount,
+    required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return disconnectMyAccount(this);
   }
@@ -154,6 +180,8 @@ class _$_DisconnectMyAccount implements _DisconnectMyAccount {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DisconnectMyAccount value)? disconnectMyAccount,
     TResult? Function(_GetMyAccount value)? getMyAccount,
+    TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ResetState value)? resetState,
   }) {
     return disconnectMyAccount?.call(this);
   }
@@ -163,6 +191,8 @@ class _$_DisconnectMyAccount implements _DisconnectMyAccount {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DisconnectMyAccount value)? disconnectMyAccount,
     TResult Function(_GetMyAccount value)? getMyAccount,
+    TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (disconnectMyAccount != null) {
@@ -216,6 +246,9 @@ class _$_GetMyAccount implements _GetMyAccount {
   TResult when<TResult extends Object?>({
     required TResult Function() disconnectMyAccount,
     required TResult Function() getMyAccount,
+    required TResult Function(String playlistId, String title, String content)
+        saveRequest,
+    required TResult Function() resetState,
   }) {
     return getMyAccount();
   }
@@ -225,6 +258,9 @@ class _$_GetMyAccount implements _GetMyAccount {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? disconnectMyAccount,
     TResult? Function()? getMyAccount,
+    TResult? Function(String playlistId, String title, String content)?
+        saveRequest,
+    TResult? Function()? resetState,
   }) {
     return getMyAccount?.call();
   }
@@ -234,6 +270,9 @@ class _$_GetMyAccount implements _GetMyAccount {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? disconnectMyAccount,
     TResult Function()? getMyAccount,
+    TResult Function(String playlistId, String title, String content)?
+        saveRequest,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getMyAccount != null) {
@@ -247,6 +286,8 @@ class _$_GetMyAccount implements _GetMyAccount {
   TResult map<TResult extends Object?>({
     required TResult Function(_DisconnectMyAccount value) disconnectMyAccount,
     required TResult Function(_GetMyAccount value) getMyAccount,
+    required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ResetState value) resetState,
   }) {
     return getMyAccount(this);
   }
@@ -256,6 +297,8 @@ class _$_GetMyAccount implements _GetMyAccount {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DisconnectMyAccount value)? disconnectMyAccount,
     TResult? Function(_GetMyAccount value)? getMyAccount,
+    TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ResetState value)? resetState,
   }) {
     return getMyAccount?.call(this);
   }
@@ -265,6 +308,8 @@ class _$_GetMyAccount implements _GetMyAccount {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DisconnectMyAccount value)? disconnectMyAccount,
     TResult Function(_GetMyAccount value)? getMyAccount,
+    TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ResetState value)? resetState,
     required TResult orElse(),
   }) {
     if (getMyAccount != null) {
@@ -279,12 +324,301 @@ abstract class _GetMyAccount implements StreamingEvent {
 }
 
 /// @nodoc
+abstract class _$$_SaveRequestCopyWith<$Res> {
+  factory _$$_SaveRequestCopyWith(
+          _$_SaveRequest value, $Res Function(_$_SaveRequest) then) =
+      __$$_SaveRequestCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String playlistId, String title, String content});
+}
+
+/// @nodoc
+class __$$_SaveRequestCopyWithImpl<$Res>
+    extends _$StreamingEventCopyWithImpl<$Res, _$_SaveRequest>
+    implements _$$_SaveRequestCopyWith<$Res> {
+  __$$_SaveRequestCopyWithImpl(
+      _$_SaveRequest _value, $Res Function(_$_SaveRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? playlistId = null,
+    Object? title = null,
+    Object? content = null,
+  }) {
+    return _then(_$_SaveRequest(
+      null == playlistId
+          ? _value.playlistId
+          : playlistId // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SaveRequest implements _SaveRequest {
+  const _$_SaveRequest(this.playlistId, this.title, this.content);
+
+  @override
+  final String playlistId;
+  @override
+  final String title;
+  @override
+  final String content;
+
+  @override
+  String toString() {
+    return 'StreamingEvent.saveRequest(playlistId: $playlistId, title: $title, content: $content)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SaveRequest &&
+            (identical(other.playlistId, playlistId) ||
+                other.playlistId == playlistId) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.content, content) || other.content == content));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, playlistId, title, content);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SaveRequestCopyWith<_$_SaveRequest> get copyWith =>
+      __$$_SaveRequestCopyWithImpl<_$_SaveRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() disconnectMyAccount,
+    required TResult Function() getMyAccount,
+    required TResult Function(String playlistId, String title, String content)
+        saveRequest,
+    required TResult Function() resetState,
+  }) {
+    return saveRequest(playlistId, title, content);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? disconnectMyAccount,
+    TResult? Function()? getMyAccount,
+    TResult? Function(String playlistId, String title, String content)?
+        saveRequest,
+    TResult? Function()? resetState,
+  }) {
+    return saveRequest?.call(playlistId, title, content);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? disconnectMyAccount,
+    TResult Function()? getMyAccount,
+    TResult Function(String playlistId, String title, String content)?
+        saveRequest,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (saveRequest != null) {
+      return saveRequest(playlistId, title, content);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DisconnectMyAccount value) disconnectMyAccount,
+    required TResult Function(_GetMyAccount value) getMyAccount,
+    required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ResetState value) resetState,
+  }) {
+    return saveRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DisconnectMyAccount value)? disconnectMyAccount,
+    TResult? Function(_GetMyAccount value)? getMyAccount,
+    TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ResetState value)? resetState,
+  }) {
+    return saveRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DisconnectMyAccount value)? disconnectMyAccount,
+    TResult Function(_GetMyAccount value)? getMyAccount,
+    TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (saveRequest != null) {
+      return saveRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveRequest implements StreamingEvent {
+  const factory _SaveRequest(
+          final String playlistId, final String title, final String content) =
+      _$_SaveRequest;
+
+  String get playlistId;
+  String get title;
+  String get content;
+  @JsonKey(ignore: true)
+  _$$_SaveRequestCopyWith<_$_SaveRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ResetStateCopyWith<$Res> {
+  factory _$$_ResetStateCopyWith(
+          _$_ResetState value, $Res Function(_$_ResetState) then) =
+      __$$_ResetStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetStateCopyWithImpl<$Res>
+    extends _$StreamingEventCopyWithImpl<$Res, _$_ResetState>
+    implements _$$_ResetStateCopyWith<$Res> {
+  __$$_ResetStateCopyWithImpl(
+      _$_ResetState _value, $Res Function(_$_ResetState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ResetState implements _ResetState {
+  const _$_ResetState();
+
+  @override
+  String toString() {
+    return 'StreamingEvent.resetState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() disconnectMyAccount,
+    required TResult Function() getMyAccount,
+    required TResult Function(String playlistId, String title, String content)
+        saveRequest,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? disconnectMyAccount,
+    TResult? Function()? getMyAccount,
+    TResult? Function(String playlistId, String title, String content)?
+        saveRequest,
+    TResult? Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? disconnectMyAccount,
+    TResult Function()? getMyAccount,
+    TResult Function(String playlistId, String title, String content)?
+        saveRequest,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DisconnectMyAccount value) disconnectMyAccount,
+    required TResult Function(_GetMyAccount value) getMyAccount,
+    required TResult Function(_SaveRequest value) saveRequest,
+    required TResult Function(_ResetState value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DisconnectMyAccount value)? disconnectMyAccount,
+    TResult? Function(_GetMyAccount value)? getMyAccount,
+    TResult? Function(_SaveRequest value)? saveRequest,
+    TResult? Function(_ResetState value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DisconnectMyAccount value)? disconnectMyAccount,
+    TResult Function(_GetMyAccount value)? getMyAccount,
+    TResult Function(_SaveRequest value)? saveRequest,
+    TResult Function(_ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetState implements StreamingEvent {
+  const factory _ResetState() = _$_ResetState;
+}
+
+/// @nodoc
 mixin _$StreamingState {
   Option<Either<ConnectFailure, VendorAccounts>>
       get fetchAccountFailureOrSuccessOption =>
           throw _privateConstructorUsedError;
   Option<Either<ConnectFailure, Unit>> get disconnectFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
+  Option<Either<String, String>> get saveFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  bool get isSaving => throw _privateConstructorUsedError;
   bool get isConnected => throw _privateConstructorUsedError;
   Vendor get vendor => throw _privateConstructorUsedError;
   String get vendorId => throw _privateConstructorUsedError;
@@ -304,6 +638,8 @@ abstract class $StreamingStateCopyWith<$Res> {
       {Option<Either<ConnectFailure, VendorAccounts>>
           fetchAccountFailureOrSuccessOption,
       Option<Either<ConnectFailure, Unit>> disconnectFailureOrSuccessOption,
+      Option<Either<String, String>> saveFailureOrSuccessOption,
+      bool isSaving,
       bool isConnected,
       Vendor vendor,
       String vendorId});
@@ -324,6 +660,8 @@ class _$StreamingStateCopyWithImpl<$Res, $Val extends StreamingState>
   $Res call({
     Object? fetchAccountFailureOrSuccessOption = null,
     Object? disconnectFailureOrSuccessOption = null,
+    Object? saveFailureOrSuccessOption = null,
+    Object? isSaving = null,
     Object? isConnected = null,
     Object? vendor = null,
     Object? vendorId = null,
@@ -338,6 +676,14 @@ class _$StreamingStateCopyWithImpl<$Res, $Val extends StreamingState>
           ? _value.disconnectFailureOrSuccessOption
           : disconnectFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ConnectFailure, Unit>>,
+      saveFailureOrSuccessOption: null == saveFailureOrSuccessOption
+          ? _value.saveFailureOrSuccessOption
+          : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<String, String>>,
+      isSaving: null == isSaving
+          ? _value.isSaving
+          : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
       isConnected: null == isConnected
           ? _value.isConnected
           : isConnected // ignore: cast_nullable_to_non_nullable
@@ -366,6 +712,8 @@ abstract class _$$_StreamingStateCopyWith<$Res>
       {Option<Either<ConnectFailure, VendorAccounts>>
           fetchAccountFailureOrSuccessOption,
       Option<Either<ConnectFailure, Unit>> disconnectFailureOrSuccessOption,
+      Option<Either<String, String>> saveFailureOrSuccessOption,
+      bool isSaving,
       bool isConnected,
       Vendor vendor,
       String vendorId});
@@ -384,6 +732,8 @@ class __$$_StreamingStateCopyWithImpl<$Res>
   $Res call({
     Object? fetchAccountFailureOrSuccessOption = null,
     Object? disconnectFailureOrSuccessOption = null,
+    Object? saveFailureOrSuccessOption = null,
+    Object? isSaving = null,
     Object? isConnected = null,
     Object? vendor = null,
     Object? vendorId = null,
@@ -398,6 +748,14 @@ class __$$_StreamingStateCopyWithImpl<$Res>
           ? _value.disconnectFailureOrSuccessOption
           : disconnectFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ConnectFailure, Unit>>,
+      saveFailureOrSuccessOption: null == saveFailureOrSuccessOption
+          ? _value.saveFailureOrSuccessOption
+          : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<String, String>>,
+      isSaving: null == isSaving
+          ? _value.isSaving
+          : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
       isConnected: null == isConnected
           ? _value.isConnected
           : isConnected // ignore: cast_nullable_to_non_nullable
@@ -420,6 +778,8 @@ class _$_StreamingState implements _StreamingState {
   const _$_StreamingState(
       {required this.fetchAccountFailureOrSuccessOption,
       required this.disconnectFailureOrSuccessOption,
+      required this.saveFailureOrSuccessOption,
+      required this.isSaving,
       required this.isConnected,
       required this.vendor,
       required this.vendorId});
@@ -430,6 +790,10 @@ class _$_StreamingState implements _StreamingState {
   @override
   final Option<Either<ConnectFailure, Unit>> disconnectFailureOrSuccessOption;
   @override
+  final Option<Either<String, String>> saveFailureOrSuccessOption;
+  @override
+  final bool isSaving;
+  @override
   final bool isConnected;
   @override
   final Vendor vendor;
@@ -438,7 +802,7 @@ class _$_StreamingState implements _StreamingState {
 
   @override
   String toString() {
-    return 'StreamingState(fetchAccountFailureOrSuccessOption: $fetchAccountFailureOrSuccessOption, disconnectFailureOrSuccessOption: $disconnectFailureOrSuccessOption, isConnected: $isConnected, vendor: $vendor, vendorId: $vendorId)';
+    return 'StreamingState(fetchAccountFailureOrSuccessOption: $fetchAccountFailureOrSuccessOption, disconnectFailureOrSuccessOption: $disconnectFailureOrSuccessOption, saveFailureOrSuccessOption: $saveFailureOrSuccessOption, isSaving: $isSaving, isConnected: $isConnected, vendor: $vendor, vendorId: $vendorId)';
   }
 
   @override
@@ -454,6 +818,12 @@ class _$_StreamingState implements _StreamingState {
                     disconnectFailureOrSuccessOption) ||
                 other.disconnectFailureOrSuccessOption ==
                     disconnectFailureOrSuccessOption) &&
+            (identical(other.saveFailureOrSuccessOption,
+                    saveFailureOrSuccessOption) ||
+                other.saveFailureOrSuccessOption ==
+                    saveFailureOrSuccessOption) &&
+            (identical(other.isSaving, isSaving) ||
+                other.isSaving == isSaving) &&
             (identical(other.isConnected, isConnected) ||
                 other.isConnected == isConnected) &&
             (identical(other.vendor, vendor) || other.vendor == vendor) &&
@@ -466,6 +836,8 @@ class _$_StreamingState implements _StreamingState {
       runtimeType,
       fetchAccountFailureOrSuccessOption,
       disconnectFailureOrSuccessOption,
+      saveFailureOrSuccessOption,
+      isSaving,
       isConnected,
       vendor,
       vendorId);
@@ -483,6 +855,8 @@ abstract class _StreamingState implements StreamingState {
           fetchAccountFailureOrSuccessOption,
       required final Option<Either<ConnectFailure, Unit>>
           disconnectFailureOrSuccessOption,
+      required final Option<Either<String, String>> saveFailureOrSuccessOption,
+      required final bool isSaving,
       required final bool isConnected,
       required final Vendor vendor,
       required final String vendorId}) = _$_StreamingState;
@@ -492,6 +866,10 @@ abstract class _StreamingState implements StreamingState {
       get fetchAccountFailureOrSuccessOption;
   @override
   Option<Either<ConnectFailure, Unit>> get disconnectFailureOrSuccessOption;
+  @override
+  Option<Either<String, String>> get saveFailureOrSuccessOption;
+  @override
+  bool get isSaving;
   @override
   bool get isConnected;
   @override
