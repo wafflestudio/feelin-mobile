@@ -35,6 +35,7 @@ class _ExploreAppBarState extends State<ExploreAppBar> {
                   style:  const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 24,
+                    letterSpacing: -0.41,
                   ),
                   children: [
                     const TextSpan(text: 'Feelin',

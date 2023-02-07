@@ -30,7 +30,7 @@ class _ExploreAppBarBottomState extends State<ExploreAppBarBottom> {
           isScrollable: true,
           physics: const BouncingScrollPhysics(),
           labelColor: Colors.black,
-          labelStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+          labelStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18, letterSpacing: -0.41),
           unselectedLabelColor: FeelinColorFamily.gray500,
           indicatorColor: Colors.black,
           indicator: const CustomTabIndicator(),
