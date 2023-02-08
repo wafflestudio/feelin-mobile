@@ -29,6 +29,7 @@ mixin _$SignUpFormEvent {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -50,6 +51,7 @@ mixin _$SignUpFormEvent {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -71,6 +73,7 @@ mixin _$SignUpFormEvent {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -94,6 +97,7 @@ mixin _$SignUpFormEvent {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -115,6 +119,7 @@ mixin _$SignUpFormEvent {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -136,6 +141,7 @@ mixin _$SignUpFormEvent {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -242,6 +248,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -266,6 +273,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -290,6 +298,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -319,6 +328,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -343,6 +353,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -367,6 +378,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -469,6 +481,7 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -493,6 +506,7 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -517,6 +531,7 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -546,6 +561,7 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -570,6 +586,7 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -594,6 +611,7 @@ class _$_PasswordConfirmChanged implements _PasswordConfirmChanged {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -695,6 +713,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -719,6 +738,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -743,6 +763,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -772,6 +793,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -796,6 +818,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -820,6 +843,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -893,6 +917,7 @@ class _$_Submitted implements _Submitted {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -917,6 +942,7 @@ class _$_Submitted implements _Submitted {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -941,6 +967,7 @@ class _$_Submitted implements _Submitted {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -970,6 +997,7 @@ class _$_Submitted implements _Submitted {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -994,6 +1022,7 @@ class _$_Submitted implements _Submitted {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -1018,6 +1047,7 @@ class _$_Submitted implements _Submitted {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -1112,6 +1142,7 @@ class _$_CodeChanged implements _CodeChanged {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -1136,6 +1167,7 @@ class _$_CodeChanged implements _CodeChanged {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -1160,6 +1192,7 @@ class _$_CodeChanged implements _CodeChanged {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -1189,6 +1222,7 @@ class _$_CodeChanged implements _CodeChanged {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -1213,6 +1247,7 @@ class _$_CodeChanged implements _CodeChanged {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -1237,6 +1272,7 @@ class _$_CodeChanged implements _CodeChanged {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -1310,6 +1346,7 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -1334,6 +1371,7 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -1358,6 +1396,7 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -1387,6 +1426,7 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -1411,6 +1451,7 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -1435,6 +1476,7 @@ class _$_EmailSubmitted implements _EmailSubmitted {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -1503,6 +1545,7 @@ class _$_EmailRequested implements _EmailRequested {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -1527,6 +1570,7 @@ class _$_EmailRequested implements _EmailRequested {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -1551,6 +1595,7 @@ class _$_EmailRequested implements _EmailRequested {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -1580,6 +1625,7 @@ class _$_EmailRequested implements _EmailRequested {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -1604,6 +1650,7 @@ class _$_EmailRequested implements _EmailRequested {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -1628,6 +1675,7 @@ class _$_EmailRequested implements _EmailRequested {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -1696,6 +1744,7 @@ class _$_PhoneSubmitted implements _PhoneSubmitted {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -1720,6 +1769,7 @@ class _$_PhoneSubmitted implements _PhoneSubmitted {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -1744,6 +1794,7 @@ class _$_PhoneSubmitted implements _PhoneSubmitted {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -1773,6 +1824,7 @@ class _$_PhoneSubmitted implements _PhoneSubmitted {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -1797,6 +1849,7 @@ class _$_PhoneSubmitted implements _PhoneSubmitted {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -1821,6 +1874,7 @@ class _$_PhoneSubmitted implements _PhoneSubmitted {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -1889,6 +1943,7 @@ class _$_PhoneRequested implements _PhoneRequested {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -1913,6 +1968,7 @@ class _$_PhoneRequested implements _PhoneRequested {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -1937,6 +1993,7 @@ class _$_PhoneRequested implements _PhoneRequested {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -1966,6 +2023,7 @@ class _$_PhoneRequested implements _PhoneRequested {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -1990,6 +2048,7 @@ class _$_PhoneRequested implements _PhoneRequested {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -2014,6 +2073,7 @@ class _$_PhoneRequested implements _PhoneRequested {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -2108,6 +2168,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -2132,6 +2193,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -2156,6 +2218,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -2185,6 +2248,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -2209,6 +2273,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -2233,6 +2298,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -2333,6 +2399,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -2357,6 +2424,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -2381,6 +2449,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -2410,6 +2479,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -2434,6 +2504,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -2458,6 +2529,7 @@ class _$_UsernameChanged implements _UsernameChanged {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -2480,6 +2552,205 @@ abstract class _UsernameChanged implements SignUpFormEvent {
   @JsonKey(ignore: true)
   _$$_UsernameChangedCopyWith<_$_UsernameChanged> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadingUsernameCopyWith<$Res> {
+  factory _$$_LoadingUsernameCopyWith(
+          _$_LoadingUsername value, $Res Function(_$_LoadingUsername) then) =
+      __$$_LoadingUsernameCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadingUsernameCopyWithImpl<$Res>
+    extends _$SignUpFormEventCopyWithImpl<$Res, _$_LoadingUsername>
+    implements _$$_LoadingUsernameCopyWith<$Res> {
+  __$$_LoadingUsernameCopyWithImpl(
+      _$_LoadingUsername _value, $Res Function(_$_LoadingUsername) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadingUsername implements _LoadingUsername {
+  const _$_LoadingUsername();
+
+  @override
+  String toString() {
+    return 'SignUpFormEvent.loadingUsername()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadingUsername);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailAddressStr) emailAddressChanged,
+    required TResult Function(String passwordConfirmStr) passwordConfirmChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() submitted,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function() emailSubmitted,
+    required TResult Function() emailRequested,
+    required TResult Function() phoneSubmitted,
+    required TResult Function() phoneRequested,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
+    required TResult Function() resetCanUseName,
+    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(String countryCodeStr) countryCodeChanged,
+    required TResult Function(String birthdayStr) birthdayChanged,
+    required TResult Function() setEmail,
+    required TResult Function() setPhone,
+  }) {
+    return loadingUsername();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String emailAddressStr)? emailAddressChanged,
+    TResult? Function(String passwordConfirmStr)? passwordConfirmChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function()? submitted,
+    TResult? Function(String codeStr)? codeChanged,
+    TResult? Function()? emailSubmitted,
+    TResult? Function()? emailRequested,
+    TResult? Function()? phoneSubmitted,
+    TResult? Function()? phoneRequested,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
+    TResult? Function()? resetCanUseName,
+    TResult? Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult? Function(String countryCodeStr)? countryCodeChanged,
+    TResult? Function(String birthdayStr)? birthdayChanged,
+    TResult? Function()? setEmail,
+    TResult? Function()? setPhone,
+  }) {
+    return loadingUsername?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailAddressStr)? emailAddressChanged,
+    TResult Function(String passwordConfirmStr)? passwordConfirmChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? submitted,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function()? emailSubmitted,
+    TResult Function()? emailRequested,
+    TResult Function()? phoneSubmitted,
+    TResult Function()? phoneRequested,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
+    TResult Function()? resetCanUseName,
+    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(String countryCodeStr)? countryCodeChanged,
+    TResult Function(String birthdayStr)? birthdayChanged,
+    TResult Function()? setEmail,
+    TResult Function()? setPhone,
+    required TResult orElse(),
+  }) {
+    if (loadingUsername != null) {
+      return loadingUsername();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_PasswordConfirmChanged value)
+        passwordConfirmChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_EmailSubmitted value) emailSubmitted,
+    required TResult Function(_EmailRequested value) emailRequested,
+    required TResult Function(_PhoneSubmitted value) phoneSubmitted,
+    required TResult Function(_PhoneRequested value) phoneRequested,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
+    required TResult Function(_ResetCanUseName value) resetCanUseName,
+    required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(_CountryCodeChanged value) countryCodeChanged,
+    required TResult Function(_BirthdayChanged value) birthdayChanged,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetPhone value) setPhone,
+  }) {
+    return loadingUsername(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult? Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_CodeChanged value)? codeChanged,
+    TResult? Function(_EmailSubmitted value)? emailSubmitted,
+    TResult? Function(_EmailRequested value)? emailRequested,
+    TResult? Function(_PhoneSubmitted value)? phoneSubmitted,
+    TResult? Function(_PhoneRequested value)? phoneRequested,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
+    TResult? Function(_ResetCanUseName value)? resetCanUseName,
+    TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
+    TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
+    TResult? Function(_BirthdayChanged value)? birthdayChanged,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetPhone value)? setPhone,
+  }) {
+    return loadingUsername?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordConfirmChanged value)? passwordConfirmChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_EmailSubmitted value)? emailSubmitted,
+    TResult Function(_EmailRequested value)? emailRequested,
+    TResult Function(_PhoneSubmitted value)? phoneSubmitted,
+    TResult Function(_PhoneRequested value)? phoneRequested,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
+    TResult Function(_ResetCanUseName value)? resetCanUseName,
+    TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(_CountryCodeChanged value)? countryCodeChanged,
+    TResult Function(_BirthdayChanged value)? birthdayChanged,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetPhone value)? setPhone,
+    required TResult orElse(),
+  }) {
+    if (loadingUsername != null) {
+      return loadingUsername(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingUsername implements SignUpFormEvent {
+  const factory _LoadingUsername() = _$_LoadingUsername;
 }
 
 /// @nodoc
@@ -2531,6 +2802,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -2555,6 +2827,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -2579,6 +2852,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -2608,6 +2882,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -2632,6 +2907,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -2656,6 +2932,7 @@ class _$_ResetCanUseName implements _ResetCanUseName {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -2752,6 +3029,7 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -2776,6 +3054,7 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -2800,6 +3079,7 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -2829,6 +3109,7 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -2853,6 +3134,7 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -2877,6 +3159,7 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -2979,6 +3262,7 @@ class _$_CountryCodeChanged implements _CountryCodeChanged {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -3003,6 +3287,7 @@ class _$_CountryCodeChanged implements _CountryCodeChanged {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -3027,6 +3312,7 @@ class _$_CountryCodeChanged implements _CountryCodeChanged {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -3056,6 +3342,7 @@ class _$_CountryCodeChanged implements _CountryCodeChanged {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -3080,6 +3367,7 @@ class _$_CountryCodeChanged implements _CountryCodeChanged {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -3104,6 +3392,7 @@ class _$_CountryCodeChanged implements _CountryCodeChanged {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -3205,6 +3494,7 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -3229,6 +3519,7 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -3253,6 +3544,7 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -3282,6 +3574,7 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -3306,6 +3599,7 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -3330,6 +3624,7 @@ class _$_BirthdayChanged implements _BirthdayChanged {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -3403,6 +3698,7 @@ class _$_SetEmail implements _SetEmail {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -3427,6 +3723,7 @@ class _$_SetEmail implements _SetEmail {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -3451,6 +3748,7 @@ class _$_SetEmail implements _SetEmail {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -3480,6 +3778,7 @@ class _$_SetEmail implements _SetEmail {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -3504,6 +3803,7 @@ class _$_SetEmail implements _SetEmail {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -3528,6 +3828,7 @@ class _$_SetEmail implements _SetEmail {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -3596,6 +3897,7 @@ class _$_SetPhone implements _SetPhone {
     required TResult Function() phoneRequested,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function() loadingUsername,
     required TResult Function() resetCanUseName,
     required TResult Function(String phoneNumberStr) phoneNumberChanged,
     required TResult Function(String countryCodeStr) countryCodeChanged,
@@ -3620,6 +3922,7 @@ class _$_SetPhone implements _SetPhone {
     TResult? Function()? phoneRequested,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String usernameStr)? usernameChanged,
+    TResult? Function()? loadingUsername,
     TResult? Function()? resetCanUseName,
     TResult? Function(String phoneNumberStr)? phoneNumberChanged,
     TResult? Function(String countryCodeStr)? countryCodeChanged,
@@ -3644,6 +3947,7 @@ class _$_SetPhone implements _SetPhone {
     TResult Function()? phoneRequested,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String usernameStr)? usernameChanged,
+    TResult Function()? loadingUsername,
     TResult Function()? resetCanUseName,
     TResult Function(String phoneNumberStr)? phoneNumberChanged,
     TResult Function(String countryCodeStr)? countryCodeChanged,
@@ -3673,6 +3977,7 @@ class _$_SetPhone implements _SetPhone {
     required TResult Function(_PhoneRequested value) phoneRequested,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_UsernameChanged value) usernameChanged,
+    required TResult Function(_LoadingUsername value) loadingUsername,
     required TResult Function(_ResetCanUseName value) resetCanUseName,
     required TResult Function(_PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(_CountryCodeChanged value) countryCodeChanged,
@@ -3697,6 +4002,7 @@ class _$_SetPhone implements _SetPhone {
     TResult? Function(_PhoneRequested value)? phoneRequested,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_UsernameChanged value)? usernameChanged,
+    TResult? Function(_LoadingUsername value)? loadingUsername,
     TResult? Function(_ResetCanUseName value)? resetCanUseName,
     TResult? Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult? Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -3721,6 +4027,7 @@ class _$_SetPhone implements _SetPhone {
     TResult Function(_PhoneRequested value)? phoneRequested,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_UsernameChanged value)? usernameChanged,
+    TResult Function(_LoadingUsername value)? loadingUsername,
     TResult Function(_ResetCanUseName value)? resetCanUseName,
     TResult Function(_PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(_CountryCodeChanged value)? countryCodeChanged,
@@ -3757,6 +4064,7 @@ mixin _$SignUpFormState {
   NotEmptyString get name => throw _privateConstructorUsedError;
   Username get username => throw _privateConstructorUsedError;
   bool get canUseName => throw _privateConstructorUsedError;
+  bool get loadingUsername => throw _privateConstructorUsedError;
   PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
   NotEmptyString get countryCode => throw _privateConstructorUsedError;
   NotEmptyString get birthday => throw _privateConstructorUsedError;
@@ -3786,6 +4094,7 @@ abstract class $SignUpFormStateCopyWith<$Res> {
       NotEmptyString name,
       Username username,
       bool canUseName,
+      bool loadingUsername,
       PhoneNumber phoneNumber,
       NotEmptyString countryCode,
       NotEmptyString birthday,
@@ -3817,6 +4126,7 @@ class _$SignUpFormStateCopyWithImpl<$Res, $Val extends SignUpFormState>
     Object? name = null,
     Object? username = null,
     Object? canUseName = null,
+    Object? loadingUsername = null,
     Object? phoneNumber = null,
     Object? countryCode = null,
     Object? birthday = null,
@@ -3871,6 +4181,10 @@ class _$SignUpFormStateCopyWithImpl<$Res, $Val extends SignUpFormState>
           ? _value.canUseName
           : canUseName // ignore: cast_nullable_to_non_nullable
               as bool,
+      loadingUsername: null == loadingUsername
+          ? _value.loadingUsername
+          : loadingUsername // ignore: cast_nullable_to_non_nullable
+              as bool,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -3912,6 +4226,7 @@ abstract class _$$_SignUpFormStateCopyWith<$Res>
       NotEmptyString name,
       Username username,
       bool canUseName,
+      bool loadingUsername,
       PhoneNumber phoneNumber,
       NotEmptyString countryCode,
       NotEmptyString birthday,
@@ -3941,6 +4256,7 @@ class __$$_SignUpFormStateCopyWithImpl<$Res>
     Object? name = null,
     Object? username = null,
     Object? canUseName = null,
+    Object? loadingUsername = null,
     Object? phoneNumber = null,
     Object? countryCode = null,
     Object? birthday = null,
@@ -3995,6 +4311,10 @@ class __$$_SignUpFormStateCopyWithImpl<$Res>
           ? _value.canUseName
           : canUseName // ignore: cast_nullable_to_non_nullable
               as bool,
+      loadingUsername: null == loadingUsername
+          ? _value.loadingUsername
+          : loadingUsername // ignore: cast_nullable_to_non_nullable
+              as bool,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -4031,6 +4351,7 @@ class _$_SignUpFormState implements _SignUpFormState {
       required this.name,
       required this.username,
       required this.canUseName,
+      required this.loadingUsername,
       required this.phoneNumber,
       required this.countryCode,
       required this.birthday,
@@ -4061,6 +4382,8 @@ class _$_SignUpFormState implements _SignUpFormState {
   @override
   final bool canUseName;
   @override
+  final bool loadingUsername;
+  @override
   final PhoneNumber phoneNumber;
   @override
   final NotEmptyString countryCode;
@@ -4071,7 +4394,7 @@ class _$_SignUpFormState implements _SignUpFormState {
 
   @override
   String toString() {
-    return 'SignUpFormState(emailAddress: $emailAddress, code: $code, isEmailSubmitting: $isEmailSubmitting, requestFailureOrSuccessOption: $requestFailureOrSuccessOption, password: $password, passwordConfirm: $passwordConfirm, authFailureOrSuccessOption: $authFailureOrSuccessOption, verifyFailureOrSuccessOption: $verifyFailureOrSuccessOption, isSubmitting: $isSubmitting, name: $name, username: $username, canUseName: $canUseName, phoneNumber: $phoneNumber, countryCode: $countryCode, birthday: $birthday, signUpWithEmail: $signUpWithEmail)';
+    return 'SignUpFormState(emailAddress: $emailAddress, code: $code, isEmailSubmitting: $isEmailSubmitting, requestFailureOrSuccessOption: $requestFailureOrSuccessOption, password: $password, passwordConfirm: $passwordConfirm, authFailureOrSuccessOption: $authFailureOrSuccessOption, verifyFailureOrSuccessOption: $verifyFailureOrSuccessOption, isSubmitting: $isSubmitting, name: $name, username: $username, canUseName: $canUseName, loadingUsername: $loadingUsername, phoneNumber: $phoneNumber, countryCode: $countryCode, birthday: $birthday, signUpWithEmail: $signUpWithEmail)';
   }
 
   @override
@@ -4107,6 +4430,8 @@ class _$_SignUpFormState implements _SignUpFormState {
                 other.username == username) &&
             (identical(other.canUseName, canUseName) ||
                 other.canUseName == canUseName) &&
+            (identical(other.loadingUsername, loadingUsername) ||
+                other.loadingUsername == loadingUsername) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
             (identical(other.countryCode, countryCode) ||
@@ -4132,6 +4457,7 @@ class _$_SignUpFormState implements _SignUpFormState {
       name,
       username,
       canUseName,
+      loadingUsername,
       phoneNumber,
       countryCode,
       birthday,
@@ -4161,6 +4487,7 @@ abstract class _SignUpFormState implements SignUpFormState {
       required final NotEmptyString name,
       required final Username username,
       required final bool canUseName,
+      required final bool loadingUsername,
       required final PhoneNumber phoneNumber,
       required final NotEmptyString countryCode,
       required final NotEmptyString birthday,
@@ -4190,6 +4517,8 @@ abstract class _SignUpFormState implements SignUpFormState {
   Username get username;
   @override
   bool get canUseName;
+  @override
+  bool get loadingUsername;
   @override
   PhoneNumber get phoneNumber;
   @override

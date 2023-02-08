@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
-import 'package:focus_detector/focus_detector.dart';
+import 'package:music_sns/presentation/common/custom_visibility_detector.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_app_bar.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_list.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
@@ -83,8 +83,8 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return FocusDetector(
-      onFocusGained: (){
+    return CustomVisibilityDetector(
+      onVisibleGained: (){
         if(firstLoaded){
           context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.reloadRequest(widget.postId));
         }else{

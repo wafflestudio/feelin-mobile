@@ -13,7 +13,6 @@ class WebViewPage extends StatefulWidget{
 }
 
 class _WebViewState extends State<WebViewPage> with AutomaticKeepAliveClientMixin{
-  late WebViewController _controller;
   final Completer<WebViewController> _completer = Completer<WebViewController>();
   var loadingPercentage = 0;
 
@@ -38,7 +37,6 @@ class _WebViewState extends State<WebViewPage> with AutomaticKeepAliveClientMixi
           initialUrl: widget.url,
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webViewController){
-            _completer.future.then((value) => _controller = value);
             _completer.complete(webViewController);
           },
           onPageStarted: (url) {

@@ -7,8 +7,9 @@ import 'package:music_sns/application/streaming/streaming_bloc.dart';
 import 'package:music_sns/domain/streaming/vendor.dart';
 import 'package:music_sns/presentation/setting/blocked_user_page.dart';
 import 'package:music_sns/presentation/setting/manage_account_page.dart';
-import 'package:music_sns/presentation/setting/our_email_page.dart';
+import 'package:music_sns/presentation/setting/contact_us_page.dart';
 import 'package:music_sns/presentation/style/colors.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../application/auth/auth/auth_bloc.dart';
@@ -46,18 +47,21 @@ class SettingPage extends StatelessWidget{
             launchUrl(url,  mode: LaunchMode.externalApplication);
             }
           }),
-          button(string: 'Open source libraries', function: (){
-            Navigator.push(context, CupertinoPageRoute(
+          button(string: 'Open source libraries', function: () async {
+            PackageInfo packageInfo = await PackageInfo.fromPlatform();
+            if(context.mounted) {
+              Navigator.push(context, CupertinoPageRoute(
                 builder: (context){
-              return const LicensePage(applicationVersion: '1.0.0',);
+              return LicensePage(applicationVersion: packageInfo.version,);
             },
             ),
             );
+            }
           }),
           button(string: 'Contact Us', function: (){
             Navigator.push(context, CupertinoPageRoute(
               builder: (context){
-                return const OurEmailPage();
+                return const ContactUsPage();
               },
             ),
             );

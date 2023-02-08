@@ -29,6 +29,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   void initState(){
     super.initState();
     context.read<EditProfileFormBloc>().add(EditProfileFormEvent.nameChanged(widget.profile.name!));
+
     context.read<EditProfileFormBloc>().add(EditProfileFormEvent.usernameChanged(widget.profile.username));
     context.read<EditProfileFormBloc>().add(EditProfileFormEvent.introductionChanged(widget.profile.introduction ?? ''));
     context.read<EditProfileFormBloc>().add(EditProfileFormEvent.imageUrlChanged(widget.profile.profileImage));
@@ -131,7 +132,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ),
             onChanged: (value) {
               context.read<EditProfileFormBloc>().add(EditProfileFormEvent.nameChanged(value));
-              context.read<EditProfileFormBloc>().add(const EditProfileFormEvent.resetCanUseName());
             }
             ,
           );
@@ -168,7 +168,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               ),
               isDense: true,
               suffixIcon: ((state.username.isValid() && state.username.getOrCrash() == widget.profile.username) ||
-                  state.canUseName) ? const Icon(Icons.check_circle_outline, color: Colors.green,) : Icon(Icons.cancel_outlined, color: FeelinColorFamily.redPrimary,),
+                  state.canUseName) ? const Icon(Icons.check_circle_outline, color: Colors.green,) : (state.username.isValid() && state.loadingUsername) ? Transform.scale(scale: 0.25, child: CircularProgressIndicator(strokeWidth: 5, color: FeelinColorFamily.gray300,)) : Icon(Icons.cancel_outlined, color: FeelinColorFamily.redPrimary,),
             ),
             inputFormatters: [
               FilteringTextInputFormatter.allow(RegExp('[a-z 0-9 . _]')),
@@ -179,6 +179,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             onChanged: (value) {
               context.read<EditProfileFormBloc>().add(EditProfileFormEvent.usernameChanged(value));
               context.read<EditProfileFormBloc>().add(const EditProfileFormEvent.resetCanUseName());
+              context.read<EditProfileFormBloc>().add(const EditProfileFormEvent.loadingUsername());
             }
             ,
           );

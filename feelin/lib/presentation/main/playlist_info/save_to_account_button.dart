@@ -158,7 +158,7 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                     : (context.watch<PlaylistInfoBloc>().state.isSaving) ?
                 const Padding(
                   padding: EdgeInsets.all(10.0),
-                  child: CircularProgressIndicator(color: Colors.white,),
+                  child: CircularProgressIndicator(color: Colors.white, strokeWidth: 3.5,),
                 )
                     : const Text('Save to account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: -0.41),),),
             ),

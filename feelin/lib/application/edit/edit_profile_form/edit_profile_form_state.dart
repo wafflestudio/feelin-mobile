@@ -8,6 +8,7 @@ class EditProfileFormState with _$EditProfileFormState {
     required NotEmptyString name,
     required Username username,
     required bool canUseName,
+    required bool loadingUsername,
     required Introduction introduction,
     required String? imageUrl,
   }) = _EditProfileFormState;
@@ -17,6 +18,7 @@ class EditProfileFormState with _$EditProfileFormState {
     name: NotEmptyString(''),
     username: Username(''),
     canUseName: false,
+    loadingUsername: false,
     introduction: Introduction(''),
     imageUrl: null
   );

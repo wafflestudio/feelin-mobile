@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:focus_detector/focus_detector.dart';
+import 'package:music_sns/presentation/common/custom_visibility_detector.dart';
 import 'package:music_sns/presentation/main/profile/app/profile_app_bar.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
@@ -118,8 +118,8 @@ class ProfileAppScaffoldState extends State<ProfileAppScaffold> with AutomaticKe
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return FocusDetector(
-      onFocusGained: (){
+    return CustomVisibilityDetector(
+      onVisibleGained: (){
         if(firstLoaded){
           if(widget.userId == null){
             context.read<ProfileBloc>().add(const ProfileEvent.reMyProfileRequest());

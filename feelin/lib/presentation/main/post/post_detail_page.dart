@@ -181,8 +181,3 @@ class _PostDetailPageState extends State<PostDetailPage> {
 
 }
 
-void _showSnackBar(BuildContext context, String message) {
-  final snackBar = SnackBar(content: Text(message));
-  ScaffoldMessenger.of(context).hideCurrentSnackBar();
-  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-}

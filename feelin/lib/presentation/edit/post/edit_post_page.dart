@@ -6,7 +6,6 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../application/edit/edit_post_form/edit_post_form_bloc.dart';
-import '../../../domain/custom/marquee.dart';
 import '../../../domain/play/playlist_preview.dart';
 import '../../../domain/play/post.dart';
 import '../../../domain/post/max_lines_input_formatters.dart';
@@ -68,7 +67,6 @@ class _EditPostPageState extends State<EditPostPage> {
   }
 
   Widget _postDetailForm(Size size){
-    final ScrollController scrollController = ScrollController();
 
     return BlocListener<EditPostFormBloc,EditPostFormState>(
       listener: (context, state){
@@ -98,7 +96,7 @@ class _EditPostPageState extends State<EditPostPage> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image(
-                image: CachedNetworkImageProvider(widget.post.playlist.thumbnail!),
+                image: widget.post.playlist.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(widget.post.playlist.thumbnail!),
                 width: 200,
                 height: 200,
                 fit: BoxFit.cover,
@@ -178,58 +176,6 @@ class _EditPostPageState extends State<EditPostPage> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _itemText(context, int index) {
-    return Container(
-      alignment: Alignment.centerLeft,
-      height: 35,
-      width: MediaQuery.of(context).size.width - 140,
-      padding: const EdgeInsets.only(left: 10),
-      child: Column(
-        //mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Text(widget.post.playlist.tracks![index].title,
-              style: const TextStyle(
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-          Expanded(
-            child: Marquee(
-              direction: Axis.horizontal,
-              child: ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: widget.post.playlist.tracks![index].artists.length,
-                itemBuilder: (context, index2){
-                  return Text(
-                    widget.post.playlist.tracks![index].artists[index2].name,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        color: Color(0xff7077D5),
-                        fontSize: 12
-                    ),
-                  );
-                },
-                separatorBuilder: (context, index2) => const Text(
-                  ", ",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Color(0xff7077D5),
-                      fontSize: 12
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

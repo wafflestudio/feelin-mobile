@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../application/auth/sign_up/sign_up_form/sign_up_form_bloc.dart';
 import '../../common/next_button.dart';
@@ -114,12 +115,13 @@ class _SignUpNameState extends State<SignUpUsername>{
                 isDense: true,
                 counterText: '',
                 contentPadding: const EdgeInsets.fromLTRB(10, 10, -38, 10),
-                suffixIcon: (state.canUseName) ? const Icon(Icons.check_circle_outline, color: Colors.green,) : const SizedBox.shrink(),
+                suffixIcon: (state.loadingUsername && state.username.isValid()) ? Transform.scale(scale: 0.25, child: CircularProgressIndicator(strokeWidth: 5, color: FeelinColorFamily.gray300,)):(state.canUseName) ? const Icon(Icons.check_circle_outline, color: Colors.green,) : (!state.canUseName && _nameTextController.text.isNotEmpty) ? const Icon(Icons.cancel_outlined, color: Colors.red,): const SizedBox.shrink(),
               ),
               validator: (_) => null,
               onChanged: (value) {
                 context.read<SignUpFormBloc>().add(SignUpFormEvent.usernameChanged(value));
                 context.read<SignUpFormBloc>().add(const SignUpFormEvent.resetCanUseName());
+                context.read<SignUpFormBloc>().add(const SignUpFormEvent.loadingUsername());
                 setState((){
                   name = value;
                 });

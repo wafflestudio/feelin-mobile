@@ -12,7 +12,7 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../auth/sign_up/common_title.dart';
-import '../setting/our_email_page.dart';
+import '../setting/contact_us_page.dart';
 import '../style/colors.dart';
 
 class ConnectStreamingPage extends StatefulWidget{
@@ -69,7 +69,7 @@ class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
       onTap: (){
         Navigator.push(context, CupertinoPageRoute(
           builder: (context){
-            return const OurEmailPage();
+            return const ContactUsPage();
           },
         ),
         );
@@ -234,8 +234,3 @@ class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
   }
 }
 
-void _showSnackBar(BuildContext context, String message) {
-  final snackBar = SnackBar(content: Text(message));
-  ScaffoldMessenger.of(context).hideCurrentSnackBar();
-  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-}

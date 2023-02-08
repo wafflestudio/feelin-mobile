@@ -53,8 +53,7 @@ class _PostPreviewState extends State<PostPreview> {
               child: Hero(
                 tag: "playlistCover${widget.index}",
                 child: Image(
-                  image: CachedNetworkImageProvider(
-                      widget.post.playlist.thumbnail!),
+                  image: widget.post.playlist.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(widget.post.playlist.thumbnail!),
                   fit: BoxFit.cover,
                 ),
               ),
