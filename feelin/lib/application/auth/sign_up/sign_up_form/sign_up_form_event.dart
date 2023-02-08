@@ -20,6 +20,8 @@ class SignUpFormEvent with _$SignUpFormEvent {
   _NameChanged;
   const factory SignUpFormEvent.usernameChanged(String usernameStr) =
   _UsernameChanged;
+  const factory SignUpFormEvent.loadingUsername() =
+  _LoadingUsername;
   const factory SignUpFormEvent.resetCanUseName() =
   _ResetCanUseName;
   const factory SignUpFormEvent.phoneNumberChanged(String phoneNumberStr) =

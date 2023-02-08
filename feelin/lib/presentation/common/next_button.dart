@@ -48,7 +48,7 @@ class _NextButtonState extends State<NextButton> {
               child: (widget.isLoading != null && widget.isLoading!) ?
                   const Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: CircularProgressIndicator(color: Colors.white,),
+                    child: CircularProgressIndicator(color: Colors.white, strokeWidth: 3.5,),
                   )
                   : Text(
                   widget.text ?? 'Next',

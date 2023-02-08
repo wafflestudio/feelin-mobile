@@ -25,8 +25,7 @@ class TrackItem extends StatelessWidget {
         child: Row(
           children: [
             Image(
-              image: CachedNetworkImageProvider(
-                  post.playlist.tracks![index].album.thumbnail),
+              image: post.playlist.tracks![index].album.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(post.playlist.tracks![index].album.thumbnail!),
               fit: BoxFit.cover,
               width: 52,
               height: 52,),
@@ -136,7 +135,7 @@ class TrackItem extends StatelessWidget {
                   return Column(
                     children: [
                       Image(
-                          image: CachedNetworkImageProvider(tracks[index].album.thumbnail),
+                          image: tracks[index].album.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(tracks[index].album.thumbnail!),
                           fit: BoxFit.cover,
                           width: MediaQuery
                               .of(context)

@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:focus_detector/focus_detector.dart';
+import 'package:music_sns/presentation/common/custom_visibility_detector.dart';
 import 'package:music_sns/presentation/main/profile/follow_button.dart';
 
 import '../../application/auth/auth/auth_bloc.dart';
@@ -32,8 +32,8 @@ class _FollowUserItemState extends State<FollowUserItem> {
 
   @override
   Widget build(BuildContext context) {
-    return FocusDetector(
-      onFocusGained: (){
+    return CustomVisibilityDetector(
+      onVisibleGained: (){
         setState(() {
           isFollowed = widget.profile.isFollowed!;
         });

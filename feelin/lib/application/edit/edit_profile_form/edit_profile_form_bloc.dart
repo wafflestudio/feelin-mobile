@@ -29,20 +29,33 @@ class EditProfileFormBloc extends Bloc<EditProfileFormEvent, EditProfileFormStat
               (f) {
             emit(state.copyWith(
               canUseName: false,
+              loadingUsername: false,
             ));
           },
               (existsUsername) {
             emit(state.copyWith(
               canUseName: !existsUsername,
+              loadingUsername: false,
             ));
           },
         );
+      }else{
+        emit(state.copyWith(
+          canUseName: false,
+          loadingUsername: false,
+        ));
       }
     },
       transformer: (events, mapper) => events.debounceTime(const Duration(milliseconds: 500)).switchMap(mapper),);
+    on<_LoadingUsername>((event, emit) {
+      emit(state.copyWith(
+        loadingUsername: true,
+      ));
+    },);
     on<_ResetCanUseName>((event, emit) {
       emit(state.copyWith(
         canUseName: false,
+        loadingUsername: false,
       ));
     },);
     on<_IntroductionChanged>((event, emit) {

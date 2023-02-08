@@ -95,7 +95,7 @@ class _StreamingWebViewState extends State<StreamingWebViewPage>{
                         if(controller.hasData && await controller.data!.canGoBack()){
                           await controller.data!.goBack();
                         }else{
-                          Navigator.pop(context);
+                          if(context.mounted) Navigator.pop(context);
                         }
                       }
                     },

@@ -11,6 +11,8 @@ class EditProfileFormEvent with _$EditProfileFormEvent {
   _ImageUrlChanged;
   const factory EditProfileFormEvent.resetCanUseName() =
   _ResetCanUseName;
+  const factory EditProfileFormEvent.loadingUsername() =
+  _LoadingUsername;
   const factory EditProfileFormEvent.introductionChanged(String introductionStr) =
   _IntroductionChanged;
 }

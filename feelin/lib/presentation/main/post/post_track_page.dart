@@ -105,8 +105,7 @@ class _PostDetailPageState extends State<PostTrackPage> {
                         child: Row(
                           children: [
                             Image(
-                              image: CachedNetworkImageProvider(
-                                  playlist.tracks![index].album.thumbnail),
+                              image: playlist.tracks![index].album.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(playlist.tracks![index].album.thumbnail!),
                               fit: BoxFit.cover,
                               width: 56,
                               height: 56,),

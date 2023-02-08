@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:focus_detector/focus_detector.dart';
 import 'package:intl/intl.dart';
 import 'package:music_sns/application/explore/explore_bloc.dart';
 import 'package:music_sns/presentation/common/user_nickname.dart';
@@ -15,6 +14,7 @@ import '../../../application/info/playlist_info_bloc.dart';
 import '../../../domain/play/post.dart';
 import '../../../injection.dart';
 import '../../common/bouncing_widget.dart';
+import '../../common/custom_visibility_detector.dart';
 
 class FeedPreview extends StatefulWidget {
   final int index;
@@ -40,8 +40,8 @@ class _FeedPreviewState extends State<FeedPreview> {
   Widget build(BuildContext context) {
     return BlocBuilder<ExploreBloc, ExploreState>(
       builder: (context, state) {
-        return FocusDetector(
-          onFocusGained: (){
+        return CustomVisibilityDetector(
+          onVisibleGained: (){
             setState(() {
               isLiked = widget.post.isLiked!;
             });
@@ -86,8 +86,7 @@ class _FeedPreviewState extends State<FeedPreview> {
                           child: Hero(
                             tag: "playlistCover${widget.index}",
                             child: Image(
-                              image: CachedNetworkImageProvider(
-                                  widget.post.playlist.thumbnail!),
+                              image: widget.post.playlist.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(widget.post.playlist.thumbnail!),
                               fit: BoxFit.cover,
                             ),
                           ),

@@ -49,7 +49,7 @@ class PostCompletePage extends StatelessWidget{
               shadowColor: Colors.black,
               elevation: 8,
               child: Image(
-                image: CachedNetworkImageProvider(post.playlist.thumbnail!),
+                image: post.playlist.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(post.playlist.thumbnail!),
                 width: 200,
                 height: 200,
                 fit: BoxFit.cover,
