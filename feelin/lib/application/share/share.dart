@@ -52,7 +52,7 @@ class Share{
       builder: (context){
         return BlocProvider(
             create: (context) => getIt<PlaylistInfoBloc>()..add(PlaylistInfoEvent.loadRequest(postId)),
-            child: PlaylistInfoPage(post: null, postId: postId, heroNumber: 0, width: MediaQuery.of(context).size.width,));
+            child: PlaylistInfoPage(post: null, postId: postId, heroTag: 'Share$postId', width: MediaQuery.of(context).size.width,));
       },
     ),
     );

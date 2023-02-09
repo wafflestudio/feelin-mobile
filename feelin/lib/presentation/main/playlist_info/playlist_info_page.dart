@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/presentation/common/custom_visibility_detector.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_app_bar.dart';
@@ -14,11 +13,11 @@ import '../../style/colors.dart';
 import 'save_to_account_button.dart';
 
 class PlaylistInfoPage extends StatefulWidget{
-  const PlaylistInfoPage({Key? key, this.post, required this.postId, required this.heroNumber, required this.width, this.deleteItem}) : super(key: key);
+  const PlaylistInfoPage({Key? key, this.post, required this.postId, required this.heroTag, required this.width, this.deleteItem}) : super(key: key);
 
   final Post? post;
   final String postId;
-  final int heroNumber;
+  final String heroTag;
   final double width;
   final Function? deleteItem;
 
@@ -58,10 +57,11 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
   @override
   void initState() {
     super.initState();
+    //print(widget.heroTag);
     _scrollController = ScrollController()..addListener(_scrollListener);
     //context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.loadRequest(widget.postId));
     setState((){
-      expandedHeight = 350
+      expandedHeight = 393
           + _textSize(widget.post == null ? '': widget.post!.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
               fontFamily: 'Pretendard'
           ),).height
@@ -114,7 +114,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                 ),
                   (post) => {
                 setState((){
-                      expandedHeight = 350
+                      expandedHeight = 393
                           + _textSize(state.post.title, const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, letterSpacing: -0.41,
                               fontFamily: 'Pretendard'
                           ), scaleFactor: true).height
@@ -148,7 +148,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                                   controller: _scrollController,
                                   physics: const BouncingScrollPhysics(),
                                 slivers: [
-                                  if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroNumber: widget.heroNumber,
+                                  if(widget.post != null || !state.isLoading) PlaylistInfoAppBar(isShrink: _isShrink, post: widget.post ?? state.post, heroTag: widget.heroTag,
                                     goToTop: (){
                                       _scrollController!.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
                                     },
@@ -172,6 +172,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                     top: MediaQuery.of(context).padding.top + kToolbarHeight - 28,
                     right: 15,
                     child: FloatingActionButton(
+                      heroTag: 'like',
                       onPressed: (){
                         if(!state.isLiked){
                           context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.likeRequest());
@@ -185,12 +186,12 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
                       },
                       backgroundColor: Colors.black,
                       //foregroundColor: Colors.white,
-                      child: SvgPicture.asset(
-                        state.isLiked ? 'assets/icons/heart_filled.svg'
-                            : 'assets/icons/heart.svg',
+                      child: Image.asset(
+                        state.isLiked ? 'assets/icons/heart_filled.png'
+                            : 'assets/icons/heart.png',
                         color: state.isLiked ? FeelinColorFamily.redPrimary : Colors.white,
-                        width: 24,
-                        height: 24,
+                        width: 28,
+                        height: 28,
                       ),
                     ),
                 ),

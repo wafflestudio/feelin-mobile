@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/presentation/main/post/app/post_app.dart';
 
 import '../main/profile/app/profile_app.dart';
@@ -29,15 +28,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return BottomNavigationBar(
       items: [
         BottomNavigationBarItem(
-            icon: widget.currentTab.index == 0 ? SvgPicture.asset('assets/icons/home_filled.svg', color: Colors.black,) : SvgPicture.asset('assets/icons/home.svg', color: Colors.black,),
+            icon: widget.currentTab.index == 0 ? Image.asset('assets/icons/home_filled.png', color: Colors.black, width: 28, height: 28,) : Image.asset('assets/icons/home.png', color: Colors.black, width: 28, height: 28,),
             label: ''
         ),
         BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/icons/plus.svg', color: Colors.black,),
+            icon: Image.asset('assets/icons/plus.png', color: Colors.black, width: 28, height: 28,),
             label: ''
         ),
         BottomNavigationBarItem(
-            icon: widget.currentTab.index == 0 ? SvgPicture.asset('assets/icons/profile_filled.svg', color: Colors.black,) : SvgPicture.asset('assets/icons/profile.svg', color: Colors.black,),
+            icon: widget.currentTab.index == 2 ? Image.asset('assets/icons/profile_filled.png', color: Colors.black, width: 28, height: 28,) : Image.asset('assets/icons/profile.png', color: Colors.black, width: 28, height: 28,),
             label: ''
         ),
       ],

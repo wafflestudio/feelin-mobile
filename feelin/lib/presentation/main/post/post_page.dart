@@ -3,7 +3,6 @@ import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/presentation/main/post/post_track_page.dart';
 import 'package:music_sns/presentation/streaming/platform_button.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
@@ -240,7 +239,7 @@ class _PostPageState extends State<PostPage>{
                       indicatorWeight: 2,
                   tabs: [
                     Tab(
-                      child: SvgPicture.asset('assets/icons/spotify_icon.svg',
+                      child: Image.asset('assets/icons/spotify_icon.png',
                         width: 32,
                         height: 32,
                       ),
@@ -278,7 +277,7 @@ class _PostPageState extends State<PostPage>{
                               appStoreLink: 'https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580',
                               openStore: true,
                             );
-                          }, label: 'Open Spotify', icon: SvgPicture.asset('assets/icons/spotify_icon.svg',
+                          }, label: 'Open Spotify', icon: Image.asset('assets/icons/spotify_icon.png',
                             width: 32,
                             height: 32,
                           ), isBlack : true),

@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/application/streaming/streaming_bloc.dart';
 import 'package:music_sns/domain/streaming/vendor.dart';
@@ -89,6 +88,7 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
               width: MediaQuery.of(context).size.width - 24,
               height: 56,
               child: FloatingActionButton.extended(
+                heroTag: 'saveToAccount',
                 onPressed: (){
                   if(state.isConnected){
                     final playlistInfoState = context.read<PlaylistInfoBloc>().state;
@@ -127,7 +127,7 @@ class SaveToAccountButtonState extends State<SaveToAccountButton> {
                 foregroundColor: Colors.white,
                 hoverColor: Colors.transparent,
                 icon: (!state.isConnected || context.watch<PlaylistInfoBloc>().state.isSaving || (isSavingLong && context.watch<StreamingBloc>().state.isSaving)) ? null :
-                state.vendor == Vendor.spotify ? SvgPicture.asset('assets/icons/spotify_icon.svg',
+                state.vendor == Vendor.spotify ? Image.asset('assets/icons/spotify_icon.png',
                   width: 32,
                   height: 32,
                 ) :

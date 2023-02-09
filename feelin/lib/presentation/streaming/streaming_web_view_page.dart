@@ -168,9 +168,9 @@ class _StreamingWebViewState extends State<StreamingWebViewPage>{
                           if(request.url.startsWith('https://feelin-api.wafflestudio.com') || request.url.startsWith('https://feelin-api-dev.wafflestudio.com')){
                             showTopSnackBar(
                                 Overlay.of(context),
-                                CustomSnackBar.success(
-                                    icon: const Icon(Icons.music_note, color: Colors.transparent,),
-                                    backgroundColor: FeelinColorFamily.redPrimary,
+                                const CustomSnackBar.success(
+                                    icon: Icon(Icons.music_note, color: Colors.transparent,),
+                                    // backgroundColor: FeelinColorFamily.redPrimary,
                                     message: 'Successfully connected.')
                             );
                             Navigator.pop(context, true);

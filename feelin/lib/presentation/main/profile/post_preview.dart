@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,21 @@ class PostPreview extends StatefulWidget {
 
 class _PostPreviewState extends State<PostPreview> {
 
+  late String heroTag;
+  @override
+  void initState(){
+    super.initState();
+    heroTag = getRandomString(20);
+  }
+
+  String getRandomString(int length) {
+    const chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+    Random rnd = Random();
+
+    return String.fromCharCodes(Iterable.generate(
+      length, (_) => chars.codeUnitAt(rnd.nextInt(chars.length))));
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -30,7 +47,7 @@ class _PostPreviewState extends State<PostPreview> {
           builder: (context,){
             return BlocProvider(
                 create: (context) => getIt<PlaylistInfoBloc>()..add(PlaylistInfoEvent.loadRequest(widget.post.id)),
-                child: PlaylistInfoPage(post: widget.post, postId: widget.post.id, heroNumber: widget.index, width: MediaQuery.of(context).size.width,
+                child: PlaylistInfoPage(post: widget.post, postId: widget.post.id, heroTag: heroTag, width: MediaQuery.of(context).size.width,
                 deleteItem: widget.deleteItem,
                 ));
           },
@@ -51,7 +68,7 @@ class _PostPreviewState extends State<PostPreview> {
               width: 120,
               height: 120,
               child: Hero(
-                tag: "playlistCover${widget.index}",
+                tag: "playlistCover$heroTag",
                 child: Image(
                   image: widget.post.playlist.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(widget.post.playlist.thumbnail!),
                   fit: BoxFit.cover,
