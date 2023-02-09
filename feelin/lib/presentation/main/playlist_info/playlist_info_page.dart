@@ -57,7 +57,7 @@ class _PlaylistInfoPageState extends State<PlaylistInfoPage> {
   @override
   void initState() {
     super.initState();
-    print(widget.heroTag);
+    //print(widget.heroTag);
     _scrollController = ScrollController()..addListener(_scrollListener);
     //context.read<PlaylistInfoBloc>().add(PlaylistInfoEvent.loadRequest(widget.postId));
     setState((){
