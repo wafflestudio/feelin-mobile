@@ -2,7 +2,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/application/streaming/connect/connect_streaming_bloc.dart';
 import 'package:music_sns/application/streaming/streaming_bloc.dart';
 import 'package:music_sns/presentation/auth/sign_up/common_description.dart';
@@ -208,7 +207,7 @@ class _ConnectStreamingPageState extends State<ConnectStreamingPage>{
                       .read<ConnectStreamingBloc>()
                       .add(const ConnectStreamingEvent.requestLogin('spotify'));
                 }
-              }, label: 'Connect to Spotify', icon: SvgPicture.asset('assets/icons/spotify_icon.svg',
+              }, label: 'Connect to Spotify', icon: Image.asset('assets/icons/spotify_icon.png',
                 width: 32,
                 height: 32,
               )),

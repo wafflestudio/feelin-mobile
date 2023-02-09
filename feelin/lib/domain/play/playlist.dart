@@ -3,6 +3,7 @@ import 'package:music_sns/domain/play/playlist_preview.dart';
 import 'package:music_sns/domain/play/track.dart';
 
 import 'main_track.dart';
+import 'original_vendor_playlist.dart';
 
 part 'playlist.g.dart';
 
@@ -27,6 +28,9 @@ class Playlist{
   @JsonKey(name: "mainTracks")
   List<MainTrack>? mainTracks;
 
+  @JsonKey(name: "originalVendorPlaylist")
+  OriginalVendorPlaylist? originalVendorPlaylist;
+
   Playlist({
     this.id = '',
     this.title = '',
@@ -34,6 +38,7 @@ class Playlist{
     this.playlistPreview,
     this.thumbnail,
     this.mainTracks,
+    this.originalVendorPlaylist,
   });
 
   factory Playlist.fromJson(Map<String, dynamic> json) => _$PlaylistFromJson(json);

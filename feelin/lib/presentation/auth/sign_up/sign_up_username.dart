@@ -119,9 +119,9 @@ class _SignUpNameState extends State<SignUpUsername>{
               ),
               validator: (_) => null,
               onChanged: (value) {
-                context.read<SignUpFormBloc>().add(SignUpFormEvent.usernameChanged(value));
                 context.read<SignUpFormBloc>().add(const SignUpFormEvent.resetCanUseName());
                 context.read<SignUpFormBloc>().add(const SignUpFormEvent.loadingUsername());
+                context.read<SignUpFormBloc>().add(SignUpFormEvent.usernameChanged(value));
                 setState((){
                   name = value;
                 });

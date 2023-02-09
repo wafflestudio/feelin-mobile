@@ -13,7 +13,6 @@ import '../../../../application/edit/edit_profile_form/edit_profile_form_bloc.da
 import '../../../../application/profile/profile_bloc.dart';
 import '../../../../application/streaming/connect/connect_streaming_bloc.dart';
 import '../../../../application/streaming/streaming_bloc.dart';
-import '../../../../domain/streaming/vendor.dart';
 import '../../../../injection.dart';
 import '../../../edit/profile/edit_profile_page.dart';
 import '../../../setting/setting_app.dart';
@@ -216,7 +215,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                                         padding: const EdgeInsets.symmetric(vertical: 20),
                                         child: Center(
                                           child: Text(
-                                            'You are connected to ${vendorName[context.watch<StreamingBloc>().state.vendor]}.\nWould you like to disconnect?',
+                                            'You are connected to ${context.watch<StreamingBloc>().state.vendor.name}.\nWould you like to disconnect?',
                                             style: const TextStyle(fontSize: 14, ),
                                           ),
                                         ),

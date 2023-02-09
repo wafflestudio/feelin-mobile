@@ -13,6 +13,7 @@ Track _$TrackFromJson(Map<String, dynamic> json) => Track(
           .map((e) => Artist.fromJson(e as Map<String, dynamic>))
           .toList(),
       album: Album.fromJson(json['album'] as Map<String, dynamic>),
+      isExplicit: json['isExplicit'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$TrackToJson(Track instance) => <String, dynamic>{
@@ -20,4 +21,5 @@ Map<String, dynamic> _$TrackToJson(Track instance) => <String, dynamic>{
       'title': instance.title,
       'artists': instance.artists,
       'album': instance.album,
+      'isExplicit': instance.isExplicit,
     };

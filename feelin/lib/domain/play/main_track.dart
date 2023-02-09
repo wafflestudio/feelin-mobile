@@ -14,10 +14,14 @@ class MainTrack{
   @JsonKey(name: "thumbnail")
   String thumbnail;
 
+  @JsonKey(name: "isExplicit")
+  bool isExplicit;
+
   MainTrack({
     required this.title,
     required this.artists,
     required this.thumbnail,
+    this.isExplicit = false,
   });
 
   factory MainTrack.fromJson(Map<String, dynamic> json) => _$MainTrackFromJson(json);

@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:music_sns/application/explore/explore_bloc.dart';
 import 'package:music_sns/presentation/common/user_nickname.dart';
@@ -53,7 +52,7 @@ class _FeedPreviewState extends State<FeedPreview> {
                   return BlocProvider(
                       create: (context) => getIt<PlaylistInfoBloc>()..add(PlaylistInfoEvent.loadRequest(widget.post.id)),
                       child: PlaylistInfoPage(post: widget.post, postId: widget.post.id,
-                        heroNumber: widget.index,
+                        heroTag: 'Feed${widget.isFollowing}${widget.post.id}',
                         width: MediaQuery.of(context).size.width,
                         deleteItem: widget.deleteItem,));
                 },
@@ -72,23 +71,20 @@ class _FeedPreviewState extends State<FeedPreview> {
                 const SizedBox(height: 5,),
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(0),
                       color: FeelinColorFamily.gray100,
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-                        child: AspectRatio(
-                          aspectRatio: 1.0,
-                          child: Hero(
-                            tag: "playlistCover${widget.index}",
-                            child: Image(
-                              image: widget.post.playlist.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(widget.post.playlist.thumbnail!),
-                              fit: BoxFit.cover,
-                            ),
+                      AspectRatio(
+                        aspectRatio: 1.0,
+                        child: Hero(
+                          tag: "playlistCoverFeed${widget.isFollowing}${widget.post.id}",
+                          child: Image(
+                            image: widget.post.playlist.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(widget.post.playlist.thumbnail!),
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -172,17 +168,17 @@ class _FeedPreviewState extends State<FeedPreview> {
                                     }
                                   },
                                   child: Padding(
-                                    padding: const EdgeInsets.fromLTRB(8, 8, 20, 10),
+                                    padding: const EdgeInsets.fromLTRB(8, 8, 13, 10),
                                     child: Column(
                                       children: [
                                         BouncingWidget(
                                           disabled: false,
-                                          child: SvgPicture.asset(
-                                            isLiked ? 'assets/icons/heart_filled.svg'
-                                                : 'assets/icons/heart.svg',
+                                          child: Image.asset(
+                                            isLiked ? 'assets/icons/heart_filled.png'
+                                                : 'assets/icons/heart.png',
                                             color: isLiked ? FeelinColorFamily.redPrimary : Colors.black,
-                                            width: 24,
-                                            height: 24,
+                                            width: 28,
+                                            height: 28,
                                           ),
                                         ),
                                         Text(NumberFormat.compact().format(widget.post.likeCount),

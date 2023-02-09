@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_sns/application/block/blocked_user_bloc.dart';
 import 'package:music_sns/application/streaming/streaming_bloc.dart';
-import 'package:music_sns/domain/streaming/vendor.dart';
 import 'package:music_sns/presentation/setting/blocked_user_page.dart';
 import 'package:music_sns/presentation/setting/manage_account_page.dart';
 import 'package:music_sns/presentation/setting/contact_us_page.dart';
@@ -138,7 +137,7 @@ class SettingPage extends StatelessWidget{
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Center(
                           child: Text(
-                            'You are connected to ${vendorName[streamingBloc.state.vendor]}.\nWould you like to disconnect?',
+                            'You are connected to ${streamingBloc.state.vendor.name}.\nWould you like to disconnect?',
                             style: const TextStyle(fontSize: 14, ),
                           ),
                         ),

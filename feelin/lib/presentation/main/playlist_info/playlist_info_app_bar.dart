@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_sns/application/auth/auth/auth_bloc.dart';
 import 'package:music_sns/application/info/playlist_info_bloc.dart';
 import 'package:music_sns/presentation/common/user_nickname.dart';
@@ -13,11 +12,13 @@ import 'package:music_sns/presentation/style/colors.dart';
 import 'package:palette_generator/palette_generator.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../application/edit/edit_post_form/edit_post_form_bloc.dart';
 import '../../../application/follow/follow_bloc.dart';
 import '../../../application/share/share.dart';
 import '../../../domain/play/post.dart';
+import '../../../domain/streaming/vendor.dart';
 import '../../../injection.dart';
 import '../../edit/post/edit_post_page.dart';
 import '../../follow/follow_page.dart';
@@ -27,7 +28,7 @@ import 'report_bottom_modal.dart';
 class PlaylistInfoAppBar extends StatefulWidget with PreferredSizeWidget {
   final bool isShrink;
   final Post post;
-  final int heroNumber;
+  final String heroTag;
   final Function goToTop;
   final double expandedHeight;
   final Function edit;
@@ -35,7 +36,7 @@ class PlaylistInfoAppBar extends StatefulWidget with PreferredSizeWidget {
   final Function? deleteItem;
 
   const PlaylistInfoAppBar(
-      {Key? key, required this.isShrink, required this.post, required this.heroNumber, required this.goToTop, required this.expandedHeight, required this.edit, required this.isEdited, this.deleteItem}) : super(key: key);
+      {Key? key, required this.isShrink, required this.post, required this.heroTag, required this.goToTop, required this.expandedHeight, required this.edit, required this.isEdited, this.deleteItem}) : super(key: key);
 
   @override
   State<PlaylistInfoAppBar> createState() => _PlaylistInfoAppBarState();
@@ -187,6 +188,7 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                   right: 15,
                     bottom: 16,
                     child: FloatingActionButton(
+                      heroTag: 'likeTop',
                       onPressed: (){
                         if(!state.isLiked){
                           context.read<PlaylistInfoBloc>().add(const PlaylistInfoEvent.likeRequest());
@@ -196,12 +198,12 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                       },
                       backgroundColor: Colors.black,
                       //foregroundColor: Colors.white,
-                      child: SvgPicture.asset(
-                        state.isLiked ? 'assets/icons/heart_filled.svg'
-                            : 'assets/icons/heart.svg',
+                      child: Image.asset(
+                        state.isLiked ? 'assets/icons/heart_filled.png'
+                            : 'assets/icons/heart.png',
                         color: state.isLiked ? FeelinColorFamily.redPrimary : Colors.white,
-                        width: 24,
-                        height: 24,
+                        width: 28,
+                        height: 28,
                       ),
                     ),
                 )
@@ -217,8 +219,9 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 ),
                 builder: (BuildContext context2) {
+                  final vendor = Vendor.strToVendor(state.post.playlist.originalVendorPlaylist!.vendor);
                   return SizedBox(
-                    height: (state.post.writer!.id == context.watch<AuthBloc>().state.id) ? (Platform.isIOS ? 260 : 230) : (Platform.isIOS ? 200 : 170),
+                    height: (state.post.writer!.id == context.watch<AuthBloc>().state.id) ? (Platform.isIOS ? 320 : 290) : (Platform.isIOS ? 260 : 230),
                     child: Column(
                       children: <Widget>[
                         const SizedBox(
@@ -249,6 +252,25 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                                 }
                               });
                             }, child: const Text('Edit', style: TextStyle(color: Colors.black, fontSize: 16),))),
+                        SizedBox(
+                            width: double.infinity,
+                            height: 60,
+                            child: TextButton(onPressed: () async {
+                              Navigator.pop(context2);
+                              final url = Uri.parse(state.post.playlist.originalVendorPlaylist!.url);
+                              if (await canLaunchUrl(url)) {
+                              launchUrl(url, mode: LaunchMode.externalApplication);
+                              }
+                            }, child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(vendor == Vendor.spotify ? 'assets/icons/spotify_icon.png' : 'assets/icons/apple_music_icon.png',
+                                  height: 24,
+                                  width: 24,),
+                                const SizedBox(width: 8,),
+                                Text('Open in ${vendor.name}', style: const TextStyle(color: Colors.black, fontSize: 16),),
+                              ],
+                            ))),
                         if(state.post.writer!.id == context.watch<AuthBloc>().state.id) SizedBox(
                             width: double.infinity,
                             height: 60,
@@ -393,7 +415,8 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                       shadowColor: Colors.black,
                       elevation: 8,
                       child: Hero(
-                        tag: "playlistCover${widget.heroNumber}",
+                        tag: "playlistCover${widget.heroTag}",
+                        //placeholderBuilder: (context, size, widget)=>SizedBox(),
                         child: Image(
                           image: CachedNetworkImageProvider(widget.post.playlist.thumbnail ?? state.post.playlist.thumbnail!),
                           width: 233,
@@ -405,6 +428,21 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                   ),
                   const SizedBox(
                     height: 20,
+                  ),
+                  if(state.isLoading || state.post.playlist.originalVendorPlaylist == null) const SizedBox(height: 25,),
+                  if(!state.isLoading && state.post.playlist.originalVendorPlaylist != null) SizedBox(
+                    height: 25,
+                    width: MediaQuery.of(context).size.width,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Image.asset(
+                          Vendor.strToVendor(state.post.playlist.originalVendorPlaylist!.vendor) == Vendor.spotify ? 'assets/logos/spotify_logo.png' : 'assets/logos/apple_music_logo.png',
+                          height: 20,
+                        ),
+                      ),
+                    ),
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,
@@ -452,7 +490,10 @@ class _PlaylistInfoAppBarState extends State<PlaylistInfoAppBar> {
                           ),
                         ),
 
-                        if(!state.isLoading)UserNickname(profile: state.post.writer!),
+                        if(!state.isLoading)Padding(
+                            padding: const EdgeInsets.only(top: 10, bottom: 0),
+                            child: UserNickname(profile: state.post.writer!, isBig: true),
+                        ),
                         if(!state.isLoading)Row(
                           children: [
                             Text(

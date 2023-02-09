@@ -48,11 +48,14 @@ class PostCompletePage extends StatelessWidget{
             Material(
               shadowColor: Colors.black,
               elevation: 8,
-              child: Image(
-                image: post.playlist.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(post.playlist.thumbnail!),
-                width: 200,
-                height: 200,
-                fit: BoxFit.cover,
+              child: Hero(
+                tag: "playlistCoverFeedPostComplete${post.id}",
+                child: Image(
+                  image: post.playlist.thumbnail == null ? const AssetImage('assets/images/cover_default.png') as ImageProvider : CachedNetworkImageProvider(post.playlist.thumbnail!),
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             const SizedBox(height: 30,),
@@ -76,7 +79,7 @@ class PostCompletePage extends StatelessWidget{
                 builder: (context){
                   return BlocProvider(
                       create: (context) => getIt<PlaylistInfoBloc>()..add(PlaylistInfoEvent.loadRequest(post.id)),
-                      child: PlaylistInfoPage(post: post, postId: post.id, heroNumber: 0, width: MediaQuery.of(context).size.width,));
+                      child: PlaylistInfoPage(post: post, postId: post.id, heroTag: 'PostComplete${post.id}', width: MediaQuery.of(context).size.width,));
                 },
               ),
               );

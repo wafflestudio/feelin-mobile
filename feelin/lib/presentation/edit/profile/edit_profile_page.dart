@@ -167,8 +167,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 color: Colors.black,
               ),
               isDense: true,
-              suffixIcon: ((state.username.isValid() && state.username.getOrCrash() == widget.profile.username) ||
-                  state.canUseName) ? const Icon(Icons.check_circle_outline, color: Colors.green,) : (state.username.isValid() && state.loadingUsername) ? Transform.scale(scale: 0.25, child: CircularProgressIndicator(strokeWidth: 5, color: FeelinColorFamily.gray300,)) : Icon(Icons.cancel_outlined, color: FeelinColorFamily.redPrimary,),
+              suffixIcon: (state.username.isValid() && state.loadingUsername) ? Transform.scale(scale: 0.25, child: CircularProgressIndicator(strokeWidth: 5, color: FeelinColorFamily.gray300,))
+                  : ((state.username.isValid() && state.username.getOrCrash() == widget.profile.username) || state.canUseName) ?
+              const Icon(Icons.check_circle_outline, color: Colors.green,) :
+              Icon(Icons.cancel_outlined, color: FeelinColorFamily.redPrimary,),
             ),
             inputFormatters: [
               FilteringTextInputFormatter.allow(RegExp('[a-z 0-9 . _]')),
@@ -177,9 +179,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
             //validator: (_) =>
             //((state.username.isValid() && state.username.getOrCrash() == widget.profile.username) || state.canUseName) ? null : 'A user with that username already exists.',
             onChanged: (value) {
-              context.read<EditProfileFormBloc>().add(EditProfileFormEvent.usernameChanged(value));
               context.read<EditProfileFormBloc>().add(const EditProfileFormEvent.resetCanUseName());
               context.read<EditProfileFormBloc>().add(const EditProfileFormEvent.loadingUsername());
+              context.read<EditProfileFormBloc>().add(EditProfileFormEvent.usernameChanged(value));
             }
             ,
           );

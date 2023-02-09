@@ -50,16 +50,28 @@ class TrackPreview extends StatelessWidget {
                     letterSpacing: -0.41,
                   ),
                 ),
-                Text(
-                    track.artists,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: FeelinColorFamily.gray700,
-                    letterSpacing: -0.41
-                  ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if(track.isExplicit) Padding(
+                      padding: const EdgeInsets.only(right: 3),
+                      child: Image.asset('assets/icons/19badge.png', width: 11, height: 11,),
+                    ),
+                    SizedBox(
+                      width: track.isExplicit ? 80 : 94,
+                      child: Text(
+                          track.artists,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: FeelinColorFamily.gray700,
+                          letterSpacing: -0.41
+                        ),
+                      ),
+                    ),
+                  ],
                 )
               ],
             ),

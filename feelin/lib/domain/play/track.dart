@@ -19,11 +19,15 @@ class Track{
   @JsonKey(name: "album")
   Album album;
 
+  @JsonKey(name: "isExplicit")
+  bool isExplicit;
+
   Track({
     required this.id,
     required this.title,
     required this.artists,
     required this.album,
+    this.isExplicit = false,
   });
 
   factory Track.fromJson(Map<String, dynamic> json) => _$TrackFromJson(json);
