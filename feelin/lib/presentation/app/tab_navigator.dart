@@ -27,6 +27,7 @@ class TabNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final routeBuilders = _routeBuilders(context);
+    // HeroControllerScope -> hero works
     return Navigator(
       key: navigatorKey,
       initialRoute: TabNavigatorRoutes.root,
