@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/application/post/post_form/post_form_bloc.dart';
 import 'package:music_sns/domain/play/playlist.dart';
+import 'package:music_sns/domain/streaming/vendor.dart';
 import 'package:music_sns/presentation/main/post/app/post_app_bar.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
@@ -74,17 +75,38 @@ class _PostDetailPageState extends State<PostTrackPage> {
                 const SizedBox(width: 10,),
                 SizedBox(
                   width: size.width - 122,
-                  child: Text(
-                      playlist.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black
+                  child: Column(
+                    children: [
+                      if (playlist.originalVendorPlaylist == null) const SizedBox(height: 25),
+                      if (playlist.originalVendorPlaylist != null) SizedBox(
+                          height: 25,
+                          width: MediaQuery.of(context).size.width,
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16),
+                              child: Image.asset(
+                                Vendor.strToVendor(playlist.originalVendorPlaylist!.vendor) ==
+                                        Vendor.spotify
+                                    ? 'assets/logos/spotify_logo.png'
+                                    : 'assets/logos/apple_music_logo.png',
+                                height: 20,
+                              ),
+                            ),
+                          ),
+                        ),
+                      Text(
+                        playlist.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
                       ),
+                    ],
                   ),
-                ),
+                )
               ],
             ),
           ),
@@ -117,7 +139,6 @@ class _PostDetailPageState extends State<PostTrackPage> {
               ),
             ),
           ),
-
         ],
       ),
     );

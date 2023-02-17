@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:music_sns/application/explore/explore_bloc.dart';
+import 'package:music_sns/domain/streaming/vendor.dart';
 import 'package:music_sns/presentation/common/user_nickname.dart';
 import 'package:music_sns/presentation/main/explore/track_preview.dart';
 import 'package:music_sns/presentation/main/playlist_info/playlist_info_page.dart';
@@ -115,10 +116,25 @@ class _FeedPreviewState extends State<FeedPreview> {
                         child: Stack(
                           children: [
                             SizedBox(
-                              width: MediaQuery.of(context).size.width-86,
+                              width: MediaQuery.of(context).size.width - 86,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  if(widget.post.playlist.originalVendorPlaylist == null) const SizedBox(height: 25,),
+                                  if(widget.post.playlist.originalVendorPlaylist != null) SizedBox(
+                                    height: 25,
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 16),
+                                        child: Image.asset(
+                                          Vendor.strToVendor(widget.post.playlist.originalVendorPlaylist!.vendor) == Vendor.spotify ? 'assets/logos/spotify_logo.png' : 'assets/logos/apple_music_logo.png',
+                                          height: 20,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                   Text(
                                       widget.post.title,
                                     textAlign: TextAlign.start,

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:music_sns/domain/play/original_vendor_playlist.dart';
 import 'package:music_sns/domain/play/playlist_preview.dart';
 import 'package:music_sns/domain/post/create_post_request.dart';
 import 'package:music_sns/domain/post/post_failure.dart';
@@ -24,10 +25,10 @@ class PostRepository{
 
   PostRepository._internal();
 
-  Future<Either<PostFailure, Post>> createPost({required PlaylistPreview playlistPreview, required NotEmptyString title, required ContentString content}) async{
+  Future<Either<PostFailure, Post>> createPost({required PlaylistPreview playlistPreview, required NotEmptyString title, required ContentString content, required OriginalVendorPlaylist? originalVendorPlaylist}) async{
     try{
       HttpResponse<Post> httpResponse = await postClient.createPost(
-        CreatePostRequest(title: title.getOrCrash(), content: content.getOrCrash(), playlistPreview: playlistPreview)
+        CreatePostRequest(title: title.getOrCrash(), content: content.getOrCrash(), playlistPreview: playlistPreview, originalVendorPlaylist: originalVendorPlaylist)
       );
       switch(httpResponse.response.statusCode){
         case 201 : return Right(httpResponse.data);
