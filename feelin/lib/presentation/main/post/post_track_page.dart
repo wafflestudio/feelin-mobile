@@ -77,7 +77,6 @@ class _PostDetailPageState extends State<PostTrackPage> {
                   width: size.width - 122,
                   child: Column(
                     children: [
-                      if (playlist.originalVendorPlaylist == null) const SizedBox(height: 25),
                       if (playlist.originalVendorPlaylist != null) SizedBox(
                           height: 25,
                           width: MediaQuery.of(context).size.width,

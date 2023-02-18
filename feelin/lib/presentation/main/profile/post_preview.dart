@@ -84,7 +84,6 @@ class _PostPreviewState extends State<PostPreview> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  if(widget.post.playlist.originalVendorPlaylist == null) const SizedBox(height: 25,),
                   if(widget.post.playlist.originalVendorPlaylist != null) SizedBox(
                     height: 25,
                     width: MediaQuery.of(context).size.width,

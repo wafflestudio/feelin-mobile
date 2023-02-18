@@ -120,7 +120,6 @@ class _FeedPreviewState extends State<FeedPreview> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  if(widget.post.playlist.originalVendorPlaylist == null) const SizedBox(height: 25,),
                                   if(widget.post.playlist.originalVendorPlaylist != null) SizedBox(
                                     height: 25,
                                     width: MediaQuery.of(context).size.width,
