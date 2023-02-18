@@ -82,26 +82,26 @@ class _PostDetailPageState extends State<PostTrackPage> {
                           width: MediaQuery.of(context).size.width,
                           child: Align(
                             alignment: Alignment.centerLeft,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 16),
-                              child: Image.asset(
+                            child: Image.asset(
                                 Vendor.strToVendor(playlist.originalVendorPlaylist!.vendor) ==
                                         Vendor.spotify
                                     ? 'assets/logos/spotify_logo.png'
                                     : 'assets/logos/apple_music_logo.png',
                                 height: 20,
                               ),
-                            ),
                           ),
                         ),
-                      Text(
-                        playlist.title,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          playlist.title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
                       ),
                     ],
                   ),

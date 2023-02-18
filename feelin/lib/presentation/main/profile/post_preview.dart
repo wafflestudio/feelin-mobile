@@ -89,12 +89,9 @@ class _PostPreviewState extends State<PostPreview> {
                     width: MediaQuery.of(context).size.width,
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Image.asset(
-                          Vendor.strToVendor(widget.post.playlist.originalVendorPlaylist!.vendor) == Vendor.spotify ? 'assets/logos/spotify_logo.png' : 'assets/logos/apple_music_logo.png',
-                          height: 20,
-                        ),
+                      child: Image.asset(
+                        Vendor.strToVendor(widget.post.playlist.originalVendorPlaylist!.vendor) == Vendor.spotify ? 'assets/logos/spotify_logo.png' : 'assets/logos/apple_music_logo.png',
+                        height: 16,
                       ),
                     ),
                   ),
