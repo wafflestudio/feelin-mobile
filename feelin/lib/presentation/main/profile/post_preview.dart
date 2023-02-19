@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_sns/domain/play/post.dart';
+import 'package:music_sns/domain/streaming/vendor.dart';
 import 'package:music_sns/presentation/style/colors.dart';
 
 import '../../../application/info/playlist_info_bloc.dart';
@@ -26,7 +27,7 @@ class _PostPreviewState extends State<PostPreview> {
 
   late String heroTag;
   @override
-  void initState(){
+  void initState() {
     super.initState();
     heroTag = getRandomString(20);
   }
@@ -53,7 +54,7 @@ class _PostPreviewState extends State<PostPreview> {
           },
         ),
         ).then((value) {
-          if(value != null){
+          if (value != null) {
             setState(() {
               widget.post.title = value.title;
               widget.post.content = value.content;
@@ -83,8 +84,19 @@ class _PostPreviewState extends State<PostPreview> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: [
+                  if(widget.post.playlist.originalVendorPlaylist != null) SizedBox(
+                    height: 25,
+                    width: MediaQuery.of(context).size.width,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Image.asset(
+                        Vendor.strToVendor(widget.post.playlist.originalVendorPlaylist!.vendor) == Vendor.spotify ? 'assets/logos/spotify_logo.png' : 'assets/logos/apple_music_logo.png',
+                        height: 16,
+                      ),
+                    ),
+                  ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width-150,
+                    width: MediaQuery.of(context).size.width - 150,
                     child: Text(
                       widget.post.title,
                       textAlign: TextAlign.start,
@@ -100,7 +112,7 @@ class _PostPreviewState extends State<PostPreview> {
                   ),
                   const SizedBox(height: 10,),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width-150,
+                    width: MediaQuery.of(context).size.width - 150,
                     child: Text(
                       widget.post.content,
                       textAlign: TextAlign.start,

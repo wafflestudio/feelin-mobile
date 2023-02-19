@@ -91,7 +91,7 @@ class PostFormBloc extends Bloc<PostFormEvent, PostFormState>{
           postFailureOrSuccessOption: some(left(const PostFailure.exceedingMaxContentLength())),
         ));
       }else {
-        final failureOrSuccess = await _postRepository.createPost(playlistPreview: state.playlistPreview, title: state.title, content: state.content);
+        final failureOrSuccess = await _postRepository.createPost(playlistPreview: state.playlistPreview, title: state.title, content: state.content, originalVendorPlaylist: state.playlist.originalVendorPlaylist);
         failureOrSuccess.fold(
               (f) {
             emit(state.copyWith(
