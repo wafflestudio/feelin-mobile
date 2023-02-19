@@ -12,6 +12,10 @@ CreatePostRequest _$CreatePostRequestFromJson(Map<String, dynamic> json) =>
       content: json['content'] as String,
       playlistPreview:
           PlaylistPreview.fromJson(json['playlist'] as Map<String, dynamic>),
+      originalVendorPlaylist: json['originalVendorPlaylist'] == null
+          ? null
+          : OriginalVendorPlaylist.fromJson(
+              json['originalVendorPlaylist'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CreatePostRequestToJson(CreatePostRequest instance) =>
@@ -19,4 +23,5 @@ Map<String, dynamic> _$CreatePostRequestToJson(CreatePostRequest instance) =>
       'title': instance.title,
       'content': instance.content,
       'playlist': instance.playlistPreview,
+      'originalVendorPlaylist': instance.originalVendorPlaylist,
     };
